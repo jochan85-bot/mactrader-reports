@@ -5,31 +5,81 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MacTrader 리포트</title>
 <style>
-body{font-family:sans-serif;max-width:600px;margin:40px auto;padding:20px;background:#0d1117;color:#e6edf3}
-h1{color:#58a6ff;font-size:24px;margin-bottom:4px}
-.sub{color:#8b949e;font-size:13px;margin-bottom:24px}
-.section{margin-bottom:24px}
-.section h2{color:#8b949e;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-a{display:block;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:14px 16px;border-radius:8px;text-decoration:none;margin:6px 0;font-size:15px}
-a:hover{border-color:#58a6ff;color:#58a6ff}
-.flag{font-size:20px;margin-right:8px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;padding:20px;max-width:640px;margin:0 auto}
+h1{color:#58a6ff;font-size:22px;margin:20px 0 4px}
+.tagline{color:#8b949e;font-size:13px;margin-bottom:28px}
+.section{margin-bottom:28px}
+.section-title{color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #21262d}
+.card{display:block;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:14px 16px;border-radius:8px;text-decoration:none;margin:6px 0;font-size:15px;transition:border-color .2s}
+.card:hover{border-color:#58a6ff;color:#58a6ff}
+.card .icon{margin-right:10px;font-size:18px}
+.card .desc{display:block;font-size:12px;color:#8b949e;margin-top:3px}
+.date-group{margin-bottom:20px}
+.date-label{font-size:13px;color:#58a6ff;font-weight:600;margin-bottom:6px}
+.today-badge{background:#1f6feb;color:#fff;font-size:10px;padding:2px 7px;border-radius:10px;margin-left:8px;vertical-align:middle}
 </style>
 </head>
 <body>
-<h1>📈 MacTrader Reports</h1>
-<div class="sub" id="date">최신 리포트</div>
+<h1>📈 MacTrader</h1>
+<p class="tagline">IBD RS 기반 일일 투자 분석 · Powered by AI</p>
+
 <div class="section">
-  <h2>🇺🇸 미국 시장</h2>
-  <div id="us-links">
-    <a href="sepa_vcp_20260522.html"><span class="flag">🎯</span>SEPA + VCP 분석</a>
-    <a href="ai_sector_20260522.html"><span class="flag">🤖</span>AI 반도체 섹터</a>
-  </div>
+  <div class="section-title">📅 최신 리포트</div>
+  <div id="latest"></div>
 </div>
+
 <div class="section">
-  <h2>🇰🇷 한국 시장</h2>
-  <div id="kr-links">
-    <a href="#" id="kr-link"><span class="flag">📊</span>국장 SEPA+VCP 분석 (준비중)</a>
-  </div>
+  <div class="section-title">🗂️ 히스토리</div>
+  <div id="history"></div>
 </div>
+
+<script>
+// 리포트 목록 - 매일 자동으로 추가됨
+const reports = [
+  {
+    date: "2026-05-22",
+    label: "2026년 5월 22일",
+    files: [
+      { icon: "🎯", title: "미장 SEPA+VCP", desc: "CIEN 집중 분석 · MRVL·LSCC Watch", url: "sepa_vcp_20260522.html" },
+      { icon: "🤖", title: "미장 AI 반도체", desc: "LRCX·MRVL·ARM·ALAB 외 9개", url: "ai_sector_20260522.html" },
+    ]
+  }
+];
+
+function renderReports() {
+  const sorted = [...reports].sort((a,b) => b.date.localeCompare(a.date));
+  const latest = sorted[0];
+  const history = sorted.slice(1);
+
+  // 최신
+  const latestEl = document.getElementById('latest');
+  latestEl.innerHTML = `<div class="date-group">
+    <div class="date-label">${latest.label} <span class="today-badge">최신</span></div>
+    ${latest.files.map(f => `
+      <a class="card" href="${f.url}">
+        <span class="icon">${f.icon}</span>${f.title}
+        <span class="desc">${f.desc}</span>
+      </a>`).join('')}
+  </div>`;
+
+  // 히스토리
+  if (history.length === 0) {
+    document.getElementById('history').innerHTML = '<p style="color:#8b949e;font-size:13px">아직 이전 리포트가 없어요. 내일부터 쌓여요!</p>';
+  } else {
+    document.getElementById('history').innerHTML = history.map(r => `
+      <div class="date-group">
+        <div class="date-label">${r.label}</div>
+        ${r.files.map(f => `
+          <a class="card" href="${f.url}">
+            <span class="icon">${f.icon}</span>${f.title}
+            <span class="desc">${f.desc}</span>
+          </a>`).join('')}
+      </div>`).join('');
+  }
+}
+
+renderReports();
+</script>
 </body>
 </html>
