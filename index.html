@@ -6,20 +6,19 @@
 <title>MacTrader 리포트</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;padding:20px;max-width:640px;margin:0 auto}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;padding:16px;max-width:640px;margin:0 auto}
 h1{color:#58a6ff;font-size:22px;margin:20px 0 4px}
-.tagline{color:#8b949e;font-size:13px;margin-bottom:28px}
-.section{margin-bottom:28px}
+.tagline{color:#8b949e;font-size:13px;margin-bottom:24px}
+.section{margin-bottom:24px}
 .section-title{color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #21262d}
-.card{display:block;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:14px 16px;border-radius:8px;text-decoration:none;margin:6px 0;font-size:15px;transition:border-color .2s}
-.card:hover{border-color:#58a6ff;color:#58a6ff}
-.card .icon{margin-right:10px;font-size:18px}
-.card .desc{display:block;font-size:12px;color:#8b949e;margin-top:3px}
+.card{display:block;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:14px 16px;border-radius:8px;text-decoration:none;margin:6px 0;font-size:15px}
+.card:active{border-color:#58a6ff}
+.icon{margin-right:10px;font-size:18px}
+.desc{display:block;font-size:12px;color:#8b949e;margin-top:3px}
 .date-group{margin-bottom:20px}
-.date-label{font-size:14px;color:#e6edf3;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.date-label{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .badge{background:#1f6feb;color:#fff;font-size:10px;padding:2px 8px;border-radius:10px}
-.badge-kr{background:#2d4a1e;color:#7ee787}
-.empty{color:#8b949e;font-size:13px;padding:12px 0}
+.empty{color:#8b949e;font-size:13px;padding:8px 0}
 </style>
 </head>
 <body>
@@ -28,45 +27,45 @@ h1{color:#58a6ff;font-size:22px;margin:20px 0 4px}
 
 <div class="section">
   <div class="section-title">📅 최신 리포트</div>
-  <div id="latest"><p class="empty">로딩 중...</p></div>
+  <div id="latest"></div>
 </div>
 
 <div class="section">
-  <div class="section-title">🗂️ 히스토리 (후행분석용)</div>
-  <div id="history"><p class="empty">로딩 중...</p></div>
+  <div class="section-title">🗂️ 히스토리</div>
+  <div id="history"></div>
 </div>
 
 <script>
-fetch('reports_manifest.json?t=' + Date.now())
-  .then(r => r.json())
-  .then(reports => {
-    const sorted = [...reports].sort((a,b) => b.date.localeCompare(a.date));
+// ✏️ 매일 자동으로 항목 추가됨
+const REPORTS = [
+  {
+    date: "2026-05-22",
+    label: "2026년 5월 22일 (목)",
+    files: [
+      { icon: "🎯", title: "미장 SEPA+VCP", desc: "CIEN 집중 분석 · MRVL·LSCC Watch", url: "sepa_vcp_20260522.html" },
+      { icon: "🤖", title: "미장 AI 반도체", desc: "LRCX·MRVL·ARM·ALAB 외 9개 종목", url: "ai_sector_20260522.html" },
+      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "VCP 상위 종목 · 코스피/코스닥", url: "kr_sepa_vcp_20260522.html" }
+    ]
+  }
+];
 
-    function renderGroup(r, isLatest) {
-      return `<div class="date-group">
-        <div class="date-label">
-          ${r.label}
-          ${isLatest ? '<span class="badge">최신</span>' : ''}
-        </div>
-        ${r.files.map(f => `
-          <a class="card" href="${f.url}">
-            <span class="icon">${f.icon}</span>${f.title}
-            <span class="desc">${f.desc}</span>
-          </a>`).join('')}
-      </div>`;
-    }
+const sorted = [...REPORTS].sort((a,b) => b.date.localeCompare(a.date));
 
-    document.getElementById('latest').innerHTML = renderGroup(sorted[0], true);
+function renderGroup(r, isLatest) {
+  return `<div class="date-group">
+    <div class="date-label">${r.label}${isLatest ? ' <span class="badge">최신</span>' : ''}</div>
+    ${r.files.map(f => `
+      <a class="card" href="${f.url}">
+        <span class="icon">${f.icon}</span>${f.title}
+        <span class="desc">${f.desc}</span>
+      </a>`).join('')}
+  </div>`;
+}
 
-    if (sorted.length > 1) {
-      document.getElementById('history').innerHTML = sorted.slice(1).map(r => renderGroup(r, false)).join('');
-    } else {
-      document.getElementById('history').innerHTML = '<p class="empty">내일부터 히스토리가 쌓여요 📚</p>';
-    }
-  })
-  .catch(() => {
-    document.getElementById('latest').innerHTML = '<p class="empty">리포트를 불러올 수 없어요.</p>';
-  });
+document.getElementById('latest').innerHTML = renderGroup(sorted[0], true);
+document.getElementById('history').innerHTML = sorted.length > 1
+  ? sorted.slice(1).map(r => renderGroup(r, false)).join('')
+  : '<p class="empty">내일부터 히스토리가 쌓여요 📚</p>';
 </script>
 </body>
 </html>
