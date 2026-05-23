@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국장 SEPA+VCP 분석 | 2026-05-23</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d1117;
+    color: #e6edf3;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .container { max-width: 680px; margin: 0 auto; padding: 16px; }
+  .header {
+    text-align: center;
+    padding: 28px 16px 20px;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 24px;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f0f6fc; margin-bottom: 6px; }
+  .header .subtitle { font-size: 13px; color: #8b949e; }
+  .header .meta { font-size: 12px; color: #6e7681; margin-top: 4px; }
+  .weekend-notice {
+    background: #161b22;
+    border: 1px solid #9e6a03;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #e3b341;
+  }
+  .section-title {
+    font-size: 16px; font-weight: 700; color: #f0f6fc;
+    margin: 28px 0 14px; padding-bottom: 8px;
+    border-bottom: 1px solid #30363d;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title .count {
+    background: #21262d; color: #8b949e;
+    font-size: 11px; font-weight: 600;
+    padding: 2px 7px; border-radius: 10px;
+    border: 1px solid #30363d;
+  }
+  .card {
+    background: #161b22; border: 1px solid #30363d;
+    border-radius: 10px; padding: 16px; margin-bottom: 14px;
+  }
+  .card-sm { padding: 12px; margin-bottom: 10px; }
+  .card:last-child { margin-bottom: 0; }
+  .card-header {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; margin-bottom: 12px; gap: 10px;
+  }
+  .stock-info { flex: 1; }
+  .stock-name { font-size: 17px; font-weight: 700; color: #f0f6fc; }
+  .stock-code { font-size: 12px; color: #8b949e; margin-top: 2px; }
+  .badges { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-start; }
+  .badge {
+    font-size: 11px; font-weight: 600;
+    padding: 3px 8px; border-radius: 6px; white-space: nowrap;
+  }
+  .badge-vcp-s1 { background: #1f6feb; color: #fff; }
+  .badge-vcp-s2 { background: #1a7f37; color: #fff; }
+  .badge-vcp-s3 { background: #9e6a03; color: #fff; }
+  .badge-vcp-s4 { background: #4d3468; color: #fff; }
+  .badge-rs { background: #21262d; color: #8b949e; border: 1px solid #30363d; }
+  .badge-kospi { background: #1f3a5f; color: #79c0ff; }
+  .badge-kosdaq { background: #1f3a2a; color: #56d364; }
+  .metric-row {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 8px; margin-bottom: 12px;
+  }
+  .metric { background: #0d1117; border-radius: 6px; padding: 8px; text-align: center; }
+  .metric-label { font-size: 10px; color: #6e7681; margin-bottom: 2px; }
+  .metric-value { font-size: 14px; font-weight: 600; color: #f0f6fc; }
+  .signals { display: flex; flex-wrap: wrap; gap: 6px; }
+  .signal-tag {
+    background: #21262d; color: #8b949e;
+    font-size: 11px; padding: 3px 8px;
+    border-radius: 12px; border: 1px solid #30363d;
+  }
+  .trend-up { color: #3fb950; }
+  .trend-dn { color: #f85149; }
+  .trend-flat { color: #e6edf3; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #21262d; }
+  th { color: #8b949e; font-weight: 600; font-size: 11px; text-transform: uppercase; background: #161b22; }
+  tr:hover td { background: #161b22; }
+  a.stock-link { color: #58a6ff; text-decoration: none; }
+  a.stock-link:hover { text-decoration: underline; }
+  .vcp-score-chip {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 2px 8px; border-radius: 10px; min-width: 34px; text-align: center;
+  }
+  .vcp-score-chip.s1 { background: #1f6feb22; color: #79c0ff; border: 1px solid #1f6feb66; }
+  .vcp-score-chip.s2 { background: #1a7f3722; color: #56d364; border: 1px solid #1a7f3766; }
+  .vcp-score-chip.s3 { background: #9e6a0322; color: #e3b341; border: 1px solid #9e6a0366; }
+  .vcp-score-chip.s0 { background: #21262d; color: #6e7681; border: 1px solid #30363d; }
+  .stats-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 12px; margin-bottom: 24px;
+  }
+  .stat-card {
+    background: #161b22; border: 1px solid #30363d;
+    border-radius: 8px; padding: 14px; text-align: center;
+  }
+  .stat-num { font-size: 26px; font-weight: 700; color: #f0f6fc; }
+  .stat-label { font-size: 11px; color: #8b949e; margin-top: 2px; }
+  .footer {
+    text-align: center; padding: 28px 0 20px;
+    margin-top: 36px; border-top: 1px solid #30363d;
+    font-size: 12px; color: #6e7681;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>📈 국장 SEPA+VCP 분석</h1>
+    <div class="subtitle">2026-05-23 · 잡주 필터 적용 강화</div>
+    <div class="meta">생성: 2026-05-23 09:20 KST · dalinaum.github.io/rs 기반</div>
+  </div>
+
+  <div class="weekend-notice">
+    ⚠️ 토요일 — 5/22(금) 종가 기준 데이터입니다. 다음 거래일은 5/26(월)입니다.
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">60</div>
+      <div class="stat-label">SEPA 통과</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">52</div>
+      <div class="stat-label">필터 후 분석</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:#3fb950;">17</div>
+      <div class="stat-label">VCP 후보</div>
+    </div>
+  </div>
+
+  <div class="section-title">⭐ 핵심 VCP 후보 <span class="count">5개</span></div>
+  
+  <div class="card">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name"><a href="https://finance.naver.com/item/main.nhn?code=100790" target="_blank" style="color:inherit;text-decoration:none;">미래에셋벤처투자</a></div>
+        <div class="stock-code">100790 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s1">VCP 강 80</span>
+        <span class="badge badge-rs">RS 97 ▬</span>
+      </div>
+    </div>
+    <div class="metric-row">
+      <div class="metric"><div class="metric-label">현재가</div><div class="metric-value">56,000</div></div>
+      <div class="metric"><div class="metric-label">52주 고점</div><div class="metric-value">67,400</div></div>
+      <div class="metric"><div class="metric-label">고점 대비</div><div class="metric-value trend-dn">-16.9%</div></div>
+      <div class="metric"><div class="metric-label">거래량비율</div><div class="metric-value">0.78x</div></div>
+      <div class="metric"><div class="metric-label">10일범위</div><div class="metric-value">22.6%</div></div>
+    </div>
+    <div class="signals"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">거래량 감소</span> <span class="signal-tag">고점 대비 -16.9% 눌림</span></div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name"><a href="https://finance.naver.com/item/main.nhn?code=082920" target="_blank" style="color:inherit;text-decoration:none;">비츠로셀</a></div>
+        <div class="stock-code">082920 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s1">VCP 강 80</span>
+        <span class="badge badge-rs">RS 96 ▬</span>
+      </div>
+    </div>
+    <div class="metric-row">
+      <div class="metric"><div class="metric-label">현재가</div><div class="metric-value">53,700</div></div>
+      <div class="metric"><div class="metric-label">52주 고점</div><div class="metric-value">64,100</div></div>
+      <div class="metric"><div class="metric-label">고점 대비</div><div class="metric-value trend-dn">-16.2%</div></div>
+      <div class="metric"><div class="metric-label">거래량비율</div><div class="metric-value">0.71x</div></div>
+      <div class="metric"><div class="metric-label">10일범위</div><div class="metric-value">21.4%</div></div>
+    </div>
+    <div class="signals"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">거래량 감소</span> <span class="signal-tag">고점 대비 -16.2% 눌림</span></div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name"><a href="https://finance.naver.com/item/main.nhn?code=069540" target="_blank" style="color:inherit;text-decoration:none;">빛과전자</a></div>
+        <div class="stock-code">069540 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s1">VCP 강 75</span>
+        <span class="badge badge-rs">RS 98 ▬</span>
+      </div>
+    </div>
+    <div class="metric-row">
+      <div class="metric"><div class="metric-label">현재가</div><div class="metric-value">6,610</div></div>
+      <div class="metric"><div class="metric-label">52주 고점</div><div class="metric-value">6,610</div></div>
+      <div class="metric"><div class="metric-label">고점 대비</div><div class="metric-value trend-up">+0.0%</div></div>
+      <div class="metric"><div class="metric-label">거래량비율</div><div class="metric-value">0.63x</div></div>
+      <div class="metric"><div class="metric-label">10일범위</div><div class="metric-value">36.3%</div></div>
+    </div>
+    <div class="signals"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">거래량 감소</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name"><a href="https://finance.naver.com/item/main.nhn?code=033160" target="_blank" style="color:inherit;text-decoration:none;">엠케이전자</a></div>
+        <div class="stock-code">033160 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s1">VCP 강 75</span>
+        <span class="badge badge-rs">RS 97 ▬</span>
+      </div>
+    </div>
+    <div class="metric-row">
+      <div class="metric"><div class="metric-label">현재가</div><div class="metric-value">34,200</div></div>
+      <div class="metric"><div class="metric-label">52주 고점</div><div class="metric-value">34,200</div></div>
+      <div class="metric"><div class="metric-label">고점 대비</div><div class="metric-value trend-up">+0.0%</div></div>
+      <div class="metric"><div class="metric-label">거래량비율</div><div class="metric-value">0.80x</div></div>
+      <div class="metric"><div class="metric-label">10일범위</div><div class="metric-value">28.6%</div></div>
+    </div>
+    <div class="signals"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">거래량 감소</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name"><a href="https://finance.naver.com/item/main.nhn?code=006110" target="_blank" style="color:inherit;text-decoration:none;">삼아알미늄</a></div>
+        <div class="stock-code">006110 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s1">VCP 강 75</span>
+        <span class="badge badge-rs">RS 97 ▬</span>
+      </div>
+    </div>
+    <div class="metric-row">
+      <div class="metric"><div class="metric-label">현재가</div><div class="metric-value">96,400</div></div>
+      <div class="metric"><div class="metric-label">52주 고점</div><div class="metric-value">96,400</div></div>
+      <div class="metric"><div class="metric-label">고점 대비</div><div class="metric-value trend-up">+0.0%</div></div>
+      <div class="metric"><div class="metric-label">거래량비율</div><div class="metric-value">0.66x</div></div>
+      <div class="metric"><div class="metric-label">10일범위</div><div class="metric-value">19.9%</div></div>
+    </div>
+    <div class="signals"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">거래량 감소</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+
+  <div class="section-title">🔍 관심 VCP 후보 <span class="count">12개</span></div>
+  
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.naver.com/item/main.nhn?code=047040" target="_blank" style="color:inherit;text-decoration:none;">대우건설</a></div>
+        <div class="stock-code">047040 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s2">VCP 중 55</span>
+        <span class="badge badge-rs">RS 98 ▬</span>
+        <span class="badge" style="background:#161b22;color:#8b949e;border:1px solid #30363d;">28,550</span>
+        <span class="badge" style="background:#161b22;color:#e3b341;border:1px solid #30363d;">-23.1%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">거래량 감소</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.naver.com/item/main.nhn?code=027360" target="_blank" style="color:inherit;text-decoration:none;">아주IB투자</a></div>
+        <div class="stock-code">027360 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s2">VCP 중 55</span>
+        <span class="badge badge-rs">RS 98 ▬</span>
+        <span class="badge" style="background:#161b22;color:#8b949e;border:1px solid #30363d;">15,780</span>
+        <span class="badge" style="background:#161b22;color:#e3b341;border:1px solid #30363d;">-15.7%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">고점 대비 -15.7% 눌림</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.naver.com/item/main.nhn?code=007810" target="_blank" style="color:inherit;text-decoration:none;">코리아써키트</a></div>
+        <div class="stock-code">007810 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s2">VCP 중 55</span>
+        <span class="badge badge-rs">RS 97 ▬</span>
+        <span class="badge" style="background:#161b22;color:#8b949e;border:1px solid #30363d;">100,700</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">-3.1%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">고점 대비 -3.1% 눌림</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.naver.com/item/main.nhn?code=089890" target="_blank" style="color:inherit;text-decoration:none;">코세스</a></div>
+        <div class="stock-code">089890 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s2">VCP 중 55</span>
+        <span class="badge badge-rs">RS 96 ▬</span>
+        <span class="badge" style="background:#161b22;color:#8b949e;border:1px solid #30363d;">40,800</span>
+        <span class="badge" style="background:#161b22;color:#e3b341;border:1px solid #30363d;">-19.2%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">고점 대비 -19.2% 눌림</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.naver.com/item/main.nhn?code=009155" target="_blank" style="color:inherit;text-decoration:none;">삼성전기우</a></div>
+        <div class="stock-code">009155 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">VCP 약 50</span>
+        <span class="badge badge-rs">RS 97 ↓</span>
+        <span class="badge" style="background:#161b22;color:#8b949e;border:1px solid #30363d;">454,000</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.naver.com/item/main.nhn?code=322000" target="_blank" style="color:inherit;text-decoration:none;">HD현대에너지솔루션</a></div>
+        <div class="stock-code">322000 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">VCP 약 50</span>
+        <span class="badge badge-rs">RS 96 ▬</span>
+        <span class="badge" style="background:#161b22;color:#8b949e;border:1px solid #30363d;">203,000</span>
+        <span class="badge" style="background:#161b22;color:#e3b341;border:1px solid #30363d;">-16.8%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">거래량 감소</span> <span class="signal-tag">고점 대비 -16.8% 눌림</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.naver.com/item/main.nhn?code=290550" target="_blank" style="color:inherit;text-decoration:none;">디케이티</a></div>
+        <div class="stock-code">290550 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">VCP 약 50</span>
+        <span class="badge badge-rs">RS 96 ▬</span>
+        <span class="badge" style="background:#161b22;color:#8b949e;border:1px solid #30363d;">28,150</span>
+        <span class="badge" style="background:#161b22;color:#e3b341;border:1px solid #30363d;">-14.7%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">거래량 감소</span> <span class="signal-tag">고점 대비 -14.7% 눌림</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.naver.com/item/main.nhn?code=356680" target="_blank" style="color:inherit;text-decoration:none;">엑스게이트</a></div>
+        <div class="stock-code">356680 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">VCP 약 50</span>
+        <span class="badge badge-rs">RS 96 ↑</span>
+        <span class="badge" style="background:#161b22;color:#8b949e;border:1px solid #30363d;">21,200</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.naver.com/item/main.nhn?code=089970" target="_blank" style="color:inherit;text-decoration:none;">브이엠</a></div>
+        <div class="stock-code">089970 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">VCP 약 50</span>
+        <span class="badge badge-rs">RS 96 ↑</span>
+        <span class="badge" style="background:#161b22;color:#8b949e;border:1px solid #30363d;">64,500</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.naver.com/item/main.nhn?code=353200" target="_blank" style="color:inherit;text-decoration:none;">대덕전자</a></div>
+        <div class="stock-code">353200 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">VCP 약 45</span>
+        <span class="badge badge-rs">RS 97 ▬</span>
+        <span class="badge" style="background:#161b22;color:#8b949e;border:1px solid #30363d;">151,300</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">거래량 감소</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.naver.com/item/main.nhn?code=417840" target="_blank" style="color:inherit;text-decoration:none;">저스템</a></div>
+        <div class="stock-code">417840 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">VCP 약 45</span>
+        <span class="badge badge-rs">RS 97 ▬</span>
+        <span class="badge" style="background:#161b22;color:#8b949e;border:1px solid #30363d;">18,790</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">거래량 감소</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.naver.com/item/main.nhn?code=356860" target="_blank" style="color:inherit;text-decoration:none;">티엘비</a></div>
+        <div class="stock-code">356860 · <span class="badge badge-kospi" style="font-size:10px;padding:1px 5px;">KOSPI</span></div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">VCP 약 45</span>
+        <span class="badge badge-rs">RS 96 ↓</span>
+        <span class="badge" style="background:#161b22;color:#8b949e;border:1px solid #30363d;">118,800</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">거래량 감소</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+
+  <div class="section-title">📋 전체 SEPA 통과 목록 <span class="count">52개</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>종목</th><th>시장</th><th>현재가</th><th>RS</th><th>VCP</th><th>고점대비</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=100790" target="_blank">미래에셋벤처투자</a><br><span style="font-size:11px;color:#6e7681">100790</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>56,000</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s1">80</span></td><td class="trend-dn">-16.9%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=082920" target="_blank">비츠로셀</a><br><span style="font-size:11px;color:#6e7681">082920</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>53,700</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s1">80</span></td><td class="trend-dn">-16.2%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=069540" target="_blank">빛과전자</a><br><span style="font-size:11px;color:#6e7681">069540</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>6,610</td><td class="trend-flat">98 ▬</td><td><span class="vcp-score-chip s1">75</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=033160" target="_blank">엠케이전자</a><br><span style="font-size:11px;color:#6e7681">033160</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>34,200</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s1">75</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=006110" target="_blank">삼아알미늄</a><br><span style="font-size:11px;color:#6e7681">006110</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>96,400</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s1">75</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=047040" target="_blank">대우건설</a><br><span style="font-size:11px;color:#6e7681">047040</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>28,550</td><td class="trend-flat">98 ▬</td><td><span class="vcp-score-chip s2">55</span></td><td class="trend-dn">-23.1%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=027360" target="_blank">아주IB투자</a><br><span style="font-size:11px;color:#6e7681">027360</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>15,780</td><td class="trend-flat">98 ▬</td><td><span class="vcp-score-chip s2">55</span></td><td class="trend-dn">-15.7%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=007810" target="_blank">코리아써키트</a><br><span style="font-size:11px;color:#6e7681">007810</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>100,700</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s2">55</span></td><td class="trend-up">-3.1%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=089890" target="_blank">코세스</a><br><span style="font-size:11px;color:#6e7681">089890</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>40,800</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s2">55</span></td><td class="trend-dn">-19.2%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=009155" target="_blank">삼성전기우</a><br><span style="font-size:11px;color:#6e7681">009155</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>454,000</td><td class="trend-flat">97 ↓</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=322000" target="_blank">HD현대에너지솔루션</a><br><span style="font-size:11px;color:#6e7681">322000</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>203,000</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-dn">-16.8%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=290550" target="_blank">디케이티</a><br><span style="font-size:11px;color:#6e7681">290550</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>28,150</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-flat">-14.7%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=356680" target="_blank">엑스게이트</a><br><span style="font-size:11px;color:#6e7681">356680</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>21,200</td><td class="trend-flat">96 ↑</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=089970" target="_blank">브이엠</a><br><span style="font-size:11px;color:#6e7681">089970</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>64,500</td><td class="trend-flat">96 ↑</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=353200" target="_blank">대덕전자</a><br><span style="font-size:11px;color:#6e7681">353200</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>151,300</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s3">45</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=417840" target="_blank">저스템</a><br><span style="font-size:11px;color:#6e7681">417840</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>18,790</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s3">45</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=356860" target="_blank">티엘비</a><br><span style="font-size:11px;color:#6e7681">356860</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>118,800</td><td class="trend-flat">96 ↓</td><td><span class="vcp-score-chip s3">45</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=010170" target="_blank">대한광통신</a><br><span style="font-size:11px;color:#6e7681">010170</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>24,300</td><td class="trend-flat">98 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-dn">-16.5%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=092190" target="_blank">서울바이오시스</a><br><span style="font-size:11px;color:#6e7681">092190</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>14,630</td><td class="trend-flat">98 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-dn">-16.7%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=327260" target="_blank">RF머트리얼즈</a><br><span style="font-size:11px;color:#6e7681">327260</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>96,700</td><td class="trend-flat">98 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-dn">-18.5%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=006340" target="_blank">대원전선</a><br><span style="font-size:11px;color:#6e7681">006340</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>14,610</td><td class="trend-flat">98 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-dn">-19.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=031330" target="_blank">에스에이엠티</a><br><span style="font-size:11px;color:#6e7681">031330</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>15,590</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-dn">-16.1%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=085910" target="_blank">네오티스</a><br><span style="font-size:11px;color:#6e7681">085910</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>27,950</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-flat">-12.7%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=131970" target="_blank">두산테스나</a><br><span style="font-size:11px;color:#6e7681">131970</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>171,600</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-flat">-9.7%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=319400" target="_blank">현대무벡스</a><br><span style="font-size:11px;color:#6e7681">319400</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>37,400</td><td class="trend-flat">96 ↓</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-flat">-14.7%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=058610" target="_blank">에스피지</a><br><span style="font-size:11px;color:#6e7681">058610</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>128,500</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-dn">-15.3%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=298040" target="_blank">효성중공업</a><br><span style="font-size:11px;color:#6e7681">298040</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>4,007,000</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-flat">-12.9%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=010120" target="_blank">LS ELECTRIC</a><br><span style="font-size:11px;color:#6e7681">010120</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>281,000</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-flat">-11.8%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=108490" target="_blank">로보티즈</a><br><span style="font-size:11px;color:#6e7681">108490</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>304,500</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-dn">-19.3%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=187870" target="_blank">디바이스</a><br><span style="font-size:11px;color:#6e7681">187870</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>23,800</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-dn">-15.3%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=295310" target="_blank">에이치브이엠</a><br><span style="font-size:11px;color:#6e7681">295310</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>113,000</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-flat">-9.8%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=076610" target="_blank">해성옵틱스</a><br><span style="font-size:11px;color:#6e7681">076610</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>2,400</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s0">25</span></td><td class="trend-flat">-13.8%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=032580" target="_blank">피델릭스</a><br><span style="font-size:11px;color:#6e7681">032580</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>8,460</td><td class="trend-flat">98 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=036930" target="_blank">주성엔지니어링</a><br><span style="font-size:11px;color:#6e7681">036930</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>224,000</td><td class="trend-flat">98 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=009150" target="_blank">삼성전기</a><br><span style="font-size:11px;color:#6e7681">009150</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>1,340,000</td><td class="trend-flat">98 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=011070" target="_blank">LG이노텍</a><br><span style="font-size:11px;color:#6e7681">011070</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>864,000</td><td class="trend-flat">98 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=440110" target="_blank">파두</a><br><span style="font-size:11px;color:#6e7681">440110</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>128,300</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=452280" target="_blank">한선엔지니어링</a><br><span style="font-size:11px;color:#6e7681">452280</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>33,000</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">-0.9%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=080220" target="_blank">제주반도체</a><br><span style="font-size:11px;color:#6e7681">080220</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>118,700</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=402340" target="_blank">SK스퀘어</a><br><span style="font-size:11px;color:#6e7681">402340</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>1,185,000</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">-0.3%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=222800" target="_blank">심텍</a><br><span style="font-size:11px;color:#6e7681">222800</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>131,800</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=000660" target="_blank">SK하이닉스</a><br><span style="font-size:11px;color:#6e7681">000660</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>1,941,000</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">-1.8%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=336260" target="_blank">두산퓨얼셀</a><br><span style="font-size:11px;color:#6e7681">336260</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>98,200</td><td class="trend-flat">97 ↑</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=131290" target="_blank">티에스이</a><br><span style="font-size:11px;color:#6e7681">131290</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>244,000</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=147760" target="_blank">피엠티</a><br><span style="font-size:11px;color:#6e7681">147760</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>9,470</td><td class="trend-flat">97 ↑</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=425040" target="_blank">티이엠씨</a><br><span style="font-size:11px;color:#6e7681">425040</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>27,850</td><td class="trend-flat">97 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=159010" target="_blank">아스플로</a><br><span style="font-size:11px;color:#6e7681">159010</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>17,000</td><td class="trend-flat">96 ↓</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=036710" target="_blank">심텍홀딩스</a><br><span style="font-size:11px;color:#6e7681">036710</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>6,140</td><td class="trend-flat">96 ↑</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=001820" target="_blank">삼화콘덴서</a><br><span style="font-size:11px;color:#6e7681">001820</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>102,000</td><td class="trend-flat">96 ↑</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=319660" target="_blank">피에스케이</a><br><span style="font-size:11px;color:#6e7681">319660</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>116,900</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=024840" target="_blank">KBI메탈</a><br><span style="font-size:11px;color:#6e7681">024840</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>7,640</td><td class="trend-flat">98 ▬</td><td><span class="vcp-score-chip s0">0</span></td><td class="trend-dn">-23.4%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.naver.com/item/main.nhn?code=412350" target="_blank">레이저쎌</a><br><span style="font-size:11px;color:#6e7681">412350</span></td><td><span class="badge badge-kospi" style="font-size:10px;">KOSPI</span></td><td>11,260</td><td class="trend-flat">96 ▬</td><td><span class="vcp-score-chip s0">0</span></td><td class="trend-dn">-20.0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <div>📈 MacTrader · 국장 SEPA+VCP 분석</div>
+    <div style="margin-top:4px;">생성: 2026-05-23 09:20 KST · 필터: 시총 1000억+, 거래대금 50억+, 주가 1000원+</div>
+    <div style="margin-top:8px; color:#484f58; font-size:11px;">⚠️ 이 리포트는 정보 제공 목적이며 투자 권유가 아닙니다. 투자 판단과 책임은 본인에게 있습니다.</div>
+  </div>
+</div>
+</body>
+</html>
