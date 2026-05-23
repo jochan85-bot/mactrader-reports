@@ -3,648 +3,370 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SEPA + VCP 분석 리포트 | 2026-05-23</title>
+<title>미장 SEPA+VCP | 2026-05-23</title>
 <style>
-  :root {
-    --bg: #0d1117;
-    --surface: #161b22;
-    --surface2: #21262d;
-    --border: #30363d;
-    --text: #e6edf3;
-    --muted: #8b949e;
-    --accent: #58a6ff;
-    --green: #3fb950;
-    --red: #f85149;
-    --yellow: #d29922;
-    --orange: #db6d28;
-    --purple: #bc8cff;
-    --gold: #ffa657;
-  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    padding: 16px;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-  .header {
-    background: linear-gradient(135deg, #0d1117 0%, #1a2332 50%, #0d1117 100%);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px 20px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  .header-badge {
-    display: inline-block;
-    background: var(--accent);
-    color: #000;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-  .header h1 {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-  .header .subtitle {
-    color: var(--muted);
-    font-size: 14px;
-  }
-  .section-label {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-  }
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 16px;
-  }
-  .card-title {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .ticker-badge {
-    display: inline-flex;
-    align-items: center;
-    background: linear-gradient(135deg, #1c2d47, #1e3a5f);
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    font-size: 14px;
-    font-weight: 800;
-    padding: 4px 12px;
-    border-radius: 8px;
-    letter-spacing: 0.5px;
-  }
-  .hero-stock {
-    background: linear-gradient(135deg, #0d1117, #1a2a1a);
-    border: 2px solid var(--green);
-    border-radius: 14px;
-    padding: 22px;
-    margin-bottom: 20px;
-  }
-  .hero-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .hero-ticker {
-    font-size: 32px;
-    font-weight: 900;
-    color: var(--green);
-    line-height: 1;
-  }
-  .hero-name {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 4px;
-  }
-  .hero-price {
-    text-align: right;
-  }
-  .hero-price .price {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--text);
-  }
-  .hero-price .from-high {
-    font-size: 12px;
-    color: var(--green);
-    margin-top: 2px;
-  }
-  .rating-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-  .rating-item {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-  }
-  .rating-label {
-    font-size: 10px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-  }
-  .rating-value {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--green);
-  }
-  .sepa-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 16px;
-  }
-  .badge {
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.3px;
-  }
-  .badge-green { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
-  .badge-blue { background: rgba(88,166,255,0.15); color: var(--accent); border: 1px solid rgba(88,166,255,0.3); }
-  .badge-gold { background: rgba(255,166,87,0.15); color: var(--gold); border: 1px solid rgba(255,166,87,0.3); }
-  .badge-purple { background: rgba(188,140,255,0.15); color: var(--purple); border: 1px solid rgba(188,140,255,0.3); }
-  .badge-red { background: rgba(248,81,73,0.15); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
-  .ma-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
-  .ma-table th {
-    text-align: left;
-    color: var(--muted);
-    font-weight: 600;
-    padding: 6px 10px;
-    font-size: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  .ma-table td {
-    padding: 8px 10px;
-    border-bottom: 1px solid rgba(48,54,61,0.5);
-  }
-  .ma-table tr:last-child td { border-bottom: none; }
-  .above { color: var(--green); }
-  .below { color: var(--red); }
-  .section-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .analysis-block {
-    margin-bottom: 20px;
-  }
-  .analysis-block:last-child { margin-bottom: 0; }
-  p {
-    margin-bottom: 12px;
-    color: #cdd9e5;
-    font-size: 15px;
-    line-height: 1.7;
-  }
-  .highlight-box {
-    background: rgba(88,166,255,0.08);
-    border-left: 3px solid var(--accent);
-    padding: 12px 14px;
-    border-radius: 0 8px 8px 0;
-    margin: 14px 0;
-    font-size: 14px;
-    color: var(--text);
-  }
-  .strategy-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin: 14px 0;
-  }
-  .strategy-item {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px;
-  }
-  .strategy-item .s-label {
-    font-size: 11px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-  }
-  .strategy-item .s-value {
-    font-size: 17px;
-    font-weight: 700;
-  }
-  .entry { color: var(--accent); }
-  .stop { color: var(--red); }
-  .target { color: var(--green); }
-  .risk-list {
-    list-style: none;
-    padding: 0;
-  }
-  .risk-list li {
-    padding: 8px 0;
-    padding-left: 20px;
-    position: relative;
-    color: #cdd9e5;
-    font-size: 15px;
-    border-bottom: 1px solid rgba(48,54,61,0.5);
-  }
-  .risk-list li:last-child { border-bottom: none; }
-  .risk-list li::before {
-    content: '⚠';
-    position: absolute;
-    left: 0;
-    color: var(--yellow);
-    font-size: 12px;
-  }
-  .watchlist-stock {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 14px;
-  }
-  .watchlist-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-  .watchlist-ticker {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--accent);
-  }
-  .watchlist-price {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text);
-  }
-  .mini-ratings {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-  .mini-rating {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 4px 10px;
-    font-size: 12px;
-    font-weight: 600;
-  }
-  .mini-rating span { color: var(--muted); font-weight: 400; }
-  .footer {
-    text-align: center;
-    padding: 20px 10px;
-    color: var(--muted);
-    font-size: 12px;
-    border-top: 1px solid var(--border);
-    margin-top: 10px;
-    line-height: 1.8;
-  }
-  .vcp-indicator {
-    background: linear-gradient(90deg, rgba(188,140,255,0.1), rgba(88,166,255,0.1));
-    border: 1px solid rgba(188,140,255,0.3);
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-size: 13px;
-    color: var(--purple);
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 20px 0;
-  }
+  body { background: #0d1117; color: #e6edf3; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; }
+  .container { max-width: 680px; margin: 0 auto; padding: 16px; }
+  .header { text-align: center; padding: 28px 16px 20px; border-bottom: 1px solid #30363d; margin-bottom: 24px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #f0f6fc; margin-bottom: 6px; }
+  .header .subtitle { font-size: 13px; color: #8b949e; }
+  .header .meta { font-size: 12px; color: #6e7681; margin-top: 4px; }
+  .weekend-notice { background: #161b22; border: 1px solid #9e6a03; border-radius: 8px; padding: 10px 14px; margin-bottom: 20px; font-size: 13px; color: #e3b341; }
+  .section-title { font-size: 16px; font-weight: 700; color: #f0f6fc; margin: 28px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #30363d; display: flex; align-items: center; gap: 8px; }
+  .section-title .count { background: #21262d; color: #8b949e; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 10px; border: 1px solid #30363d; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+  .card-sm { padding: 12px; margin-bottom: 10px; }
+  .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; gap: 10px; }
+  .stock-info { flex: 1; }
+  .stock-name { font-size: 17px; font-weight: 700; color: #f0f6fc; }
+  .stock-code { font-size: 12px; color: #8b949e; margin-top: 2px; }
+  .badges { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-start; }
+  .badge { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
+  .badge-vcp-s1 { background: #1f6feb; color: #fff; }
+  .badge-vcp-s2 { background: #1a7f37; color: #fff; }
+  .badge-vcp-s3 { background: #9e6a03; color: #fff; }
+  .badge-vcp-s4 { background: #4d3468; color: #fff; }
+  .badge-rs { background: #21262d; color: #8b949e; border: 1px solid #30363d; }
+  .metric-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 12px; }
+  .metric { background: #0d1117; border-radius: 6px; padding: 8px; text-align: center; }
+  .metric-label { font-size: 10px; color: #6e7681; margin-bottom: 2px; }
+  .metric-value { font-size: 14px; font-weight: 600; color: #f0f6fc; }
+  .signals { display: flex; flex-wrap: wrap; gap: 6px; }
+  .signal-tag { background: #21262d; color: #8b949e; font-size: 11px; padding: 3px 8px; border-radius: 12px; border: 1px solid #30363d; }
+  .trend-up { color: #3fb950; } .trend-dn { color: #f85149; } .trend-flat { color: #e6edf3; }
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .stat-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 14px; text-align: center; }
+  .stat-num { font-size: 26px; font-weight: 700; color: #f0f6fc; }
+  .stat-label { font-size: 11px; color: #8b949e; margin-top: 2px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #21262d; }
+  th { color: #8b949e; font-weight: 600; font-size: 11px; text-transform: uppercase; background: #161b22; }
+  tr:hover td { background: #161b22; }
+  a.stock-link { color: #58a6ff; text-decoration: none; }
+  a.stock-link:hover { text-decoration: underline; }
+  .vcp-score-chip { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 10px; min-width: 34px; text-align: center; }
+  .vcp-score-chip.s1 { background: #1f6feb22; color: #79c0ff; border: 1px solid #1f6feb66; }
+  .vcp-score-chip.s2 { background: #1a7f3722; color: #56d364; border: 1px solid #1a7f3766; }
+  .vcp-score-chip.s3 { background: #9e6a0322; color: #e3b341; border: 1px solid #9e6a0366; }
+  .vcp-score-chip.s0 { background: #21262d; color: #6e7681; border: 1px solid #30363d; }
+  .footer { text-align: center; padding: 28px 0 20px; margin-top: 36px; border-top: 1px solid #30363d; font-size: 12px; color: #6e7681; }
 </style>
 </head>
 <body>
+<div class="container">
+  <div class="header">
+    <h1>🎯 미장 SEPA+VCP 분석</h1>
+    <div class="subtitle">2026-05-23 · IBD RS New Highs 33종목 기반</div>
+    <div class="meta">생성: 2026-05-23 11:17 KST · Minervini SEPA 7조건 + VCP 패턴</div>
+  </div>
 
-<div class="header">
-  <div class="header-badge">📊 IBD RS 신고가 분석</div>
-  <h1>SEPA + VCP 분석 리포트</h1>
-  <div class="subtitle">2026년 5월 22일(금) 데이터 · 24개 종목 스캔 · MacTrader</div>
-</div>
+  <div class="weekend-notice">
+    ⚠️ 토요일 리포트 — 5/22(금) 종가 기준입니다. 다음 거래일은 5/26(월)입니다.
+  </div>
 
-<!-- CIEN Hero Section -->
-<div class="section-label">🏆 TOP PICK · SEPA + VCP 확인</div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-num">33</div><div class="stat-label">IBD RS 분석</div></div>
+    <div class="stat-card"><div class="stat-num">10</div><div class="stat-label">SEPA+VCP 후보</div></div>
+    <div class="stat-card"><div class="stat-num" style="color:#3fb950;">1</div><div class="stat-label">핵심 VCP</div></div>
+  </div>
 
-<div class="hero-stock">
-  <div class="hero-header">
-    <div>
-      <div class="hero-ticker">CIEN</div>
-      <div class="hero-name">Ciena Corporation</div>
+  <div class="section-title">⭐ 핵심 SEPA+VCP 후보 <span class="count">1개</span></div>
+  
+  <div class="card">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name"><a href="https://finance.yahoo.com/quote/TXN" target="_blank" style="color:inherit;text-decoration:none;">TXN</a></div>
+        <div class="stock-code">Texas Instruments</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s1">🔵 VCP 강 70</span>
+        <span class="badge badge-rs">RS 92</span>
+      </div>
     </div>
-    <div class="hero-price">
-      <div class="price">$587.23</div>
-      <div class="from-high">▼ 0.7% from 52w High</div>
+    <div class="metric-row">
+      <div class="metric"><div class="metric-label">현재가</div><div class="metric-value">$309.21</div></div>
+      <div class="metric"><div class="metric-label">52주 고점</div><div class="metric-value">$309.21</div></div>
+      <div class="metric"><div class="metric-label">고점 대비</div><div class="metric-value trend-up">+0.0%</div></div>
+      <div class="metric"><div class="metric-label">거래량비율</div><div class="metric-value">1.05x</div></div>
+      <div class="metric"><div class="metric-label">10일범위</div><div class="metric-value">4.6%</div></div>
     </div>
+    <div class="signals"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span> <span class="signal-tag">10일 범위 4.6% 타이트</span></div>
   </div>
 
-  <div class="rating-grid">
-    <div class="rating-item">
-      <div class="rating-label">RS Rating</div>
-      <div class="rating-value">99</div>
+  <div class="section-title">🔍 관심 SEPA+VCP 후보 <span class="count">9개</span></div>
+  
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/TTMI" target="_blank" style="color:inherit;text-decoration:none;">TTMI</a></div>
+        <div class="stock-code">TTM Technologies</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
+        <span class="badge badge-rs">RS 99</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$189.92</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
     </div>
-    <div class="rating-item">
-      <div class="rating-label">Comp Rating</div>
-      <div class="rating-value">98</div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/NOK" target="_blank" style="color:inherit;text-decoration:none;">NOK</a></div>
+        <div class="stock-code">Nokia ADR</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
+        <span class="badge badge-rs">RS 98</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$15.47</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
     </div>
-    <div class="rating-item">
-      <div class="rating-label">EPS Rating</div>
-      <div class="rating-value">86</div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/MRVL" target="_blank" style="color:inherit;text-decoration:none;">MRVL</a></div>
+        <div class="stock-code">Marvell Technology</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
+        <span class="badge badge-rs">RS 97</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$196.33</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
     </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
   </div>
-
-  <div class="sepa-badges">
-    <span class="badge badge-green">✅ SEPA 전통과</span>
-    <span class="badge badge-purple">🔷 VCP 패턴</span>
-    <span class="badge badge-blue">📈 RS 신고가</span>
-    <span class="badge badge-gold">🎯 진입 구간</span>
-  </div>
-
-  <div class="vcp-indicator">
-    <span>🔻</span>
-    <span><strong>VCP 신호:</strong> 변동성 수축 + 거래량 감소 확인 — 돌파 임박 구간</span>
-  </div>
-</div>
-
-<!-- 1. 회사 소개 -->
-<div class="card">
-  <div class="card-title">
-    <span>🏢</span>
-    <span>회사 소개</span>
-  </div>
-  <div class="analysis-block">
-    <p>Ciena Corporation(CIEN)은 광통신 네트워크 장비 및 소프트웨어 솔루션을 제공하는 글로벌 리더입니다. WaveLogic 코히런트 광학 기술을 핵심으로 400G/800G+ 고속 광전송 시스템, 패킷 네트워킹 장비, 네트워크 관리 플랫폼을 설계·생산합니다.</p>
-    <p>AI 데이터센터 확장과 직접 연결된 수혜 종목입니다. 하이퍼스케일러(Microsoft, Google, AWS, Meta)들의 AI 인프라 투자 급증은 데이터센터 간 초고속 연결망 수요를 폭발적으로 키우고 있으며, Ciena는 이 핵심 인프라를 공급하는 독보적 위치에 있습니다.</p>
-    <div class="highlight-box">
-      💡 <strong>핵심 포지셔닝:</strong> AI 칩(NVDA)과 AI 소프트웨어(MSFT) 사이의 연결 인프라 — "AI 시대의 광섬유 도로"
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/STM" target="_blank" style="color:inherit;text-decoration:none;">STM</a></div>
+        <div class="stock-code">STMicroelectronics</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
+        <span class="badge badge-rs">RS 97</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$66.86</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
     </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
   </div>
-</div>
-
-<!-- 2. 왜 지금인가 -->
-<div class="card">
-  <div class="card-title">
-    <span>⚡</span>
-    <span>왜 지금인가?</span>
-  </div>
-  <div class="analysis-block">
-    <div class="section-title">RS 신고가 의미</div>
-    <p>RS(Relative Strength) 99등급은 전체 시장 상위 1%의 가격 모멘텀을 의미합니다. IBD 리서치에 따르면 대형 상승주의 대부분은 본격 상승 전 RS가 신고가를 먼저 기록합니다. CIEN의 RS가 52주 신고가에서 등장했다는 사실은 기관 투자자들이 조용히 포지션을 구축하고 있다는 강력한 신호입니다.</p>
-
-    <div class="section-title">VCP 패턴 형성</div>
-    <p>Mark Minervini의 VCP(Volatility Contraction Pattern)는 이상적인 진입 시점을 포착하는 도구입니다. CIEN은 현재 변동성 수축과 거래량 감소를 동시에 보여주고 있으며, 이는 매물 소화 완료 후 기관 매집의 마지막 단계임을 시사합니다. 52주 고점 대비 불과 0.7% 아래에 위치 — 돌파까지 단 한 발짝.</p>
-  </div>
-</div>
-
-<!-- 3. 기술적 분석 -->
-<div class="card">
-  <div class="card-title">
-    <span>📐</span>
-    <span>기술적 분석</span>
-  </div>
-
-  <div class="section-title">📍 이동평균선 구조</div>
-  <table class="ma-table">
-    <thead>
-      <tr>
-        <th>지표</th>
-        <th>가격</th>
-        <th>현재가 대비</th>
-        <th>상태</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>현재가</td>
-        <td><strong>$587.23</strong></td>
-        <td>—</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>MA 50</td>
-        <td>$479.14</td>
-        <td class="above">+22.6%</td>
-        <td class="above">✅ 위</td>
-      </tr>
-      <tr>
-        <td>MA 150</td>
-        <td>$319.23</td>
-        <td class="above">+83.9%</td>
-        <td class="above">✅ 위</td>
-      </tr>
-      <tr>
-        <td>MA 200</td>
-        <td>$270.07</td>
-        <td class="above">+117.4%</td>
-        <td class="above">✅ 위</td>
-      </tr>
-      <tr>
-        <td>52w High</td>
-        <td>$591.57</td>
-        <td class="above">-0.7%</td>
-        <td class="above">신고가 근접</td>
-      </tr>
-      <tr>
-        <td>52w Low</td>
-        <td>$72.16</td>
-        <td>+713.7%</td>
-        <td>저점 탈출</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <hr class="divider">
-
-  <div class="section-title">📊 SEPA 조건 체크</div>
-  <div class="sepa-badges">
-    <span class="badge badge-green">✅ 현재가 > MA50</span>
-    <span class="badge badge-green">✅ 현재가 > MA150</span>
-    <span class="badge badge-green">✅ 현재가 > MA200</span>
-    <span class="badge badge-green">✅ MA150 > MA200</span>
-    <span class="badge badge-green">✅ MA200 상승 추세</span>
-    <span class="badge badge-green">✅ 52w High -25% 이내</span>
-    <span class="badge badge-green">✅ 52w Low +30% 이상</span>
-    <span class="badge badge-green">✅ RS 70+ (99)</span>
-  </div>
-
-  <hr class="divider">
-
-  <div class="section-title">🔷 VCP 패턴 분석</div>
-  <p>이상적인 VCP는 각 수축 구간마다 변동성이 줄어들고 거래량이 감소하면서 고점 근처에서 빡빡하게 응축됩니다. CIEN은 현재:</p>
-  <ul style="list-style: none; padding: 0;">
-    <li style="padding: 6px 0; color: #cdd9e5; font-size: 15px;">🔸 고점 -0.7% 구간에서 가격 응축</li>
-    <li style="padding: 6px 0; color: #cdd9e5; font-size: 15px;">🔸 최근 거래량 평균 이하 — 매도 압력 소진</li>
-    <li style="padding: 6px 0; color: #cdd9e5; font-size: 15px;">🔸 MA50이 MA150/200 대비 강한 상향 기울기</li>
-    <li style="padding: 6px 0; color: #cdd9e5; font-size: 15px;">🔸 거래량 돌파시 기관 매집 확인 가능</li>
-  </ul>
-</div>
-
-<!-- 4. 펀더멘털 -->
-<div class="card">
-  <div class="card-title">
-    <span>💼</span>
-    <span>펀더멘털 분석</span>
-  </div>
-
-  <div class="section-title">📡 광통신 수요 폭증</div>
-  <p>AI 데이터센터 하나를 운영하려면 수십만 개의 GPU가 초고속으로 연결되어야 합니다. NVIDIA H100/B200 클러스터는 InfiniBand와 함께 400G~800G 광통신 인프라가 필수입니다. Ciena의 WaveLogic 6 기술은 싱글 캐리어 400G를 지원하며 업계 최고 스펙으로 주목받고 있습니다.</p>
-
-  <div class="section-title">🤖 AI 데이터센터 직접 수혜</div>
-  <p>Microsoft, Google, Amazon, Meta의 2025~2026년 합산 AI 인프라 투자는 $500B+로 예상됩니다. 데이터센터 간 연결(DCI: Data Center Interconnect)이 이 투자의 핵심 구성 요소이며, Ciena는 DCI 시장에서 ~35% 점유율을 보유한 절대 강자입니다.</p>
-
-  <div class="section-title">📈 실적 추이</div>
-  <div class="highlight-box">
-    EPS Rating 86 — 최근 분기 실적 가속화 추세. 광통신 수주 잔고(Backlog) 사상 최대 수준. 수익성 개선과 함께 매출 성장세 재가속 기대.
-  </div>
-</div>
-
-<!-- 5. 매수 전략 -->
-<div class="card">
-  <div class="card-title">
-    <span>🎯</span>
-    <span>매수 전략</span>
-  </div>
-
-  <div class="strategy-grid">
-    <div class="strategy-item">
-      <div class="s-label">🟢 진입점 (Pivot)</div>
-      <div class="s-value entry">$591.57+</div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/CRDO" target="_blank" style="color:inherit;text-decoration:none;">CRDO</a></div>
+        <div class="stock-code">Credo Tech Group</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
+        <span class="badge badge-rs">RS 96</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$218.41</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
     </div>
-    <div class="strategy-item">
-      <div class="s-label">🔴 손절선 (Stop)</div>
-      <div class="s-value stop">$555 (-6%)</div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/LSCC" target="_blank" style="color:inherit;text-decoration:none;">LSCC</a></div>
+        <div class="stock-code">Lattice Semiconductor</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
+        <span class="badge badge-rs">RS 96</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$143.22</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
     </div>
-    <div class="strategy-item">
-      <div class="s-label">🎯 1차 목표</div>
-      <div class="s-value target">$650 (+10%)</div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/NXPI" target="_blank" style="color:inherit;text-decoration:none;">NXPI</a></div>
+        <div class="stock-code">NXP Semiconductors</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
+        <span class="badge badge-rs">RS 90</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$316.47</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
     </div>
-    <div class="strategy-item">
-      <div class="s-label">🎯 2차 목표</div>
-      <div class="s-value target">$720 (+22%)</div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/PL" target="_blank" style="color:inherit;text-decoration:none;">PL</a></div>
+        <div class="stock-code">Planet Labs PBC</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">🟡 VCP 약 45</span>
+        <span class="badge badge-rs">RS 99</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$44.35</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
     </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">거래량 감소</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/DELL" target="_blank" style="color:inherit;text-decoration:none;">DELL</a></div>
+        <div class="stock-code">Dell Technologies Cl C</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">🟡 VCP 약 45</span>
+        <span class="badge badge-rs">RS 95</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$295.19</span>
+        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">거래량 감소</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
   </div>
 
-  <div class="highlight-box">
-    <strong>Minervini 원칙:</strong> 52주 신고가 돌파 + 거래량 평균의 150%+ 확인 시 진입. 포지션 크기는 총 포트폴리오의 5~10%. 최대 손실 허용치 진입가 대비 -7~8%.
+  <div class="section-title">🤖 AI·반도체 종목 <span class="count">6개</span></div>
+  
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/MRVL" target="_blank" style="color:inherit;text-decoration:none;">MRVL</a> <span style="font-size:12px;">✅</span></div>
+        <div class="stock-code">Marvell Technology</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
+        <span class="badge badge-rs">RS 97</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$196.33</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/LSCC" target="_blank" style="color:inherit;text-decoration:none;">LSCC</a> <span style="font-size:12px;">✅</span></div>
+        <div class="stock-code">Lattice Semiconductor</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
+        <span class="badge badge-rs">RS 96</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$143.22</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/NXPI" target="_blank" style="color:inherit;text-decoration:none;">NXPI</a> <span style="font-size:12px;">✅</span></div>
+        <div class="stock-code">NXP Semiconductors</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
+        <span class="badge badge-rs">RS 90</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$316.47</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/TSEM" target="_blank" style="color:inherit;text-decoration:none;">TSEM</a> <span style="font-size:12px;">✅</span></div>
+        <div class="stock-code">Tower Semiconductor</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s4">Watch 20</span>
+        <span class="badge badge-rs">RS 99</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$283.43</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/ARM" target="_blank" style="color:inherit;text-decoration:none;">ARM</a> <span style="font-size:12px;">✅</span></div>
+        <div class="stock-code">Arm Holdings ADR</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s4">Watch 20</span>
+        <span class="badge badge-rs">RS 95</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$306.51</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  </div>
+  <div class="card card-sm">
+    <div class="card-header">
+      <div class="stock-info">
+        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/ALAB" target="_blank" style="color:inherit;text-decoration:none;">ALAB</a> <span style="font-size:12px;">⚠️</span></div>
+        <div class="stock-code">Astera Labs</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-vcp-s4">Watch 20</span>
+        <span class="badge badge-rs">RS 94</span>
+        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$306.88</span>
+      </div>
+    </div>
+    <div class="signals" style="margin-top:6px;"><span class="signal-tag">신고가 근접 (0.0%)</span></div>
   </div>
 
-  <div class="section-title">📋 단계별 실행 전략</div>
-  <ul class="risk-list" style="list-style: none; padding: 0;">
-    <li style="padding: 8px 0; padding-left: 24px; position: relative; color: #cdd9e5; font-size: 15px; border-bottom: 1px solid rgba(48,54,61,0.5);">
-      <span style="position: absolute; left: 0; color: var(--green);">①</span>
-      <strong>돌파 확인:</strong> $591.57 돌파 + 거래량 동반 확인 (당일 거래량이 50일 평균의 1.5배 이상)
-    </li>
-    <li style="padding: 8px 0; padding-left: 24px; position: relative; color: #cdd9e5; font-size: 15px; border-bottom: 1px solid rgba(48,54,61,0.5);">
-      <span style="position: absolute; left: 0; color: var(--green);">②</span>
-      <strong>초기 진입:</strong> 피벗 포인트 돌파 후 3% 이내 진입 (늦은 진입 금지)
-    </li>
-    <li style="padding: 8px 0; padding-left: 24px; position: relative; color: #cdd9e5; font-size: 15px; border-bottom: 1px solid rgba(48,54,61,0.5);">
-      <span style="position: absolute; left: 0; color: var(--green);">③</span>
-      <strong>포지션 관리:</strong> +10% 이익 시 손절선 break-even으로 이동
-    </li>
-    <li style="padding: 8px 0; padding-left: 24px; position: relative; color: #cdd9e5; font-size: 15px;">
-      <span style="position: absolute; left: 0; color: var(--green);">④</span>
-      <strong>추가 매수:</strong> 3~5% 상승 후 피라미딩 (전체 포지션의 25~50% 추가)
-    </li>
-  </ul>
+  <div class="section-title">📋 전체 IBD RS 리스트 <span class="count">33개</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>종목</th><th>SEPA</th><th>가격</th><th>RS</th><th>VCP</th><th>고점대비</th></tr></thead>
+      <tbody>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/TXN" target="_blank">TXN</a><br><span style="font-size:11px;color:#6e7681">Texas Instruments</span></td><td>✅</td><td>$309.21</td><td class="trend-flat">RS 92</td><td><span class="vcp-score-chip s1">70</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/TTMI" target="_blank">TTMI</a><br><span style="font-size:11px;color:#6e7681">TTM Technologies</span></td><td>✅</td><td>$189.92</td><td class="trend-flat">RS 99</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/NOK" target="_blank">NOK</a><br><span style="font-size:11px;color:#6e7681">Nokia ADR</span></td><td>✅</td><td>$15.47</td><td class="trend-flat">RS 98</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/MRVL" target="_blank">MRVL</a><br><span style="font-size:11px;color:#6e7681">Marvell Technology</span></td><td>✅</td><td>$196.33</td><td class="trend-flat">RS 97</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/STM" target="_blank">STM</a><br><span style="font-size:11px;color:#6e7681">STMicroelectronics</span></td><td>✅</td><td>$66.86</td><td class="trend-flat">RS 97</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/CRDO" target="_blank">CRDO</a><br><span style="font-size:11px;color:#6e7681">Credo Tech Group</span></td><td>✅</td><td>$218.41</td><td class="trend-flat">RS 96</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/LSCC" target="_blank">LSCC</a><br><span style="font-size:11px;color:#6e7681">Lattice Semiconducto</span></td><td>✅</td><td>$143.22</td><td class="trend-flat">RS 96</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/NXPI" target="_blank">NXPI</a><br><span style="font-size:11px;color:#6e7681">NXP Semiconductors</span></td><td>✅</td><td>$316.47</td><td class="trend-flat">RS 90</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/PL" target="_blank">PL</a><br><span style="font-size:11px;color:#6e7681">Planet Labs PBC</span></td><td>✅</td><td>$44.35</td><td class="trend-flat">RS 99</td><td><span class="vcp-score-chip s3">45</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/DELL" target="_blank">DELL</a><br><span style="font-size:11px;color:#6e7681">Dell Technologies Cl</span></td><td>✅</td><td>$295.19</td><td class="trend-flat">RS 95</td><td><span class="vcp-score-chip s3">45</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/AXTI" target="_blank">AXTI</a><br><span style="font-size:11px;color:#6e7681">AXT</span></td><td>✅</td><td>$140.83</td><td class="trend-flat">RS 99</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/BAND" target="_blank">BAND</a><br><span style="font-size:11px;color:#6e7681">Bandwidth Cl A</span></td><td>✅</td><td>$61.39</td><td class="trend-flat">RS 99</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/TSEM" target="_blank">TSEM</a><br><span style="font-size:11px;color:#6e7681">Tower Semiconductor</span></td><td>✅</td><td>$283.43</td><td class="trend-flat">RS 99</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/SIMO" target="_blank">SIMO</a><br><span style="font-size:11px;color:#6e7681">Silicon Motion Tech </span></td><td>✅</td><td>$276.14</td><td class="trend-flat">RS 98</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/AMD" target="_blank">AMD</a><br><span style="font-size:11px;color:#6e7681">Advanced Micro Devic</span></td><td>✅</td><td>$467.51</td><td class="trend-flat">RS 97</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/LRCX" target="_blank">LRCX</a><br><span style="font-size:11px;color:#6e7681">Lam Research</span></td><td>✅</td><td>$305.35</td><td class="trend-flat">RS 97</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/SATL" target="_blank">SATL</a><br><span style="font-size:11px;color:#6e7681">Satellogic</span></td><td>✅</td><td>$10.61</td><td class="trend-flat">RS 97</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/MTSI" target="_blank">MTSI</a><br><span style="font-size:11px;color:#6e7681">MACOM Tech Solutions</span></td><td>✅</td><td>$385.98</td><td class="trend-flat">RS 96</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/SMTC" target="_blank">SMTC</a><br><span style="font-size:11px;color:#6e7681">Semtech</span></td><td>✅</td><td>$156.78</td><td class="trend-flat">RS 96</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/ARM" target="_blank">ARM</a><br><span style="font-size:11px;color:#6e7681">Arm Holdings ADR</span></td><td>✅</td><td>$306.51</td><td class="trend-flat">RS 95</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/GFS" target="_blank">GFS</a><br><span style="font-size:11px;color:#6e7681">GlobalFoundries</span></td><td>✅</td><td>$85.64</td><td class="trend-flat">RS 95</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/MTRN" target="_blank">MTRN</a><br><span style="font-size:11px;color:#6e7681">Materion</span></td><td>✅</td><td>$215.04</td><td class="trend-flat">RS 95</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/VPG" target="_blank">VPG</a><br><span style="font-size:11px;color:#6e7681">Vishay Precision Gro</span></td><td>✅</td><td>$113.76</td><td class="trend-flat">RS 95</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/ARW" target="_blank">ARW</a><br><span style="font-size:11px;color:#6e7681">Arrow Electronics</span></td><td>✅</td><td>$217.33</td><td class="trend-flat">RS 92</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/CMP" target="_blank">CMP</a><br><span style="font-size:11px;color:#6e7681">Compass Minerals</span></td><td>✅</td><td>$30.59</td><td class="trend-flat">RS 89</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/HPE" target="_blank">HPE</a><br><span style="font-size:11px;color:#6e7681">Hewlett Packard Ent</span></td><td>✅</td><td>$37.58</td><td class="trend-flat">RS 89</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/SYNA" target="_blank">SYNA</a><br><span style="font-size:11px;color:#6e7681">Synaptics</span></td><td>✅</td><td>$143.69</td><td class="trend-flat">RS 89</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/CSCO" target="_blank">CSCO</a><br><span style="font-size:11px;color:#6e7681">Cisco Systems</span></td><td>✅</td><td>$120.41</td><td class="trend-flat">RS 86</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/ANDG" target="_blank">ANDG</a><br><span style="font-size:11px;color:#6e7681">Andersen Group</span></td><td><span style="color:#6e7681">❌</span></td><td>—</td><td class="trend-flat">RS 91</td><td><span class="vcp-score-chip s1">75</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/ALAB" target="_blank">ALAB</a><br><span style="font-size:11px;color:#6e7681">Astera Labs</span></td><td><span style="color:#6e7681">❌</span></td><td>$306.88</td><td class="trend-flat">RS 94</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/PENG" target="_blank">PENG</a><br><span style="font-size:11px;color:#6e7681">Penguin Solutions</span></td><td><span style="color:#6e7681">❌</span></td><td>$53.21</td><td class="trend-flat">RS 93</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/CEVA" target="_blank">CEVA</a><br><span style="font-size:11px;color:#6e7681">CEVA</span></td><td><span style="color:#6e7681">❌</span></td><td>$39.43</td><td class="trend-flat">RS 90</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/FFIV" target="_blank">FFIV</a><br><span style="font-size:11px;color:#6e7681">F5</span></td><td><span style="color:#6e7681">❌</span></td><td>$393.63</td><td class="trend-flat">RS 78</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <div>📈 MacTrader · 미장 SEPA+VCP 분석</div>
+    <div style="margin-top:4px;">생성: 2026-05-23 11:17 KST · IBD RS New Highs 기반</div>
+    <div style="margin-top:8px;color:#484f58;font-size:11px;">⚠️ 이 리포트는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+  </div>
 </div>
-
-<!-- 6. 리스크 -->
-<div class="card">
-  <div class="card-title">
-    <span>⚠️</span>
-    <span>리스크 요소</span>
-  </div>
-  <ul class="risk-list">
-    <li>AI 인프라 투자 사이클 둔화 — 하이퍼스케일러 CapEx 축소 시 수주 감소</li>
-    <li>광통신 공급망 경쟁 심화 — 화웨이, Nokia, 인피네라 등 경쟁사 압박</li>
-    <li>고점 돌파 실패 — 거래량 미동반 돌파 시 false breakout 위험</li>
-    <li>거시경제 불확실성 — 금리/달러 변동, 관세 이슈 재부각 가능</li>
-    <li>EPS Rating 86 — 상위 순위 대비 펀더멘털 모멘텀 다소 낮음</li>
-  </ul>
-</div>
-
-<!-- Watch List -->
-<hr class="divider">
-<div class="section-label">👀 WATCH LIST · VCP 신호 종목</div>
-
-<!-- MRVL -->
-<div class="watchlist-stock">
-  <div class="watchlist-header">
-    <div class="watchlist-ticker">MRVL</div>
-    <div class="watchlist-price">$190.69</div>
-  </div>
-  <div class="mini-ratings">
-    <div class="mini-rating"><span>RS </span>97</div>
-    <div class="mini-rating"><span>CR </span>99</div>
-    <div class="mini-rating"><span>EPS </span>94</div>
-  </div>
-  <div class="sepa-badges">
-    <span class="badge badge-green">✅ SEPA 통과</span>
-    <span class="badge badge-purple">🔷 VCP: 변동성 수축</span>
-  </div>
-  <p><strong>Marvell Technology</strong>는 AI 데이터센터용 커스텀 실리콘(ASIC) 및 고속 네트워킹 반도체 선도 기업입니다. Amazon의 Trainium/Inferentia, Google TPU 등에 핵심 칩을 공급하며 AI 인프라 수요의 직접 수혜를 받고 있습니다.</p>
-  <p>RS 97, Comp Rating 99, EPS 94의 최상급 등급 조합에 VCP 변동성 수축까지 확인 — CIEN과 함께 이번 사이클에서 가장 주목해야 할 반도체 종목입니다. 5G 인프라와 AI ASIC의 교차점에 위치한 독특한 경쟁 우위를 보유하고 있습니다.</p>
-  <div class="highlight-box">
-    <strong>진입 전략:</strong> 최근 고점 돌파 + 거래량 확인 시 진입. CR/EPS 최상급으로 CIEN과 동시 포지셔닝 고려 가능. 손절 -7~8% 원칙 적용.
-  </div>
-</div>
-
-<!-- LSCC -->
-<div class="watchlist-stock">
-  <div class="watchlist-header">
-    <div class="watchlist-ticker">LSCC</div>
-    <div class="watchlist-price">$139.35</div>
-  </div>
-  <div class="mini-ratings">
-    <div class="mini-rating"><span>RS </span>96</div>
-    <div class="mini-rating"><span>CR </span>99</div>
-    <div class="mini-rating"><span>EPS </span>83</div>
-  </div>
-  <div class="sepa-badges">
-    <span class="badge badge-green">✅ SEPA 통과</span>
-    <span class="badge badge-purple">🔷 VCP: 변동성 수축</span>
-  </div>
-  <p><strong>Lattice Semiconductor</strong>는 저전력 FPGA(프로그래머블 반도체) 분야의 선두주자입니다. AI 서버의 시스템 관리 칩, 엣지 AI, 5G 기지국에 핵심 FPGA를 공급합니다. 고성능 GPU와 달리 저전력·고신뢰성 응용에 특화된 틈새 강자입니다.</p>
-  <p>Comp Rating 99의 최상급 종합 등급. AI 서버 보급 확대로 BMC(Baseboard Management Controller) 수요가 지속 증가하며 실질적인 수혜를 받고 있습니다. VCP 변동성 수축으로 기술적으로도 매력적인 구간에 진입했습니다.</p>
-  <div class="highlight-box">
-    <strong>진입 전략:</strong> 현재 가격 수준에서 고점 돌파 대기. CR 99 최상급이나 EPS 83은 중상위권 — 포지션 크기를 CIEN/MRVL 대비 소폭 축소해 리스크 관리 권장.
-  </div>
-</div>
-
-<div class="footer">
-  <strong>⚠️ 투자 주의사항</strong><br>
-  본 리포트는 정보 제공 목적이며 투자 권유가 아닙니다.<br>
-  모든 투자 결정은 본인의 판단과 책임 하에 이루어져야 합니다.<br>
-  과거 성과가 미래 수익을 보장하지 않습니다.<br><br>
-  <strong>IBD RS 신고가 리스트 기준 · 2026-05-23 · MacTrader</strong>
-</div>
-
 </body>
 </html>
