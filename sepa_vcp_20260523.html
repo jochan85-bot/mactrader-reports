@@ -3,370 +3,1351 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>미장 SEPA+VCP | 2026-05-23</title>
+<title>SEPA + VCP 분석 리포트 | 2026-05-23</title>
 <style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d29922;
+    --orange: #db6d28;
+    --purple: #bc8cff;
+    --gold: #ffa657;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0d1117; color: #e6edf3; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; }
-  .container { max-width: 680px; margin: 0 auto; padding: 16px; }
-  .header { text-align: center; padding: 28px 16px 20px; border-bottom: 1px solid #30363d; margin-bottom: 24px; }
-  .header h1 { font-size: 22px; font-weight: 700; color: #f0f6fc; margin-bottom: 6px; }
-  .header .subtitle { font-size: 13px; color: #8b949e; }
-  .header .meta { font-size: 12px; color: #6e7681; margin-top: 4px; }
-  .weekend-notice { background: #161b22; border: 1px solid #9e6a03; border-radius: 8px; padding: 10px 14px; margin-bottom: 20px; font-size: 13px; color: #e3b341; }
-  .section-title { font-size: 16px; font-weight: 700; color: #f0f6fc; margin: 28px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #30363d; display: flex; align-items: center; gap: 8px; }
-  .section-title .count { background: #21262d; color: #8b949e; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 10px; border: 1px solid #30363d; }
-  .card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; margin-bottom: 14px; }
-  .card-sm { padding: 12px; margin-bottom: 10px; }
-  .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; gap: 10px; }
-  .stock-info { flex: 1; }
-  .stock-name { font-size: 17px; font-weight: 700; color: #f0f6fc; }
-  .stock-code { font-size: 12px; color: #8b949e; margin-top: 2px; }
-  .badges { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-start; }
-  .badge { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
-  .badge-vcp-s1 { background: #1f6feb; color: #fff; }
-  .badge-vcp-s2 { background: #1a7f37; color: #fff; }
-  .badge-vcp-s3 { background: #9e6a03; color: #fff; }
-  .badge-vcp-s4 { background: #4d3468; color: #fff; }
-  .badge-rs { background: #21262d; color: #8b949e; border: 1px solid #30363d; }
-  .metric-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 12px; }
-  .metric { background: #0d1117; border-radius: 6px; padding: 8px; text-align: center; }
-  .metric-label { font-size: 10px; color: #6e7681; margin-bottom: 2px; }
-  .metric-value { font-size: 14px; font-weight: 600; color: #f0f6fc; }
-  .signals { display: flex; flex-wrap: wrap; gap: 6px; }
-  .signal-tag { background: #21262d; color: #8b949e; font-size: 11px; padding: 3px 8px; border-radius: 12px; border: 1px solid #30363d; }
-  .trend-up { color: #3fb950; } .trend-dn { color: #f85149; } .trend-flat { color: #e6edf3; }
-  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
-  .stat-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 14px; text-align: center; }
-  .stat-num { font-size: 26px; font-weight: 700; color: #f0f6fc; }
-  .stat-label { font-size: 11px; color: #8b949e; margin-top: 2px; }
-  .table-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #21262d; }
-  th { color: #8b949e; font-weight: 600; font-size: 11px; text-transform: uppercase; background: #161b22; }
-  tr:hover td { background: #161b22; }
-  a.stock-link { color: #58a6ff; text-decoration: none; }
-  a.stock-link:hover { text-decoration: underline; }
-  .vcp-score-chip { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 10px; min-width: 34px; text-align: center; }
-  .vcp-score-chip.s1 { background: #1f6feb22; color: #79c0ff; border: 1px solid #1f6feb66; }
-  .vcp-score-chip.s2 { background: #1a7f3722; color: #56d364; border: 1px solid #1a7f3766; }
-  .vcp-score-chip.s3 { background: #9e6a0322; color: #e3b341; border: 1px solid #9e6a0366; }
-  .vcp-score-chip.s0 { background: #21262d; color: #6e7681; border: 1px solid #30363d; }
-  .footer { text-align: center; padding: 28px 0 20px; margin-top: 36px; border-top: 1px solid #30363d; font-size: 12px; color: #6e7681; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 16px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #0d1117 0%, #1a2332 50%, #0d1117 100%);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .header-badge {
+    display: inline-block;
+    background: var(--accent); color: #000;
+    font-size: 11px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px;
+    margin-bottom: 10px; letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .header .subtitle { color: var(--muted); font-size: 14px; }
+  .section-label {
+    font-size: 11px; font-weight: 700; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin: 20px 0 12px;
+  }
+  .stock-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card-hero-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; margin-bottom: 16px;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .hero-ticker {
+    font-size: 30px; font-weight: 900; color: var(--green); line-height: 1;
+  }
+  .hero-name { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .hero-price-block { text-align: right; }
+  .hero-price { font-size: 26px; font-weight: 700; color: var(--text); }
+  .hero-from-high { font-size: 12px; margin-top: 2px; }
+  .rating-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 10px; margin-bottom: 16px;
+  }
+  .rating-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px; text-align: center;
+  }
+  .rating-label {
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;
+  }
+  .rating-value { font-size: 22px; font-weight: 800; color: var(--green); }
+  .metrics-row {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 8px; margin-bottom: 8px;
+  }
+  .metric-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 10px;
+  }
+  .metric-label { font-size: 10px; color: var(--muted); margin-bottom: 3px; }
+  .metric-val { font-size: 13px; font-weight: 700; color: var(--text); }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+  .badge {
+    font-size: 11px; font-weight: 600;
+    padding: 4px 10px; border-radius: 20px; letter-spacing: 0.3px;
+  }
+  .badge-green { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+  .badge-blue { background: rgba(88,166,255,0.15); color: var(--accent); border: 1px solid rgba(88,166,255,0.3); }
+  .badge-gold { background: rgba(255,166,87,0.15); color: var(--gold); border: 1px solid rgba(255,166,87,0.3); }
+  .badge-purple { background: rgba(188,140,255,0.15); color: var(--purple); border: 1px solid rgba(188,140,255,0.3); }
+  .badge-red { background: rgba(248,81,73,0.15); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+  .analysis-block { margin-top: 16px; }
+  .analysis-section { margin-bottom: 14px; }
+  .analysis-section:last-child { margin-bottom: 0; }
+  .analysis-section p {
+    color: #cdd9e5; font-size: 14px; line-height: 1.7; margin-top: 6px;
+  }
+  .highlight-box {
+    background: rgba(88,166,255,0.08);
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px; border-radius: 0 8px 8px 0;
+    margin: 12px 0; font-size: 13px; color: var(--text);
+  }
+  .watchlist-stock {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px; margin-bottom: 14px;
+  }
+  .watchlist-header {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 12px;
+  }
+  .watchlist-ticker {
+    font-size: 22px; font-weight: 800; color: var(--accent);
+  }
+  .mini-ratings { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .mini-rating {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 6px; padding: 4px 10px; font-size: 12px; font-weight: 600;
+  }
+  .mini-rating span { color: var(--muted); font-weight: 400; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+  .section-title {
+    font-size: 13px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.8px;
+    margin-bottom: 10px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  p { margin-bottom: 10px; }
+  .footer {
+    text-align: center; padding: 20px 10px;
+    color: var(--muted); font-size: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 10px; line-height: 1.8;
+  }
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <h1>🎯 미장 SEPA+VCP 분석</h1>
-    <div class="subtitle">2026-05-23 · IBD RS New Highs 33종목 기반</div>
-    <div class="meta">생성: 2026-05-23 11:17 KST · Minervini SEPA 7조건 + VCP 패턴</div>
+
+<div class="header">
+  <div class="header-badge">📊 IBD RS 신고가 분석</div>
+  <h1>🇺🇸 미장 SEPA + VCP 분석 리포트</h1>
+  <div class="subtitle">2026년 5월 23일 (토) · 10 SEPA+VCP 종목 · MacTrader</div>
+  <div style="font-size:12px;color:#d29922;margin-top:8px;">⚠️ 토요일 — 5/22(금) 종가 기준</div>
+</div>
+
+<div class="section-label">🏆 SEPA + VCP 분석 종목 (10종목)</div>
+<p style="font-size:13px;color:#8b949e;margin-bottom:16px;">Minervini SEPA 7조건 통과 + VCP 40+ 스크리닝 · 반도체/기술주 중심</p>
+
+
+<!-- TXN -->
+<div class="stock-card">
+  <div class="card-hero-header">
+    <div>
+      <div class="hero-ticker">TXN</div>
+      <div class="hero-name">Texas Instruments</div>
+    </div>
+    <div class="hero-price-block">
+      <div class="hero-price">$309.21</div>
+      <div class="hero-from-high" style="color:#3fb950;">신고가</div>
+    </div>
   </div>
 
-  <div class="weekend-notice">
-    ⚠️ 토요일 리포트 — 5/22(금) 종가 기준입니다. 다음 거래일은 5/26(월)입니다.
+  <!-- 레이팅 그리드 -->
+  <div class="rating-grid">
+    <div class="rating-item">
+      <div class="rating-label">RS Rating</div>
+      <div class="rating-value">92</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">Comp Rating</div>
+      <div class="rating-value">97</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">EPS Rating</div>
+      <div class="rating-value">57</div>
+    </div>
   </div>
 
-  <div class="stats-row">
-    <div class="stat-card"><div class="stat-num">33</div><div class="stat-label">IBD RS 분석</div></div>
-    <div class="stat-card"><div class="stat-num">10</div><div class="stat-label">SEPA+VCP 후보</div></div>
-    <div class="stat-card"><div class="stat-num" style="color:#3fb950;">1</div><div class="stat-label">핵심 VCP</div></div>
+  <!-- 핵심 지표 -->
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">현재가</div>
+      <div class="metric-val">$309.21</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">52주 고점</div>
+      <div class="metric-val">$309.21</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">PER</div>
+      <div class="metric-val">52.9x</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">ROE</div>
+      <div class="metric-val">+32.3%</div>
+    </div>
+  </div>
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">EPS 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+31.3%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">매출 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+18.6%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">시가총액</div>
+      <div class="metric-val">$281.4B</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">MA50 대비</div>
+      <div class="metric-val" style="color:#3fb950;">+28.2%</div>
+    </div>
   </div>
 
-  <div class="section-title">⭐ 핵심 SEPA+VCP 후보 <span class="count">1개</span></div>
-  
-  <div class="card">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name"><a href="https://finance.yahoo.com/quote/TXN" target="_blank" style="color:inherit;text-decoration:none;">TXN</a></div>
-        <div class="stock-code">Texas Instruments</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s1">🔵 VCP 강 70</span>
-        <span class="badge badge-rs">RS 92</span>
-      </div>
-    </div>
-    <div class="metric-row">
-      <div class="metric"><div class="metric-label">현재가</div><div class="metric-value">$309.21</div></div>
-      <div class="metric"><div class="metric-label">52주 고점</div><div class="metric-value">$309.21</div></div>
-      <div class="metric"><div class="metric-label">고점 대비</div><div class="metric-value trend-up">+0.0%</div></div>
-      <div class="metric"><div class="metric-label">거래량비율</div><div class="metric-value">1.05x</div></div>
-      <div class="metric"><div class="metric-label">10일범위</div><div class="metric-value">4.6%</div></div>
-    </div>
-    <div class="signals"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span> <span class="signal-tag">10일 범위 4.6% 타이트</span></div>
+  <!-- VCP 신호 -->
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-green">VCP 70</span>
+    <span class="badge badge-purple">🔷 변동성 수축</span>
+        <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+        <span class="badge badge-purple">🔷 10일 범위 4.6% 타이트</span>
   </div>
 
-  <div class="section-title">🔍 관심 SEPA+VCP 후보 <span class="count">9개</span></div>
-  
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/TTMI" target="_blank" style="color:inherit;text-decoration:none;">TTMI</a></div>
-        <div class="stock-code">TTM Technologies</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
-        <span class="badge badge-rs">RS 99</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$189.92</span>
-        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
-      </div>
-    </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/NOK" target="_blank" style="color:inherit;text-decoration:none;">NOK</a></div>
-        <div class="stock-code">Nokia ADR</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
-        <span class="badge badge-rs">RS 98</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$15.47</span>
-        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
-      </div>
-    </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/MRVL" target="_blank" style="color:inherit;text-decoration:none;">MRVL</a></div>
-        <div class="stock-code">Marvell Technology</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
-        <span class="badge badge-rs">RS 97</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$196.33</span>
-        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
-      </div>
-    </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/STM" target="_blank" style="color:inherit;text-decoration:none;">STM</a></div>
-        <div class="stock-code">STMicroelectronics</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
-        <span class="badge badge-rs">RS 97</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$66.86</span>
-        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
-      </div>
-    </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/CRDO" target="_blank" style="color:inherit;text-decoration:none;">CRDO</a></div>
-        <div class="stock-code">Credo Tech Group</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
-        <span class="badge badge-rs">RS 96</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$218.41</span>
-        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
-      </div>
-    </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/LSCC" target="_blank" style="color:inherit;text-decoration:none;">LSCC</a></div>
-        <div class="stock-code">Lattice Semiconductor</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
-        <span class="badge badge-rs">RS 96</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$143.22</span>
-        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
-      </div>
-    </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/NXPI" target="_blank" style="color:inherit;text-decoration:none;">NXPI</a></div>
-        <div class="stock-code">NXP Semiconductors</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
-        <span class="badge badge-rs">RS 90</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$316.47</span>
-        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
-      </div>
-    </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/PL" target="_blank" style="color:inherit;text-decoration:none;">PL</a></div>
-        <div class="stock-code">Planet Labs PBC</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s3">🟡 VCP 약 45</span>
-        <span class="badge badge-rs">RS 99</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$44.35</span>
-        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
-      </div>
-    </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">거래량 감소</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/DELL" target="_blank" style="color:inherit;text-decoration:none;">DELL</a></div>
-        <div class="stock-code">Dell Technologies Cl C</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s3">🟡 VCP 약 45</span>
-        <span class="badge badge-rs">RS 95</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$295.19</span>
-        <span class="badge" style="background:#161b22;color:#3fb950;border:1px solid #30363d;">+0.0%</span>
-      </div>
-    </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">거래량 감소</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
+  <!-- SEPA 조건 -->
+  <div class="badge-row" style="margin-top:8px;">
+    <span class="badge badge-green">✅ Price > MA150/200</span>
+        <span class="badge badge-green">✅ MA150 > MA200</span>
+        <span class="badge badge-green">✅ MA200 ↑</span>
+        <span class="badge badge-green">✅ MA50 > MA150/200</span>
+        <span class="badge badge-green">✅ Price > MA50</span>
+        <span class="badge badge-green">✅ 52wL +30%</span>
+        <span class="badge badge-green">✅ 52wH -25%</span>
   </div>
 
-  <div class="section-title">🤖 AI·반도체 종목 <span class="count">6개</span></div>
-  
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/MRVL" target="_blank" style="color:inherit;text-decoration:none;">MRVL</a> <span style="font-size:12px;">✅</span></div>
-        <div class="stock-code">Marvell Technology</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
-        <span class="badge badge-rs">RS 97</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$196.33</span>
-      </div>
+  <!-- 분석 -->
+  <div class="analysis-block">
+    <div class="analysis-section">
+      <div class="section-label">📌 기업 개요</div>
+      <p>Texas Instruments Incorporated designs, manufactures, and sells semiconductors to electronics designers and manufacturers in the United States, China, the rest of Asia, Europe, the Middle East, Africa, Japan, and internationally. It operates through ...</p>
     </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/LSCC" target="_blank" style="color:inherit;text-decoration:none;">LSCC</a> <span style="font-size:12px;">✅</span></div>
-        <div class="stock-code">Lattice Semiconductor</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
-        <span class="badge badge-rs">RS 96</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$143.22</span>
-      </div>
+    <div class="analysis-section">
+      <div class="section-label">⚡ 투자 근거</div>
+      <p>Semiconductors 섹터. SEPA 7/7 조건 통과. RS 92등급으로 시장 상위 8% 이내 초강세. EPS 성장률 +31%로 실적 뒷받침. 52주 신고가 — VCP 에너지 압축 최고조.</p>
     </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/NXPI" target="_blank" style="color:inherit;text-decoration:none;">NXPI</a> <span style="font-size:12px;">✅</span></div>
-        <div class="stock-code">NXP Semiconductors</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s3">🟡 VCP 약 50</span>
-        <span class="badge badge-rs">RS 90</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$316.47</span>
-      </div>
+    <div class="analysis-section">
+      <div class="section-label">🎯 매매 전략</div>
+      <p>진입: $309.52 신고가 돌파 + 거래량 1.5배+ 확인. 손절: $287.57 (진입가 -7%). 1차 목표: $340.13 (+10%), 2차: $371.05 (+20%).</p>
     </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">변동성 수축</span> <span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/TSEM" target="_blank" style="color:inherit;text-decoration:none;">TSEM</a> <span style="font-size:12px;">✅</span></div>
-        <div class="stock-code">Tower Semiconductor</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s4">Watch 20</span>
-        <span class="badge badge-rs">RS 99</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$283.43</span>
-      </div>
+    <div class="analysis-section">
+      <div class="section-label">⚠️ 리스크</div>
+      <p>PER 53x 다소 높음 | Technology 섹터 경쟁 심화 및 매크로 리스크 | 가짜 돌파(false breakout) 위험 — 거래량 미동반 돌파 시 진입 금지</p>
     </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/ARM" target="_blank" style="color:inherit;text-decoration:none;">ARM</a> <span style="font-size:12px;">✅</span></div>
-        <div class="stock-code">Arm Holdings ADR</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s4">Watch 20</span>
-        <span class="badge badge-rs">RS 95</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$306.51</span>
-      </div>
-    </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-  <div class="card card-sm">
-    <div class="card-header">
-      <div class="stock-info">
-        <div class="stock-name" style="font-size:15px;"><a href="https://finance.yahoo.com/quote/ALAB" target="_blank" style="color:inherit;text-decoration:none;">ALAB</a> <span style="font-size:12px;">⚠️</span></div>
-        <div class="stock-code">Astera Labs</div>
-      </div>
-      <div class="badges">
-        <span class="badge badge-vcp-s4">Watch 20</span>
-        <span class="badge badge-rs">RS 94</span>
-        <span class="badge" style="background:#161b22;color:#e6edf3;border:1px solid #30363d;">$306.88</span>
-      </div>
-    </div>
-    <div class="signals" style="margin-top:6px;"><span class="signal-tag">신고가 근접 (0.0%)</span></div>
-  </div>
-
-  <div class="section-title">📋 전체 IBD RS 리스트 <span class="count">33개</span></div>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>종목</th><th>SEPA</th><th>가격</th><th>RS</th><th>VCP</th><th>고점대비</th></tr></thead>
-      <tbody>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/TXN" target="_blank">TXN</a><br><span style="font-size:11px;color:#6e7681">Texas Instruments</span></td><td>✅</td><td>$309.21</td><td class="trend-flat">RS 92</td><td><span class="vcp-score-chip s1">70</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/TTMI" target="_blank">TTMI</a><br><span style="font-size:11px;color:#6e7681">TTM Technologies</span></td><td>✅</td><td>$189.92</td><td class="trend-flat">RS 99</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/NOK" target="_blank">NOK</a><br><span style="font-size:11px;color:#6e7681">Nokia ADR</span></td><td>✅</td><td>$15.47</td><td class="trend-flat">RS 98</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/MRVL" target="_blank">MRVL</a><br><span style="font-size:11px;color:#6e7681">Marvell Technology</span></td><td>✅</td><td>$196.33</td><td class="trend-flat">RS 97</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/STM" target="_blank">STM</a><br><span style="font-size:11px;color:#6e7681">STMicroelectronics</span></td><td>✅</td><td>$66.86</td><td class="trend-flat">RS 97</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/CRDO" target="_blank">CRDO</a><br><span style="font-size:11px;color:#6e7681">Credo Tech Group</span></td><td>✅</td><td>$218.41</td><td class="trend-flat">RS 96</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/LSCC" target="_blank">LSCC</a><br><span style="font-size:11px;color:#6e7681">Lattice Semiconducto</span></td><td>✅</td><td>$143.22</td><td class="trend-flat">RS 96</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/NXPI" target="_blank">NXPI</a><br><span style="font-size:11px;color:#6e7681">NXP Semiconductors</span></td><td>✅</td><td>$316.47</td><td class="trend-flat">RS 90</td><td><span class="vcp-score-chip s3">50</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/PL" target="_blank">PL</a><br><span style="font-size:11px;color:#6e7681">Planet Labs PBC</span></td><td>✅</td><td>$44.35</td><td class="trend-flat">RS 99</td><td><span class="vcp-score-chip s3">45</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/DELL" target="_blank">DELL</a><br><span style="font-size:11px;color:#6e7681">Dell Technologies Cl</span></td><td>✅</td><td>$295.19</td><td class="trend-flat">RS 95</td><td><span class="vcp-score-chip s3">45</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/AXTI" target="_blank">AXTI</a><br><span style="font-size:11px;color:#6e7681">AXT</span></td><td>✅</td><td>$140.83</td><td class="trend-flat">RS 99</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/BAND" target="_blank">BAND</a><br><span style="font-size:11px;color:#6e7681">Bandwidth Cl A</span></td><td>✅</td><td>$61.39</td><td class="trend-flat">RS 99</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/TSEM" target="_blank">TSEM</a><br><span style="font-size:11px;color:#6e7681">Tower Semiconductor</span></td><td>✅</td><td>$283.43</td><td class="trend-flat">RS 99</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/SIMO" target="_blank">SIMO</a><br><span style="font-size:11px;color:#6e7681">Silicon Motion Tech </span></td><td>✅</td><td>$276.14</td><td class="trend-flat">RS 98</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/AMD" target="_blank">AMD</a><br><span style="font-size:11px;color:#6e7681">Advanced Micro Devic</span></td><td>✅</td><td>$467.51</td><td class="trend-flat">RS 97</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/LRCX" target="_blank">LRCX</a><br><span style="font-size:11px;color:#6e7681">Lam Research</span></td><td>✅</td><td>$305.35</td><td class="trend-flat">RS 97</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/SATL" target="_blank">SATL</a><br><span style="font-size:11px;color:#6e7681">Satellogic</span></td><td>✅</td><td>$10.61</td><td class="trend-flat">RS 97</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/MTSI" target="_blank">MTSI</a><br><span style="font-size:11px;color:#6e7681">MACOM Tech Solutions</span></td><td>✅</td><td>$385.98</td><td class="trend-flat">RS 96</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/SMTC" target="_blank">SMTC</a><br><span style="font-size:11px;color:#6e7681">Semtech</span></td><td>✅</td><td>$156.78</td><td class="trend-flat">RS 96</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/ARM" target="_blank">ARM</a><br><span style="font-size:11px;color:#6e7681">Arm Holdings ADR</span></td><td>✅</td><td>$306.51</td><td class="trend-flat">RS 95</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/GFS" target="_blank">GFS</a><br><span style="font-size:11px;color:#6e7681">GlobalFoundries</span></td><td>✅</td><td>$85.64</td><td class="trend-flat">RS 95</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/MTRN" target="_blank">MTRN</a><br><span style="font-size:11px;color:#6e7681">Materion</span></td><td>✅</td><td>$215.04</td><td class="trend-flat">RS 95</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/VPG" target="_blank">VPG</a><br><span style="font-size:11px;color:#6e7681">Vishay Precision Gro</span></td><td>✅</td><td>$113.76</td><td class="trend-flat">RS 95</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/ARW" target="_blank">ARW</a><br><span style="font-size:11px;color:#6e7681">Arrow Electronics</span></td><td>✅</td><td>$217.33</td><td class="trend-flat">RS 92</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/CMP" target="_blank">CMP</a><br><span style="font-size:11px;color:#6e7681">Compass Minerals</span></td><td>✅</td><td>$30.59</td><td class="trend-flat">RS 89</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/HPE" target="_blank">HPE</a><br><span style="font-size:11px;color:#6e7681">Hewlett Packard Ent</span></td><td>✅</td><td>$37.58</td><td class="trend-flat">RS 89</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/SYNA" target="_blank">SYNA</a><br><span style="font-size:11px;color:#6e7681">Synaptics</span></td><td>✅</td><td>$143.69</td><td class="trend-flat">RS 89</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/CSCO" target="_blank">CSCO</a><br><span style="font-size:11px;color:#6e7681">Cisco Systems</span></td><td>✅</td><td>$120.41</td><td class="trend-flat">RS 86</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/ANDG" target="_blank">ANDG</a><br><span style="font-size:11px;color:#6e7681">Andersen Group</span></td><td><span style="color:#6e7681">❌</span></td><td>—</td><td class="trend-flat">RS 91</td><td><span class="vcp-score-chip s1">75</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/ALAB" target="_blank">ALAB</a><br><span style="font-size:11px;color:#6e7681">Astera Labs</span></td><td><span style="color:#6e7681">❌</span></td><td>$306.88</td><td class="trend-flat">RS 94</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/PENG" target="_blank">PENG</a><br><span style="font-size:11px;color:#6e7681">Penguin Solutions</span></td><td><span style="color:#6e7681">❌</span></td><td>$53.21</td><td class="trend-flat">RS 93</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/CEVA" target="_blank">CEVA</a><br><span style="font-size:11px;color:#6e7681">CEVA</span></td><td><span style="color:#6e7681">❌</span></td><td>$39.43</td><td class="trend-flat">RS 90</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-        <tr><td><a class="stock-link" href="https://finance.yahoo.com/quote/FFIV" target="_blank">FFIV</a><br><span style="font-size:11px;color:#6e7681">F5</span></td><td><span style="color:#6e7681">❌</span></td><td>$393.63</td><td class="trend-flat">RS 78</td><td><span class="vcp-score-chip s0">20</span></td><td class="trend-up">+0.0%</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="footer">
-    <div>📈 MacTrader · 미장 SEPA+VCP 분석</div>
-    <div style="margin-top:4px;">생성: 2026-05-23 11:17 KST · IBD RS New Highs 기반</div>
-    <div style="margin-top:8px;color:#484f58;font-size:11px;">⚠️ 이 리포트는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
   </div>
 </div>
+
+
+<!-- TTMI -->
+<div class="stock-card">
+  <div class="card-hero-header">
+    <div>
+      <div class="hero-ticker">TTMI</div>
+      <div class="hero-name">TTM Technologies</div>
+    </div>
+    <div class="hero-price-block">
+      <div class="hero-price">$189.92</div>
+      <div class="hero-from-high" style="color:#3fb950;">신고가</div>
+    </div>
+  </div>
+
+  <!-- 레이팅 그리드 -->
+  <div class="rating-grid">
+    <div class="rating-item">
+      <div class="rating-label">RS Rating</div>
+      <div class="rating-value">99</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">Comp Rating</div>
+      <div class="rating-value">99</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">EPS Rating</div>
+      <div class="rating-value">96</div>
+    </div>
+  </div>
+
+  <!-- 핵심 지표 -->
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">현재가</div>
+      <div class="metric-val">$189.92</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">52주 고점</div>
+      <div class="metric-val">$189.92</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">PER</div>
+      <div class="metric-val">103.2x</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">ROE</div>
+      <div class="metric-val">+11.4%</div>
+    </div>
+  </div>
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">EPS 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+51.6%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">매출 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+30.4%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">시가총액</div>
+      <div class="metric-val">$19.7B</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">MA50 대비</div>
+      <div class="metric-val" style="color:#3fb950;">+46.8%</div>
+    </div>
+  </div>
+
+  <!-- VCP 신호 -->
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-blue">VCP 50</span>
+    <span class="badge badge-purple">🔷 변동성 수축</span>
+        <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+  </div>
+
+  <!-- SEPA 조건 -->
+  <div class="badge-row" style="margin-top:8px;">
+    <span class="badge badge-green">✅ Price > MA150/200</span>
+        <span class="badge badge-green">✅ MA150 > MA200</span>
+        <span class="badge badge-green">✅ MA200 ↑</span>
+        <span class="badge badge-green">✅ MA50 > MA150/200</span>
+        <span class="badge badge-green">✅ Price > MA50</span>
+        <span class="badge badge-green">✅ 52wL +30%</span>
+        <span class="badge badge-green">✅ 52wH -25%</span>
+  </div>
+
+  <!-- 분석 -->
+  <div class="analysis-block">
+    <div class="analysis-section">
+      <div class="section-label">📌 기업 개요</div>
+      <p>TTM Technologies, Inc. manufactures and sells mission systems, radio frequency (RF) components, RF microwave/microelectronic assemblies, and printed circuit boards (PCBs) and substrates in the United States, Taiwan, and internationally.</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚡ 투자 근거</div>
+      <p>Electronic Components 섹터. SEPA 7/7 조건 통과. RS 99등급으로 시장 상위 1% 이내 초강세. EPS 성장률 +52%로 실적 뒷받침. 52주 신고가 — VCP 에너지 압축 최고조.</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">🎯 매매 전략</div>
+      <p>진입: $190.11 신고가 돌파 + 거래량 1.5배+ 확인. 손절: $176.63 (진입가 -7%). 1차 목표: $208.91 (+10%), 2차: $227.90 (+20%).</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚠️ 리스크</div>
+      <p>밸류에이션 리스크 (PER 103x — 고평가) | Technology 섹터 경쟁 심화 및 매크로 리스크 | 가짜 돌파(false breakout) 위험 — 거래량 미동반 돌파 시 진입 금지</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- NOK -->
+<div class="stock-card">
+  <div class="card-hero-header">
+    <div>
+      <div class="hero-ticker">NOK</div>
+      <div class="hero-name">Nokia ADR</div>
+    </div>
+    <div class="hero-price-block">
+      <div class="hero-price">$15.47</div>
+      <div class="hero-from-high" style="color:#3fb950;">신고가</div>
+    </div>
+  </div>
+
+  <!-- 레이팅 그리드 -->
+  <div class="rating-grid">
+    <div class="rating-item">
+      <div class="rating-label">RS Rating</div>
+      <div class="rating-value">98</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">Comp Rating</div>
+      <div class="rating-value">93</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">EPS Rating</div>
+      <div class="rating-value">70</div>
+    </div>
+  </div>
+
+  <!-- 핵심 지표 -->
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">현재가</div>
+      <div class="metric-val">$15.47</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">52주 고점</div>
+      <div class="metric-val">$15.47</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">PER</div>
+      <div class="metric-val">96.7x</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">ROE</div>
+      <div class="metric-val">+3.7%</div>
+    </div>
+  </div>
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">EPS 성장률</div>
+      <div class="metric-val" style="color:#f85149;">—</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">매출 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+2.4%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">시가총액</div>
+      <div class="metric-val">$86.4B</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">MA50 대비</div>
+      <div class="metric-val" style="color:#3fb950;">+43.2%</div>
+    </div>
+  </div>
+
+  <!-- VCP 신호 -->
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-blue">VCP 50</span>
+    <span class="badge badge-purple">🔷 변동성 수축</span>
+        <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+  </div>
+
+  <!-- SEPA 조건 -->
+  <div class="badge-row" style="margin-top:8px;">
+    <span class="badge badge-green">✅ Price > MA150/200</span>
+        <span class="badge badge-green">✅ MA150 > MA200</span>
+        <span class="badge badge-green">✅ MA200 ↑</span>
+        <span class="badge badge-green">✅ MA50 > MA150/200</span>
+        <span class="badge badge-green">✅ Price > MA50</span>
+        <span class="badge badge-green">✅ 52wL +30%</span>
+        <span class="badge badge-green">✅ 52wH -25%</span>
+  </div>
+
+  <!-- 분석 -->
+  <div class="analysis-block">
+    <div class="analysis-section">
+      <div class="section-label">📌 기업 개요</div>
+      <p>Nokia Oyj, together with its subsidiaries, provides mobile, fixed, and cloud network solutions in North and Latin America, Greater China, India, Asia Pacific, Europe, the Middle East, and Africa. It operates in four segments: Network Infrastructure, ...</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚡ 투자 근거</div>
+      <p>Communication Equipment 섹터. SEPA 7/7 조건 통과. RS 98등급으로 시장 상위 2% 이내 초강세. 52주 신고가 — VCP 에너지 압축 최고조.</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">🎯 매매 전략</div>
+      <p>진입: $15.49 신고가 돌파 + 거래량 1.5배+ 확인. 손절: $14.39 (진입가 -7%). 1차 목표: $17.02 (+10%), 2차: $18.56 (+20%).</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚠️ 리스크</div>
+      <p>PER 97x 다소 높음 | Technology 섹터 경쟁 심화 및 매크로 리스크 | 거래량 비율 1.3x — 매도 압력 주의</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- MRVL -->
+<div class="stock-card">
+  <div class="card-hero-header">
+    <div>
+      <div class="hero-ticker">MRVL</div>
+      <div class="hero-name">Marvell Technology</div>
+    </div>
+    <div class="hero-price-block">
+      <div class="hero-price">$196.33</div>
+      <div class="hero-from-high" style="color:#3fb950;">신고가</div>
+    </div>
+  </div>
+
+  <!-- 레이팅 그리드 -->
+  <div class="rating-grid">
+    <div class="rating-item">
+      <div class="rating-label">RS Rating</div>
+      <div class="rating-value">97</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">Comp Rating</div>
+      <div class="rating-value">99</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">EPS Rating</div>
+      <div class="rating-value">94</div>
+    </div>
+  </div>
+
+  <!-- 핵심 지표 -->
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">현재가</div>
+      <div class="metric-val">$196.33</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">52주 고점</div>
+      <div class="metric-val">$196.33</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">PER</div>
+      <div class="metric-val">64.2x</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">ROE</div>
+      <div class="metric-val">+19.3%</div>
+    </div>
+  </div>
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">EPS 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+106.3%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">매출 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+22.1%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">시가총액</div>
+      <div class="metric-val">$171.9B</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">MA50 대비</div>
+      <div class="metric-val" style="color:#3fb950;">+42.8%</div>
+    </div>
+  </div>
+
+  <!-- VCP 신호 -->
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-blue">VCP 50</span>
+    <span class="badge badge-purple">🔷 변동성 수축</span>
+        <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+  </div>
+
+  <!-- SEPA 조건 -->
+  <div class="badge-row" style="margin-top:8px;">
+    <span class="badge badge-green">✅ Price > MA150/200</span>
+        <span class="badge badge-green">✅ MA150 > MA200</span>
+        <span class="badge badge-green">✅ MA200 ↑</span>
+        <span class="badge badge-green">✅ MA50 > MA150/200</span>
+        <span class="badge badge-green">✅ Price > MA50</span>
+        <span class="badge badge-green">✅ 52wL +30%</span>
+        <span class="badge badge-green">✅ 52wH -25%</span>
+  </div>
+
+  <!-- 분석 -->
+  <div class="analysis-block">
+    <div class="analysis-section">
+      <div class="section-label">📌 기업 개요</div>
+      <p>Marvell Technology, Inc., together with its subsidiaries, provides data infrastructure semiconductor solutions and spanning the data center core to network edge in the United States, Argentina, China, India, Israel, Japan, Singapore, South Korea, Tai...</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚡ 투자 근거</div>
+      <p>Semiconductors 섹터. SEPA 7/7 조건 통과. RS 97등급으로 시장 상위 3% 이내 초강세. EPS 성장률 +106%로 실적 뒷받침. 52주 신고가 — VCP 에너지 압축 최고조.</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">🎯 매매 전략</div>
+      <p>진입: $196.53 신고가 돌파 + 거래량 1.5배+ 확인. 손절: $182.59 (진입가 -7%). 1차 목표: $215.96 (+10%), 2차: $235.60 (+20%).</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚠️ 리스크</div>
+      <p>PER 64x 다소 높음 | Technology 섹터 경쟁 심화 및 매크로 리스크 | 가짜 돌파(false breakout) 위험 — 거래량 미동반 돌파 시 진입 금지</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- STM -->
+<div class="stock-card">
+  <div class="card-hero-header">
+    <div>
+      <div class="hero-ticker">STM</div>
+      <div class="hero-name">STMicroelectronics</div>
+    </div>
+    <div class="hero-price-block">
+      <div class="hero-price">$66.86</div>
+      <div class="hero-from-high" style="color:#3fb950;">신고가</div>
+    </div>
+  </div>
+
+  <!-- 레이팅 그리드 -->
+  <div class="rating-grid">
+    <div class="rating-item">
+      <div class="rating-label">RS Rating</div>
+      <div class="rating-value">97</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">Comp Rating</div>
+      <div class="rating-value">94</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">EPS Rating</div>
+      <div class="rating-value">40</div>
+    </div>
+  </div>
+
+  <!-- 핵심 지표 -->
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">현재가</div>
+      <div class="metric-val">$66.86</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">52주 고점</div>
+      <div class="metric-val">$66.86</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">PER</div>
+      <div class="metric-val">417.9x</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">ROE</div>
+      <div class="metric-val">+0.9%</div>
+    </div>
+  </div>
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">EPS 성장률</div>
+      <div class="metric-val" style="color:#f85149;">-33.3%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">매출 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+23.0%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">시가총액</div>
+      <div class="metric-val">$59.4B</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">MA50 대비</div>
+      <div class="metric-val" style="color:#3fb950;">+45.4%</div>
+    </div>
+  </div>
+
+  <!-- VCP 신호 -->
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-blue">VCP 50</span>
+    <span class="badge badge-purple">🔷 변동성 수축</span>
+        <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+  </div>
+
+  <!-- SEPA 조건 -->
+  <div class="badge-row" style="margin-top:8px;">
+    <span class="badge badge-green">✅ Price > MA150/200</span>
+        <span class="badge badge-green">✅ MA150 > MA200</span>
+        <span class="badge badge-green">✅ MA200 ↑</span>
+        <span class="badge badge-green">✅ MA50 > MA150/200</span>
+        <span class="badge badge-green">✅ Price > MA50</span>
+        <span class="badge badge-green">✅ 52wL +30%</span>
+        <span class="badge badge-green">✅ 52wH -25%</span>
+  </div>
+
+  <!-- 분석 -->
+  <div class="analysis-block">
+    <div class="analysis-section">
+      <div class="section-label">📌 기업 개요</div>
+      <p>STMicroelectronics N.V., together with its subsidiaries, designs, develops, manufactures, and sells semiconductor products in Europe, the Middle East, Africa, the Americas, and the Asia Pacific. The company operates through Analog products, MEMS and ...</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚡ 투자 근거</div>
+      <p>Semiconductors 섹터. SEPA 7/7 조건 통과. RS 97등급으로 시장 상위 3% 이내 초강세. 52주 신고가 — VCP 에너지 압축 최고조.</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">🎯 매매 전략</div>
+      <p>진입: $66.93 신고가 돌파 + 거래량 1.5배+ 확인. 손절: $62.18 (진입가 -7%). 1차 목표: $73.55 (+10%), 2차: $80.23 (+20%).</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚠️ 리스크</div>
+      <p>밸류에이션 리스크 (PER 418x — 고평가) | EPS 성장률 -33% (역성장) | Technology 섹터 경쟁 심화 및 매크로 리스크</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- CRDO -->
+<div class="stock-card">
+  <div class="card-hero-header">
+    <div>
+      <div class="hero-ticker">CRDO</div>
+      <div class="hero-name">Credo Tech Group</div>
+    </div>
+    <div class="hero-price-block">
+      <div class="hero-price">$218.41</div>
+      <div class="hero-from-high" style="color:#3fb950;">신고가</div>
+    </div>
+  </div>
+
+  <!-- 레이팅 그리드 -->
+  <div class="rating-grid">
+    <div class="rating-item">
+      <div class="rating-label">RS Rating</div>
+      <div class="rating-value">96</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">Comp Rating</div>
+      <div class="rating-value">99</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">EPS Rating</div>
+      <div class="rating-value">82</div>
+    </div>
+  </div>
+
+  <!-- 핵심 지표 -->
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">현재가</div>
+      <div class="metric-val">$218.41</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">52주 고점</div>
+      <div class="metric-val">$218.41</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">PER</div>
+      <div class="metric-val">120.7x</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">ROE</div>
+      <div class="metric-val">+27.5%</div>
+    </div>
+  </div>
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">EPS 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+412.5%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">매출 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+201.5%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">시가총액</div>
+      <div class="metric-val">$40.3B</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">MA50 대비</div>
+      <div class="metric-val" style="color:#3fb950;">+45.8%</div>
+    </div>
+  </div>
+
+  <!-- VCP 신호 -->
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-blue">VCP 50</span>
+    <span class="badge badge-purple">🔷 변동성 수축</span>
+        <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+  </div>
+
+  <!-- SEPA 조건 -->
+  <div class="badge-row" style="margin-top:8px;">
+    <span class="badge badge-green">✅ Price > MA150/200</span>
+        <span class="badge badge-green">✅ MA150 > MA200</span>
+        <span class="badge badge-green">✅ MA200 ↑</span>
+        <span class="badge badge-green">✅ MA50 > MA150/200</span>
+        <span class="badge badge-green">✅ Price > MA50</span>
+        <span class="badge badge-green">✅ 52wL +30%</span>
+        <span class="badge badge-green">✅ 52wH -25%</span>
+  </div>
+
+  <!-- 분석 -->
+  <div class="analysis-block">
+    <div class="analysis-section">
+      <div class="section-label">📌 기업 개요</div>
+      <p>Credo Technology Group Holding Ltd provides various high-speed connectivity solutions for optical and electrical Ethernet, and PCIe applications in the United States, Taiwan, Mainland China, Hong Kong, and internationally. It provides HiWire active e...</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚡ 투자 근거</div>
+      <p>Semiconductors 섹터. SEPA 7/7 조건 통과. RS 96등급으로 시장 상위 4% 이내 초강세. EPS 성장률 +412%로 실적 뒷받침. 52주 신고가 — VCP 에너지 압축 최고조.</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">🎯 매매 전략</div>
+      <p>진입: $218.63 신고가 돌파 + 거래량 1.5배+ 확인. 손절: $203.12 (진입가 -7%). 1차 목표: $240.25 (+10%), 2차: $262.09 (+20%).</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚠️ 리스크</div>
+      <p>밸류에이션 리스크 (PER 121x — 고평가) | Technology 섹터 경쟁 심화 및 매크로 리스크 | 가짜 돌파(false breakout) 위험 — 거래량 미동반 돌파 시 진입 금지</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- LSCC -->
+<div class="stock-card">
+  <div class="card-hero-header">
+    <div>
+      <div class="hero-ticker">LSCC</div>
+      <div class="hero-name">Lattice Semiconductor</div>
+    </div>
+    <div class="hero-price-block">
+      <div class="hero-price">$143.22</div>
+      <div class="hero-from-high" style="color:#3fb950;">신고가</div>
+    </div>
+  </div>
+
+  <!-- 레이팅 그리드 -->
+  <div class="rating-grid">
+    <div class="rating-item">
+      <div class="rating-label">RS Rating</div>
+      <div class="rating-value">96</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">Comp Rating</div>
+      <div class="rating-value">99</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">EPS Rating</div>
+      <div class="rating-value">83</div>
+    </div>
+  </div>
+
+  <!-- 핵심 지표 -->
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">현재가</div>
+      <div class="metric-val">$143.22</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">52주 고점</div>
+      <div class="metric-val">$143.22</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">PER</div>
+      <div class="metric-val">1023.0x</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">ROE</div>
+      <div class="metric-val">+2.7%</div>
+    </div>
+  </div>
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">EPS 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+337.2%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">매출 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+42.2%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">시가총액</div>
+      <div class="metric-val">$19.6B</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">MA50 대비</div>
+      <div class="metric-val" style="color:#3fb950;">+28.8%</div>
+    </div>
+  </div>
+
+  <!-- VCP 신호 -->
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-blue">VCP 50</span>
+    <span class="badge badge-purple">🔷 변동성 수축</span>
+        <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+  </div>
+
+  <!-- SEPA 조건 -->
+  <div class="badge-row" style="margin-top:8px;">
+    <span class="badge badge-green">✅ Price > MA150/200</span>
+        <span class="badge badge-green">✅ MA150 > MA200</span>
+        <span class="badge badge-green">✅ MA200 ↑</span>
+        <span class="badge badge-green">✅ MA50 > MA150/200</span>
+        <span class="badge badge-green">✅ Price > MA50</span>
+        <span class="badge badge-green">✅ 52wL +30%</span>
+        <span class="badge badge-green">✅ 52wH -25%</span>
+  </div>
+
+  <!-- 분석 -->
+  <div class="analysis-block">
+    <div class="analysis-section">
+      <div class="section-label">📌 기업 개요</div>
+      <p>Lattice Semiconductor Corporation, together with its subsidiaries, develops and sells semiconductor, silicon-based and silicon-enabling, evaluation boards, and development hardware products in Asia, Europe, and the Americas. It offers field programma...</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚡ 투자 근거</div>
+      <p>Semiconductors 섹터. SEPA 7/7 조건 통과. RS 96등급으로 시장 상위 4% 이내 초강세. EPS 성장률 +337%로 실적 뒷받침. 52주 신고가 — VCP 에너지 압축 최고조.</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">🎯 매매 전략</div>
+      <p>진입: $143.36 신고가 돌파 + 거래량 1.5배+ 확인. 손절: $133.19 (진입가 -7%). 1차 목표: $157.54 (+10%), 2차: $171.86 (+20%).</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚠️ 리스크</div>
+      <p>밸류에이션 리스크 (PER 1023x — 고평가) | Technology 섹터 경쟁 심화 및 매크로 리스크 | 거래량 비율 1.4x — 매도 압력 주의</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- NXPI -->
+<div class="stock-card">
+  <div class="card-hero-header">
+    <div>
+      <div class="hero-ticker">NXPI</div>
+      <div class="hero-name">NXP Semiconductors</div>
+    </div>
+    <div class="hero-price-block">
+      <div class="hero-price">$316.47</div>
+      <div class="hero-from-high" style="color:#3fb950;">신고가</div>
+    </div>
+  </div>
+
+  <!-- 레이팅 그리드 -->
+  <div class="rating-grid">
+    <div class="rating-item">
+      <div class="rating-label">RS Rating</div>
+      <div class="rating-value">90</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">Comp Rating</div>
+      <div class="rating-value">96</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">EPS Rating</div>
+      <div class="rating-value">85</div>
+    </div>
+  </div>
+
+  <!-- 핵심 지표 -->
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">현재가</div>
+      <div class="metric-val">$316.47</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">52주 고점</div>
+      <div class="metric-val">$316.47</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">PER</div>
+      <div class="metric-val">30.3x</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">ROE</div>
+      <div class="metric-val">+25.8%</div>
+    </div>
+  </div>
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">EPS 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+130.7%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">매출 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+12.2%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">시가총액</div>
+      <div class="metric-val">$79.9B</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">MA50 대비</div>
+      <div class="metric-val" style="color:#3fb950;">+32.6%</div>
+    </div>
+  </div>
+
+  <!-- VCP 신호 -->
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-blue">VCP 50</span>
+    <span class="badge badge-purple">🔷 변동성 수축</span>
+        <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+  </div>
+
+  <!-- SEPA 조건 -->
+  <div class="badge-row" style="margin-top:8px;">
+    <span class="badge badge-green">✅ Price > MA150/200</span>
+        <span class="badge badge-green">✅ MA150 > MA200</span>
+        <span class="badge badge-green">✅ MA200 ↑</span>
+        <span class="badge badge-green">✅ MA50 > MA150/200</span>
+        <span class="badge badge-green">✅ Price > MA50</span>
+        <span class="badge badge-green">✅ 52wL +30%</span>
+        <span class="badge badge-green">✅ 52wH -25%</span>
+  </div>
+
+  <!-- 분석 -->
+  <div class="analysis-block">
+    <div class="analysis-section">
+      <div class="section-label">📌 기업 개요</div>
+      <p>NXP Semiconductors N.V. provides semiconductor products in the United States, Germany, Japan, South Korea, Taiwan, Singapore, the Netherlands, Mainland China, Hong Kong, and internationally.</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚡ 투자 근거</div>
+      <p>Semiconductors 섹터. SEPA 7/7 조건 통과. RS 90등급으로 시장 상위 10% 이내 초강세. EPS 성장률 +131%로 실적 뒷받침. 52주 신고가 — VCP 에너지 압축 최고조.</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">🎯 매매 전략</div>
+      <p>진입: $316.79 신고가 돌파 + 거래량 1.5배+ 확인. 손절: $294.32 (진입가 -7%). 1차 목표: $348.12 (+10%), 2차: $379.76 (+20%).</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚠️ 리스크</div>
+      <p>Technology 섹터 경쟁 심화 및 매크로 리스크 | 가짜 돌파(false breakout) 위험 — 거래량 미동반 돌파 시 진입 금지</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- PL -->
+<div class="stock-card">
+  <div class="card-hero-header">
+    <div>
+      <div class="hero-ticker">PL</div>
+      <div class="hero-name">Planet Labs PBC</div>
+    </div>
+    <div class="hero-price-block">
+      <div class="hero-price">$44.35</div>
+      <div class="hero-from-high" style="color:#3fb950;">신고가</div>
+    </div>
+  </div>
+
+  <!-- 레이팅 그리드 -->
+  <div class="rating-grid">
+    <div class="rating-item">
+      <div class="rating-label">RS Rating</div>
+      <div class="rating-value">99</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">Comp Rating</div>
+      <div class="rating-value">89</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">EPS Rating</div>
+      <div class="rating-value">48</div>
+    </div>
+  </div>
+
+  <!-- 핵심 지표 -->
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">현재가</div>
+      <div class="metric-val">$44.35</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">52주 고점</div>
+      <div class="metric-val">$44.35</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">PER</div>
+      <div class="metric-val">N/A</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">ROE</div>
+      <div class="metric-val">-78.4%</div>
+    </div>
+  </div>
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">EPS 성장률</div>
+      <div class="metric-val" style="color:#f85149;">—</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">매출 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+41.1%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">시가총액</div>
+      <div class="metric-val">$15.8B</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">MA50 대비</div>
+      <div class="metric-val" style="color:#3fb950;">+24.4%</div>
+    </div>
+  </div>
+
+  <!-- VCP 신호 -->
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-purple">VCP 45</span>
+    <span class="badge badge-purple">🔷 거래량 감소</span>
+        <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+  </div>
+
+  <!-- SEPA 조건 -->
+  <div class="badge-row" style="margin-top:8px;">
+    <span class="badge badge-green">✅ Price > MA150/200</span>
+        <span class="badge badge-green">✅ MA150 > MA200</span>
+        <span class="badge badge-green">✅ MA200 ↑</span>
+        <span class="badge badge-green">✅ MA50 > MA150/200</span>
+        <span class="badge badge-green">✅ Price > MA50</span>
+        <span class="badge badge-green">✅ 52wL +30%</span>
+        <span class="badge badge-green">✅ 52wH -25%</span>
+  </div>
+
+  <!-- 분석 -->
+  <div class="analysis-block">
+    <div class="analysis-section">
+      <div class="section-label">📌 기업 개요</div>
+      <p>Planet Labs PBC engages in the design, construction, and launch of constellations of satellites with the intent of providing high-cadence geospatial data delivered to customers through an online platform in the United States and internationally. The ...</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚡ 투자 근거</div>
+      <p>Aerospace & Defense 섹터. SEPA 7/7 조건 통과. RS 99등급으로 시장 상위 1% 이내 초강세. 52주 신고가 — VCP 에너지 압축 최고조.</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">🎯 매매 전략</div>
+      <p>진입: $44.39 신고가 돌파 + 거래량 1.5배+ 확인. 손절: $41.25 (진입가 -7%). 1차 목표: $48.79 (+10%), 2차: $53.22 (+20%).</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚠️ 리스크</div>
+      <p>Industrials 섹터 경쟁 심화 및 매크로 리스크 | 가짜 돌파(false breakout) 위험 — 거래량 미동반 돌파 시 진입 금지</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- DELL -->
+<div class="stock-card">
+  <div class="card-hero-header">
+    <div>
+      <div class="hero-ticker">DELL</div>
+      <div class="hero-name">Dell Technologies Cl C</div>
+    </div>
+    <div class="hero-price-block">
+      <div class="hero-price">$295.19</div>
+      <div class="hero-from-high" style="color:#3fb950;">신고가</div>
+    </div>
+  </div>
+
+  <!-- 레이팅 그리드 -->
+  <div class="rating-grid">
+    <div class="rating-item">
+      <div class="rating-label">RS Rating</div>
+      <div class="rating-value">95</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">Comp Rating</div>
+      <div class="rating-value">87</div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-label">EPS Rating</div>
+      <div class="rating-value">93</div>
+    </div>
+  </div>
+
+  <!-- 핵심 지표 -->
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">현재가</div>
+      <div class="metric-val">$295.19</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">52주 고점</div>
+      <div class="metric-val">$295.19</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">PER</div>
+      <div class="metric-val">34.0x</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">ROE</div>
+      <div class="metric-val">—</div>
+    </div>
+  </div>
+  <div class="metrics-row">
+    <div class="metric-item">
+      <div class="metric-label">EPS 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+57.3%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">매출 성장률</div>
+      <div class="metric-val" style="color:#3fb950;">+39.5%</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">시가총액</div>
+      <div class="metric-val">$191.7B</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-label">MA50 대비</div>
+      <div class="metric-val" style="color:#3fb950;">+47.0%</div>
+    </div>
+  </div>
+
+  <!-- VCP 신호 -->
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-purple">VCP 45</span>
+    <span class="badge badge-purple">🔷 거래량 감소</span>
+        <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+  </div>
+
+  <!-- SEPA 조건 -->
+  <div class="badge-row" style="margin-top:8px;">
+    <span class="badge badge-green">✅ Price > MA150/200</span>
+        <span class="badge badge-green">✅ MA150 > MA200</span>
+        <span class="badge badge-green">✅ MA200 ↑</span>
+        <span class="badge badge-green">✅ MA50 > MA150/200</span>
+        <span class="badge badge-green">✅ Price > MA50</span>
+        <span class="badge badge-green">✅ 52wL +30%</span>
+        <span class="badge badge-green">✅ 52wH -25%</span>
+  </div>
+
+  <!-- 분석 -->
+  <div class="analysis-block">
+    <div class="analysis-section">
+      <div class="section-label">📌 기업 개요</div>
+      <p>Dell Technologies Inc. designs, develops, manufactures, markets, sells, and supports various comprehensive and integrated solutions, products, and services in the Americas, Europe, the Middle East, Asia, and internationally.</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚡ 투자 근거</div>
+      <p>Computer Hardware 섹터. SEPA 7/7 조건 통과. RS 95등급으로 시장 상위 5% 이내 초강세. EPS 성장률 +57%로 실적 뒷받침. 52주 신고가 — VCP 에너지 압축 최고조.</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">🎯 매매 전략</div>
+      <p>진입: $295.49 신고가 돌파 + 거래량 1.5배+ 확인. 손절: $274.53 (진입가 -7%). 1차 목표: $324.71 (+10%), 2차: $354.23 (+20%).</p>
+    </div>
+    <div class="analysis-section">
+      <div class="section-label">⚠️ 리스크</div>
+      <p>Technology 섹터 경쟁 심화 및 매크로 리스크 | 가짜 돌파(false breakout) 위험 — 거래량 미동반 돌파 시 진입 금지</p>
+    </div>
+  </div>
+</div>
+
+
+<hr class="divider">
+
+<div class="section-label">🤖 AI 관련 추가 관심 종목 (3 + 중복 제외)</div>
+<p style="font-size:13px;color:#8b949e;margin-bottom:10px;">AI 인프라 테마 — SEPA 통과 + AI 핵심 수혜주 (VCP 미충족 포함)</p>
+<p style="font-size:12px;color:#6e7681;margin-bottom:12px;">📌 AI 중복: <strong>MRVL, LSCC, NXPI</strong></p>
+
+<!-- AI: TSEM -->
+<div class="watchlist-stock">
+  <div class="watchlist-header">
+    <div>
+      <div class="watchlist-ticker">TSEM</div>
+      <div style="font-size:12px;color:#8b949e;">Tower Semiconductor</div>
+    </div>
+    <div>
+      <div style="font-size:18px;font-weight:700;">$283.43</div>
+      <div style="font-size:11px;color:#3fb950;">신고가</div>
+    </div>
+  </div>
+  <div class="mini-ratings">
+    <div class="mini-rating"><span>RS </span>99</div>
+    <div class="mini-rating"><span>VCP </span>20</div>
+    <div class="mini-rating"><span>SEPA </span>7/7</div>
+    <div class="mini-rating"><span>PER </span>131.8x</div>
+  </div>
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+  </div>
+  <p style="margin-top:12px;">Tower Semiconductor Ltd., an independent semiconductor foundry, provides technology, development, and process platforms for integrated circuits in the United States, Japan, rest of Asia, and Europe. The company provides customizable process technolog...</p>
+  <div class="highlight-box">
+    <strong>AI 인프라 테마:</strong> 데이터센터·반도체·AI 가속기 공급망의 핵심. 진입: $283.43 돌파 + 거래량 확인.
+  </div>
+</div>
+
+
+<!-- AI: ARM -->
+<div class="watchlist-stock">
+  <div class="watchlist-header">
+    <div>
+      <div class="watchlist-ticker">ARM</div>
+      <div style="font-size:12px;color:#8b949e;">Arm Holdings ADR</div>
+    </div>
+    <div>
+      <div style="font-size:18px;font-weight:700;">$306.51</div>
+      <div style="font-size:11px;color:#3fb950;">신고가</div>
+    </div>
+  </div>
+  <div class="mini-ratings">
+    <div class="mini-rating"><span>RS </span>95</div>
+    <div class="mini-rating"><span>VCP </span>20</div>
+    <div class="mini-rating"><span>SEPA </span>7/7</div>
+    <div class="mini-rating"><span>PER </span>356.4x</div>
+  </div>
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+  </div>
+  <p style="margin-top:12px;">Arm Holdings plc architects, develops, and licenses central processing unit products and related technologies for semiconductor companies and original equipment manufacturers. The company is involved in the licensing, marketing, research, and develop...</p>
+  <div class="highlight-box">
+    <strong>AI 인프라 테마:</strong> 데이터센터·반도체·AI 가속기 공급망의 핵심. 진입: $306.51 돌파 + 거래량 확인.
+  </div>
+</div>
+
+
+<!-- AI: ALAB -->
+<div class="watchlist-stock">
+  <div class="watchlist-header">
+    <div>
+      <div class="watchlist-ticker">ALAB</div>
+      <div style="font-size:12px;color:#8b949e;">Astera Labs</div>
+    </div>
+    <div>
+      <div style="font-size:18px;font-weight:700;">$306.88</div>
+      <div style="font-size:11px;color:#3fb950;">신고가</div>
+    </div>
+  </div>
+  <div class="mini-ratings">
+    <div class="mini-rating"><span>RS </span>94</div>
+    <div class="mini-rating"><span>VCP </span>20</div>
+    <div class="mini-rating"><span>SEPA </span>6/7</div>
+    <div class="mini-rating"><span>PER </span>208.8x</div>
+  </div>
+  <div class="badge-row">
+    <span class="badge badge-green">✅ SEPA 통과</span>
+    <span class="badge badge-purple">🔷 신고가 근접 (0.0%)</span>
+  </div>
+  <p style="margin-top:12px;">Astera Labs, Inc. designs, manufactures, and sells semiconductor-based connectivity solutions for cloud and AI infrastructure.</p>
+  <div class="highlight-box">
+    <strong>AI 인프라 테마:</strong> 데이터센터·반도체·AI 가속기 공급망의 핵심. 진입: $306.88 돌파 + 거래량 확인.
+  </div>
+</div>
+
+
+<div class="footer">
+  <strong>⚠️ 투자 주의사항</strong><br>
+  본 리포트는 정보 제공 목적이며 투자 권유가 아닙니다.<br>
+  모든 투자 결정은 본인의 판단과 책임 하에 이루어져야 합니다.<br>
+  과거 성과가 미래 수익을 보장하지 않습니다.<br><br>
+  <strong>IBD RS 신고가 리스트 기준 · 2026-05-23 · MacTrader</strong>
+</div>
+
 </body>
 </html>
