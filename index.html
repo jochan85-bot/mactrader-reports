@@ -5,44 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MacTrader 리포트</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;padding:16px;max-width:640px;margin:0 auto}
-h1{color:#58a6ff;font-size:22px;margin:20px 0 4px}
-.tagline{color:#8b949e;font-size:13px;margin-bottom:24px}
-.section{margin-bottom:24px}
-.section-title{color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #21262d}
-.card{display:block;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:14px 16px;border-radius:8px;text-decoration:none;margin:6px 0;font-size:15px}
-.card:active{border-color:#58a6ff}
-.icon{margin-right:10px;font-size:18px}
-.desc{display:block;font-size:12px;color:#8b949e;margin-top:3px}
-.date-group{margin-bottom:20px}
-.date-label{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.badge{background:#1f6feb;color:#fff;font-size:10px;padding:2px 8px;border-radius:10px}
-.empty{color:#8b949e;font-size:13px;padding:8px 0}
-</style>
-</head>
-<body>
-<h1>📈 MacTrader</h1>
-<p class="tagline">IBD RS 기반 일일 투자 분석 · Minervini SEPA + VCP</p>
-
-<div class="section">
-  <div class="section-title">📅 최신 리포트</div>
-  <div id="latest"></div>
-</div>
-
-<div class="section">
-  <div class="section-title">🗂️ 히스토리</div>
-  <div id="history"></div>
-</div>
-
-<script>
-// ✏️ 매일 자동으로 항목 추가됨
-const REPORTS = [
-    {
-      date: "2026-05-23",
-      kr: "kr_sepa_vcp_20260523.html",
-      label: "5/23 (토) — 5/22 금요일 데이터"
-    },
+*
   {
     date: "2026-05-22",
     label: "2026년 5월 22일 (목)",
