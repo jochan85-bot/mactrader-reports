@@ -13,12 +13,13 @@ h1{color:#58a6ff;font-size:22px;margin:20px 0 4px}
 .section-title{color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #21262d}
 .card{display:block;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:14px 16px;border-radius:8px;text-decoration:none;margin:6px 0;font-size:15px}
 .card:active{border-color:#58a6ff}
+.card-history{font-size:16px;font-weight:600;padding:18px 20px}
 .icon{margin-right:10px;font-size:18px}
 .desc{display:block;font-size:12px;color:#8b949e;margin-top:3px}
 .date-group{margin-bottom:20px}
 .date-label{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .badge{background:#1f6feb;color:#fff;font-size:10px;padding:2px 8px;border-radius:10px}
-.empty{color:#8b949e;font-size:13px;padding:8px 0}
+.arrow{float:right;color:#58a6ff;font-size:18px;line-height:1.2}
 </style>
 </head>
 <body>
@@ -32,57 +33,33 @@ h1{color:#58a6ff;font-size:22px;margin:20px 0 4px}
 
 <div class="section">
   <div class="section-title">🗂️ 히스토리</div>
-  <div id="history"></div>
+  <a class="card card-history" href="history/index.html">
+    <span class="icon">📁</span>히스토리
+    <span class="arrow">›</span>
+    <span class="desc">년도 / 월별 리포트 모음</span>
+  </a>
 </div>
 
 <script>
-const REPORTS = [
-    {
-      date: "2026-05-25",
-      label: "2026년 5월 25일 (월) — 금요일 종가 기준",
-      files: [
-        { icon: "🎯", title: "미장 SEPA+VCP", desc: "TXN·TTMI·MRVL·NOK 등 10개", url: "sepa_vcp_20260525.html" },
-        { icon: "🤖", title: "미장 AI·반도체", desc: "Tech 섹터 VCP 집중분석", url: "ai_sector_20260525.html" },
-        { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "미래에셋벤처·비츠로셀·빛과전자 등", url: "kr_sepa_vcp_20260525.html" }
-      ]
-    },
-  {
-    date: "2026-05-23",
-    label: "2026년 5월 23일 (토) — 5/22 금요일 데이터",
-    files: [
-      { icon: "🎯", title: "미장 SEPA+VCP", desc: "CIEN 집중 분석 · MRVL·LSCC Watch", url: "sepa_vcp_20260523.html" },
-      { icon: "🤖", title: "미장 AI 반도체", desc: "LRCX·MRVL·ARM·ALAB 외 9개 종목", url: "ai_sector_20260523.html" },
-      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "VCP 핵심 5종목 · 강화 필터 적용", url: "kr_sepa_vcp_20260523.html" }
-    ]
-  },
-  {
-    date: "2026-05-22",
-    label: "2026년 5월 22일 (목)",
-    files: [
-      { icon: "🎯", title: "미장 SEPA+VCP", desc: "CIEN 집중 분석 · MRVL·LSCC Watch", url: "sepa_vcp_20260522.html" },
-      { icon: "🤖", title: "미장 AI 반도체", desc: "LRCX·MRVL·ARM·ALAB 외 9개 종목", url: "ai_sector_20260522.html" },
-      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "VCP 상위 종목 · 코스피/코스닥", url: "kr_sepa_vcp_20260522.html" }
-    ]
-  }
-];
+const LATEST = {
+  date: "2026-05-25",
+  label: "2026년 5월 25일 (월) — 금요일 종가 기준",
+  files: [
+    { icon: "🎯", title: "미장 SEPA+VCP", desc: "TXN·TTMI·MRVL·NOK 등 10개", url: "history/2026/05/sepa_vcp_20260525.html" },
+    { icon: "🤖", title: "미장 AI·반도체", desc: "Tech 섹터 VCP 집중분석", url: "history/2026/05/ai_sector_20260525.html" },
+    { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "미래에셋벤처·비츠로셀·빛과전자 등", url: "history/2026/05/kr_sepa_vcp_20260525.html" }
+  ]
+};
 
-const sorted = [...REPORTS].sort((a,b) => b.date.localeCompare(a.date));
-
-function renderGroup(r, isLatest) {
-  return `<div class="date-group">
-    <div class="date-label">${r.label}${isLatest ? ' <span class="badge">최신</span>' : ''}</div>
-    ${r.files.map(f => `
+document.getElementById('latest').innerHTML = `
+  <div class="date-group">
+    <div class="date-label">${LATEST.label} <span class="badge">최신</span></div>
+    ${LATEST.files.map(f=>`
       <a class="card" href="${f.url}">
         <span class="icon">${f.icon}</span>${f.title}
         <span class="desc">${f.desc}</span>
       </a>`).join('')}
   </div>`;
-}
-
-document.getElementById('latest').innerHTML = renderGroup(sorted[0], true);
-document.getElementById('history').innerHTML = sorted.length > 1
-  ? sorted.slice(1).map(r => renderGroup(r, false)).join('')
-  : '<p class="empty">내일부터 히스토리가 쌓여요 📚</p>';
 </script>
 </body>
 </html>

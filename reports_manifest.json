@@ -1,11 +1,29 @@
 [
   {
+    "date": "2026-05-25",
+    "label": "2026년 5월 25일 (월) — 금요일 종가 기준",
+    "files": [
+      { "icon": "🎯", "title": "미장 SEPA+VCP", "desc": "TXN·TTMI·MRVL·NOK 등 10개", "url": "history/2026/05/sepa_vcp_20260525.html" },
+      { "icon": "🤖", "title": "미장 AI·반도체", "desc": "Tech 섹터 VCP 집중분석", "url": "history/2026/05/ai_sector_20260525.html" },
+      { "icon": "🇰🇷", "title": "국장 SEPA+VCP", "desc": "미래에셋벤처·비츠로셀·빛과전자 등", "url": "history/2026/05/kr_sepa_vcp_20260525.html" }
+    ]
+  },
+  {
+    "date": "2026-05-23",
+    "label": "2026년 5월 23일 (금) — 5/22 데이터",
+    "files": [
+      { "icon": "🎯", "title": "미장 SEPA+VCP", "desc": "CIEN 집중 분석 · MRVL·LSCC Watch", "url": "history/2026/05/sepa_vcp_20260523.html" },
+      { "icon": "🤖", "title": "미장 AI·반도체", "desc": "LRCX·MRVL·ARM·ALAB 외 9개 종목", "url": "history/2026/05/ai_sector_20260523.html" },
+      { "icon": "🇰🇷", "title": "국장 SEPA+VCP", "desc": "VCP 핵심 5종목 · 강화 필터 적용", "url": "history/2026/05/kr_sepa_vcp_20260523.html" }
+    ]
+  },
+  {
     "date": "2026-05-22",
     "label": "2026년 5월 22일 (목)",
     "files": [
-      { "icon": "🎯", "title": "미장 SEPA+VCP", "desc": "CIEN 집중 분석 · MRVL·LSCC Watch", "url": "sepa_vcp_20260522.html" },
-      { "icon": "🤖", "title": "미장 AI 반도체", "desc": "LRCX·MRVL·ARM·ALAB 외 9개 종목", "url": "ai_sector_20260522.html" },
-      { "icon": "🇰🇷", "title": "국장 SEPA+VCP", "desc": "VCP 상위 종목 분석 · 코스피/코스닥", "url": "kr_sepa_vcp_20260522.html" }
+      { "icon": "🎯", "title": "미장 SEPA+VCP", "desc": "CIEN 집중 분석 · MRVL·LSCC Watch", "url": "history/2026/05/sepa_vcp_20260522.html" },
+      { "icon": "🤖", "title": "미장 AI·반도체", "desc": "LRCX·MRVL·ARM·ALAB 외 9개 종목", "url": "history/2026/05/ai_sector_20260522.html" },
+      { "icon": "🇰🇷", "title": "국장 SEPA+VCP", "desc": "VCP 상위 종목 · 코스피/코스닥", "url": "history/2026/05/kr_sepa_vcp_20260522.html" }
     ]
   }
 ]
