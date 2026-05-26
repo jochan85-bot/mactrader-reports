@@ -1,0 +1,548 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>미장 AI/반도체 섹터 분석 | 2026년 5월 27일 (수) — 5/26 종가 기준</title>
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#21262d;--border:#30363d;
+--text:#e6edf3;--muted:#8b949e;--accent:#58a6ff;--green:#3fb950;--red:#f85149;
+--yellow:#d29922;--purple:#bc8cff;--gold:#ffa657;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:16px;line-height:1.6;padding:16px;}
+.header{text-align:center;padding:32px 16px 24px;border-bottom:1px solid var(--border);}
+.header h1{font-size:2rem;background:linear-gradient(135deg,#bc8cff,#58a6ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;}
+.header .meta{color:var(--muted);font-size:0.9rem;}
+.summary-bar{display:flex;gap:16px;flex-wrap:wrap;padding:20px 0;border-bottom:1px solid var(--border);margin-bottom:24px;}
+.stat-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 20px;flex:1;min-width:120px;text-align:center;}
+.stat-box .num{font-size:1.8rem;font-weight:700;color:var(--purple);}
+.stat-box .label{color:var(--muted);font-size:0.85rem;}
+.section-title{font-size:1.3rem;font-weight:700;margin:28px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--purple);display:flex;align-items:center;gap:8px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;transition:border-color .2s;}
+.card:hover{border-color:var(--purple);}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;flex-wrap:wrap;gap:8px;}
+.ticker{font-size:1.4rem;font-weight:800;color:var(--purple);}
+.company{color:var(--muted);font-size:0.85rem;}
+.badges{display:flex;gap:6px;flex-wrap:wrap;}
+.badge{padding:3px 10px;border-radius:20px;font-size:0.78rem;font-weight:600;}
+.badge-rs{background:rgba(63,185,80,.15);color:var(--green);border:1px solid rgba(63,185,80,.3);}
+.badge-vcp{background:rgba(88,166,255,.15);color:var(--accent);border:1px solid rgba(88,166,255,.3);}
+.badge-ai{background:rgba(188,140,255,.15);color:var(--purple);border:1px solid rgba(188,140,255,.3);}
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin:12px 0;}
+.metric{background:var(--surface2);border-radius:8px;padding:10px 12px;}
+.metric .val{font-size:1.05rem;font-weight:700;color:var(--text);}
+.metric .key{font-size:0.78rem;color:var(--muted);margin-top:2px;}
+.up{color:var(--green)!important;} .down{color:var(--red)!important;} .neutral{color:var(--yellow)!important;}
+.signals{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;}
+.signal-tag{background:rgba(188,140,255,.12);color:var(--purple);border:1px solid rgba(188,140,255,.25);border-radius:6px;padding:4px 10px;font-size:0.82rem;}
+.desc{color:var(--muted);font-size:0.9rem;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
+.strategy{background:var(--surface2);border-radius:8px;padding:12px;margin-top:10px;}
+.strategy h4{font-size:0.85rem;color:var(--purple);margin-bottom:6px;}
+.strategy p{font-size:0.88rem;color:var(--muted);}
+.footer{text-align:center;padding:32px;color:var(--muted);font-size:0.85rem;border-top:1px solid var(--border);margin-top:32px;}
+</style></head><body>
+<div class="header">
+  <h1>🤖 미장 AI · 반도체 섹터</h1>
+  <div class="meta">2026년 5월 27일 (수) — 5/26 종가 기준</div>
+</div>
+<div class="summary-bar">
+  <div class="stat-box"><div class="num">25</div><div class="label">AI/반도체 SEPA 통과</div></div>
+  <div class="stat-box"><div class="num" style="color:var(--green)">6</div><div class="label">AI 핵심주</div></div>
+  <div class="stat-box"><div class="num" style="color:var(--gold)">99</div><div class="label">최고 RS</div></div>
+</div>
+<div class="section-title">🔬 AI · 반도체 SEPA+VCP 후보 (상위 15)</div>
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">CIEN <span style="font-size:.9rem;color:var(--muted)">· Ciena</span></div>
+      <div class="company">Communication Equipment</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 99</span><span class="badge badge-vcp">VCP 75</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$602.39</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$489.38</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$275.05</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val up">+232.3%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+33.1%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">68.7x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">8.2%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">변동성 수축</span><span class="signal-tag">거래량 감소</span><span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">미국 회사. 통신 장비 분야. 시가총액 $85.2B 직원 8,898명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 99로 최상위 강도. 52주 신고가 근접 또는 돌파. EPS 성장률 232%. VCP 수축 패턴 강함</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $602.39 돌파 + 거래량 1.4배 확인 | 손절: $578.29 (-4%) | 1차 목표: $722.87 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">SNDK <span style="font-size:.9rem;color:var(--muted)">· Sandisk</span></div>
+      <div class="company">Computer Hardware</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 99</span><span class="badge badge-vcp">VCP 50</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$1,589.55</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$1,023.62</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$464.28</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val ">—</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+251.0%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">9.1x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">39.3%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">변동성 수축</span><span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">미국 회사. 컴퓨터 하드웨어 분야. 시가총액 $235.4B 직원 11,000명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 99로 최상위 강도. 52주 신고가 근접 또는 돌파. VCP 수축 진행 중</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $1,589.55 돌파 + 거래량 1.4배 확인 | 손절: $1,525.97 (-4%) | 1차 목표: $1,907.46 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">TTMI <span style="font-size:.9rem;color:var(--muted)">· TTM Technologies</span></div>
+      <div class="company">Electronic Components</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 99</span><span class="badge badge-vcp">VCP 50</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$196.95</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$131.49</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$85.76</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val up">+51.6%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+30.4%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">37.9x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">11.4%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">변동성 수축</span><span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">미국 회사. 전자 부품 분야. 시가총액 $20.5B 직원 18,200명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 99로 최상위 강도. 52주 신고가 근접 또는 돌파. EPS 성장률 52%. VCP 수축 진행 중</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $196.95 돌파 + 거래량 1.4배 확인 | 손절: $189.07 (-4%) | 1차 목표: $236.34 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">VICR <span style="font-size:.9rem;color:var(--muted)">· Vicor</span></div>
+      <div class="company">Electronic Components</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 99</span><span class="badge badge-vcp">VCP 50</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$332.95</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$225.10</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$132.79</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val up">+701.4%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+20.2%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">62.0x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">20.5%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">변동성 수축</span><span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">미국 회사. 전자 부품 분야. 시가총액 $15.2B 직원 1,092명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 99로 최상위 강도. 52주 신고가 근접 또는 돌파. EPS 성장률 701%. VCP 수축 진행 중</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $332.95 돌파 + 거래량 1.4배 확인 | 손절: $319.63 (-4%) | 1차 목표: $399.54 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">WDC <span style="font-size:.9rem;color:var(--muted)">· Western Digital</span></div>
+      <div class="company">Computer Hardware</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 99</span><span class="badge badge-vcp">VCP 50</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$524.65</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$384.42</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$223.57</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val up">+482.9%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+45.5%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">30.1x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">85.9%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">변동성 수축</span><span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">미국 회사. 컴퓨터 하드웨어 분야. 시가총액 $180.8B 직원 40,000명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 99로 최상위 강도. 52주 신고가 근접 또는 돌파. EPS 성장률 483%. VCP 수축 진행 중</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $524.65 돌파 + 거래량 1.4배 확인 | 손절: $503.66 (-4%) | 1차 목표: $629.58 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">MU <span style="font-size:.9rem;color:var(--muted)">· Micron Technology</span></div>
+      <div class="company">Semiconductors</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 99</span><span class="badge badge-vcp">VCP 20</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$895.88</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$528.37</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$326.33</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val up">+756.0%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+196.3%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">8.6x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">39.8%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">미국 회사. 반도체 설계 및 제조 분야. 시가총액 $1.0조 직원 53,000명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 99로 최상위 강도. 52주 신고가 근접 또는 돌파. EPS 성장률 756%</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $895.88 돌파 + 거래량 1.4배 확인 | 손절: $860.04 (-4%) | 1차 목표: $1,075.06 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">TSEM <span style="font-size:.9rem;color:var(--muted)">· Tower Semiconductor</span></div>
+      <div class="company">Semiconductors</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 99</span><span class="badge badge-vcp">VCP 20</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$288.53</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$209.61</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$125.54</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val up">+62.9%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+15.5%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">50.3x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">8.7%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">이스라엘 회사. 반도체 설계 및 제조 분야. 시가총액 $34.3B</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 99로 최상위 강도. 52주 신고가 근접 또는 돌파. EPS 성장률 63%</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $288.53 돌파 + 거래량 1.4배 확인 | 손절: $276.99 (-4%) | 1차 목표: $346.24 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">ASX <span style="font-size:.9rem;color:var(--muted)">· ASE Technology ADR</span></div>
+      <div class="company">Semiconductors</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 98</span><span class="badge badge-vcp">VCP 50</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$38.95</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$28.13</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$18.66</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val up">+87.6%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+17.2%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">24.6x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">13.6%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">변동성 수축</span><span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">대만 회사. 반도체 설계 및 제조 분야. 시가총액 $85.5B 직원 107,950명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 98로 최상위 강도. 52주 신고가 근접 또는 돌파. EPS 성장률 88%. VCP 수축 진행 중</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $38.95 돌파 + 거래량 1.4배 확인 | 손절: $37.39 (-4%) | 1차 목표: $46.74 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">NOK <span style="font-size:.9rem;color:var(--muted)">· Nokia ADR</span></div>
+      <div class="company">Communication Equipment</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 98</span><span class="badge badge-vcp">VCP 50</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$16.46</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$10.96</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$7.29</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val ">—</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+2.4%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">33.8x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">3.7%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">변동성 수축</span><span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">핀란드 회사. 통신 장비 분야. 시가총액 $91.9B 직원 78,005명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 98로 최상위 강도. 52주 신고가 근접 또는 돌파. VCP 수축 진행 중</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $16.46 돌파 + 거래량 1.4배 확인 | 손절: $15.80 (-4%) | 1차 목표: $19.75 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">SIMO <span style="font-size:.9rem;color:var(--muted)">· Silicon Motion Tech ADR</span></div>
+      <div class="company">Semiconductors</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 98</span><span class="badge badge-vcp">VCP 50</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$290.32</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$174.20</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$117.67</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val up">+238.7%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+105.5%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">30.0x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">20.3%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">변동성 수축</span><span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">Hong Kong 회사. 반도체 설계 및 제조 분야. 시가총액 $9.8B 직원 2,009명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 98로 최상위 강도. 52주 신고가 근접 또는 돌파. EPS 성장률 239%. VCP 수축 진행 중</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $290.32 돌파 + 거래량 1.4배 확인 | 손절: $278.71 (-4%) | 1차 목표: $348.38 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">MRVL <span style="font-size:.9rem;color:var(--muted)">· Marvell Technology</span></div>
+      <div class="company">Semiconductors</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 97</span><span class="badge badge-vcp">VCP 50</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$208.26</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$139.89</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$96.49</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val up">+106.3%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+22.1%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">37.6x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">19.3%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">변동성 수축</span><span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">미국 회사. 반도체 설계 및 제조 분야. 시가총액 $182.3B 직원 7,480명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 97로 최상위 강도. 52주 신고가 근접 또는 돌파. EPS 성장률 106%. VCP 수축 진행 중</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $208.26 돌파 + 거래량 1.4배 확인 | 손절: $199.93 (-4%) | 1차 목표: $249.91 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">STM <span style="font-size:.9rem;color:var(--muted)">· STMicroelectronics</span></div>
+      <div class="company">Semiconductors</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 97</span><span class="badge badge-vcp">VCP 50</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$70.69</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$46.73</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$32.33</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val down">-33.3%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+23.0%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">31.7x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">0.9%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">변동성 수축</span><span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">네덜란드 회사. 반도체 설계 및 제조 분야. 시가총액 $62.8B 직원 48,000명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 97로 최상위 강도. 52주 신고가 근접 또는 돌파. VCP 수축 진행 중</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $70.69 돌파 + 거래량 1.4배 확인 | 손절: $67.86 (-4%) | 1차 목표: $84.83 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">AMD <span style="font-size:.9rem;color:var(--muted)">· Advanced Micro Devices</span></div>
+      <div class="company">Semiconductors</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 97</span><span class="badge badge-vcp">VCP 20</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$503.89</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$309.40</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$232.53</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val up">+91.2%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+37.8%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">38.9x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">8.1%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">미국 회사. 반도체 설계 및 제조 분야. 시가총액 $821.6B 직원 31,000명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 97로 최상위 강도. 52주 신고가 근접 또는 돌파. EPS 성장률 91%</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $503.89 돌파 + 거래량 1.4배 확인 | 손절: $483.73 (-4%) | 1차 목표: $604.67 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">LRCX <span style="font-size:.9rem;color:var(--muted)">· Lam Research</span></div>
+      <div class="company">Semiconductor Equipment & Materials</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 97</span><span class="badge badge-vcp">VCP 20</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$322.68</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$258.02</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$189.38</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val up">+40.8%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+23.8%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">40.7x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">66.8%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">미국 회사. 반도체 장비 및 소리 분야. 시가총액 $403.5B 직원 20,600명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 97로 최상위 강도. 52주 신고가 근접 또는 돌파. EPS 성장률 41%</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $322.68 돌파 + 거래량 1.4배 확인 | 손절: $309.77 (-4%) | 1차 목표: $387.22 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="ticker">CRDO <span style="font-size:.9rem;color:var(--muted)">· Credo Tech Group</span></div>
+      <div class="company">Semiconductors</div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-rs">RS 96</span><span class="badge badge-vcp">VCP 50</span><span class="badge badge-ai">AI/Semi</span>
+    </div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric"><div class="val">$221.64</div><div class="key">현재가</div></div>
+    <div class="metric"><div class="val neutral">+0.0%</div><div class="key">고점대비</div></div>
+    <div class="metric"><div class="val">$151.92</div><div class="key">50일선</div></div>
+    <div class="metric"><div class="val">$143.65</div><div class="key">200일선</div></div>
+    <div class="metric"><div class="val up">+412.5%</div><div class="key">EPS성장</div></div>
+    <div class="metric"><div class="val up">+201.5%</div><div class="key">매출성장</div></div>
+    <div class="metric"><div class="val">40.2x</div><div class="key">Forward PE</div></div>
+    <div class="metric"><div class="val">27.5%</div><div class="key">ROE</div></div>
+  </div>
+  <div class="signals">
+    <span class="signal-tag">변동성 수축</span><span class="signal-tag">신고가 근접 (0.0%)</span>
+  </div>
+  <div class="desc">Cayman Islands 회사. 반도체 설계 및 제조 분야. 시가총액 $40.9B 직원 622명</div>
+  <div class="strategy">
+    <h4>📌 투자 근거</h4>
+    <p>RS 96로 최상위 강도. 52주 신고가 근접 또는 돌파. EPS 성장률 412%. VCP 수축 진행 중</p>
+    <h4 style="margin-top:8px">🎯 매매 전략</h4>
+    <p>진입: $221.64 돌파 + 거래량 1.4배 확인 | 손절: $212.77 (-4%) | 1차 목표: $265.97 (+20%)</p>
+  </div>
+</div>
+
+
+<div class="footer">MacTrader v5 · 5/26 종가 기반 · 수요일(5/27) 장 대응용<br>※ AI 반도체 섹터는 뉴스 이벤트에 민감 — 진입 전 확인 필수</div>
+</body></html>
