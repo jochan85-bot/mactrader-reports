@@ -1,0 +1,2297 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국장 SEPA + VCP 돌파 후보 | 2026-05-27</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#fafafa;
+  --surface:#ffffff;
+  --surface2:#f5f7fa;
+  --border:#e4e7ec;
+  --border-hover:#cbd5e0;
+  --text:#1a202c;
+  --text-secondary:#4a5568;
+  --muted:#718096;
+  --accent:#5b8def;
+  --accent-bg:#eef2ff;
+  --green:#10b981;
+  --green-bg:#ecfdf5;
+  --red:#ef4444;
+  --red-bg:#fef2f2;
+  --yellow:#f59e0b;
+  --yellow-bg:#fffbeb;
+  --purple:#8b5cf6;
+  --purple-bg:#f5f3ff;
+  --orange:#f97316;
+  --shadow:0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-hover:0 4px 12px rgba(0,0,0,0.08);
+}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  font-size:15px;line-height:1.6;padding:24px 16px;
+  max-width:1280px;margin:0 auto;
+}
+.header{
+  background:linear-gradient(135deg,#fff,#f8fafc);
+  border:1px solid var(--border);border-radius:16px;
+  padding:32px 28px;margin-bottom:24px;box-shadow:var(--shadow);
+}
+.header h1{
+  font-size:1.75rem;color:var(--text);margin-bottom:8px;
+  display:flex;align-items:center;gap:10px;
+}
+.header .subtitle{color:var(--muted);font-size:0.95rem;margin-bottom:20px;}
+.summary-bar{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;
+  margin-top:16px;
+}
+.stat-box{
+  background:var(--surface2);border:1px solid var(--border);border-radius:10px;
+  padding:14px 16px;text-align:center;
+}
+.stat-box .num{font-size:1.6rem;font-weight:700;color:var(--accent);line-height:1.2;}
+.stat-box .label{color:var(--muted);font-size:0.78rem;margin-top:4px;text-transform:uppercase;letter-spacing:0.5px;}
+
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:24px;margin-bottom:18px;box-shadow:var(--shadow);
+  transition:border-color .15s, box-shadow .15s, transform .15s;
+}
+.card:hover{border-color:var(--border-hover);box-shadow:var(--shadow-hover);}
+
+.card-header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:16px;margin-bottom:16px;flex-wrap:wrap;
+  padding-bottom:14px;border-bottom:1px solid var(--border);
+}
+.ticker-block{flex:1;min-width:200px;}
+.ticker{
+  font-size:1.5rem;font-weight:800;color:var(--text);
+  letter-spacing:-0.5px;display:inline-block;
+}
+.ticker .company-name{
+  font-size:1rem;color:var(--text-secondary);font-weight:500;margin-left:8px;
+}
+.sector-line{color:var(--muted);font-size:0.85rem;margin-top:4px;}
+.sector-line .country{color:var(--accent);font-weight:600;}
+
+.badges{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.badge{
+  padding:4px 10px;border-radius:14px;font-size:0.75rem;font-weight:600;
+  border:1px solid;display:inline-flex;align-items:center;gap:4px;
+}
+.badge-rs{background:var(--green-bg);color:var(--green);border-color:#a7f3d0;}
+.badge-vcp{background:var(--accent-bg);color:var(--accent);border-color:#c7d2fe;}
+.badge-ai{background:var(--purple-bg);color:var(--purple);border-color:#ddd6fe;}
+.badge-score{background:#fff7ed;color:var(--orange);border-color:#fed7aa;}
+
+.business-summary{
+  background:var(--surface2);border-radius:10px;padding:14px 18px;
+  margin-bottom:18px;color:var(--text-secondary);font-size:0.9rem;line-height:1.65;
+  border-left:3px solid var(--accent);
+}
+.business-summary .summary-label{
+  font-size:0.7rem;color:var(--accent);font-weight:700;text-transform:uppercase;
+  letter-spacing:0.8px;margin-bottom:6px;display:block;
+}
+
+.metrics-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;
+  margin:14px 0;
+}
+.metric{
+  background:var(--surface2);border-radius:8px;padding:12px 14px;
+  border:1px solid var(--border);
+}
+.metric .key{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;}
+.metric .val{font-size:1.05rem;font-weight:700;color:var(--text);}
+.metric .val.up{color:var(--green);}
+.metric .val.down{color:var(--red);}
+.metric .val.neutral{color:var(--muted);}
+
+.section-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;
+}
+@media(max-width:720px){.section-row{grid-template-columns:1fr;}}
+
+.info-box{
+  background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;
+}
+.info-box .title{
+  font-size:0.78rem;color:var(--text-secondary);font-weight:700;text-transform:uppercase;
+  letter-spacing:0.6px;margin-bottom:10px;display:flex;align-items:center;gap:6px;
+}
+.info-box .row{display:flex;justify-content:space-between;padding:6px 0;font-size:0.88rem;border-bottom:1px dashed var(--border);}
+.info-box .row:last-child{border-bottom:0;}
+.info-box .row .label{color:var(--muted);}
+.info-box .row .value{color:var(--text);font-weight:600;}
+.info-box .row .value.up{color:var(--green);}
+.info-box .row .value.down{color:var(--red);}
+
+.highlights{margin-top:16px;}
+.highlights .title{font-size:0.78rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:8px;}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{padding:5px 11px;border-radius:14px;font-size:0.8rem;font-weight:500;border:1px solid;}
+.tag-호재{background:var(--green-bg);color:var(--green);border-color:#a7f3d0;}
+.tag-악재{background:var(--red-bg);color:var(--red);border-color:#fecaca;}
+.tag-주의{background:var(--yellow-bg);color:var(--yellow);border-color:#fde68a;}
+
+.strategy{
+  background:linear-gradient(135deg,#eef2ff,#f5f3ff);
+  border:1px solid #ddd6fe;border-radius:10px;padding:14px 18px;margin-top:16px;
+}
+.strategy .title{
+  color:var(--purple);font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;
+  margin-bottom:8px;display:flex;align-items:center;gap:6px;
+}
+.strategy .strategy-row{display:flex;gap:18px;font-size:0.88rem;flex-wrap:wrap;}
+.strategy .strategy-row > div{flex:1;min-width:120px;}
+.strategy .strategy-row .label{color:var(--muted);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:3px;}
+.strategy .strategy-row .value{color:var(--text);font-weight:700;}
+.strategy .strategy-row .value.entry{color:var(--accent);}
+.strategy .strategy-row .value.stop{color:var(--red);}
+.strategy .strategy-row .value.target{color:var(--green);}
+
+.fin-table{margin-top:14px;}
+.fin-table table{width:100%;border-collapse:collapse;font-size:0.82rem;}
+.fin-table th, .fin-table td{
+  padding:8px 10px;border-bottom:1px solid var(--border);text-align:right;
+}
+.fin-table th{background:var(--surface2);color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.4px;font-size:0.7rem;text-align:right;}
+.fin-table th:first-child, .fin-table td:first-child{text-align:left;color:var(--text-secondary);font-weight:600;}
+.fin-table td.up{color:var(--green);}
+.fin-table td.down{color:var(--red);}
+
+.footer{
+  text-align:center;color:var(--muted);font-size:0.82rem;padding:24px;
+  border-top:1px solid var(--border);margin-top:32px;
+}
+.footer a{color:var(--accent);text-decoration:none;}
+
+@media(max-width:640px){
+  body{padding:16px 12px;}
+  .card{padding:18px;}
+  .header{padding:22px 18px;}
+  .ticker{font-size:1.3rem;}
+  .ticker .company-name{display:block;margin-left:0;margin-top:2px;font-size:0.88rem;}
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📊 국장 SEPA + VCP 돌파 후보</h1>
+  <div class="subtitle">dalinaum RS + Minervini SEPA + VCP + Composite ≥ 70 · 2026년 05월 27일 (Wed) · 생성: 2026년 05월 27일 (Wed) 16:57 KST</div>
+  <div class="summary-bar">
+    <div class="stat-box"><div class="num">30</div><div class="label">총 후보</div></div>
+    <div class="stat-box"><div class="num">30</div><div class="label">고우선 (9+)</div></div>
+    <div class="stat-box"><div class="num">0</div><div class="label">중우선 (7-8)</div></div>
+    <div class="stat-box"><div class="num">0</div><div class="label">저우선 (5-6)</div></div>
+    
+  </div>
+</div>
+
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">069540<span class="company-name">· 빛과전자</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 4/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1998년 광통신용 장치 및 광계측기 제조·판매 목적으로 설립 후 2004년 코스닥에 등록하며, 2024년 (주)빛과전자로 변경함. 무선통신 기지국용 광모듈, 유선 광가입자망용 광모듈 등을 주력으로 하고, 방산업체와 협력하며 방위산업으로도 사업을 확대하고 있음. 기술 개발로 경쟁력을 확보하고 맞춤형 전략으로 지역 리스크를 분산하여 지속적인 성장을 추구하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩6,370</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-21.4%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩6236억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩8,100</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩592</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩4,379</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩1,821</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">외국인 보유</span><span class="value ">5.5%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 183위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">60</td><td class="up">85</td><td class="up">80</td><td class="up">76</td></tr><tr><td>영업이익 (억)</td><td class="down">-20</td><td class="down">-23</td><td class="down">-37</td><td class="down">-23</td></tr><tr><td>영업이익률</td><td class="down">-34.08%</td><td class="down">-26.73%</td><td class="down">-46.29%</td><td class="down">-29.80%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 성장 +28%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩6,370 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩6,120 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩7,640 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">009150<span class="company-name">· 삼성전기</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 2/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1973년 설립된 전자부품 제조기업으로, 수동소자, 반도체패키지기판, 카메라모듈 등 3개 사업부문으로 구성되어 있음. 국내 수원·세종·부산과 중국·필리핀·베트남 해외 생산법인, 미주·유럽·아시아 판매법인 및 인도 R&D법인을 통해 글로벌 네트워크를 구축하고 있음. 초소형/고용량 재료기술 및 공정기술 고도화, 성장시장 적기대응, 전장용 고신뢰성 제품 확보, High-end 제품 수주 확대를 추진하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩1,630,000</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val neutral">-6.0%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩1,734,000</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩116,929</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩735,540</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩367,137</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value up">38.0%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스피 6위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">27,846</td><td class="up">28,890</td><td class="up">29,021</td><td class="up">32,091</td></tr><tr><td>영업이익 (억)</td><td class="up">2,130</td><td class="up">2,603</td><td class="up">2,395</td><td class="up">2,806</td></tr><tr><td>영업이익률</td><td class="up">7.65%</td><td class="up">9.01%</td><td class="up">8.25%</td><td class="up">8.74%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 성장 +17%</span><span class="tag tag-호재">호재 · 외국인 보유 38% (높음)</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩1,630,000 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩1,564,800 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩1,956,000 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">036930<span class="company-name">· 주성엔지니어링</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 3/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1993년 반도체 및 태양전지, 디스플레이 제조장비 제조·판매 목적 설립되어 1999년 코스닥시장에 상장됨. 반도체 제조장비(SD System 등), 태양전지 제조장비(HJT 등), 디스플레이 제조장비(Oxide TFT 등) 사업 영위하고 있음. Tech-Migration 가속화에 따른 차별화된 ALD 기술 기반 반도체 양산 장비 개발, 고효율 차세대 태양전지 장비 개발 등으로 차세대 기술에 대응하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩229,000</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val neutral">-7.3%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩247,000</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩26,000</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩106,158</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩51,951</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩3</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">9.5%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 5위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">788</td><td class="up">588</td><td class="up">523</td><td class="up">549</td></tr><tr><td>영업이익 (억)</td><td class="up">66</td><td class="up">34</td><td class="down">-126</td><td class="down">-70</td></tr><tr><td>영업이익률</td><td class="up">8.34%</td><td class="up">5.71%</td><td class="down">-24.07%</td><td class="down">-12.81%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-악재">악재 · 매출 감소 -20%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩229,000 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩219,840 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩274,800 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">031330<span class="company-name">· 에스에이엠티</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 1/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1990년 설립되었고 2000년 코스닥 상장한 IT 마케팅 전문 기업임. 삼성전자 등과 안정적 공급계약을 체결, 휴대폰, OLED Monitor, TV 제조 대기업 및 벤처기업에 전자부품을 판매하고 있음. CIS, Automotive Memory, AI 반도체 등 신규 제품에 대한 공격적 마케팅 전략을 고수하고 있으며, 외형적 성장 및 수익성 향상을 모색하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩17,700</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-11.3%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩19,950</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩2,544</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩7,785</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩4,675</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">외국인 보유</span><span class="value ">9.1%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 69위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">7,644</td><td class="up">9,180</td><td class="up">10,286</td><td class="up">10,456</td></tr><tr><td>영업이익 (억)</td><td class="up">195</td><td class="up">223</td><td class="up">272</td><td class="up">450</td></tr><tr><td>영업이익률</td><td class="up">2.56%</td><td class="up">2.42%</td><td class="up">2.64%</td><td class="up">4.30%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +135%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩17,700 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩16,990 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩21,240 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">353200<span class="company-name">· 대덕전자</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 2/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2020년 주식회사 대덕에서 인적분할로 신설되어 한국거래소에 재상장했음. 반도체 Package용 substrate 기판과 MLB 기판을 주력으로 하며, 패키지 기판과 AI서버, 네트워크 등에 적용되는 MLB를 생산해 세계적인 반도체 제조사 및 IT업체에 공급하고 있음. 4차 산업혁명을 주도할 AI 데이터센터, 로봇, 자율주행 등에 대응하는 선행기술을 확보하여 글로벌 시장을 개척하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩163,500</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-11.6%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩185,000</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩14,268</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩104,530</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩57,203</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">16.9%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스피 93위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">2,459</td><td class="up">2,862</td><td class="up">3,179</td><td class="up">3,463</td></tr><tr><td>영업이익 (억)</td><td class="up">19</td><td class="up">244</td><td class="up">289</td><td class="up">513</td></tr><tr><td>영업이익률</td><td class="up">0.76%</td><td class="up">8.54%</td><td class="up">9.11%</td><td class="up">14.81%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +50%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩163,500 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩156,960 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩196,200 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">440110<span class="company-name">· 파두</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 3/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2015년 설립된 데이터센터 특화 시스템 반도체 팹리스 기업으로, 2023년 코스닥시장에 상장함. 클라우드, AI/Big data, 5G, 자율주행 등 데이터 수요 증가에 따라 데이터센터 영역에 집중하며, 주력 제품인 SSD 컨트롤러는 기업용 SSD 시장을 목표로 함. 기업용 SSD는 높은 성능과 신뢰성이 요구되는 분야로, 동사는 지속적인 기술 혁신과 특허 확보를 통해 경쟁력을 강화하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩116,900</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val neutral">-9.7%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩129,400</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩10,060</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩72,222</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩37,318</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">19.8%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 14위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">237</td><td class="up">256</td><td class="up">239</td><td class="up">595</td></tr><tr><td>영업이익 (억)</td><td class="down">-126</td><td class="down">-114</td><td class="down">-295</td><td class="up">77</td></tr><tr><td>영업이익률</td><td class="down">-53.06%</td><td class="down">-44.56%</td><td class="down">-123.53%</td><td class="up">12.91%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +155%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩116,900 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩112,220 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩140,280 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">222800<span class="company-name">· 심텍</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 3/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1987년 설립되어 PCB 제조 및 판매를 하다가 2015년 인적 분할을 통해 신설되었으며, 국내외 법인을 운영하고 있음. 반도체용 PCB 개발에 특화되어 전방시장에서 글로벌 메모리칩 제조사와 패키징 전문 기업을 고객사로 확보하고 있음. 고부가가치 제품으로 고객 확보 및 매출을 확대하며, 높은 시장 이해도와 기술력으로 First PCB Vendor로 양산을 진행하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩122,000</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-13.5%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩141,000</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩17,684</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩79,489</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩54,012</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">15.6%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 20위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">3,408</td><td class="up">3,728</td><td class="up">3,934</td><td class="up">4,224</td></tr><tr><td>영업이익 (억)</td><td class="up">55</td><td class="up">124</td><td class="up">103</td><td class="up">137</td></tr><tr><td>영업이익률</td><td class="up">1.63%</td><td class="up">3.32%</td><td class="up">2.61%</td><td class="up">3.25%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +34%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩122,000 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩117,120 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩146,400 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">347700<span class="company-name">· 스피어</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 3/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2012년 설립되어 2021년 코스닥시장에 상장하였으며, 2025년 싱가포르 자회사를 통해 인도네시아 프로젝트 지분 인수를 추진함. 동사는 우주항공 산업 특수합금 공급으로 글로벌 SCM 사업을 운영하며, 고사양 특수합금의 조달부터 납품까지 통합 관리하는 역할을 수행하고 있음. 글로벌 벤더 네트워크로 리드타임을 단축하고, 원소재 확보로 공급망을 안정화하며 우주산업 역량을 확대하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩44,150</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-22.9%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩57,300</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩7,050</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩44,565</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩23,796</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">8.3%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 55위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">219</td><td class="up">189</td><td class="up">211</td><td class="up">338</td></tr><tr><td>영업이익 (억)</td><td class="up">43</td><td class="up">21</td><td class="down">-10</td><td class="up">36</td></tr><tr><td>영업이익률</td><td class="up">19.73%</td><td class="up">11.09%</td><td class="down">-4.69%</td><td class="up">10.76%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +78%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩44,150 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩42,380 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩52,980 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">420770<span class="company-name">· 기가비스</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 4/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2004년 설립된 반도체 기판 자동광학검사기 및 광학수리기를 제작·판매하는 글로벌 장비 업체로, 2023년 코스닥시장에 상장함. 2023년 중 베트남과 싱가포르 법인을 신설하며, 고성능 반도체 기판 결함 검사에 특화된 장비를 공급하고 있음. 초미세 패턴 검사 및 수리 역량을 바탕으로 신규 솔루션을 개발하고, Glass 기판 검사로 OSAT 업체 대상 영업을 전개하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩123,400</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-15.1%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩145,400</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩22,649</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩94,434</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩52,383</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">2.6%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 77위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">46</td><td class="up">89</td><td class="up">72</td><td class="up">317</td></tr><tr><td>영업이익 (억)</td><td class="down">-19</td><td class="up">20</td><td class="up">9</td><td class="up">111</td></tr><tr><td>영업이익률</td><td class="down">-41.84%</td><td class="up">22.87%</td><td class="up">11.99%</td><td class="up">35.10%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +52%</span><span class="tag tag-주의">주의 · 외국인 보유 2.6% (낮음)</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩123,400 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩118,460 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩148,080 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">330860<span class="company-name">· 네패스아크</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 5/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2019년 네패스 반도체사업부 내 Test 사업부문이 물적 분할되어 설립되고 2020년 코스닥시장에 상장됨. 시스템반도체 후공정 테스트 솔루션을 제공하며, 전력반도체(PMIC), DDI, SoC, RF 등의 주요 제품을 테스트하고 있음. 고가의 테스트 장비 투자 기반 장치산업 특성과 다양한 칩 테스트 프로그램 개발 능력을 보유하여 반도체 고집적화 및 소형화 추세에 맞춰 성장 추구하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩49,150</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-10.8%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩5988억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩55,100</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩9,920</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩32,727</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩21,386</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">6.8%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 188위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">290</td><td class="up">325</td><td class="up">277</td><td class="up">248</td></tr><tr><td>영업이익 (억)</td><td class="down">-8</td><td class="up">46</td><td class="up">11</td><td class="">-0</td></tr><tr><td>영업이익률</td><td class="down">-2.84%</td><td class="up">14.03%</td><td class="up">3.81%</td><td class="down">-0.17%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩49,150 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩47,180 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩58,980 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">000990<span class="company-name">· DB하이텍</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 2/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1953년 설립되어 1975년 유가증권시장에 상장하였으며, 현재 반도체 제조를 주된 사업으로 영위하고 있음. 부천과 상우 두 곳에 공장을 운영하며, 미국·중국법인과 대만·일본·유럽 지사를 통해 해외 영업을 전개하고 있음. 웨이퍼 수탁 생산 및 판매를 담당하는 Foundry 사업을 운영하며, 자회사 DB글로벌칩은 디스플레이 구동 IC 제품 설계·판매, DB월드는 부동산 개발 및 골프장 운영업을 영위함.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩202,000</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-12.4%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩230,500</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩37,558</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩126,490</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩81,525</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value up">23.7%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스피 90위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">3,374</td><td class="up">3,746</td><td class="up">3,878</td><td class="up">3,746</td></tr><tr><td>영업이익 (억)</td><td class="up">738</td><td class="up">806</td><td class="up">704</td><td class="up">637</td></tr><tr><td>영업이익률</td><td class="up">21.88%</td><td class="up">21.51%</td><td class="up">18.15%</td><td class="up">17.01%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 성장 +15%</span><span class="tag tag-호재">호재 · 높은 영업이익률 23%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩202,000 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩193,920 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩242,400 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">064290<span class="company-name">· 인텍플러스</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 4/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1995년 제어계측기기 및 컴퓨터 응용기기 제조를 목적으로 설립되었으며, 2011년 코스닥에 상장함. 머신비전기술로 3D/2D 자동외관검사장비 및 모듈을 개발하여 반도체 후공정 및 다양한 검사장비를 공급하고 있음. 3차원 측정 기술로 최적화된 검사솔루션을 제공하며, 핵심기술을 자체 개발·보유하고 산업 선도 기업들과 파트너십을 통해 사업 다각화하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩40,650</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val neutral">-6.0%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩5229억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩43,250</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩8,180</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩24,861</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩16,860</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">0.8%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 212위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">144</td><td class="up">251</td><td class="up">99</td><td class="up">403</td></tr><tr><td>영업이익 (억)</td><td class="down">-45</td><td class="up">16</td><td class="down">-49</td><td class="up">41</td></tr><tr><td>영업이익률</td><td class="down">-31.07%</td><td class="up">6.26%</td><td class="down">-49.53%</td><td class="up">10.13%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 성장 +13%</span><span class="tag tag-악재">악재 · 영업적자 (-14.6%)</span><span class="tag tag-주의">주의 · 외국인 보유 0.8% (낮음)</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩40,650 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩39,020 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩48,780 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">295310<span class="company-name">· 에이치브이엠</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 4/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2012년 설립된 고청정 진공용해 기술 기반 금속 제조기업으로, 2024년 코스닥시장에 특례상장함. Ni계 초내열 합금, Fe계 고강도 합금 등 고부가가치 소재를 생산하며, 우주 산업을 핵심 시장으로 선점하여 2025년 매출의 59.4%를 창출함. 최첨단 진공용해 설비를 자체 제작·운영하고 있으며, 2025년 서산 제2공장 준공으로 생산 역량을 확대하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩119,700</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-16.9%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩144,000</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩21,700</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩94,646</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩57,218</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">5.1%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 86위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">130</td><td class="up">167</td><td class="up">134</td><td class="up">234</td></tr><tr><td>영업이익 (억)</td><td class="up">11</td><td class="up">38</td><td class="down">-3</td><td class="up">12</td></tr><tr><td>영업이익률</td><td class="up">8.68%</td><td class="up">22.53%</td><td class="down">-2.21%</td><td class="up">5.29%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +79%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩119,700 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩114,910 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩143,640 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">010060<span class="company-name">· OCI홀딩스</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 1/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1959년 소다회 및 관련 제품 제조·판매를 목적으로 설립되었으며, 2023년 베이직케미컬 및 카본케미컬 사업을 OCI로 인적분할하고 지주회사로 전환을 완료함. 신재생에너지, 에너지솔루션, 화학소재, 도시개발, 바이오 등 사업을 영위하는 자회사를 보유하고 있음. 지배구조 투명성 증대와 사업 포트폴리오 다각화를 통해 안정적 현금흐름을 확보하고 기존사업 재투자 및 신규사업 발굴로 제2의 도약을 추진하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩388,000</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val neutral">-6.3%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩414,000</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩64,737</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩266,444</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩149,424</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">18.5%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스피 102위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">7,762</td><td class="up">8,451</td><td class="up">8,106</td><td class="up">8,924</td></tr><tr><td>영업이익 (억)</td><td class="down">-803</td><td class="down">-533</td><td class="up">273</td><td class="up">109</td></tr><tr><td>영업이익률</td><td class="down">-10.35%</td><td class="down">-6.31%</td><td class="up">3.37%</td><td class="up">1.22%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +43%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩388,000 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩372,480 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩465,600 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">036710<span class="company-name">· 심텍홀딩스</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 1/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1987년 설립되어 2015년 인적분할을 통해 지주회사로 전환하였으며, PCB 제조판매 사업을 영위하는 ㈜심텍을 분할 신설함. PCB사업부문은 메모리 모듈용 PCB와 FC-CSP기판, GDDR6용기판 등을 생산하며 글로벌 주요 기업을 고객사로 확보하고 있음. 동사는 기존 메모리향 위주 사업에서 System IC향 고부가가치 제품으로 고객확보 및 매출확대를 추진하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩5,610</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-13.7%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩2964억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩6,500</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩1,385</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩3,525</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩2,845</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">외국인 보유</span><span class="value up">23.3%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 364위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">3,244</td><td class="up">3,681</td><td class="up">3,981</td><td class="up">4,376</td></tr><tr><td>영업이익 (억)</td><td class="down">-368</td><td class="down">-37</td><td class="up">25</td><td class="up">37</td></tr><tr><td>영업이익률</td><td class="down">-11.36%</td><td class="down">-1.01%</td><td class="up">0.64%</td><td class="up">0.86%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +37%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩5,610 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩5,390 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩6,730 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">195870<span class="company-name">· 해성디에스</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 4/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2014년 설립되어 2016년 유가증권시장에 상장, 반도체 Substrate 제조·판매를 주요 사업으로 하고 있음. 리드프레임은 Infineon, ST Micro, NXP 등과 ASE, Amkor 등을, Package Substrate는 삼성전자, SK하이닉스를 주요 고객으로 함. 세계 리드프레임 시장을 선도하며, 특히 자동차용 반도체 리드프레임 부문에서 성장을 이어가고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩92,300</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-14.9%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩108,500</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩17,675</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩68,085</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩50,433</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">17.2%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스피 270위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">1,574</td><td class="up">1,786</td><td class="up">1,799</td><td class="up">1,887</td></tr><tr><td>영업이익 (억)</td><td class="up">82</td><td class="up">161</td><td class="up">218</td><td class="up">110</td></tr><tr><td>영업이익률</td><td class="up">5.23%</td><td class="up">9.02%</td><td class="up">12.11%</td><td class="up">5.82%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 성장 +28%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩92,300 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩88,610 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩110,760 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">025560<span class="company-name">· 미래산업</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 1/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1983년 설립, 1996년 유가증권시장에 상장한 반도체 장비 전문기업임. ATE 사업부는 반도체 검사장비 Test Handler를 생산하고, MAI 사업부는 이형부품삽입기를 제조하며, 아론테크 등 3개 종속회사를 보유하고 있음. 빅데이터, 사물인터넷, 자율자동차 등 반도체 수요 증가와 중국 설비투자 확대에 대응하며, 자동차 전장 성장세에 맞춰 SMT 장비 기술을 활용한 이형부품 삽입기 자동화 개발을 하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩37,600</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-16.4%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩1914억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩45,000</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩9,900</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩17,089</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩13,525</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">외국인 보유</span><span class="value ">5.4%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스피 901위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">47</td><td class="up">68</td><td class="up">226</td><td class="up">166</td></tr><tr><td>영업이익 (억)</td><td class="up">3</td><td class="up">10</td><td class="up">60</td><td class="up">18</td></tr><tr><td>영업이익률</td><td class="up">6.15%</td><td class="up">15.23%</td><td class="up">26.53%</td><td class="up">10.91%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +340%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩37,600 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩36,100 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩45,120 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">062970<span class="company-name">· 한국첨단소재</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 4/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1999년 광주에 설립되어 광통신 유선통신기기 관련 제품의 연구개발, 제조·판매를 하고 있음. PLC 원천기술을 개발하여 광 파워 분배기와 파장 분할기를 세계시장과 국내 통신업체에 공급하며 데이터센터용 광수신모듈 등 제품 라인업을 확대하고 있음. PLC 칩, AWG 제품을 다양한 산업의 데이터센터 트랜시버에 장착해 활용범위를 넓히고, 기술 경쟁력 강화를 추구하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩3,425</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-32.2%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩1955억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩5,050</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩1,242</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩2,987</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩2,068</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">외국인 보유</span><span class="value ">7.0%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 528위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">15</td><td class="up">10</td><td class="up">11</td><td class="up">9</td></tr><tr><td>영업이익 (억)</td><td class="down">-4</td><td class="down">-10</td><td class="down">-9</td><td class="down">-10</td></tr><tr><td>영업이익률</td><td class="down">-26.43%</td><td class="down">-97.88%</td><td class="down">-82.56%</td><td class="down">-112.58%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-악재">악재 · 매출 감소 -60%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩3,425 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩3,290 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩4,110 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">308080<span class="company-name">· 바이젠셀</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 4/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2013년 설립되어 2021년 코스닥 상장한 세포치료제 전문기업임. 제대혈 포함 사람 혈액 유래 면역세포를 이용한 다양한 면역치료법을 개발하고 있으며, 항원 특이 살해 T세포 연구에서 국내 최초·최다 임상시험 경험을 보유하고 있음. 글로벌 신약 개발과 첨단재생 의료를 주요 사업으로 하며, VT-EBV-N은 조건부 품목허가 준비 중이고, EiNK 플랫폼은 전임상을 진행하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩13,700</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-21.1%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩2808억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩17,360</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩2,765</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩7,788</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩6,456</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">외국인 보유</span><span class="value ">1.6%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 389위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">3</td><td class="up">3</td></tr><tr><td>영업이익 (억)</td><td class="down">-27</td><td class="down">-57</td><td class="down">-24</td><td class="down">-63</td></tr><tr><td>영업이익률</td><td class="down">-75,453.12%</td><td class="down">-908,939.88%</td><td class="down">-30,405.05%</td><td class="down">-45,073.78%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-주의">주의 · 외국인 보유 1.6% (낮음)</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩13,700 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩13,150 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩16,440 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">242040<span class="company-name">· 나무기술</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 4/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2001년 설립되었고 2018년에 코스닥 상장한 가상화 및 클라우드 전문 기업임. VDI 기반 망분리 및 스마트워크, 클라우드 플랫폼, AI 업무 자동화 사업을 하고 있으며, 칵테일아이오, 나무아이씨티, 에스케이팩, NamuJapan 등의 종속회사를 보유함. 디지털 전환 및 AI 활용 수요 증가에 대응, AI 플랫폼 사업을 추진하며, 기존 역량과 연계한 IT 환경 서비스를 제공하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩6,620</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-16.9%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩2291억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩7,970</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩1,308</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩5,508</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩2,791</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">외국인 보유</span><span class="value ">1.9%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 465위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">170</td><td class="up">180</td><td class="up">322</td><td class="up">350</td></tr><tr><td>영업이익 (억)</td><td class="down">-7</td><td class="down">-12</td><td class="up">30</td><td class="up">12</td></tr><tr><td>영업이익률</td><td class="down">-3.90%</td><td class="down">-6.78%</td><td class="up">9.19%</td><td class="up">3.36%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +118%</span><span class="tag tag-주의">주의 · 외국인 보유 1.9% (낮음)</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩6,620 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩6,360 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩7,940 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">000150<span class="company-name">· 두산</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 1/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1933년 설립, 1973년 유가증권시장 상장 기업으로 두산에너빌리티 등 23개 계열사를 지배하고 있음. 자체 사업으로는 전자소재 사업과 통합 IT 서비스 사업을 수행하며, 전자는 CCL을 생산해 반도체 등 전자기기의 핵심소재를 공급하고, 후자는 AI 등 IT 솔루션을 제공함. 기술 개발과 서비스 역량 강화를 통해 5G, 친환경자동차 등 포트폴리오를 구축하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩1,715,000</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val neutral">-9.7%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩1,898,895</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩447,126</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩1,395,127</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩939,954</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">19.1%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스피 34위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">53,464</td><td class="up">44,524</td><td class="up">56,867</td><td class="up">50,603</td></tr><tr><td>영업이익 (억)</td><td class="up">3,578</td><td class="up">2,313</td><td class="up">2,752</td><td class="up">3,408</td></tr><tr><td>영업이익률</td><td class="up">6.69%</td><td class="up">5.19%</td><td class="up">4.84%</td><td class="up">6.73%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩1,715,000 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩1,646,400 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩2,058,000 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">357880<span class="company-name">· SKAI</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 4/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2013년 그래프 데이터베이스 기술 연구 및 개발로 설립되어 2021년 코스닥 상장하고, 2025년 AI 사업목적을 추가하며 사업 확장함. 그래프 DB 소프트웨어 라이선스 판매, 기술 서비스, HW 인프라 공급 등 3개 사업을 운영하며 금융·공공 등 50개 이상 레퍼런스를 보유함. 그래프 DB와 벡터 DB 기술을 활용한 AI 광고 마케팅, 3D 데이터 라벨링 등 AI 융합 솔루션 개발로 종합 AI 기업으로 성장하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩5,040</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-18.2%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩2621억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩6,160</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩1,413</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩3,930</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩2,476</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">외국인 보유</span><span class="value ">4.3%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 415위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">28</td><td class="up">21</td><td class="up">69</td><td class="up">25</td></tr><tr><td>영업이익 (억)</td><td class="down">-48</td><td class="down">-30</td><td class="up">26</td><td class="down">-27</td></tr><tr><td>영업이익률</td><td class="down">-175.30%</td><td class="down">-146.68%</td><td class="up">38.47%</td><td class="down">-106.04%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +50%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩5,040 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩4,840 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩6,050 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">250030<span class="company-name">· 진코스텍</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 1/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2010년 설립된 화장품 제조 및 판매 기업으로, 2019년 코넥스시장에 상장된 벤처기업임. 마스크팩 ODM/OEM 생산을 주력으로 하며 하이드로겔 마스크팩 및 패치류 제품과 시트 마스크팩을 연구개발/제조/판매하고 있음. ISO-GMP 기준으로 제조하여 품질 신뢰도가 높고, CGMP 인증을 받아 다양한 제품 생산이 가능해 Amocos Plus 등 자체 상품을 개발하며 해외시장 개척을 추진하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩24,450</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val neutral">-6.0%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩707억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩26,000</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩6,600</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩21,040</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩15,291</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">애널리스트</span><span class="value">데이터 없음</span></div>
+    </div>
+    
+      </div>
+      
+      
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩24,450 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩23,470 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩29,340 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">090460<span class="company-name">· 비에이치</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 3/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1999년 연성인쇄회로기판 제조와 판매를 위해 설립되고, 2007년 코스닥 상장 후 2023년 유가증권시장으로 이전함. FPCB 사업과 차량용 휴대폰 무선충전기 개발 및 판매를 중심으로 하며, 스마트폰, 태블릿 PC 등 다양한 IT 기기에 핵심 부품을 공급함. 고부가가치 제품 수요에 맞춰 기술과 수익성을 확대하고, 글로벌 IT 기기 제조사에 대응하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩35,050</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-19.2%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩43,400</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩11,730</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩28,148</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩19,978</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">17.9%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스피 322위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">3,897</td><td class="up">5,625</td><td class="up">5,080</td><td class="up">3,716</td></tr><tr><td>영업이익 (억)</td><td class="up">160</td><td class="up">345</td><td class="up">288</td><td class="up">107</td></tr><tr><td>영업이익률</td><td class="up">4.11%</td><td class="up">6.13%</td><td class="up">5.67%</td><td class="up">2.87%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩35,050 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩33,650 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩42,060 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">056360<span class="company-name">· 코위버</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 3/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2000년 통신장비 개발 및 판매를 목적으로 설립되어 2001년 코스닥시장에 상장되었고, 자회사 위버브릿지를 100% 보유하고 있음. 대용량 ROADM, 초고속 POTN, CWDM, 전송, MSPP 제품군을 개발하여 KT, LG U+, SKT에 판매하는 광통신 전문업체임. 양자암호, AI 기반 OLS 시스템 등 신기술을 적용한 차세대 제품을 확대하며 핵심기술 확보 및 상용화를 위해 노력하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩9,830</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-32.4%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩963억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩14,550</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩4,405</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩8,989</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩6,213</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">외국인 보유</span><span class="value ">1.6%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 861위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">230</td><td class="up">88</td><td class="up">142</td><td class="up">132</td></tr><tr><td>영업이익 (억)</td><td class="down">-1</td><td class="down">-19</td><td class="down">-7</td><td class="down">-18</td></tr><tr><td>영업이익률</td><td class="down">-0.44%</td><td class="down">-21.22%</td><td class="down">-4.69%</td><td class="down">-13.26%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 성장 +15%</span><span class="tag tag-주의">주의 · 외국인 보유 1.6% (낮음)</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩9,830 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩9,440 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩11,800 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">437730<span class="company-name">· 삼현</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 5/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1988년 모터 제조업체로 설립되어 2024년 코스닥에 상장하며, 인도·중국에 법인 설립 및 자율주행 로봇 전문기업 케이스랩 지분을 취득하여 사업을 확대함. 스마트 액추에이터와 스마트 파워유닛을 제조하고, 모빌리티부문 DCT모터·CVVD, 방산부문 전기 수평안정화 장치 등 전장부품 공급하고 있음. 통합기술을 기반으로 우주항공, AAM 등 미래 모빌리티 시장 확장하여 글로벌 자율제조 솔루션 기업으로 도약하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩60,900</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-20.8%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩76,900</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩10,990</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩52,066</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩41,036</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">외국인 보유</span><span class="value ">2.5%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 65위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">264</td><td class="up">243</td><td class="up">269</td><td class="up">225</td></tr><tr><td>영업이익 (억)</td><td class="">-0</td><td class="up">19</td><td class="up">15</td><td class="down">-13</td></tr><tr><td>영업이익률</td><td class="down">-0.08%</td><td class="up">7.82%</td><td class="up">5.65%</td><td class="down">-5.88%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-악재">악재 · 매출 감소 -19%</span><span class="tag tag-주의">주의 · 외국인 보유 2.5% (낮음)</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩60,900 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩58,460 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩73,080 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">095340<span class="company-name">· ISC</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 1/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 2001년 반도체 후공정 테스트 소켓 제품 생산을 목적으로 설립되어 2007년 코스닥시장에 상장, 2025년 아이세미와 TechDream을 인수하여 반도체 관련 사업을 영위함. 세계 최초 실리콘 소켓과 테스트용 PROBE 등을 제공하며, 모듈 테스터 등 다양한 테스트 플랫폼 사업을 진행 중임. 지속적인 R&D 투자로 AI 반도체 테스트 시장을 주도하며, 글로벌 팹리스, Big-Tech 기업과 협력하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩232,000</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-20.7%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩292,500</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩49,198</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩235,392</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩133,952</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value up">20.8%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 19위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">517</td><td class="up">645</td><td class="up">723</td><td class="up">683</td></tr><tr><td>영업이익 (억)</td><td class="up">137</td><td class="up">174</td><td class="up">219</td><td class="up">236</td></tr><tr><td>영업이익률</td><td class="up">26.55%</td><td class="up">27.00%</td><td class="up">30.32%</td><td class="up">34.59%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +42%</span><span class="tag tag-호재">호재 · 높은 영업이익률 31%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩232,000 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩222,720 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩278,400 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">115500<span class="company-name">· 케이씨에스</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 4/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1974년 설립되어 2002년 물적분할을 통해 설립됨. NonStop SI 사업은 솔루션 및 서비스를 제공하고, Enterprise Solution 사업은 비즈니스 솔루션을 제공, 교통인프라 사업은 교통시스템 기술을 보유, KIOSK사업은 다양한 KIOSK를 공급함. 실시간 비즈니스 솔루션 사업을 통해 고객 가치를 제공하고, 신규 엔터프라이즈 솔루션을 발굴하며 사업 영역을 확대하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩19,690</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-28.4%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩2363억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩27,500</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩7,780</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩13,300</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩10,627</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">외국인 보유</span><span class="value ">2.3%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 455위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">114</td><td class="up">40</td><td class="up">47</td><td class="up">43</td></tr><tr><td>영업이익 (억)</td><td class="up">7</td><td class="up">2</td><td class="up">7</td><td class="up">3</td></tr><tr><td>영업이익률</td><td class="up">6.47%</td><td class="up">5.73%</td><td class="up">14.49%</td><td class="up">6.67%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-주의">주의 · 외국인 보유 2.3% (낮음)</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩19,690 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩18,900 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩23,630 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">067170<span class="company-name">· 오텍</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 1/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1991년 설립된 특수차량 제조 기업으로 2003년 코스닥 등록 후 2011년 오텍캐리어 인수를 통해 냉난방 공조사업을 확장함. 최첨단 음압 앰뷸런스, 한국형 앰뷸런스, 복지차량, 암검진 및 전문 진료차량, 특수 물류차량과 의료기기 등을 생산하고 있음. 2024년 기아와 PBV 컨버전 모델 위탁제조 계약을 체결하고 2025년 화성에 전용 컨버전 센터를 구축하여 2030년 글로벌 판매 25만대 달성을 목표로 하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩4,075</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val neutral">-7.7%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">₩1019억</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩4,415</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩1,650</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩2,543</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩2,067</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">외국인 보유</span><span class="value ">2.1%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 828위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">1,770</td><td class="up">2,751</td><td class="up">2,565</td><td class="up">1,435</td></tr><tr><td>영업이익 (억)</td><td class="up">2</td><td class="up">30</td><td class="up">47</td><td class="down">-102</td></tr><tr><td>영업이익률</td><td class="up">0.12%</td><td class="up">1.08%</td><td class="up">1.84%</td><td class="down">-7.10%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-주의">주의 · 외국인 보유 2.1% (낮음)</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩4,075 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩3,910 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩4,890 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card">
+      <div class="card-header">
+        <div class="ticker-block">
+          <div class="ticker">036540<span class="company-name">· SFA반도체</span></div>
+          <div class="sector-line"><span class="country">한국</span></div>
+        </div>
+        <div class="badges"><span class="badge badge-rs">SEPA 0/10</span><span class="badge badge-vcp">VCP 4/10</span><span class="badge badge-score">9점</span></div>
+      </div>
+      <div class="business-summary">
+        <span class="summary-label">📋 회사 소개</span>
+        동사는 1998년 설립되어 2001년 코스닥 상장한 반도체 후공정 전문기업으로, 삼성전자, Micron, SK하이닉스 등에 최첨단 패키징 솔루션을 제공하고 있음. 필리핀 법인 SSP 준공으로 원가경쟁력을 확보하였고, R&D역량 강화와 해외마케팅을 통한 거래선 다변화를 추구하고 있음. 메모리 반도체 중심에서 반도체 시장의 80%를 차지하는 S-LSI분야 진입을 통해 안정적인 성장기반을 구축하고 있음.
+      </div>
+      <div class="metrics-grid">
+    <div class="metric"><div class="key">현재가</div><div class="val">₩9,400</div></div>
+    <div class="metric"><div class="key">고점 대비</div><div class="val down">-19.2%</div></div>
+    <div class="metric"><div class="key">시총</div><div class="val">—</div></div>
+    <div class="metric"><div class="key">52주 고점</div><div class="val">₩11,640</div></div>
+    <div class="metric"><div class="key">52주 저점</div><div class="val">₩2,815</div></div>
+    <div class="metric"><div class="key">50일선</div><div class="val">₩7,650</div></div>
+    <div class="metric"><div class="key">200일선</div><div class="val">₩5,451</div></div>
+    <div class="metric"><div class="key">직원</div><div class="val">—</div></div>
+    </div>
+      <div class="section-row">
+        
+    <div class="info-box">
+      <div class="title">📊 실적 · 성장성</div>
+      <div class="row"><span class="label">실적 데이터</span><span class="value">수집 중</span></div>
+    </div>
+    
+        
+    <div class="info-box">
+      <div class="title">🎯 애널리스트 의견</div>
+      <div class="row"><span class="label">목표가 (평균)</span><span class="value">₩4</span></div><div class="row"><span class="label">외국인 보유</span><span class="value ">8.1%</span></div><div class="row"><span class="label">시총 순위</span><span class="value">코스닥 78위</span></div>
+    </div>
+    
+      </div>
+      
+    <div class="fin-table">
+      <div class="info-box">
+        <div class="title">📈 최근 분기 실적 (Naver 금융)</div>
+        <table>
+          <thead>
+            <tr><th>분기</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>매출 (억)</td><td class="up">761</td><td class="up">965</td><td class="up">1,196</td><td class="up">1,073</td></tr><tr><td>영업이익 (억)</td><td class="down">-67</td><td class="down">-63</td><td class="down">-6</td><td class="down">-62</td></tr><tr><td>영업이익률</td><td class="down">-8.83%</td><td class="down">-6.53%</td><td class="down">-0.49%</td><td class="down">-5.76%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+      
+        <div class="highlights">
+          <div class="title">💡 호재 · 악재</div>
+          <div class="tag-row"><span class="tag tag-호재">호재 · 매출 강한 성장 +57%</span></div>
+        </div>
+        
+      
+    <div class="strategy">
+      <div class="title">🎯 돌파매매 전략</div>
+      <div class="strategy-row">
+        <div><div class="label">진입</div><div class="value entry">₩9,400 돌파</div></div>
+        <div><div class="label">조건</div><div class="value">거래량 1.5배 + 종가 강세</div></div>
+        <div><div class="label">손절</div><div class="value stop">₩9,020 (-4%)</div></div>
+        <div><div class="label">1차 목표</div><div class="value target">₩11,280 (+20%)</div></div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+<div class="footer">
+  <p>MacTrader v5 · IBD RS at New High + Minervini SEPA + VCP 돌파매매 시스템</p>
+  <p>🦞 뭉 (Mung) · Mac Mini M4 · 자동 생성 리포트</p>
+  <p>데이터 출처: yfinance, Finnhub, dalinaum.github.io, Naver 금융</p>
+</div>
+</body></html>
