@@ -1,0 +1,1058 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>미장 SEPA + VCP 돌파 후보 | 2026-05-29</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#1a2540;
+  --bg-gradient:linear-gradient(180deg,#1a2540 0%,#0f1828 100%);
+  --card-bg:#f5f1ea;
+  --card-bg-hover:#f9f5ee;
+  --border:#2c3a5a;
+  --text:#1a2540;
+  --text-light:#475569;
+  --muted:#94a3b8;
+  --teal:#14b8a6;
+  --teal-light:#5eead4;
+  --teal-bg:#e0f7f4;
+  --teal-bg-dark:rgba(20,184,166,0.15);
+  --green:#10b981;
+  --green-bg:#d1fae5;
+  --red:#ef4444;
+  --red-bg:#fee2e2;
+  --yellow:#f59e0b;
+  --yellow-bg:#fef3c7;
+  --purple:#8b5cf6;
+}
+html,body{background:var(--bg);background:var(--bg-gradient);min-height:100vh;}
+body{
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  font-size:14px;line-height:1.6;padding:20px 14px;
+  max-width:760px;margin:0 auto;
+}
+
+/* ============ 헤더 ============ */
+.page-header{
+  background:linear-gradient(135deg,rgba(20,184,166,0.15),rgba(20,184,166,0.05));
+  border:1px solid var(--teal);border-radius:18px;
+  padding:24px 22px;margin-bottom:24px;
+  color:#fff;text-align:center;
+}
+.page-header h1{
+  font-size:1.4rem;color:#fff;margin-bottom:6px;font-weight:700;
+}
+.page-header .subtitle{color:var(--teal-light);font-size:0.85rem;}
+.summary-bar{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(95px,1fr));gap:8px;
+  margin-top:16px;
+}
+.stat-box{
+  background:rgba(255,255,255,0.08);border:1px solid var(--teal);border-radius:10px;
+  padding:10px 8px;text-align:center;
+}
+.stat-box .num{font-size:1.3rem;font-weight:700;color:var(--teal-light);}
+.stat-box .label{color:#cbd5e1;font-size:0.7rem;margin-top:2px;text-transform:uppercase;letter-spacing:0.5px;}
+
+/* 섹터 탭 (상단 필터) */
+.sector-tabs{
+  display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;justify-content:center;
+}
+.sector-tab{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(20,184,166,0.4);
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:0.78rem;font-weight:600;color:#cbd5e1;
+  cursor:pointer;user-select:none;
+  transition:background 0.15s,border-color 0.15s,color 0.15s;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.sector-tab:hover{background:rgba(20,184,166,0.15);color:#fff;}
+.sector-tab.active{
+  background:var(--teal);border-color:var(--teal);color:#fff;
+  box-shadow:0 2px 8px rgba(20,184,166,0.4);
+}
+.sector-tab .count{
+  background:rgba(0,0,0,0.25);border-radius:999px;
+  padding:1px 7px;font-size:0.72rem;font-weight:700;
+}
+.sector-tab.active .count{background:rgba(255,255,255,0.25);}
+
+/* ============ 카드 ============ */
+.card{
+  background:var(--card-bg);border-radius:14px;
+  padding:20px 18px;margin-bottom:14px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.25);
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+/* 카드 헤더: 가격 블록을 우측 상단에 absolute 고정, 좌측 컨텐츠에 마진 패딩으로 영역 확보 */
+.card{position:relative;}
+.card-top{display:block;padding-right:130px;min-height:60px;}
+.card-top-left{display:block;}
+.ticker-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+.ticker-pill{
+  background:var(--teal);color:#fff;border-radius:10px;
+  padding:6px 12px;font-weight:800;font-size:1.05rem;letter-spacing:0.5px;flex-shrink:0;
+}
+.company-name{
+  font-size:1.02rem;font-weight:700;color:var(--text);
+  word-break:keep-all;overflow-wrap:anywhere;line-height:1.3;
+}
+.tagline{
+  background:var(--teal-bg);color:var(--teal);
+  border:1px solid var(--teal);border-radius:12px;
+  padding:3px 9px;font-size:0.72rem;font-weight:600;display:inline-block;margin-top:4px;
+  max-width:calc(100% - 4px);word-break:keep-all;
+}
+.sub-headline{color:var(--text-light);font-size:0.82rem;line-height:1.45;margin-top:6px;
+  word-break:keep-all;overflow-wrap:anywhere;}
+
+/* 가격 블록: 카드 우측 상단 absolute 고정 - 어떤 너비에서도 항상 이 자리 */
+.price-block{
+  position:absolute;top:20px;right:18px;
+  text-align:right;
+  width:auto;max-width:130px;
+}
+.price-block .price-row{display:flex;align-items:baseline;justify-content:flex-end;gap:6px;flex-wrap:wrap;row-gap:2px;}
+.price-block .price{white-space:nowrap;}
+.price-block .price{font-size:1.5rem;font-weight:800;color:var(--text);}
+.price-block .day-chg{
+  font-size:0.78rem;font-weight:700;
+  padding:2px 7px;border-radius:6px;
+  white-space:nowrap;
+}
+/* 한국 관습: 상승=빨강, 하락=파랑 */
+.price-block .day-chg.up{color:var(--red);background:var(--red-bg);}
+.price-block .day-chg.down{color:#2563eb;background:#dbeafe;}
+.price-block .day-chg.flat{color:var(--muted);background:rgba(148,163,184,0.15);}
+.price-block .change{font-size:0.78rem;font-weight:600;margin-top:3px;}
+.price-block .change.up{color:var(--green);}
+.price-block .change.down{color:var(--red);}
+.price-block .vol{font-size:0.7rem;color:var(--muted);margin-top:1px;}
+
+/* 등급 라인 */
+.grade-line{
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;
+  padding:10px 0;margin-top:8px;border-top:1px dashed #d6d0c4;border-bottom:1px dashed #d6d0c4;
+  font-size:0.78rem;
+}
+.grade{display:inline-flex;align-items:center;gap:5px;color:var(--text-light);font-weight:600;}
+.grade .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);}
+.grade.warn .dot{background:var(--yellow);}
+.grade.fail .dot{background:var(--red);}
+.grade .value{color:var(--text);font-weight:700;}
+
+/* 실적 박스 2x2 */
+.metrics-2x2{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;
+}
+.metric-box{
+  background:rgba(255,255,255,0.5);border:1px solid #e1ddd2;border-radius:10px;
+  padding:11px 13px;
+}
+.metric-box .label{color:var(--teal);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;}
+.metric-box .value{font-size:1.05rem;font-weight:800;color:var(--text);margin-top:4px;}
+.metric-box .sub{font-size:0.72rem;color:var(--text-light);margin-top:2px;}
+.metric-box .sub.up{color:var(--green);font-weight:600;}
+.metric-box .sub.down{color:var(--red);font-weight:600;}
+
+/* 섹션 (기업개요·투자근거·리스크·카탈리스트) */
+.section{margin-top:16px;}
+.section-title{
+  display:flex;align-items:center;gap:6px;
+  font-size:0.82rem;font-weight:700;color:var(--text);
+  padding-left:8px;border-left:3px solid var(--teal);
+  margin-bottom:8px;
+}
+.section-body{font-size:0.85rem;color:var(--text-light);line-height:1.6;}
+
+/* 투자 근거 (번호 매긴 리스트) */
+.thesis-list{display:flex;flex-direction:column;gap:8px;}
+.thesis-item{display:flex;gap:10px;align-items:flex-start;}
+.thesis-num{
+  background:var(--teal);color:#fff;
+  width:22px;height:22px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.78rem;font-weight:700;flex-shrink:0;margin-top:2px;
+}
+.thesis-text{flex:1;font-size:0.85rem;}
+.thesis-text .title{font-weight:700;color:var(--text);}
+.thesis-text .body{color:var(--text-light);margin-top:2px;}
+
+/* 리스크 */
+.risk-list{display:flex;flex-direction:column;gap:6px;}
+.risk-item{display:flex;gap:8px;align-items:flex-start;font-size:0.82rem;color:var(--text-light);}
+.risk-icon{color:var(--yellow);flex-shrink:0;}
+
+/* 카탈리스트 */
+.catalyst-box{
+  background:linear-gradient(135deg,var(--teal-bg),rgba(20,184,166,0.05));
+  border:1px solid var(--teal);border-radius:10px;
+  padding:12px 14px;margin-top:14px;
+}
+.catalyst-title{display:flex;align-items:center;gap:6px;font-weight:700;color:var(--teal);font-size:0.82rem;margin-bottom:6px;}
+.catalyst-list{display:flex;flex-direction:column;gap:4px;font-size:0.8rem;color:var(--text-light);}
+.catalyst-item{display:flex;gap:6px;align-items:flex-start;}
+.catalyst-item::before{content:"•";color:var(--teal);font-weight:700;flex-shrink:0;}
+
+/* 진입/손절 박스 */
+.entry-stop-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;
+}
+.entry-pill, .stop-pill{
+  border-radius:10px;padding:10px 14px;text-align:center;
+  border:1px solid;
+}
+.entry-pill{background:var(--green-bg);border-color:var(--green);}
+.entry-pill .label{color:var(--green);font-size:0.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:5px;}
+.entry-pill .value{color:var(--text);font-size:0.92rem;font-weight:700;margin-top:3px;}
+.stop-pill{background:var(--red-bg);border-color:var(--red);}
+.stop-pill .label{color:var(--red);font-size:0.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:5px;}
+.stop-pill .value{color:var(--text);font-size:0.92rem;font-weight:700;margin-top:3px;}
+
+/* 푸터 */
+.footer{
+  text-align:center;color:#94a3b8;font-size:0.78rem;padding:24px;
+  border-top:1px solid var(--border);margin-top:32px;
+}
+
+@media(max-width:540px){
+  body{padding:14px 10px;}
+  .card{padding:16px 14px;}
+  .card-top{padding-right:110px;}
+  .ticker-pill{font-size:0.88rem;padding:5px 9px;}
+  .company-name{font-size:0.88rem;}
+  .price-block{top:16px;right:14px;max-width:110px;}
+  .price-block .price{font-size:1.1rem;}
+  .price-block .day-chg{font-size:0.7rem;padding:2px 5px;}
+  .price-block .change{font-size:0.7rem;}
+  .price-block .vol{font-size:0.62rem;}
+  .metrics-2x2{grid-template-columns:1fr;}
+  .grade-line{gap:10px;font-size:0.72rem;}
+}
+
+/* 아주 좁은 화면 (소형 폰): 가격 블록 더 잔게 · 프릴을 좌측 완전 분리 */
+@media(max-width:420px){
+  .card-top{padding-right:96px;}
+  .price-block{top:16px;right:14px;max-width:96px;}
+  .price-block .price{font-size:1rem;}
+  .price-block .day-chg{font-size:0.65rem;padding:1px 4px;}
+  .price-block .change{font-size:0.68rem;}
+  .price-block .vol{font-size:0.6rem;}
+  .ticker-pill{font-size:0.82rem;padding:4px 8px;}
+  .company-name{font-size:0.85rem;}
+}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <h1>📊 미장 SEPA + VCP 돌파 후보</h1>
+  <div class="subtitle">IBD RS at New High · Minervini 8조건 + VCP 패턴<br>2026년 05월 29일 (Fri) 08:30 KST</div>
+  <div class="sector-tabs"><button class="sector-tab active" data-filter="all">전체 <span class="count">6</span></button><button class="sector-tab" data-filter="it">IT <span class="count">3</span></button><button class="sector-tab" data-filter="cons-cyclical">경기소비 <span class="count">1</span></button><button class="sector-tab" data-filter="industrial">산업 <span class="count">2</span></button></div>
+</div>
+
+
+    <div class="card" data-sector="it">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">VSAT</span>
+            <span class="company-name">Viasat, Inc.</span>
+          </div>
+          
+          <div class="sub-headline">Technology · Communication Equipment</div>
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">$86.69</div>
+            <span class="day-chg up">+1.31%</span>
+          </div>
+          <div class="change up">+40.8%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade warn"><span class="dot"></span>VCP <span class="value">3/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">9/11</span></span><span class="grade "><span class="dot"></span>매수 <span class="value">(8)</span></span><span class="grade"><span class="dot"></span>IT <span style="color:var(--purple);font-weight:700;">(AI)</span></span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+3.0%</div>
+        <div class="sub up"></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">2.8%</div>
+        <div class="sub">ROE -6.4%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">$64.88</div>
+        <div class="sub down">상승여력 -25.2%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">290.3x</div>
+        <div class="sub">실적: 2026-05-29</div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body"><strong style='color:var(--text);'>미국 통신 장비 기업. 주력 분야: 네트워크 · 전기차 · 사이버보안 · 방산 · 위성</strong><br><br>Viasat, Inc.는 미국 및 국제적으로 광대역 및 통신 제품과 서비스를 제공합니다. 통신 서비스를 통해 운영됩니다. 국방 및 첨단 기술 부문. 이 회사는 위성 기반 광대역 및 협대역 통신 솔루션을 제공합니다. 광대역 인터넷 접속 및 인터넷 프로토콜을 통한 음성을 포함한 광대역 서비스; 고정 및 모바일 광대역 및 협대역 서비스; 위성, 무선 제품 및 단말기를 개발 및 판매합니다</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">AI 데이터센터 광통신 수요</div>
+                    <div class="body">GPU 클러스터 확장으로 광모듈·광스위치 수요 폭발 — 데이터센터 인프라 수혜</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>현재가가 애널리스트 평균 목표가 대비 25% 초과 — 단기 과열, 조정 가능성</div><div class="risk-item"><span class="risk-icon">⚠</span>Forward PE 290x 고평가 — 성장 기대치 미달 시 급격한 디레이팅</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">ViaSat (VSAT) Reports Q4 Loss, Lags Revenue Estimates</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Zacks · 2026-05-28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Viasat Earnings Weren’t Enough For Its Scorching Hot Stock</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Barrons.com · 2026-05-28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--red-bg);color:var(--red);border:1px solid var(--red);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">악재</span>
+              <span style="color:var(--text-light);">Viasat (NASDAQ:VSAT) Misses Q1 CY2026 Sales Expectations, Stock Drops</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">StockStory · 2026-05-28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Why Viasat (VSAT) Stock Is Up Today</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">StockStory · 2026-05-27</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Up 840% in the Past Year, the Signal for Viasat Stock Is Getting a Little Fuzzy</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Barchart · 2026-05-27</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">📅 다음 실적 발표 (2026-05-29) — 가이던스 상회 시 단기 모멘텀</div><div class="catalyst-item">🔌 데이터센터 광통신 수요 — 신규 수주 공시 시 상향</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">$86.69 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">$83.22 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="it">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">SMTC</span>
+            <span class="company-name">Semtech Corporation</span>
+          </div>
+          <div class="tagline">AI 반도체 사이클 수혜주</div>
+          <div class="sub-headline">Technology · Semiconductors</div>
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">$166.33</div>
+            <span class="day-chg up">+5.81%</span>
+          </div>
+          <div class="change up">+55.9%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade warn"><span class="dot"></span>VCP <span class="value">3/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">9/11</span></span><span class="grade "><span class="dot"></span>강력 매수 <span class="value">(12)</span></span><span class="grade"><span class="dot"></span>IT <span style="color:var(--purple);font-weight:700;">(AI)</span></span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+15.9%</div>
+        <div class="sub up">EPS +37.5%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">10.6%</div>
+        <div class="sub">ROE -5.8%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">$139.08</div>
+        <div class="sub down">상승여력 -16.4%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">42.8x</div>
+        <div class="sub">실적: 2026-05-27</div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body"><strong style='color:var(--text);'>미국 반도체 기업. 주력 분야: 클라우드 · 데이터센터 · 광통신 · 네트워크 · 전기차</strong><br><br>Semtech Corporation은 아시아 태평양, 북미 및 유럽에서 반도체, 사물 인터넷 시스템 및 클라우드 연결 서비스 솔루션을 제공합니다. 이 회사는 신호 무결성, 아날로그 혼합 신호 및 무선, IoT 시스템 및 연결의 세 가지 부문으로 운영됩니다. 다양한 인프라 및 산업 응용 분야에 사용되는 광 및 구리 데이터 통신과 비디오 전송 제품 포트폴리오를 포함한 신호 무결성 제품을 제공합니다. 데이터 센터, 기업 네트워크, 수동 광 네트워크, 무선 기지국 광 트랜시버 및 인터페이스 애플리케이션을 위한 집적 회로 포트폴리오; 방송 애플리케이션을 위한 비디오 제품뿐만 아니라 전문 오디오 비디오 애플리케이션을 위한 IP 기반 비디오 기술도 포함됩니다. 회사도 쉬고.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">이익 성장 가속</div>
+                    <div class="body">EPS +38% — 분기 실적 개선 흐름 뚜렷</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">애널리스트 강력 매수</div>
+                    <div class="body">12명 강력 매수 의견</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">AI 반도체 슈퍼사이클 수혜</div>
+                    <div class="body">데이터센터 GPU·HBM·AI 시스템 반도체 투자 확대기 진입 — 구조적 수요 증가 기조</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>평균 목표가 대비 16% 프리미엄 — 추가 상승 여력 제한적</div><div class="risk-item"><span class="risk-icon">⚠</span>메모리/로직 사이클 리스크 — 공급 과잉 재발 시 ASP 급락 가능</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">AI hardware CEO sounds alarm on major demand problem</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">TheStreet · 2026-05-28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Semtech Sees Accelerating AI Optical Momentum Supporting Higher Growth Outlook, </span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">MT Newswires · 2026-05-27</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Semtech's Q1 Earnings Surpass Estimates, Revenues Increase Y/Y</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Zacks · 2026-05-27</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">News Flash: Analysts Just Made A Notable Upgrade To Their Semtech Corporation (N</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Simply Wall St. · 2026-05-27</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Dow Jones Futures Rise After S&P 500, Nasdaq Hit Highs; 5 AI Stocks In Buy Areas</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Investor's Business Daily · 2026-05-27</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">📅 다음 실적 발표 (2026-05-27) — 가이던스 상회 시 단기 모멘텀</div><div class="catalyst-item">🚀 엔비디아 Blackwell/Rubin GPU 출하 가속 — HBM·시스템 반도체 수요 직결</div><div class="catalyst-item">🏭 CHIPS Act 보조금 추가 집행 — 원가 구조 개선 모멘텀</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">$166.33 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">$159.68 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="it">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">DELL</span>
+            <span class="company-name">Dell Technologies Inc.</span>
+          </div>
+          <div class="tagline">성장 모멘텀 · 매출 +40%</div>
+          <div class="sub-headline">Technology · Computer Hardware</div>
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">$317.05</div>
+            <span class="day-chg up">+3.84%</span>
+          </div>
+          <div class="change up">+50.9%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade warn"><span class="dot"></span>VCP <span class="value">3/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">9/11</span></span><span class="grade "><span class="dot"></span>매수 <span class="value">(23)</span></span><span class="grade"><span class="dot"></span>IT <span style="color:var(--purple);font-weight:700;">(AI)</span></span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+39.5%</div>
+        <div class="sub up">EPS +47.4%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">9.6%</div>
+        <div class="sub">시총 $205.9B</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">$220.26</div>
+        <div class="sub down">상승여력 -30.5%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">18.4x</div>
+        <div class="sub">실적: 2026-05-29</div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body"><strong style='color:var(--text);'>미국 컴퓨터 하드웨어 기업. 주력 분야: 데이터센터 · 네트워크 · 전기차 · 소프트웨어 · 구독</strong><br><br>Dell Technologies Inc.는 미주, 유럽, 중동, 아시아 및 전 세계에서 다양하고 포괄적인 통합 솔루션, 제품 및 서비스를 설계, 개발, 제조, 마케팅, 판매 및 지원합니다. 이 회사는 ISG(인프라 솔루션 그룹) 및 CSG(클라이언트 솔루션 그룹) 부문을 통해 운영됩니다. ISG 부문은 올플래시, 특수 목적 하이퍼 컨버지드 인프라, 소프트웨어 정의 스토리지, 범용 및 AI 최적화 서버를 포함한 현대적이고 전통적인 스토리지 솔루션을 제공합니다. 이 부문은 또한 광역 네트워크 인프라, 데이터 센터 및 에지 네트워킹 스위치, 케이블 및 광학으로 구성된 네트워킹 제품 및 서비스를 제공하여 비즈니스 고객이 인프라와 복잡성을 혁신하고 현대화하는 데 도움을 줍니다.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +40%, EPS +47% — 성장 + 수익성 개선 동반</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">애널리스트 우호적</div>
+                    <div class="body">23명 매수 의견</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">성장 대비 합리적 밸류</div>
+                    <div class="body">Forward PE 18.4x — 섹터 평균보다 낮으며 EPS 성장률(+47%)을 반영하면 매력적</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>현재가가 애널리스트 평균 목표가 대비 30% 초과 — 단기 과열, 조정 가능성</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Stock market today: Dow, S&P 500, Nasdaq futures edge up as Wall Street braces f</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Yahoo Finance · 2026-05-28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">Earnings live updates: Snowflake stock skyrockets on AWS deal, Kohl's pops</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Yahoo Finance · 2026-05-27</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">Dow Jones Futures: Stock Market Hits Highs On U.S.-Iran Deal; Dell Surges On Ear</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Investor's Business Daily · 2026-05-28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Dell (DELL) Q1 2027 Earnings Call Transcript</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Motley Fool · 2026-05-28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">Dell Stock Jumps on Multibillion-Dollar Pentagon Software Deal</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">GuruFocus.com · 2026-05-28</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">📅 다음 실적 발표 (2026-05-29) — 가이던스 상회 시 단기 모멘텀</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">$317.05 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">$304.37 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="industrial">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">DY</span>
+            <span class="company-name">Dycom Industries, Inc.</span>
+          </div>
+          <div class="tagline">성장 모멘텀 · 매출 +56%</div>
+          <div class="sub-headline">Industrials · Engineering & Construction</div>
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">$535.20</div>
+            <span class="day-chg up">+1.15%</span>
+          </div>
+          <div class="change up">+33.5%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade warn"><span class="dot"></span>VCP <span class="value">5/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">9/11</span></span><span class="grade "><span class="dot"></span>강력 매수 <span class="value">(11)</span></span><span class="grade"><span class="dot"></span>산업</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+56.1%</div>
+        <div class="sub up">EPS +49.5%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">7.3%</div>
+        <div class="sub">ROE 19.7%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">$560.64</div>
+        <div class="sub up">상승여력 +4.8%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">28.8x</div>
+        <div class="sub">실적: 2026-05-27</div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body"><strong style='color:var(--text);'>미국 엔지니어링/건설 기업. 주력 분야: 네트워크 · 전기차</strong><br><br>Dycom Industries, Inc.는 미국의 디지털 인프라, 통신 인프라 및 유틸리티 산업에 전문 계약 서비스를 제공합니다. 통신 및 빌딩 시스템 부문을 통해 운영됩니다. 이 회사는 공중, 지하 및 매설 광섬유, 구리 및 동축 케이블 시스템의 계획 및 설계를 포함하여 통신 제공업체에 엔지니어링 서비스를 제공합니다. 전화 회사 및 케이블 다중 시스템 운영자를 위한 케이블, 관련 구조물 및 드롭 라인 배치; 프로그램 및 프로젝트 관리, 검사 인력; 매크로 셀 및 신규 소규모 셀 사이트 구축과 관련된 무선 네트워크. 또한 배치 및 접합과 같은 건설, 유지 관리 및 설치 서비스도 제공합니다.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +56%, EPS +50% — 성장 + 수익성 개선 동반</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">애널리스트 강력 매수</div>
+                    <div class="body">11명 강력 매수 의견</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 고점 근처 구간 — 조정 가능성 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Company News for May 28, 2026</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Zacks · 2026-05-28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Dycom Industries, Inc. (DY) Hit a 52 Week High, Can the Run Continue?</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Zacks · 2026-05-28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">DY Q1 Deep Dive: Fiber and Data Center Demand Propel Exceptional Growth</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">StockStory · 2026-05-28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">Dycom Industries Inc (DY) Q1 2027 Earnings Call Highlights: Record Revenue and S</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">GuruFocus.com · 2026-05-27</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Dycom Stock Soars 26%. The Building Boom Continues.</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Barrons.com · 2026-05-27</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">📅 다음 실적 발표 (2026-05-27) — 가이던스 상회 시 단기 모멘텀</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">$535.20 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">$513.79 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="cons-cyclical">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">ZGN</span>
+            <span class="company-name">Ermenegildo Zegna N.V.</span>
+          </div>
+          
+          <div class="sub-headline">Consumer Cyclical · Apparel Manufacturing</div>
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">$14.92</div>
+            <span class="day-chg up">+3.54%</span>
+          </div>
+          <div class="change up">+26.9%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>SEPA <span class="value">8/10</span></span><span class="grade warn"><span class="dot"></span>VCP <span class="value">3/10</span></span><span class="grade warn"><span class="dot"></span>SCORE <span class="value">8/11</span></span><span class="grade "><span class="dot"></span>매수 <span class="value">(12)</span></span><span class="grade"><span class="dot"></span>경기소비</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+0.3%</div>
+        <div class="sub up">EPS +6.7%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">9.5%</div>
+        <div class="sub">ROE 10.5%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">$13.40</div>
+        <div class="sub down">상승여력 -10.2%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">24.1x</div>
+        <div class="sub">실적: 2026-03-20</div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body"><strong style='color:var(--text);'>Italy Apparel Manufacturing 기업. (원문) Ermenegildo Zegna N.V., together with its subsidiaries, designs, produces, markets, and distributes luxury menswear and womenwear, children's clothing…</strong><br><br>Ermenegildo Zegna N.V.는 자회사와 함께 고급 남성복 및 여성복, 아동복, 신발, 가죽 제품 및 기타 액세서리를 전 세계적으로 디자인, 생산, 판매 및 유통합니다. 니트웨어, 청바지, 저지, 셔츠, 패브릭 및 가죽 아우터, 액세서리 등 럭셔리 레저웨어를 제공합니다. 턱시도, 셔츠, 블레이저, 정장 코트 및 액세서리에 대한 정장을 포함한 정장; 운동화 및 기타 신발, 가방, 벨트 및 소형 가죽 액세서리로 구성된 가죽 액세서리. 이 회사는 또한 안경, 커프스 단추, 보석, 비치웨어, 속옷, 향수를 제조 및 유통하고 있습니다. 또한 고급 주얼리, 아동복, 직물, 홈 디자인 제품도 제공합니다</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">애널리스트 우호적</div>
+                    <div class="body">12명 매수 의견</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>평균 목표가 대비 10% 프리미엄 — 추가 상승 여력 제한적</div><div class="risk-item"><span class="risk-icon">⚠</span>52주 신고가 근접 — 차익실현 매물 + 단기 Pullback 가능</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">URBN or ZGN: Which Is the Better Value Stock Right Now?</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Zacks · 2026-05-19</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Does Zegna’s (ZGN) Modest Q1 Gain and Dividend Plan Reveal Its True Capital Prio</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Simply Wall St. · 2026-05-04</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Ermenegildo Zegna Q1 Earnings Call Highlights</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">MarketBeat · 2026-05-02</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Luxury Brands Rising Above Retail Volatility. What the Ralph Lauren, Tapestry, a</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Barrons.com · 2026-04-21</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Assessing Zegna (NYSE:ZGN) Valuation After Profit Growth And Strong Cash Positio</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Simply Wall St. · 2026-03-21</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">📅 다음 실적 발표 (2026-03-20) — 가이던스 상회 시 단기 모멘텀</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">$14.92 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">$14.32 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="industrial">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">XMTR</span>
+            <span class="company-name">Xometry, Inc.</span>
+          </div>
+          <div class="tagline">성장 모멘텀 · 매출 +36%</div>
+          <div class="sub-headline">Industrials · Industrial Distribution</div>
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">$95.32</div>
+            <span class="day-chg up">+0.80%</span>
+          </div>
+          <div class="change up">+65.3%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade fail"><span class="dot"></span>SEPA <span class="value">2/10</span></span><span class="grade warn"><span class="dot"></span>VCP <span class="value">3/10</span></span><span class="grade warn"><span class="dot"></span>SCORE <span class="value">6/11</span></span><span class="grade "><span class="dot"></span>매수 <span class="value">(8)</span></span><span class="grade"><span class="dot"></span>산업 <span style="color:var(--purple);font-weight:700;">(AI)</span></span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+35.9%</div>
+        <div class="sub up"></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">-2.5%</div>
+        <div class="sub">ROE -17.5%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">$85.12</div>
+        <div class="sub down">상승여력 -10.7%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">77.9x</div>
+        <div class="sub">실적: 2026-05-07</div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body"><strong style='color:var(--text);'>미국 Industrial Distribution 기업. 주력 분야: 클라우드 · AI · 자동차 · 전기차 · 의료</strong><br><br>Xometry, Inc.는 미국 및 전 세계에서 인공 지능(AI) 기반 온라인 제조 시장을 운영하고 있습니다. 회사의 마켓플레이스는 AI를 사용하여 구매자가 맞춤형 부품 및 어셈블리를 소싱하고 즉각적인 가격 책정 및 리드 타임을 얻을 수 있도록 지원합니다. 구매자를 제조 서비스 공급업체와 연결하는 AI 기반 온라인 마켓플레이스인 Xometry 마켓플레이스를 운영합니다. 수량, 제조 프로세스, 자재 및 위치를 기준으로 거래 가격을 책정하는 Xometry 즉석 견적 엔진 산업 공급업체, 제품, 서비스의 온라인 디렉토리뿐만 아니라 제조업체와 산업 서비스 제공업체에 대한 디지털 마케팅 서비스 및 통찰력을 제공하는 산업 소싱 플랫폼인 Thomasnet도 있습니다. 회사는 또한 cloud-b를 제공합니다.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +36%. 분명한 수요 모멘텀 존재</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>평균 목표가 대비 11% 프리미엄 — 추가 상승 여력 제한적</div><div class="risk-item"><span class="risk-icon">⚠</span>Forward PE 78x 고평가 — 성장 기대치 미달 시 급격한 디레이팅</div><div class="risk-item"><span class="risk-icon">⚠</span>52주 신고가 근접 — 차익실현 매물 + 단기 Pullback 가능</div><div class="risk-item"><span class="risk-icon">⚠</span>영업적자 (-3%) — 이익 턴어라운드까지 시간 필요</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">A Look At Xometry (XMTR) Valuation After Its Strong Multi Period Share Price Sur</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Simply Wall St. · 2026-05-24</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Jim Cramer Says “I Know Xometry’s Growing Like a Weed”</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Insider Monkey · 2026-05-23</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">3 Growth Companies With High Insider Ownership And 27% Revenue Growth</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Simply Wall St. · 2026-05-14</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Xometry Q1 Earnings Call Highlights</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">MarketBeat · 2026-05-09</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">Xometry (XMTR) Q1 2026 Earnings Transcript</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Motley Fool · 2026-05-08</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">📅 다음 실적 발표 (2026-05-07) — 가이던스 상회 시 단기 모멘텀</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">$95.32 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">$91.51 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.sector-tab');
+  var cards = document.querySelectorAll('.card[data-sector]');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      var f = tab.getAttribute('data-filter');
+      cards.forEach(function(c){
+        if (f === 'all' || c.getAttribute('data-sector') === f) {
+          c.style.display = '';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
+
+
+<div class="footer">
+  <p>MacTrader v5 · Minervini SEPA + VCP 돌파매매</p>
+  <p>🦞 뭉 (Mung) · Mac Mini M4 · 자동 생성</p>
+  <p>📊 데이터: yfinance · Finnhub · dalinaum · Naver금융 · 🧠 심층분석: Claude Sonnet</p>
+</div>
+</body></html>
