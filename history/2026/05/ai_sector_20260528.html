@@ -88,28 +88,34 @@ body{
   border:1px solid rgba(255,255,255,0.05);
 }
 
-/* 카드 헤더 (티커 + 가격) */
-/* 좌우 항상 분리 고정: 좌측은 회사명/태그/섹터, 우측은 가격 블록 (우측 상단 정렬) */
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:nowrap;}
-.card-top-left{flex:1 1 auto;min-width:0;}
+/* 카드 헤더: 가격 블록을 우측 상단에 absolute 고정, 좌측 컨텐츠에 마진 패딩으로 영역 확보 */
+.card{position:relative;}
+.card-top{display:block;padding-right:130px;min-height:60px;}
+.card-top-left{display:block;}
 .ticker-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
 .ticker-pill{
   background:var(--teal);color:#fff;border-radius:10px;
   padding:6px 12px;font-weight:800;font-size:1.05rem;letter-spacing:0.5px;flex-shrink:0;
 }
 .company-name{
-  font-size:1.05rem;font-weight:700;color:var(--text);
+  font-size:1.02rem;font-weight:700;color:var(--text);
   word-break:keep-all;overflow-wrap:anywhere;line-height:1.3;
 }
 .tagline{
   background:var(--teal-bg);color:var(--teal);
   border:1px solid var(--teal);border-radius:12px;
   padding:3px 9px;font-size:0.72rem;font-weight:600;display:inline-block;margin-top:4px;
+  max-width:calc(100% - 4px);word-break:keep-all;
 }
-.sub-headline{color:var(--text-light);font-size:0.82rem;line-height:1.45;margin-top:6px;}
+.sub-headline{color:var(--text-light);font-size:0.82rem;line-height:1.45;margin-top:6px;
+  word-break:keep-all;overflow-wrap:anywhere;}
 
-/* 가격 블록: 우측 상단 고정. 가격 위, 배지와 vs50을 그 아래 우측 정렬 */
-.price-block{text-align:right;flex-shrink:0;align-self:flex-start;}
+/* 가격 블록: 카드 우측 상단 absolute 고정 - 어떤 너비에서도 항상 이 자리 */
+.price-block{
+  position:absolute;top:20px;right:18px;
+  text-align:right;
+  width:auto;max-width:130px;
+}
 .price-block .price-row{display:flex;align-items:baseline;justify-content:flex-end;gap:6px;flex-wrap:wrap;row-gap:2px;}
 .price-block .price{white-space:nowrap;}
 .price-block .price{font-size:1.5rem;font-weight:800;color:var(--text);}
@@ -216,34 +222,35 @@ body{
 @media(max-width:540px){
   body{padding:14px 10px;}
   .card{padding:16px 14px;}
-  .card-top{gap:10px;}
-  .ticker-pill{font-size:0.9rem;padding:5px 9px;}
-  .company-name{font-size:0.9rem;}
-  .price-block .price{font-size:1.2rem;}
-  .price-block .day-chg{font-size:0.72rem;padding:2px 6px;}
-  .price-block .change{font-size:0.72rem;}
-  .price-block .vol{font-size:0.65rem;}
+  .card-top{padding-right:110px;}
+  .ticker-pill{font-size:0.88rem;padding:5px 9px;}
+  .company-name{font-size:0.88rem;}
+  .price-block{top:16px;right:14px;max-width:110px;}
+  .price-block .price{font-size:1.1rem;}
+  .price-block .day-chg{font-size:0.7rem;padding:2px 5px;}
+  .price-block .change{font-size:0.7rem;}
+  .price-block .vol{font-size:0.62rem;}
   .metrics-2x2{grid-template-columns:1fr;}
   .grade-line{gap:10px;font-size:0.72rem;}
 }
 
-/* 아주 좊은 화면: 가격 블록을 회사명 아래로 떨광뜬림다(우측 정렬 유지) */
-@media(max-width:440px){
-  .card-top{flex-wrap:wrap;}
-  .card-top-left{flex:1 1 100%;}
-  .price-block{flex:1 1 100%;text-align:right;margin-top:8px;}
-  .price-block .price-row{justify-content:flex-end;}
-  .price-block .price{font-size:1.35rem;}
-  .price-block .day-chg{font-size:0.78rem;}
-  .price-block .change{font-size:0.78rem;}
-  .price-block .vol{font-size:0.7rem;}
+/* 아주 좁은 화면 (소형 폰): 가격 블록 더 잔게 · 프릴을 좌측 완전 분리 */
+@media(max-width:420px){
+  .card-top{padding-right:96px;}
+  .price-block{top:16px;right:14px;max-width:96px;}
+  .price-block .price{font-size:1rem;}
+  .price-block .day-chg{font-size:0.65rem;padding:1px 4px;}
+  .price-block .change{font-size:0.68rem;}
+  .price-block .vol{font-size:0.6rem;}
+  .ticker-pill{font-size:0.82rem;padding:4px 8px;}
+  .company-name{font-size:0.85rem;}
 }
 </style>
 </head>
 <body>
 <div class="page-header">
   <h1>📊 미장 AI 관련 종목 모음</h1>
-  <div class="subtitle">오늘 IBD RS 리스트 중 AI 관련 (반도체/클라우드/소프트웨어/하드웨어 포함)<br>2026년 05월 28일 (Thu) 21:49 KST</div>
+  <div class="subtitle">오늘 IBD RS 리스트 중 AI 관련 (반도체/클라우드/소프트웨어/하드웨어 포함)<br>2026년 05월 28일 (Thu) 21:57 KST</div>
   <div class="sector-tabs"><button class="sector-tab active" data-filter="all">전체 <span class="count">24</span></button><button class="sector-tab" data-filter="it">IT <span class="count">19</span></button><button class="sector-tab" data-filter="comm">커뮤 <span class="count">1</span></button><button class="sector-tab" data-filter="industrial">산업 <span class="count">3</span></button><button class="sector-tab" data-filter="materials">소재 <span class="count">1</span></button></div>
 </div>
 
