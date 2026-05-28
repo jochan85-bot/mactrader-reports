@@ -55,6 +55,31 @@ body{
 .stat-box .num{font-size:1.3rem;font-weight:700;color:var(--teal-light);}
 .stat-box .label{color:#cbd5e1;font-size:0.7rem;margin-top:2px;text-transform:uppercase;letter-spacing:0.5px;}
 
+/* 섹터 탭 (상단 필터) */
+.sector-tabs{
+  display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;justify-content:center;
+}
+.sector-tab{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(20,184,166,0.4);
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:0.78rem;font-weight:600;color:#cbd5e1;
+  cursor:pointer;user-select:none;
+  transition:background 0.15s,border-color 0.15s,color 0.15s;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.sector-tab:hover{background:rgba(20,184,166,0.15);color:#fff;}
+.sector-tab.active{
+  background:var(--teal);border-color:var(--teal);color:#fff;
+  box-shadow:0 2px 8px rgba(20,184,166,0.4);
+}
+.sector-tab .count{
+  background:rgba(0,0,0,0.25);border-radius:999px;
+  padding:1px 7px;font-size:0.72rem;font-weight:700;
+}
+.sector-tab.active .count{background:rgba(255,255,255,0.25);}
+
 /* ============ 카드 ============ */
 .card{
   background:var(--card-bg);border-radius:14px;
@@ -80,11 +105,21 @@ body{
 .sub-headline{color:var(--text-light);font-size:0.82rem;line-height:1.45;margin-top:6px;}
 
 .price-block{text-align:right;}
+.price-block .price-row{display:flex;align-items:baseline;justify-content:flex-end;gap:7px;flex-wrap:wrap;}
 .price-block .price{font-size:1.5rem;font-weight:800;color:var(--text);}
-.price-block .change{font-size:0.95rem;font-weight:700;}
+.price-block .day-chg{
+  font-size:0.78rem;font-weight:700;
+  padding:2px 7px;border-radius:6px;
+  white-space:nowrap;
+}
+/* 한국 관습: 상승=빨강, 하락=파랑 */
+.price-block .day-chg.up{color:var(--red);background:var(--red-bg);}
+.price-block .day-chg.down{color:#2563eb;background:#dbeafe;}
+.price-block .day-chg.flat{color:var(--muted);background:rgba(148,163,184,0.15);}
+.price-block .change{font-size:0.78rem;font-weight:600;margin-top:3px;}
 .price-block .change.up{color:var(--green);}
 .price-block .change.down{color:var(--red);}
-.price-block .vol{font-size:0.75rem;color:var(--muted);margin-top:2px;}
+.price-block .vol{font-size:0.7rem;color:var(--muted);margin-top:1px;}
 
 /* 등급 라인 */
 .grade-line{
@@ -186,19 +221,12 @@ body{
 <body>
 <div class="page-header">
   <h1>📊 미장 AI · 반도체 섹터 집중 분석</h1>
-  <div class="subtitle">AI/반도체 관련 SEPA 통과 종목<br>2026년 05월 28일 (Thu) 09:14 KST</div>
-  <div class="summary-bar">
-    <div class="stat-box"><div class="num">2</div><div class="label">총 후보</div></div>
-    <div class="stat-box"><div class="num">1</div><div class="label">고우선</div></div>
-    <div class="stat-box"><div class="num">1</div><div class="label">중우선</div></div>
-    <div class="stat-box"><div class="num">0</div><div class="label">저우선</div></div>
-    <div class="stat-box"><div class="num">2</div><div class="label">🤖 AI</div></div>
-    
-  </div>
+  <div class="subtitle">AI/반도체 관련 SEPA 통과 종목<br>2026년 05월 28일 (Thu) 10:42 KST</div>
+  <div class="sector-tabs"><button class="sector-tab active" data-filter="all">전체 <span class="count">2</span></button><button class="sector-tab" data-filter="technology">기술 <span class="count">2</span></button></div>
 </div>
 
 
-    <div class="card">
+    <div class="card" data-sector="technology">
       <div class="card-top">
         <div class="card-top-left">
           <div class="ticker-row">
@@ -209,13 +237,16 @@ body{
           <div class="sub-headline">Technology · Semiconductors</div>
         </div>
         <div class="price-block">
-          <div class="price">$928.41</div>
+          <div class="price-row">
+            <div class="price">$928.41</div>
+            <span class="day-chg up">+3.63%</span>
+          </div>
           <div class="change up">+72.5%</div>
           <div class="vol">vs 50일선</div>
         </div>
       </div>
       <div class="grade-line">
-        <span class="grade "><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">7/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">10/11</span></span><span class="grade "><span class="dot"></span>강력 매수 <span class="value">(40)</span></span><span class="grade"><span class="dot" style="background:var(--purple);"></span>AI 섹터</span>
+        <span class="grade "><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">7/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">10/11</span></span><span class="grade "><span class="dot"></span>강력 매수 <span class="value">(40)</span></span><span class="grade"><span class="dot" style="background:var(--purple);"></span>기술</span>
       </div>
       
     <div class="metrics-2x2">
@@ -303,18 +334,18 @@ body{
             </div>
             <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
               
-              <span style="color:var(--text-light);">Micron (MU) Stock Is Up, What You Need To Know</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">StockStory · 2026-05-27</span>
+              <span style="color:var(--text-light);">If You'd Invested $100 in Micron Technology Stock 1 Year Ago, Here's How Much Yo</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Motley Fool · 2026-05-28</span>
             </div>
             <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
               <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
-              <span style="color:var(--text-light);">Stock Market Today, May 27: Micron Extends Rally on AI Chip Momentum, U.S. Marke</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Motley Fool · 2026-05-27</span>
+              <span style="color:var(--text-light);">Analyst who predicted Micron rally has new message</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">TheStreet · 2026-05-28</span>
             </div>
             <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
               
-              <span style="color:var(--text-light);">Stocks to Watch Wednesday Recap: Marvell Technology, PDD, Zscaler</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">The Wall Street Journal · 2026-05-27</span>
+              <span style="color:var(--text-light);">Micron (MU) Stock Is Up, What You Need To Know</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">StockStory · 2026-05-27</span>
             </div></div>
         </div>
         
@@ -339,7 +370,7 @@ body{
     </div>
     
 
-    <div class="card">
+    <div class="card" data-sector="technology">
       <div class="card-top">
         <div class="card-top-left">
           <div class="ticker-row">
@@ -350,13 +381,16 @@ body{
           <div class="sub-headline">Technology · Communication Equipment</div>
         </div>
         <div class="price-block">
-          <div class="price">$85.57</div>
+          <div class="price-row">
+            <div class="price">$85.57</div>
+            <span class="day-chg up">+5.12%</span>
+          </div>
           <div class="change up">+40.7%</div>
           <div class="vol">vs 50일선</div>
         </div>
       </div>
       <div class="grade-line">
-        <span class="grade "><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade fail"><span class="dot"></span>VCP <span class="value">2/10</span></span><span class="grade warn"><span class="dot"></span>SCORE <span class="value">8/11</span></span><span class="grade "><span class="dot"></span>매수 <span class="value">(8)</span></span><span class="grade"><span class="dot" style="background:var(--purple);"></span>AI 섹터</span>
+        <span class="grade "><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade fail"><span class="dot"></span>VCP <span class="value">2/10</span></span><span class="grade warn"><span class="dot"></span>SCORE <span class="value">8/11</span></span><span class="grade "><span class="dot"></span>매수 <span class="value">(8)</span></span><span class="grade"><span class="dot" style="background:var(--purple);"></span>기술</span>
       </div>
       
     <div class="metrics-2x2">
@@ -418,6 +452,11 @@ body{
             </div>
             <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
               
+              <span style="color:var(--text-light);">Up 840% in the Past Year, the Signal for Viasat Stock Is Getting a Little Fuzzy</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Barchart · 2026-05-27</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
               <span style="color:var(--text-light);">Viasat (VSAT) Q1 Earnings: What To Expect</span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">StockStory · 2026-05-27</span>
             </div>
@@ -430,11 +469,6 @@ body{
               
               <span style="color:var(--text-light);">VSAT Stock Rips 10% Today After Hitting Key Milestone – Viasat Expects Its SB-S </span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Stocktwits · 2026-05-26</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              
-              <span style="color:var(--text-light);">American Airlines to install Starlink Wi-Fi on 500+ planes</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">Quartz · 2026-05-26</span>
             </div></div>
         </div>
         
@@ -458,6 +492,28 @@ body{
     
     </div>
     
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.sector-tab');
+  var cards = document.querySelectorAll('.card[data-sector]');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      var f = tab.getAttribute('data-filter');
+      cards.forEach(function(c){
+        if (f === 'all' || c.getAttribute('data-sector') === f) {
+          c.style.display = '';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
+
 
 <div class="footer">
   <p>MacTrader v5 · Minervini SEPA + VCP 돌파매매</p>
