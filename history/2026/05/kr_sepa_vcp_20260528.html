@@ -89,14 +89,18 @@ body{
 }
 
 /* 카드 헤더 (티커 + 가격) */
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;}
-.card-top-left{flex:1;min-width:200px;}
-.ticker-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+/* 좌우 항상 분리 고정: 좌측은 회사명/태그/섹터, 우측은 가격 블록 (우측 상단 정렬) */
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:nowrap;}
+.card-top-left{flex:1 1 auto;min-width:0;}
+.ticker-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
 .ticker-pill{
   background:var(--teal);color:#fff;border-radius:10px;
-  padding:6px 12px;font-weight:800;font-size:1.05rem;letter-spacing:0.5px;
+  padding:6px 12px;font-weight:800;font-size:1.05rem;letter-spacing:0.5px;flex-shrink:0;
 }
-.company-name{font-size:1.05rem;font-weight:700;color:var(--text);}
+.company-name{
+  font-size:1.05rem;font-weight:700;color:var(--text);
+  word-break:keep-all;overflow-wrap:anywhere;line-height:1.3;
+}
 .tagline{
   background:var(--teal-bg);color:var(--teal);
   border:1px solid var(--teal);border-radius:12px;
@@ -104,8 +108,10 @@ body{
 }
 .sub-headline{color:var(--text-light);font-size:0.82rem;line-height:1.45;margin-top:6px;}
 
-.price-block{text-align:right;}
-.price-block .price-row{display:flex;align-items:baseline;justify-content:flex-end;gap:7px;flex-wrap:wrap;}
+/* 가격 블록: 우측 상단 고정. 가격 위, 배지와 vs50을 그 아래 우측 정렬 */
+.price-block{text-align:right;flex-shrink:0;align-self:flex-start;}
+.price-block .price-row{display:flex;align-items:baseline;justify-content:flex-end;gap:6px;flex-wrap:wrap;row-gap:2px;}
+.price-block .price{white-space:nowrap;}
 .price-block .price{font-size:1.5rem;font-weight:800;color:var(--text);}
 .price-block .day-chg{
   font-size:0.78rem;font-weight:700;
@@ -210,18 +216,34 @@ body{
 @media(max-width:540px){
   body{padding:14px 10px;}
   .card{padding:16px 14px;}
-  .ticker-pill{font-size:0.95rem;padding:5px 10px;}
-  .company-name{font-size:0.95rem;}
-  .price-block .price{font-size:1.25rem;}
+  .card-top{gap:10px;}
+  .ticker-pill{font-size:0.9rem;padding:5px 9px;}
+  .company-name{font-size:0.9rem;}
+  .price-block .price{font-size:1.2rem;}
+  .price-block .day-chg{font-size:0.72rem;padding:2px 6px;}
+  .price-block .change{font-size:0.72rem;}
+  .price-block .vol{font-size:0.65rem;}
   .metrics-2x2{grid-template-columns:1fr;}
   .grade-line{gap:10px;font-size:0.72rem;}
+}
+
+/* 아주 좊은 화면: 가격 블록을 회사명 아래로 떨광뜬림다(우측 정렬 유지) */
+@media(max-width:440px){
+  .card-top{flex-wrap:wrap;}
+  .card-top-left{flex:1 1 100%;}
+  .price-block{flex:1 1 100%;text-align:right;margin-top:8px;}
+  .price-block .price-row{justify-content:flex-end;}
+  .price-block .price{font-size:1.35rem;}
+  .price-block .day-chg{font-size:0.78rem;}
+  .price-block .change{font-size:0.78rem;}
+  .price-block .vol{font-size:0.7rem;}
 }
 </style>
 </head>
 <body>
 <div class="page-header">
   <h1>📊 국장 SEPA + VCP 돌파 후보</h1>
-  <div class="subtitle">dalinaum RS + Minervini SEPA + VCP + Composite ≥ 70<br>2026년 05월 28일 (Thu) 20:32 KST</div>
+  <div class="subtitle">dalinaum RS + Minervini SEPA + VCP + Composite ≥ 70<br>2026년 05월 28일 (Thu) 21:49 KST</div>
   <div class="sector-tabs"><button class="sector-tab active" data-filter="all">전체 <span class="count">30</span></button><button class="sector-tab" data-filter="it">IT <span class="count">18</span></button><button class="sector-tab" data-filter="healthcare">헬스케어 <span class="count">1</span></button><button class="sector-tab" data-filter="cons-cyclical">경기소비 <span class="count">2</span></button><button class="sector-tab" data-filter="unknown">기타 <span class="count">9</span></button></div>
 </div>
 
@@ -310,6 +332,11 @@ body{
           <div>
             <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
               
+              <span style="color:var(--text-light);">“삼전닉스 아닌데 한 달 새 ‘2배’ 뛰었다”…AI 사이클 ‘숨은 승....</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울경제 · 2026.05.28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
               <span style="color:var(--text-light);">중동 긴장에 코스피 출렁 … 막판 300P 반등</span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일경제 · 2026.05.28</span>
             </div>
@@ -327,11 +354,6 @@ body{
               
               <span style="color:var(--text-light);">삼성전기, AI 서버·전장에 R&D 집중…고부가 부품 사업 확대</span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">전자신문 · 2026.05.28</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
-              <span style="color:var(--text-light);">“전기전자 내 최선호주”…MLCC·기판 대장주 삼성전기 또 신고가 [매...</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일경제 · 2026.05.28</span>
             </div></div>
         </div>
         
@@ -440,6 +462,21 @@ body{
           <div>
             <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
               
+              <span style="color:var(--text-light);">젠슨 황, 다음 주 방한할 듯...제2의 깐부회동 성사되나</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">kbc광주방송 · 2026.05.28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">젠슨 황 엔비디아 CEO, 다음주 한국 찾는다... '깐부 회동' 재...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한국일보 · 2026.05.28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">젠슨 황, 다음 주 한국 온다…'제2의 깐부회동' 열리나</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">MBN · 2026.05.28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
               <span style="color:var(--text-light);">‘제2의 깐부회동’ 성사되나…젠슨 황, 다음주 한국 온다</span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">세계일보 · 2026.05.28</span>
             </div>
@@ -447,21 +484,6 @@ body{
               
               <span style="color:var(--text-light);">젠슨 황, 내주 방한 LG·네이버 회동…'제2 깐부회동' 할까</span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴스1 · 2026.05.28</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              
-              <span style="color:var(--text-light);">젠슨 황, 한국 찾아 LG 등 회동···‘제2의 깐부회동’ 되나</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">경향신문 · 2026.05.28</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              
-              <span style="color:var(--text-light);">젠슨 황, 다음 주 방한…LG·네이버 등 연쇄 회동나서</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.28</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              
-              <span style="color:var(--text-light);">젠슨 황, 다음주 한국 온다…‘제2의 깐부회동’ 열리나</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울신문 · 2026.05.28</span>
             </div></div>
         </div>
         
@@ -1072,6 +1094,16 @@ body{
           <div>
             <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
               
+              <span style="color:var(--text-light);">카카오 사상 첫 파업 예고… 삼전 초기업노조는 과반 지위 ‘위태’</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울신문 · 2026.05.28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">파업 문턱 선 카카오…정신아 “불확실성 해소 못해 송구”</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울신문 · 2026.05.28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
               <span style="color:var(--text-light);">'찬성률 80%'에도 조합원 탈퇴 행렬…삼전 과반노조 지위 '흔들'</span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일신문 · 2026.05.28</span>
             </div>
@@ -1082,18 +1114,8 @@ body{
             </div>
             <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
               
-              <span style="color:var(--text-light);">삼성전자 초기업노조 ‘탈퇴 러시’…과반노조 지위 흔들릴 수도</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매경이코노미 · 2026.05.28</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              
               <span style="color:var(--text-light);">삼성 초기업노조 8000명 탈퇴…과반노조 지위 흔들린다</span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">동아일보 · 2026.05.28</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              
-              <span style="color:var(--text-light);">삼성전자 초기업노조, 과반 지위 흔들리자…최승호 위원장 'DS·DX ...</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴시스 · 2026.05.28</span>
             </div></div>
         </div>
         
@@ -1830,6 +1852,11 @@ body{
             </div>
             <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
               
+              <span style="color:var(--text-light);">“현대차 120만원 간대”…초고수들, 삼전 팔고 현대차 매수[주식 초...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울경제 · 2026.05.28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
               <span style="color:var(--text-light);">반도체 순환매 장세 추격매수 주의보</span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일경제 · 2026.05.28</span>
             </div>
@@ -1842,11 +1869,6 @@ body{
               
               <span style="color:var(--text-light);">반도체 숨고르자 치솟은 이차전지…LG엔솔, 15% 강세[핫종목](종합)</span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴스1 · 2026.05.28</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              
-              <span style="color:var(--text-light);">코스피, 중동 긴장 속 낙폭 줄여 8180선 하락 마감…코스닥 2%대 ...</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한국경제 · 2026.05.28</span>
             </div></div>
         </div>
         
