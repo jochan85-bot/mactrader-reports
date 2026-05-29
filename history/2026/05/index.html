@@ -18,6 +18,7 @@ h1{color:#58a6ff;font-size:20px;margin-bottom:20px}
 .card:active{border-color:#58a6ff}
 .icon{margin-right:10px;font-size:18px}
 .desc{display:block;font-size:12px;color:#8b949e;margin-top:3px}
+.empty{color:#8b949e;font-size:14px;text-align:center;padding:40px 20px}
 </style>
 </head>
 <body>
@@ -32,45 +33,75 @@ h1{color:#58a6ff;font-size:20px;margin-bottom:20px}
 <script>
 const REPORTS = [
   {
-    date: "2026-05-25",
-    label: "2026년 5월 25일 (월) — 금요일 종가 기준",
+    date: "2026-05-29",
+    label: "2026년 5월 29일 (금)",
     latest: true,
     files: [
-      { icon: "🎯", title: "미장 SEPA+VCP", desc: "TXN·TTMI·MRVL·NOK 등 10개", url: "sepa_vcp_20260525.html" },
-      { icon: "🤖", title: "미장 AI·반도체", desc: "Tech 섹터 VCP 집중분석", url: "ai_sector_20260525.html" },
-      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "미래에셋벤처·비츠로셀·빛과전자 등", url: "kr_sepa_vcp_20260525.html" }
+      { icon: "🎯", title: "미장 SEPA+VCP", desc: "Minervini 돌파 후보 + 실적/애널리스트/뉴스", url: "sepa_vcp_20260529.html" },
+      { icon: "🤖", title: "미장 AI 관련", desc: "오늘 IBD 리스트 중 AI 연관 종목", url: "ai_sector_20260529.html" },
+      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "한국 돌파 후보 + 분기 실적/외국인 비율/뉴스", url: "kr_sepa_vcp_20260529.html" }
+    ]
+  },
+  {
+    date: "2026-05-28",
+    label: "2026년 5월 28일 (목)",
+    files: [
+      { icon: "🎯", title: "미장 SEPA+VCP", desc: "Minervini 돌파 후보 + 실적/애널리스트/뉴스", url: "sepa_vcp_20260528.html" },
+      { icon: "🤖", title: "미장 AI 관련", desc: "오늘 IBD 리스트 중 AI 연관 종목", url: "ai_sector_20260528.html" },
+      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "한국 돌파 후보 + 분기 실적/외국인 비율/뉴스", url: "kr_sepa_vcp_20260528.html" }
+    ]
+  },
+  {
+    date: "2026-05-27",
+    label: "2026년 5월 27일 (수)",
+    files: [
+      { icon: "🎯", title: "미장 SEPA+VCP", desc: "Minervini 돌파 후보 + 실적/애널리스트/뉴스", url: "sepa_vcp_20260527.html" },
+      { icon: "🤖", title: "미장 AI 관련", desc: "오늘 IBD 리스트 중 AI 연관 종목", url: "ai_sector_20260527.html" },
+      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "한국 돌파 후보 + 분기 실적/외국인 비율/뉴스", url: "kr_sepa_vcp_20260527.html" }
+    ]
+  },
+  {
+    date: "2026-05-25",
+    label: "2026년 5월 25일 (월)",
+    files: [
+      { icon: "🎯", title: "미장 SEPA+VCP", desc: "Minervini 돌파 후보 + 실적/애널리스트/뉴스", url: "sepa_vcp_20260525.html" },
+      { icon: "🤖", title: "미장 AI 관련", desc: "오늘 IBD 리스트 중 AI 연관 종목", url: "ai_sector_20260525.html" },
+      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "한국 돌파 후보 + 분기 실적/외국인 비율/뉴스", url: "kr_sepa_vcp_20260525.html" }
     ]
   },
   {
     date: "2026-05-23",
-    label: "2026년 5월 23일 (금) — 5/22 데이터",
+    label: "2026년 5월 23일 (토)",
     files: [
-      { icon: "🎯", title: "미장 SEPA+VCP", desc: "CIEN 집중 분석 · MRVL·LSCC Watch", url: "sepa_vcp_20260523.html" },
-      { icon: "🤖", title: "미장 AI·반도체", desc: "LRCX·MRVL·ARM·ALAB 외 9개 종목", url: "ai_sector_20260523.html" },
-      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "VCP 핵심 5종목 · 강화 필터 적용", url: "kr_sepa_vcp_20260523.html" }
+      { icon: "🎯", title: "미장 SEPA+VCP", desc: "Minervini 돌파 후보 + 실적/애널리스트/뉴스", url: "sepa_vcp_20260523.html" },
+      { icon: "🤖", title: "미장 AI 관련", desc: "오늘 IBD 리스트 중 AI 연관 종목", url: "ai_sector_20260523.html" },
+      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "한국 돌파 후보 + 분기 실적/외국인 비율/뉴스", url: "kr_sepa_vcp_20260523.html" }
     ]
   },
   {
     date: "2026-05-22",
-    label: "2026년 5월 22일 (목)",
+    label: "2026년 5월 22일 (금)",
     files: [
-      { icon: "🎯", title: "미장 SEPA+VCP", desc: "CIEN 집중 분석 · MRVL·LSCC Watch", url: "sepa_vcp_20260522.html" },
-      { icon: "🤖", title: "미장 AI·반도체", desc: "LRCX·MRVL·ARM·ALAB 외 9개 종목", url: "ai_sector_20260522.html" },
-      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "VCP 상위 종목 · 코스피/코스닥", url: "kr_sepa_vcp_20260522.html" }
+      { icon: "🎯", title: "미장 SEPA+VCP", desc: "Minervini 돌파 후보 + 실적/애널리스트/뉴스", url: "sepa_vcp_20260522.html" },
+      { icon: "🤖", title: "미장 AI 관련", desc: "오늘 IBD 리스트 중 AI 연관 종목", url: "ai_sector_20260522.html" },
+      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "한국 돌파 후보 + 분기 실적/외국인 비율/뉴스", url: "kr_sepa_vcp_20260522.html" }
     ]
   }
 ];
 
-const sorted = [...REPORTS].sort((a,b) => b.date.localeCompare(a.date));
-document.getElementById('reports').innerHTML = sorted.map((r,i) => `
-  <div class="date-group">
-    <div class="date-label">${r.label}${i===0?' <span class="badge">최신</span>':''}</div>
-    ${r.files.map(f=>`
-      <a class="card" href="${f.url}">
-        <span class="icon">${f.icon}</span>${f.title}
-        <span class="desc">${f.desc}</span>
-      </a>`).join('')}
-  </div>`).join('');
+if (REPORTS.length === 0) {
+  document.getElementById('reports').innerHTML = '<div class="empty">아직 리포트가 없습니다.</div>';
+} else {
+  document.getElementById('reports').innerHTML = REPORTS.map((r, i) => `
+    <div class="date-group">
+      <div class="date-label">${r.label}${r.latest ? ' <span class="badge">최신</span>' : ''}</div>
+      ${r.files.map(f => `
+        <a class="card" href="${f.url}">
+          <span class="icon">${f.icon}</span>${f.title}
+          <span class="desc">${f.desc}</span>
+        </a>`).join('')}
+    </div>`).join('');
+}
 </script>
 </body>
 </html>
