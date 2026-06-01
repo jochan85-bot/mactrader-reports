@@ -1,0 +1,4190 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국장 SEPA + VCP 돌파 후보 | 2026-06-01</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#1a2540;
+  --bg-gradient:linear-gradient(180deg,#1a2540 0%,#0f1828 100%);
+  --card-bg:#f5f1ea;
+  --card-bg-hover:#f9f5ee;
+  --border:#2c3a5a;
+  --text:#1a2540;
+  --text-light:#475569;
+  --muted:#94a3b8;
+  --teal:#14b8a6;
+  --teal-light:#5eead4;
+  --teal-bg:#e0f7f4;
+  --teal-bg-dark:rgba(20,184,166,0.15);
+  --green:#10b981;
+  --green-bg:#d1fae5;
+  --red:#ef4444;
+  --red-bg:#fee2e2;
+  --yellow:#f59e0b;
+  --yellow-bg:#fef3c7;
+  --purple:#8b5cf6;
+}
+html,body{background:var(--bg);background:var(--bg-gradient);min-height:100vh;}
+body{
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  font-size:14px;line-height:1.6;padding:20px 14px;
+  max-width:760px;margin:0 auto;
+}
+
+/* ============ 헤더 ============ */
+.page-header{
+  background:linear-gradient(135deg,rgba(20,184,166,0.15),rgba(20,184,166,0.05));
+  border:1px solid var(--teal);border-radius:18px;
+  padding:24px 22px;margin-bottom:24px;
+  color:#fff;text-align:center;
+}
+.page-header h1{
+  font-size:1.4rem;color:#fff;margin-bottom:6px;font-weight:700;
+}
+.page-header .subtitle{color:var(--teal-light);font-size:0.85rem;}
+.summary-bar{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(95px,1fr));gap:8px;
+  margin-top:16px;
+}
+.stat-box{
+  background:rgba(255,255,255,0.08);border:1px solid var(--teal);border-radius:10px;
+  padding:10px 8px;text-align:center;
+}
+.stat-box .num{font-size:1.3rem;font-weight:700;color:var(--teal-light);}
+.stat-box .label{color:#cbd5e1;font-size:0.7rem;margin-top:2px;text-transform:uppercase;letter-spacing:0.5px;}
+
+/* 섹터 탭 (상단 필터) */
+.sector-tabs{
+  display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;justify-content:center;
+}
+.sector-tab{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(20,184,166,0.4);
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:0.78rem;font-weight:600;color:#cbd5e1;
+  cursor:pointer;user-select:none;
+  transition:background 0.15s,border-color 0.15s,color 0.15s;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.sector-tab:hover{background:rgba(20,184,166,0.15);color:#fff;}
+.sector-tab.active{
+  background:var(--teal);border-color:var(--teal);color:#fff;
+  box-shadow:0 2px 8px rgba(20,184,166,0.4);
+}
+.sector-tab .count{
+  background:rgba(0,0,0,0.25);border-radius:999px;
+  padding:1px 7px;font-size:0.72rem;font-weight:700;
+}
+.sector-tab.active .count{background:rgba(255,255,255,0.25);}
+
+/* ============ 카드 ============ */
+.card{
+  background:var(--card-bg);border-radius:14px;
+  padding:20px 18px;margin-bottom:14px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.25);
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+/* 카드 헤더: 가격 블록을 우측 상단에 absolute 고정, 좌측 컨텐츠에 마진 패딩으로 영역 확보 */
+.card{position:relative;}
+.card-top{display:block;padding-right:130px;min-height:60px;}
+.card-top-left{display:block;}
+.ticker-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+.ticker-pill{
+  background:var(--teal);color:#fff;border-radius:10px;
+  padding:6px 12px;font-weight:800;font-size:1.05rem;letter-spacing:0.5px;flex-shrink:0;
+}
+.company-name{
+  font-size:1.02rem;font-weight:700;color:var(--text);
+  word-break:keep-all;overflow-wrap:anywhere;line-height:1.3;
+}
+.tagline{
+  background:var(--teal-bg);color:var(--teal);
+  border:1px solid var(--teal);border-radius:12px;
+  padding:3px 9px;font-size:0.72rem;font-weight:600;display:inline-block;margin-top:4px;
+  max-width:calc(100% - 4px);word-break:keep-all;
+}
+.sub-headline{color:var(--text-light);font-size:0.82rem;line-height:1.45;margin-top:6px;
+  word-break:keep-all;overflow-wrap:anywhere;}
+
+/* 가격 블록: 카드 우측 상단 absolute 고정 - 어떤 너비에서도 항상 이 자리 */
+.price-block{
+  position:absolute;top:20px;right:18px;
+  text-align:right;
+  width:auto;max-width:130px;
+}
+.price-block .price-row{display:flex;align-items:baseline;justify-content:flex-end;gap:6px;flex-wrap:wrap;row-gap:2px;}
+.price-block .price{white-space:nowrap;}
+.price-block .price{font-size:1.5rem;font-weight:800;color:var(--text);}
+.price-block .day-chg{
+  font-size:0.78rem;font-weight:700;
+  padding:2px 7px;border-radius:6px;
+  white-space:nowrap;
+}
+/* 한국 관습: 상승=빨강, 하락=파랑 */
+.price-block .day-chg.up{color:var(--red);background:var(--red-bg);}
+.price-block .day-chg.down{color:#2563eb;background:#dbeafe;}
+.price-block .day-chg.flat{color:var(--muted);background:rgba(148,163,184,0.15);}
+.price-block .change{font-size:0.78rem;font-weight:600;margin-top:3px;}
+.price-block .change.up{color:var(--green);}
+.price-block .change.down{color:var(--red);}
+.price-block .vol{font-size:0.7rem;color:var(--muted);margin-top:1px;}
+
+/* 등급 라인 */
+.grade-line{
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;
+  padding:10px 0;margin-top:8px;border-top:1px dashed #d6d0c4;border-bottom:1px dashed #d6d0c4;
+  font-size:0.78rem;
+}
+.grade{display:inline-flex;align-items:center;gap:5px;color:var(--text-light);font-weight:600;}
+.grade .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);}
+.grade.warn .dot{background:var(--yellow);}
+.grade.fail .dot{background:var(--red);}
+.grade .value{color:var(--text);font-weight:700;}
+
+/* 실적 박스 2x2 */
+.metrics-2x2{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;
+}
+.metric-box{
+  background:rgba(255,255,255,0.5);border:1px solid #e1ddd2;border-radius:10px;
+  padding:11px 13px;
+}
+.metric-box .label{color:var(--teal);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;}
+.metric-box .value{font-size:1.05rem;font-weight:800;color:var(--text);margin-top:4px;}
+.metric-box .sub{font-size:0.72rem;color:var(--text-light);margin-top:2px;}
+.metric-box .sub.up{color:var(--green);font-weight:600;}
+.metric-box .sub.down{color:var(--red);font-weight:600;}
+
+/* 섹션 (기업개요·투자근거·리스크·카탈리스트) */
+.section{margin-top:16px;}
+.section-title{
+  display:flex;align-items:center;gap:6px;
+  font-size:0.82rem;font-weight:700;color:var(--text);
+  padding-left:8px;border-left:3px solid var(--teal);
+  margin-bottom:8px;
+}
+.section-body{font-size:0.85rem;color:var(--text-light);line-height:1.6;}
+
+/* 투자 근거 (번호 매긴 리스트) */
+.thesis-list{display:flex;flex-direction:column;gap:8px;}
+.thesis-item{display:flex;gap:10px;align-items:flex-start;}
+.thesis-num{
+  background:var(--teal);color:#fff;
+  width:22px;height:22px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.78rem;font-weight:700;flex-shrink:0;margin-top:2px;
+}
+.thesis-text{flex:1;font-size:0.85rem;}
+.thesis-text .title{font-weight:700;color:var(--text);}
+.thesis-text .body{color:var(--text-light);margin-top:2px;}
+
+/* 리스크 */
+.risk-list{display:flex;flex-direction:column;gap:6px;}
+.risk-item{display:flex;gap:8px;align-items:flex-start;font-size:0.82rem;color:var(--text-light);}
+.risk-icon{color:var(--yellow);flex-shrink:0;}
+
+/* 카탈리스트 */
+.catalyst-box{
+  background:linear-gradient(135deg,var(--teal-bg),rgba(20,184,166,0.05));
+  border:1px solid var(--teal);border-radius:10px;
+  padding:12px 14px;margin-top:14px;
+}
+.catalyst-title{display:flex;align-items:center;gap:6px;font-weight:700;color:var(--teal);font-size:0.82rem;margin-bottom:6px;}
+.catalyst-list{display:flex;flex-direction:column;gap:4px;font-size:0.8rem;color:var(--text-light);}
+.catalyst-item{display:flex;gap:6px;align-items:flex-start;}
+.catalyst-item::before{content:"•";color:var(--teal);font-weight:700;flex-shrink:0;}
+
+/* 진입/손절 박스 */
+.entry-stop-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;
+}
+.entry-pill, .stop-pill{
+  border-radius:10px;padding:10px 14px;text-align:center;
+  border:1px solid;
+}
+.entry-pill{background:var(--green-bg);border-color:var(--green);}
+.entry-pill .label{color:var(--green);font-size:0.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:5px;}
+.entry-pill .value{color:var(--text);font-size:0.92rem;font-weight:700;margin-top:3px;}
+.stop-pill{background:var(--red-bg);border-color:var(--red);}
+.stop-pill .label{color:var(--red);font-size:0.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:5px;}
+.stop-pill .value{color:var(--text);font-size:0.92rem;font-weight:700;margin-top:3px;}
+
+/* 푸터 */
+.footer{
+  text-align:center;color:#94a3b8;font-size:0.78rem;padding:24px;
+  border-top:1px solid var(--border);margin-top:32px;
+}
+
+@media(max-width:540px){
+  body{padding:14px 10px;}
+  .card{padding:16px 14px;}
+  .card-top{padding-right:110px;}
+  .ticker-pill{font-size:0.88rem;padding:5px 9px;}
+  .company-name{font-size:0.88rem;}
+  .price-block{top:16px;right:14px;max-width:110px;}
+  .price-block .price{font-size:1.1rem;}
+  .price-block .day-chg{font-size:0.7rem;padding:2px 5px;}
+  .price-block .change{font-size:0.7rem;}
+  .price-block .vol{font-size:0.62rem;}
+  .metrics-2x2{grid-template-columns:1fr;}
+  .grade-line{gap:10px;font-size:0.72rem;}
+}
+
+/* 아주 좁은 화면 (소형 폰): 가격 블록 더 잔게 · 프릴을 좌측 완전 분리 */
+@media(max-width:420px){
+  .card-top{padding-right:96px;}
+  .price-block{top:16px;right:14px;max-width:96px;}
+  .price-block .price{font-size:1rem;}
+  .price-block .day-chg{font-size:0.65rem;padding:1px 4px;}
+  .price-block .change{font-size:0.68rem;}
+  .price-block .vol{font-size:0.6rem;}
+  .ticker-pill{font-size:0.82rem;padding:4px 8px;}
+  .company-name{font-size:0.85rem;}
+}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <h1>📊 국장 SEPA + VCP 돌파 후보</h1>
+  <div class="subtitle">dalinaum RS + Minervini SEPA + VCP + Composite ≥ 70<br>2026년 06월 01일 (Mon) 20:34 KST</div>
+  <div class="sector-tabs"><button class="sector-tab active" data-filter="all">전체 <span class="count">30</span></button><button class="sector-tab" data-filter="it">IT <span class="count">8</span></button><button class="sector-tab" data-filter="comm">커뮤 <span class="count">1</span></button><button class="sector-tab" data-filter="financial">금융 <span class="count">1</span></button><button class="sector-tab" data-filter="cons-cyclical">경기소비 <span class="count">5</span></button><button class="sector-tab" data-filter="cons-defensive">필수소비 <span class="count">1</span></button><button class="sector-tab" data-filter="industrial">산업 <span class="count">3</span></button><button class="sector-tab" data-filter="materials">소재 <span class="count">1</span></button><button class="sector-tab" data-filter="energy">에너지 <span class="count">1</span></button><button class="sector-tab" data-filter="unknown">기타 <span class="count">9</span></button></div>
+</div>
+
+
+    <div class="card" data-sector="it">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">000660</span>
+            <span class="company-name">SK하이닉스</span>
+          </div>
+          <div class="tagline">고성장 · 매출 +198% · EPS +398%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩2,363,000</div>
+            <span class="day-chg up">+1.29%</span>
+          </div>
+          <div class="change up">+71.0%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">98</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">10.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">99/100</span></span><span class="grade"><span class="dot"></span>IT</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+198.1%</div>
+        <div class="sub up">EPS +397.6%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">71.5%</div>
+        <div class="sub">시총 ₩1684.12조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩2,470,417</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">22.4x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1949년 설립 이후 2012년 에스케이하이닉스로 상호 변경하고, 2025년 에스케이파워텍 지분 인수로 종속회사를 확대함. 경기도 이천 본사를 중심으로 글로벌 반도체 기업으로, DRAM 및 NAND 중심의 메모리 반도체와 Foundry 사업을 운영하고 있음. AI 기술 확산에 대응하여 HBM4 양산 체제와 256GB DDR5 개발로 기술 리더십을 강화하며 지속 가능한 성장을 추진하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +198%, EPS +398% — 매출·이익 동반 폭발로 소프트웨어주 같은 J커브 진입</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">고마진 비즈니스</div>
+                    <div class="body">영업이익률 72% — 경쟁우위 또는 비용 관리 우위</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 보유 견고</div>
+                    <div class="body">외국인 보유율 51% — 글로벌 펀드 매수 기반 안정적</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">4</div>
+                  <div class="thesis-text">
+                    <div class="title">AI 반도체 슈퍼사이클 수혜</div>
+                    <div class="body">데이터센터 GPU·HBM·AI 시스템 반도체 투자 확대기 진입 — 구조적 수요 증가 기조</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 신고가 근접 — 차익실현 매물 + 단기 Pullback 가능</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">매년 반복되는 레미콘 파업에...반도체 클러스터 공사 멈출 판</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">SK·엔비디아, 반도체·피지컬 AI 협력 확대</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">세계일보 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">‘구천피’ 가시권 코스피… “반도체 빼면 4100~4200”</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">세계일보 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">‘85만전자·300만전기’ 파격 전망 속…SK하닉은 ‘250만 vs 4...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">헤럴드경제 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">'방한 임박' 젠슨 황, 이번엔 최태원·구광모·이해진과 '삼쏘 회동' ...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">TV조선 · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩2,363,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩2,268,480 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="unknown">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">402340</span>
+            <span class="company-name">SK스퀘어</span>
+          </div>
+          <div class="tagline">고성장 · 매출 +319% · EPS +419%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩1,256,000</div>
+            <span class="day-chg up">+1.87%</span>
+          </div>
+          <div class="change up">+53.1%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">97</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade warn"><span class="dot"></span>VCP <span class="value">5.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">99/100</span></span><span class="grade"><span class="dot"></span>복합기업</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+318.8%</div>
+        <div class="sub up">EPS +419.4%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">95.9%</div>
+        <div class="sub">시총 ₩165.74조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩1,291,429</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">10.6x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 2021년 SK텔레콤으로부터 인적분할되어 설립되었고, 지주회사 전환 승인을 받았음. 11번가, 티맵모빌리티 등 주요종속회사와 SK하이닉스를 포함한 반도체 중심의 포트폴리오와 지배구조를 형성하고 있으며, 커머스·플랫폼·모빌리티 사업을 영위함. 신속하고 전문적인 의사결정 체제 확립 및 전문화된 사업 역량 집중을 통해 기업 경쟁력 강화와 주주가치 증대를 도모하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +319%, EPS +419% — 매출·이익 동반 폭발로 소프트웨어주 같은 J커브 진입</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">고마진 비즈니스</div>
+                    <div class="body">영업이익률 96% — 경쟁우위 또는 비용 관리 우위</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">성장 대비 저평가</div>
+                    <div class="body">Forward PE 10.6x — 섹터 평균(~25x) 절반 수준이지만 EPS +419% 성장 중 — 밸류에이션 재평가 여지</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">4</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 보유 견고</div>
+                    <div class="body">외국인 보유율 49% — 글로벌 펀드 매수 기반 안정적</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 고점 근처 구간 — 조정 가능성 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">SK스퀘어, 원스토어 매각 '탄력' 받나…넥써쓰와 매각 협의</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">머니투데이 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">반년 새 바뀐 코스피 시총 지형…AI·반도체가 판 흔들었다</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">‘삼전닉스’ 담겠다던 반도체ETF, 삼성전기가 비중 장악했다 [이런국....</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울경제 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">"큰놈만 오른다"…대형주 33% 뛸때 소형주 14% 하락</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일경제 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">배불린 외인 "꿀꺽" 또 던졌지만...코스피 첫 8700대, 삼전도 최...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">머니투데이 · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩1,256,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩1,205,760 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="unknown">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">236030</span>
+            <span class="company-name">씨알푸드</span>
+          </div>
+          
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩3,800</div>
+            <span class="day-chg up">+5.56%</span>
+          </div>
+          <div class="change up">+35.2%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">96</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">9.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">98/100</span></span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">—</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">—</div>
+        <div class="sub">시총 ₩77억</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">—</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">—</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 2017년 12월 코넥스시장에 상장한 곡물가공식품 제조업체임. 쌀, 보리, 옥수수, 잡곡 등 다양한 곡물과 견과류, 비타민을 원료로 언제 어디서나 간편하게 섭취할 수 있는 시리얼 및 시리얼바를 제조 및 판매하는 사업을 영위하고 있음. 한국표준산업분류상 곡물을 찌거나 볶거나 팽창시키는 등 다양한 방법으로 조제하여 곡물 가공품을 생산하는 기타 곡물 가공품 제조업에 속하며, 중소기업 및 벤처기업으로 등록되어 있음.</div>
+    </div>
+    
+      
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 신고가 근접 — 차익실현 매물 + 단기 Pullback 가능</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">“우유 말고 매콤소스에 비벼드세요” 씨알푸드 신개념 ‘비빔C리얼’...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">헤럴드경제 · 2026.04.15</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">씨알푸드, 우유 대신 소스에 비벼 먹는 '비빔 C리얼' 출시</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴스1 · 2026.04.14</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">씨알푸드, ‘비빔 C리얼’ 출시… “이젠 비벼 드세요”</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">디지털타임스 · 2026.04.13</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">씨알푸드, '비빔 C리얼' 출시…"우유 대신 비벼 먹는 시리얼"</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴시스 · 2026.04.13</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">씨알푸드, ‘비빔 C리얼’ 출시… “우유 대신 비벼 먹는다”</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">국민일보 · 2026.04.13</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩3,800 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩3,650 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="it">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">005930</span>
+            <span class="company-name">삼성전자</span>
+          </div>
+          <div class="tagline">고성장 · 매출 +69% · EPS +474%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩349,000</div>
+            <span class="day-chg up">+10.09%</span>
+          </div>
+          <div class="change up">+48.9%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">96</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">8.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">98/100</span></span><span class="grade"><span class="dot"></span>IT</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+69.2%</div>
+        <div class="sub up">EPS +474.3%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">42.8%</div>
+        <div class="sub">시총 ₩2040.35조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩396,667</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">24.2x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1969년 설립된 글로벌 전자 기업으로 DX, DS 두 부문과 SDC, Harman으로 구성되어 있음. TV, 모니터, 냉장고, 세탁기, 에어컨, 스마트폰, DRAM, NAND Flash, OLED 패널, 전장부품 등을 생산·판매하고 있음. AI 기술 적용 확대, 고부가 메모리 제품 개발, IT OLED 라인 양산으로 기술 플랫폼의 혁신을 추구하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +69%, EPS +474% — 매출·이익 동반 폭발로 소프트웨어주 같은 J커브 진입</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">고마진 비즈니스</div>
+                    <div class="body">영업이익률 43% — 경쟁우위 또는 비용 관리 우위</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 보유 견고</div>
+                    <div class="body">외국인 보유율 48% — 글로벌 펀드 매수 기반 안정적</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">4</div>
+                  <div class="thesis-text">
+                    <div class="title">AI 반도체 슈퍼사이클 수혜</div>
+                    <div class="body">데이터센터 GPU·HBM·AI 시스템 반도체 투자 확대기 진입 — 구조적 수요 증가 기조</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 신고가 근접 — 차익실현 매물 + 단기 Pullback 가능</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장, 주식 재산만 60조 원 돌파…삼성가 133조 넘어서</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">문화일보 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">'34만전자'에 이재용 회장 주식 재산 60조 돌파…"LG전자 시총과...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">머니투데이 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장 주식재산 60조원 넘어…1년 만에 331% 급등</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스TV · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장 주식재산 60조원 넘어…LG전자 시총 수준</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">디지털타임스 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 주식 재산 60조 돌파…1년 새 331.1% '폭등'</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">경기일보 · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩349,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩335,040 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="financial">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">032830</span>
+            <span class="company-name">삼성생명</span>
+          </div>
+          <div class="tagline">수익성 폭발 · EPS +133%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩410,000</div>
+            <span class="day-chg up">+5.53%</span>
+          </div>
+          <div class="change up">+51.3%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">95</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">8.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">98/100</span></span><span class="grade"><span class="dot"></span>금융</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">-6.3%</div>
+        <div class="sub down">EPS +132.8%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">8.5%</div>
+        <div class="sub">시총 —</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩357,700</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">—</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1957년 설립된 생명보험사로, 2025년 삼성노블라이프를 설립해 시니어리빙 사업 확장함. 사망·질병·장애 보장성보험과 노후대비 연금·저축성보험 등 생애주기별 상품 제공하고, 태국·중국 등 해외시장 진출 및 글로벌 자산운용사 지분투자로 자산운용업 육성 중임. 인구구조 변화와 디지털기술 발전에 따른 고객 니즈를 충족하기 위해 상품·서비스 다양화 및 자산운용업 비중 확대와 새로운 신사업 추진으로 수익 다각화하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">수익성 폭발적 개선</div>
+                    <div class="body">EPS +133% — 비용 구조 개선 또는 마진 확대로 이익 J커브 단계</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 우호적 수급</div>
+                    <div class="body">외국인 보유율 23% — 기관 수급 안정적</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 신고가 근접 — 차익실현 매물 + 단기 Pullback 가능</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장, 주식 재산만 60조 원 돌파…삼성가 133조 넘어서</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">문화일보 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">'34만전자'에 이재용 회장 주식 재산 60조 돌파…"LG전자 시총과...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">머니투데이 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장 주식재산 60조원 넘어…1년 만에 331% 급등</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스TV · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장 주식재산 60조원 넘어…LG전자 시총 수준</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">디지털타임스 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 주식 재산 60조 돌파…1년 새 331.1% '폭등'</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">경기일보 · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩410,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩393,600 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="unknown">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">178320</span>
+            <span class="company-name">서진시스템</span>
+          </div>
+          <div class="tagline">실적 터닝포인트 · 매출 +55%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩75,100</div>
+            <span class="day-chg down">-7.05%</span>
+          </div>
+          <div class="change up">+33.4%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">95</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">6.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">98/100</span></span><span class="grade"><span class="dot"></span>전기장비</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">-0.4%</div>
+        <div class="sub down">EPS -200.0%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">-11.8%</div>
+        <div class="sub">시총 ₩4.78조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩73,500</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">—</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 2007년 설립된 글로벌 메탈 플랫폼 공급업체로, 국내외 총 26개 계열회사를 운영하고 있음. 베트남 법인에 대규모 생산 시설을 보유하여 부품 내재화와 수직 계열화를 통해 높은 생산성과 가격 경쟁력을 확보, 다양한 첨단 산업 분야의 제품을 제조하고 있음. 금형공장 내재화로 빠른 개발 역량과 일괄 공정으로 품질, 납기, 가격경쟁력을 확보하고, 글로벌 기업들과 협력하며 기술 혁신과 생산 효율성 제고를 추구하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">매출 고성장 단계</div>
+                    <div class="body">최근 분기 매출 4,010억 (전년 대비 +55%) — 명확한 수요 확대</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">적자 탈출 · 흑자전환</div>
+                    <div class="body">최근 분기 영업이익 316억 — 장기 적자 터널어운드</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>EPS 감소 -200% — 수익성 후행 추세, 펀더멘털 약화</div><div class="risk-item"><span class="risk-icon">⚠</span>영업적자 (-12%) — 이익 턴어라운드까지 시간 필요</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">코스피, 종가 기준 최고치 경신…전고점도 넘어</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">아시아경제 · 2026.05.29</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">코스피, 8400선 횡보…코스닥 상승 전환</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">아시아경제 · 2026.05.29</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--red-bg);color:var(--red);border:1px solid var(--red);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">악재</span>
+              <span style="color:var(--text-light);">15거래일째 '셀코리아'…이달 외인 43兆 순매도, 귀환 언제쯤?</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일신문 · 2026.05.29</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">코스피, 기관 매수세에 장중 강세</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">아시아경제 · 2026.05.29</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">오늘의 메모[5월 29일]</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울경제 · 2026.05.28</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩75,100 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩72,100 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="it">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">005935</span>
+            <span class="company-name">삼성전자우</span>
+          </div>
+          <div class="tagline">고성장 · 매출 +69% · EPS +474%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩229,000</div>
+            <span class="day-chg up">+13.09%</span>
+          </div>
+          <div class="change up">+44.4%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">94</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">10.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">98/100</span></span><span class="grade"><span class="dot"></span>IT</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+69.2%</div>
+        <div class="sub up">EPS +474.3%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">42.8%</div>
+        <div class="sub">시총 ₩183.74조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩396,667</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">2.2x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +69%, EPS +474% — 매출·이익 동반 폭발로 소프트웨어주 같은 J커브 진입</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">고마진 비즈니스</div>
+                    <div class="body">영업이익률 43% — 경쟁우위 또는 비용 관리 우위</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">성장 대비 저평가</div>
+                    <div class="body">Forward PE 2.2x — 섹터 평균(~25x) 절반 수준이지만 EPS +474% 성장 중 — 밸류에이션 재평가 여지</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">4</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 보유 견고</div>
+                    <div class="body">외국인 보유율 78% — 글로벌 펀드 매수 기반 안정적</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 신고가 근접 — 차익실현 매물 + 단기 Pullback 가능</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장, 주식 재산만 60조 원 돌파…삼성가 133조 넘어서</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">문화일보 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">'34만전자'에 이재용 회장 주식 재산 60조 돌파…"LG전자 시총과...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">머니투데이 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장 주식재산 60조원 넘어…1년 만에 331% 급등</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스TV · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장 주식재산 60조원 넘어…LG전자 시총 수준</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">디지털타임스 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 주식 재산 60조 돌파…1년 새 331.1% '폭등'</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">경기일보 · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩229,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩219,840 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="it">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">052860</span>
+            <span class="company-name">아이앤씨</span>
+          </div>
+          <div class="tagline">수익성 폭발 · EPS +100%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩6,090</div>
+            <span class="day-chg down">-1.46%</span>
+          </div>
+          <div class="change up">+11.9%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">94</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">9.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">98/100</span></span><span class="grade"><span class="dot"></span>IT</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">-4.3%</div>
+        <div class="sub down">EPS +100.0%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">-46.0%</div>
+        <div class="sub">시총 ₩1088억</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">—</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">25.3x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1996년 설립된 시스템 반도체 설계 전문기업으로 2009년 코스닥 상장하였으며, 스마트에너지, 무선, 멀티미디어, AE 사업을 영위하고 있음. 한국전력 AMI 사업에 2세대 IoT PLC 칩셋을 적용하여 통신 성능을 강화하고 차세대 전력 인프라 확대에 대응하고 있음. 국내 유일 Wi-Fi 칩셋 개발 능력으로 IoT 보안을 강화하고, 3세대 초소형 아크차단기 개발로 시공성과 경제성을 확보하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">수익성 폭발적 개선</div>
+                    <div class="body">EPS +100% — 비용 구조 개선 또는 마진 확대로 이익 J커브 단계</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">AI 반도체 슈퍼사이클 수혜</div>
+                    <div class="body">데이터센터 GPU·HBM·AI 시스템 반도체 투자 확대기 진입 — 구조적 수요 증가 기조</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>영업적자 (-46%) — 이익 턴어라운드까지 시간 필요</div><div class="risk-item"><span class="risk-icon">⚠</span>외국인 보유 1.9% — 글로벌 펀드 관심 낮음, 변동성 클 수 있음</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">꿈비, 옥토아이앤씨 흡수합병…시공매트 사업 성장 기대</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">머니투데이 · 2026.05.19</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">꿈비, 자회사 옥토아이앤씨 소규모 무증자 흡수합병 결의</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울신문 · 2026.05.19</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">케빈 워시 차기 Fed 의장, '25억 2000만원어치 쿠팡 주식' 판...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">아시아경제 · 2026.05.17</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">'워시의 연준' 앞두고…쿠팡 주식 10만주 매각</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한국경제TV · 2026.05.17</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">美연준 차기의장, 취임 앞서 쿠팡주식 25억원 어치 매각</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.17</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩6,090 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩5,850 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="energy">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">034730</span>
+            <span class="company-name">SK</span>
+          </div>
+          <div class="tagline">수익성 폭발 · EPS +176%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩657,000</div>
+            <span class="day-chg down">-2.81%</span>
+          </div>
+          <div class="change up">+49.8%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">94</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">7.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">98/100</span></span><span class="grade"><span class="dot"></span>에너지</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+18.9%</div>
+        <div class="sub up">EPS +175.9%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">10.0%</div>
+        <div class="sub">시총 ₩47.63조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩761,385</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">4.8x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1991년에 설립되어 SK그룹의 지주회사로서 다양한 국내외 계열사와 종속회사를 보유함. 투자부문을 중심으로 에너지·화학, 정보통신, 소재, 물류, 서비스 등 다양한 산업 분야에 종속회사들을 통한 포트폴리오를 구축하고 있으며, Digital 기술을 기반으로 종합 IT 서비스 사업을 영위하고 있음. 미래 성장동력 확보를 위해 첨단소재, 바이오, AI/디지털, 그린 등 신성장 사업에 적극 투자하면서 혁신을 추구하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">수익성 폭발적 개선</div>
+                    <div class="body">EPS +176% — 비용 구조 개선 또는 마진 확대로 이익 J커브 단계</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">성장 대비 저평가</div>
+                    <div class="body">Forward PE 4.8x — 섹터 평균(~25x) 절반 수준이지만 EPS +176% 성장 중 — 밸류에이션 재평가 여지</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 우호적 수급</div>
+                    <div class="body">외국인 보유율 30% — 기관 수급 안정적</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 고점 근처 구간 — 조정 가능성 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">SK·엔비디아, 반도체·피지컬 AI 협력 확대</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">세계일보 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">‘85만전자·300만전기’ 파격 전망 속…SK하닉은 ‘250만 vs 4...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">헤럴드경제 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">'방한 임박' 젠슨 황, 이번엔 최태원·구광모·이해진과 '삼쏘 회동' ...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">TV조선 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">제2 깐부회동 이번엔 '삼쏘'? 젠슨 황 시구설까지…'시선집중'</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">JTBC · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">젠슨 황, 성수동 삼겹살집서 총수들과 회동 추진</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스TV · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩657,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩630,720 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="unknown">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">127120</span>
+            <span class="company-name">제이에스링크</span>
+          </div>
+          <div class="tagline">성장 모멘텀 · 매출 +56%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩42,850</div>
+            <span class="day-chg up">+5.54%</span>
+          </div>
+          <div class="change up">+5.8%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">94</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">6.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">98/100</span></span><span class="grade"><span class="dot"></span>생명과학도구및서비스</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+56.1%</div>
+        <div class="sub up">EPS -200.0%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">-74.8%</div>
+        <div class="sub">시총 ₩1.48조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">—</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">—</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 2000년 설립되어 맞춤의학 전문 헬스케어 기업을 지향하며, 2025년 주식회사 제이에스링크로 상호 변경함. 유전체 분석, 맞춤의학, 분자진단 사업을 영위하며 데이터베이스 구축, 유전자 분석 및 발굴, 바이오의약품 개발·판매, 의료기기 제조를 전개하고 있음. 2024년 정관 변경을 통해 경제 패러다임 변화에 대응, 전기차, 로봇, UAM 등 핵심 기기에 필요한 자석 사업에 진출하고, 파트너십 확보를 진행하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +56%. 분명한 수요 모멘텀 존재</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">매출 고성장 단계</div>
+                    <div class="body">최근 분기 매출 89억 (전년 대비 +56%) — 명확한 수요 확대</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>EPS 감소 -200% — 수익성 후행 추세, 펀더멘털 약화</div><div class="risk-item"><span class="risk-icon">⚠</span>영업적자 (-75%) — 이익 턴어라운드까지 시간 필요</div><div class="risk-item"><span class="risk-icon">⚠</span>외국인 보유 2.0% — 글로벌 펀드 관심 낮음, 변동성 클 수 있음</div><div class="risk-item"><span class="risk-icon">⚠</span>최근 분기 영업이익률 -16.2% — 수익성 적자 상태</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">유전체 분석 1세대 마크로젠, 해외 매출 62% 달성…AI 대전환 속도</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">블로터 · 2026.05.22</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">오늘의 메모[5월 20일]</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울경제 · 2026.05.19</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">제이에스링크, 24.9억 규모 공급계약 체결</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.13</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">황제주 한화에어로스페이스 주식, 5월 '의무보유등록' 풀린다</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">동행미디어 시대 · 2026.04.30</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">한화에어로 등 56곳 2억242만주, 내달 의무보유등록 해제</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴시스 · 2026.04.30</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩42,850 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩41,140 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="cons-cyclical">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">005380</span>
+            <span class="company-name">현대차</span>
+          </div>
+          
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩750,000</div>
+            <span class="day-chg up">+3.73%</span>
+          </div>
+          <div class="change up">+34.2%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">93</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">8.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">97/100</span></span><span class="grade"><span class="dot"></span>경기소비</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+3.4%</div>
+        <div class="sub up">EPS -23.6%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">5.5%</div>
+        <div class="sub">시총 ₩153.57조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩765,385</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">16.1x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1967년 설립된 글로벌 자동차 제조기업으로, 현대캐피탈 지분율을 99.9%로 높여 그룹 일체성을 강화하고, 국내 최대 재생에너지 공급 계약을 체결함. 다양한 차량 라인업과 금융서비스, 철도차량 제작 등 종합 모빌리티 사업을 하고 있음. 2030년까지 글로벌 판매 555만대 목표로 전동화 차량 330만대 확대 및 생산능력 강화, 2045년 탄소중립 달성을 위한 기후변화 통합 솔루션을 추진하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 우호적 수급</div>
+                    <div class="body">외국인 보유율 26% — 기관 수급 안정적</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">안정적 수익 구조</div>
+                    <div class="body">최근 분기 영업이익 33005억 실현</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>EPS 감소 -24% — 수익성 후행 추세, 펀더멘털 약화</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">진격의 중국차, 국내 고급시장도 공략…현대차 품평회 열고 '열공'</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">MBN · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">SK·엔비디아, 반도체·피지컬 AI 협력 확대</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">세계일보 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">'방한 임박' 젠슨 황, 이번엔 최태원·구광모·이해진과 '삼쏘 회동' ...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">TV조선 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">제2 깐부회동 이번엔 '삼쏘'? 젠슨 황 시구설까지…'시선집중'</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">JTBC · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">젠슨 황, 8일 서울서 국내 AI 스타트업들 만난다</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일경제 · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩750,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩720,000 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="it">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">007815</span>
+            <span class="company-name">코리아써우</span>
+          </div>
+          <div class="tagline">수익성 폭발 · EPS +500%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩23,600</div>
+            <span class="day-chg up">+6.07%</span>
+          </div>
+          <div class="change up">+17.4%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">93</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">8.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">97/100</span></span><span class="grade"><span class="dot"></span>IT</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+18.4%</div>
+        <div class="sub up">EPS +500.0%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">6.3%</div>
+        <div class="sub">시총 ₩700억</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩121,500</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">0.8x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">수익성 폭발적 개선</div>
+                    <div class="body">EPS +500% — 비용 구조 개선 또는 마진 확대로 이익 J커브 단계</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">성장 대비 저평가</div>
+                    <div class="body">Forward PE 0.8x — 섹터 평균(~25x) 절반 수준이지만 EPS +500% 성장 중 — 밸류에이션 재평가 여지</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 고점 근처 구간 — 조정 가능성 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">한국거래소, 단일가 매매 적용 대상 저유동성 24개 종목 확정</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">동행미디어 시대 · 2025.12.30</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">거래소, 24개 종목 단일가 매매 대상 확정</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">데일리안 · 2025.12.30</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩23,600 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩22,660 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="unknown">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">006400</span>
+            <span class="company-name">삼성SDI</span>
+          </div>
+          <div class="tagline">수익성 폭발 · EPS +126%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩652,000</div>
+            <span class="day-chg down">-5.23%</span>
+          </div>
+          <div class="change up">+17.3%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">93</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">7.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">97/100</span></span><span class="grade"><span class="dot"></span>전기제품</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+12.6%</div>
+        <div class="sub up">EPS +126.0%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">-4.3%</div>
+        <div class="sub">시총 ₩52.54조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩843,609</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">—</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1970년 삼성-NEC로 설립, 1999년 삼성SDI로 변경하며 헝가리, 미국 등 22개 종속기업을 두고 있음. 리튬이온 2차전지를 생산/판매하는 에너지솔루션 부문(매출 비중 93%)과 반도체 및 디스플레이 소재를 생산/판매하는 전자재료 부문(매출 비중 7%)을 운영하고 있음. 동사는 고안전성, 고용량, 고출력 기술로 시장 수요에 대응하며, 신규 고객 탐색과 원가 경쟁력 확보를 지속하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">수익성 폭발적 개선</div>
+                    <div class="body">EPS +126% — 비용 구조 개선 또는 마진 확대로 이익 J커브 단계</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 우호적 수급</div>
+                    <div class="body">외국인 보유율 26% — 기관 수급 안정적</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>영업적자 (-4%) — 이익 턴어라운드까지 시간 필요</div><div class="risk-item"><span class="risk-icon">⚠</span>최근 분기 영업이익률 -2.1% — 수익성 적자 상태</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용, 5년째 호암상 시상식 참석</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">경향신문 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">이재용, 5년 연속 호암상 참석해 조수미 등 수상자 격려</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">조선비즈 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">이재용, 삼성호암상 5년 연속 참석…조수미 등 6명 수상</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">TV조선 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용, 올해도 호암상 참석…5년 연속 선대 뜻 기렸다</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">데일리안 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장, 5년 연속 삼성호암상 시상식 참석…사장단도 총출동</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">지디넷코리아 · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩652,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩625,920 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="it">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">008060</span>
+            <span class="company-name">대덕</span>
+          </div>
+          <div class="tagline">성장 모멘텀 · 매출 +47%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩20,400</div>
+            <span class="day-chg down">-5.34%</span>
+          </div>
+          <div class="change up">+24.6%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">93</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade warn"><span class="dot"></span>VCP <span class="value">5.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">97/100</span></span><span class="grade"><span class="dot"></span>IT</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+47.1%</div>
+        <div class="sub up">EPS +500.0%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">7.0%</div>
+        <div class="sub">시총 ₩6383억</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">—</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">104.6x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1972년 PCB 제조 및 판매를 위해 설립되었고, 2020년 PCB 사업 인적분할 후 지주회사로 전환함. 현재 대덕전자(주), (주)와이솔, 엔알랩(주) 등 3개의 국내 자회사를 보유한 지주회사로서 PCB사업, RF사업 등을 영위 중임. 대덕전자는 반도체용 패키지 기판과 AI서버용 MLB를 생산하고, 와이솔은 다양한 통신용 SAW Filter 및 RF Module을 생산하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +47%, EPS +500% — 매출·이익 동반 폭발로 소프트웨어주 같은 J커브 진입</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">매출 개선 추세</div>
+                    <div class="body">최근 분기 매출 +47% — 실적 턴어라운드 시작</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">적자 탈출 · 흑자전환</div>
+                    <div class="body">최근 분기 영업이익 533억 — 장기 적자 터널어운드</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>Forward PE 105x 고평가 — 성장 기대치 미달 시 급격한 디레이팅</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">"첨단 패키징이 핵심"…대덕전자 주가 1054%·티엘비 643% 질주</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한국경제 · 2026.05.26</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">NH아문디 K반도체 ETF 순자산 3조·한투 AI반도체TOP3+ 1조 ...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">SBS Biz · 2026.05.15</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">NH아문디 K반도체 ETF 순자산 3조·한투 AI반도체TOP3+ 1조...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스 · 2026.05.15</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">네오티스, AI 반도체 수요 급증에 생산능력 늘린다…2027년 하반기 ...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">아시아경제 · 2026.05.12</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">"롯데케미칼, 10개 분기 만에 흑자 '바닥' 지났나'"…대덕전자, 메...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">파이낸셜뉴스 · 2026.05.12</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩20,400 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩19,580 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="cons-cyclical">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">004170</span>
+            <span class="company-name">신세계</span>
+          </div>
+          
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩516,000</div>
+            <span class="day-chg up">+0.19%</span>
+          </div>
+          <div class="change up">+28.2%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">92</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">9.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">97/100</span></span><span class="grade"><span class="dot"></span>경기소비</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+10.9%</div>
+        <div class="sub up">EPS +88.6%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">10.7%</div>
+        <div class="sub">시총 ₩4.87조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩589,412</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">36.7x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1955년 동화백화점으로 설립 후 1985년 상장되었으며, 2023년 리조트 사업부문 양수와 2024년 광주종합버스터미널 영업양수로 확장함. 백화점 13개점을 중심으로 도소매업, 부동산 및 여객터미널업 등 다각화된 사업 포트폴리오를 구축하여 종합생활문화기업으로 성장함. 랜드마크 백화점으로 지역 1번점 목표로 고품격 이미지 강화, 신규 브랜드 도입 및 M&A 추진, 신세계V를 국내 최고 럭셔리 플랫폼으로 육성하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">이익 성장 가속</div>
+                    <div class="body">EPS +89% — 분기 실적 개선 흐름 뚜렷</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 우호적 수급</div>
+                    <div class="body">외국인 보유율 24% — 기관 수급 안정적</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 고점 근처 구간 — 조정 가능성 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이인영 전 SSG닷컴 대표, 상미당홀딩스 CFO로 복귀</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">상미당홀딩스, 이인영 전 SSG닷컴 대표 CFO 영입</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">데일리안 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">상미당홀딩스, 이인영 전 SSG닷컴 대표 CFO로 영입…"유통업 복귀...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴시스 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">5·18 단체, 美 스타벅스 본사에 항의 서한 날렸다</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">데일리안 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">5·18단체, 스타벅스 美 본사에 항의 서한…“철저한 진상조사 해달라...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">채널A · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩516,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩495,360 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="it">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">105330</span>
+            <span class="company-name">케이엔더블유</span>
+          </div>
+          <div class="tagline">반도체 서플라이체인</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩9,240</div>
+            <span class="day-chg down">-2.84%</span>
+          </div>
+          <div class="change up">+2.3%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">92</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">9.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">97/100</span></span><span class="grade"><span class="dot"></span>IT</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">-15.3%</div>
+        <div class="sub down">EPS -7.1%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">-4.2%</div>
+        <div class="sub">시총 ₩1480억</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">—</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">—</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 2001년 설립되었고 2009년 코스닥에 상장하였으며, 2023년 공정거래법에 따른 공시대상기업집단에 소속된 중견기업임. 전자부품소재와 자동차부품소재, 반도체소재 사업을 영위하며 파주, 울산, 중국, 베트남에 생산시설을 보유하고 있음. 종속회사 비지에프에코스페셜티는 반도체 소재사업 강화를 위해 제조시설 투자 결정했으며, AI, 자율주행차, IoT 수요 확대에 대응하여 지속적 연구개발로 혁신을 추구하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">AI 반도체 슈퍼사이클 수혜</div>
+                    <div class="body">데이터센터 GPU·HBM·AI 시스템 반도체 투자 확대기 진입 — 구조적 수요 증가 기조</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>영업적자 (-4%) — 이익 턴어라운드까지 시간 필요</div><div class="risk-item"><span class="risk-icon">⚠</span>외국인 보유 0.8% — 글로벌 펀드 관심 낮음, 변동성 클 수 있음</div><div class="risk-item"><span class="risk-icon">⚠</span>최근 분기 영업이익률 -6.8% — 수익성 적자 상태</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">오늘의 메모[5월 8일]</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울경제 · 2026.05.07</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--red-bg);color:var(--red);border:1px solid var(--red);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">악재</span>
+              <span style="color:var(--text-light);">케이엔더블유, 1분기 영업손실 11억…전년比 적자폭 확대</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.07</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">글로벌 ESS 시장 확대에 힘받나…국내 이차전지 관련주 상승 랠리 [매...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일경제 · 2026.04.07</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--red-bg);color:var(--red);border:1px solid var(--red);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">악재</span>
+              <span style="color:var(--text-light);">케이엔더블유, 3분기 영업손실 4.6억…전년비 적자전환</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2025.11.06</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">케이엔더블유, 양재석 신임 대표이사 선임</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2025.10.24</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩9,240 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩8,870 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="cons-defensive">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">278470</span>
+            <span class="company-name">에이피알</span>
+          </div>
+          <div class="tagline">고성장 · 매출 +123% · EPS +135%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩426,500</div>
+            <span class="day-chg up">+7.84%</span>
+          </div>
+          <div class="change up">+9.5%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">92</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">7.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">97/100</span></span><span class="grade"><span class="dot"></span>필수소비</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+123.1%</div>
+        <div class="sub up">EPS +135.1%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">25.7%</div>
+        <div class="sub">시총 ₩15.97조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩508,421</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">44.7x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 2014년 설립되어 2024년 상장하였으며, 메디큐브, 에이프릴스킨, 포맨트 등 화장품 브랜드와 홈 뷰티 디바이스 브랜드를 운영하고 있음. 화장품 및 뷰티 71%, 홈 뷰티 디바이스 27%의 매출 비중을 보이며, R&D 센터에서 디바이스 기술 개발, 생산을 통합하여 밸류체인을 완성함. 글로벌피부과학연구원을 통해 제품 안전성과 기획 역량을 강화하고 혁신적 원료 기반 제품을 지속 출시하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +123%, EPS +135% — 매출·이익 동반 폭발로 소프트웨어주 같은 J커브 진입</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">고마진 비즈니스</div>
+                    <div class="body">영업이익률 26% — 경쟁우위 또는 비용 관리 우위</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 보유 견고</div>
+                    <div class="body">외국인 보유율 38% — 글로벌 펀드 매수 기반 안정적</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 고점 근처 구간 — 조정 가능성 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">브랜드·유통·플랫폼 총집합…'글로벌 K뷰티 콘퍼런스 2026' 개최</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">블로터 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">브랜드·유통·플랫폼 총집합…글로벌 K뷰티 콘퍼런스 2026개최</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">머니투데이 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">장원영X메디큐브 협업 '포에버:체리', 왜 헤어 브러시일까</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">디지털데일리 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">화장품에 기술 더한 에이피알…뷰티테크로 글로벌 공략 [글로벌 K뷰티.....</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매경이코노미 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">“AI가 찾아준 ‘나만의 립컬러’”…뷰티시장에 부는 ‘초개인화’ ...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">세계일보 · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩426,500 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩409,440 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="unknown">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">028260</span>
+            <span class="company-name">삼성물산</span>
+          </div>
+          
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩455,000</div>
+            <span class="day-chg up">+5.20%</span>
+          </div>
+          <div class="change up">+35.5%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">92</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">6.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">97/100</span></span><span class="grade"><span class="dot"></span>복합기업</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+7.5%</div>
+        <div class="sub up">EPS +15.9%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">6.9%</div>
+        <div class="sub">시총 ₩73.79조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩463,462</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">18.2x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1938년 설립된 삼성그룹의 모기업으로, 2015년 삼성물산과 제일모직 합병을 통해 현재 사업구조를 갖춤. 6개 사업부문(건설, 상사, 패션, 리조트, 급식/식자재유통, 바이오)을 영위하며 글로벌 비즈니스 파트너 및 라이프스타일 혁신기업으로 성장하고 있음. 건설부문은 초고층빌딩, 하이테크시설, 발전플랜트 기술력을 보유하고 친환경 미래사업으로 확장, 상사부문은 전세계 40개국에 종합 솔루션 제공 중임.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 보유 견고</div>
+                    <div class="body">외국인 보유율 31% — 글로벌 펀드 매수 기반 안정적</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">안정적 수익 구조</div>
+                    <div class="body">최근 분기 영업이익 8764억 실현</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 고점 근처 구간 — 조정 가능성 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장, 주식 재산만 60조 원 돌파…삼성가 133조 넘어서</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">문화일보 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">'34만전자'에 이재용 회장 주식 재산 60조 돌파…"LG전자 시총과...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">머니투데이 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장 주식재산 60조원 넘어…1년 만에 331% 급등</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스TV · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 회장 주식재산 60조원 넘어…LG전자 시총 수준</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">디지털타임스 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이재용 주식 재산 60조 돌파…1년 새 331.1% '폭등'</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">경기일보 · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩455,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩436,800 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="unknown">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">236340</span>
+            <span class="company-name">메디젠휴먼케어</span>
+          </div>
+          
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩3,000</div>
+            <span class="day-chg down">-6.25%</span>
+          </div>
+          <div class="change up">+33.3%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">90</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">10.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">96/100</span></span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">—</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">—</div>
+        <div class="sub">시총 ₩90억</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">—</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">—</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 2012년 설립되어 2016년 코넥스 상장된 의학 및 약학연구개발 기업임. 개인별 유전체 분석을 중심으로 디지털 헬스케어 사업을 영위하고 AI 기반 Whole Gene Network System과 multiplex genotyping technique을 활용한 솔루션을 제공함. 국내 최다 174종의 DTC 유전자 검사항목을 보유하며 인도네시아 등 해외 진출과 대형기업 협력사업을 추진하고 있음.</div>
+    </div>
+    
+      
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>일반적 시장 변동성 — 매크로 이벤트(FOMC, CPI 등) 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">메디젠휴먼케어, 대한민국 우수기업연구소 재인증</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴스1 · 2025.12.18</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">한국 유전체 정보, 중국으로 줄줄 샌다…규제 피해가는 해외기업만 활.....</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일경제 · 2025.10.22</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">한국인 유전체정보, 외국으로 줄줄 샙니다</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일경제 · 2025.10.22</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">메디젠휴먼케어, 뉴질랜드 디파이타임과 항노화 분석 서비스 계약</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴스1 · 2025.09.22</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">유전체기업협의회장 신동직</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일경제 · 2025.08.28</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩3,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩2,880 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="unknown">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">006405</span>
+            <span class="company-name">삼성SDI우</span>
+          </div>
+          <div class="tagline">수익성 폭발 · EPS +126%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩286,500</div>
+            <span class="day-chg down">-3.21%</span>
+          </div>
+          <div class="change up">+4.2%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">90</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">9.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">96/100</span></span><span class="grade"><span class="dot"></span>전기제품</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+12.6%</div>
+        <div class="sub up">EPS +126.0%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">-4.3%</div>
+        <div class="sub">시총 ₩4635억</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩843,609</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">—</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">수익성 폭발적 개선</div>
+                    <div class="body">EPS +126% — 비용 구조 개선 또는 마진 확대로 이익 J커브 단계</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 우호적 수급</div>
+                    <div class="body">외국인 보유율 17% — 기관 수급 안정적</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>영업적자 (-4%) — 이익 턴어라운드까지 시간 필요</div><div class="risk-item"><span class="risk-icon">⚠</span>최근 분기 영업이익률 -2.1% — 수익성 적자 상태</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">"ESS 분기별 실적 성장에 턴어라운드 기대"…삼성SDI, 신고가</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">머니투데이 · 2026.04.20</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩286,500 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩275,040 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="it">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">078600</span>
+            <span class="company-name">대주전자재료</span>
+          </div>
+          <div class="tagline">성장 모멘텀 · 매출 +68%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩141,300</div>
+            <span class="day-chg down">-7.95%</span>
+          </div>
+          <div class="change up">+1.5%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">90</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">8.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">96/100</span></span><span class="grade"><span class="dot"></span>IT</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+68.3%</div>
+        <div class="sub up">EPS -152.2%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">10.2%</div>
+        <div class="sub">시총 ₩2.20조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩193,333</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">105.8x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1981년 설립된 후 2003년 대주전자재료로 사명을 변경하고 중국과 베트남 포함 6개 종속회사 보유하고 있음. 전도성 페이스트, 태양전지 전극재료 등 다양한 전자부품과 전기차, 자율주행용 부품 시장에 제품을 공급하고 있음. 2018년부터 실리콘 산화물 기반 음극재를 전기차 배터리에 공급하며, 차세대 실리콘 복합산화물 음극재 개발 및 고효율 PIG CELL 개발을 추진하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +68%. 분명한 수요 모멘텀 존재</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">매출 개선 추세</div>
+                    <div class="body">최근 분기 매출 +45% — 실적 턴어라운드 시작</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">안정적 수익 구조</div>
+                    <div class="body">최근 분기 영업이익 95억 실현</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>Forward PE 106x 고평가 — 성장 기대치 미달 시 급격한 디레이팅</div><div class="risk-item"><span class="risk-icon">⚠</span>EPS 감소 -152% — 수익성 후행 추세, 펀더멘털 약화</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">키움증권, 대주전자재료 목표가 상향…"하반기 실적개선 전망"</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스 · 2026.05.29</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">“하반기 코스피 상승 추세 지속…AI 시차가 만든 실적 장세”</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.26</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">2차전지 업황 ‘새벽녘’…“실적 바닥 찍고 회복 초입”</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.26</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">"원가 1%에도 애타는 기업, AX 지원 절실"</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일경제 · 2026.05.21</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">메리츠증권, CB 발행사와 콜옵션 수익 나누는 이례적 딜 수행</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">머니투데이 · 2026.05.21</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩141,300 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩135,650 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="industrial">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">267250</span>
+            <span class="company-name">HD현대</span>
+          </div>
+          <div class="tagline">수익성 폭발 · EPS +160%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩281,000</div>
+            <span class="day-chg up">+1.26%</span>
+          </div>
+          <div class="change up">+5.2%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">90</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">6.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">96/100</span></span><span class="grade"><span class="dot"></span>산업</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+14.7%</div>
+        <div class="sub up">EPS +160.2%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">14.5%</div>
+        <div class="sub">시총 ₩22.20조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩395,000</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">4.5x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 2017년 HD한국조선해양의 인적분할로 출범한 지주회사로, 2022년 지분 추가 취득을 통해 조선해양 사업부문을 추가함. 조선해양, 정유, 전기전자, 건설기계, 선박서비스, 로봇 등 다양한 사업을 보유하고, 각 계열사는 여러 산업을 영위함. 조선해양 부문은 친환경 연료 추진선 및 신재생에너지 확대, 정유는 친환경 에너지 전환, 전기전자는 ESS 사업 강화, 건설기계는 기술 확보를 진행하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">수익성 폭발적 개선</div>
+                    <div class="body">EPS +160% — 비용 구조 개선 또는 마진 확대로 이익 J커브 단계</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">성장 대비 저평가</div>
+                    <div class="body">Forward PE 4.5x — 섹터 평균(~25x) 절반 수준이지만 EPS +160% 성장 중 — 밸류에이션 재평가 여지</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 우호적 수급</div>
+                    <div class="body">외국인 보유율 26% — 기관 수급 안정적</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>일반적 시장 변동성 — 매크로 이벤트(FOMC, CPI 등) 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">‘K-조선 원팀’ 한화오션·HD현대 캐나다 잠수함 수주 총력</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">국제신문 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">K조선 원팀, 캐나다 잠수함 세일즈 총력전…"산업 기여 앞세워 최종 ...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴시스 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">한화오션·HD현대, 6월 캐나다 잠수함 수주 두고 '원팀 총력전'</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">더팩트 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">KDDX 수주전 쟁점 된 '보안 감점'…HD현대 "최초 형 확정일 기준...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴시스 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">국내 석화 구조조정 1호 롯데대산석화 공식 출범</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일경제 · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩281,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩269,760 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="cons-cyclical">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">007340</span>
+            <span class="company-name">DN오토모티브</span>
+          </div>
+          <div class="tagline">저평가 · PE 8x</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩42,100</div>
+            <span class="day-chg down">-5.71%</span>
+          </div>
+          <div class="change down">-0.0%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">89</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">7.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">96/100</span></span><span class="grade"><span class="dot"></span>경기소비</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+15.8%</div>
+        <div class="sub up">EPS +14.3%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">14.2%</div>
+        <div class="sub">시총 ₩2.46조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩50,000</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">7.6x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1971년 자동차용 튜브, 타이어 제조 목적으로 설립, 1988년 상장되었음. 2004년과 2005년에 사업부를 물적분할하고 2017년 고무사업부문을 인적분할, 2022년 두산공작기계 인수로 상호를 디엔오토모티브로 변경하고 2024년 동아타이어공업을 흡수합병하였음. 자동차용 축전지와 부품, 튜브 제품을 생산하며 디엔솔루션즈 통해 공작기계 제조 및 판매 영위하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">매출 개선 추세</div>
+                    <div class="body">최근 분기 매출 +22% — 실적 턴어라운드 시작</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">안정적 수익 구조</div>
+                    <div class="body">최근 분기 영업이익 1311억 실현</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>일반적 시장 변동성 — 매크로 이벤트(FOMC, CPI 등) 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">DN오토모티브, 멕시코 자회사에 631억 채무보증 결정</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">블로터 · 2026.05.22</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">DN오토모티브·리노공업·세나테크놀로지[하나證 주간추천주]</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.02</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">日, MBK 마키노 인수 ‘안보우려’에 제동…국내서도 경제안보 논란</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">세계일보 · 2026.04.24</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">노동부, 중금속 반복 노출사업장 행정처분…은폐 측정기관 지정취소</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">SBS Biz · 2026.04.22</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">노동부, 중금속 노출 반복 사업장 사용중지…은폐기관 지정취소</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스 · 2026.04.22</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩42,100 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩40,420 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="materials">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">456040</span>
+            <span class="company-name">OCI</span>
+          </div>
+          <div class="tagline">수익성 폭발 · EPS +242%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩123,000</div>
+            <span class="day-chg up">+1.23%</span>
+          </div>
+          <div class="change up">+8.3%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">88</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">9.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">95/100</span></span><span class="grade"><span class="dot"></span>소재</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">-6.0%</div>
+        <div class="sub down">EPS +242.5%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">5.5%</div>
+        <div class="sub">시총 ₩1.10조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩147,500</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">—</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 2023년 OCI 홀딩스로부터 단순인적분할 후 설립되었으며, 동년 유가증권시장에 재상장함. 베이직케미컬 부문은 반도체용 폴리실리콘 및 과산화수소 등을 생산하며 매출 비중 37%, 카본케미컬 부문은 카본블랙 등 생산하여 매출 비중 62% 차지함. 국내 유일 반도체용 폴리실리콘 기술력 보유하며, 2026년 상반기 이차전지 소재 상업생산 통해 입지 강화하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">수익성 폭발적 개선</div>
+                    <div class="body">EPS +242% — 비용 구조 개선 또는 마진 확대로 이익 J커브 단계</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">적자 탈출 · 흑자전환</div>
+                    <div class="body">최근 분기 영업이익 400억 — 장기 적자 터널어운드</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>일반적 시장 변동성 — 매크로 이벤트(FOMC, CPI 등) 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">정기변경 앞둔 코스피200·코스닥150…"편입 종목 수급 주목"</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.26</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">코스피200에 달바글로벌·OCI 편입…GS건설 편출</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.22</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">증권가 "유가 오를수록 강해져"…OCI 9%↑[특징주]</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.22</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">OCI, 유가 급등할수록 강해진다…석탄화학 수익성 부각-한투</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.22</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">OCI홀딩스, 美 텍사스 ESS 프로젝트 착공…현지 에너지 기업과 협력</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울경제 · 2026.05.20</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩123,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩118,080 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="cons-cyclical">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">005850</span>
+            <span class="company-name">에스엘</span>
+          </div>
+          <div class="tagline">저평가 · PE 10x</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩74,200</div>
+            <span class="day-chg down">-1.20%</span>
+          </div>
+          <div class="change up">+17.5%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">88</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">8.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">95/100</span></span><span class="grade"><span class="dot"></span>경기소비</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+12.5%</div>
+        <div class="sub up">EPS +30.6%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">10.4%</div>
+        <div class="sub">시총 ₩3.45조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩92,000</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">9.8x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1954년 설립되어 2004년 에스엘주식회사로 변경하였으며, 한국, 중국 등 21개 계열사를 운영하는 글로벌 자동차 부품 전문기업임. 자동차 램프, 전동화 부품, 미러, 전자를 생산해 현대차, 기아차 등 OEM에 납품하며, 램프부문 78.2%, 전동화부문 12.2%의 매출 구성을 보임. 2026년까지 온실가스 배출 20% 감축 등을 목표로 첨단 로보틱스 및 전동화 제품 영역을 강화해 미래 성장 동력을 확보하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">이익 성장 가속</div>
+                    <div class="body">EPS +31% — 분기 실적 개선 흐름 뚜렷</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">성장 대비 저평가</div>
+                    <div class="body">Forward PE 9.8x — 섹터 평균(~25x) 절반 수준이지만 EPS +31% 성장 중 — 밸류에이션 재평가 여지</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 우호적 수급</div>
+                    <div class="body">외국인 보유율 16% — 기관 수급 안정적</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 고점 근처 구간 — 조정 가능성 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">밸류업지수에 HD현대중공업·에이피알 편입…현대로템은 편출</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.28</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">"에스엘, 현대차 로봇 사업 최대 수혜 기업될 것…목표가↑"-다올</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한국경제 · 2026.05.26</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">에스엘, 현대차 로봇 밸류체인 핵심 부상-삼성증권</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">파이낸셜뉴스 · 2026.05.22</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">대구 상장법인 1분기 영업이익 31.8%↑·매출액 6.6%↑</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스 · 2026.05.21</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">잦아든 피지컬 AI 기대감…현대차 5%대 하락 마감[핫종목]</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴스1 · 2026.05.18</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩74,200 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩71,230 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="industrial">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">011560</span>
+            <span class="company-name">세보엠이씨</span>
+          </div>
+          <div class="tagline">성장 모멘텀 · 매출 +41%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩21,000</div>
+            <span class="day-chg down">-8.89%</span>
+          </div>
+          <div class="change up">+0.7%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">88</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">6.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">95/100</span></span><span class="grade"><span class="dot"></span>산업</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+40.9%</div>
+        <div class="sub up">EPS +45.1%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">6.4%</div>
+        <div class="sub">시총 ₩2174억</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩32,000</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">6.1x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1978년 반도체생산시설 제작설치업, 기계설비 공사업 등을 영위할 목적으로 설립되었으며 1996년 코스닥시장에 상장함. 국내 설비업계의 대표기업으로 설비사업, 플랜트사업, 해외사업 및 제조분야에서 우수 전문건설업체로 인정받고 있음. 동사는 삼성, SK, 한화 등과 협력관계를 유지하며, PFP 공법, CAD/CAM 시스템 자동화, 모듈 시스템 공법 등을 도입하여 기술 혁신을 추구하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +41%, EPS +45% — 성장 + 수익성 개선 동반</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">성장 대비 저평가</div>
+                    <div class="body">Forward PE 6.1x — 섹터 평균(~25x) 절반 수준이지만 EPS +45% 성장 중 — 밸류에이션 재평가 여지</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>일반적 시장 변동성 — 매크로 이벤트(FOMC, CPI 등) 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">결국 건설사가 짓는다..."국민성장펀드 최대 수혜"</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한국경제TV · 2026.05.20</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">세보엠이씨, 삼성E&A와 400억원 규모 평택 배관공사 계약</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.05.14</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">기업 공시 [4월 9일]</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울경제 · 2026.04.09</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">세보엠이씨, 삼성물산과 415억 규모 아산 배관공사 계약</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">블로터 · 2026.04.09</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">세보엠이씨, 삼성물산과 415억 규모 계약 체결</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">이데일리 · 2026.04.09</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩21,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩20,160 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="unknown">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">000155</span>
+            <span class="company-name">두산우</span>
+          </div>
+          <div class="tagline">수익성 폭발 · EPS +500%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩736,000</div>
+            <span class="day-chg up">+11.68%</span>
+          </div>
+          <div class="change up">+27.5%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">88</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade warn"><span class="dot"></span>VCP <span class="value">4.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">95/100</span></span><span class="grade"><span class="dot"></span>복합기업</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+17.7%</div>
+        <div class="sub up">EPS +500.0%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">6.7%</div>
+        <div class="sub">시총 ₩2.94조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩2,277,000</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">8.7x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">수익성 폭발적 개선</div>
+                    <div class="body">EPS +500% — 비용 구조 개선 또는 마진 확대로 이익 J커브 단계</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">성장 대비 저평가</div>
+                    <div class="body">Forward PE 8.7x — 섹터 평균(~25x) 절반 수준이지만 EPS +500% 성장 중 — 밸류에이션 재평가 여지</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>52주 고점 근처 구간 — 조정 가능성 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">보통주만의 질주…소외된 우선주 괴리율 커졌다</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울경제 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">"제2 깐부는 나" LG전자, 올해만 314% 올라…두산·네이버 '급등...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴스1 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">진격의 코스피, 젠슨황 방한 기대 속 '9천피' 근접</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">비즈워치 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">"엔비디아♥네이버" 젠슨 황 효과 이 정도야?…기대감 안고 줄줄이 날....</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한국경제TV · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">젠슨 황 시구설에…날아오른 두산그룹株, 두산로보틱스 상한가</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한국경제TV · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩736,000 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩706,560 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="industrial">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">092460</span>
+            <span class="company-name">한라IMS</span>
+          </div>
+          <div class="tagline">성장 모멘텀 · 매출 +48%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩19,230</div>
+            <span class="day-chg down">-10.14%</span>
+          </div>
+          <div class="change up">+6.9%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">87</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">9.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">95/100</span></span><span class="grade"><span class="dot"></span>산업</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+48.1%</div>
+        <div class="sub up">EPS +17.5%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">14.0%</div>
+        <div class="sub">시총 ₩3290억</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">—</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">12.9x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1989년 설립되어 1995년 주식회사로 전환 후 2007년 코스닥에 상장함. 계측기 제조 전문으로 다양한 브랜드를 통해 원스톱 제어 및 모니터링 솔루션을 제공하며, 조선해양, 육상플랜트, 친환경녹색산업 등 분야에서 통합시스템 전문기업으로 활동하고 있음. IMO 환경규제 강화와 탄소중립 정책 확대에 따른 친환경 선박 수요 증가에 대응, 오염물질 저감 기술 및 친환경 동력기술 개발에 주력하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">고성장 터닝포인트</div>
+                    <div class="body">매출 전년대비 +48%. 분명한 수요 모멘텀 존재</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">매출 개선 추세</div>
+                    <div class="body">최근 분기 매출 +48% — 실적 턴어라운드 시작</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">3</div>
+                  <div class="thesis-text">
+                    <div class="title">안정적 수익 구조</div>
+                    <div class="body">최근 분기 영업이익 55억 실현</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>외국인 보유 1.1% — 글로벌 펀드 관심 낮음, 변동성 클 수 있음</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">디티앤씨, 부산센터에 130억 투자…"영남권 'K-방산·조선' 발주 흡...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">머니투데이 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">"방산·조선 업고 제2도약" 디티앤씨, 부산 제2사업장 130억 투자</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">파이낸셜뉴스 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">부산 찾은 산업장관 “중소조선·기자재 지원”</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">국제신문 · 2026.05.27</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">정부, 기자재·중소조선 업계 전폭 지원…'마스가' 참여 프로젝트 집....</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">부산일보 · 2026.05.27</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">김정관 “기자재와 중소조선은 K조선 공급망의 뿌리”</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">경향신문 · 2026.05.27</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩19,230 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩18,460 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="cons-cyclical">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">023530</span>
+            <span class="company-name">롯데쇼핑</span>
+          </div>
+          <div class="tagline">수익성 폭발 · EPS +500%</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩147,500</div>
+            <span class="day-chg down">-0.14%</span>
+          </div>
+          <div class="change up">+15.0%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">87</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade "><span class="dot"></span>VCP <span class="value">7.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">95/100</span></span><span class="grade"><span class="dot"></span>경기소비</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">+3.6%</div>
+        <div class="sub up">EPS +500.0%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">7.1%</div>
+        <div class="sub">시총 ₩4.17조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩189,231</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">20.9x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1970년 백화점 경영을 목적으로 설립되어 현재 총 33개 종속회사를 보유한 종합 유통기업임. 백화점, 할인점, 전자제품 전문점, 슈퍼, 홈쇼핑, 영화상영업, 이커머스 등 다양한 사업부문을 운영하며 광범위한 점포망 구축함. 동사는 타임빌라스 브랜드 확장, Ocado System 도입, PLUX 확대 및 가구·인테리어 시장 진출 등 차별화 전략 추진하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">수익성 폭발적 개선</div>
+                    <div class="body">EPS +500% — 비용 구조 개선 또는 마진 확대로 이익 J커브 단계</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">안정적 수익 구조</div>
+                    <div class="body">최근 분기 영업이익 1021억 실현</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>일반적 시장 변동성 — 매크로 이벤트(FOMC, CPI 등) 주의</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">2천억 회사채 발행 롯데쇼핑…수요예측서 1조원 주문받아</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">매일경제 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">7만원 몽클레르 정품 맞아?…명품 폐점정리 '짝퉁주의보'</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한국경제 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--green-bg);color:var(--green);border:1px solid var(--green);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">호재</span>
+              <span style="color:var(--text-light);">"몽클레르가 7만원?"…수상한 명품 행사에 '북적북적' [현장+]</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한국경제 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">내수소비 회복에…눈높이 올라간 롯데쇼핑</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한국경제 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">롯데쇼핑, 하반기에도 백화점 강세 지속…목표가↑ -한화證</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">파이낸셜뉴스 · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩147,500 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩141,600 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+    <div class="card" data-sector="comm">
+      <div class="card-top">
+        <div class="card-top-left">
+          <div class="ticker-row">
+            <span class="ticker-pill">017670</span>
+            <span class="company-name">SK텔레콤</span>
+          </div>
+          <div class="tagline">AI 데이터센터 광통신 수혜</div>
+          
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price">₩112,200</div>
+            <span class="day-chg up">+11.53%</span>
+          </div>
+          <div class="change up">+21.7%</div>
+          <div class="vol">vs 50일선</div>
+        </div>
+      </div>
+      <div class="grade-line">
+        <span class="grade "><span class="dot"></span>RS <span class="value">86</span></span><span class="grade"><span class="dot"></span>SEPA <span class="value">10/10</span></span><span class="grade warn"><span class="dot"></span>VCP <span class="value">4.0/10</span></span><span class="grade "><span class="dot"></span>SCORE <span class="value">94/100</span></span><span class="grade"><span class="dot"></span>커뮤</span>
+      </div>
+      
+    <div class="metrics-2x2">
+      <div class="metric-box">
+        <div class="label">매출 성장</div>
+        <div class="value">-1.4%</div>
+        <div class="sub down">EPS -12.5%</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">영업이익률</div>
+        <div class="value">12.2%</div>
+        <div class="sub">시총 ₩24.10조</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">목표가 (평균)</div>
+        <div class="value">₩111,882</div>
+        <div class="sub "></div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Forward PE</div>
+        <div class="value">73.1x</div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    
+      
+    <div class="section">
+      <div class="section-title">📋 기업 개요</div>
+      <div class="section-body">동사는 1984년 설립된 국내 대표 이동통신사업자로, 2019년 세계 최초 5G 상용화를 통해 프리미엄 네트워크 사업자로서의 위상을 확립함. 무선통신사업, 유선통신사업, 기타사업을 영위하며 SK브로드밴드, 피에스앤마케팅 등 19개 종속회사 보유함. 5G 가입자 기반 안정적 매출 확보와 네트워크 투자 효율화로 수익성 유지하며, 고객 선택권 확대와 경쟁력 강화를 추구하고 있음.</div>
+    </div>
+    
+      
+        <div class="section">
+          <div class="section-title">💡 투자 근거</div>
+          <div class="thesis-list">
+                <div class="thesis-item">
+                  <div class="thesis-num">1</div>
+                  <div class="thesis-text">
+                    <div class="title">외국인 보유 견고</div>
+                    <div class="body">외국인 보유율 80% — 글로벌 펀드 매수 기반 안정적</div>
+                  </div>
+                </div>
+                <div class="thesis-item">
+                  <div class="thesis-num">2</div>
+                  <div class="thesis-text">
+                    <div class="title">안정적 수익 구조</div>
+                    <div class="body">최근 분기 영업이익 5274억 실현</div>
+                  </div>
+                </div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">⚠️ 리스크</div>
+          <div class="risk-list"><div class="risk-item"><span class="risk-icon">⚠</span>Forward PE 73x 고평가 — 성장 기대치 미달 시 급격한 디레이팅</div><div class="risk-item"><span class="risk-icon">⚠</span>EPS 감소 -12% — 수익성 후행 추세, 펀더멘털 약화</div></div>
+        </div>
+        
+      
+        <div class="section">
+          <div class="section-title">📰 최근 뉴스</div>
+          <div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">5월 이동전화 번호이동 58만4205건…SKT로 이동 가장 많았다</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">아시아경제 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">"삼성 갤럭시S26이 공짜?"…보조금 폭탄에 알뜰폰 떠나 이통사로 턴</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">뉴시스 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">'가정의 달' 번호이동 활기…SKT 순증 1위</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">아이뉴스24 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">이번엔 젠슨 황 ‘깐부랠리’… LG·두산도 날았다</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">디지털타임스 · 2026.06.01</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">카이스트, AI 핵심분야 50개 특화교육… 산업형 인재 키운다 [AI ...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">파이낸셜뉴스 · 2026.06.01</span>
+            </div></div>
+        </div>
+        
+      
+        <div class="catalyst-box">
+          <div class="catalyst-title">⚡ 카탈리스트</div>
+          <div class="catalyst-list"><div class="catalyst-item">🔌 데이터센터 광통신 수요 — 신규 수주 공시 시 상향</div><div class="catalyst-item">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
+        </div>
+        
+      
+    <div class="entry-stop-row">
+      <div class="entry-pill">
+        <div class="label">📍 진입가</div>
+        <div class="value">₩112,200 돌파</div>
+      </div>
+      <div class="stop-pill">
+        <div class="label">🛑 손절가</div>
+        <div class="value">₩107,710 (-4%)</div>
+      </div>
+    </div>
+    
+    </div>
+    
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.sector-tab');
+  var cards = document.querySelectorAll('.card[data-sector]');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      var f = tab.getAttribute('data-filter');
+      cards.forEach(function(c){
+        if (f === 'all' || c.getAttribute('data-sector') === f) {
+          c.style.display = '';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
+
+
+<div class="footer">
+  <p>MacTrader v5 · Minervini SEPA + VCP 돌파매매</p>
+  <p>🦞 뭉 (Mung) · Mac Mini M4 · 자동 생성</p>
+  <p>📊 데이터: yfinance · Finnhub · dalinaum · Naver금융 · 🧠 심층분석: Claude Sonnet</p>
+</div>
+</body></html>
