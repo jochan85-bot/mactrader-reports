@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MacTrader 리스트 활용 가이드</title>
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap');
+
+ :root{
+ --bg:#0a0e14;
+ --panel:#111722;
+ --panel2:#0d1320;
+ --ink:#e8edf4;
+ --dim:#8b97a8;
+ --faint:#5a6678;
+ --line:#1f2937;
+ --green:#3ddc84;
+ --green-dim:#1c7a4a;
+ --red:#ff5d5d;
+ --amber:#ffb454;
+ --blue:#5aa9ff;
+ --grid:rgba(255,255,255,.03);
+ }
+ *{box-sizing:border-box;margin:0;padding:0}
+ html{scroll-behavior:smooth}
+ body{
+ background:var(--bg);
+ color:var(--ink);
+ font-family:'IBM Plex Sans KR',sans-serif;
+ line-height:1.65;
+ -webkit-font-smoothing:antialiased;
+ }
+ .mono{font-family:'Space Mono',monospace}
+
+ /* back button */
+ .back-bar{
+ background:var(--panel2);border-bottom:1px solid var(--line);
+ padding:12px 24px;
+ }
+ .back-btn{
+ display:inline-flex;align-items:center;gap:8px;
+ font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em;
+ color:var(--green);text-decoration:none;
+ border:1px solid var(--green-dim);border-radius:4px;padding:6px 14px;
+ transition:background .15s;
+ }
+ .back-btn:hover{background:rgba(61,220,132,.08)}
+
+ /* page / slide container */
+ .deck{max-width:1080px;margin:0 auto;padding:0 24px}
+ section.slide{
+ min-height:auto;
+ padding:64px 0 56px;
+ border-bottom:1px solid var(--line);
+ position:relative;
+ }
+ section.slide:last-child{border-bottom:none}
+
+ /* hero */
+ .hero{
+ padding:88px 0 72px;
+ background:
+ radial-gradient(800px 400px at 85% -10%, rgba(61,220,132,.10), transparent 60%),
+ linear-gradient(180deg, #0c1119, var(--bg));
+ border-bottom:1px solid var(--line);
+ }
+ .ticker-tag{
+ display:inline-block;font-family:'Space Mono',monospace;font-size:12px;
+ letter-spacing:.22em;color:var(--green);border:1px solid var(--green-dim);
+ padding:6px 14px;border-radius:2px;margin-bottom:26px;text-transform:uppercase;
+ }
+ .hero h1{
+ font-family:'Space Mono',monospace;font-weight:700;
+ font-size:clamp(34px,6vw,62px);line-height:1.02;letter-spacing:-.02em;margin-bottom:20px;
+ }
+ .hero h1 .em{color:var(--green)}
+ .hero p.lead{font-size:clamp(16px,2vw,20px);color:var(--dim);max-width:680px}
+ .hero .meta{
+ margin-top:34px;display:flex;gap:28px;flex-wrap:wrap;
+ font-family:'Space Mono',monospace;font-size:12.5px;color:var(--faint);
+ }
+ .hero .meta b{color:var(--ink);font-weight:700}
+
+ /* section heading */
+ .eyebrow{
+ font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;
+ color:var(--green);text-transform:uppercase;margin-bottom:14px;
+ display:flex;align-items:center;gap:12px;
+ }
+ .eyebrow::before{content:"";width:28px;height:1px;background:var(--green)}
+ h2{font-size:clamp(24px,3.4vw,34px);font-weight:700;letter-spacing:-.01em;margin-bottom:18px;line-height:1.15}
+ h2 .num{color:var(--faint);font-family:'Space Mono',monospace;font-weight:400;margin-right:10px;font-size:.7em}
+ .sect-intro{color:var(--dim);max-width:760px;margin-bottom:36px;font-size:16.5px}
+
+ /* mock list card */
+ .terminal{
+ background:var(--panel);border:1px solid var(--line);border-radius:10px;
+ overflow:hidden;box-shadow:0 24px 60px -30px rgba(0,0,0,.8);
+ }
+ .term-bar{
+ display:flex;align-items:center;gap:8px;padding:12px 16px;
+ background:var(--panel2);border-bottom:1px solid var(--line);
+ }
+ .dot{width:10px;height:10px;border-radius:50%}
+ .term-title{margin-left:10px;font-family:'Space Mono',monospace;font-size:12.5px;color:var(--dim)}
+ .term-flag{margin-left:auto;font-family:'Space Mono',monospace;font-size:11px;color:var(--green);border:1px solid var(--green-dim);padding:3px 9px;border-radius:3px}
+
+ table.list{width:100%;border-collapse:collapse;font-family:'Space Mono',monospace;font-size:13px}
+ table.list th{
+ text-align:right;padding:11px 12px;color:var(--faint);font-weight:400;font-size:11px;
+ letter-spacing:.05em;border-bottom:1px solid var(--line);white-space:nowrap;
+ }
+ table.list th:first-child,table.list td:first-child{text-align:left;padding-left:18px}
+ table.list th:nth-child(2),table.list td:nth-child(2){text-align:left}
+ table.list td{padding:12px;text-align:right;border-bottom:1px solid rgba(255,255,255,.04);white-space:nowrap}
+ table.list tr:last-child td{border-bottom:none}
+ table.list tr.hl{background:rgba(61,220,132,.06)}
+ .tk{color:var(--ink);font-weight:700}
+ .tname{color:var(--faint);font-size:11px;font-weight:400}
+ .pos{color:var(--green)} .neg{color:var(--red)} .warn{color:var(--amber)} .cool{color:var(--blue)}
+ .score-pill{display:inline-block;padding:2px 8px;border-radius:3px;font-weight:700}
+ .s-hi{background:rgba(61,220,132,.16);color:var(--green)}
+ .s-mid{background:rgba(255,180,84,.14);color:var(--amber)}
+ .s-lo{background:rgba(255,93,93,.12);color:var(--red)}
+
+ .annot{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+ .annot .a{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--green);
+ border-radius:6px;padding:14px 16px}
+ .annot .a h4{font-family:'Space Mono',monospace;font-size:12px;color:var(--green);margin-bottom:6px;letter-spacing:.04em}
+ .annot .a p{font-size:13.5px;color:var(--dim);line-height:1.55}
+
+ .fields{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+ @media(max-width:720px){.fields{grid-template-columns:1fr}}
+ .field{
+ background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px 24px;
+ position:relative;overflow:hidden;
+ }
+ .field::before{content:"";position:absolute;inset:0;
+ background:radial-gradient(400px 120px at 100% 0%, rgba(90,169,255,.05), transparent 70%);pointer-events:none}
+ .field .fhead{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+ .field .fcode{font-family:'Space Mono',monospace;font-size:15px;font-weight:700;color:var(--green)}
+ .field .fname{font-size:13px;color:var(--faint)}
+ .field .fweight{margin-left:auto;font-family:'Space Mono',monospace;font-size:11px;color:var(--amber);border:1px solid rgba(255,180,84,.3);padding:2px 8px;border-radius:3px}
+ .field p{font-size:14px;color:var(--dim);margin-top:8px}
+ .field .scale{margin-top:14px;font-family:'Space Mono',monospace;font-size:11.5px;color:var(--faint);
+ border-top:1px dashed var(--line);padding-top:12px}
+ .field .scale b{color:var(--ink)}
+ .field .good{color:var(--green)} .field .bad{color:var(--red)}
+
+ .formula{
+ background:linear-gradient(135deg,#0d1422,#0a0f18);border:1px solid var(--line);
+ border-radius:12px;padding:34px;text-align:center;margin:8px 0 30px;
+ }
+ .formula .eq{font-family:'Space Mono',monospace;font-size:clamp(15px,2.4vw,22px);font-weight:700;line-height:1.9}
+ .formula .eq .v{color:var(--green)} .formula .eq .r{color:var(--blue)} .formula .eq .d{color:var(--amber)}
+ .formula .eq .x{color:var(--faint)}
+ .formula .legend{margin-top:22px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;font-size:13px;color:var(--dim)}
+ .formula .legend span b{font-family:'Space Mono',monospace}
+
+ .steps{display:grid;gap:14px}
+ .step{display:flex;gap:18px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+ .step .n{font-family:'Space Mono',monospace;font-size:26px;font-weight:700;color:var(--green-dim);min-width:42px}
+ .step .body h4{font-size:16px;margin-bottom:5px}
+ .step .body p{font-size:14px;color:var(--dim)}
+ .step .body .chk{font-family:'Space Mono',monospace;font-size:12.5px;color:var(--green);margin-top:8px}
+
+ .examples{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+ @media(max-width:720px){.examples{grid-template-columns:1fr}}
+ .ex{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+ .ex.win{border-top:3px solid var(--green)}
+ .ex.avoid{border-top:3px solid var(--red)}
+ .ex .extag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+ .ex.win .extag{color:var(--green)} .ex.avoid .extag{color:var(--red)}
+ .ex h4{font-family:'Space Mono',monospace;font-size:18px;margin:8px 0 4px}
+ .ex .stat{font-family:'Space Mono',monospace;font-size:12.5px;color:var(--dim);line-height:1.9;margin:10px 0}
+ .ex .stat b{color:var(--ink)}
+ .ex .verdict{font-size:13.5px;color:var(--dim);border-top:1px dashed var(--line);padding-top:12px;margin-top:6px}
+
+ ul.clean{list-style:none;display:grid;gap:10px}
+ ul.clean li{padding-left:26px;position:relative;color:var(--dim);font-size:15px}
+ ul.clean li::before{content:"▸";position:absolute;left:4px;color:var(--green)}
+ ul.clean li b{color:var(--ink)}
+
+ .note{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--amber);
+ border-radius:6px;padding:16px 20px;margin-top:24px;font-size:14px;color:var(--dim)}
+ .note b{color:var(--amber)}
+
+ footer{padding:50px 0 70px;text-align:center;color:var(--faint);font-family:'Space Mono',monospace;font-size:12px}
+ .disc{max-width:680px;margin:18px auto 0;font-size:11.5px;line-height:1.7;color:#46505f}
+
+ @media print{
+ body{background:#fff;color:#111}
+ .deck{max-width:none}
+ section.slide,.hero{page-break-inside:avoid;break-inside:avoid;border-color:#ddd}
+ .hero{background:#fff}
+ .terminal,.field,.step,.ex,.formula,.annot .a,.note{
+ box-shadow:none;background:#fff;border-color:#ccc;color:#111}
+ .sect-intro,.field p,.step .body p,.ex .stat,ul.clean li{color:#333}
+ .hero p.lead,.hero h1{color:#111}
+ .pos,.field .good{color:#0a7a3f} .neg,.field .bad{color:#c01818}
+ .warn{color:#b06b00} .cool{color:#1560c0}
+ .eyebrow,.fcode,.term-flag{color:#0a7a3f}
+ }
+</style>
+</head>
+<body>
+
+<!-- back bar -->
+<div class="back-bar">
+  <div class="deck">
+    <a class="back-btn" href="index.html">← MACTRADER</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+ <div class="deck">
+ <span class="ticker-tag">MacTrader · 스크리닝 리포트 활용 가이드</span>
+ <h1>매일 아침,<br>오늘 <span class="em">살 만한 자리</span>에<br>온 종목만 본다.</h1>
+ <p class="lead">이 리스트는 "강한 종목"을 모은 게 아니라 — 수축을 끝내고 <b style="color:#e8edf4">돌파 직전 매수 자리에 도달한</b> 종목을 위로 올린 명단입니다. 각 숫자가 무엇을 말하는지, 어떻게 읽고 행동할지 정리했습니다.</p>
+ <div class="meta">
+ <span>방법론 &nbsp;<b>Minervini SEPA + VCP</b></span>
+ <span>시장 &nbsp;<b>미국 · 한국</b></span>
+ <span>정렬 &nbsp;<b>Composite Score ↓</b></span>
+ <span>출력 &nbsp;<b>시장별 상위 50</b></span>
+ </div>
+ </div>
+</header>
+
+<main class="deck">
+
+<section class="slide">
+ <div class="eyebrow">01 · 이 리스트가 답하는 질문</div>
+ <h2>"무엇이 강한가"가 아니라 <span style="color:var(--green)">"지금 어디를 사는가"</span></h2>
+ <p class="sect-intro">전통적 RS 리스트는 "가장 많이 오른 종목"을 위로 올립니다. 그러면 이미 크게 상승해 매수하기 늦은 종목이 상단을 채웁니다. MacTrader는 다릅니다 — <b style="color:#e8edf4">RS(과거의 강도)</b>와 <b style="color:#e8edf4">매수 자리(현재의 타이밍)</b>를 분리해 평가하고, 후자를 더 무겁게 반영합니다.</p>
+ <ul class="clean">
+ <li><b>RS</b> 는 "이 종목이 지난 1년 얼마나 강했나" — 풀 안에서의 상대 순위(상위 = 99).</li>
+ <li><b>VCP</b> 는 "과거에 좋은 수축 베이스를 만들었나" — 변동성이 겹겹이 좁아졌는가.</li>
+ <li><b>Readiness(RDY)</b> 는 "지금 당장 매수 자리에 있나" — 베이스 안 위치 · 거래량 · 이격.</li>
+ <li><b>Composite</b> 는 위 셋을 합친 <b>최종 우선순위</b>. 리스트는 이 점수로 정렬됩니다.</li>
+ </ul>
+ <div class="note"><b>핵심.</b> RS가 더 높아도, 이미 돌파해 멀리 떠버린 종목은 Composite에서 아래로 밀립니다. 강함보다 "살 수 있는가"가 우선입니다.</div>
+</section>
+
+<section class="slide">
+ <div class="eyebrow">02 · 한 줄을 읽는 법</div>
+ <h2><span class="num">[ ]</span>실제 리스트 한 행, 이렇게 해부합니다</h2>
+ <p class="sect-intro">아래는 리포트 표의 형태입니다. 각 열이 무엇을 의미하는지 아래 주석과 함께 보세요. (예시 수치)</p>
+ <div class="terminal">
+ <div class="term-bar">
+ <span class="dot" style="background:#ff5f56"></span>
+ <span class="dot" style="background:#ffbd2e"></span>
+ <span class="dot" style="background:#27c93f"></span>
+ <span class="term-title">kr_sepa_vcp · 2026-06-02</span>
+ <span class="term-flag">TOP 50 · COMPOSITE ↓</span>
+ </div>
+ <table class="list">
+ <thead>
+ <tr>
+ <th>#</th><th>티커</th><th>RS</th><th>SEPA</th><th>VCP</th>
+ <th>RDY</th><th>box</th><th>vs MA50</th><th>Composite</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr class="hl">
+ <td>1</td>
+ <td><span class="tk">127120</span> <span class="tname">제이에스링크</span></td>
+ <td>90</td><td class="pos">10</td><td><span class="score-pill s-hi">9</span></td>
+ <td class="pos">8</td><td>0.93</td><td class="pos">+6%</td>
+ <td class="tk">86.2</td>
+ </tr>
+ <tr>
+ <td>2</td>
+ <td><span class="tk">005850</span> <span class="tname">에스엘</span></td>
+ <td>83</td><td class="pos">10</td><td><span class="score-pill s-hi">8</span></td>
+ <td class="warn">4</td><td>0.53</td><td class="pos">+9%</td>
+ <td class="tk">64.8</td>
+ </tr>
+ <tr>
+ <td>3</td>
+ <td><span class="tk">041830</span> <span class="tname">이엔에프테크</span></td>
+ <td>78</td><td class="pos">10</td><td><span class="score-pill s-mid">6</span></td>
+ <td class="warn">3</td><td>0.56</td><td class="warn">+25%</td>
+ <td class="tk">52.5</td>
+ </tr>
+ <tr>
+ <td>4</td>
+ <td><span class="tk">004170</span> <span class="tname">신세계</span></td>
+ <td>92</td><td class="neg">—</td><td><span class="score-pill s-lo">5</span></td>
+ <td class="warn">3</td><td>0.83</td><td class="neg">+39%</td>
+ <td class="tk">52.5</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <div class="annot">
+ <div class="a"><h4>1위 · 127120</h4><p>VCP 9 + RDY 8 + 이격 +6%. 점진 수축 끝내고 50일선 바로 위, 박스 상단(93%). <b style="color:var(--green)">교과서적 매수 임박 자리.</b></p></div>
+ <div class="a"><h4>2위 · 005850</h4><p>VCP 8로 구조는 좋지만 box 0.53(베이스 중간) → RDY 4. <b style="color:var(--amber)">아직 자리 잡는 중, 관망.</b></p></div>
+ <div class="a"><h4>4위 · 004170</h4><p>RS 92로 제일 강하지만 이격 +39%, 이미 돌파(SEPA 탈락). <b style="color:var(--red)">강해도 늦은 자리 — 자동 강등.</b></p></div>
+ </div>
+</section>
+
+<section class="slide">
+ <div class="eyebrow">03 · 지표 사전</div>
+ <h2>열 하나하나가 말하는 것</h2>
+ <p class="sect-intro">0~10 점수는 모두 "높을수록 좋음"입니다. 단, 의미가 다릅니다 — RS·VCP는 과거를, RDY·이격은 지금을 봅니다.</p>
+ <div class="fields">
+ <div class="field">
+ <div class="fhead"><span class="fcode">RS</span><span class="fname">상대강도 (1–99)</span><span class="fweight">자체 산출</span></div>
+ <p>지난 1년 가격 수익률을 풀 전체와 비교한 백분위. 99 = 상위 1%. 시장 전체에서 자체 계산하며, 시총 $500M 이상만 대상(잡주 제거).</p>
+ <div class="scale"><b>읽기</b> &nbsp;≥90 강한 주도주 · 80~90 합격선 · <span class="bad">RS만 높은 건 "강했다"일 뿐 "살 자리"는 아님</span></div>
+ </div>
+ <div class="field">
+ <div class="fhead"><span class="fcode">SEPA</span><span class="fname">추세 템플릿 (통과/점수)</span><span class="fweight">게이트</span></div>
+ <p>Minervini 8조건: 정배열(MA50&gt;150&gt;200), MA200 상승, 52주 고점 −25% 이내, 저점 +30% 이상 등. 통과해야 후보 진입.</p>
+ <div class="scale"><b>읽기</b> &nbsp;<span class="good">통과 = 건강한 상승추세 안에 있음</span> · <span class="bad">"—" = 추세 이탈/과조정으로 탈락</span></div>
+ </div>
+ <div class="field">
+ <div class="fhead"><span class="fcode">VCP</span><span class="fname">베이스 구조 점수 (0–10)</span><span class="fweight">×3.5</span></div>
+ <p>변동성 수축 패턴의 품질. 수축이 여러 번 + 점점 좁아지고(점진적) + 거래량이 마를수록 고득점. 과거에 만든 베이스가 얼마나 정석인가.</p>
+ <div class="scale"><b>읽기</b> &nbsp;<span class="good">8~10 = 깔끔한 점진 수축</span> · 5~7 = 약하거나 들쭉날쭉 · <span class="bad">이미 돌파(broke_out)면 강등</span></div>
+ </div>
+ <div class="field">
+ <div class="fhead"><span class="fcode">RDY</span><span class="fname">매수 임박도 (0–10)</span><span class="fweight">×4 (최대 가중)</span></div>
+ <p>지금이 살 자리인가. ① 베이스 내 위치(box) ② 고점 부근 거래량(회복 +/마름 −) ③ 50일선 이격(멀면 −)을 종합. 가장 무겁게 반영.</p>
+ <div class="scale"><b>읽기</b> &nbsp;<span class="good">8~10 = 피벗 직전, 행동권</span> · 4~6 = 자리 잡는 중 · <span class="bad">0~3 = 바닥이거나 이미 떠버림</span></div>
+ </div>
+ <div class="field">
+ <div class="fhead"><span class="fcode">box</span><span class="fname">베이스 내 위치 (0–1)</span><span class="fweight">RDY 입력</span></div>
+ <p>최근 베이스 박스에서 현재가의 높이. 0.75~0.95 = 피벗 직전 최적. 0.95+ = 천장 초과(주의). 0.3 미만 = 바닥(아직 멀음).</p>
+ <div class="scale"><b>읽기</b> &nbsp;<span class="good">0.75~0.95 스윗스팟</span> · 0.4~0.6 중간 · <span class="bad">&lt;0.35 매수 자리 아님</span></div>
+ </div>
+ <div class="field">
+ <div class="fhead"><span class="fcode">vs MA50</span><span class="fname">50일선 이격도</span><span class="fweight">RDY/VCP 감점</span></div>
+ <p>현재가가 50일 이동평균에서 얼마나 떴는가. VCP 베이스는 이평선 근처(+0~15%)에서 똬리를 틉니다. 멀수록 "이미 많이 오른 = 연장" 상태.</p>
+ <div class="scale"><b>읽기</b> &nbsp;<span class="good">+0~15% 베이스 근처</span> · <span class="warn">+15~40% 과열</span> · <span class="bad">+40%↑ 연장(추격 금지)</span></div>
+ </div>
+ </div>
+</section>
+
+<section class="slide">
+ <div class="eyebrow">04 · 정렬의 핵심</div>
+ <h2>Composite Score — 세 평가를 하나로</h2>
+ <p class="sect-intro">리스트의 정렬 기준이자 최종 우선순위. 매수 임박도(RDY)에 가장 큰 가중을 둔 게 핵심입니다 — "강함"보다 "살 자리"를 우선하기 위해서.</p>
+ <div class="formula">
+ <div class="eq">
+ Composite =
+ <span class="v">VCP</span><span class="x">×3.5</span> &nbsp;+&nbsp;
+ <span class="r">(RS÷10)</span><span class="x">×2.5</span> &nbsp;+&nbsp;
+ <span class="d">RDY</span><span class="x">×4</span>
+ </div>
+ <div class="legend">
+ <span><b class="pos">VCP ×3.5</b> &nbsp;베이스 품질</span>
+ <span><b class="cool">RS ×2.5</b> &nbsp;상대강도</span>
+ <span><b class="warn">RDY ×4</b> &nbsp;매수 임박도(최대)</span>
+ </div>
+ </div>
+ <div class="examples">
+ <div class="ex win">
+ <span class="extag">▲ 왜 위로 오나 · 127120</span>
+ <h4>Composite 86.2</h4>
+ <div class="stat">
+ VCP <b>9</b> ×3.5 &nbsp;=&nbsp; 31.5<br>
+ RS <b>90</b> ÷10×2.5 &nbsp;=&nbsp; 22.5<br>
+ RDY <b>8</b> ×4 &nbsp;=&nbsp; 32.0
+ </div>
+ <p class="verdict">RS는 2위지만 RDY가 만점에 가까워 1위. <b style="color:var(--green)">지금 살 자리</b>가 점수를 끌어올림.</p>
+ </div>
+ <div class="ex avoid">
+ <span class="extag">▼ 왜 밀리나 · 004170</span>
+ <h4>Composite 52.5</h4>
+ <div class="stat">
+ VCP <b>5</b> ×3.5 &nbsp;=&nbsp; 17.5<br>
+ RS <b>92</b> ÷10×2.5 &nbsp;=&nbsp; 23.0 <span class="pos">(최고)</span><br>
+ RDY <b>3</b> ×4 &nbsp;=&nbsp; 12.0
+ </div>
+ <p class="verdict">RS는 가장 높지만 이미 돌파(+39% 이격). <b style="color:var(--red)">강해도 늦은 자리</b>라 하위로.</p>
+ </div>
+ </div>
+</section>
+
+<section class="slide">
+ <div class="eyebrow">05 · 매일 아침 5분 루틴</div>
+ <h2>리스트를 행동으로 옮기는 순서</h2>
+ <p class="sect-intro">상위에 있다고 전부 사는 게 아닙니다. 위에서부터 아래 체크를 통과하는 종목만 관심권에 둡니다.</p>
+ <div class="steps">
+ <div class="step">
+ <div class="n">01</div>
+ <div class="body">
+ <h4>상위부터 RDY 8+ 를 먼저 본다</h4>
+ <p>Composite 상위라도 RDY가 낮으면(4 이하) 아직 매수 자리가 아닙니다. RDY 8~10 = 피벗 직전, 가장 먼저 볼 후보.</p>
+ <div class="chk">✓ RDY ≥ 8 &nbsp;&amp;&nbsp; box 0.75~0.95</div>
+ </div>
+ </div>
+ <div class="step">
+ <div class="n">02</div>
+ <div class="body">
+ <h4>이격(vs MA50)이 +15% 이내인지 확인</h4>
+ <p>50일선에서 +30%, +40% 떠 있으면 이미 연장된 상태 — 추격은 손절폭만 커집니다. 이격이 작을수록 진입 리스크가 낮습니다.</p>
+ <div class="chk">✓ vs MA50 ≤ +15% &nbsp;(과열 종목 제외)</div>
+ </div>
+ </div>
+ <div class="step">
+ <div class="n">03</div>
+ <div class="body">
+ <h4>VCP 구조를 차트로 눈으로 확인</h4>
+ <p>VCP 8+ 라도 차트를 열어 점진 수축(겹겹이 좁아짐)과 거래량 마름을 직접 봅니다. 숫자가 가리키는 자리를 그림으로 검증.</p>
+ <div class="chk">✓ 수축이 점점 좁아지는가 · 거래량이 줄었는가</div>
+ </div>
+ </div>
+ <div class="step">
+ <div class="n">04</div>
+ <div class="body">
+ <h4>피벗 돌파 + 거래량 증가에서 진입</h4>
+ <p>리스트는 "준비된 종목"을 알려줄 뿐, 매수 트리거는 박스 상단(피벗) 돌파입니다. 거래량이 실리며 돌파할 때 진입.</p>
+ <div class="chk">✓ 피벗 돌파 &amp; 거래량 평균 대비 증가</div>
+ </div>
+ </div>
+ </div>
+ <div class="note"><b>관망 vs 행동.</b> box 0.4~0.6 + RDY 4~6 종목은 "곧 자리 잡을 후보"로 관찰 리스트에 두고, 매일 box·RDY가 올라오는지 추적하면 됩니다.</div>
+</section>
+
+<section class="slide">
+ <div class="eyebrow">06 · 한 장 요약</div>
+ <h2>기억할 것은 이것뿐</h2>
+ <div class="fields">
+ <div class="field"><div class="fhead"><span class="fcode">우선순위</span></div><p><b style="color:#e8edf4">Composite ↓</b> 가 최종 순위. 위에서부터 보되 RDY로 거른다.</p></div>
+ <div class="field"><div class="fhead"><span class="fcode">행동권</span></div><p><b style="color:var(--green)">RDY 8+ · box 0.75~0.95 · 이격 ≤+15%</b> 가 겹치면 차트 확인 후 돌파 대기.</p></div>
+ <div class="field"><div class="fhead"><span class="fcode">관망권</span></div><p><b style="color:var(--amber)">RDY 4~6 · box 중간</b> 은 자리 잡는 중. 추적만.</p></div>
+ <div class="field"><div class="fhead"><span class="fcode">회피</span></div><p><b style="color:var(--red)">이격 +30%↑ · box 0.95+ 거래량 마름 · SEPA 탈락</b> 은 늦은 자리.</p></div>
+ </div>
+</section>
+
+<footer>
+ MACTRADER · SEPA + VCP SCREENING GUIDE
+ <div class="disc">본 자료는 스크리닝 리스트의 지표를 이해하기 위한 교육용 설명서이며, 투자 자문이나 매매 권유가 아닙니다. 모든 매매 판단과 책임은 본인에게 있습니다. 점수와 가중치는 시스템 설정에 따라 달라질 수 있습니다.</div>
+</footer>
+
+</main>
+</body>
+</html>
