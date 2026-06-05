@@ -270,7 +270,7 @@ body{
             <div class="price">₩69,700</div>
             <span class="day-chg down">-2.11%</span>
           </div>
-          <div class="rank-display">Rank 1st <span class="prev-rank">(←1st)</span></div>
+          <div class="rank-display">Rank 1st <span class="prev-rank">(←new)</span></div>
         </div>
       </div>
       <div class="grade-line">
@@ -535,7 +535,7 @@ body{
             <div class="price">₩695,000</div>
             <span class="day-chg down">-4.79%</span>
           </div>
-          <div class="rank-display">Rank 3rd <span class="prev-rank">(←7th)</span></div>
+          <div class="rank-display">Rank 3rd <span class="prev-rank">(←new)</span></div>
         </div>
       </div>
       <div class="grade-line">
@@ -664,7 +664,7 @@ body{
             <div class="price">₩329,000</div>
             <span class="day-chg down">-6.40%</span>
           </div>
-          <div class="rank-display">Rank 4th <span class="prev-rank">(←8th)</span></div>
+          <div class="rank-display">Rank 4th <span class="prev-rank">(←new)</span></div>
         </div>
       </div>
       <div class="grade-line">
@@ -746,28 +746,28 @@ body{
           <div>
             <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
               <span style="background:var(--red-bg);color:var(--red);border:1px solid var(--red);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">악재</span>
-              <span style="color:var(--text-light);">젠슨 황 ‘깜짝 선물’도 안 통했다… 코스피 5.5% 급락</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">국민일보 · 2026.06.05</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              
-              <span style="color:var(--text-light);">"깜짝선물" 젠슨황 언급에도 코스피 '검은 금요일'…5%대↓ 8,16...</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스 · 2026.06.05</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              
-              <span style="color:var(--text-light);">올들어 기술수출 벌써 13조원…시장이 K바이오에 묻는 건 따로 있었다</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">코메디닷컴 · 2026.06.05</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              <span style="background:var(--red-bg);color:var(--red);border:1px solid var(--red);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">악재</span>
-              <span style="color:var(--text-light);">삼전·닉스 레버리지 주가 내릴 때 '사자'…급락에 '순매수'</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스 · 2026.06.05</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              <span style="background:var(--red-bg);color:var(--red);border:1px solid var(--red);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">악재</span>
-              <span style="color:var(--text-light);">‘브로드컴 쇼크’에 코스피 5.5% 급락…환율 1539원, 금융위기 이...</span>
+              <span style="color:var(--text-light);">‘브로드컴 쇼크’로 코스피 5% 급락…원-달러 환율 금융위기 이후 최....</span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">동아일보 · 2026.06.05</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">젠슨 황 사로잡을 'K 결제'…이해진, '페이스사인' 선보인다</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">동행미디어 시대 · 2026.06.05</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">정의선, 젠슨 황과 '삼소 회동' 불참…8일 양재사옥서 만날 듯</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">머니투데이 · 2026.06.05</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">정의선, 젠슨 황 '삼소회동' 불참…오는 8일 개별 만남</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">시사저널 · 2026.06.05</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">젠슨황·총수 회동 홍대앞…시작전부터 시민·취재진 북새통</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스 · 2026.06.05</span>
             </div></div>
         </div>
         
@@ -807,7 +807,7 @@ body{
             <div class="price">₩1,258,000</div>
             <span class="day-chg down">-7.57%</span>
           </div>
-          <div class="rank-display">Rank 5th <span class="prev-rank">(←6th)</span></div>
+          <div class="rank-display">Rank 5th <span class="prev-rank">(←new)</span></div>
         </div>
       </div>
       <div class="grade-line">
@@ -889,16 +889,6 @@ body{
           <div>
             <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
               <span style="background:var(--red-bg);color:var(--red);border:1px solid var(--red);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">악재</span>
-              <span style="color:var(--text-light);">젠슨 황 ‘깜짝 선물’도 안 통했다… 코스피 5.5% 급락</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">국민일보 · 2026.06.05</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              
-              <span style="color:var(--text-light);">"깜짝선물" 젠슨황 언급에도 코스피 '검은 금요일'…5%대↓ 8,16...</span>
-              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">연합뉴스 · 2026.06.05</span>
-            </div>
-            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
-              <span style="background:var(--red-bg);color:var(--red);border:1px solid var(--red);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">악재</span>
               <span style="color:var(--text-light);">반도체로 급등했던 코스피, 반도체 악재에 '급락'…"대형 IPO 앞두고...</span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한국경제 · 2026.06.05</span>
             </div>
@@ -911,6 +901,16 @@ body{
               
               <span style="color:var(--text-light);">젠슨 황, 한국 오자마자 피시방 갔다…페이커 만나 한 말</span>
               <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">한경비즈니스 · 2026.06.05</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              
+              <span style="color:var(--text-light);">젠슨 황 첫 일정...T1 PC방서 페이커 만나 “韓이 E스포츠 발상...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">조선일보 · 2026.06.05</span>
+            </div>
+            <div style="padding:6px 0;border-bottom:1px dashed #d6d0c4;font-size:0.78rem;line-height:1.5;">
+              <span style="background:var(--red-bg);color:var(--red);border:1px solid var(--red);padding:1px 6px;border-radius:8px;font-size:0.65rem;font-weight:700;margin-right:5px;">악재</span>
+              <span style="color:var(--text-light);">젠슨황 왔는데 브로드컴이 덮쳤다…코스피 5.5% 급락 8160선으로 밀...</span>
+              <span style="color:var(--muted);font-size:0.7rem;float:right;margin-left:8px;">서울경제 · 2026.06.05</span>
             </div></div>
         </div>
         
