@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>맥트레이더 V7 백테스트 — 2020~2025 (6년)</title>
+<style>
+  body { font-family: -apple-system, "SF Pro", "Apple SD Gothic Neo", sans-serif; 
+         max-width: 1200px; margin: 20px auto; padding: 0 20px; color: #1f2328; 
+         background: #f6f8fa; line-height: 1.5; }
+  h1 { color: #1f2328; border-bottom: 3px solid #1f2328; padding-bottom: 12px; }
+  h2 { margin-top: 32px; }
+  h3 { margin-top: 24px; color: #424a53; }
+  .header-summary { background: white; padding: 20px; border-radius: 8px; 
+                     margin-bottom: 24px; border: 1px solid #d1d9e0; }
+  .total { font-size: 32px; font-weight: bold; }
+  .market-section { background: white; padding: 24px; border-radius: 8px; 
+                      margin-bottom: 24px; border: 1px solid #d1d9e0; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; 
+                margin: 16px 0; }
+  .kpi { background: #f6f8fa; padding: 12px; border-radius: 6px; 
+          border: 1px solid #d1d9e0; }
+  .kpi .label { font-size: 12px; color: #656d76; }
+  .kpi .value { font-size: 18px; font-weight: 600; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; background: white; }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #d1d9e0; }
+  th { background: #f6f8fa; font-weight: 600; }
+  .pos { color: #1a7f37; font-weight: 600; }
+  .neg { color: #cf222e; font-weight: 600; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .notes { background: #fff8c5; padding: 12px; border-radius: 6px; 
+             border-left: 4px solid #d4a72c; margin: 16px 0; font-size: 14px; }
+  details summary { cursor: pointer; padding: 8px; background: #f6f8fa; border-radius: 4px; }
+  @media (max-width: 768px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>📊 맥트레이더 V7 백테스트 — 2020~2025 (6년) <small style="font-size:14px;color:#1a7f37">(🎯 실시스템 SEPA v2 + VCP v3.13 그대로)</small></h1>
+
+<div class="header-summary">
+  <div>기간: <b>2020-01-02 ~ 2025-12-31</b> (6년)</div>
+  <div>전략: 자체 RS≥80 → SEPA + VCP → composite TOP 50 → 돌파 매수 → 트레일링 스탑 + 이익잠금</div>
+  <div style="margin-top: 16px;">
+    <div>합산 초기자금: ₩200.0M</div>
+    <div>합산 최종자금: ₩415.7M</div>
+    <div class="total" style="margin-top: 8px;">합산 수익률: <span class="pos">+107.87%</span> <small style="font-size:18px;color:#656d76">(연평균 <span class="pos">+12.97%</span>)</small></div>
+  </div>
+</div>
+
+<div class="notes">
+  <b>⚠️ 백테스트 한계 (6년)</b>
+  <ul style="margin: 4px 0 0 20px;">
+    <li><b>Survivorship bias</b>: 2026년 현재 상장 종목만 대상 → 상폐 종목 제외로 결과가 <b>실제보다 낙관적일 가능성</b> (6년 기간에는 영향 큼)</li>
+    <li><b>SEPA v2 (Minervini 8조건) + VCP v3.13 + composite_score TOP 50 + 돌파 체크 — 실시스템 함수 그대로 호출</b></li>
+    <li>매수: T일 종가 시그널 → T+1 시가 체결 (100% 체결 가정)</li>
+    <li>수수료: KR 0.25%/거래, US 0.10%/거래 (슬리피지 포함)</li>
+    <li>환율: USD/KRW = 1370 고정 (실제 변동 환율 미반영, 2020-2022년 1100~1300원대였음)</li>
+    <li>분배금/배당: yfinance auto_adjust=True (수정주가 사용)</li>
+    <li>유니버스: US 2,889개 (시총 $5억+) / KR 1,332개 (시총 ₩1000억+)</li>
+  </ul>
+</div>
+
+
+    <div class="market-section">
+      <h2 style="border-bottom: 3px solid #1f6feb; padding-bottom: 8px;">🇺🇸 미장 (US)</h2>
+      
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">초기 자금</div><div class="value">₩100.0M</div></div>
+        <div class="kpi"><div class="label">최종 자금</div><div class="value">₩186.7M</div></div>
+        <div class="kpi"><div class="label">누적 수익률</div><div class="value"><span class="pos">+86.73%</span></div></div>
+        <div class="kpi"><div class="label">연평균 (CAGR)</div><div class="value"><span class="pos">+11.00%</span></div></div>
+        <div class="kpi"><div class="label">최대낙폭 (MDD)</div><div class="value"><span class="neg">-46.14%</span></div></div>
+        <div class="kpi"><div class="label">Sharpe</div><div class="value">0.50</div></div>
+        <div class="kpi"><div class="label">승률</div><div class="value">29.1%</div></div>
+        <div class="kpi"><div class="label">총 매수 / 매도</div><div class="value">1451 / 1438</div></div>
+        <div class="kpi"><div class="label">평균 보유일</div><div class="value">18.3일</div></div>
+        <div class="kpi"><div class="label">평균 수익 (전체)</div><div class="value"><span class="pos">+0.70%</span></div></div>
+        <div class="kpi"><div class="label">평균 수익 (승)</div><div class="value"><span class="pos">+14.77%</span></div></div>
+        <div class="kpi"><div class="label">평균 손실 (패)</div><div class="value"><span class="neg">-5.06%</span></div></div>
+      </div>
+      
+      <h3>연도별</h3>
+      <table>
+        <thead><tr><th>연도</th><th>자산</th><th>연간</th><th>누적</th></tr></thead>
+        <tbody><tr><td>2020</td><td>₩149.3M</td><td><span class="pos">+49.25%</span></td><td><span class="pos">+49.25%</span></td></tr><tr><td>2021</td><td>₩146.0M</td><td><span class="neg">-2.19%</span></td><td><span class="pos">+45.98%</span></td></tr><tr><td>2022</td><td>₩132.9M</td><td><span class="neg">-8.95%</span></td><td><span class="pos">+32.92%</span></td></tr><tr><td>2023</td><td>₩140.9M</td><td><span class="pos">+6.00%</span></td><td><span class="pos">+40.89%</span></td></tr><tr><td>2024</td><td>₩117.9M</td><td><span class="neg">-16.31%</span></td><td><span class="pos">+17.91%</span></td></tr><tr><td>2025</td><td>₩186.7M</td><td><span class="pos">+58.36%</span></td><td><span class="pos">+86.73%</span></td></tr></tbody>
+      </table>
+      
+      <details>
+        <summary><h3 style="display:inline">월별 (펼치기)</h3></summary>
+        <table>
+          <thead><tr><th>월</th><th>자산</th><th>월간</th><th>누적</th></tr></thead>
+          <tbody><tr><td>2020-01</td><td>₩96.6M</td><td><span class="neg">-3.40%</span></td><td><span class="neg">-3.40%</span></td></tr><tr><td>2020-02</td><td>₩89.4M</td><td><span class="neg">-7.49%</span></td><td><span class="neg">-10.64%</span></td></tr><tr><td>2020-03</td><td>₩76.3M</td><td><span class="neg">-14.64%</span></td><td><span class="neg">-23.72%</span></td></tr><tr><td>2020-04</td><td>₩74.4M</td><td><span class="neg">-2.48%</span></td><td><span class="neg">-25.61%</span></td></tr><tr><td>2020-05</td><td>₩79.5M</td><td><span class="pos">+6.88%</span></td><td><span class="neg">-20.50%</span></td></tr><tr><td>2020-06</td><td>₩95.6M</td><td><span class="pos">+20.23%</span></td><td><span class="neg">-4.41%</span></td></tr><tr><td>2020-07</td><td>₩113.5M</td><td><span class="pos">+18.71%</span></td><td><span class="pos">+13.47%</span></td></tr><tr><td>2020-08</td><td>₩119.4M</td><td><span class="pos">+5.26%</span></td><td><span class="pos">+19.44%</span></td></tr><tr><td>2020-09</td><td>₩120.3M</td><td><span class="pos">+0.69%</span></td><td><span class="pos">+20.27%</span></td></tr><tr><td>2020-10</td><td>₩113.3M</td><td><span class="neg">-5.80%</span></td><td><span class="pos">+13.30%</span></td></tr><tr><td>2020-11</td><td>₩130.6M</td><td><span class="pos">+15.30%</span></td><td><span class="pos">+30.63%</span></td></tr><tr><td>2020-12</td><td>₩149.3M</td><td><span class="pos">+14.26%</span></td><td><span class="pos">+49.25%</span></td></tr><tr><td>2021-01</td><td>₩162.6M</td><td><span class="pos">+8.95%</span></td><td><span class="pos">+62.61%</span></td></tr><tr><td>2021-02</td><td>₩165.7M</td><td><span class="pos">+1.90%</span></td><td><span class="pos">+65.70%</span></td></tr><tr><td>2021-03</td><td>₩159.6M</td><td><span class="neg">-3.68%</span></td><td><span class="pos">+59.60%</span></td></tr><tr><td>2021-04</td><td>₩163.0M</td><td><span class="pos">+2.13%</span></td><td><span class="pos">+63.00%</span></td></tr><tr><td>2021-05</td><td>₩159.8M</td><td><span class="neg">-1.96%</span></td><td><span class="pos">+59.80%</span></td></tr><tr><td>2021-06</td><td>₩159.3M</td><td><span class="neg">-0.29%</span></td><td><span class="pos">+59.34%</span></td></tr><tr><td>2021-07</td><td>₩142.1M</td><td><span class="neg">-10.81%</span></td><td><span class="pos">+42.12%</span></td></tr><tr><td>2021-08</td><td>₩139.2M</td><td><span class="neg">-2.03%</span></td><td><span class="pos">+39.24%</span></td></tr><tr><td>2021-09</td><td>₩133.3M</td><td><span class="neg">-4.29%</span></td><td><span class="pos">+33.26%</span></td></tr><tr><td>2021-10</td><td>₩152.2M</td><td><span class="pos">+14.24%</span></td><td><span class="pos">+52.25%</span></td></tr><tr><td>2021-11</td><td>₩152.7M</td><td><span class="pos">+0.31%</span></td><td><span class="pos">+52.72%</span></td></tr><tr><td>2021-12</td><td>₩146.0M</td><td><span class="neg">-4.41%</span></td><td><span class="pos">+45.98%</span></td></tr><tr><td>2022-01</td><td>₩139.5M</td><td><span class="neg">-4.44%</span></td><td><span class="pos">+39.51%</span></td></tr><tr><td>2022-02</td><td>₩147.1M</td><td><span class="pos">+5.41%</span></td><td><span class="pos">+47.06%</span></td></tr><tr><td>2022-03</td><td>₩157.0M</td><td><span class="pos">+6.73%</span></td><td><span class="pos">+56.96%</span></td></tr><tr><td>2022-04</td><td>₩150.8M</td><td><span class="neg">-3.92%</span></td><td><span class="pos">+50.80%</span></td></tr><tr><td>2022-05</td><td>₩151.9M</td><td><span class="pos">+0.75%</span></td><td><span class="pos">+51.93%</span></td></tr><tr><td>2022-06</td><td>₩139.0M</td><td><span class="neg">-8.50%</span></td><td><span class="pos">+39.01%</span></td></tr><tr><td>2022-07</td><td>₩144.2M</td><td><span class="pos">+3.71%</span></td><td><span class="pos">+44.17%</span></td></tr><tr><td>2022-08</td><td>₩144.8M</td><td><span class="pos">+0.41%</span></td><td><span class="pos">+44.76%</span></td></tr><tr><td>2022-09</td><td>₩134.6M</td><td><span class="neg">-7.01%</span></td><td><span class="pos">+34.62%</span></td></tr><tr><td>2022-10</td><td>₩138.2M</td><td><span class="pos">+2.64%</span></td><td><span class="pos">+38.16%</span></td></tr><tr><td>2022-11</td><td>₩140.2M</td><td><span class="pos">+1.45%</span></td><td><span class="pos">+40.17%</span></td></tr><tr><td>2022-12</td><td>₩132.9M</td><td><span class="neg">-5.17%</span></td><td><span class="pos">+32.92%</span></td></tr><tr><td>2023-01</td><td>₩128.4M</td><td><span class="neg">-3.41%</span></td><td><span class="pos">+28.39%</span></td></tr><tr><td>2023-02</td><td>₩117.7M</td><td><span class="neg">-8.29%</span></td><td><span class="pos">+17.75%</span></td></tr><tr><td>2023-03</td><td>₩114.6M</td><td><span class="neg">-2.67%</span></td><td><span class="pos">+14.60%</span></td></tr><tr><td>2023-04</td><td>₩118.4M</td><td><span class="pos">+3.35%</span></td><td><span class="pos">+18.44%</span></td></tr><tr><td>2023-05</td><td>₩114.6M</td><td><span class="neg">-3.22%</span></td><td><span class="pos">+14.63%</span></td></tr><tr><td>2023-06</td><td>₩123.5M</td><td><span class="pos">+7.73%</span></td><td><span class="pos">+23.49%</span></td></tr><tr><td>2023-07</td><td>₩125.5M</td><td><span class="pos">+1.62%</span></td><td><span class="pos">+25.49%</span></td></tr><tr><td>2023-08</td><td>₩116.7M</td><td><span class="neg">-7.05%</span></td><td><span class="pos">+16.65%</span></td></tr><tr><td>2023-09</td><td>₩109.5M</td><td><span class="neg">-6.17%</span></td><td><span class="pos">+9.45%</span></td></tr><tr><td>2023-10</td><td>₩107.5M</td><td><span class="neg">-1.75%</span></td><td><span class="pos">+7.54%</span></td></tr><tr><td>2023-11</td><td>₩122.8M</td><td><span class="pos">+14.19%</span></td><td><span class="pos">+22.80%</span></td></tr><tr><td>2023-12</td><td>₩140.9M</td><td><span class="pos">+14.73%</span></td><td><span class="pos">+40.89%</span></td></tr><tr><td>2024-01</td><td>₩135.6M</td><td><span class="neg">-3.74%</span></td><td><span class="pos">+35.62%</span></td></tr><tr><td>2024-02</td><td>₩153.1M</td><td><span class="pos">+12.89%</span></td><td><span class="pos">+53.10%</span></td></tr><tr><td>2024-03</td><td>₩142.0M</td><td><span class="neg">-7.26%</span></td><td><span class="pos">+41.99%</span></td></tr><tr><td>2024-04</td><td>₩128.5M</td><td><span class="neg">-9.50%</span></td><td><span class="pos">+28.49%</span></td></tr><tr><td>2024-05</td><td>₩133.4M</td><td><span class="pos">+3.79%</span></td><td><span class="pos">+33.36%</span></td></tr><tr><td>2024-06</td><td>₩132.6M</td><td><span class="neg">-0.54%</span></td><td><span class="pos">+32.64%</span></td></tr><tr><td>2024-07</td><td>₩129.1M</td><td><span class="neg">-2.66%</span></td><td><span class="pos">+29.11%</span></td></tr><tr><td>2024-08</td><td>₩123.9M</td><td><span class="neg">-4.03%</span></td><td><span class="pos">+23.90%</span></td></tr><tr><td>2024-09</td><td>₩122.7M</td><td><span class="neg">-0.94%</span></td><td><span class="pos">+22.74%</span></td></tr><tr><td>2024-10</td><td>₩115.7M</td><td><span class="neg">-5.74%</span></td><td><span class="pos">+15.68%</span></td></tr><tr><td>2024-11</td><td>₩127.3M</td><td><span class="pos">+10.02%</span></td><td><span class="pos">+27.28%</span></td></tr><tr><td>2024-12</td><td>₩117.9M</td><td><span class="neg">-7.36%</span></td><td><span class="pos">+17.91%</span></td></tr><tr><td>2025-01</td><td>₩123.1M</td><td><span class="pos">+4.40%</span></td><td><span class="pos">+23.11%</span></td></tr><tr><td>2025-02</td><td>₩110.7M</td><td><span class="neg">-10.06%</span></td><td><span class="pos">+10.72%</span></td></tr><tr><td>2025-03</td><td>₩112.8M</td><td><span class="pos">+1.88%</span></td><td><span class="pos">+12.80%</span></td></tr><tr><td>2025-04</td><td>₩106.6M</td><td><span class="neg">-5.46%</span></td><td><span class="pos">+6.64%</span></td></tr><tr><td>2025-05</td><td>₩126.8M</td><td><span class="pos">+18.91%</span></td><td><span class="pos">+26.81%</span></td></tr><tr><td>2025-06</td><td>₩129.0M</td><td><span class="pos">+1.70%</span></td><td><span class="pos">+28.97%</span></td></tr><tr><td>2025-07</td><td>₩134.1M</td><td><span class="pos">+3.98%</span></td><td><span class="pos">+34.09%</span></td></tr><tr><td>2025-08</td><td>₩151.8M</td><td><span class="pos">+13.17%</span></td><td><span class="pos">+51.76%</span></td></tr><tr><td>2025-09</td><td>₩155.8M</td><td><span class="pos">+2.65%</span></td><td><span class="pos">+55.77%</span></td></tr><tr><td>2025-10</td><td>₩171.6M</td><td><span class="pos">+10.17%</span></td><td><span class="pos">+71.62%</span></td></tr><tr><td>2025-11</td><td>₩187.7M</td><td><span class="pos">+9.38%</span></td><td><span class="pos">+87.72%</span></td></tr><tr><td>2025-12</td><td>₩186.7M</td><td><span class="neg">-0.53%</span></td><td><span class="pos">+86.73%</span></td></tr></tbody>
+        </table>
+      </details>
+      
+      <div class="two-col">
+        <div>
+          <h3>🏆 TOP 15 수익</h3>
+          <table>
+            <thead><tr><th>종목</th><th>수익률</th><th>보유</th><th>매도일</th></tr></thead>
+            <tbody><tr><td>TMQ</td><td><span class="pos">+279.44%</span></td><td>43일</td><td>2025-10-18</td></tr><tr><td>FUBO</td><td><span class="pos">+195.84%</span></td><td>63일</td><td>2020-12-29</td></tr><tr><td>SKE</td><td><span class="pos">+165.79%</span></td><td>140일</td><td>2020-09-23</td></tr><tr><td>KOPN</td><td><span class="pos">+141.01%</span></td><td>33일</td><td>2021-02-24</td></tr><tr><td>TDUP</td><td><span class="pos">+134.56%</span></td><td>91일</td><td>2025-07-09</td></tr><tr><td>SWBI</td><td><span class="pos">+119.62%</span></td><td>88일</td><td>2020-08-25</td></tr><tr><td>IMNM</td><td><span class="pos">+111.13%</span></td><td>96일</td><td>2024-04-02</td></tr><tr><td>OBE</td><td><span class="pos">+90.84%</span></td><td>112일</td><td>2022-04-23</td></tr><tr><td>BELFB</td><td><span class="pos">+88.61%</span></td><td>172일</td><td>2022-12-28</td></tr><tr><td>SKYW</td><td><span class="pos">+78.82%</span></td><td>270일</td><td>2024-07-27</td></tr><tr><td>KTOS</td><td><span class="pos">+71.44%</span></td><td>98일</td><td>2025-10-18</td></tr><tr><td>APLD</td><td><span class="pos">+69.82%</span></td><td>62일</td><td>2025-11-12</td></tr><tr><td>WULF</td><td><span class="pos">+65.38%</span></td><td>23일</td><td>2021-07-16</td></tr><tr><td>VET</td><td><span class="pos">+56.70%</span></td><td>124일</td><td>2022-04-26</td></tr><tr><td>INSW</td><td><span class="pos">+53.04%</span></td><td>121일</td><td>2022-12-08</td></tr></tbody>
+          </table>
+        </div>
+        <div>
+          <h3>💀 WORST 15 손실</h3>
+          <table>
+            <thead><tr><th>종목</th><th>손실률</th><th>보유</th><th>매도일</th></tr></thead>
+            <tbody><tr><td>INOD</td><td><span class="neg">-24.57%</span></td><td>1일</td><td>2025-02-28</td></tr><tr><td>CAPR</td><td><span class="neg">-23.89%</span></td><td>4일</td><td>2023-08-30</td></tr><tr><td>UPWK</td><td><span class="neg">-21.34%</span></td><td>1일</td><td>2021-07-15</td></tr><tr><td>TOST</td><td><span class="neg">-19.96%</span></td><td>2일</td><td>2023-02-17</td></tr><tr><td>PAAS</td><td><span class="neg">-19.30%</span></td><td>9일</td><td>2020-02-28</td></tr><tr><td>PRGO</td><td><span class="neg">-19.02%</span></td><td>2일</td><td>2020-02-28</td></tr><tr><td>LRN</td><td><span class="neg">-17.23%</span></td><td>40일</td><td>2022-10-27</td></tr><tr><td>GEO</td><td><span class="neg">-17.01%</span></td><td>5일</td><td>2023-02-15</td></tr><tr><td>KRT</td><td><span class="neg">-17.00%</span></td><td>9일</td><td>2023-09-09</td></tr><tr><td>URG</td><td><span class="neg">-16.58%</span></td><td>6일</td><td>2025-10-17</td></tr><tr><td>APLD</td><td><span class="neg">-16.21%</span></td><td>4일</td><td>2025-02-25</td></tr><tr><td>CRK</td><td><span class="neg">-15.84%</span></td><td>2일</td><td>2025-04-05</td></tr><tr><td>FET</td><td><span class="neg">-15.59%</span></td><td>8일</td><td>2025-11-01</td></tr><tr><td>GSHD</td><td><span class="neg">-15.36%</span></td><td>7일</td><td>2020-03-10</td></tr><tr><td>DFTX</td><td><span class="neg">-15.34%</span></td><td>3일</td><td>2025-11-04</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <div class="market-section">
+      <h2 style="border-bottom: 3px solid #cf222e; padding-bottom: 8px;">🇰🇷 국장 (KR)</h2>
+      
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">초기 자금</div><div class="value">₩100.0M</div></div>
+        <div class="kpi"><div class="label">최종 자금</div><div class="value">₩229.0M</div></div>
+        <div class="kpi"><div class="label">누적 수익률</div><div class="value"><span class="pos">+129.00%</span></div></div>
+        <div class="kpi"><div class="label">연평균 (CAGR)</div><div class="value"><span class="pos">+15.26%</span></div></div>
+        <div class="kpi"><div class="label">최대낙폭 (MDD)</div><div class="value"><span class="neg">-42.31%</span></div></div>
+        <div class="kpi"><div class="label">Sharpe</div><div class="value">0.65</div></div>
+        <div class="kpi"><div class="label">승률</div><div class="value">25.0%</div></div>
+        <div class="kpi"><div class="label">총 매수 / 매도</div><div class="value">1460 / 1445</div></div>
+        <div class="kpi"><div class="label">평균 보유일</div><div class="value">15.3일</div></div>
+        <div class="kpi"><div class="label">평균 수익 (전체)</div><div class="value"><span class="pos">+1.24%</span></div></div>
+        <div class="kpi"><div class="label">평균 수익 (승)</div><div class="value"><span class="pos">+19.83%</span></div></div>
+        <div class="kpi"><div class="label">평균 손실 (패)</div><div class="value"><span class="neg">-4.96%</span></div></div>
+      </div>
+      
+      <h3>연도별</h3>
+      <table>
+        <thead><tr><th>연도</th><th>자산</th><th>연간</th><th>누적</th></tr></thead>
+        <tbody><tr><td>2020</td><td>₩154.8M</td><td><span class="pos">+54.82%</span></td><td><span class="pos">+54.82%</span></td></tr><tr><td>2021</td><td>₩116.5M</td><td><span class="neg">-24.74%</span></td><td><span class="pos">+16.51%</span></td></tr><tr><td>2022</td><td>₩143.6M</td><td><span class="pos">+23.21%</span></td><td><span class="pos">+43.56%</span></td></tr><tr><td>2023</td><td>₩143.5M</td><td><span class="neg">-0.06%</span></td><td><span class="pos">+43.47%</span></td></tr><tr><td>2024</td><td>₩144.8M</td><td><span class="pos">+0.90%</span></td><td><span class="pos">+44.77%</span></td></tr><tr><td>2025</td><td>₩229.0M</td><td><span class="pos">+58.18%</span></td><td><span class="pos">+129.00%</span></td></tr></tbody>
+      </table>
+      
+      <details>
+        <summary><h3 style="display:inline">월별 (펼치기)</h3></summary>
+        <table>
+          <thead><tr><th>월</th><th>자산</th><th>월간</th><th>누적</th></tr></thead>
+          <tbody><tr><td>2020-01</td><td>₩89.9M</td><td><span class="neg">-10.15%</span></td><td><span class="neg">-10.15%</span></td></tr><tr><td>2020-02</td><td>₩79.3M</td><td><span class="neg">-11.77%</span></td><td><span class="neg">-20.72%</span></td></tr><tr><td>2020-03</td><td>₩79.6M</td><td><span class="pos">+0.41%</span></td><td><span class="neg">-20.40%</span></td></tr><tr><td>2020-04</td><td>₩86.2M</td><td><span class="pos">+8.31%</span></td><td><span class="neg">-13.78%</span></td></tr><tr><td>2020-05</td><td>₩99.6M</td><td><span class="pos">+15.52%</span></td><td><span class="neg">-0.40%</span></td></tr><tr><td>2020-06</td><td>₩106.8M</td><td><span class="pos">+7.27%</span></td><td><span class="pos">+6.83%</span></td></tr><tr><td>2020-07</td><td>₩113.6M</td><td><span class="pos">+6.29%</span></td><td><span class="pos">+13.55%</span></td></tr><tr><td>2020-08</td><td>₩125.8M</td><td><span class="pos">+10.83%</span></td><td><span class="pos">+25.85%</span></td></tr><tr><td>2020-09</td><td>₩124.6M</td><td><span class="neg">-1.03%</span></td><td><span class="pos">+24.56%</span></td></tr><tr><td>2020-10</td><td>₩121.9M</td><td><span class="neg">-2.16%</span></td><td><span class="pos">+21.87%</span></td></tr><tr><td>2020-11</td><td>₩150.6M</td><td><span class="pos">+23.61%</span></td><td><span class="pos">+50.64%</span></td></tr><tr><td>2020-12</td><td>₩154.8M</td><td><span class="pos">+2.77%</span></td><td><span class="pos">+54.82%</span></td></tr><tr><td>2021-01</td><td>₩158.4M</td><td><span class="pos">+2.32%</span></td><td><span class="pos">+58.41%</span></td></tr><tr><td>2021-02</td><td>₩168.3M</td><td><span class="pos">+6.26%</span></td><td><span class="pos">+68.33%</span></td></tr><tr><td>2021-03</td><td>₩160.7M</td><td><span class="neg">-4.50%</span></td><td><span class="pos">+60.75%</span></td></tr><tr><td>2021-04</td><td>₩167.7M</td><td><span class="pos">+4.33%</span></td><td><span class="pos">+67.71%</span></td></tr><tr><td>2021-05</td><td>₩157.3M</td><td><span class="neg">-6.22%</span></td><td><span class="pos">+57.28%</span></td></tr><tr><td>2021-06</td><td>₩154.0M</td><td><span class="neg">-2.06%</span></td><td><span class="pos">+54.04%</span></td></tr><tr><td>2021-07</td><td>₩139.8M</td><td><span class="neg">-9.27%</span></td><td><span class="pos">+39.76%</span></td></tr><tr><td>2021-08</td><td>₩134.0M</td><td><span class="neg">-4.09%</span></td><td><span class="pos">+34.05%</span></td></tr><tr><td>2021-09</td><td>₩129.0M</td><td><span class="neg">-3.73%</span></td><td><span class="pos">+29.04%</span></td></tr><tr><td>2021-10</td><td>₩114.5M</td><td><span class="neg">-11.27%</span></td><td><span class="pos">+14.51%</span></td></tr><tr><td>2021-11</td><td>₩109.1M</td><td><span class="neg">-4.76%</span></td><td><span class="pos">+9.05%</span></td></tr><tr><td>2021-12</td><td>₩116.5M</td><td><span class="pos">+6.84%</span></td><td><span class="pos">+16.51%</span></td></tr><tr><td>2022-01</td><td>₩110.2M</td><td><span class="neg">-5.44%</span></td><td><span class="pos">+10.18%</span></td></tr><tr><td>2022-02</td><td>₩105.7M</td><td><span class="neg">-4.03%</span></td><td><span class="pos">+5.73%</span></td></tr><tr><td>2022-03</td><td>₩121.6M</td><td><span class="pos">+14.98%</span></td><td><span class="pos">+21.57%</span></td></tr><tr><td>2022-04</td><td>₩122.5M</td><td><span class="pos">+0.76%</span></td><td><span class="pos">+22.50%</span></td></tr><tr><td>2022-05</td><td>₩122.6M</td><td><span class="pos">+0.07%</span></td><td><span class="pos">+22.59%</span></td></tr><tr><td>2022-06</td><td>₩117.6M</td><td><span class="neg">-4.03%</span></td><td><span class="pos">+17.65%</span></td></tr><tr><td>2022-07</td><td>₩121.1M</td><td><span class="pos">+2.91%</span></td><td><span class="pos">+21.07%</span></td></tr><tr><td>2022-08</td><td>₩128.0M</td><td><span class="pos">+5.75%</span></td><td><span class="pos">+28.03%</span></td></tr><tr><td>2022-09</td><td>₩119.9M</td><td><span class="neg">-6.34%</span></td><td><span class="pos">+19.91%</span></td></tr><tr><td>2022-10</td><td>₩130.7M</td><td><span class="pos">+8.99%</span></td><td><span class="pos">+30.69%</span></td></tr><tr><td>2022-11</td><td>₩152.4M</td><td><span class="pos">+16.58%</span></td><td><span class="pos">+52.36%</span></td></tr><tr><td>2022-12</td><td>₩143.6M</td><td><span class="neg">-5.78%</span></td><td><span class="pos">+43.56%</span></td></tr><tr><td>2023-01</td><td>₩155.8M</td><td><span class="pos">+8.51%</span></td><td><span class="pos">+55.78%</span></td></tr><tr><td>2023-02</td><td>₩155.8M</td><td><span class="neg">-0.01%</span></td><td><span class="pos">+55.76%</span></td></tr><tr><td>2023-03</td><td>₩166.3M</td><td><span class="pos">+6.75%</span></td><td><span class="pos">+66.27%</span></td></tr><tr><td>2023-04</td><td>₩167.0M</td><td><span class="pos">+0.43%</span></td><td><span class="pos">+66.98%</span></td></tr><tr><td>2023-05</td><td>₩164.8M</td><td><span class="neg">-1.32%</span></td><td><span class="pos">+64.77%</span></td></tr><tr><td>2023-06</td><td>₩173.1M</td><td><span class="pos">+5.07%</span></td><td><span class="pos">+73.12%</span></td></tr><tr><td>2023-07</td><td>₩168.4M</td><td><span class="neg">-2.71%</span></td><td><span class="pos">+68.42%</span></td></tr><tr><td>2023-08</td><td>₩167.3M</td><td><span class="neg">-0.67%</span></td><td><span class="pos">+67.29%</span></td></tr><tr><td>2023-09</td><td>₩151.4M</td><td><span class="neg">-9.49%</span></td><td><span class="pos">+51.41%</span></td></tr><tr><td>2023-10</td><td>₩147.2M</td><td><span class="neg">-2.80%</span></td><td><span class="pos">+47.17%</span></td></tr><tr><td>2023-11</td><td>₩148.2M</td><td><span class="pos">+0.71%</span></td><td><span class="pos">+48.20%</span></td></tr><tr><td>2023-12</td><td>₩143.5M</td><td><span class="neg">-3.19%</span></td><td><span class="pos">+43.47%</span></td></tr><tr><td>2024-01</td><td>₩132.0M</td><td><span class="neg">-7.98%</span></td><td><span class="pos">+32.02%</span></td></tr><tr><td>2024-02</td><td>₩137.0M</td><td><span class="pos">+3.78%</span></td><td><span class="pos">+37.01%</span></td></tr><tr><td>2024-03</td><td>₩146.9M</td><td><span class="pos">+7.22%</span></td><td><span class="pos">+46.90%</span></td></tr><tr><td>2024-04</td><td>₩148.9M</td><td><span class="pos">+1.35%</span></td><td><span class="pos">+48.88%</span></td></tr><tr><td>2024-05</td><td>₩182.6M</td><td><span class="pos">+22.65%</span></td><td><span class="pos">+82.60%</span></td></tr><tr><td>2024-06</td><td>₩193.8M</td><td><span class="pos">+6.16%</span></td><td><span class="pos">+93.84%</span></td></tr><tr><td>2024-07</td><td>₩179.4M</td><td><span class="neg">-7.46%</span></td><td><span class="pos">+79.39%</span></td></tr><tr><td>2024-08</td><td>₩179.6M</td><td><span class="pos">+0.12%</span></td><td><span class="pos">+79.61%</span></td></tr><tr><td>2024-09</td><td>₩167.8M</td><td><span class="neg">-6.56%</span></td><td><span class="pos">+67.83%</span></td></tr><tr><td>2024-10</td><td>₩155.0M</td><td><span class="neg">-7.63%</span></td><td><span class="pos">+55.03%</span></td></tr><tr><td>2024-11</td><td>₩153.8M</td><td><span class="neg">-0.77%</span></td><td><span class="pos">+53.83%</span></td></tr><tr><td>2024-12</td><td>₩144.8M</td><td><span class="neg">-5.89%</span></td><td><span class="pos">+44.77%</span></td></tr><tr><td>2025-01</td><td>₩158.1M</td><td><span class="pos">+9.22%</span></td><td><span class="pos">+58.11%</span></td></tr><tr><td>2025-02</td><td>₩152.2M</td><td><span class="neg">-3.77%</span></td><td><span class="pos">+52.15%</span></td></tr><tr><td>2025-03</td><td>₩135.3M</td><td><span class="neg">-11.08%</span></td><td><span class="pos">+35.30%</span></td></tr><tr><td>2025-04</td><td>₩137.1M</td><td><span class="pos">+1.30%</span></td><td><span class="pos">+37.06%</span></td></tr><tr><td>2025-05</td><td>₩159.0M</td><td><span class="pos">+16.01%</span></td><td><span class="pos">+59.00%</span></td></tr><tr><td>2025-06</td><td>₩160.3M</td><td><span class="pos">+0.81%</span></td><td><span class="pos">+60.29%</span></td></tr><tr><td>2025-07</td><td>₩157.8M</td><td><span class="neg">-1.54%</span></td><td><span class="pos">+57.81%</span></td></tr><tr><td>2025-08</td><td>₩158.7M</td><td><span class="pos">+0.54%</span></td><td><span class="pos">+58.67%</span></td></tr><tr><td>2025-09</td><td>₩171.4M</td><td><span class="pos">+8.05%</span></td><td><span class="pos">+71.44%</span></td></tr><tr><td>2025-10</td><td>₩206.0M</td><td><span class="pos">+20.16%</span></td><td><span class="pos">+106.00%</span></td></tr><tr><td>2025-11</td><td>₩212.0M</td><td><span class="pos">+2.90%</span></td><td><span class="pos">+111.98%</span></td></tr><tr><td>2025-12</td><td>₩229.0M</td><td><span class="pos">+8.03%</span></td><td><span class="pos">+129.00%</span></td></tr></tbody>
+        </table>
+      </details>
+      
+      <div class="two-col">
+        <div>
+          <h3>🏆 TOP 15 수익</h3>
+          <table>
+            <thead><tr><th>종목</th><th>수익률</th><th>보유</th><th>매도일</th></tr></thead>
+            <tbody><tr><td>004690</td><td><span class="pos">+357.43%</span></td><td>348일</td><td>2023-04-12</td></tr><tr><td>257720</td><td><span class="pos">+303.00%</span></td><td>103일</td><td>2024-07-02</td></tr><tr><td>002840</td><td><span class="pos">+265.37%</span></td><td>392일</td><td>2021-04-29</td></tr><tr><td>267260</td><td><span class="pos">+249.12%</span></td><td>201일</td><td>2024-07-23</td></tr><tr><td>016710</td><td><span class="pos">+221.66%</span></td><td>365일</td><td>2021-03-04</td></tr><tr><td>281740</td><td><span class="pos">+214.85%</span></td><td>137일</td><td>2023-07-25</td></tr><tr><td>298020</td><td><span class="pos">+189.39%</span></td><td>147일</td><td>2021-06-11</td></tr><tr><td>007660</td><td><span class="pos">+184.81%</span></td><td>77일</td><td>2023-08-08</td></tr><tr><td>114190</td><td><span class="pos">+165.05%</span></td><td>50일</td><td>2023-04-22</td></tr><tr><td>017390</td><td><span class="pos">+162.56%</span></td><td>341일</td><td>2023-04-20</td></tr><tr><td>016710</td><td><span class="pos">+160.98%</span></td><td>461일</td><td>2023-01-05</td></tr><tr><td>033270</td><td><span class="pos">+153.52%</span></td><td>55일</td><td>2020-10-08</td></tr><tr><td>017960</td><td><span class="pos">+106.06%</span></td><td>215일</td><td>2025-11-06</td></tr><tr><td>003100</td><td><span class="pos">+105.02%</span></td><td>684일</td><td>2023-04-25</td></tr><tr><td>064850</td><td><span class="pos">+104.76%</span></td><td>52일</td><td>2024-09-28</td></tr></tbody>
+          </table>
+        </div>
+        <div>
+          <h3>💀 WORST 15 손실</h3>
+          <table>
+            <thead><tr><th>종목</th><th>손실률</th><th>보유</th><th>매도일</th></tr></thead>
+            <tbody><tr><td>007390</td><td><span class="neg">-29.16%</span></td><td>8일</td><td>2025-08-07</td></tr><tr><td>107640</td><td><span class="neg">-23.89%</span></td><td>17일</td><td>2024-06-25</td></tr><tr><td>900140</td><td><span class="neg">-23.51%</span></td><td>2일</td><td>2024-02-01</td></tr><tr><td>084110</td><td><span class="neg">-21.11%</span></td><td>8일</td><td>2024-11-15</td></tr><tr><td>225570</td><td><span class="neg">-20.00%</span></td><td>2일</td><td>2023-08-05</td></tr><tr><td>108860</td><td><span class="neg">-18.05%</span></td><td>7일</td><td>2022-04-19</td></tr><tr><td>091580</td><td><span class="neg">-17.80%</span></td><td>1일</td><td>2020-09-24</td></tr><tr><td>004090</td><td><span class="neg">-17.63%</span></td><td>3일</td><td>2024-06-08</td></tr><tr><td>089860</td><td><span class="neg">-17.28%</span></td><td>3일</td><td>2024-12-10</td></tr><tr><td>058970</td><td><span class="neg">-17.19%</span></td><td>5일</td><td>2021-03-25</td></tr><tr><td>377450</td><td><span class="neg">-16.71%</span></td><td>8일</td><td>2024-12-05</td></tr><tr><td>002350</td><td><span class="neg">-15.50%</span></td><td>1일</td><td>2023-05-17</td></tr><tr><td>293780</td><td><span class="neg">-14.86%</span></td><td>3일</td><td>2020-10-20</td></tr><tr><td>267850</td><td><span class="neg">-14.76%</span></td><td>1일</td><td>2024-02-15</td></tr><tr><td>189300</td><td><span class="neg">-14.25%</span></td><td>6일</td><td>2020-02-28</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+
+<div style="text-align: center; color: #656d76; margin-top: 40px; font-size: 12px;">
+  맥트레이더 V7 백테스트 · 생성: 2026-06-06 21:37 KST
+</div>
+
+</body>
+</html>
