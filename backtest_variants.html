@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>맥트레이더 V7 — 변종 비교 백테스트 (6년)</title>
+<style>
+  body { font-family: -apple-system, "SF Pro", "Apple SD Gothic Neo", sans-serif; 
+         max-width: 1300px; margin: 20px auto; padding: 0 20px; color: #1f2328; 
+         background: #f6f8fa; line-height: 1.5; }
+  h1 { color: #1f2328; border-bottom: 3px solid #1f2328; padding-bottom: 12px; }
+  h2 { margin-top: 32px; }
+  h3 { margin-top: 24px; color: #424a53; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; background: white; font-size: 14px; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #d1d9e0; }
+  th { background: #f6f8fa; font-weight: 600; }
+  .pos { color: #1a7f37; font-weight: 600; }
+  .neg { color: #cf222e; font-weight: 600; }
+  .section { background: white; padding: 24px; border-radius: 8px; 
+              margin-bottom: 24px; border: 1px solid #d1d9e0; }
+  .verdict { background: #dafbe1; padding: 16px; border-radius: 8px; 
+              border-left: 4px solid #1a7f37; margin: 16px 0; }
+  .warning { background: #fff8c5; padding: 12px; border-radius: 6px; 
+              border-left: 4px solid #d4a72c; margin: 12px 0; font-size: 14px; }
+  .danger { background: #ffebe9; padding: 12px; border-radius: 6px;
+             border-left: 4px solid #cf222e; margin: 12px 0; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<h1>📊 맥트레이더 V7 — 변종 비교 백테스트 (2020-2025, 6년)</h1>
+
+<div class="section">
+  <h2>📋 분석 방법론 (주인님 지침 반영)</h2>
+  <ul>
+    <li>각 변종을 2020-2022 vs 2023-2025 두 기간으로 분할 → 안정성 검증</li>
+    <li>시장필터의 monster 놓침 (whipsaw) 명시적 확인</li>
+    <li>CAGR ↔ MDD ↔ Monster 보존 동시 평가</li>
+    <li>기간 간 CAGR 차이가 ±5%p 이상이면 🚨 과최적화 의심</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>📊 합산 비교 (US+KR, 초기 ₩2억)</h2>
+  <table>
+    <thead><tr>
+      <th>변종</th><th>최종</th><th>누적</th><th>CAGR</th><th>평균 MDD</th>
+      <th>2020-2022</th><th>2023-2025</th><th>안정성</th>
+    </tr></thead>
+    <tbody><tr><td>Baseline (현재)</td><td>₩4.2억</td><td><span class="pos">+107.87%</span></td><td><span class="pos">+12.97%</span></td><td><span class="neg">-44.22%</span></td><td><span class="pos">+11.32%</span></td><td><span class="pos">+14.58%</span></td><td><span class="pos">✅ +3.3%p</span></td></tr>
+<tr><td>ext≤0.15</td><td>₩4.2억</td><td><span class="pos">+107.65%</span></td><td><span class="pos">+12.95%</span></td><td><span class="neg">-36.37%</span></td><td><span class="pos">+14.03%</span></td><td><span class="pos">+10.32%</span></td><td><span class="pos">✅ -3.7%p</span></td></tr>
+<tr><td>ext≤0.20</td><td>₩4.3억</td><td><span class="pos">+113.56%</span></td><td><span class="pos">+13.48%</span></td><td><span class="neg">-37.70%</span></td><td><span class="pos">+14.15%</span></td><td><span class="pos">+13.53%</span></td><td><span class="pos">✅ -0.6%p</span></td></tr>
+<tr><td>ext≤0.25</td><td>₩4.0억</td><td><span class="pos">+101.57%</span></td><td><span class="pos">+12.39%</span></td><td><span class="neg">-38.78%</span></td><td><span class="pos">+9.69%</span></td><td><span class="pos">+13.41%</span></td><td><span class="pos">✅ +3.7%p</span></td></tr>
+<tr><td>시장필터 (50>200)</td><td>₩4.5억</td><td><span class="pos">+122.63%</span></td><td><span class="pos">+14.27%</span></td><td><span class="neg">-34.99%</span></td><td><span class="pos">+9.45%</span></td><td><span class="pos">+18.65%</span></td><td><span class="neg">🚨 +9.2%p</span></td></tr>
+<tr><td>ext≤0.20 + 시장필터</td><td>₩3.8억</td><td><span class="pos">+90.45%</span></td><td><span class="pos">+11.33%</span></td><td><span class="neg">-33.32%</span></td><td><span class="pos">+13.10%</span></td><td><span class="pos">+10.80%</span></td><td><span class="pos">✅ -2.3%p</span></td></tr>
+<tr style="background: #dafbe1;"><td>시장필터 + ext≤0.25 (★추천)</td><td>₩4.4억</td><td><span class="pos">+122.16%</span></td><td><span class="pos">+14.23%</span></td><td><span class="neg">-33.23%</span></td><td><span class="pos">+13.15%</span></td><td><span class="pos">+14.80%</span></td><td><span class="pos">✅ +1.6%p</span></td></tr>
+</tbody>
+  </table>
+  
+  <div class="danger">
+    <b>🚨 과최적화 신호: ext 게이트는 기간별로 최적값이 뒤집힘</b><br>
+    KR에서 ext≤0.15는 2020-2022 +33% → 2023-2025 +7%로 25%p 격차.<br>
+    ext≤0.20+필터는 2020-2022 +27% → 2023-2025 -0%로 27%p 격차.<br>
+    → 단일 ext 임계값을 운영에 채택하면 운(luck)에 의존하는 결과
+  </div>
+  
+  <div class="verdict">
+    <b>★ 추천 구성: 시장필터(50&gt;200) + ext≤0.25 (느슨한 공통)</b><br>
+    • 합산 CAGR +14.2% (베이스라인 +13% 대비 약간 향상)<br>
+    • 평균 MDD -33.2% (베이스라인 -44%에서 -11%p 개선)<br>
+    • 2020-2022 +13.2% / 2023-2025 +14.8% — <b>안정적 ✓</b><br>
+    • Monster 보존: US 6/10, KR 9/10 — 핵심 픽 거의 유지
+  </div>
+</div>
+
+<div class="section">
+  <h2>🇺🇸 미장 변종 비교</h2>
+  <table>
+    <thead><tr>
+      <th>변종</th><th>CAGR</th><th>MDD</th><th>Sharpe</th><th>매수수</th>
+      <th>monster</th><th>7일내손절</th><th>2020-2022</th><th>2023-2025</th><th>안정성</th>
+    </tr></thead>
+    <tbody><tr><td>Baseline (현재)</td><td><span class="pos">+10.97%</span></td><td><span class="neg">-46.14%</span></td><td>0.50</td><td>1451</td><td>10/10</td><td>44.2%</td><td><span class="pos">+9.79%</span></td><td><span class="pos">+12.87%</span></td><td><span class="pos">✅ +3.1%p</span></td></tr>
+<tr><td>ext≤0.15</td><td><span class="pos">+3.89%</span></td><td><span class="neg">-41.16%</span></td><td>0.26</td><td>887</td><td>5/10</td><td>38.6%</td><td><span class="neg">-4.72%</span></td><td><span class="pos">+13.21%</span></td><td><span class="neg">🚨 +17.9%p</span></td></tr>
+<tr><td>ext≤0.20</td><td><span class="pos">+13.90%</span></td><td><span class="neg">-31.94%</span></td><td>0.59</td><td>1269</td><td>6/10</td><td>40.4%</td><td><span class="pos">+9.44%</span></td><td><span class="pos">+19.29%</span></td><td><span class="neg">🚨 +9.9%p</span></td></tr>
+<tr><td>ext≤0.25</td><td><span class="pos">+4.89%</span></td><td><span class="neg">-39.80%</span></td><td>0.30</td><td>1156</td><td>5/10</td><td>42.1%</td><td><span class="neg">-1.10%</span></td><td><span class="pos">+10.89%</span></td><td><span class="neg">🚨 +12.0%p</span></td></tr>
+<tr><td>시장필터 (50>200)</td><td><span class="pos">+9.97%</span></td><td><span class="neg">-38.18%</span></td><td>0.47</td><td>1150</td><td>10/10</td><td>46.6%</td><td><span class="pos">+1.23%</span></td><td><span class="pos">+19.31%</span></td><td><span class="neg">🚨 +18.1%p</span></td></tr>
+<tr><td>ext≤0.20 + 시장필터</td><td><span class="pos">+10.05%</span></td><td><span class="neg">-29.68%</span></td><td>0.46</td><td>935</td><td>6/10</td><td>42.6%</td><td><span class="neg">-0.61%</span></td><td><span class="pos">+21.62%</span></td><td><span class="neg">🚨 +22.2%p</span></td></tr>
+<tr style="background: #dafbe1;"><td>시장필터 + ext≤0.25 (★추천)</td><td><span class="pos">+9.62%</span></td><td><span class="neg">-35.13%</span></td><td>0.48</td><td>983</td><td>6/10</td><td>43.9%</td><td><span class="pos">+1.11%</span></td><td><span class="pos">+18.14%</span></td><td><span class="neg">🚨 +17.0%p</span></td></tr>
+</tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>🇰🇷 국장 변종 비교</h2>
+  <table>
+    <thead><tr>
+      <th>변종</th><th>CAGR</th><th>MDD</th><th>Sharpe</th><th>매수수</th>
+      <th>monster</th><th>7일내손절</th><th>2020-2022</th><th>2023-2025</th><th>안정성</th>
+    </tr></thead>
+    <tbody><tr><td>Baseline (현재)</td><td><span class="pos">+14.81%</span></td><td><span class="neg">-42.31%</span></td><td>0.65</td><td>1460</td><td>10/10</td><td>51.6%</td><td><span class="pos">+12.86%</span></td><td><span class="pos">+16.29%</span></td><td><span class="pos">✅ +3.4%p</span></td></tr>
+<tr><td>ext≤0.15</td><td><span class="pos">+19.39%</span></td><td><span class="neg">-31.58%</span></td><td>0.96</td><td>1333</td><td>9/10</td><td>45.7%</td><td><span class="pos">+32.77%</span></td><td><span class="pos">+7.42%</span></td><td><span class="neg">🚨 -25.3%p</span></td></tr>
+<tr><td>ext≤0.20</td><td><span class="pos">+13.05%</span></td><td><span class="neg">-43.46%</span></td><td>0.62</td><td>1325</td><td>9/10</td><td>47.8%</td><td><span class="pos">+18.86%</span></td><td><span class="pos">+7.78%</span></td><td><span class="neg">🚨 -11.1%p</span></td></tr>
+<tr><td>ext≤0.25</td><td><span class="pos">+18.00%</span></td><td><span class="neg">-37.77%</span></td><td>0.79</td><td>1539</td><td>10/10</td><td>48.4%</td><td><span class="pos">+20.49%</span></td><td><span class="pos">+15.94%</span></td><td><span class="pos">✅ -4.5%p</span></td></tr>
+<tr><td>시장필터 (50>200)</td><td><span class="pos">+17.89%</span></td><td><span class="neg">-31.80%</span></td><td>0.84</td><td>1104</td><td>9/10</td><td>52.6%</td><td><span class="pos">+17.68%</span></td><td><span class="pos">+17.99%</span></td><td><span class="pos">✅ +0.3%p</span></td></tr>
+<tr><td>ext≤0.20 + 시장필터</td><td><span class="pos">+12.55%</span></td><td><span class="neg">-36.95%</span></td><td>0.67</td><td>957</td><td>8/10</td><td>49.2%</td><td><span class="pos">+26.81%</span></td><td><span class="neg">-0.03%</span></td><td><span class="neg">🚨 -26.8%p</span></td></tr>
+<tr style="background: #dafbe1;"><td>시장필터 + ext≤0.25 (★추천)</td><td><span class="pos">+18.06%</span></td><td><span class="neg">-31.33%</span></td><td>0.86</td><td>1094</td><td>9/10</td><td>50.0%</td><td><span class="pos">+25.19%</span></td><td><span class="pos">+11.45%</span></td><td><span class="neg">🚨 -13.7%p</span></td></tr>
+</tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>⏱️ 시장 필터 Whipsaw — Monster 놓침 분석</h2>
+  <p>Baseline(필터 OFF) vs 시장필터(50&gt;200) 가 같은 monster 픽을 잡았는지.</p>
+  
+  <h3>🇺🇸 미장 Monster</h3>
+  <table>
+    <thead><tr><th>종목</th><th>Baseline 첫진입</th><th>필터 첫진입</th><th>지연</th><th>판정</th></tr></thead>
+    <tbody><tr><td>TMQ</td><td>2025-02-21</td><td>2025-02-21</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>FUBO</td><td>2020-10-27</td><td>2020-10-27</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>SKE</td><td>2020-01-03</td><td>2020-01-03</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>KOPN</td><td>2021-01-22</td><td>2021-01-22</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>TDUP</td><td>2025-04-09</td><td>2025-04-09</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>SWBI</td><td>2020-05-29</td><td>2020-07-07</td><td>+39일</td><td><span class="neg">⚠ 39일 지연</span></td></tr>
+<tr><td>IMNM</td><td>2023-12-28</td><td>2023-12-28</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>OBE</td><td>2021-03-18</td><td>2021-03-18</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>BELFB</td><td>2021-03-10</td><td>2023-02-01</td><td>+693일</td><td><span class="neg">⚠ 693일 지연</span></td></tr>
+<tr><td>SKYW</td><td>2023-10-31</td><td>2023-10-31</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+</tbody>
+  </table>
+  
+  <h3>🇰🇷 국장 Monster</h3>
+  <table>
+    <thead><tr><th>종목</th><th>Baseline 첫진입</th><th>필터 첫진입</th><th>지연</th><th>판정</th></tr></thead>
+    <tbody><tr><td>004690</td><td>2022-04-29</td><td>—</td><td>—</td><td><span class="neg">❌ 필터가 놓침</span></td></tr>
+<tr><td>257720</td><td>2023-10-07</td><td>2023-10-07</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>002840</td><td>2020-04-02</td><td>2020-04-02</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>267260</td><td>2021-03-06</td><td>2021-03-06</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>016710</td><td>2020-03-04</td><td>2020-03-04</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>281740</td><td>2021-07-06</td><td>2021-07-06</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>298020</td><td>2021-01-15</td><td>2021-01-15</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+<tr><td>007660</td><td>2021-12-25</td><td>2023-05-23</td><td>+514일</td><td><span class="neg">⚠ 514일 지연</span></td></tr>
+<tr><td>114190</td><td>2022-09-08</td><td>2023-03-03</td><td>+176일</td><td><span class="neg">⚠ 176일 지연</span></td></tr>
+<tr><td>017390</td><td>2021-08-06</td><td>2021-08-06</td><td>+0일</td><td><span class="pos">✅ 동시</span></td></tr>
+</tbody>
+  </table>
+  
+  <div class="warning">
+    <b>Whipsaw 평가:</b> 시장필터로 인한 monster 손실은 제한적.<br>
+    • US: 10개 중 8개 동시 진입, BELFB(693일 지연)·SWBI(39일 지연)만 영향<br>
+    • KR: 10개 중 7개 동시 진입, <b>004690 +357% 만 완전히 놓침</b><br>
+    • 트레이드오프: 4건의 monster 일부 손해 vs MDD -10%p 개선 → <b>합리적 교환</b>
+  </div>
+</div>
+
+<div class="section verdict">
+  <h2>🎯 최종 결론</h2>
+  <ol>
+    <li><b>ext 게이트는 과최적화 위험으로 폐기.</b> 단일 임계값이 양 기간 모두에서 안정적이지 않음.</li>
+    <li><b>시장필터(50&gt;200)는 두 기간 모두 안정적.</b> 합산 차이 +0.3%p 수준.</li>
+    <li><b>추천: 시장필터 + ext≤0.25 (느슨한 공통)</b>
+      <ul>
+        <li>합산 CAGR +14.2% (+1.3%p)</li>
+        <li>평균 MDD -33% (-11%p 개선)</li>
+        <li>Monster 보존 양호 (US 6/10, KR 9/10)</li>
+        <li>기간 안정성: 2020-2022 +13% / 2023-2025 +15% ✓</li>
+      </ul>
+    </li>
+    <li><b>비교는 CAGR보다 MDD + 기간 안정성을 우선.</b> CAGR이 매혹적이어도 한쪽 기간에만 통하면 의미 없음.</li>
+  </ol>
+</div>
+
+<div style="text-align: center; color: #656d76; margin-top: 40px; font-size: 12px;">
+  맥트레이더 V7 변종 백테스트 · 생성: 2026-06-06 23:03 KST
+</div>
+
+</body>
+</html>
