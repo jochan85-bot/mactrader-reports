@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>맥트레이더 V7 백테스트 — 2025년</title>
+<style>
+  body { font-family: -apple-system, "SF Pro", "Apple SD Gothic Neo", sans-serif; 
+         max-width: 1100px; margin: 20px auto; padding: 0 20px; color: #1f2328; 
+         background: #f6f8fa; line-height: 1.5; }
+  h1 { color: #1f2328; border-bottom: 3px solid #1f2328; padding-bottom: 12px; }
+  h2 { margin-top: 32px; }
+  h3 { margin-top: 24px; color: #424a53; }
+  .header-summary { background: white; padding: 20px; border-radius: 8px; 
+                     margin-bottom: 24px; border: 1px solid #d1d9e0; }
+  .total { font-size: 28px; font-weight: bold; }
+  .market-section { background: white; padding: 24px; border-radius: 8px; 
+                      margin-bottom: 24px; border: 1px solid #d1d9e0; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; 
+                margin: 16px 0; }
+  .kpi { background: #f6f8fa; padding: 12px; border-radius: 6px; 
+          border: 1px solid #d1d9e0; }
+  .kpi .label { font-size: 12px; color: #656d76; }
+  .kpi .value { font-size: 18px; font-weight: 600; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; background: white; }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #d1d9e0; }
+  th { background: #f6f8fa; font-weight: 600; }
+  .pos { color: #1a7f37; font-weight: 600; }
+  .neg { color: #cf222e; font-weight: 600; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .notes { background: #fff8c5; padding: 12px; border-radius: 6px; 
+             border-left: 4px solid #d4a72c; margin: 16px 0; font-size: 14px; }
+  @media (max-width: 768px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>📊 맥트레이더 V7 백테스트 — 2025년</h1>
+
+<div class="header-summary">
+  <div>기간: <b>2025-01-02 ~ 2025-12-31</b> (약 1년)</div>
+  <div>전략: 자체 RS≥80 → SEPA + VCP → 돌파 매수 → 트레일링 스탑 + 이익잠금</div>
+  <div style="margin-top: 16px;">
+    <div>합산 초기자금: ₩200.0M</div>
+    <div>합산 최종자금: ₩239.4M</div>
+    <div class="total" style="margin-top: 8px;">합산 수익률: <span class="pos">+19.70%</span></div>
+  </div>
+</div>
+
+<div class="notes">
+  <b>⚠️ 백테스트 한계</b>
+  <ul style="margin: 4px 0 0 20px;">
+    <li>Survivorship bias: 현재(2026년) 상장 종목만 대상 → 상폐 종목 제외로 결과 약간 낙관적</li>
+    <li>SEPA/VCP는 실시스템 동일 로직의 단순화 구현 (실거래와 미세하게 다를 수 있음)</li>
+    <li>매수: T일 종가 시그널 → T+1 시가 체결 (100% 체결 가정)</li>
+    <li>수수료: KR 0.25%/거래, US 0.10%/거래 (슬리피지 포함)</li>
+    <li>환율: USD/KRW = 1370 고정 (실제 변동 환율 미반영)</li>
+    <li>분배금/배당: yfinance auto_adjust=True (수정주가 사용)</li>
+  </ul>
+</div>
+
+
+    <div class="market-section">
+      <h2 style="border-bottom: 3px solid #1f6feb; padding-bottom: 8px;">🇺🇸 미장 (US)</h2>
+      
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">초기 자금</div><div class="value">₩100.0M</div></div>
+        <div class="kpi"><div class="label">최종 자금</div><div class="value">₩76.8M</div></div>
+        <div class="kpi"><div class="label">누적 수익률</div><div class="value"><span class="neg">-23.21%</span></div></div>
+        <div class="kpi"><div class="label">최대낙폭 (MDD)</div><div class="value"><span class="neg">-39.51%</span></div></div>
+        <div class="kpi"><div class="label">Sharpe</div><div class="value">-0.75</div></div>
+        <div class="kpi"><div class="label">승률</div><div class="value">24.6%</div></div>
+        <div class="kpi"><div class="label">총 매수 / 매도</div><div class="value">180 / 167</div></div>
+        <div class="kpi"><div class="label">평균 보유일</div><div class="value">16.5일</div></div>
+        <div class="kpi"><div class="label">평균 수익률 (전체)</div><div class="value"><span class="neg">-1.44%</span></div></div>
+        <div class="kpi"><div class="label">평균 수익 (승)</div><div class="value"><span class="pos">+10.10%</span></div></div>
+        <div class="kpi"><div class="label">평균 손실 (패)</div><div class="value"><span class="neg">-5.20%</span></div></div>
+        <div class="kpi"><div class="label">최고 / 최악</div><div class="value"><span class="pos">+52.95%</span> / <span class="neg">-26.55%</span></div></div>
+      </div>
+      
+      <h3>월별 수익률</h3>
+      <table>
+        <thead><tr><th>월</th><th>자산</th><th>월간</th><th>누적</th></tr></thead>
+        <tbody><tr><td>2025-01</td><td>₩98.0M</td><td><span class="neg">-2.00%</span></td><td><span class="neg">-2.00%</span></td></tr><tr><td>2025-02</td><td>₩83.7M</td><td><span class="neg">-14.59%</span></td><td><span class="neg">-16.30%</span></td></tr><tr><td>2025-03</td><td>₩75.8M</td><td><span class="neg">-9.48%</span></td><td><span class="neg">-24.24%</span></td></tr><tr><td>2025-04</td><td>₩66.3M</td><td><span class="neg">-12.52%</span></td><td><span class="neg">-33.73%</span></td></tr><tr><td>2025-05</td><td>₩70.6M</td><td><span class="pos">+6.51%</span></td><td><span class="neg">-29.42%</span></td></tr><tr><td>2025-06</td><td>₩71.2M</td><td><span class="pos">+0.93%</span></td><td><span class="neg">-28.76%</span></td></tr><tr><td>2025-07</td><td>₩65.1M</td><td><span class="neg">-8.59%</span></td><td><span class="neg">-34.88%</span></td></tr><tr><td>2025-08</td><td>₩73.4M</td><td><span class="pos">+12.67%</span></td><td><span class="neg">-26.63%</span></td></tr><tr><td>2025-09</td><td>₩76.5M</td><td><span class="pos">+4.26%</span></td><td><span class="neg">-23.50%</span></td></tr><tr><td>2025-10</td><td>₩79.5M</td><td><span class="pos">+3.88%</span></td><td><span class="neg">-20.54%</span></td></tr><tr><td>2025-11</td><td>₩73.1M</td><td><span class="neg">-7.95%</span></td><td><span class="neg">-26.85%</span></td></tr><tr><td>2025-12</td><td>₩76.8M</td><td><span class="pos">+4.98%</span></td><td><span class="neg">-23.21%</span></td></tr></tbody>
+      </table>
+      
+      <div class="two-col">
+        <div>
+          <h3>🏆 TOP 10 수익</h3>
+          <table>
+            <thead><tr><th>종목</th><th>수익률</th><th>보유</th><th>매도일</th></tr></thead>
+            <tbody><tr><td>NKTR</td><td><span class="pos">+52.95%</span></td><td>89일</td><td>2025-12-03</td></tr><tr><td>SSRM</td><td><span class="pos">+45.07%</span></td><td>92일</td><td>2025-11-06</td></tr><tr><td>OGC</td><td><span class="pos">+30.76%</span></td><td>60일</td><td>2025-10-22</td></tr><tr><td>CYD</td><td><span class="pos">+21.73%</span></td><td>55일</td><td>2025-07-31</td></tr><tr><td>JCI</td><td><span class="pos">+21.05%</span></td><td>147일</td><td>2025-09-26</td></tr><tr><td>EVLV</td><td><span class="pos">+20.53%</span></td><td>66일</td><td>2025-09-27</td></tr><tr><td>TDUP</td><td><span class="pos">+18.78%</span></td><td>32일</td><td>2025-09-03</td></tr><tr><td>TWN</td><td><span class="pos">+17.96%</span></td><td>121일</td><td>2025-11-20</td></tr><tr><td>GH</td><td><span class="pos">+16.79%</span></td><td>25일</td><td>2025-02-08</td></tr><tr><td>CLOV</td><td><span class="pos">+15.32%</span></td><td>48일</td><td>2025-02-25</td></tr></tbody>
+          </table>
+        </div>
+        <div>
+          <h3>💀 WORST 10 손실</h3>
+          <table>
+            <thead><tr><th>종목</th><th>손실률</th><th>보유</th><th>매도일</th></tr></thead>
+            <tbody><tr><td>USAR</td><td><span class="neg">-26.55%</span></td><td>3일</td><td>2025-03-11</td></tr><tr><td>CRK</td><td><span class="neg">-15.84%</span></td><td>2일</td><td>2025-04-05</td></tr><tr><td>CEVA</td><td><span class="neg">-13.84%</span></td><td>1일</td><td>2025-02-28</td></tr><tr><td>PENG</td><td><span class="neg">-13.04%</span></td><td>28일</td><td>2025-10-09</td></tr><tr><td>TATT</td><td><span class="neg">-12.00%</span></td><td>7일</td><td>2025-04-05</td></tr><tr><td>TARS</td><td><span class="neg">-11.56%</span></td><td>4일</td><td>2025-01-11</td></tr><tr><td>QURE</td><td><span class="neg">-10.71%</span></td><td>4일</td><td>2025-07-22</td></tr><tr><td>PAAS</td><td><span class="neg">-10.44%</span></td><td>21일</td><td>2025-04-04</td></tr><tr><td>ASA</td><td><span class="neg">-10.23%</span></td><td>5일</td><td>2025-04-03</td></tr><tr><td>PLTR</td><td><span class="neg">-9.85%</span></td><td>3일</td><td>2025-11-07</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <div class="market-section">
+      <h2 style="border-bottom: 3px solid #cf222e; padding-bottom: 8px;">🇰🇷 국장 (KR)</h2>
+      
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">초기 자금</div><div class="value">₩100.0M</div></div>
+        <div class="kpi"><div class="label">최종 자금</div><div class="value">₩162.6M</div></div>
+        <div class="kpi"><div class="label">누적 수익률</div><div class="value"><span class="pos">+62.60%</span></div></div>
+        <div class="kpi"><div class="label">최대낙폭 (MDD)</div><div class="value"><span class="neg">-27.16%</span></div></div>
+        <div class="kpi"><div class="label">Sharpe</div><div class="value">1.71</div></div>
+        <div class="kpi"><div class="label">승률</div><div class="value">27.9%</div></div>
+        <div class="kpi"><div class="label">총 매수 / 매도</div><div class="value">261 / 251</div></div>
+        <div class="kpi"><div class="label">평균 보유일</div><div class="value">17.2일</div></div>
+        <div class="kpi"><div class="label">평균 수익률 (전체)</div><div class="value"><span class="pos">+1.07%</span></div></div>
+        <div class="kpi"><div class="label">평균 수익 (승)</div><div class="value"><span class="pos">+17.07%</span></div></div>
+        <div class="kpi"><div class="label">평균 손실 (패)</div><div class="value"><span class="neg">-5.11%</span></div></div>
+        <div class="kpi"><div class="label">최고 / 최악</div><div class="value"><span class="pos">+97.09%</span> / <span class="neg">-29.16%</span></div></div>
+      </div>
+      
+      <h3>월별 수익률</h3>
+      <table>
+        <thead><tr><th>월</th><th>자산</th><th>월간</th><th>누적</th></tr></thead>
+        <tbody><tr><td>2025-01</td><td>₩100.1M</td><td><span class="pos">+0.08%</span></td><td><span class="pos">+0.08%</span></td></tr><tr><td>2025-02</td><td>₩107.0M</td><td><span class="pos">+6.91%</span></td><td><span class="pos">+7.00%</span></td></tr><tr><td>2025-03</td><td>₩106.0M</td><td><span class="neg">-0.95%</span></td><td><span class="pos">+5.98%</span></td></tr><tr><td>2025-04</td><td>₩126.9M</td><td><span class="pos">+19.78%</span></td><td><span class="pos">+26.94%</span></td></tr><tr><td>2025-05</td><td>₩142.8M</td><td><span class="pos">+12.52%</span></td><td><span class="pos">+42.83%</span></td></tr><tr><td>2025-06</td><td>₩148.5M</td><td><span class="pos">+3.95%</span></td><td><span class="pos">+48.47%</span></td></tr><tr><td>2025-07</td><td>₩152.8M</td><td><span class="pos">+2.92%</span></td><td><span class="pos">+52.80%</span></td></tr><tr><td>2025-08</td><td>₩122.7M</td><td><span class="neg">-19.72%</span></td><td><span class="pos">+22.67%</span></td></tr><tr><td>2025-09</td><td>₩142.9M</td><td><span class="pos">+16.52%</span></td><td><span class="pos">+42.93%</span></td></tr><tr><td>2025-10</td><td>₩151.8M</td><td><span class="pos">+6.21%</span></td><td><span class="pos">+51.81%</span></td></tr><tr><td>2025-11</td><td>₩155.2M</td><td><span class="pos">+2.20%</span></td><td><span class="pos">+55.15%</span></td></tr><tr><td>2025-12</td><td>₩162.6M</td><td><span class="pos">+4.80%</span></td><td><span class="pos">+62.60%</span></td></tr></tbody>
+      </table>
+      
+      <div class="two-col">
+        <div>
+          <h3>🏆 TOP 10 수익</h3>
+          <table>
+            <thead><tr><th>종목</th><th>수익률</th><th>보유</th><th>매도일</th></tr></thead>
+            <tbody><tr><td>127120</td><td><span class="pos">+97.09%</span></td><td>140일</td><td>2025-11-12</td></tr><tr><td>012630</td><td><span class="pos">+73.86%</span></td><td>189일</td><td>2025-08-14</td></tr><tr><td>064350</td><td><span class="pos">+63.62%</span></td><td>83일</td><td>2025-04-08</td></tr><tr><td>115310</td><td><span class="pos">+62.36%</span></td><td>69일</td><td>2025-07-29</td></tr><tr><td>005440</td><td><span class="pos">+50.28%</span></td><td>98일</td><td>2025-08-02</td></tr><tr><td>168360</td><td><span class="pos">+49.83%</span></td><td>74일</td><td>2025-11-15</td></tr><tr><td>001720</td><td><span class="pos">+49.82%</span></td><td>90일</td><td>2025-07-29</td></tr><tr><td>037270</td><td><span class="pos">+48.63%</span></td><td>76일</td><td>2025-07-18</td></tr><tr><td>036530</td><td><span class="pos">+45.91%</span></td><td>88일</td><td>2025-08-09</td></tr><tr><td>082740</td><td><span class="pos">+44.72%</span></td><td>108일</td><td>2025-11-08</td></tr></tbody>
+          </table>
+        </div>
+        <div>
+          <h3>💀 WORST 10 손실</h3>
+          <table>
+            <thead><tr><th>종목</th><th>손실률</th><th>보유</th><th>매도일</th></tr></thead>
+            <tbody><tr><td>007390</td><td><span class="neg">-29.16%</span></td><td>8일</td><td>2025-08-07</td></tr><tr><td>388720</td><td><span class="neg">-23.00%</span></td><td>1일</td><td>2025-04-05</td></tr><tr><td>285490</td><td><span class="neg">-15.15%</span></td><td>4일</td><td>2025-08-19</td></tr><tr><td>009830</td><td><span class="neg">-14.19%</span></td><td>9일</td><td>2025-07-31</td></tr><tr><td>042660</td><td><span class="neg">-13.26%</span></td><td>3일</td><td>2025-04-29</td></tr><tr><td>290650</td><td><span class="neg">-12.15%</span></td><td>1일</td><td>2025-11-07</td></tr><tr><td>000500</td><td><span class="neg">-12.13%</span></td><td>1일</td><td>2025-12-18</td></tr><tr><td>115500</td><td><span class="neg">-11.20%</span></td><td>3일</td><td>2025-03-21</td></tr><tr><td>065710</td><td><span class="neg">-10.95%</span></td><td>1일</td><td>2025-08-15</td></tr><tr><td>156100</td><td><span class="neg">-10.59%</span></td><td>3일</td><td>2025-11-18</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+
+<div style="text-align: center; color: #656d76; margin-top: 40px; font-size: 12px;">
+  맥트레이더 V7 백테스트 · 생성: 2026-06-06 20:52 KST
+</div>
+
+</body>
+</html>
