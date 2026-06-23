@@ -250,6 +250,77 @@
  footer{padding:50px 0 70px;text-align:center;color:var(--faint);font-family:'Space Mono',monospace;font-size:12px}
  .disc{max-width:680px;margin:18px auto 0;font-size:11.5px;line-height:1.7;color:#46505f}
 
+ /* ── 모바일 반응형 ──────────────────────────────────────── */
+ /* 테이블 가로 스크롤 래퍼 */
+ .term-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .term-scroll::-webkit-scrollbar{height:3px}
+ .term-scroll::-webkit-scrollbar-track{background:var(--panel2)}
+ .term-scroll::-webkit-scrollbar-thumb{background:var(--line);border-radius:2px}
+
+ @media(max-width:640px){
+   /* 기본 여백 축소 */
+   .deck{padding:0 14px}
+   section.slide{padding:40px 0 34px}
+   .hero{padding:50px 0 40px}
+
+   /* 히어로 텍스트 */
+   .hero p.lead{font-size:14.5px}
+   .hero .meta{gap:12px;font-size:11px;flex-direction:column}
+
+   /* 섹션 소개 */
+   .sect-intro{font-size:15px;margin-bottom:26px}
+
+   /* 표 글자·패딩 */
+   table.list{font-size:11px}
+   table.list th{padding:8px 6px;font-size:9.5px;letter-spacing:0}
+   table.list td{padding:9px 6px}
+   table.list th:first-child,table.list td:first-child{padding-left:10px}
+
+   /* term-bar 축소 */
+   .term-title{font-size:11px}
+   .term-flag{font-size:10px;padding:2px 7px}
+
+   /* step 카드 */
+   .step{gap:10px;padding:14px 12px}
+   .step .n{font-size:20px;min-width:30px}
+   .step .body h4{font-size:14px}
+   .step .body p{font-size:13px}
+   .step .body .chk{font-size:11.5px}
+
+   /* formula 박스 */
+   .formula{padding:20px 14px}
+   .formula .eq{font-size:12.5px !important;line-height:1.75;word-break:break-word}
+   .formula .legend{gap:14px;font-size:12px}
+
+   /* annot 카드 1열 */
+   .annot{grid-template-columns:1fr}
+
+   /* field 카드 1열 (이미 @720px 있으나 보험) */
+   .fields{grid-template-columns:1fr}
+
+   /* examples 1열 (이미 있으나 보험) */
+   .examples{grid-template-columns:1fr}
+
+   /* part-divider */
+   .part-divider{padding:28px 14px}
+   .part-divider h2{font-size:20px}
+   .part-divider p{font-size:14px}
+
+   /* cheat 표 */
+   table.cheat{font-size:11.5px}
+   table.cheat th,table.cheat td{padding:8px 7px}
+
+   /* note / checklist */
+   .note{font-size:13px;padding:13px 14px}
+   .checklist .ci{padding:11px 14px;gap:10px}
+
+   /* arch layers */
+   .arch{padding:14px}
+   .arch-layer{padding:12px 14px}
+   .arch-layer .al-label{font-size:11px}
+   .arch-arrow{font-size:16px;margin:4px 0}
+ }
+
  @media print{
  body{background:#fff;color:#111}
  .deck{max-width:none}
@@ -383,6 +454,7 @@
  <span class="term-title">kr_sepa_vcp · 2026-06-02</span>
  <span class="term-flag">TOP · COMPOSITE ↓</span>
  </div>
+ <div class="term-scroll">
  <table class="list">
  <thead>
  <tr>
@@ -428,7 +500,8 @@
  </tr>
  </tbody>
  </table>
- </div>
+ </div><!-- /term-scroll -->
+ </div><!-- /terminal -->
 
  <div class="annot">
  <div class="a"><h4>1위 · 127120</h4><p>Composite 86.2 = EPS 성장 강함 + RS 90(스위트스팟) + 매출·ROE 양호 + MA200 추세 정상. VCP 게이트 통과 + RDY 8 = <b style="color:var(--green)">펀더멘털과 타이밍이 동시에 맞는 최적 자리.</b></p></div>
@@ -437,7 +510,7 @@
  <div class="a"><h4>5위 · PLTR 🦄</h4><p>적자이지만 매출 YoY 40%+ → 유니콘 구제. Composite 72 ≥ 유니콘 컷(60) 통과. 흑자주 컷(80)엔 못 미쳐도 등장. <b style="color:var(--blue)">변동성은 더 클 수 있음.</b></p></div>
  </div>
 
- <div class="note"><b>각 열의 의미.</b> <b style="color:var(--green)">Composite</b> = 정렬 기준 (EPS 성장·RS·매출+ROE·MA200 추세로 계산). <b>SEPA</b> = 통과/탈락 게이트 ("—"이면 즉시 제외, Composite 없음). <b>VCP</b> = 패턴 게이트 (통과해야 후보 진입, Composite에 미입력). <b>RDY</b> = 매수 타이밍 신호 (0~10, Composite과 별개). <b>box</b> = 베이스 내 위치 (0~1). <b>vs MA50</b> = 50일선 이격도.</div>
+ <div class="note" style="font-size:13.5px"><b>각 열의 의미.</b> <b style="color:var(--green)">Composite</b> = 정렬 기준 (EPS 성장·RS·매출+ROE·MA200 추세로 계산). <b>SEPA</b> = 통과/탈락 게이트 ("—"이면 즉시 제외, Composite 없음). <b>VCP</b> = 패턴 게이트 (통과해야 후보 진입, Composite에 미입력). <b>RDY</b> = 매수 타이밍 신호 (0~10, Composite과 별개). <b>box</b> = 베이스 내 위치 (0~1). <b>vs MA50</b> = 50일선 이격도.</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
