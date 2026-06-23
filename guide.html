@@ -726,8 +726,48 @@
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
+<!-- 05b · RS 산출 방식 -->
 <!-- ════════════════════════════════════════════════════════════════ -->
-<!-- 06 · SEPA 8조건 게이트 -->
+<section class="slide adv">
+ <div class="eyebrow blue">05b · RS 산출 방식</div>
+ <h2>유니버스 풀 안에서 <span style="color:var(--blue)">RS 백분위</span>를 계산하는 법</h2>
+ <p class="sect-intro">유니버스 필터를 통과한 종목들만 모아 RS(상대강도) 백분위를 자체 산출합니다. IBD의 방식에 근사한 <b style="color:#e8edf4">독립 분기(Independent Quarter)</b> 방식을 사용합니다.</p>
+
+ <div class="formula">
+  <div class="eq" style="font-size:clamp(13px,1.8vw,17px);line-height:2.1;text-align:left">
+   <span class="x">Step 1. RS_raw 계산 (독립 분기 가중합)</span><br>
+   <span class="v">RS_raw</span> <span class="x">=</span>
+   <span class="v">Q1</span><span class="x"> × 0.40</span>
+   <span class="x"> + </span><span class="r">Q2</span><span class="x"> × 0.20</span>
+   <span class="x"> + </span><span class="d">Q3</span><span class="x"> × 0.20</span>
+   <span class="x"> + </span><span class="d">Q4</span><span class="x"> × 0.20</span><br><br>
+   <span class="x">Step 2. 풀 전체 백분위 변환</span><br>
+   <span class="v">RS (1~99)</span> <span class="x">= 풀 내 RS_raw 오름차순 순위 → 백분위</span>
+  </div>
+  <div class="legend" style="margin-top:20px">
+   <span><b class="pos">Q1</b> 0~3개월 수익률 (가중 40% — 최신 모멘텀)</span>
+   <span><b class="cool">Q2</b> 3~6개월 수익률 (20%)</span>
+   <span><b class="warn">Q3</b> 6~9개월 수익률 (20%)</span>
+   <span><b class="warn">Q4</b> 9~12개월 수익률 (20%)</span>
+  </div>
+ </div>
+
+ <div class="fields">
+  <div class="field">
+   <div class="fhead"><span class="fcode" style="color:var(--blue)">독립 분기란?</span></div>
+   <p>각 분기는 겹치지 않는 독립 구간입니다. Q1은 0~3개월, Q2는 3~6개월 <b style="color:#e8edf4">구간만</b> 측정합니다. 누적 방식(0~6개월 전체)과 달리 최근 급등이 과대 반영되는 것을 방지합니다.</p>
+   <div class="scale"><b>최소 필요 데이터:</b> 252 거래일(약 1년). 부족하면 RS 미산출 → 풀에서 제외</div>
+  </div>
+  <div class="field">
+   <div class="fhead"><span class="fcode" style="color:var(--blue)">RS Sweet Spot</span></div>
+   <p>Composite 입력 시 RS 백분위를 그대로 쓰지 않습니다. <b style="color:var(--green)">85~95 구간이 최적(10점)</b>이고, 96 이상은 오히려 감점됩니다. RS 99 끝물 종목이 Composite 상단을 차지하지 않도록 설계된 과열 보정입니다.</p>
+   <div class="scale"><b style="color:var(--green)">85~95</b> = 10점(최적) &nbsp;·&nbsp; <b>85 미만</b> = 비례 감소 &nbsp;·&nbsp; <b style="color:var(--amber)">96~99</b> = 0.5점/단위 감점</div>
+  </div>
+ </div>
+
+ <div class="note" style="border-left-color:var(--blue);color:var(--dim)"><b style="color:var(--blue)">RS가 높다고 무조건 좋은 건 아닙니다.</b> RS 99는 1년간 가장 많이 오른 종목 — 이미 대부분의 상승이 끝난 끝물일 가능성이 높습니다. Composite는 RS 스위트스팟(85~95)을 일부러 최독점으로 설계해 끝물 종목이 순위를 독점하지 않도록 합니다.</div>
+</section>
+
 <!-- ════════════════════════════════════════════════════════════════ -->
 <section class="slide adv">
  <div class="eyebrow blue">06 · SEPA 게이트</div>
