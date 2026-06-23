@@ -527,12 +527,58 @@
 <main class="deck">
 
 <!-- ════════════════════════════════════════════════════════════════ -->
-<!-- 04 · 유니버스 필터 -->
+<!-- 04 · 선별 아키텍처 (5-Layer) -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <section class="slide adv">
- <div class="eyebrow blue">04 · 유니버스 필터</div>
- <h2>누가 풀에 <span style="color:var(--blue)">들어오는가</span></h2>
- <p class="sect-intro">점수를 매기기 전, 종목 풀 자체를 좁힙니다. 잡주·소형주의 노이즈를 제거해야 RS 백분위와 평균 비교가 의미 있어집니다.</p>
+ <div class="eyebrow blue">04 · 선별 아키텍처</div>
+ <h2>5개 레이어를 <span style="color:var(--blue)">순서대로</span> 통과한 종목만 리스트에</h2>
+ <p class="sect-intro">MacTrader V8의 선별 파이프라인은 5단계입니다. 앞 단계의 <b style="color:#e8edf4">게이트(통과/탈락)</b>가 풀을 좁히고, 마지막에 Composite 점수가 순위를 매깁니다. <b style="color:#e8edf4">중요 — VCP는 게이트이지 Composite 점수에 들어가지 않습니다.</b></p>
+
+ <div class="formula" style="text-align:left;padding:28px 32px">
+ <div class="eq" style="font-size:clamp(12px,1.5vw,14px);line-height:1.9;text-align:left">
+<span class="x">┌────────────────────────────────────────────────┐</span><br>
+<span class="x">│</span> <span class="r">LAYER 1.</span> <b>유니버스 필터</b> &nbsp;<span class="x">— 풀 진입 기준 (시총·주가·거래대금)</span> <span class="x">│</span><br>
+<span class="x">└─────────────────┬──────────────────────────────┘</span><br>
+<span class="x">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼</span><br>
+<span class="x">┌────────────────────────────────────────────────┐</span><br>
+<span class="x">│</span> <span class="r">LAYER 2.</span> <b>SEPA 게이트</b> &nbsp;<span class="x">— 8조건 (하나라도 실패 → 탈락)</span> <span class="x">│</span><br>
+<span class="x">└─────────────────┬──────────────────────────────┘</span><br>
+<span class="x">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼</span><br>
+<span class="x">┌────────────────────────────────────────────────┐</span><br>
+<span class="x">│</span> <span class="r">LAYER 3.</span> <b>VCP 게이트</b> &nbsp;<span class="x">— vcp_valid=False → 탈락</span> <span class="x">│</span><br>
+<span class="x">│</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="d">⚠️ VCP 점수는 Composite에 입력되지 않음</span> <span class="x">│</span><br>
+<span class="x">└─────────────────┬──────────────────────────────┘</span><br>
+<span class="x">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼</span><br>
+<span class="x">┌────────────────────────────────────────────────┐</span><br>
+<span class="x">│</span> <span class="v">LAYER 4.</span> <b>Composite Score</b> &nbsp;<span class="x">— 순위 결정 (0~100)</span> <span class="x">│</span><br>
+<span class="x">│</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="v">RS_sweet × 0.30 + EPS × 0.35 + 매출/ROE × 0.20</span> <span class="x">│</span><br>
+<span class="x">│</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="v">+ 추세 × 0.15 &nbsp;→ × 10</span> <span class="x">│</span><br>
+<span class="x">│</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="x">컷: 흑자주 ≥80 · 유니콘 ≥60 · 정렬 ↓</span> <span class="x">│</span><br>
+<span class="x">└─────────────────┬──────────────────────────────┘</span><br>
+<span class="x">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼</span><br>
+<span class="x">┌────────────────────────────────────────────────┐</span><br>
+<span class="x">│</span> <span class="d">LAYER 5.</span> <b>pivot_readiness</b> &nbsp;<span class="x">— 매수 타이밍 (0~10)</span> <span class="x">│</span><br>
+<span class="x">│</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="x">베이스 내 위치 + MA50 이격 + 고점 거래량 패턴</span> <span class="x">│</span><br>
+<span class="x">│</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="d">리스트에 "RDY" 열로 표시 — 순위와는 별개</span> <span class="x">│</span><br>
+<span class="x">└────────────────────────────────────────────────┘</span>
+ </div>
+ <div class="legend" style="margin-top:24px">
+ <span><b class="cool">Layer 1~3</b> &nbsp;게이트 (통과/탈락)</span>
+ <span><b class="pos">Layer 4</b> &nbsp;순위 점수 (Composite)</span>
+ <span><b class="warn">Layer 5</b> &nbsp;타이밍 점수 (병렬)</span>
+ </div>
+ </div>
+
+ <div class="note" style="border-left-color:var(--blue);color:var(--dim)"><b style="color:var(--blue)">핵심 — Composite와 RDY를 분리해 읽으세요.</b> Composite는 "이 종목이 펀더멘털 + RS 측면에서 얼마나 좋은가"의 종합 평가입니다. pivot_readiness(리스트의 RDY 열)는 "지금 매수 자리인가"를 판단하는 별도 신호입니다. Composite가 높아도 RDY가 낮으면 아직 매수 타이밍이 아닐 수 있고, 반대도 가능합니다. <b>두 점수는 서로 독립적입니다.</b></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- 05 · 유니버스 필터 -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<section class="slide adv">
+ <div class="eyebrow blue">05 · 유니버스 필터</div>
+ <h2>풀 진입 기준 — <span style="color:var(--blue)">잡주 제거</span>가 먼저</h2>
+ <p class="sect-intro">SEPA·VCP·Composite를 적용하기 전에, 종목 풀 자체를 좁힙니다. 유동성이 부족한 잡주를 RS 백분위에 섞으면 비교 자체가 무의미해집니다.</p>
 
  <div class="fields">
  <div class="field">
@@ -542,29 +588,30 @@
  주가 &nbsp;<b style="color:var(--green)">≥ $10</b><br>
  거래대금(20일 평균) &nbsp;<b style="color:var(--green)">≥ $10M</b>
  </p>
- <div class="scale"><b>이유</b> &nbsp;페니주 · 마이크로캡 제거. 기관 매집이 들어올 수 있는 유동성 풀만 남김.</div>
+ <div class="scale"><b>왜 $1B / $10 / $10M인가</b> &nbsp;페니주·마이크로캡 제거. 기관 매집이 들어올 수 있는 유동성 풀만 남깁니다. $10 미만 주식은 변동성·작전 리스크가 높고, 거래대금 $10M 미만은 큰 자금이 진입·청산 자체가 어렵습니다.</div>
  </div>
  <div class="field">
  <div class="fhead"><span class="fcode" style="color:var(--blue)">🇰🇷 한국 시장</span><span class="fname">KR Universe</span></div>
  <p style="font-family:'Space Mono',monospace;font-size:14px;color:var(--ink);line-height:2">
- 시가총액 &nbsp;<b style="color:var(--green)">≥ 500억원</b><br>
+ 주가 &nbsp;<b style="color:var(--green)">≥ 2,000원</b> <span style="color:var(--faint)">(동전주 제외)</span><br>
  거래대금(20일 평균) &nbsp;<b style="color:var(--green)">≥ 20억원</b><br>
  코스피 · 코스닥 &nbsp;<b style="color:var(--green)">전종목</b>
  </p>
- <div class="scale"><b>이유</b> &nbsp;시총 500억 미만 · 거래대금 부족 종목은 작전주/단타 노이즈가 크고 RS 비교 의미가 희석됨.</div>
+ <div class="scale"><b>왜 2,000원 / 20억인가</b> &nbsp;국장은 동전주·소형주의 작전 패턴이 차트 신뢰성을 무너뜨립니다. 2,000원 미만은 호가 단위 변동성이 패턴 분석을 왜곡하고, 거래대금 20억 미만은 SEPA 베이스 형성 자체가 노이즈에 묻힙니다.</div>
  </div>
  </div>
 
- <div class="note" style="border-left-color:var(--blue);color:var(--dim)"><b style="color:var(--blue)">왜 이런 컷인가.</b> Minervini의 SEPA는 "기관이 매집할 수 있는 종목"을 전제로 합니다. 유동성이 부족하면 베이스 형성도, 돌파 시 거래량 검증도 의미가 없습니다. 컷을 통과한 종목만 본격적인 SEPA 8조건 검증으로 넘어갑니다.</div>
+ <div class="note" style="border-left-color:var(--blue);color:var(--dim)"><b style="color:var(--blue)">전제 — 기관이 매집할 수 있는 종목.</b> Minervini의 SEPA는 "기관이 단계적으로 매집하는 종목"을 전제로 합니다. 유동성이 부족하면 베이스 형성도, 돌파 시 거래량 검증도 의미가 없습니다. 유니버스 필터를 통과한 종목만 SEPA 8조건 검증으로 넘어갑니다.</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
-<!-- 05 · SEPA 8조건 -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- 06 · SEPA 8조건 게이트 -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <section class="slide adv">
- <div class="eyebrow blue">05 · SEPA 8조건</div>
- <h2>추세 체크리스트 — <span style="color:var(--blue)">게이트</span></h2>
- <p class="sect-intro">Mark Minervini의 SEPA(Specific Entry Point Analysis) 트렌드 템플릿. 건강한 상승추세에 있는 종목만 통과시키는 8개의 조건입니다. <b style="color:#e8edf4">하나라도 실패하면 리스트 진입 불가</b> — 게이트입니다.</p>
+ <div class="eyebrow blue">06 · SEPA 게이트</div>
+ <h2>8조건 체크리스트 — <span style="color:var(--blue)">전부 통과</span>해야 후보 진입</h2>
+ <p class="sect-intro">Mark Minervini의 SEPA(Specific Entry Point Analysis) 트렌드 템플릿. 건강한 상승추세에 있는 종목만 통과시키는 8개의 조건입니다. <b style="color:#e8edf4">하나라도 실패하면 즉시 제외</b> — 점수가 아닌 게이트입니다.</p>
 
  <div class="checklist">
  <div class="ci"><div class="num">1</div><div class="body">
@@ -576,7 +623,7 @@
  <p>이동평균선이 짧은 순서대로 위에 정렬. 추세가 단계적으로 강화되고 있다는 신호.</p>
  </div></div>
  <div class="ci"><div class="num">3</div><div class="body">
- <h4>MA200이 최소 1개월간 상승 중</h4>
+ <h4>MA200이 최소 1개월간 상승 추세</h4>
  <p>장기 이동평균이 우상향. 단순 반등이 아닌 추세 전환이 자리 잡았다는 증거.</p>
  </div></div>
  <div class="ci"><div class="num">4</div><div class="body">
@@ -592,7 +639,7 @@
  <p>저점에서 충분히 멀리 떨어져 있어야 함. 바닥권 종목 제외.</p>
  </div></div>
  <div class="ci"><div class="num">7</div><div class="body">
- <h4>현재가 &lt; 52주 고점 −25% 이내</h4>
+ <h4>현재가 &gt; 52주 고점 −25% 이내</h4>
  <p>고점에서 너무 멀리 떨어지지 않은 상태. 즉, 신고가 부근에서 거래 중이어야 함.</p>
  </div></div>
  <div class="ci"><div class="num">8</div><div class="body">
@@ -601,46 +648,16 @@
  </div></div>
  </div>
 
- <div class="note" style="border-left-color:var(--blue);color:var(--dim)"><b style="color:var(--blue)">SEPA 점수 (0~10).</b> 8조건 중 몇 개를 통과했는지 비율로 환산. <b>10 = 8개 모두 통과</b>(완전 합격). 통과 못 한 종목은 리스트 "—"로 표시되고 사실상 후보에서 제외됩니다. RS만 90이어도 SEPA 탈락이면 등급이 강등됩니다(가이드 PART 1 표의 신세계 사례).</div>
+ <div class="note" style="border-left-color:var(--blue);color:var(--dim)"><b style="color:var(--blue)">이 8개는 점수가 아니라 게이트입니다.</b> 하나라도 실패하면 리스트 진입 불가. RS만 90이어도 SEPA 탈락(예: MA50 아래 하락 중)이면 후보에서 제외됩니다. 도입부의 신세계 사례(RS 92 / SEPA —)가 바로 이 메커니즘입니다.</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
-<!-- 06 · RS 계산법 -->
+<!-- 07 · VCP 게이트 -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <section class="slide adv">
- <div class="eyebrow blue">06 · RS — 상대강도 계산법</div>
- <h2>"이 종목이 풀 안에서 <span style="color:var(--blue)">얼마나 강했나</span>"</h2>
- <p class="sect-intro">IBD 방식을 따르되 자체 계산합니다. 같은 풀(미장 시총 $500M+, 국장 시총 200억+ 등) 안에서 1년 수익률을 백분위로 환산합니다.</p>
-
- <div class="formula">
- <div class="eq" style="font-size:clamp(14px,2vw,19px)">
- 종합수익률 = <span class="r">12개월 수익률</span> + <span class="v">3개월 수익률 × 2</span><br>
- <span class="x" style="font-size:.7em">→ 풀 안에서 백분위 환산 → RS (1~99)</span>
- </div>
- <div class="legend">
- <span><b class="cool">12개월</b> &nbsp;장기 추세</span>
- <span><b class="pos">3개월 ×2</b> &nbsp;최신 모멘텀 가중</span>
- <span><b class="warn">백분위</b> &nbsp;풀 안 순위</span>
- </div>
- </div>
-
- <ul class="clean">
- <li><b>왜 3개월에 가중치?</b> &nbsp;단순 1년 수익률만 보면 1년 전 급등 효과로 지금 약한 종목도 RS가 높게 나옵니다. 최근 분기 모멘텀에 가중을 주면 "지금도 강한" 종목이 위로 옵니다.</li>
- <li><b>RS 99의 의미</b> &nbsp;풀 안에서 상위 1%. 시장 전체에서 가장 강한 그룹. <b>RS 50</b> = 중간 = 시장 평균 수준.</li>
- <li><b>실전 합격선</b> &nbsp;SEPA 8번 조건은 RS ≥ 70이지만, 실전 매수 대상은 <b>RS ≥ 80</b>이 권장됩니다. 90+면 주도주.</li>
- <li><b>리스트 표시 범위</b> &nbsp;리포트는 RS 1~99 범위 정수로 표시. 소수점은 내부에서만 사용.</li>
- </ul>
-
- <div class="note" style="border-left-color:var(--blue);color:var(--dim)"><b style="color:var(--blue)">RS는 "과거"입니다.</b> 강했던 종목이라도 지금 매수 자리가 아니면 의미가 없습니다. 그래서 Composite에서 RS의 가중치(×2.5)는 RDY(×4)보다 낮습니다. 강함은 필요조건일 뿐 충분조건이 아닙니다.</div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════ -->
-<!-- 07 · VCP -->
-<!-- ════════════════════════════════════════════════════════════════ -->
-<section class="slide adv">
- <div class="eyebrow blue">07 · VCP — 베이스 품질 알고리즘</div>
- <h2>변동성 수축이 <span style="color:var(--blue)">점진적</span>인가</h2>
- <p class="sect-intro">VCP = <b style="color:#e8edf4">Volatility Contraction Pattern</b> (변동성 수축 패턴). Minervini의 핵심 베이스 패턴 — 매집이 끝나면 변동성이 단계적으로 좁아지며 돌파를 준비합니다. 알고리즘은 이 "점진성"을 4가지 요소로 점수화합니다.</p>
+ <div class="eyebrow blue">07 · VCP 게이트</div>
+ <h2>베이스 패턴 검증 — <span style="color:var(--blue)">통과/실패</span>만 따짐</h2>
+ <p class="sect-intro">VCP = <b style="color:#e8edf4">Volatility Contraction Pattern</b> (변동성 수축 패턴). Minervini의 핵심 베이스 패턴 — 매집이 끝나면 변동성이 단계적으로 좁아지며 돌파를 준비합니다. <b style="color:#e8edf4">V8에서 VCP는 게이트로만 동작합니다 — vcp_valid=True만 후보에 올라오고, VCP 점수(0~10)는 리포트 로깅용이지 순위에 영향을 주지 않습니다.</b></p>
 
  <div class="fields">
  <div class="field">
@@ -650,7 +667,7 @@
  </div>
  <div class="field">
  <div class="fhead"><span class="fcode" style="color:var(--blue)">②</span><span class="fname">점진성 (gradient)</span></div>
- <p>각 수축이 <b>이전보다 좁아져야 함</b>. 첫 수축 -25% → 두 번째 -15% → 세 번째 -7% 식. 좁아지는 비율이 일정하게 줄어들면 만점.</p>
+ <p>각 수축이 <b>이전보다 좁아져야 함</b>. 첫 수축 -25% → 두 번째 -15% → 세 번째 -7% 식. 좁아지는 비율이 일정하게 줄어들면 고점수.</p>
  <div class="scale"><b>최적</b> &nbsp;수축폭이 단조 감소 · <b>감점</b> &nbsp;들쭉날쭉/확대</div>
  </div>
  <div class="field">
@@ -659,99 +676,178 @@
  <div class="scale"><b>최적</b> &nbsp;마지막 수축 거래량 &lt; 50일 평균 &nbsp;·&nbsp; <b>감점</b> &nbsp;거래량 여전히 많음</div>
  </div>
  <div class="field">
- <div class="fhead"><span class="fcode" style="color:var(--blue)">④</span><span class="fname">broke_out 감점</span></div>
- <p>이미 피벗을 돌파해 위로 떠버린 종목은 VCP 점수가 <b style="color:var(--red)">강제 강등</b>됩니다. 점수의 목적이 "지금 살 자리"이기 때문 — 돌파 완료 종목은 이 리스트의 대상이 아닙니다.</p>
+ <div class="fhead"><span class="fcode" style="color:var(--blue)">④</span><span class="fname">돌파완료 감점 (broke_out)</span></div>
+ <p>이미 피벗을 돌파해 위로 떠버린 종목은 VCP 점수가 <b style="color:var(--red)">강제 강등</b>됩니다. "지금 살 자리"가 아닌 종목이기 때문 — 돌파 완료 종목은 이 리스트의 대상이 아닙니다.</p>
  <div class="scale"><b>감점</b> &nbsp;가격이 피벗 위로 이미 +X% &nbsp;→&nbsp; VCP에서 차감</div>
  </div>
  </div>
 
- <div class="note" style="border-left-color:var(--blue);color:var(--dim)"><b style="color:var(--blue)">점수 해석.</b> VCP 10 = 교과서적 수축 (2~4회 점진 + 거래량 마름 + 돌파 전). 8~9 = 좋은 베이스. 5~7 = 불규칙하거나 일부 조건 미달. <b>4 이하 = 베이스 자격 미달</b> — 차트 확인도 별 의미 없음.</div>
+ <div class="note" style="border-left-color:var(--blue);color:var(--dim)"><b style="color:var(--blue)">VCP 점수는 로깅용, 게이트는 vcp_valid 여부.</b> V8은 vcp_engine.py의 유효성 판정(패턴 존재 · 수축 구조 · 돌파 전 상태)으로 후보를 채택/탈락합니다. VCP 0~10 점수는 리포트에 표시되고 차트 판독을 돕지만, <b>Composite 공식의 입력은 아닙니다.</b> 수치의 명확한 분리 — 킥자 어떤 종목이 상위단에 올라올지를 결정하는 건 다음 섹션의 펀더멘털 + RS 각 항목입니다.</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
-<!-- 08 · RDY -->
+<!-- 08 · Composite 공식 (펀더멘털 + RS) -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <section class="slide adv">
- <div class="eyebrow blue">08 · RDY — 매수 임박도</div>
- <h2>지금 <span style="color:var(--blue)">살 자리</span>인가</h2>
- <p class="sect-intro">RDY(Readiness)는 Composite에서 <b style="color:#e8edf4">최대 가중치(×4)</b>를 받는 점수입니다. "강했는가"보다 "지금 사도 되는 자리인가"를 묻습니다. 세 가지 입력을 합산해 0~10으로 환산.</p>
+ <div class="eyebrow blue">08 · Composite — 순위 점수 공식</div>
+ <h2><span style="color:var(--blue)">펀더멘털 + RS</span>를 합쳐 하나의 순위로</h2>
+ <p class="sect-intro">SEPA·VCP 게이트를 통과한 종목들이 이 점수로 줄세워집니다. 특이한 점 — <b style="color:#e8edf4">EPS 성장이 35%로 가장 높은 가중치를 가집니다.</b> Minervini도 시장도 결국 이익 성장이 주가를 이끌기 때문입니다.</p>
+
+ <div class="formula">
+ <div class="eq" style="font-size:clamp(13px,1.9vw,18px);line-height:2">
+ Composite = (<br>
+ &nbsp;&nbsp;<span class="r">RS_sweet_spot</span> × <b>0.30</b> &nbsp;<span class="x" style="font-size:.7em">(RS 과열 보정)</span><br>
+ + <span class="v">EPS_growth</span> × <b>0.35</b> &nbsp;<span class="x" style="font-size:.7em">(최우선)</span><br>
+ + <span class="d">Sales_Margin</span> × <b>0.20</b> &nbsp;<span class="x" style="font-size:.7em">(매출 성장 + ROE)</span><br>
+ + <span class="cool">Trend</span> × <b>0.15</b> &nbsp;<span class="x" style="font-size:.7em">(현재가 vs MA200)</span><br>
+ ) × <b>10</b>
+ </div>
+ <div class="legend">
+ <span><b class="pos">EPS 0.35</b> &nbsp;최우선</span>
+ <span><b class="cool">RS 0.30</b> &nbsp;과열 보정</span>
+ <span><b class="warn">매출/ROE 0.20</b></span>
+ <span><b style="color:#5aa9ff">추세 0.15</b></span>
+ </div>
+ <p style="margin-top:18px;font-family:'Space Mono',monospace;font-size:12px;color:var(--faint)">각 항목 0~10점 · 가중합 후 ×10 = 최종 0~100 스케일</p>
+ </div>
+
+ <h3 style="font-size:18px;margin:30px 0 14px;font-family:'Space Mono',monospace">각 항목의 채점 방식</h3>
 
  <div class="fields">
  <div class="field" style="grid-column:1/-1">
- <div class="fhead"><span class="fcode" style="color:var(--blue)">① box 위치</span><span class="fname">베이스 내 현재가 높이 (0~1)</span></div>
- <p>최근 베이스 박스의 저점(0)과 고점(1) 사이에서 현재가가 어디에 있는가. <b style="color:var(--green)">0.75~0.95 = 스윗스팟</b> — 피벗(상단) 직전, 곧 돌파 트리거. 0.95+ = 천장 초과 위험. 0.3 미만 = 아직 바닥, 매수 자리 아님.</p>
- <div class="scale"><b>최적</b> &nbsp;<span class="good">0.75~0.95</span> &nbsp;·&nbsp; <b>관망</b> &nbsp;0.4~0.6 &nbsp;·&nbsp; <b>회피</b> &nbsp;<span class="bad">&lt;0.35 또는 &gt;0.95</span></div>
+ <div class="fhead"><span class="fcode" style="color:var(--blue)">RS Sweet Spot</span><span class="fname">상대강도 — 과열 보정</span><span class="fweight">×0.30</span></div>
+ <p>전통적 RS와 다릅니다. <b style="color:var(--green)">85~95 = 10점(최적)</b> — 시장 상위지만 끝물은 아닌 구간. <b style="color:var(--red)">96+는 감점</b>(이미 과열, 추격 리스크). 85 미만은 비례 감점. "강할수록 무조건 좋다"가 아니라 "강하되 너무 떠 있지는 않다"를 봅니다.</p>
+ <div class="scale"><b>최적</b> &nbsp;<span class="good">RS 85~95 → 10점</span> &nbsp;·&nbsp; <b>감점</b> &nbsp;<span class="bad">96+ (끝물) · 85 미만 비례</span></div>
  </div>
  <div class="field" style="grid-column:1/-1">
- <div class="fhead"><span class="fcode" style="color:var(--blue)">② 거래량 패턴</span><span class="fname">매집 신호 (volume pattern)</span></div>
- <p><b style="color:var(--green)">상승일 거래량 증가 + 하락일 거래량 감소</b> = 기관 매집의 전형. 반대로 상승일 거래량 약함/하락일 거래량 폭증 = 분산. 베이스 후반부 거래량이 "말라가는" 정도도 가산점.</p>
- <div class="scale"><b>최적</b> &nbsp;<span class="good">매집형 패턴 + 거래량 마름</span> &nbsp;·&nbsp; <b>감점</b> &nbsp;<span class="bad">분산형 패턴</span></div>
+ <div class="fhead"><span class="fcode" style="color:var(--blue)">EPS Growth</span><span class="fname">주당순이익 성장 — 최우선</span><span class="fweight">×0.35</span></div>
+ <p><b style="color:var(--green)">흑자</b>: EPS YoY 성장률을 50% 기준으로 환산해 최대 10점. EPS YoY +50% → 10점, +25% → 5점.<br>
+ <b style="color:var(--amber)">적자 + 매출 YoY ≥40%</b>: 유니콘 구제 — 최대 <b>7점</b>(가속 시 8.5점).<br>
+ <b style="color:var(--red)">적자 + 매출 정체/감소</b>: <b>0점</b> — 부실주 필터.</p>
+ <div class="scale"><b>철학</b> &nbsp;가장 큰 가중(0.35)을 받는 항목. <span class="good">"이익이 자라는가"</span>가 트레이딩의 최우선 신호.</div>
  </div>
  <div class="field" style="grid-column:1/-1">
- <div class="fhead"><span class="fcode" style="color:var(--blue)">③ MA50 이격도</span><span class="fname">extension from 50-day MA</span></div>
- <p>현재가가 50일선에서 얼마나 떴는가. VCP 베이스는 보통 50일선 근처에서 똬리를 틉니다. <b style="color:var(--green)">+0~15% = 정상</b>. +15~30% = 주의(연장 시작). <b style="color:var(--red)">+30% 이상 = 연장 상태로 감점</b> — 추격하면 손절폭만 커집니다.</p>
- <div class="scale"><b>최적</b> &nbsp;<span class="good">+0~15%</span> &nbsp;·&nbsp; <b>주의</b> &nbsp;<span class="warn">+15~30%</span> &nbsp;·&nbsp; <b>감점</b> &nbsp;<span class="bad">+30%+</span></div>
+ <div class="fhead"><span class="fcode" style="color:var(--blue)">Sales + ROE</span><span class="fname">매출 성장 60% + ROE 40%</span><span class="fweight">×0.20</span></div>
+ <p>두 하위 항목의 가중합:<br>
+ · <b>매출 YoY</b>: 30% 기준선, 최대 10점 (가중 0.60)<br>
+ · <b>ROE</b>: 17% 기준선, 최대 10점 (가중 0.40)<br>
+ 즉 <code style="font-family:'Space Mono',monospace;font-size:12px;color:var(--ink)">Sales_Margin = (매출점수×0.6 + ROE점수×0.4)</code>. EPS가 흔들려도 매출+자본효율이 함께 강하면 점수를 받습니다.</p>
+ <div class="scale"><b>최적</b> &nbsp;<span class="good">매출 YoY +30%↑ · ROE 17%↑</span></div>
+ </div>
+ <div class="field" style="grid-column:1/-1">
+ <div class="fhead"><span class="fcode" style="color:var(--blue)">Trend</span><span class="fname">추세 — MA200 대비 위치</span><span class="fweight">×0.15</span></div>
+ <p>현재가가 200일선 위로 얼마나 떠 있는가:<br>
+ · <b>0~30%</b>: 비례 0 → 10 (상승 전환·초기)<br>
+ · <b style="color:var(--green)">30~60%</b>: <b>10점 스위트스팟</b> (건강한 상승)<br>
+ · <b style="color:var(--amber)">60~120%</b>: 선형 감점 10 → 7 (과열 시작)<br>
+ · <b style="color:var(--red)">120%+</b>: 7점 고정 (연장됐지만 추세는 유효)<br>
+ 너무 가까워도(약함) 너무 멀어도(과열) 둘 다 감점.</p>
+ <div class="scale"><b>최적</b> &nbsp;<span class="good">MA200 +30~60%</span></div>
  </div>
  </div>
 
- <div class="note" style="border-left-color:var(--blue);color:var(--dim)"><b style="color:var(--blue)">왜 RDY가 ×4인가.</b> "강했던 종목(RS)"과 "베이스가 좋았던 종목(VCP)"은 모두 과거의 정보입니다. 트레이딩의 본질은 <b>"지금 진입할 가치가 있는가"</b>입니다. RDY는 그 단 하나의 질문에 답하기 위해 만들어진 점수이므로, Composite에서 가장 무거운 가중치를 받습니다.</div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════ -->
-<!-- 09 · Composite 공식 -->
-<!-- ════════════════════════════════════════════════════════════════ -->
-<section class="slide adv">
- <div class="eyebrow blue">09 · Composite — 최종 점수 공식</div>
- <h2>세 평가를 <span style="color:var(--blue)">하나의 순위</span>로</h2>
- <p class="sect-intro">리스트의 정렬 기준이자 최종 우선순위. RDY에 가장 큰 가중을 둔 게 핵심입니다 — "강함"보다 "살 자리"를 우선하기 위해서.</p>
-
- <div class="formula">
- <div class="eq">
- Composite =
- <span class="v">VCP</span><span class="x">×3.5</span> &nbsp;+&nbsp;
- <span class="r">(RS÷10)</span><span class="x">×2.5</span> &nbsp;+&nbsp;
- <span class="d">RDY</span><span class="x">×4</span>
- </div>
- <div class="legend">
- <span><b class="pos">VCP ×3.5</b> &nbsp;베이스 품질</span>
- <span><b class="cool">RS ×2.5</b> &nbsp;상대강도</span>
- <span><b class="warn">RDY ×4</b> &nbsp;매수 임박도 (최대)</span>
- </div>
- <p style="margin-top:18px;font-family:'Space Mono',monospace;font-size:12px;color:var(--faint)">최대 이론값 ≈ 100점 &nbsp;(VCP 10×3.5 + RS 99/10×2.5 + RDY 10×4 = 35 + 24.75 + 40)</p>
- </div>
-
- <div class="note" style="border-left-color:var(--green)">
+ <div class="note" style="border-left-color:var(--green);margin-top:24px">
  <b>리스트 컷 기준.</b><br>
  · <b style="color:var(--green)">흑자 우량주</b>: Composite ≥ <b>80</b><br>
  · <b style="color:var(--amber)">적자 유니콘 🦄</b> (매출 YoY ≥40%): Composite ≥ <b>60</b><br>
- 컷 미달 종목은 VCP/SEPA를 통과해도 리스트에서 제외됩니다.
+ 정렬은 Composite 내림차순. 컷 미달 종목은 SEPA·VCP 게이트를 통과해도 리스트에서 제외됩니다.
  </div>
 
  <h3 style="font-size:18px;margin:36px 0 14px;font-family:'Space Mono',monospace">수치 예시 — 같은 RS, 다른 순위</h3>
  <div class="examples">
  <div class="ex win">
- <span class="extag">▲ 왜 1위로 오나 · 127120</span>
- <h4>Composite 86.2</h4>
+ <span class="extag">▲ 높은 Composite</span>
+ <h4>흑자 + 매출 폭증 (≈ 87점)</h4>
  <div class="stat">
- VCP <b>9</b> ×3.5 &nbsp;=&nbsp; 31.5<br>
- RS <b>90</b> ÷10 ×2.5 &nbsp;=&nbsp; 22.5<br>
- RDY <b>8</b> ×4 &nbsp;=&nbsp; 32.0 <span class="pos">(최대 기여)</span>
+ RS_sweet (RS 90) <b>10.0</b> × 0.30 &nbsp;=&nbsp; 3.00<br>
+ EPS (YoY +60%) <b>10.0</b> × 0.35 &nbsp;=&nbsp; 3.50 <span class="pos">(최대 기여)</span><br>
+ Sales+ROE (45%·22%) <b>9.5</b> × 0.20 &nbsp;=&nbsp; 1.90<br>
+ Trend (MA200 +45%) <b>10.0</b> × 0.15 &nbsp;=&nbsp; 1.50<br>
+ &nbsp;&nbsp;합계 9.90 × 10 = <b style="color:var(--green)">99.0</b>
  </div>
- <p class="verdict">RS는 2위지만 RDY가 만점에 가까워 1위. <b style="color:var(--green)">지금 살 자리</b>가 점수를 끌어올림.</p>
+ <p class="verdict">모든 항목 만점급. <b style="color:var(--green)">EPS 폭증이 점수를 끌어올리는 전형</b>.</p>
  </div>
  <div class="ex avoid">
- <span class="extag">▼ 왜 밀리나 · 004170</span>
- <h4>Composite 52.5</h4>
+ <span class="extag">▼ 낮은 Composite</span>
+ <h4>RS 높지만 EPS·매출 정체 (≈ 55점)</h4>
  <div class="stat">
- VCP <b>5</b> ×3.5 &nbsp;=&nbsp; 17.5<br>
- RS <b>92</b> ÷10 ×2.5 &nbsp;=&nbsp; 23.0 <span class="pos">(RS 최고)</span><br>
- RDY <b>3</b> ×4 &nbsp;=&nbsp; 12.0 <span class="neg">(약점)</span>
+ RS_sweet (RS 97) <b>8.0</b> × 0.30 &nbsp;=&nbsp; 2.40 <span class="warn">(끝물 감점)</span><br>
+ EPS (YoY +5%) <b>1.0</b> × 0.35 &nbsp;=&nbsp; 0.35 <span class="neg">(약점)</span><br>
+ Sales+ROE (8%·9%) <b>3.0</b> × 0.20 &nbsp;=&nbsp; 0.60<br>
+ Trend (MA200 +100%) <b>8.0</b> × 0.15 &nbsp;=&nbsp; 1.20<br>
+ &nbsp;&nbsp;합계 4.55 × 10 = <b style="color:var(--red)">45.5</b>
  </div>
- <p class="verdict">RS는 가장 높지만 이미 돌파(+39% 이격). <b style="color:var(--red)">강해도 늦은 자리</b>라 하위로.</p>
+ <p class="verdict">RS 97로 가장 강해도 펀더멘털 정체로 흑자주 컷 80에 미달. <b style="color:var(--red)">리스트 제외.</b></p>
  </div>
  </div>
 
- <div class="note" style="border-left-color:var(--blue);color:var(--dim);margin-top:24px"><b style="color:var(--blue)">설계 의도.</b> 같은 RS라도 RDY가 낮으면 하위로 밀립니다. 이 가중치 차이가 MacTrader 리스트가 전통적 RS 리스트와 다른 점입니다 — <b>"강한 종목"이 아니라 "지금 살 수 있는 종목"</b>을 위로 올립니다.</div>
+ <div class="note" style="border-left-color:var(--blue);color:var(--dim);margin-top:24px"><b style="color:var(--blue)">설계 의도.</b> Composite는 <b>"이 종목이 지금 펀더멘털과 추세 측면에서 얼마나 우수한가"</b>를 묻습니다. 매수 타이밍(피벗 근접도)은 의도적으로 빠져 있습니다 — 그건 다음 섹션의 pivot_readiness가 따로 평가합니다. <b>"강하고 좋은 종목"의 후보군을 만드는 게 Composite의 역할</b>이고, "지금 진입할 자리인가"는 별도 신호입니다.</div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- 09 · pivot_readiness — 매수 타이밍 -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<section class="slide adv">
+ <div class="eyebrow blue">09 · pivot_readiness</div>
+ <h2>매수 타이밍 신호 — <span style="color:var(--blue)">순위와는 별개</span></h2>
+ <p class="sect-intro">리스트의 <b style="color:#e8edf4">"RDY" 열</b>이 바로 이 점수입니다. 0~10 스케일이고, <b style="color:#e8edf4">Composite과 완전히 독립적</b>입니다 — 정렬에는 사용되지 않고, 단지 "지금 매수 자리인가"를 표시합니다. 실제 매수 트리거는 여기서 판단합니다.</p>
+
+ <div class="formula">
+ <div class="eq" style="font-size:clamp(13px,1.8vw,17px);line-height:1.9">
+ pivot_readiness = min(10, round(<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;<span class="v">pos_pts × 0.7</span> &nbsp;<span class="x" style="font-size:.7em">(베이스 내 위치)</span><br>
+ &nbsp;&nbsp;+ <span class="d">near_pts × 0.75</span> &nbsp;<span class="x" style="font-size:.7em">(고점 거래량 패턴)</span><br>
+ ))
+ </div>
+ <p style="margin-top:14px;font-family:'Space Mono',monospace;font-size:12px;color:var(--faint)">+ MA50 이격 감점 (+40%↑ → -6점, 그 외 비례 감점)</p>
+ </div>
+
+ <div class="fields">
+ <div class="field" style="grid-column:1/-1">
+ <div class="fhead"><span class="fcode" style="color:var(--blue)">① box 위치 (pos_pts)</span><span class="fname">베이스 내 현재가 높이</span></div>
+ <p>최근 베이스의 저점(0)과 고점(1) 사이에서 현재가가 어디에 있는가. <b style="color:var(--green)">0.75~0.95 = 스위트스팟</b> — 피벗(상단) 직전, 곧 돌파 트리거. 0.95+ = 천장 초과 위험. 0.3 미만 = 아직 바닥.</p>
+ <div class="scale"><b>최적</b> &nbsp;<span class="good">0.75~0.95</span> &nbsp;·&nbsp; <b>관망</b> &nbsp;0.4~0.6 &nbsp;·&nbsp; <b>회피</b> &nbsp;<span class="bad">&lt;0.35 또는 &gt;0.95</span></div>
+ </div>
+ <div class="field" style="grid-column:1/-1">
+ <div class="fhead"><span class="fcode" style="color:var(--blue)">② 고점 거래량 패턴 (near_pts)</span><span class="fname">피벗 부근 거래량 신호</span></div>
+ <p>피벗 근처 접근 시 거래량 행동. <b style="color:var(--green)">상승일 거래량 증가 + 하락일 거래량 감소</b> = 기관 매집형 → 만점. 베이스 후반부 거래량이 "말라가다가" 돌파 직전에 살아나는 패턴이 가장 강한 신호.</p>
+ <div class="scale"><b>최적</b> &nbsp;<span class="good">매집형 + 거래량 마름 후 점증</span> &nbsp;·&nbsp; <b>감점</b> &nbsp;<span class="bad">분산형</span></div>
+ </div>
+ <div class="field" style="grid-column:1/-1">
+ <div class="fhead"><span class="fcode" style="color:var(--blue)">③ MA50 이격 감점</span><span class="fname">연장된 자리는 즉시 감점</span></div>
+ <p>현재가가 50일선 위로 얼마나 떴는가에 따라 위 합계에서 차감:<br>
+ · <b style="color:var(--green)">+0~15%</b>: 감점 없음 (정상)<br>
+ · <b style="color:var(--amber)">+15~40%</b>: 비례 감점 (연장 시작)<br>
+ · <b style="color:var(--red)">+40% 이상</b>: <b>-6점 강감점</b> (추격 자리 — pivot_readiness 절반 이상 소실)</p>
+ <div class="scale"><b>이유</b> &nbsp;피벗에 가까울수록 손절선이 명확. 50일선에서 떠 있을수록 위험 대비 보상이 나빠짐.</div>
+ </div>
+ </div>
+
+ <h3 style="font-size:18px;margin:30px 0 14px;font-family:'Space Mono',monospace">점수대별 해석</h3>
+ <table class="cheat">
+ <thead>
+ <tr><th>RDY</th><th>의미</th><th>행동</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="k"><span class="pos">8~10</span></td>
+ <td class="v">피벗 직전 — 박스 상단에 접근, 이격 정상, 거래량 매집형</td>
+ <td class="v"><b style="color:var(--green)">행동권</b> — 차트 확인 후 피벗 돌파 + 거래량 증가에서 진입</td>
+ </tr>
+ <tr>
+ <td class="k"><span class="warn">4~7</span></td>
+ <td class="v">자리 잡는 중 — 베이스 중턱, 패턴은 형성 중</td>
+ <td class="v"><b style="color:var(--amber)">관망권</b> — 관찰 리스트에 두고 RDY·box 상승 추적</td>
+ </tr>
+ <tr>
+ <td class="k"><span class="neg">0~3</span></td>
+ <td class="v">아직 멀거나 이미 떠버림 — 베이스 바닥 또는 +40% 이격</td>
+ <td class="v"><b style="color:var(--red)">회피</b> — Composite가 높아도 지금 진입할 자리는 아님</td>
+ </tr>
+ </tbody>
+ </table>
+
+ <div class="note" style="border-left-color:var(--blue);color:var(--dim);margin-top:24px"><b style="color:var(--blue)">Composite와 RDY를 묶어서 읽기.</b> 둘은 독립 신호입니다. <b>Composite 높음 + RDY 높음</b> → 가장 이상적인 후보(좋은 종목 × 좋은 자리). <b>Composite 높음 + RDY 낮음</b> → 좋은 종목이지만 아직 자리가 아님(관찰). <b>Composite 낮음 + RDY 높음</b> → 자리는 좋지만 펀더멘털이 약함(컷에 미달해 애초에 리스트에 없을 가능성). 매일 아침 리스트는 <b>Composite으로 정렬되어 있되, RDY 8+를 먼저 본다</b>는 게 PART 1의 5분 루틴 1번 항목의 이유입니다.</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
@@ -772,24 +868,27 @@
  <div class="scale"><b>둘 다 만족</b> 하면 🦄 표시 + Composite 컷이 80 → <b>60</b>으로 완화</div>
  </div>
  <div class="field">
- <div class="fhead"><span class="fcode" style="color:var(--blue)">가속 보너스</span><span class="fname">growth acceleration</span></div>
- <p>매출 성장률이 <b style="color:var(--green)">이전 분기보다 더 가팔라지는</b> 종목(전전기 대비 가속)에는 추가 점수. 단순 성장이 아닌 "가속 중인 성장"이 트레이딩 측면에서 더 강한 신호.</p>
- <div class="scale"><b>예</b> &nbsp;Q1 +40% → Q2 +55% → Q3 +70% &nbsp;= 가속 ✓</div>
+ <div class="fhead"><span class="fcode" style="color:var(--blue)">EPS 항목 구제</span><span class="fname">scoring_v8 — eps_growth_score</span></div>
+ <p>Composite 공식의 EPS 항목(가중 0.35)에서 적자라도 점수를 받습니다:<br>
+ · <b style="color:var(--green)">매출 YoY ≥40%</b> → EPS 항목 최대 <b>7점</b><br>
+ · <b style="color:var(--amber)">+ 성장 가속</b>(전분기 대비 더 가팔라짐) → <b>8.5점</b><br>
+ 흑자주의 만점(10점)에 비해선 낮지만, 적자 + 매출 정체의 0점과는 큰 차이.</p>
+ <div class="scale"><b>예</b> &nbsp;Q1 +40% → Q2 +55% → Q3 +70% &nbsp;= 가속 ✓ (8.5점)</div>
  </div>
  </div>
 
- <h3 style="font-size:18px;margin:36px 0 14px;font-family:'Space Mono',monospace">왜 구제하는가</h3>
+ <h3 style="font-size:18px;margin:36px 0 14px;font-family:'Space Mono',monospace">왜 컷을 60으로 낮추는가</h3>
  <ul class="clean">
  <li><b>플랫폼/AI 기업의 전형</b> &nbsp;고정비 투자 단계에서는 적자가 정상. 매출 성장이 임계점을 넘으면 단숨에 흑자 전환.</li>
  <li><b>주가는 매출에 먼저 반응</b> &nbsp;시장은 EPS 흑자 전환을 기다리지 않습니다. 매출 가속이 보이는 순간 주가가 선반영.</li>
- <li><b>역사적 사례</b> &nbsp;PLTR, SNOW, NET, NVDA(과거) 등 — 적자 구간에서 100~1000% 상승한 종목 다수.</li>
- <li><b>표시 방법</b> &nbsp;섹터명 옆에 🦄 아이콘. 리포트 한눈에 식별 가능.</li>
+ <li><b>고성장 vs 변동성의 트레이드오프</b> &nbsp;유니콘 종목은 잠재 수익이 크지만 변동성도 크다는 사실을 가격에 반영. 컷 60은 "기회를 놓치지 않되, 흑자주보다 더 신중하게 본다"는 균형점.</li>
+ <li><b>역사적 사례</b> &nbsp;PLTR, SNOW, NET, NVDA(과거) 등 — 적자 구간에서 100~1000% 상승한 종목 다수. 흑자주 컷 80을 그대로 적용했다면 모두 놓쳤을 종목들.</li>
+ <li><b>표시 방법</b> &nbsp;리포트에서 종목명/섹터명 옆에 <b>🦄 아이콘</b>으로 표시. 한눈에 구별 가능.</li>
  </ul>
 
  <div class="note"><b>주의 — 변동성.</b> 유니콘 종목은 흑자주 대비 변동성이 더 큽니다. 컷이 80→60으로 낮은 이유는 "구제하되 더 신중하게 본다"는 뜻 — 진입 시 포지션 크기를 줄이거나 손절폭을 더 명확히 잡는 게 권장됩니다. 단순히 "🦄 = 무조건 좋다"가 아닙니다.</div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════════════ -->
 <!-- 11 · 치트시트 -->
 <!-- ════════════════════════════════════════════════════════════════ -->
 <section class="slide">
