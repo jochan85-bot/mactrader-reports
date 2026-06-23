@@ -250,6 +250,29 @@
  footer{padding:50px 0 70px;text-align:center;color:var(--faint);font-family:'Space Mono',monospace;font-size:12px}
  .disc{max-width:680px;margin:18px auto 0;font-size:11.5px;line-height:1.7;color:#46505f}
 
+ /* ── 5레이어 파이프라인 컴포넌트 ──────────────────────────── */
+ .pipeline{display:flex;flex-direction:column;gap:0;max-width:680px;margin:0 auto 28px}
+ .pl-arrow{text-align:center;font-size:20px;color:var(--blue);line-height:1;padding:4px 0}
+ .pl-layer{display:flex;gap:16px;align-items:flex-start;
+   background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+ .pl-layer.gate{border-left:3px solid var(--blue)}
+ .pl-layer.rank{border-left:3px solid var(--green);background:rgba(61,220,132,.04)}
+ .pl-layer.timing{border-left:3px solid var(--amber)}
+ .pl-num{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+   letter-spacing:.06em;white-space:nowrap;padding-top:2px;min-width:52px}
+ .pl-body{flex:1;min-width:0}
+ .pl-title{font-size:15px;font-weight:600;margin-bottom:4px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+ .pl-badge{font-family:'Space Mono',monospace;font-size:10px;padding:2px 7px;border-radius:3px;font-weight:400}
+ .gate-badge{background:rgba(90,169,255,.12);color:var(--blue);border:1px solid rgba(90,169,255,.25)}
+ .rank-badge{background:rgba(61,220,132,.12);color:var(--green);border:1px solid rgba(61,220,132,.25)}
+ .timing-badge{background:rgba(255,180,84,.12);color:var(--amber);border:1px solid rgba(255,180,84,.25)}
+ .pl-desc{font-size:13.5px;color:var(--dim);margin-bottom:10px;line-height:1.5}
+ .pl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+ .pl-tag{font-family:'Space Mono',monospace;font-size:10.5px;color:var(--faint);
+   background:var(--panel2);border:1px solid var(--line);border-radius:3px;padding:2px 8px}
+ .pl-tag.pos-tag{color:var(--green);border-color:rgba(61,220,132,.25);background:rgba(61,220,132,.07)}
+ .pl-cut{font-family:'Space Mono',monospace;font-size:11.5px;color:var(--amber);margin-top:8px}
+
  /* ── 모바일 반응형 ──────────────────────────────────────── */
  /* 테이블 가로 스크롤 래퍼 */
  .term-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -607,39 +630,64 @@
  <h2>5개 레이어를 <span style="color:var(--blue)">순서대로</span> 통과한 종목만 리스트에</h2>
  <p class="sect-intro">MacTrader V8의 선별 파이프라인은 5단계입니다. 앞 단계의 <b style="color:#e8edf4">게이트(통과/탈락)</b>가 풀을 좁히고, 마지막에 Composite 점수가 순위를 매깁니다. <b style="color:#e8edf4">중요 — VCP는 게이트이지 Composite 점수에 들어가지 않습니다.</b></p>
 
- <div class="formula" style="text-align:left;padding:28px 32px">
- <div class="eq" style="font-size:clamp(12px,1.5vw,14px);line-height:1.9;text-align:left">
-<span class="x">┌────────────────────────────────────────────────┐</span><br>
-<span class="x">│</span> <span class="r">LAYER 1.</span> <b>유니버스 필터</b> &nbsp;<span class="x">— 풀 진입 기준 (시총·주가·거래대금)</span> <span class="x">│</span><br>
-<span class="x">└─────────────────┬──────────────────────────────┘</span><br>
-<span class="x">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼</span><br>
-<span class="x">┌────────────────────────────────────────────────┐</span><br>
-<span class="x">│</span> <span class="r">LAYER 2.</span> <b>SEPA 게이트</b> &nbsp;<span class="x">— 8조건 (하나라도 실패 → 탈락)</span> <span class="x">│</span><br>
-<span class="x">└─────────────────┬──────────────────────────────┘</span><br>
-<span class="x">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼</span><br>
-<span class="x">┌────────────────────────────────────────────────┐</span><br>
-<span class="x">│</span> <span class="r">LAYER 3.</span> <b>VCP 게이트</b> &nbsp;<span class="x">— vcp_valid=False → 탈락</span> <span class="x">│</span><br>
-<span class="x">│</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="d">⚠️ VCP 점수는 Composite에 입력되지 않음</span> <span class="x">│</span><br>
-<span class="x">└─────────────────┬──────────────────────────────┘</span><br>
-<span class="x">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼</span><br>
-<span class="x">┌────────────────────────────────────────────────┐</span><br>
-<span class="x">│</span> <span class="v">LAYER 4.</span> <b>Composite Score</b> &nbsp;<span class="x">— 순위 결정 (0~100)</span> <span class="x">│</span><br>
-<span class="x">│</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="v">RS_sweet × 0.30 + EPS × 0.35 + 매출/ROE × 0.20</span> <span class="x">│</span><br>
-<span class="x">│</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="v">+ 추세 × 0.15 &nbsp;→ × 10</span> <span class="x">│</span><br>
-<span class="x">│</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="x">컷: 흑자주 ≥80 · 유니콘 ≥60 · 정렬 ↓</span> <span class="x">│</span><br>
-<span class="x">└─────────────────┬──────────────────────────────┘</span><br>
-<span class="x">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼</span><br>
-<span class="x">┌────────────────────────────────────────────────┐</span><br>
-<span class="x">│</span> <span class="d">LAYER 5.</span> <b>pivot_readiness</b> &nbsp;<span class="x">— 매수 타이밍 (0~10)</span> <span class="x">│</span><br>
-<span class="x">│</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="x">베이스 내 위치 + MA50 이격 + 고점 거래량 패턴</span> <span class="x">│</span><br>
-<span class="x">│</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="d">리스트에 "RDY" 열로 표시 — 순위와는 별개</span> <span class="x">│</span><br>
-<span class="x">└────────────────────────────────────────────────┘</span>
- </div>
- <div class="legend" style="margin-top:24px">
- <span><b class="cool">Layer 1~3</b> &nbsp;게이트 (통과/탈락)</span>
- <span><b class="pos">Layer 4</b> &nbsp;순위 점수 (Composite)</span>
- <span><b class="warn">Layer 5</b> &nbsp;타이밍 점수 (병렬)</span>
- </div>
+ <div class="pipeline">
+
+   <div class="pl-layer gate">
+     <div class="pl-num cool">LAYER 1</div>
+     <div class="pl-body">
+       <div class="pl-title"><b>유니버스 필터</b> <span class="pl-badge gate-badge">게이트</span></div>
+       <div class="pl-desc">풀 진입 기준 — 시에 미달하면 RS 비교 자체가 무의미</div>
+       <div class="pl-tags"><span class="pl-tag">시에 $1B+</span><span class="pl-tag">주가 $10+</span><span class="pl-tag">거래대금 $10M+</span></div>
+     </div>
+   </div>
+
+   <div class="pl-arrow">▼</div>
+
+   <div class="pl-layer gate">
+     <div class="pl-num cool">LAYER 2</div>
+     <div class="pl-body">
+       <div class="pl-title"><b>SEPA 게이트</b> <span class="pl-badge gate-badge">게이트</span></div>
+       <div class="pl-desc">Minervini 8조건 전비 통과 필수 — 하나라도 실패 → 즉시 제외</div>
+       <div class="pl-tags"><span class="pl-tag">정배열 MA50&gt;150&gt;200</span><span class="pl-tag">52주 고점 -25% 이내</span><span class="pl-tag">RS ≥70</span></div>
+     </div>
+   </div>
+
+   <div class="pl-arrow">▼</div>
+
+   <div class="pl-layer gate">
+     <div class="pl-num cool">LAYER 3</div>
+     <div class="pl-body">
+       <div class="pl-title"><b>VCP 게이트</b> <span class="pl-badge gate-badge">게이트</span></div>
+       <div class="pl-desc">변동성 수축 패턴 통과 여부 — <b style="color:var(--amber)">⚠️ VCP 점수는 Composite에 미입력</b></div>
+       <div class="pl-tags"><span class="pl-tag">수축 횟수</span><span class="pl-tag">점진성</span><span class="pl-tag">거래량 마름</span></div>
+     </div>
+   </div>
+
+   <div class="pl-arrow">▼</div>
+
+   <div class="pl-layer rank">
+     <div class="pl-num pos">LAYER 4</div>
+     <div class="pl-body">
+       <div class="pl-title"><b>Composite Score</b> <span class="pl-badge rank-badge">순위 결정</span></div>
+       <div class="pl-desc">펀더멘털 + RS 종합 평가 — 0~100점, 이 점수로 내림차순 정렬</div>
+       <div class="pl-tags"><span class="pl-tag pos-tag">EPS 성장 35%</span><span class="pl-tag pos-tag">RS 30%</span><span class="pl-tag pos-tag">매출+ROE 20%</span><span class="pl-tag pos-tag">MA200 추세 15%</span></div>
+       <div class="pl-cut">컷: 흑자주 ≥ 80 &nbsp;·&nbsp; 유니콘 🦄 ≥ 60</div>
+     </div>
+   </div>
+
+   <div class="pl-arrow" style="color:var(--amber)">▼</div>
+
+   <div class="pl-layer timing">
+     <div class="pl-num warn">LAYER 5</div>
+     <div class="pl-body">
+       <div class="pl-title"><b>pivot_readiness</b> <span class="pl-badge timing-badge">타이밍 (병렬)</span></div>
+       <div class="pl-desc">매수 시점 신호 (0~10) — Composite와 완전히 별개. 리스트 "RDY" 열에 표시.</div>
+       <div class="pl-tags"><span class="pl-tag">box 위치</span><span class="pl-tag">MA50 이격</span><span class="pl-tag">고점 거래량</span></div>
+     </div>
+   </div>
+
+ </div><!-- /pipeline -->
+
  </div>
 
  <div class="note" style="border-left-color:var(--blue);color:var(--dim)"><b style="color:var(--blue)">핵심 — Composite와 RDY를 분리해 읽으세요.</b> Composite는 "이 종목이 펀더멘털 + RS 측면에서 얼마나 좋은가"의 종합 평가입니다. pivot_readiness(리스트의 RDY 열)는 "지금 매수 자리인가"를 판단하는 별도 신호입니다. Composite가 높아도 RDY가 낮으면 아직 매수 타이밍이 아닐 수 있고, 반대도 가능합니다. <b>두 점수는 서로 독립적입니다.</b></div>
