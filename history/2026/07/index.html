@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 7월 — MacTrader 리포트</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;padding:16px;max-width:640px;margin:0 auto}
+.nav{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.back{color:#58a6ff;font-size:14px;text-decoration:none;display:flex;align-items:center;gap:4px}
+.breadcrumb{color:#8b949e;font-size:13px}
+h1{color:#58a6ff;font-size:20px;margin-bottom:20px}
+.date-group{margin-bottom:24px}
+.date-label{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px;color:#e6edf3}
+.badge{background:#1f6feb;color:#fff;font-size:10px;padding:2px 8px;border-radius:10px}
+.card{display:block;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:14px 16px;border-radius:8px;text-decoration:none;margin:6px 0;font-size:15px}
+.card:active{border-color:#58a6ff}
+.icon{margin-right:10px;font-size:18px}
+.desc{display:block;font-size:12px;color:#8b949e;margin-top:3px}
+.empty{color:#8b949e;font-size:14px;text-align:center;padding:40px 20px}
+</style>
+</head>
+<body>
+<div class="nav">
+  <a class="back" href="../index.html">← 2026년</a>
+  <span class="breadcrumb">/ 7월</span>
+</div>
+<h1>📅 2026년 7월</h1>
+
+<div id="reports"></div>
+
+<script>
+const REPORTS = [
+  {
+    date: "2026-07-01",
+    label: "2026년 7월 1일 (수)",
+    latest: true,
+    files: [
+      { icon: "🇰🇷", title: "국장 SEPA+VCP", desc: "한국 돌파 후보 + 분기 실적/외국인 비율/뉴스", url: "kr_sepa_vcp_20260701.html" }
+    ]
+  }
+];
+
+if (REPORTS.length === 0) {
+  document.getElementById('reports').innerHTML = '<div class="empty">아직 리포트가 없습니다.</div>';
+} else {
+  document.getElementById('reports').innerHTML = REPORTS.map((r, i) => `
+    <div class="date-group">
+      <div class="date-label">${r.label}${r.latest ? ' <span class="badge">최신</span>' : ''}</div>
+      ${r.files.map(f => `
+        <a class="card" href="${f.url}">
+          <span class="icon">${f.icon}</span>${f.title}
+          <span class="desc">${f.desc}</span>
+        </a>`).join('')}
+    </div>`).join('');
+}
+</script>
+</body>
+</html>
