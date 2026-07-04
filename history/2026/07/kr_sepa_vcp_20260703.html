@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="ko"><head>
+<!DOCTYPE html><html lang="ko"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>국장 SEPA+VCP — 2026.07.03 (금)</title>
+<title>국장 SEPA + VCP 돌파 후보 | 2026-07-04</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
   background:#F1F5F9;min-height:100vh;max-width:520px;margin:0 auto;padding-bottom:60px;color:#111827;}
-/* ── 상단 고정 헤더 ── */
 .hdr{position:sticky;top:0;z-index:50;background:#0F172A;}
 .hdr-in{padding:10px 15px 8px;}
 .hdr-label{font-size:10px;color:#64748B;letter-spacing:0.12em;font-weight:600;text-transform:uppercase;}
@@ -22,7 +20,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .tab .c{opacity:0.75;font-size:11px;}
 .tab-util{flex-shrink:0;margin-left:auto;padding:5px 12px;border-radius:18px;border:1px solid #334155;
   background:transparent;cursor:pointer;font-size:11.5px;color:#64748B;white-space:nowrap;}
-/* ── 시장 요약 배너 ── */
 .wrap{padding:10px 13px 0;}
 .mkt{background:linear-gradient(135deg,#064E3B,#065F46);border-radius:12px;padding:12px 13px;margin-bottom:12px;}
 .mkt.kr{background:linear-gradient(135deg,#1E3A5F,#1D4ED8 160%);}
@@ -37,7 +34,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .mkt.kr .mkt-box .s{color:#DBEAFE;}
 .mkt-note{font-size:11.5px;color:#D1FAE5;line-height:1.6;}
 .mkt.kr .mkt-note{color:#DBEAFE;}
-/* ── 카드 ── */
 .card{background:#fff;border-radius:15px;overflow:hidden;margin-bottom:9px;
   box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:box-shadow 0.2s;}
 .card.open{box-shadow:0 0 0 2px var(--c),0 6px 24px rgba(0,0,0,0.09);}
@@ -47,9 +43,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .cleft{display:flex;gap:9px;min-width:0;}
 .tcol{flex-shrink:0;text-align:center;}
 .tpill{background:var(--c);color:#fff;font-weight:800;font-size:13.5px;padding:4px 8px;border-radius:7px;}
-.vbar{display:flex;gap:2px;justify-content:center;margin-top:4px;}
-.vbar i{width:9px;height:3px;border-radius:2px;background:#E5E7EB;}
-.vbar i.on{background:var(--c);}
 .sbadge{margin-top:4px;font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px;background:#DCFCE7;color:#15803D;display:inline-block;}
 .sbadge.no{background:#F1F5F9;color:#94A3B8;}
 .cmain{min-width:0;}
@@ -69,7 +62,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .g b{font-weight:600;}.g em{color:#9CA3AF;font-style:normal;}
 .fold{text-align:center;margin-top:6px;font-size:11px;color:#D1D5DB;}
 .card.open .fold{color:var(--c);}
-/* ── 본문 ── */
 .cbody{display:none;border-top:1px solid var(--cl);}
 .card.open .cbody{display:block;animation:fin 0.18s ease-out;}
 @keyframes fin{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
@@ -104,6 +96,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .news:last-child{border-bottom:none;}
 .news .t{color:#374151;word-break:keep-all;}
 .news .m{color:#9CA3AF;font-size:10px;flex-shrink:0;white-space:nowrap;margin-top:1px;}
+.vd{margin-top:10px;border-radius:8px;padding:9px 12px;border-left:3px solid #9CA3AF;background:#F9FAFB;}
+.vd.buy{border-color:#16A34A;background:#F0FDF4;}
+.vd.hold{border-color:#F59E0B;background:#FFFBEB;}
+.vd.avoid{border-color:#DC2626;background:#FEF2F2;}
+.vd .vlab{font-size:9.5px;font-weight:700;color:#6B7280;margin-right:6px;}
+.vd .vcall{font-size:12.5px;font-weight:800;}
+.vd.buy .vcall{color:#15803D;}.vd.hold .vcall{color:#B45309;}.vd.avoid .vcall{color:#DC2626;}
+.vd .vwhy{font-size:11.5px;color:#374151;line-height:1.6;margin-top:3px;word-break:keep-all;}
 .cata{margin:11px 13px 13px;background:#FFFBEB;border-radius:8px;padding:9px 12px;border-left:3px solid #F59E0B;}
 .cata .l{font-size:9.5px;font-weight:700;color:#92400E;margin-bottom:2px;}
 .cata .b{font-size:12px;color:#374151;line-height:1.6;word-break:keep-all;}
@@ -116,20 +116,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 </head><body>
 <div class="hdr">
   <div class="hdr-in">
-    <div class="hdr-label">MacTrader · SEPA + VCP · 2026.07.03 (금) 종가 기준</div>
+    <div class="hdr-label">MacTrader · SEPA + VCP · 2026년 07월 03일 (금) 종가 기준</div>
     <div class="hdr-row">
-      <div class="hdr-title">국장 돌파 후보 <span class="n">6종목</span></div>
+      <div class="hdr-title">국장 SEPA + VCP 돌파 후보 <span class="n">6종목</span></div>
       <div class="hdr-stats">🤖 AI 1</div>
     </div>
   </div>
-  <div class="tabs"><button class="tab active" data-filter="all">전체 <span class="c">6</span></button><button class="tab" data-filter="ai">🤖 AI <span class="c">1</span></button><button class="tab" data-filter="comm">커뮤 <span class="c">1</span></button><button class="tab" data-filter="cons-cyclical">경기소비 <span class="c">3</span></button><button class="tab" data-filter="cons-defensive">필수소비 <span class="c">1</span></button><button class="tab" data-filter="materials">소재 <span class="c">1</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div>
+  <div class="tabs"><button class="tab active" data-filter="all">전체 <span class="c">6</span></button><button class="tab" data-filter="ai" style="color:#C4B5FD;">🤖 AI <span class="c">1</span></button><button class="tab" data-filter="comm">커뮤 <span class="c">1</span></button><button class="tab" data-filter="cons-cyclical">경기소비 <span class="c">3</span></button><button class="tab" data-filter="cons-defensive">필수소비 <span class="c">1</span></button><button class="tab" data-filter="materials">소재 <span class="c">1</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div>
 </div>
 <div class="wrap">
-<div class="mkt kr">
-  <div class="mkt-title">🇰🇷 AI 쇼크 폭락 하루 만에 V자 반등 — 코스피 8,000선 탈환</div>
-  <div class="mkt-grid"><div class="mkt-box"><div class="l">코스피</div><div class="v">+5.76%</div><div class="s">8,088pt 회복</div></div><div class="mkt-box"><div class="l">코스닥</div><div class="v">+0.19%</div><div class="s">상대적 부진</div></div><div class="mkt-box"><div class="l">수급</div><div class="v">기관 순매수</div><div class="s">반등 주도</div></div></div>
-  <div class="mkt-note">전일(7/2) AI 공급과잉 우려발 -7.89% 폭락을 기관 대규모 순매수가 하루 만에 되돌림. 삼성전자 +8.2%·SK하이닉스 +10.9% 반도체 쌍두마차 급반등. 다음주 삼성전자부터 2분기 실적시즌 개시 — 변동성 확대 국면 주의.</div>
-</div>
+<div class="mkt kr"><div class="mkt-title">📈 기관 4.4조 폭풍매수, 코스피 8000선 극적 탈환</div><div class="mkt-grid"><div class="mkt-box"><div class="l">코스피</div><div class="v">+5.76%</div><div class="s">8088p 반도체 견인</div></div><div class="mkt-box"><div class="l">코스닥</div><div class="v">+0.19%</div><div class="s">코스피 대비 온도차</div></div><div class="mkt-box"><div class="l">수급(외국인·기관)</div><div class="v">기관 +4.4조 / 외인 -2.2조</div><div class="s">외인 11연속 순매도</div></div></div><div class="mkt-note">기관이 코스피에서 4조 4,450억 원을 순매수하며 지수를 전일 대비 440포인트(+5.76%) 끌어올렸고, 외국인은 11거래일 연속 매도세로 2조 1,928억 원을 순매도했다. 삼성전자(+8.22%)와 SK하이닉스가 나란히 급등하며 반도체 대형주가 지수 반등을 주도했으며, 장중 변동폭은 758포인트로 역대 2위를 기록할 만큼 변동성이 극심했다. 원·달러 환율은 30원 이상 급락해 1,525.60원에 마감되며 원화 강세도 뚜렷하게 나타났다.</div></div>
 <div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false">
 <div class="chead">
   <div class="ctop">
@@ -140,32 +136,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       </div>
       <div class="cmain">
         <div class="cname">DSR제강</div>
-        <span class="ctag">저평가 철강 · PE 3.3x</span>
-        <div class="chl">EPS +47.5% 성장에도 Forward PE 3.3x — 극단적 저평가 구간</div>
+        <span class="ctag">턴어라운드+고배당 · PER 3.3x</span>
+        <div class="chl">2025년 흑자전환 + 배당수익률 7.7%, 초저PER 3.3배 저평가 지속</div>
       </div>
     </div>
     <div class="cright">
       <div class="cprice">₩5,600</div>
       <div class="cchg up">+1.08%</div>
-      <div class="crank">1st (←4th)</div>
+      <div class="crank">1st (←3rd)</div>
     </div>
   </div>
   <div class="gline"><span class="g"><i></i><em>RS</em> <b>85</b></span><span class="g"><i></i><em>VCP</em> <b>6.0/10</b></span><span class="g"><i></i><em>RDY</em> <b>10/10</b></span><span class="g"><i></i><em>SCORE</em> <b>87/100</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
-  <div class="nums"><div class="num"><div class="l">Forward PE</div><div class="v">3.3x</div><div class="s up">극단적 저평가</div></div><div class="num"><div class="l">EPS 성장</div><div class="v">+47.5%</div><div class="s up">매출 +8.2% 동반</div></div><div class="num"><div class="l">영업이익률</div><div class="v">10.2%</div><div class="s up">시총 ₩806억</div></div><div class="num"><div class="l">종합 스코어</div><div class="v">87/100</div><div class="s up">SEPA 10/10 · RDY 10/10</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>1971년 설립된 와이어로프·경강선 전문 제조사로, 국내 특수선재 시장에서 오랜 업력 기반의 안정적 지위를 확보한 기업. 2025년 베트남 현지법인 지분 취득으로 Inner Cable 등 해외 생산기지를 확보하며 성장 축을 확장하는 구조. 조선·해양·건설 등 전방산업 수요와 연동되는 수익 모델이 확인됨.</p></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩5,600 돌파 확인 후 진입하고 손절은 ₩5,380(-4%)에 설정하는 전략이 유효. 변동성 확대 국면인 만큼 거래량 동반 돌파 여부 확인이 선행돼야 함.</p>
+  <div class="nums"><div class="num"><div class="l">Forward PE</div><div class="v">3.3x</div><div class="s up">업종 대비 초저평가</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">+47.5%</div><div class="s up">흑자전환 견인</div></div><div class="num"><div class="l">배당수익률</div><div class="v">약 7.7%</div><div class="s up">주당 430원 현금배당</div></div><div class="num"><div class="l">영업이익률</div><div class="v">10.2%</div><div class="s up">제강업 대비 견조</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>DSR제강은 1971년 설립된 와이어로프·경강선 전문 철강사로 국내 1위권 지위를 유지하며 2025년 베트남 법인을 통해 케이블 사업으로 해외 확장을 진행 중이다. 2025년 실적이 적자에서 흑자로 전환되며 재무구조가 뚜렷하게 개선됐다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>이 종목의 상승은 2025년 적자에서 흑자로 전환된 실적 개선이 핵심 동력이며, 여기에 주당 430원·시가배당률 11%에 달하는 고배당 결의와 대표이사의 지분 확대 매수가 시장 신뢰를 뒷받침했다. 철강 업황 저점 통과와 맞물려 초저PER 종목에 대한 재평가 수요가 유입된 것으로 판단된다.</p><p style="margin-top:6px;">52주 저점 대비 이미 상당폭 오른 상태로 밸류 갭의 많은 부분이 해소됐으며, 배당 관련 이벤트는 3월에 이미 지나 단기 모멘텀은 약화될 수 있다. 다만 여전히 PER 3.3배 수준의 저평가는 유지되고 있어 하방은 제한적이다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">실적·배당 동력은 유효하나 이미 급등해 밸류갭이 상당부분 해소됐고 VCP 패턴이 느슨해 눌림목 확인이 필요하다</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩5,600 돌파 시 분할 진입, 손절가는 -4% 수준인 ₩5,376으로 설정해 리스크를 제한한다.</p>
     <div class="es">
       <div class="en"><div class="l">📍 진입</div><div class="v">₩5,600 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩5,380 (-4%)</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩5,376 (-4%)</div></div>
     </div>
   </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>이익 성장 가속</b> — EPS +47.5%로 분기 실적 개선 흐름이 뚜렷한 국면. 매출 성장 +8.2%에 영업이익률 10.2%가 결합되며 이익 레버리지가 작동하는 구조.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>밸류에이션 재평가 여지</b> — Forward PE 3.3x는 EPS +48% 성장 기업으로서 극단적 저평가 수준. 성장이 지속 확인될 경우 멀티플 정상화만으로도 상승 여력이 확보됨.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>주주환원 강화</b> — 주당 430원 현금배당 결정이 확인되며 저PE에 배당 매력이 더해지는 구조. 광주·전남 상장사 매출·이익 2년 연속 증가 흐름에 동사도 편승.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>수급·모멘텀 정점</b> — RS 85, SEPA 10/10, RDY 10/10으로 돌파 준비도가 최상위. 스크리닝 랭크 4위에서 1위로 상승하며 상대강도가 강화됨.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>52주 고점 근처 구간 — 돌파 실패 시 조정 가능성 주의</div></div><div class="risk"><span>⚠</span><div>시총 ₩806억 소형주 특성상 유동성이 얇아 시장 급변동 시 변동폭 확대 우려</div></div><div class="risk"><span>⚠</span><div>코스피 -7.89% 폭락 후 +5.76% 급반등한 변동성 확대 국면 — 가격 왜곡 리스크</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">광주·전남 상장사 매출·영업이익·순이익 2년 연속 증가</div><div class="m">연합뉴스 · 2026.04.16</div></div><div class="news"><div class="t">&#x27;중동전쟁 여파&#x27; 광주·전남 상장사 3월 시가총액 23.7% 급감</div><div class="m">연합뉴스 · 2026.04.07</div></div><div class="news"><div class="t">DSR제강, 주당 430원 현금배당 결정</div><div class="m">헤럴드경제 · 2026.03.04</div></div><div class="news"><div class="t">‘기부왕’ DSR제강, 순천시에만 17억원 내놓아</div><div class="m">헤럴드경제 · 2025.12.11</div></div><div class="news"><div class="t">광주·전남 상장사 8월 시가총액 전월 대비 2조원 증가</div><div class="m">연합뉴스 · 2025.09.09</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음주 삼성전자發 2분기 실적시즌 개시 — 분기 어닝 확인 및 배당 정책 지속 여부가 촉매</div></div>
+  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>흑자전환 실적</b> — 2025년 매출 2265억원, 영업이익 280억원으로 전년 적자에서 흑자 전환했다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>오너 지분 확대</b> — 홍하종 대표이사가 지분율을 23.59%까지 늘리며 책임경영 신호를 보냈다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>고배당 매력</b> — 주당 430원, 시가배당률 11% 수준의 배당을 결의해 배당투자 수요를 자극했다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>초저PER 구간</b> — Forward PE 3.3배로 동종 철강업종 대비 밸류에이션 부담이 낮다.</div></div></div>
+  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>철강업 특성상 원자재가·환율 변동에 따라 마진 변동성이 크다</div></div><div class="risk"><span>⚠</span><div>시가총액 806억원의 소형주로 거래량 부족 시 변동성이 확대될 수 있다</div></div><div class="risk"><span>⚠</span><div>중동전쟁 등 지정학 리스크로 지역 상장사 시총이 급감한 전례가 있어 매크로 민감도가 존재한다</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">광주·전남 상장사 매출·영업이익·순이익 2년 연속 증가</div><div class="m">연합뉴스 · 2026.04.16 14:24</div></div><div class="news"><div class="t">&#x27;중동전쟁 여파&#x27; 광주·전남 상장사 3월 시가총액 23.7% 급감</div><div class="m">연합뉴스 · 2026.04.07 11:01</div></div><div class="news"><div class="t">DSR제강, 주당 430원 현금배당 결정</div><div class="m">헤럴드경제 · 2026.03.04 15:33</div></div><div class="news"><div class="t">‘기부왕’ DSR제강, 순천시에만 17억원 내놓아</div><div class="m">헤럴드경제 · 2025.12.11 13:56</div></div><div class="news"><div class="t">광주·전남 상장사 8월 시가총액 전월 대비 2조원 증가</div><div class="m">연합뉴스 · 2025.09.09 14:38</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 분기 실적 발표 및 배당·자사주 등 주주환원 정책 지속 여부</div></div>
 </div>
 </div>
 <div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false">
@@ -178,32 +175,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       </div>
       <div class="cmain">
         <div class="cname">아이비김영</div>
-        <span class="ctag">수익성 폭발 · EPS +500%</span>
-        <div class="chl">흑자 전환 + 분기배당 개시 — 이익 J커브에 주주환원 결합</div>
+        <span class="ctag">턴어라운드·분기배당 개시</span>
+        <div class="chl">1분기 흑자전환 + 분기배당 신설, PER 6배 저평가 교육·뷰티 복합주</div>
       </div>
     </div>
     <div class="cright">
       <div class="cprice">₩2,685</div>
       <div class="cchg down">-0.56%</div>
-      <div class="crank">2nd (←3rd)</div>
+      <div class="crank">2nd (←2nd)</div>
     </div>
   </div>
   <div class="gline"><span class="g"><i></i><em>RS</em> <b>82</b></span><span class="g warn"><i></i><em>VCP</em> <b>4.0/10</b></span><span class="g warn"><i></i><em>RDY</em> <b>6/10</b></span><span class="g"><i></i><em>SCORE</em> <b>87/100</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
-  <div class="nums"><div class="num"><div class="l">EPS 성장</div><div class="v">+500.0%</div><div class="s up">1분기 흑자 전환</div></div><div class="num"><div class="l">영업이익률</div><div class="v">18.0%</div><div class="s up">시총 ₩1207억</div></div><div class="num"><div class="l">Forward PE</div><div class="v">6.0x</div><div class="s up">성장 대비 저평가</div></div><div class="num"><div class="l">종합 스코어</div><div class="v">87/100</div><div class="s up">RS 82 · SEPA 10/10</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>2005년 설립된 종합 교육 기업으로 대학 편입 교육을 주력으로 미용자격증·뷰티 입시, 학점은행제 원격교육까지 포트폴리오를 갖춘 구조. 메가커리어랩, 브라운편입 등 종속회사를 통해 사업 영역을 확장했고, 2026년 유상증자와 지분 인수로 성장 기반을 강화. 최근 K-뷰티 확산에 맞춰 뷰티 브랜드 사업으로 외연을 넓히는 점이 확인됨.</p></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩2,685 돌파 시 진입하되 RDY 6/10인 만큼 분할 접근이 유효하며, 손절은 ₩2,580(-4%)로 짧게 대응하는 구조가 바람직.</p>
+  <div class="nums"><div class="num"><div class="l">EPS 성장</div><div class="v">500%</div><div class="s up">1분기 흑자전환 견인</div></div><div class="num"><div class="l">매출 성장</div><div class="v">6.1%</div><div class="s up">편입·뷰티 사업 확대</div></div><div class="num"><div class="l">영업이익률</div><div class="v">18.0%</div><div class="s up">최근 분기 이익 변동성 확인 필요</div></div><div class="num"><div class="l">Forward PE</div><div class="v">6.0x</div><div class="s up">저평가 구간</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>동사는 대학생 편입교육을 주력으로 미용자격증·뷰티입시, 학점은행제 원격교육까지 아우르는 종합 교육기업이다. 최근에는 메가커리어랩·브라운편입 등 자회사를 통해 뷰티 브랜드 사업으로 영역을 넓히며 K-뷰티 성장 흐름에 올라타는 구조로 재편 중이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>최근 흐름은 2026년 1분기 흑자전환과 7월 1일 분기배당 신설 뉴스가 겹치며 주주환원 기대감이 부각된 데 따른 것으로 보인다. 여기에 K-뷰티 글로벌 확산 속 뷰티 브랜드 사업 확장 소식이 더해지며 성장 스토리에 대한 관심도 함께 유입된 것으로 판단된다.</p><p style="margin-top:6px;">다만 최근 분기 영업이익이 3억원 수준으로 급격히 줄어든 점과 오늘 주가가 소폭 조정(-0.56%)받은 점을 감안하면 동력이 다소 약화된 모습이다. 오늘 시장은 반도체 대형주 중심의 지수 급등이 주도해 이 종목의 개별 재료와는 무관한 흐름이라 수급 모멘텀이 이어질지는 불확실하다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">배당·턴어라운드 재료는 확인되나 최근 분기 이익 급감과 낮은 VCP 스코어로 기술적 베이스가 미완성 상태라 눌림목 확인 후 재진입이 합리적이다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩2,685 돌파 시 분할 진입, 손절가는 ₩2,578(-4%)로 설정해 리스크를 제한하는 전략이 유효하다.</p>
     <div class="es">
       <div class="en"><div class="l">📍 진입</div><div class="v">₩2,685 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩2,580 (-4%)</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩2,578 (-4%)</div></div>
     </div>
   </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>수익성 폭발적 개선</b> — 2026년 1분기 영업이익·순이익 흑자 전환이 확인되며 EPS +500%의 이익 J커브 단계에 진입. 영업이익률 18.0%로 비용 구조 개선 효과가 뚜렷한 구조.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>주주환원 정책 개시</b> — 주당 100원 분기배당(감액배당) 결정으로 주주환원 정책 강화가 확인됨. 소형주로서는 이례적인 분기배당 도입이 밸류에이션 하방을 지지.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>뷰티 사업 확장 스토리</b> — K-뷰티 글로벌 확산 속 뷰티 브랜드 사업 확장으로 종합 뷰티 기업 전환을 추진. 교육업의 안정적 현금흐름에 성장 옵션이 더해지는 구조.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>성장 대비 저평가</b> — Forward PE 6.0x — EPS +500% 성장 국면 대비 현저히 낮은 멀티플로 재평가 여지가 확보됨.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>외국인 보유 3.0% — 글로벌 펀드 관심이 낮아 수급 변동성이 클 수 있음</div></div><div class="risk"><span>⚠</span><div>VCP 4.0/10, RDY 6/10으로 베이스 수축 품질이 미흡 — 돌파 신뢰도가 상대적으로 낮은 구간</div></div><div class="risk"><span>⚠</span><div>EPS +500%는 기저효과 성격이 커 성장률의 지속 가능성 검증이 필요</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">기업 공시 [7월 1일]</div><div class="m">서울경제 · 2026.07.01</div></div><div class="news"><div class="t">아이비김영, 주당 100원 분기배당(감액배당) 결정…주주환원 정책 강....</div><div class="m">서울신문 · 2026.07.01</div></div><div class="news"><div class="t">아이비김영, 주당 100원 분기배당 결정</div><div class="m">이데일리 · 2026.07.01</div></div><div class="news"><div class="t">아이비김영, 2026년 1분기 영업이익·순이익 흑자 전환... 연결 매...</div><div class="m">서울신문 · 2026.05.15</div></div><div class="news"><div class="t">아이비김영, K-뷰티 글로벌 확산 속 뷰티 브랜드 사업 확장…종합 뷰....</div><div class="m">서울신문 · 2026.05.12</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">7/1 분기배당 공시 이후 배당 지속성 확인 + 2분기 실적시즌에서 흑자 기조 연장 여부가 관건</div></div>
+  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>실적 턴어라운드</b> — 2026년 1분기 연결 영업이익·순이익이 흑자로 전환되며 개선 신호가 나왔다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>뷰티 사업 확장</b> — K-뷰티 글로벌 확산 흐름에 맞춰 뷰티 브랜드 사업을 종합 뷰티기업으로 확장하는 전략을 진행 중이다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>주주환원 강화</b> — 7월 1일 주당 100원 분기배당(감액배당)을 결정하며 배당 정책을 신설·강화했다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>저평가 밸류에이션</b> — Forward PE 6.0배 수준으로 실적 개선 대비 밸류 부담이 크지 않은 구간이다.</div></div></div>
+  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>최근 분기 영업이익이 3억원 수준까지 급감해 턴어라운드의 지속성이 아직 검증되지 않음</div></div><div class="risk"><span>⚠</span><div>VCP 4.0/10로 기술적 베이스 형성이 불완전하고 SEPA 데이터도 부재해 눌림목 구조가 미흡함</div></div><div class="risk"><span>⚠</span><div>애널리스트 커버리지가 전무(0명)해 실적·목표가 컨센서스 부재로 정보 비대칭 리스크가 존재함</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">기업 공시 [7월 1일]</div><div class="m">서울경제 · 2026.07.01 16:25</div></div><div class="news"><div class="t">아이비김영, 주당 100원 분기배당(감액배당) 결정…주주환원 정책 강....</div><div class="m">서울신문 · 2026.07.01 15:19</div></div><div class="news"><div class="t">아이비김영, 주당 100원 분기배당 결정</div><div class="m">이데일리 · 2026.07.01 15:16</div></div><div class="news"><div class="t">아이비김영, 2026년 1분기 영업이익·순이익 흑자 전환... 연결 매...</div><div class="m">서울신문 · 2026.05.15 10:01</div></div><div class="news"><div class="t">아이비김영, K-뷰티 글로벌 확산 속 뷰티 브랜드 사업 확장…종합 뷰....</div><div class="m">서울신문 · 2026.05.12 10:24</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 발표 및 다음 분기배당 기준일 - 뷰티 자회사 실적 반영 여부가 관건</div></div>
 </div>
 </div>
 <div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false">
@@ -216,32 +214,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       </div>
       <div class="cmain">
         <div class="cname">한국타이어앤테크놀로지</div>
-        <span class="ctag">저평가 우량 · PE 8.1x</span>
-        <div class="chl">VCP 10/10 완성형 수축 — 목표가 ₩85,733 대비 27% 여력</div>
+        <span class="ctag">프리미엄 믹스 개선 · Fwd PE 8.1x</span>
+        <div class="chl">1분기 영업이익 서프라이즈와 한온시스템 턴어라운드로 밸류 재평가 국면 진입</div>
       </div>
     </div>
     <div class="cright">
       <div class="cprice">₩67,300</div>
       <div class="cchg flat">+0.00%</div>
-      <div class="crank">3rd (←5th)</div>
+      <div class="crank">3rd (←4th)</div>
     </div>
   </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>87</b></span><span class="g"><i></i><em>VCP</em> <b>10.0/10</b></span><span class="g warn"><i></i><em>RDY</em> <b>4/10</b></span><span class="g warn"><i></i><em>SCORE</em> <b>83/100</b></span></div>
+  <div class="gline"><span class="g"><i></i><em>RS</em> <b>87</b></span><span class="g"><i></i><em>VCP</em> <b>10.0/10</b></span><span class="g warn"><i></i><em>RDY</em> <b>4/10</b></span><span class="g"><i></i><em>SCORE</em> <b>83/100</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
-  <div class="nums"><div class="num"><div class="l">VCP</div><div class="v">10.0/10</div><div class="s up">완성형 변동성 수축</div></div><div class="num"><div class="l">목표가 (평균)</div><div class="v">₩85,733</div><div class="s up">현재가 ₩67,300</div></div><div class="num"><div class="l">Forward PE</div><div class="v">8.1x</div><div class="s up">EPS +19.3% 성장</div></div><div class="num"><div class="l">영업이익률</div><div class="v">9.5%</div><div class="s up">시총 ₩8.34조</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>2012년 한국앤컴퍼니에서 인적분할된 글로벌 타이어 제조사로, 국내 시장점유율 1위와 Global Top 10 지위를 유지하는 기업. 한온시스템 인수를 통해 자동차 열관리 시스템 부문에서도 국내 공조제품 시장 1위를 확보하며 타이어+열관리 양대 축 구조로 전환. 포뮬러 E 공식 후원 등 프리미엄·EV 타이어 브랜딩을 강화하는 흐름이 확인됨.</p></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩67,300 돌파를 확인한 후 진입하고 손절은 ₩64,610(-4%)에 두는 전략. RDY 4/10인 만큼 거래량 실린 돌파 전까지는 관망이 우선.</p>
+  <div class="nums"><div class="num"><div class="l">매출 성장</div><div class="v">+7.1%</div><div class="s up">YoY, 프리미엄 믹스 확대 반영</div></div><div class="num"><div class="l">EPS 성장</div><div class="v">+19.3%</div><div class="s up">이익 레버리지 확대 구간</div></div><div class="num"><div class="l">영업이익률</div><div class="v">9.5%</div><div class="s up">원가 압박 속 방어력 유지</div></div><div class="num"><div class="l">Forward PE</div><div class="v">8.1x</div><div class="s up">글로벌 피어 대비 저평가 구간</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>동사는 한국앤컴퍼니에서 인적분할된 글로벌 타이어 제조사로 국내 1위, 글로벌 톱10 지위를 유지하는 구조다. 타이어 외에도 한온시스템을 통한 자동차 열관리 시스템 사업을 병행하며 전동화 전환에 따른 포트폴리오 다각화 효과를 누리는 구조다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>1분기 연결 영업이익이 전년 대비 43% 급증하며 어닝 서프라이즈를 기록했고, 타이어 부문 영업이익률이 17%까지 개선된 점이 랠리의 핵심 동력이다. 여기에 EU의 중국산 타이어 반덤핑 관세에 따른 반사이익 기대와 한온시스템 실적 정상화 기대감이 겹치며 재평가 매수세가 유입된 것으로 보인다.</p><p style="margin-top:6px;">다만 최근 뉴스에서는 원가와 EU 관세 부담이 동시에 커지며 하반기 가격 인상이 불가피하다는 톤으로 바뀌고 있어, 1분기 수준의 마진 서프라이즈가 반복될지는 확인이 필요한 구간이다. 일본·중국 업체의 추격까지 겹치는 만큼 동력의 지속성은 다음 실적에서 재검증될 사안이다.</p><div class="vd buy"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">매수 고려</span><div class="vwhy">밸류에이션 부담이 낮고 1분기 실적 개선이 확인됐으나 원가·관세 이중부담과 원화강세는 마진 변수로 남아 있어 돌파 확인 후 분할 대응이 적절하다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩67,300 돌파 시 분할 진입, 손절가는 ₩64,608(-4%)로 설정해 원가·관세 부담 이슈 확대 시 기계적으로 대응한다.</p>
     <div class="es">
       <div class="en"><div class="l">📍 진입</div><div class="v">₩67,300 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩64,610 (-4%)</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩64,608 (-4%)</div></div>
     </div>
   </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>완성형 VCP 패턴</b> — VCP 10.0/10 만점으로 변동성 수축이 완성된 상태이며 RS 87로 상대강도도 견고. 전일 시장 폭락에도 보합(+0.00%)을 지킨 하방 경직성이 확인됨.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>글로벌 지위 재확인</b> — K-타이어 3사의 세계 톱20 수성이 확인되며 글로벌 경쟁력이 유지되는 구조. 포뮬러 E 시즌 12 상하이 E-PRIX 후원으로 EV 타이어 브랜드 노출을 확대.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>외국인 보유 견고</b> — 외국인 보유율 39%로 글로벌 펀드 매수 기반이 안정적. 최근 분기 영업이익 5242억 실현으로 수익 체력이 뒷받침됨.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>밸류에이션 매력</b> — Forward PE 8.1x에 목표가 평균 ₩85,733로 현재가 대비 상승 여력이 확보된 구간.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>원가·EU 관세 이중 부담으로 하반기 가격 인상 압력 확대 — 마진 방어력 시험대</div></div><div class="risk"><span>⚠</span><div>일본·중국 업체의 맹추격 — 글로벌 점유율 경쟁 심화 부담</div></div><div class="risk"><span>⚠</span><div>RDY 4/10 — 돌파 준비도가 낮아 즉시 진입보다 셋업 성숙 대기가 필요한 구간</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">K-타이어 3사, 세계 톱20 수성…日·中 맹추격은 부담</div><div class="m">헤럴드경제 · 2026.07.03</div></div><div class="news"><div class="t">한국타이어 후원, 포뮬러 E 시즌 12 &#x27;2026 상하이 E-PRIX&#x27;...</div><div class="m">뉴스1 · 2026.07.03</div></div><div class="news"><div class="t">한국타이어 후원 포뮬러 E 시즌 12 ‘2026 상하이 E-PRIX’...</div><div class="m">헤럴드경제 · 2026.07.03</div></div><div class="news"><div class="t">한국타이어 후원, &#x27;포뮬러 E&#x27; 상하이 더블헤더 개최</div><div class="m">아시아경제 · 2026.07.03</div></div><div class="news"><div class="t">원가·EU 관세 이중 부담…타이어 3사, 하반기 가격 인상 압력 커진다</div><div class="m">아이뉴스24 · 2026.07.03</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">하반기 타이어 가격 인상 결정 및 2분기 실적시즌 — 관세·원가 부담의 가격 전가 여부가 분수령</div></div>
+  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>프리미엄 믹스 확대</b> — EV·고인치 타이어 비중 확대로 대당 판매단가가 오르는 구조가 실적 개선을 뒷받침한다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>한온시스템 턴어라운드</b> — 열관리 시스템 부문 수익성 회복이 그룹 전체 밸류에이션 디스카운트 해소로 이어질 가능성이 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>가격 인상 여력</b> — 1st 티어 대비 상대적 가격 결정력이 있어 원가 상승분 전가가 가능한 구조다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>저평가 밸류에이션</b> — Forward PE 8.1x는 글로벌 타이어 피어 대비 낮은 수준으로 목표가 대비 상승여력이 존재한다.</div></div></div>
+  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>원가 상승과 EU 관세 이중 부담으로 하반기 가격 인상 압력이 커지는 국면</div></div><div class="risk"><span>⚠</span><div>일본·중국 타이어 업체의 글로벌 톱20 맹추격으로 점유율 경쟁 심화 우려</div></div><div class="risk"><span>⚠</span><div>원화 강세 지속 시 수출 비중이 높은 사업구조상 환산 이익 훼손 가능</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">K-타이어 3사, 세계 톱20 수성…日·中 맹추격은 부담</div><div class="m">헤럴드경제 · 2026.07.03 15:01</div></div><div class="news"><div class="t">한국타이어 후원, 포뮬러 E 시즌 12 &#x27;2026 상하이 E-PRIX&#x27;...</div><div class="m">뉴스1 · 2026.07.03 09:23</div></div><div class="news"><div class="t">한국타이어 후원 포뮬러 E 시즌 12 ‘2026 상하이 E-PRIX’...</div><div class="m">헤럴드경제 · 2026.07.03 09:10</div></div><div class="news"><div class="t">한국타이어 후원, &#x27;포뮬러 E&#x27; 상하이 더블헤더 개최</div><div class="m">아시아경제 · 2026.07.03 08:42</div></div><div class="news"><div class="t">원가·EU 관세 이중 부담…타이어 3사, 하반기 가격 인상 압력 커진다</div><div class="m">아이뉴스24 · 2026.07.03 07:00</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">하반기 타이어 가격 인상 시행 여부 및 2분기 실적 발표 일정이 주요 변수</div></div>
 </div>
 </div>
 <div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false">
@@ -254,32 +253,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       </div>
       <div class="cmain">
         <div class="cname">대한항공</div>
-        <span class="ctag">항공 대장 · 외인 46%</span>
-        <div class="chl">VCP 9/10 수축 완료 — 통합 항공사 체제 속 수익성 회복이 관건</div>
+        <span class="ctag">항공주 랠리 · 통합 모멘텀</span>
+        <div class="chl">항공주 전반 강세 속 통합 기대감 부각, 다만 직전분기 영업손실 전환 부담</div>
       </div>
     </div>
     <div class="cright">
       <div class="cprice">₩28,850</div>
       <div class="cchg up">+1.05%</div>
-      <div class="crank">4th (←6th)</div>
+      <div class="crank">4th (←5th)</div>
     </div>
   </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>81</b></span><span class="g"><i></i><em>VCP</em> <b>9.0/10</b></span><span class="g warn"><i></i><em>RDY</em> <b>6/10</b></span><span class="g warn"><i></i><em>SCORE</em> <b>83/100</b></span></div>
+  <div class="gline"><span class="g"><i></i><em>RS</em> <b>81</b></span><span class="g"><i></i><em>VCP</em> <b>9.0/10</b></span><span class="g warn"><i></i><em>RDY</em> <b>6/10</b></span><span class="g"><i></i><em>SCORE</em> <b>83/100</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
-  <div class="nums"><div class="num"><div class="l">VCP</div><div class="v">9.0/10</div><div class="s up">수축 패턴 양호</div></div><div class="num"><div class="l">목표가 (평균)</div><div class="v">₩34,615</div><div class="s up">현재가 ₩28,850</div></div><div class="num"><div class="l">EPS 성장</div><div class="v">-90.4%</div><div class="s dn">매출은 +2.6%</div></div><div class="num"><div class="l">영업이익률</div><div class="v">7.8%</div><div class="s up">시총 ₩10.62조</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>1969년 민영화 이후 국내 항공산업을 대표하는 FSC로, 아시아나항공·진에어 등 29개 종속회사를 거느린 통합 항공그룹 체제. 총 165대 항공기로 38개국 106개 도시에 취항하는 여객·화물 네트워크에 더해 군용기 MRO·무인기 등 항공우주사업으로 포트폴리오를 다변화한 구조. 아시아나 통합에 따른 규모의 경제가 중장기 투자 포인트로 연동됨.</p></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩28,850 돌파 시 진입하되 펀더멘털이 후행하는 만큼 손절 ₩27,700(-4%)를 엄격히 준수하는 기술적 매매 관점의 접근이 유효.</p>
+  <div class="nums"><div class="num"><div class="l">RS등급</div><div class="v">81.0</div><div class="s up">업종 내 상대강도 상위권</div></div><div class="num"><div class="l">VCP점수</div><div class="v">9.0/10</div><div class="s up">변동성 수축 패턴 완성도 높음</div></div><div class="num"><div class="l">영업이익률</div><div class="v">7.8%</div><div class="s up">운임·화물 믹스로 마진 방어</div></div><div class="num"><div class="l">EPS성장</div><div class="v">-90.4%</div><div class="s dn">직전분기 이익 급감, 확인 필요</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>대한항공은 아시아나항공·진에어 등 29개 종속회사를 거느린 국내 최대 항공사로, 여객·화물 운송에 항공우주 MRO·기체·무인기 사업을 더해 포트폴리오를 다각화하고 있다. 165대 기단과 국내외 106개 도시 노선망을 바탕으로 아시아나 통합 이후 독과점적 시장 지위를 굳히는 그림이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>최근 상승은 개별 실적 모멘텀보다는 항공 섹터 전반의 동반 강세와 아시아나 통합 작업 진척 기대감이 주도한 것으로 확인된다. 여기에 원/달러 환율 급락으로 인한 외화부채·유류비 부담 완화가 더해지며 코스피 전반의 기관 순매수 랠리 속에서 항공주가 동반 상승한 구조다.</p><p style="margin-top:6px;">환율 강세와 통합 기대감은 현시점에도 유효한 동력이나, 반도체 대형주 중심의 순환매 장세에서 항공주 자금 유입이 지속될지는 다음 실적 발표에서 흑자 전환 확인이 관건이다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">기술적 랠리와 VCP 셋업은 강하나 직전분기 영업손실 전환과 32배 밸류 부담으로 실적 확인 전 관망이 합리적</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩28,850 돌파 시 분할 진입, 손절은 ₩27,696(-4%)로 타이트하게 설정해 실적 불확실성 구간 리스크를 제한하는 전략이 유효하다.</p>
     <div class="es">
       <div class="en"><div class="l">📍 진입</div><div class="v">₩28,850 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩27,700 (-4%)</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩27,696 (-4%)</div></div>
     </div>
   </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>외국인 보유 견고</b> — 외국인 보유율 46%로 글로벌 펀드의 매수 기반이 안정적. 시총 ₩10.62조 대형주로 시장 급반등 국면에서 기관 순매수 유입의 수혜가 기대되는 구조.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>기술적 셋업 완성 임박</b> — SEPA 10/10에 VCP 9.0/10으로 변동성 수축이 사실상 완료된 상태. 7/3 시장 급반등일에 +1.05% 동반 상승하며 수급 복원이 확인됨.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>목표가 괴리</b> — 목표가 평균 ₩34,615로 현재가 ₩28,850 대비 상승 여력이 존재. 통합 항공사 체제의 시너지가 컨센서스에 반영되는 흐름.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>EPS -90.4% — 수익성 후행 추세로 펀더멘털 약화가 진행 중</div></div><div class="risk"><span>⚠</span><div>최근 분기 영업이익률 -3.3% 적자 상태 — Forward PE 32.1x의 밸류 부담과 결합</div></div><div class="risk"><span>⚠</span><div>코스피 폭락-급반등 변동성 확대 국면에서 경기민감 항공주 특성상 진폭 확대 우려</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">“매년 몰라서 버린 돈이 무려 1000억”…카드포인트로 현금 버는 법</div><div class="m">매일경제 · 2026.07.04</div></div><div class="news"><div class="t">전용기 늘리는 총수들…“이동시간도 경쟁력”</div><div class="m">채널A · 2026.07.03</div></div><div class="news"><div class="t">깐부 만나러 전세계 일주하는 총수들…전용기만 17대라는데</div><div class="m">매일경제 · 2026.07.03</div></div><div class="news"><div class="t">국민성장펀드, 지방 기업에 1조 투자</div><div class="m">한국경제 · 2026.07.03</div></div><div class="news"><div class="t">국민성장펀드, 지역전용리그 신설…5년간 지방기업에 1조원 집중 투자</div><div class="m">데일리안 · 2026.07.03</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적시즌에서 분기 적자 탈피 여부 확인 — 국민성장펀드 등 정책자금 확대 국면도 병행 관찰</div></div>
+  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>항공주 전반 강세</b> — 대한항공·아시아나·제주항공 등 항공 섹터 전반이 동반 상승하는 구조로, 개별 종목이 아닌 업종 순환매 성격이 짙다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>아시아나 통합 기대</b> — 대한항공-아시아나 통합 작업 진행 상황이 시장의 핵심 관심사로 부각되며 독과점 지위 강화 기대가 주가에 반영되는 흐름이다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>원화 강세 수혜</b> — 원/달러 환율이 1,525원대로 급락하며 외화 부채와 유류비 부담이 완화되는 구조로 항공사 비용 구조에 우호적이다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>VCP 패턴 완성</b> — 변동성 수축 패턴 점수가 9.0으로 매우 높아 기술적으로는 눌림 이후 상승 전환 신호로 해석 가능하다.</div></div></div>
+  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>직전분기 영업이익이 -2,290억원 적자로 전환, 흑자 지속성 미확인</div></div><div class="risk"><span>⚠</span><div>Forward PE 32.1배로 항공업종 평균 대비 밸류 부담 구간</div></div><div class="risk"><span>⚠</span><div>단기 급등(3주새 +10%대) 이후 익절 물량 출회 가능성</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">“매년 몰라서 버린 돈이 무려 1000억”…카드포인트로 현금 버는 법</div><div class="m">매일경제 · 2026.07.04 07:33</div></div><div class="news"><div class="t">전용기 늘리는 총수들…“이동시간도 경쟁력”</div><div class="m">채널A · 2026.07.03 19:40</div></div><div class="news"><div class="t">깐부 만나러 전세계 일주하는 총수들…전용기만 17대라는데</div><div class="m">매일경제 · 2026.07.03 06:11</div></div><div class="news"><div class="t">국민성장펀드, 지방 기업에 1조 투자</div><div class="m">한국경제 · 2026.07.03 17:40</div></div><div class="news"><div class="t">국민성장펀드, 지역전용리그 신설…5년간 지방기업에 1조원 집중 투자</div><div class="m">데일리안 · 2026.07.03 09:09</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">대한항공-아시아나 통합 절차 마무리 일정 및 차기 분기 실적 발표에서 영업이익 흑자 전환 여부 확인</div></div>
 </div>
 </div>
 <div class="card" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false">
@@ -292,32 +292,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       </div>
       <div class="cmain">
         <div class="cname">한국콜마</div>
-        <span class="ctag">K뷰티 ODM · EPS +159%</span>
-        <div class="chl">국민연금 지분 확대 + 1년만 신고가 — K뷰티 실적주 주도력 확인</div>
+        <span class="ctag">고환율 K뷰티 ODM · 영업익 +31%</span>
+        <div class="chl">1분기 영업익 서프라이즈+국민연금 매수에 1년래 신고가 경신</div>
       </div>
     </div>
     <div class="cright">
       <div class="cprice">₩117,800</div>
       <div class="cchg up">+3.61%</div>
-      <div class="crank">5th (←7th)</div>
+      <div class="crank">5th (←new)</div>
     </div>
   </div>
   <div class="gline"><span class="g"><i></i><em>RS</em> <b>88</b></span><span class="g warn"><i></i><em>VCP</em> <b>5.0/10</b></span><span class="g"><i></i><em>RDY</em> <b>7/10</b></span><span class="g warn"><i></i><em>SCORE</em> <b>78/100</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
-  <div class="nums"><div class="num"><div class="l">EPS 성장</div><div class="v">+158.6%</div><div class="s up">매출 +11.5% 동반</div></div><div class="num"><div class="l">RS</div><div class="v">88</div><div class="s up">6개 종목 중 최고</div></div><div class="num"><div class="l">Forward PE</div><div class="v">13.6x</div><div class="s up">목표가 ₩122,211</div></div><div class="num"><div class="l">영업이익률</div><div class="v">10.8%</div><div class="s up">시총 ₩2.78조</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>2012년 분할 설립된 화장품 ODM 전문기업으로, 매출의 95% 이상이 ODM 방식에서 발생하는 K뷰티 밸류체인의 핵심 공급자. 케이캡·수액 등 전문의약품과 컨디션·헛개수 등 H&amp;B 제품으로 제약 부문 포트폴리오를 병행하는 구조. 매출의 5% 이상을 R&amp;D에 투자하고 인력의 1/3을 연구개발에 배치한 독보적 개발 역량이 경쟁력의 원천.</p></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩117,800 돌파 시 진입하고 손절은 ₩113,090(-4%)에 설정. 목표가 평균 ₩122,211과의 괴리가 좁아 신규 진입은 비중 조절이 전제돼야 함.</p>
+  <div class="nums"><div class="num"><div class="l">매출성장률</div><div class="v">11.5%</div><div class="s up">1분기 YoY, 8,215억 사상최대</div></div><div class="num"><div class="l">EPS성장률</div><div class="v">158.6%</div><div class="s up">이익 레버리지 확대</div></div><div class="num"><div class="l">영업이익률</div><div class="v">10.8%</div><div class="s up">전분기 대비 개선세</div></div><div class="num"><div class="l">Forward PE</div><div class="v">13.6배</div><div class="s up">목표가 122,211원, 여력 제한적</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>한국콜마는 화장품 ODM 매출 비중이 95%를 넘는 국내 대표 화장품 제조업자개발생산 업체로, 매출의 5% 이상을 R&amp;D에 투입하며 글로벌 브랜드 고객사를 확장하는 구조다. 전문의약품·H&amp;B 자회사도 보유해 화장품 업황 변동을 일부 분산하는 포트폴리오를 갖췄다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>1분기 영업이익이 시장 기대치를 약 18% 웃도는 서프라이즈를 기록했고, 국내법인 매출+25%·영업이익+51% 급증이 이를 견인했다. 썬케어 최대 고객사 매출 80%대 성장과 글로벌 럭셔리 브랜드의 톱10 신규 진입, 고환율에 따른 수출 채산성 개선까지 겹치며 코스피 급락장 속에서도 1년래 신고가로 급등했다.</p><p style="margin-top:6px;">국민연금 등 기관 매수 유입과 K뷰티 수출 훈풍은 현재도 확인되는 동력이나, 오늘 지수 반등은 반도체 대형주 중심 로테이션이라 콜마는 종목 고유 모멘텀에 기대는 구간이다. 이미 큰 폭 상승 후 목표가에 근접해 추가 상승 탄력은 둔화될 가능성이 있다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">실적 모멘텀은 견조하나 신고가 경신 후 목표가 근접, VCP 베이스 품질이 낮아 추격매수 리스크가 크다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩117,800 돌파 확인 후 분할 진입, 종가 기준 ₩113,088(-4%) 이탈 시 손절 대응.</p>
     <div class="es">
       <div class="en"><div class="l">📍 진입</div><div class="v">₩117,800 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩113,090 (-4%)</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩113,088 (-4%)</div></div>
     </div>
   </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>시장 주도력 입증</b> — 코스피 4% 하락 구간에서 30% 상승하며 1년만에 신고가를 경신한 것이 확인됨. 7/3 급반등일에도 +3.61%로 시장을 아웃퍼폼하는 주도주 성격.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>연기금 수급 유입</b> — K뷰티 열풍 속 국민연금이 화장품 ODM 투톱의 지분을 확대한 것이 확인되며 기관 수급 기반이 강화되는 구조.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>수익성 폭발적 개선</b> — EPS +158.6%에 매출 +11.5%가 동반되는 이익 J커브 단계. 고환율 효과와 K뷰티 수출 역대 최대 흐름이 실적 모멘텀으로 연동.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>성장 대비 합리적 밸류</b> — Forward PE 13.6x — EPS +159% 성장률을 반영하면 여전히 매력적이며 외국인 보유율 39%가 하방을 지지.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>52주 고점(1년만 신고가) 구간 — 단기 급등에 따른 조정 가능성 주의</div></div><div class="risk"><span>⚠</span><div>VCP 5.0/10으로 수축 품질이 미흡 — 확장 국면 추격 매수 시 진입가 관리 필요</div></div><div class="risk"><span>⚠</span><div>K뷰티 수출 최대에도 화장품주 전반은 부진 — 섹터 내 차별화 지속 여부가 변수</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">K-뷰티 열풍에...국민연금, &#x27;화장품 ODM 투톱&#x27; 지분 늘렸다</div><div class="m">블로터 · 2026.07.04</div></div><div class="news"><div class="t">반도체 대장주도 맥 못추는데…&quot;이 실적에 너무 싸&quot; 30% &#x27;쑥&#x27;[김근...</div><div class="m">머니투데이 · 2026.07.04</div></div><div class="news"><div class="t">코스피 4% 내릴 때 한국콜마 30% 상승…1년만에 신고가[종목현미경]</div><div class="m">뉴스1 · 2026.07.04</div></div><div class="news"><div class="t">“고맙다, 고환율 효과”… 매출 120% 뛴 K뷰티</div><div class="m">문화일보 · 2026.07.03</div></div><div class="news"><div class="t">K뷰티 수출 역대 &#x27;최대&#x27;…힘 못쓰는 화장품주, 왜?</div><div class="m">아시아경제 · 2026.07.03</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적시즌 K뷰티 수출 최대 효과의 실적 확인 + 국민연금 지분 확대 공시 후속 수급</div></div>
+  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>1분기 어닝서프라이즈</b> — 국내법인 매출 +25%, 영업이익 +51% 급증하며 시장 기대치를 큰 폭 상회하는 구조로 실적 개선세 진입.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>글로벌 고객 확대</b> — 썬케어 최대 고객사 매출 80% 이상 성장, 글로벌 럭셔리 브랜드가 톱10 고객사에 신규 진입하며 포트폴리오 다변화 중.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>K뷰티 수출 훈풍</b> — 고환율 효과로 수출 채산성이 개선되고 국민연금 등 기관이 화장품 ODM 투톱 지분을 늘리며 수급도 우호적.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>밸류에이션 매력</b> — Forward PE 13.6배로 실적 개선 속도 대비 경쟁사보다 저평가된 구간으로 평가.</div></div></div>
+  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>이미 1년래 신고가를 경신한 급등 이후 단기 과열 부담, VCP 베이스 품질(5/10)이 낮아 변동성 확대 가능</div></div><div class="risk"><span>⚠</span><div>목표주가(122,211원) 대비 상승여력이 약 3.7%로 제한적</div></div><div class="risk"><span>⚠</span><div>원달러 환율 변동성 확대 시 수출 채산성 개선 효과가 되돌아갈 수 있음</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">K-뷰티 열풍에...국민연금, &#x27;화장품 ODM 투톱&#x27; 지분 늘렸다</div><div class="m">블로터 · 2026.07.04 10:00</div></div><div class="news"><div class="t">반도체 대장주도 맥 못추는데…&quot;이 실적에 너무 싸&quot; 30% &#x27;쑥&#x27;[김근...</div><div class="m">머니투데이 · 2026.07.04 06:12</div></div><div class="news"><div class="t">코스피 4% 내릴 때 한국콜마 30% 상승…1년만에 신고가[종목현미경]</div><div class="m">뉴스1 · 2026.07.04 06:00</div></div><div class="news"><div class="t">“고맙다, 고환율 효과”… 매출 120% 뛴 K뷰티</div><div class="m">문화일보 · 2026.07.03 12:12</div></div><div class="news"><div class="t">K뷰티 수출 역대 &#x27;최대&#x27;…힘 못쓰는 화장품주, 왜?</div><div class="m">아시아경제 · 2026.07.03 07:10</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 발표(가이던스 확인) 및 미국 공장 가동률 추이가 다음 트리거.</div></div>
 </div>
 </div>
 <div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="comm" data-ai="true" data-unicorn="false">
@@ -330,8 +331,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       </div>
       <div class="cmain">
         <div class="cname">더블유게임즈 🤖</div>
-        <span class="ctag">소셜카지노 · PE 6.7x</span>
-        <div class="chl">구글 수수료 25% 인하 직접 수혜 — 영업이익률 33% 고마진 성장주</div>
+        <span class="ctag">구글 수수료 인하 수혜 · PE 6.7배</span>
+        <div class="chl">북미 매출 80%대 소셜카지노, 구글 수수료 인하 직접 수혜에 저PE 성장주</div>
       </div>
     </div>
     <div class="cright">
@@ -344,32 +345,34 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
-  <div class="nums"><div class="num"><div class="l">영업이익률</div><div class="v">33.4%</div><div class="s up">고마진 구조</div></div><div class="num"><div class="l">매출 성장</div><div class="v">+26.5%</div><div class="s up">EPS +60.5%</div></div><div class="num"><div class="l">Forward PE</div><div class="v">6.7x</div><div class="s up">목표가 ₩81,308</div></div><div class="num"><div class="l">VCP</div><div class="v">8.0/10</div><div class="s up">RS 81 · SEPA 10/10</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>2012년 설립된 소셜카지노·캐주얼 게임 기업으로, 종속회사 더블다운인터액티브가 나스닥에 ADR 상장된 글로벌 사업 구조. 2025년 Paxie Games와 WHOW Games 인수로 캐주얼 부문을 강화했고, 더블유카지노·더블다운카지노 등을 웹·모바일로 서비스. 매출의 80%가 북미에서 발생해 플랫폼 정책 변화와 환율에 직접 연동되는 수익 모델.</p></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩65,200 돌파 확인 후 진입하고 손절은 ₩62,590(-4%)에 설정. RDY 4/10·스코어 62점을 감안해 셋업이 성숙할 때까지 관찰 비중으로 대응하는 것이 합리적.</p>
+  <div class="nums"><div class="num"><div class="l">EPS 성장</div><div class="v">+60.5%</div><div class="s up">직전 분기 기준</div></div><div class="num"><div class="l">매출 성장</div><div class="v">+26.5%</div><div class="s up">5분기 연속 증가세</div></div><div class="num"><div class="l">영업이익률</div><div class="v">33.4%</div><div class="s up">고마진 유지</div></div><div class="num"><div class="l">Forward PE</div><div class="v">6.7배</div><div class="s up">목표가 81,308원 대비 저평가</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>더블유게임즈는 더블유카지노·더블다운카지노 등을 서비스하는 소셜카지노 게임사로 매출 대부분이 북미에서 발생하는 구조다. 2025년 팍시게임즈와 WHOW게임즈를 인수해 캐주얼 부문까지 포트폴리오를 넓혔고, 종속회사 더블다운인터액티브의 나스닥 ADR 상장으로 글로벌 사업 기반도 확보한 상태다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>구글플레이 인앱결제 수수료가 최대 30%에서 최저 15%까지 낮아지는 구조 개편이 6월 미국·EU·영국을 시작으로 도입되며, 매출의 80% 이상이 북미에서 발생하는 더블유게임즈가 직접적인 원가 절감 수혜주로 부각됐다. 여기에 자회사 팍시게임즈의 AI 기반 다작 체제와 누적 다운로드 6000만 건 돌파 소식이 겹치며 실적 개선 기대감을 키운 것이 최근 상승 동력으로 확인된다.</p><p style="margin-top:6px;">수수료 인하는 아직 초기 시행 단계(한국 12월 적용 예정)로 재료 소멸까지는 시간이 남아있으나, 당일 주가가 -0.15%로 보합 수준에 머문 점은 시장이 이미 상당 부분을 선반영했을 가능성을 시사한다. 코스피는 반도체 대형주 중심 급등장이라 게임 중소형주로의 자금 순환은 뚜렷하지 않은 국면.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">밸류(PE 6.7배)와 수수료 인하 구조적 수혜는 매력적이나 RDY 4/10로 매수 셋업이 미흡하고 당일 주가 흐름도 모멘텀 소진 신호를 보여 돌파 확인 후 대응이 합리적.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩65,200 돌파 시 분할 진입, 손절가 ₩62,592(-4%) 이탈 시 정리하는 대응이 유효.</p>
     <div class="es">
       <div class="en"><div class="l">📍 진입</div><div class="v">₩65,200 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩62,590 (-4%)</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩62,592 (-4%)</div></div>
     </div>
   </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>구글 수수료 인하 수혜</b> — 구글 플레이 수수료 25% 인하의 직접 수혜가 확인됨. 매출 80%가 북미 시장인 만큼 수수료 절감이 이익에 직결되며 DTC 확대와의 시너지도 기대되는 구조.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>고마진 + 고성장 결합</b> — 영업이익률 33.4%의 고마진 체질에 매출 +26.5%, EPS +60.5% 성장이 동반. Paxie·WHOW 인수 효과가 외형 성장으로 연동.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>AI 다작 체제 가동</b> — 자회사 팍시게임즈가 AI 다작 체제를 본격화하며 캐주얼 게임 누적 다운로드 약 6000만건을 달성한 것이 확인됨. 개발 생산성 향상이 성장 지속성을 뒷받침.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>밸류에이션 재평가 여지</b> — Forward PE 6.7x로 성장률 대비 현저한 저평가이며 목표가 평균 ₩81,308 대비 괴리가 큰 구간. 외국인 보유율 21%로 수급도 안정적.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>종합 스코어 62/100으로 6개 종목 중 최하위 — 정량 셋업 신뢰도가 상대적으로 낮음</div></div><div class="risk"><span>⚠</span><div>RDY 4/10 — 돌파 준비도 미성숙으로 조기 진입 시 휩소 가능성</div></div><div class="risk"><span>⚠</span><div>소셜카지노 규제 및 플랫폼 정책 변화에 대한 구조적 노출 지속</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">더블유게임즈, 구글 수수료 25% 인하 수혜…&#x27;매출 80%&#x27; 북미 시장...</div><div class="m">지디넷코리아 · 2026.06.29</div></div><div class="news"><div class="t">더블유게임즈 &quot;구글 플레이 수수료 인하 수혜 기대…DTC 확대와 시너...</div><div class="m">이데일리 · 2026.06.29</div></div><div class="news"><div class="t">게임 속 AI가 달라졌다…말 알아듣고, 함께 싸우고, 직접 만든다</div><div class="m">이코노미스트 · 2026.06.27</div></div><div class="news"><div class="t">더블유게임즈 자회사 팍시게임즈, AI 다작 체제 본격화…누적 다운로.....</div><div class="m">지디넷코리아 · 2026.06.25</div></div><div class="news"><div class="t">팍시게임즈, 캐주얼 게임 누적 다운로드 약 6000만건</div><div class="m">아시아경제 · 2026.06.25</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">구글 플레이 수수료 인하 효과가 반영되는 2분기 실적 발표 — DTC 매출 비중 변화가 체크포인트</div></div>
+  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>구글 수수료 인하</b> — 구글플레이 인앱결제 수수료가 최저 15%까지 낮아지는 정책이 6월 미국·EU·영국부터 순차 도입되며, 매출 80% 이상이 북미인 동사가 직접 수혜 구조에 놓임.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>DTC 매출 확대</b> — 자체 결제(DTC) 채널 비중이 커지면서 플랫폼 수수료 절감분이 수익성 개선으로 이어지는 구조가 강화되고 있음.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>팍시게임즈 성장</b> — 자회사 팍시게임즈가 AI 활용 다작 체제로 캐주얼 게임 누적 다운로드 약 6000만 건을 기록하며 신사업 축이 형성되는 중.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>이익 우상향 추세</b> — 분기 매출·영업이익이 각각 1,719억→2,066억, 543억→701억으로 5분기 연속 증가하는 안정적 성장 궤적을 보임.</div></div></div>
+  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>한국 시장 구글 수수료 인하는 12월 적용 예정으로 실제 실적 반영까지 시차 존재</div></div><div class="risk"><span>⚠</span><div>외국인 11거래일 연속 순매도와 원화 강세 국면에서 중소형 게임주 수급 열위 가능</div></div><div class="risk"><span>⚠</span><div>소셜카지노 시장 성숙화에 따른 중장기 성장 둔화 우려</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">더블유게임즈, 구글 수수료 25% 인하 수혜…&#x27;매출 80%&#x27; 북미 시장...</div><div class="m">지디넷코리아 · 2026.06.29 15:11</div></div><div class="news"><div class="t">더블유게임즈 &quot;구글 플레이 수수료 인하 수혜 기대…DTC 확대와 시너...</div><div class="m">이데일리 · 2026.06.29 08:29</div></div><div class="news"><div class="t">게임 속 AI가 달라졌다…말 알아듣고, 함께 싸우고, 직접 만든다</div><div class="m">이코노미스트 · 2026.06.27 09:01</div></div><div class="news"><div class="t">더블유게임즈 자회사 팍시게임즈, AI 다작 체제 본격화…누적 다운로.....</div><div class="m">지디넷코리아 · 2026.06.25 13:31</div></div><div class="news"><div class="t">팍시게임즈, 캐주얼 게임 누적 다운로드 약 6000만건</div><div class="m">아시아경제 · 2026.06.25 07:51</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">구글플레이 수수료 인하 정책 미국·EU·영국 6월 시행 → 한국 12월 적용, 다음 분기 실적에서 DTC 비중·마진 개선 확인 필요.</div></div>
 </div>
 </div>
 <div class="foot">교육·참고 목적이며 투자 권유가 아닙니다.<br>
-MacTrader · Minervini SEPA + VCP · 🧠 심층분석: Claude (LLM 작성)<br>
+MacTrader · Minervini SEPA + VCP · 🧠 심층분석: Claude Sonnet (6/6종목)<br>
 📊 데이터: yfinance · Naver금융 · 자체 RS 엔진</div>
 </div>
 
 <script>
 (function(){
   var cards = document.querySelectorAll('.card');
-  function hint(c){var f=c.querySelector('.fold');if(f)f.textContent=c.classList.contains('open')?'▲':'▼';}
+  function hint(c){var f=c.querySelector('.fold');if(f)f.textContent=c.classList.contains('open')?'\u25B2':'\u25BC';}
   cards.forEach(function(c){
     hint(c);
-    c.querySelector('.chead').addEventListener('click',function(){c.classList.toggle('open');hint(c);});
+    var h=c.querySelector('.chead');
+    if(h) h.addEventListener('click',function(){c.classList.toggle('open');hint(c);});
   });
   var tabs=document.querySelectorAll('.tab');
   tabs.forEach(function(t){
@@ -385,10 +388,10 @@ MacTrader · Minervini SEPA + VCP · 🧠 심층분석: Claude (LLM 작성)<br>
     });
   });
   var btn=document.getElementById('xall');
-  btn.addEventListener('click',function(){
+  if(btn) btn.addEventListener('click',function(){
     var anyClosed=Array.prototype.some.call(cards,function(c){return c.style.display!=='none'&&!c.classList.contains('open');});
     cards.forEach(function(c){if(c.style.display==='none')return;c.classList.toggle('open',anyClosed);hint(c);});
-    btn.textContent=anyClosed?'전체 접기 ▲':'전체 펼치기 ▼';
+    btn.textContent=anyClosed?'\uC804\uCCB4 \uC811\uAE30 \u25B2':'\uC804\uCCB4 \uD3BC\uCE58\uAE30 \u25BC';
   });
 })();
 </script>
