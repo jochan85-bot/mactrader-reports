@@ -20,6 +20,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .tab .c{opacity:0.75;font-size:11px;}
 .tab-util{flex-shrink:0;margin-left:auto;padding:5px 12px;border-radius:18px;border:1px solid #334155;
   background:transparent;cursor:pointer;font-size:11.5px;color:#64748B;white-space:nowrap;}
+.vtabs{display:flex;flex-wrap:wrap;gap:5px;padding:0 14px 9px;}
+.vtab{flex-shrink:0;padding:5px 12px;border-radius:18px;border:1px solid #334155;cursor:pointer;
+  font-size:12px;font-weight:600;background:transparent;white-space:nowrap;}
+.vtab .c{opacity:0.8;font-size:11px;}
+.vtab.vbuy{color:#4ADE80;}.vtab.vhold{color:#FBBF24;}.vtab.vavoid{color:#F87171;}
+.vtab.vbuy.active{background:#166534;border-color:#22C55E;color:#fff;}
+.vtab.vhold.active{background:#92400E;border-color:#F59E0B;color:#fff;}
+.vtab.vavoid.active{background:#991B1B;border-color:#EF4444;color:#fff;}
 .wrap{padding:10px 13px 0;}
 .mkt{background:linear-gradient(135deg,#064E3B,#065F46);border-radius:12px;padding:12px 13px;margin-bottom:12px;}
 .mkt.kr{background:linear-gradient(135deg,#1E3A5F,#1D4ED8 160%);}
@@ -122,11 +130,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="hdr-stats">🤖 AI 1</div>
     </div>
   </div>
-  <div class="tabs"><button class="tab active" data-filter="all">전체 <span class="c">6</span></button><button class="tab" data-filter="ai" style="color:#C4B5FD;">🤖 AI <span class="c">1</span></button><button class="tab" data-filter="comm">커뮤 <span class="c">1</span></button><button class="tab" data-filter="cons-cyclical">경기소비 <span class="c">3</span></button><button class="tab" data-filter="cons-defensive">필수소비 <span class="c">1</span></button><button class="tab" data-filter="materials">소재 <span class="c">1</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div>
+  <div class="tabs"><button class="tab active" data-filter="all">전체 <span class="c">6</span></button><button class="tab" data-filter="ai" style="color:#C4B5FD;">🤖 AI <span class="c">1</span></button><button class="tab" data-filter="comm">커뮤 <span class="c">1</span></button><button class="tab" data-filter="cons-cyclical">경기소비 <span class="c">3</span></button><button class="tab" data-filter="cons-defensive">필수소비 <span class="c">1</span></button><button class="tab" data-filter="materials">소재 <span class="c">1</span></button></div><div class="vtabs"><button class="vtab vbuy" data-vfilter="buy">🟢 매수 고려 <span class="c">1</span></button><button class="vtab vhold" data-vfilter="hold">🟡 관망 <span class="c">5</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div>
 </div>
 <div class="wrap">
 <div class="mkt kr"><div class="mkt-title">📈 기관 4.4조 폭풍매수, 코스피 8000선 극적 탈환</div><div class="mkt-grid"><div class="mkt-box"><div class="l">코스피</div><div class="v">+5.76%</div><div class="s">8088p 반도체 견인</div></div><div class="mkt-box"><div class="l">코스닥</div><div class="v">+0.19%</div><div class="s">코스피 대비 온도차</div></div><div class="mkt-box"><div class="l">수급(외국인·기관)</div><div class="v">기관 +4.4조 / 외인 -2.2조</div><div class="s">외인 11연속 순매도</div></div></div><div class="mkt-note">기관이 코스피에서 4조 4,450억 원을 순매수하며 지수를 전일 대비 440포인트(+5.76%) 끌어올렸고, 외국인은 11거래일 연속 매도세로 2조 1,928억 원을 순매도했다. 삼성전자(+8.22%)와 SK하이닉스가 나란히 급등하며 반도체 대형주가 지수 반등을 주도했으며, 장중 변동폭은 758포인트로 역대 2위를 기록할 만큼 변동성이 극심했다. 원·달러 환율은 30원 이상 급락해 1,525.60원에 마감되며 원화 강세도 뚜렷하게 나타났다.</div></div>
-<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false">
+<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -165,7 +173,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 분기 실적 발표 및 배당·자사주 등 주주환원 정책 지속 여부</div></div>
 </div>
 </div>
-<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -204,7 +212,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 발표 및 다음 분기배당 기준일 - 뷰티 자회사 실적 반영 여부가 관건</div></div>
 </div>
 </div>
-<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="buy">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -243,7 +251,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">하반기 타이어 가격 인상 시행 여부 및 2분기 실적 발표 일정이 주요 변수</div></div>
 </div>
 </div>
-<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -282,7 +290,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">대한항공-아시아나 통합 절차 마무리 일정 및 차기 분기 실적 발표에서 영업이익 흑자 전환 여부 확인</div></div>
 </div>
 </div>
-<div class="card" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false">
+<div class="card" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -321,7 +329,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 발표(가이던스 확인) 및 미국 공장 가동률 추이가 다음 트리거.</div></div>
 </div>
 </div>
-<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="comm" data-ai="true" data-unicorn="false">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="comm" data-ai="true" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -374,17 +382,36 @@ MacTrader · Minervini SEPA + VCP · 🧠 심층분석: Claude Sonnet (6/6종목
     var h=c.querySelector('.chead');
     if(h) h.addEventListener('click',function(){c.classList.toggle('open');hint(c);});
   });
+  var curSector='all', curVerdict=null;
+  function applyFilters(){
+    cards.forEach(function(c){
+      var okS=(curSector==='all')||(curSector==='ai'&&c.dataset.ai==='true')||
+              (curSector==='unicorn'&&c.dataset.unicorn==='true')||
+              (curSector!=='ai'&&curSector!=='unicorn'&&c.dataset.sector===curSector);
+      var okV=!curVerdict||c.dataset.verdict===curVerdict;
+      c.style.display=(okS&&okV)?'':'none';
+    });
+  }
   var tabs=document.querySelectorAll('.tab');
   tabs.forEach(function(t){
     t.addEventListener('click',function(){
       tabs.forEach(function(x){x.classList.remove('active');});
       t.classList.add('active');
-      var f=t.getAttribute('data-filter');
-      cards.forEach(function(c){
-        var show=(f==='all')||(f==='ai'&&c.dataset.ai==='true')||(f==='unicorn'&&c.dataset.unicorn==='true')||
-                 (f!=='ai'&&f!=='unicorn'&&c.dataset.sector===f);
-        c.style.display=show?'':'none';
-      });
+      curSector=t.getAttribute('data-filter');
+      applyFilters();
+    });
+  });
+  var vtabs=document.querySelectorAll('.vtab');
+  vtabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var v=t.getAttribute('data-vfilter');
+      if(curVerdict===v){ curVerdict=null; t.classList.remove('active'); }
+      else{
+        curVerdict=v;
+        vtabs.forEach(function(x){x.classList.remove('active');});
+        t.classList.add('active');
+      }
+      applyFilters();
     });
   });
   var btn=document.getElementById('xall');
