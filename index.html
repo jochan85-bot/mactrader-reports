@@ -11,8 +11,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 h1{color:#58a6ff;font-size:22px}
 .guide-btn{font-size:12px;color:#8b949e;border:1px solid #30363d;border-radius:6px;padding:4px 10px;text-decoration:none;white-space:nowrap}
 .guide-btn:hover{color:#e6edf3;border-color:#58a6ff}
-.btn-row{display:flex;gap:6px}
-.tagline{color:#8b949e;font-size:13px;margin-bottom:24px}
+.tagline{color:#8b949e;font-size:13px;margin-bottom:12px}
+.breakout-banner{display:flex;align-items:center;justify-content:space-between;background:#161b22;border:1px solid #30363d;border-left:3px solid #58a6ff;border-radius:8px;padding:11px 14px;text-decoration:none;margin-bottom:20px}
+.breakout-banner:active{border-color:#58a6ff}
+.breakout-banner .bb-left{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#e6edf3}
+.breakout-banner .bb-sub{font-size:11.5px;color:#8b949e;margin-top:1px}
+.breakout-banner .bb-arrow{color:#58a6ff;font-size:16px}
 .section{margin-bottom:24px}
 .section-title{color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #21262d}
 .card{display:block;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:14px 16px;border-radius:8px;text-decoration:none;margin:6px 0;font-size:15px}
@@ -29,12 +33,16 @@ h1{color:#58a6ff;font-size:22px}
 <body>
 <div class="header">
   <h1>📈 MacTrader</h1>
-  <div class="btn-row">
-    <a class="guide-btn" href="breakout.html">돌파매매란?</a>
-    <a class="guide-btn" href="guide.html">리포트 Guide</a>
-  </div>
+  <a class="guide-btn" href="guide.html">리포트 Guide</a>
 </div>
 <p class="tagline">일일 투자 분석 · Minervini SEPA + VCP</p>
+<a class="breakout-banner" href="breakout.html">
+  <div>
+    <div class="bb-left">🚀 돌파매매란?</div>
+    <div class="bb-sub">Minervini 방법론 · SEPA + VCP 완전 가이드</div>
+  </div>
+  <span class="bb-arrow">›</span>
+</a>
 
 <div class="section">
   <div class="section-title">📅 최신 리포트</div>
