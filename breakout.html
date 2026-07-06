@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>돌파매매란? — MacTrader</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo',sans-serif;
+  background:#0d1117;color:#e6edf3;
+  padding:16px;max-width:640px;margin:0 auto;
+  line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+a{color:#58a6ff}
+
+.back-btn{
+  display:inline-block;font-size:13px;color:#8b949e;
+  border:1px solid #30363d;border-radius:6px;padding:8px 14px;
+  text-decoration:none;margin:4px 0 18px;
+}
+.back-btn:active{border-color:#58a6ff;color:#e6edf3}
+h1{color:#58a6ff;font-size:24px;margin-bottom:6px}
+.tagline{color:#8b949e;font-size:13.5px;margin-bottom:22px}
+
+/* PART 내비게이션 */
+.part-nav{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+  position:sticky;top:0;z-index:50;
+  background:#0d1117;padding:10px 0 12px;
+  border-bottom:1px solid #21262d;margin-bottom:8px;
+}
+.part-nav a{
+  display:block;text-align:center;text-decoration:none;
+  background:#161b22;border:1px solid #30363d;border-radius:10px;
+  padding:12px 4px;min-height:60px;
+}
+.part-nav a:active{border-color:#58a6ff}
+.part-nav .pn-num{display:block;font-size:11px;color:#58a6ff;font-weight:700;letter-spacing:1px}
+.part-nav .pn-name{display:block;font-size:14px;color:#e6edf3;font-weight:600;margin-top:2px}
+.part-nav .pn-sub{display:block;font-size:10.5px;color:#8b949e}
+
+/* PART 헤더 */
+.part-head{
+  margin:44px 0 6px;padding:22px 18px;border-radius:12px;
+  background:linear-gradient(135deg,#161b22,#0d1117);
+  border:1px solid #30363d;border-left:4px solid #58a6ff;
+  scroll-margin-top:88px;
+}
+.part-head .ph-tag{font-size:11px;color:#58a6ff;font-weight:700;letter-spacing:2px}
+.part-head h2{font-size:21px;margin:4px 0 6px}
+.part-head p{font-size:13.5px;color:#8b949e}
+.part-head.p2{border-left-color:#d29922}
+.part-head.p2 .ph-tag{color:#d29922}
+.part-head.p3{border-left-color:#3fb950}
+.part-head.p3 .ph-tag{color:#3fb950}
+
+/* 섹션 */
+section{margin:28px 0}
+h3{font-size:17px;margin-bottom:12px;color:#e6edf3}
+h3 .sec-no{color:#58a6ff;font-size:13px;font-weight:700;margin-right:6px}
+p.intro{font-size:14.5px;color:#c9d1d9;margin-bottom:14px}
+
+/* 카드 공통 */
+.card{
+  background:#161b22;border:1px solid #30363d;border-radius:10px;
+  padding:16px;margin:10px 0;font-size:14px;
+}
+.card h4{font-size:15px;margin-bottom:6px}
+.card p{color:#c9d1d9;font-size:13.5px}
+.card .muted{color:#8b949e}
+.card.accent{border-left:3px solid #58a6ff}
+.card.good{border-left:3px solid #3fb950}
+.card.warn{border-left:3px solid #d29922}
+.card.danger{border-left:3px solid #f85149}
+.card.gold{border-left:3px solid #d29922}
+
+/* 리스트 */
+ul.pts{list-style:none;margin:6px 0}
+ul.pts li{padding:4px 0 4px 22px;position:relative;font-size:13.5px;color:#c9d1d9}
+ul.pts li::before{content:"▸";position:absolute;left:4px;color:#58a6ff}
+ul.pts li b{color:#e6edf3}
+ol.numlist{margin:6px 0 0 20px;font-size:13.5px;color:#c9d1d9}
+ol.numlist li{margin:6px 0}
+ol.numlist li b{color:#e6edf3}
+
+/* 색상 유틸 */
+.grn{color:#3fb950;font-weight:600}
+.org{color:#d29922;font-weight:600}
+.red{color:#f85149;font-weight:600}
+.blue{color:#58a6ff;font-weight:600}
+
+/* 배지 */
+.badge{display:inline-block;font-size:11px;font-weight:700;border-radius:5px;padding:2px 8px;margin:2px 3px 2px 0;white-space:nowrap}
+.b-blue{background:rgba(88,166,255,.15);color:#58a6ff;border:1px solid rgba(88,166,255,.35)}
+.b-grn{background:rgba(63,185,80,.15);color:#3fb950;border:1px solid rgba(63,185,80,.35)}
+.b-org{background:rgba(210,153,34,.15);color:#d29922;border:1px solid rgba(210,153,34,.35)}
+.b-red{background:rgba(248,81,73,.15);color:#f85149;border:1px solid rgba(248,81,73,.35)}
+.b-gray{background:#0d1117;color:#8b949e;border:1px solid #30363d}
+
+/* 단계(스텝) */
+.step{display:flex;gap:12px;background:#161b22;border:1px solid #30363d;border-radius:10px;padding:14px;margin:8px 0}
+.step .sn{
+  flex:none;width:30px;height:30px;border-radius:8px;background:rgba(88,166,255,.15);
+  color:#58a6ff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;
+}
+.step.sn-gold .sn{background:rgba(210,153,34,.15);color:#d29922}
+.step.sn-grn .sn{background:rgba(63,185,80,.15);color:#3fb950}
+.step .sb h4{font-size:14.5px;margin-bottom:3px}
+.step .sb p{font-size:13px;color:#c9d1d9}
+.step .sb .chk{font-size:12px;color:#3fb950;margin-top:6px;font-weight:600}
+.step .sb .warn{font-size:12px;color:#d29922;margin-top:6px;font-weight:600}
+
+/* 비교표 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.compare .cp{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:14px}
+.compare .cp .ct{font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:8px}
+.compare .cp.cp-bad .ct{color:#f85149}
+.compare .cp.cp-good .ct{color:#3fb950}
+.compare .cp ul{list-style:none}
+.compare .cp ul li{font-size:13px;color:#c9d1d9;padding:3px 0}
+
+/* 지표 블록 */
+.metric{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:14px;margin:10px 0}
+.metric .m-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.metric .m-code{font-size:17px;font-weight:800;color:#58a6ff}
+.metric .m-name{font-size:13px;color:#8b949e}
+.metric ul{margin:4px 0 0 2px;list-style:none}
+.metric ul li{padding-left:18px;position:relative;font-size:13.5px;color:#c9d1d9;margin:5px 0}
+.metric ul li::before{content:"·";position:absolute;left:4px;color:#58a6ff;font-weight:900}
+
+/* VCP 다이어그램 */
+.vcp-diagram{background:#0d1117;border:1px solid #30363d;border-radius:12px;padding:16px;margin:12px 0}
+.vcp-diagram .vcp-title{font-size:11px;color:#8b949e;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase}
+.vcp-bars{display:flex;align-items:flex-end;gap:6px;height:80px;margin-bottom:8px}
+.vcp-bars .bar{border-radius:4px 4px 0 0;flex:1}
+.vcp-bars .pivot-line{width:2px;height:90px;background:#58a6ff;border-radius:2px;margin-bottom:-10px;position:relative}
+.vcp-bars .pivot-line::after{content:"↑ 피벗 돌파";position:absolute;left:6px;top:-4px;font-size:10px;color:#58a6ff;white-space:nowrap}
+.vcp-labels{display:flex;gap:6px;font-size:10px;color:#8b949e}
+.vcp-labels span{flex:1;text-align:center}
+
+/* 시나리오 */
+.scenario{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px;margin:10px 0}
+.scenario .sc-tag{font-size:11px;font-weight:700;letter-spacing:1px;color:#3fb950}
+.scenario h4{font-size:15px;margin:4px 0 10px}
+.scenario .tl{border-left:2px solid #30363d;margin-left:6px;padding-left:14px}
+.scenario .tl .ev{margin:10px 0;position:relative;font-size:13px;color:#c9d1d9}
+.scenario .tl .ev::before{content:"";position:absolute;left:-19px;top:7px;width:8px;height:8px;border-radius:50%;background:#58a6ff}
+.scenario .tl .ev .d{font-size:11px;color:#8b949e;font-weight:700}
+.scenario .tl .ev b{color:#e6edf3}
+
+/* 큰 인용 */
+.quote{
+  border-left:4px solid #d29922;
+  background:rgba(210,153,34,.06);border-radius:0 10px 10px 0;
+  padding:14px 16px;margin:14px 0;font-size:14px;color:#c9d1d9;font-style:italic;
+}
+.quote b{color:#e6edf3;font-style:normal}
+
+/* 노트 */
+.note{
+  background:rgba(210,153,34,.07);border:1px solid rgba(210,153,34,.3);
+  border-radius:10px;padding:13px 15px;font-size:13px;color:#c9d1d9;margin:12px 0;
+}
+.note b{color:#d29922}
+.note.info{background:rgba(88,166,255,.06);border-color:rgba(88,166,255,.3)}
+.note.info b{color:#58a6ff}
+.note.grn{background:rgba(63,185,80,.06);border-color:rgba(63,185,80,.3)}
+.note.grn b{color:#3fb950}
+
+/* 숫자 강조 */
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.stat{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:12px 14px;text-align:center}
+.stat .sv{font-size:22px;font-weight:800;color:#58a6ff}
+.stat .sl{font-size:12px;color:#8b949e;margin-top:2px}
+
+footer{
+  margin-top:48px;padding-top:20px;border-top:1px solid #21262d;
+  font-size:12.5px;color:#8b949e;text-align:center;line-height:2;
+}
+footer .disc{font-size:11.5px;margin-top:8px;color:#6e7681}
+</style>
+</head>
+<body>
+
+<a class="back-btn" href="index.html">← 홈으로</a>
+<h1>🚀 돌파매매란?</h1>
+<p class="tagline">주도주가 베이스를 완성하고 터지는 순간을 포착하는 투자 방법론</p>
+
+<!-- PART 내비게이션 -->
+<nav class="part-nav">
+  <a href="#part1"><span class="pn-num">PART 1</span><span class="pn-name">개념</span><span class="pn-sub">무엇이 다른가</span></a>
+  <a href="#part2"><span class="pn-num">PART 2</span><span class="pn-name">선별</span><span class="pn-sub">종목 고르는 법</span></a>
+  <a href="#part3"><span class="pn-num">PART 3</span><span class="pn-name">실전</span><span class="pn-sub">진입·손절·익절</span></a>
+</nav>
+
+<!-- ═══ PART 1 ═══ -->
+<div class="part-head" id="part1">
+  <span class="ph-tag">PART 1 · 개념</span>
+  <h2>돌파매매란 무엇인가? 🔍</h2>
+  <p>가격이 오르는 중에 사는 전략입니다 — 하지만 아무 때나 아무 종목에나가 아니라, <strong>준비된 종목이 결정적 순간에 터지는 그 지점</strong>을 노립니다.</p>
+</div>
+
+<section>
+  <h3><span class="sec-no">1-1</span>핵심 아이디어 — 강한 것은 더 강해진다</h3>
+  <p class="intro">돌파매매의 근본 논리는 단순합니다. 시장을 이기는 종목은 계속 이기는 경향이 있고, 그 흐름이 가장 강하게 표출되는 순간이 "돌파"입니다.</p>
+
+  <div class="quote">
+    "기관 투자자들은 매집을 끝낸 뒤 조용히 주가를 밀어올립니다. 그 흔적이 거래량을 동반한 가격 돌파입니다."
+    <b>— Mark Minervini</b>
+  </div>
+
+  <div class="card accent">
+    <h4>돌파란?</h4>
+    <p>주가가 일정 기간 동안 좁은 가격대에서 에너지를 응축한 뒤(베이스), 그 상단 저항선(피벗)을 <b>거래량 급증과 함께 뚫고 올라가는</b> 현상입니다. 이 순간 매집을 마친 대형 자금이 본격적으로 주가를 밀어올리기 시작합니다.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="sv grn">+4.3%</div><div class="sl">돌파 후 D+20 평균 수익<br>(2025 미장 9,652건)</div></div>
+    <div class="stat"><div class="sv blue">54%</div><div class="sl">D+20 기준 승률<br>(RS 상위 종목 기준)</div></div>
+  </div>
+</section>
+
+<section>
+  <h3><span class="sec-no">1-2</span>다른 전략과 무엇이 다른가?</h3>
+
+  <div class="compare">
+    <div class="cp cp-bad">
+      <div class="ct">❌ 저점 매수 (역추세)</div>
+      <ul>
+        <li>싸 보이는 걸 산다</li>
+        <li>하락 중에 물타기</li>
+        <li>손실 무한정 가능</li>
+        <li>"언젠간 오르겠지"</li>
+      </ul>
+    </div>
+    <div class="cp cp-good">
+      <div class="ct">✅ 돌파매매 (추세추종)</div>
+      <ul>
+        <li>강한 종목을 더 강할 때</li>
+        <li>명확한 손절선 존재</li>
+        <li>손실이 제한된다</li>
+        <li>추세 끝나면 즉시 이탈</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note info">
+    <b>핵심 역설.</b> 돌파매매는 이미 많이 오른 종목을 삽니다. 직관에 반하지만, 데이터는 이 방식이 더 효과적임을 보여줍니다. "싼 게 좋다"가 아니라 <b>"강한 게 지속된다"</b>가 이 전략의 믿음입니다.
+  </div>
+</section>
+
+<section>
+  <h3><span class="sec-no">1-3</span>돌파매매의 세 가지 전제조건</h3>
+
+  <div class="step"><div class="sn">1</div><div class="sb">
+    <h4>시장 우위 종목만</h4>
+    <p>시장 전체보다 강한 수익률을 보여온 종목 — 즉 <b>RS(상대강도) 상위 종목</b>만 대상입니다. 시장에 지고 있는 종목은 아무리 차트가 예뻐도 제외합니다.</p>
+  </div></div>
+
+  <div class="step"><div class="sn">2</div><div class="sb">
+    <h4>펀더멘털 뒷받침</h4>
+    <p>실적(EPS·매출) 성장이 뒷받침되는 종목이어야 합니다. 기관이 계속 사줄 이유가 있어야 오른 주가가 유지됩니다. 차트가 아름다워도 실적 없는 종목은 언젠가 무너집니다.</p>
+  </div></div>
+
+  <div class="step"><div class="sn">3</div><div class="sb">
+    <h4>베이스 완성 후 진입</h4>
+    <p>무작정 오르는 중에 사는 게 아니라, <b>조정 후 에너지를 응축한 베이스를 완성한 뒤 돌파하는 시점</b>에 진입합니다. 타이밍이 승률을 가릅니다.</p>
+    <div class="chk">✓ RS 상위 + 펀더멘털 + 베이스 완성 = 3박자가 맞을 때만</div>
+  </div></div>
+</section>
+
+<!-- ═══ PART 2 ═══ -->
+<div class="part-head p2" id="part2">
+  <span class="ph-tag">PART 2 · 선별</span>
+  <h2>어떤 종목을 고르는가? 🔬</h2>
+  <p>SEPA(특정 진입점 분석)와 VCP(변동성 수축 패턴)는 미너비니가 개발한 종목 선별 + 타이밍 포착 프레임워크입니다. MacTrader 리포트는 이 기준으로 매일 스크리닝합니다.</p>
+</div>
+
+<section>
+  <h3><span class="sec-no">2-1</span>SEPA — 5가지 체크리스트</h3>
+  <p class="intro">SEPA(Specific Entry Point Analysis)는 돌파매매 종목이 갖춰야 할 5가지 조건입니다. 하나라도 빠지면 진입하지 않습니다.</p>
+
+  <div class="metric">
+    <div class="m-head"><span class="m-code">① 추세</span><span class="m-name">Trend Template</span></div>
+    <ul>
+      <li>현재가 &gt; MA50 &gt; MA150 &gt; MA200 (정배열)</li>
+      <li>MA200이 적어도 1개월 이상 상승 중</li>
+      <li>현재가가 52주 고점의 25% 이내</li>
+    </ul>
+  </div>
+
+  <div class="metric">
+    <div class="m-head"><span class="m-code">② 펀더멘털</span><span class="m-name">실적 성장</span></div>
+    <ul>
+      <li>최근 분기 EPS 성장률 20%+</li>
+      <li>매출 성장도 동반되어야 신뢰성 높음</li>
+      <li>향후 성장 기대가 있는 섹터·산업</li>
+    </ul>
+  </div>
+
+  <div class="metric">
+    <div class="m-head"><span class="m-code">③ RS</span><span class="m-name">Relative Strength — 상대강도</span></div>
+    <ul>
+      <li>같은 기간 동안 시장(S&P 500 / KOSPI) 대비 더 많이 오름</li>
+      <li>RS 점수 70+ (상위 30%)를 기본, 80+ 권장</li>
+      <li><b>RS가 높을수록 기관의 매집 강도가 높다는 신호</b></li>
+    </ul>
+  </div>
+
+  <div class="metric">
+    <div class="m-head"><span class="m-code">④ 수급</span><span class="m-name">기관 매수 흔적</span></div>
+    <ul>
+      <li>거래량 급증 구간이 주로 상승일에 집중</li>
+      <li>하락일 거래량은 상대적으로 적어야 함</li>
+      <li>기관·외국인이 지속 매수 중인 종목</li>
+    </ul>
+  </div>
+
+  <div class="metric">
+    <div class="m-head"><span class="m-code">⑤ 타이밍</span><span class="m-name">VCP 돌파 시점</span></div>
+    <ul>
+      <li>베이스를 완성하고 피벗을 돌파하는 순간</li>
+      <li>거래량이 평균 대비 크게 증가하는 것을 동반</li>
+      <li>돌파 후 추격 상한(피벗 +5%) 이내에서 진입</li>
+    </ul>
+  </div>
+
+  <div class="note grn">
+    <b>MacTrader 리포트는 SEPA 조건 중 ①②③을 자동으로 스크리닝</b>합니다. 리포트에 올라온 종목은 이미 추세·펀더멘털·RS 3가지를 통과한 것이며, 투자자가 확인할 것은 ④수급과 ⑤타이밍(돌파 여부)입니다.
+  </div>
+</section>
+
+<section>
+  <h3><span class="sec-no">2-2</span>RS — 상대강도가 전부다</h3>
+
+  <p class="intro">RS는 이 종목이 "시장을 얼마나 이기고 있냐"를 0~100 점수로 나타냅니다. 단순하지만 강력한 주도주 판별 도구입니다.</p>
+
+  <div class="card accent">
+    <h4>RS 점수 해석</h4>
+    <p style="margin-bottom:10px">
+      <span class="badge b-red">RS 50 미만</span> 시장 하위 50% — 매매 대상 아님<br>
+      <span class="badge b-org">RS 70–79</span> 시장 상위 30% — 관찰 가능<br>
+      <span class="badge b-blue">RS 80–89</span> 시장 상위 20% — 매매 적합<br>
+      <span class="badge b-grn">RS 90+</span> 시장 상위 10% — 주도주 핵심군
+    </p>
+    <p class="muted">미장은 RS 80+, 국장은 RS 70+ 기준 적용 (2025 백테스트 근거)</p>
+  </div>
+
+  <div class="note info">
+    <b>RS가 높으면 이미 많이 오른 게 아닌가?</b> 그렇습니다 — 하지만 그게 핵심입니다. 2025년 미장 백테스트에서 RS 90~100 구간 돌파 이벤트의 D+20 평균 수익이 RS 50~60 구간보다 3배 이상 높았습니다. 강한 것은 더 강해집니다.
+  </div>
+</section>
+
+<section>
+  <h3><span class="sec-no">2-3</span>VCP — 베이스가 완성되는 패턴</h3>
+  <p class="intro">VCP(Volatility Contraction Pattern, 변동성 수축 패턴)는 주가가 상승 이후 에너지를 응축하는 과정을 포착합니다. 이 패턴이 완성될 때가 최적의 진입 타이밍입니다.</p>
+
+  <!-- VCP 다이어그램 -->
+  <div class="vcp-diagram">
+    <div class="vcp-title">VCP 패턴 개념도</div>
+    <div class="vcp-bars">
+      <div class="bar" style="height:70%;background:rgba(248,81,73,.4);border:1px solid rgba(248,81,73,.6)"></div>
+      <div class="bar" style="height:45%;background:rgba(248,81,73,.3);border:1px solid rgba(248,81,73,.5)"></div>
+      <div class="bar" style="height:28%;background:rgba(248,81,73,.2);border:1px solid rgba(248,81,73,.4)"></div>
+      <div class="bar" style="height:14%;background:rgba(248,81,73,.15);border:1px solid rgba(248,81,73,.3)"></div>
+      <div class="pivot-line"></div>
+      <div class="bar" style="height:90%;background:rgba(63,185,80,.4);border:1px solid rgba(63,185,80,.6)"></div>
+    </div>
+    <div class="vcp-labels">
+      <span>1차 수축<br>-15~20%</span>
+      <span>2차 수축<br>-10~12%</span>
+      <span>3차 수축<br>-6~8%</span>
+      <span>4차 수축<br>-3~4%</span>
+      <span></span>
+      <span class="grn">돌파<br>거래량↑</span>
+    </div>
+  </div>
+
+  <div class="card accent">
+    <h4>VCP의 3가지 핵심 특징</h4>
+    <ul class="pts" style="margin-top:6px">
+      <li><b>조정 폭이 점차 줄어든다</b> — 첫 번째 조정 -15%, 두 번째 -10%, 세 번째 -5%처럼 수축이 반복됩니다. 매도 물량이 소화될수록 팔 사람이 줄어드는 것입니다.</li>
+      <li><b>거래량도 수축된다</b> — 조정 구간에서 거래량이 줄어드는 것은 좋은 신호입니다. 소극적 매도(악성 매물 아님)를 의미합니다.</li>
+      <li><b>마지막 수축이 가장 좁다 (피벗)</b> — 최후의 저항선인 피벗을 거래량 급증과 함께 돌파하는 순간이 진입 타이밍입니다.</li>
+    </ul>
+  </div>
+
+  <div class="note">
+    <b>VCP는 차트에서 눈으로 확인합니다.</b> MacTrader 리포트의 VCP 점수(vcp_score)는 자동으로 계산되지만, 실제 진입 전에는 반드시 차트를 열어 패턴을 눈으로 확인하는 것을 권장합니다.
+  </div>
+</section>
+
+<section>
+  <h3><span class="sec-no">2-4</span>이상적인 돌파의 조건 — 체크리스트</h3>
+
+  <div class="step sn-grn"><div class="sn">✓</div><div class="sb">
+    <h4>가격: 피벗 돌파 + 추격 상한 +5% 이내</h4>
+    <p>피벗은 베이스의 최고점(또는 전고점) 부근입니다. 이미 +5% 이상 올라 있으면 늦은 진입 — 손절 폭이 너무 커집니다.</p>
+  </div></div>
+
+  <div class="step sn-grn"><div class="sn">✓</div><div class="sb">
+    <h4>거래량: 평균 대비 1.4배 이상</h4>
+    <p>거래량 없는 돌파는 신뢰도가 낮습니다. "가짜 돌파"일 가능성이 높습니다. 평균 거래량 대비 최소 1.4배, 이상적으로는 2배 이상이면 강한 신호입니다.</p>
+  </div></div>
+
+  <div class="step sn-grn"><div class="sn">✓</div><div class="sb">
+    <h4>시간: 개장 초반 15분(미장) / 10분(국장) 제외</h4>
+    <p>개장 직후는 노이즈 거래가 많습니다. 이 구간의 돌파를 보고 바로 진입하면 가짜 돌파에 걸릴 확률이 높습니다.</p>
+    <div class="warn">⚠ 마감 30분(미장) / 20분(국장) 전도 신규 진입 금지</div>
+  </div></div>
+
+  <div class="step sn-grn"><div class="sn">✓</div><div class="sb">
+    <h4>시장 환경: 전반적 추세 우호적</h4>
+    <p>시장이 강한 조정 중이거나 하락 추세라면 개별 종목이 아무리 좋아도 성공률이 낮아집니다. 시장이 내려갈 때는 진입 기준을 높이거나 관망합니다.</p>
+  </div></div>
+</section>
+
+<!-- ═══ PART 3 ═══ -->
+<div class="part-head p3" id="part3">
+  <span class="ph-tag">PART 3 · 실전</span>
+  <h2>진입 · 손절 · 익절 · 멘탈 💼</h2>
+  <p>아는 것과 실제로 매매하는 것은 다릅니다. 규칙이 단순해야 흔들리지 않습니다. 복잡한 예외는 만들지 마세요.</p>
+</div>
+
+<section>
+  <h3><span class="sec-no">3-1</span>진입 — 정해진 조건에만</h3>
+  <p class="intro">진입 조건이 맞지 않으면 어떤 종목도 사지 않습니다. FOMO(놓칠 것 같은 두려움)는 최악의 진입 신호입니다.</p>
+
+  <div class="card gold">
+    <h4>진입 순서</h4>
+    <ol class="numlist" style="margin-top:8px">
+      <li><b>전날 밤:</b> 리포트에서 RDY 높은 종목 2~5개 선별 → 피벗가 + 손절가 메모</li>
+      <li><b>개장 후 15분 관망:</b> 노이즈 확인 후, 피벗 위에서 거래량 확인</li>
+      <li><b>조건 충족 시:</b> 피벗 +0~5% 구간에서 진입</li>
+      <li><b>즉시:</b> 손절가 설정 (앱에서 스탑로스 주문)</li>
+    </ol>
+  </div>
+
+  <div class="note">
+    <b>분할 매수?</b> 첫 번째 진입은 목표 포지션의 50~70%로 시작하는 것을 권장합니다. 돌파 직후 추가 확인(첫날 종가 강세, 다음날 유지)이 되면 나머지를 채웁니다.
+  </div>
+</section>
+
+<section>
+  <h3><span class="sec-no">3-2</span>손절 — 유일한 선택</h3>
+  <p class="intro">손절은 비용입니다. 의사결정이 아닙니다. 손절선에 닿으면 생각 없이 파는 것이 원칙입니다.</p>
+
+  <div class="card danger">
+    <h4>손절선은 진입 전에 정한다</h4>
+    <p>진입 후 손절선을 정하면 편향이 생깁니다. <b>진입 전에 미리 정하고, 앱에 스탑로스로 걸어둡니다.</b> 일반적으로 피벗 기준 -4~8% 또는 직전 스윙 저점 아래입니다.</p>
+  </div>
+
+  <div class="compare">
+    <div class="cp cp-bad">
+      <div class="ct">❌ 손절 미루기</div>
+      <ul>
+        <li>-5%에서 "조금만 더"</li>
+        <li>-10%에서 "여기서 팔면 손해"</li>
+        <li>-20%에서 패닉 청산</li>
+        <li>결과: 큰 손실 + 감정 손상</li>
+      </ul>
+    </div>
+    <div class="cp cp-good">
+      <div class="ct">✅ 원칙 손절</div>
+      <ul>
+        <li>정해진 -5%에서 기계적 청산</li>
+        <li>당일 재진입 금지 (감정 쿨다운)</li>
+        <li>이후 재돌파 시 재진입 준비</li>
+        <li>결과: 손실 제한 + 계좌 보존</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quote">
+    "손절이 두렵다면 애초에 포지션 크기를 줄이세요. -5% 손절로 계좌 전체의 1%만 잃도록 포지션을 역산하면, 손절이 더 이상 두렵지 않습니다."
+  </div>
+</section>
+
+<section>
+  <h3><span class="sec-no">3-3</span>익절 — 추세가 끝날 때까지</h3>
+  <p class="intro">돌파매매의 최대 장점은 수익이 날 때 오래 가져갈 수 있다는 것입니다. 조기에 파는 것이 가장 흔한 실수입니다.</p>
+
+  <div class="step"><div class="sn">1</div><div class="sb">
+    <h4>초기: 진입가 기준 손절 유지</h4>
+    <p>+5% 미만 구간에서는 원래 손절선을 유지합니다. 수익이 조금 났다고 손절선을 너무 빠르게 올리면 정상적인 변동성에 걸려 청산됩니다.</p>
+  </div></div>
+
+  <div class="step"><div class="sn">2</div><div class="sb">
+    <h4>+5%부터: 이익 잠금 시작</h4>
+    <p>수익 +5%를 넘으면 본전 또는 +1~2% 위로 스탑을 올립니다. 이제 이 트레이드는 "잃을 수 없는 게임"이 됩니다.</p>
+    <div class="chk">✓ 스탑은 올리기만, 절대 내리지 않는다 (래칫 원칙)</div>
+  </div></div>
+
+  <div class="step"><div class="sn">3</div><div class="sb">
+    <h4>+10~20%: 이동평균선 트레일링</h4>
+    <p>수익이 쌓이면 이동평균선을 따라 스탑을 끌어올립니다. <b>수익이 클수록 더 짧은 MA</b>(30일 → 20일 → 10일)로 타이트하게 관리합니다.</p>
+  </div></div>
+
+  <div class="step sn-grn"><div class="sn">✓</div><div class="sb">
+    <h4>청산 조건</h4>
+    <p>트레일링 스탑 터치 / 베이스 이탈 확인 / 실적 발표 직전(신규 진입 기준) / 시장 환경 급격히 악화. <b>목표 수익률을 미리 정하고 파는 방식은 추천하지 않습니다</b> — 큰 종목을 너무 일찍 파는 결과를 낳습니다.</p>
+  </div></div>
+</section>
+
+<section>
+  <h3><span class="sec-no">3-4</span>포지션 관리 — 계좌를 지키는 원칙</h3>
+
+  <div class="card accent">
+    <h4>종목당 리스크 계산법</h4>
+    <p>목표: 한 종목에서 손절이 나도 계좌 전체의 <b>1~2%만 잃는</b> 포지션 크기</p>
+    <ol class="numlist" style="margin-top:8px">
+      <li>손절 폭 확인 (예: 피벗 대비 -5%)</li>
+      <li>허용 손실액 계산 (계좌 1억 × 1% = 100만원)</li>
+      <li>포지션 크기 = 100만원 ÷ 5% = 2,000만원</li>
+    </ol>
+    <p class="muted" style="margin-top:8px">= 해당 종목에 2,000만원만 진입. 손절 터져도 계좌 손실은 1%.</p>
+  </div>
+
+  <ul class="pts">
+    <li><b>동시 보유 종목 수 제한</b> — 초기에는 2~4종목을 권장합니다. 많을수록 집중도가 떨어지고 관리가 어렵습니다.</li>
+    <li><b>시장 약세 시 포지션 축소</b> — 시장이 하락 추세라면 신규 진입을 멈추고 기존 포지션도 일부 줄입니다.</li>
+    <li><b>한 섹터 집중 지양</b> — 같은 섹터에 여러 종목이 몰리면 섹터 리스크에 한 번에 노출됩니다.</li>
+  </ul>
+</section>
+
+<section>
+  <h3><span class="sec-no">3-5</span>재진입 — 손절이 끝이 아니다</h3>
+
+  <div class="card good">
+    <h4>재진입은 전략이다</h4>
+    <p>손절이 났다고 그 종목이 끝난 게 아닙니다. 훌륭한 종목일수록 한 번 흔들고 두 번째에 진짜로 가는 경우가 많습니다.</p>
+    <p style="margin-top:8px"><b>재진입 조건: VCP 피벗을 다시 돌파 + 거래량 동반</b></p>
+    <p class="muted" style="margin-top:8px">단, 매도한 당일에는 재진입하지 않습니다. 감정이 남아 있는 상태의 재진입은 복수 매매가 됩니다.</p>
+  </div>
+
+  <div class="scenario">
+    <span class="sc-tag">시나리오 · 손절 → 재진입 성공</span>
+    <h4>가상 종목 "모멘텀코프(MMTM)"</h4>
+    <div class="tl">
+      <div class="ev"><span class="d">D-0</span><br>피벗 $80 돌파에 진입, 손절 $76(-5%) 설정.</div>
+      <div class="ev"><span class="d">D+2</span><br>시장 전반 조정으로 $75.8까지 하락 → <b>기계적 손절.</b> 계좌 손실 -1%.</div>
+      <div class="ev"><span class="d">D+2 당일</span><br>오후 반등이 나와도 당일 재진입 금지 원칙으로 관망.</div>
+      <div class="ev"><span class="d">D+18</span><br>종목이 다시 리포트에 등장. 새 베이스에서 <b>RDY 9, RS 92</b>. 피벗 $83 재돌파 + 평균의 2.3배 거래량 → <b>재진입.</b></div>
+      <div class="ev"><span class="d">D+50</span><br>+28% 구간에서 트레일링 스탑 청산. <b>첫 손절 -5%를 재진입 수익 +28%이 크게 상회.</b></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3><span class="sec-no">3-6</span>멘탈 관리 — 시스템을 믿는 것</h3>
+
+  <div class="quote">
+    "나는 항상 틀릴 준비가 되어 있습니다. 그래서 반드시 나올 준비도 항상 되어 있습니다."
+    <b>— Mark Minervini</b>
+  </div>
+
+  <ul class="pts">
+    <li><b>단건 결과에 흔들리지 않는다</b> — 돌파매매도 단건으로는 승률이 50~60%입니다. 30~50번의 결과를 기준으로 시스템을 평가하세요.</li>
+    <li><b>손절은 정보다</b> — 손절이 나면 "이 베이스에서 지금 돌파는 아니었다"는 정보를 얻은 것입니다. 실패가 아니라 데이터입니다.</li>
+    <li><b>기록한다</b> — 진입 이유, 손절 이유, 청산 가격을 기록합니다. 패턴이 보이기 시작할 때 성장합니다.</li>
+    <li><b>쉬는 것도 포지션이다</b> — 시장이 내려가거나 확신이 없을 때 현금을 유지하는 것도 전략입니다. 매매를 강요하지 마세요.</li>
+  </ul>
+
+  <div class="card danger">
+    <h4>절대 하지 말 것</h4>
+    <ul class="pts" style="margin-top:6px">
+      <li><b>물타기</b> — 하락 중에 추가 매수. 돌파매매의 가장 큰 금기입니다. 잘못된 방향의 포지션을 키우는 행위입니다.</li>
+      <li><b>손절선 변경</b> — 손절선에 근접하면 선을 내리고 싶어집니다. 한 번이라도 허용하면 원칙이 무너집니다.</li>
+      <li><b>리포트 전 종목 매수</b> — 리포트는 추천이 아니라 후보 명단입니다. 돌파 조건이 충족된 소수만 진입합니다.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="note">
+  <b>면책 고지.</b> 이 페이지와 MacTrader 리포트는 교육·참고 목적으로 제공됩니다. 특정 종목의 매수·매도 추천이 아니며, 모든 투자 판단과 그에 따른 손익의 책임은 투자자 본인에게 있습니다.
+</div>
+
+<footer>
+  MacTrader · Minervini SEPA + VCP 돌파매매 시스템<br>
+  <a href="guide.html">리포트 Guide →</a> &nbsp;|&nbsp; <a href="index.html">← 홈으로</a>
+  <div class="disc">본 사이트의 모든 정보는 투자 참고 자료이며, 투자 권유가 아닙니다.</div>
+</footer>
+
+</body>
+</html>
