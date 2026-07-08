@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stop-Loss 계산기 — MacTrader</title>
+<style>
+  :root {
+    --bg:      #0f1117;
+    --card:    #1a1d27;
+    --border:  #2a2d3a;
+    --accent:  #5b8ef0;
+    --accent2: #7c6fff;
+    --green:   #2ecc71;
+    --red:     #e74c3c;
+    --yellow:  #f1c40f;
+    --text:    #e8eaf0;
+    --muted:   #7a7f96;
+    --input-bg:#22253a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    padding: 32px 16px 64px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .subtitle { text-align: center; color: var(--muted); font-size: 0.82rem; margin-bottom: 32px; }
+  .container { max-width: 560px; margin: 0 auto; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 28px 24px;
+    margin-bottom: 20px;
+  }
+  .card h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 20px; }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 6px; font-weight: 500; }
+  .field input {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 11px 14px;
+    color: var(--text);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .field input:focus { border-color: var(--accent); }
+  .field input::placeholder { color: var(--muted); font-size: 0.9rem; }
+
+  #calcBtn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .2s, transform .1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  #calcBtn:hover { opacity: .9; }
+  #calcBtn:active { transform: scale(0.98); }
+  #calcBtn:disabled { opacity: .5; cursor: not-allowed; }
+
+  #errBox {
+    display: none;
+    background: #2b1218;
+    border: 1px solid var(--red);
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: #ff7070;
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  #result { display: none; }
+
+  .result-header {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+  }
+  .result-ticker { display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; }
+  .result-ticker .sym { font-size: 1.6rem; font-weight: 800; letter-spacing: .02em; }
+  .result-ticker .meta { color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
+  .result-ticker .meta span { display: block; }
+
+  .profit-banner { display: flex; align-items: center; gap: 10px; border-radius: 10px; padding: 12px 16px; margin-bottom: 18px; }
+  .profit-banner.positive { background: #0e2318; border: 1px solid #1e5c35; }
+  .profit-banner.negative { background: #1e0e0e; border: 1px solid #5c1e1e; }
+  .profit-banner.neutral  { background: #1a1d27; border: 1px solid var(--border); }
+  .profit-banner .pct { font-size: 1.5rem; font-weight: 800; min-width: 80px; }
+  .profit-banner.positive .pct { color: var(--green); }
+  .profit-banner.negative .pct { color: var(--red); }
+  .profit-banner.neutral  .pct { color: var(--muted); }
+  .profit-banner .pct-detail { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+  .phase-tag { margin-left: auto; font-size: 0.7rem; padding: 4px 9px; border-radius: 6px; background: rgba(255,255,255,.06); color: var(--muted); text-align: right; line-height: 1.4; white-space: pre-line; }
+
+  .stop-display { text-align: center; padding: 18px; background: var(--input-bg); border-radius: 12px; margin-bottom: 16px; }
+  .stop-display .label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+  .stop-display .price { font-size: 2.4rem; font-weight: 800; letter-spacing: -.01em; }
+  .stop-display .price.safe   { color: var(--green); }
+  .stop-display .price.warn   { color: var(--yellow); }
+  .stop-display .price.danger { color: var(--red); }
+  .stop-display .pct-away { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+
+  .bar-wrap { position: relative; height: 8px; background: var(--input-bg); border-radius: 4px; margin-bottom: 6px; overflow: visible; }
+  .bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--red), var(--green)); min-width: 4px; }
+  .bar-stop-marker { position: absolute; top: -4px; width: 3px; height: 16px; background: var(--red); border-radius: 2px; transform: translateX(-50%); }
+  .bar-labels { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--muted); margin-top: 4px; margin-bottom: 16px; }
+
+  .peak-row { margin-bottom: 2px; font-size: 0.78rem; color: var(--muted); text-align: center; }
+  .peak-row span { color: var(--text); }
+
+  .breakdown { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px 22px; margin-bottom: 20px; }
+  .breakdown h3 { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 14px; }
+  .row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
+  .row:last-child { border-bottom: none; }
+  .row .rlabel { color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  .row .val { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .row .val.active { color: var(--accent); }
+  .row .val.yellow { color: var(--yellow); }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
+  .dot.active { background: var(--accent); }
+  .dot.yellow { background: var(--yellow); }
+
+  .lock-bar-wrap { width: 100px; height: 4px; background: var(--border); border-radius: 2px; margin-top: 3px; }
+  .lock-bar-fill { height: 100%; border-radius: 2px; background: var(--yellow); }
+  .lock-sub { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+
+  .explain { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 20px; }
+  .explain h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 20px; }
+  .phase-block { margin-bottom: 20px; }
+  .phase-block h3 { font-size: 0.9rem; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+  .phase-block p { font-size: 0.83rem; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
+  .formula { background: #12151f; border-left: 3px solid var(--accent); padding: 8px 12px; border-radius: 0 8px 8px 0; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.78rem; color: #a8c0ff; line-height: 1.6; white-space: pre; }
+  .phase-block .note { font-size: 0.77rem; color: #7a7f96; font-style: italic; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Stop-Loss 계산기</h1>
+  <p class="subtitle">MacTrader 트레일링 스탑 — 전일 종가 기준 자동 계산</p>
+
+  <div class="card">
+    <h2>종목 정보 입력</h2>
+
+    <div class="field">
+      <label>티커 심볼</label>
+      <input type="text" id="ticker" placeholder="SEPN  /  010950 (국장은 6자리 숫자)" autocomplete="off" autocapitalize="characters">
+    </div>
+    <div class="field">
+      <label>구매일</label>
+      <input type="date" id="entryDate">
+    </div>
+    <div class="field">
+      <label>평단가</label>
+      <input type="number" id="entryPrice" placeholder="36.47  /  119655" step="any" min="0">
+    </div>
+    <div class="field">
+      <label>초기 손절 %</label>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <input type="number" id="stopPct" value="4" min="1" max="30" step="0.5" style="width:120px;flex-shrink:0;">
+        <div style="flex:1;">
+          <input type="range" id="stopSlider" min="1" max="15" step="0.5" value="4"
+                 style="width:100%;accent-color:var(--accent);cursor:pointer;margin:0;">
+          <div style="display:flex;justify-content:space-between;font-size:0.68rem;color:var(--muted);margin-top:2px;">
+            <span>−1%</span><span>−5%</span><span>−10%</span><span>−15%</span>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:6px;">
+        수익 <strong style="color:var(--text);">+5%</strong> 도달 시 Stop이 평단가(본전)로 자동 이동 → 이후 MA 트레일링 + 이익 잠금
+      </div>
+    </div>
+
+    <button id="calcBtn" onclick="calculate()">
+      <span id="btnIcon">📊</span>
+      <span id="btnText">현재 Stop 계산하기</span>
+    </button>
+  </div>
+
+  <div id="errBox"></div>
+
+  <div id="result">
+    <div class="result-header">
+      <div class="result-ticker">
+        <span class="sym" id="rTicker"></span>
+        <span class="meta">
+          <span id="rDays"></span>
+          <span id="rYfTicker" style="color:#555;font-size:0.73rem;"></span>
+        </span>
+      </div>
+
+      <div class="profit-banner" id="profitBanner">
+        <div>
+          <div class="pct" id="rProfit"></div>
+          <div class="pct-detail" id="rPriceInfo"></div>
+        </div>
+        <div class="phase-tag" id="rPhaseTag"></div>
+      </div>
+
+      <div class="stop-display">
+        <div class="label">오늘 Stop 라인</div>
+        <div class="price" id="rStop"></div>
+        <div class="pct-away" id="rStopAway"></div>
+      </div>
+
+      <div class="bar-wrap">
+        <div class="bar-fill" id="barFill"></div>
+        <div class="bar-stop-marker" id="barMarker"></div>
+      </div>
+      <div class="bar-labels">
+        <span id="barLeft"></span>
+        <span>현재가(전일종가)</span>
+      </div>
+
+      <div class="peak-row" id="peakRow" style="display:none;"></div>
+    </div>
+
+    <div class="breakdown">
+      <h3>Stop 구성요소</h3>
+      <div class="row">
+        <span class="rlabel"><span class="dot" id="d1"></span>초기 손절 (<span id="initialStopLabel">−4%</span>)</span>
+        <span class="val" id="r1"></span>
+      </div>
+      <div class="row">
+        <span class="rlabel"><span class="dot" id="d2"></span>본전 Floor</span>
+        <span class="val" id="r2"></span>
+      </div>
+      <div class="row">
+        <span class="rlabel"><span class="dot" id="d3"></span>MA<span id="maPeriodLabel"></span> 트레일링</span>
+        <span class="val" id="r3"></span>
+      </div>
+      <div class="row">
+        <span class="rlabel"><span class="dot" id="d4"></span>이익 잠금 Floor</span>
+        <div class="lock-sub">
+          <span class="val" id="r4"></span>
+          <div class="lock-bar-wrap"><div class="lock-bar-fill" id="lockBar"></div></div>
+        </div>
+      </div>
+      <div class="row" style="padding-top:12px;">
+        <span class="rlabel" style="color:var(--text);font-weight:600;">✅ 최종 Stop</span>
+        <span class="val active" id="r5" style="font-size:1.05rem;"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="explain">
+    <h2>Stop 계산 방식</h2>
+    <div class="phase-block">
+      <h3>Phase 0 — 초기 손절 (진입 ~ +5%)</h3>
+      <p>진입 직후는 설정한 초기 손절%를 사용합니다. 수익이 +5%에 가까워질수록 Smoothstep 함수로 본전으로 부드럽게 이동합니다.</p>
+      <div class="formula" id="phase0Formula">initial_stop = entry × (1 − 0.04)
+w = smoothstep(profit, 0%, +5%)
+floor_stop  = initial_stop × (1−w) + entry × w</div>
+      <p class="note">Smoothstep: 3t²−2t³ 커브로 급격한 점프 없이 보간합니다.</p>
+    </div>
+    <div class="phase-block">
+      <h3>Phase 1 — MA 트레일링 전환 (+5% ~ +20%)</h3>
+      <p>수익이 +5%를 넘으면 이동평균(MA) 기반 트레일링으로 전환합니다. MA 기간은 수익이 커질수록 짧아져 이익을 더 빨리 보호합니다.</p>
+      <div class="formula">MA_period = max(30, round(90 − 34.64 × √profit))
+w_ma    = smoothstep(profit, +5%, +20%)
+blended = floor_stop × (1−w_ma) + MA_stop × w_ma</div>
+      <p class="note">수익 0%: MA 90일 / +20%: 74일 / +50%: 65일 / +100%: 56일</p>
+    </div>
+    <div class="phase-block">
+      <h3>Phase 2 — 이익 잠금 사다리 (+5% ~ +40%)</h3>
+      <p>큰 수익이 생기면 그 일부를 영구 보호합니다. MA Stop보다 높으면 잠금선이 최종 적용됩니다.</p>
+      <div class="formula">lr = 0.50 × smoothstep(profit, +5%, +20%)
+   + 0.10 × smoothstep(profit, +20%, +40%)
+lock_pct   = profit × lr
+lock_floor = entry × (1 + lock_pct)</div>
+      <p class="note">예: +20% 수익 시 lr ≈ 0.5 → 이익의 50% = 10% 잠금</p>
+    </div>
+    <div class="phase-block">
+      <h3>Ratchet — Stop은 절대 내려가지 않는다</h3>
+      <p>한 번 올라간 Stop은 가격이 내려가도 유지됩니다. 이 계산기는 오늘 기준 신규 계산값을 보여줍니다.</p>
+      <div class="formula">stop_final = max(computed_stop, prev_stop)</div>
+    </div>
+    <div style="margin-top:16px;padding:12px 14px;background:#12151f;border-radius:10px;font-size:0.75rem;color:var(--muted);line-height:1.6;">
+      📡 데이터 출처: Yahoo Finance (무료 공개 API) · 전일 종가 기준 · LLM/토큰 사용 없음
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── 수학 함수 (exit_engine_unified.py 포팅) ──
+function smoothstep(x, lo, hi) {
+  if (hi <= lo) return x >= hi ? 1.0 : 0.0;
+  const t = Math.max(0, Math.min(1, (x - lo) / (hi - lo)));
+  return t * t * (3 - 2 * t);
+}
+
+function profitLockPct(profit) {
+  if (profit < 0.05) return 0;
+  const lr = 0.50 * smoothstep(profit, 0.05, 0.20)
+           + 0.10 * smoothstep(profit, 0.20, 0.40);
+  return profit * lr;
+}
+
+function maPeriodFor(profit) {
+  return Math.max(30, Math.round(90 - 34.64 * Math.sqrt(Math.max(0, profit))));
+}
+
+function computeStop(entryPrice, currentPrice, closes, initialStopPct) {
+  const profit = (currentPrice - entryPrice) / entryPrice;
+  const stopInitial = entryPrice * (1 - initialStopPct);
+
+  const wBe = smoothstep(profit, 0.0, 0.05);
+  const floorStop = stopInitial * (1 - wBe) + entryPrice * wBe;
+
+  const period = maPeriodFor(profit);
+  const slice = closes.slice(-period);
+  const maStop = slice.reduce((a, b) => a + b, 0) / slice.length;
+
+  const wMa = smoothstep(profit, 0.05, 0.20);
+  const blended = floorStop * (1 - wMa) + maStop * wMa;
+
+  const lockPct = profitLockPct(profit);
+  const lockFloor = lockPct > 0 ? entryPrice * (1 + lockPct) : 0;
+  const stopLevel = Math.max(blended, lockFloor);
+
+  return {
+    profitPct: profit * 100,
+    maPeriod: period,
+    maStop,
+    floorStop,
+    lockFloor,
+    lockPct: lockPct * 100,
+    stopLevel,
+    initialStop: stopInitial,
+    initialStopPct: initialStopPct * 100,
+  };
+}
+
+// ── Yahoo Finance 데이터 가져오기 ──
+const PROXY = 'https://corsproxy.io/?url=';
+
+async function fetchCloses(yfTicker) {
+  const yUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${yfTicker}?range=2y&interval=1d`;
+  const res = await fetch(PROXY + encodeURIComponent(yUrl));
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const js = await res.json();
+  const result = js?.chart?.result?.[0];
+  if (!result) throw new Error('데이터 없음');
+  const raw = result.indicators?.quote?.[0]?.close ?? [];
+  const closes = raw.map(Number).filter(v => !isNaN(v));
+  if (!closes.length) throw new Error('종가 데이터 없음');
+  // timestamps for entry date matching
+  const timestamps = result.timestamp ?? [];
+  return { closes, timestamps, currentPrice: closes[closes.length - 1] };
+}
+
+// ── UI 초기화 ──
+(function() {
+  const t = document.getElementById('entryDate');
+  const now = new Date();
+  t.max = now.toISOString().slice(0, 10);
+  const week = new Date(now - 7 * 86400e3);
+  t.value = week.toISOString().slice(0, 10);
+})();
+
+const stopPctEl    = document.getElementById('stopPct');
+const stopSliderEl = document.getElementById('stopSlider');
+stopPctEl.addEventListener('input', () => {
+  const v = parseFloat(stopPctEl.value) || 4;
+  stopSliderEl.value = Math.min(15, v);
+});
+stopSliderEl.addEventListener('input', () => {
+  stopPctEl.value = stopSliderEl.value;
+});
+
+function fmt(v, isKr) {
+  if (v == null || v === 0) return '—';
+  const n = Number(v);
+  if (isKr) return n.toLocaleString('ko-KR') + '원';
+  return '$' + n.toFixed(2);
+}
+
+function setLoading(on) {
+  const btn = document.getElementById('calcBtn');
+  btn.disabled = on;
+  document.getElementById('btnIcon').textContent = on ? '⏳' : '📊';
+  document.getElementById('btnText').textContent = on ? '데이터 불러오는 중...' : '현재 Stop 계산하기';
+}
+
+function showErr(msg) {
+  const b = document.getElementById('errBox');
+  b.innerHTML = '❌ ' + msg;
+  b.style.display = 'block';
+}
+function hideErr() { document.getElementById('errBox').style.display = 'none'; }
+
+async function calculate() {
+  hideErr();
+  const ticker     = document.getElementById('ticker').value.trim().toUpperCase();
+  const entryDate  = document.getElementById('entryDate').value;
+  const entryPrice = parseFloat(document.getElementById('entryPrice').value);
+  const stopPct    = Math.max(1, Math.min(30, parseFloat(stopPctEl.value) || 4)) / 100;
+
+  if (!ticker)                        { showErr('티커를 입력해주세요'); return; }
+  if (!entryDate)                     { showErr('구매일을 선택해주세요'); return; }
+  if (!entryPrice || entryPrice <= 0) { showErr('평단가를 입력해주세요'); return; }
+
+  setLoading(true);
+  document.getElementById('result').style.display = 'none';
+
+  const isKr = /^\d{6}$/.test(ticker);
+  const candidates = isKr ? [ticker + '.KS', ticker + '.KQ'] : [ticker];
+
+  let fetchResult = null;
+  let usedTicker  = null;
+  for (const t of candidates) {
+    try {
+      fetchResult = await fetchCloses(t);
+      usedTicker  = t;
+      break;
+    } catch (e) {
+      continue;
+    }
+  }
+
+  if (!fetchResult) {
+    showErr('데이터를 가져오지 못했습니다 — 티커를 확인해주세요');
+    setLoading(false);
+    return;
+  }
+
+  const { closes, timestamps, currentPrice } = fetchResult;
+
+  // 진입일 이후 최고가
+  const entryTs = new Date(entryDate).getTime() / 1000;
+  let peakPrice = currentPrice;
+  let entryIdx  = 0;
+  for (let i = 0; i < timestamps.length; i++) {
+    if (timestamps[i] >= entryTs) { entryIdx = i; break; }
+  }
+  const sinceEntry = closes.slice(entryIdx);
+  if (sinceEntry.length) peakPrice = Math.max(...sinceEntry);
+
+  const today = new Date();
+  const entry = new Date(entryDate);
+  const daysHeld = Math.max(0, Math.round((today - entry) / 86400e3));
+
+  const d = computeStop(entryPrice, currentPrice, closes, stopPct);
+  d.isKr       = isKr;
+  d.ticker     = ticker;
+  d.yfTicker   = usedTicker;
+  d.currentPrice = currentPrice;
+  d.entryPrice = entryPrice;
+  d.daysHeld   = daysHeld;
+  d.peakPrice  = peakPrice;
+  d.peakProfitPct = (peakPrice - entryPrice) / entryPrice * 100;
+
+  render(d);
+  setLoading(false);
+}
+
+function render(d) {
+  const isKr    = d.isKr;
+  const profit  = d.profitPct;
+  const current = d.currentPrice;
+  const entry   = d.entryPrice;
+  const stop    = d.stopLevel;
+
+  document.getElementById('rTicker').textContent = d.ticker;
+  document.getElementById('rDays').textContent   = `보유 ${d.daysHeld}일`;
+  const yfEl = document.getElementById('rYfTicker');
+  yfEl.textContent = (d.yfTicker !== d.ticker && d.yfTicker !== d.ticker + '.KS') ? '(' + d.yfTicker + ')' : '';
+
+  const banner = document.getElementById('profitBanner');
+  banner.className = 'profit-banner ' + (profit > 1 ? 'positive' : profit < -0.5 ? 'negative' : 'neutral');
+  document.getElementById('rProfit').textContent =
+    (profit >= 0 ? '+' : '') + profit.toFixed(2) + '%';
+  document.getElementById('rPriceInfo').textContent =
+    `현재가 ${fmt(current, isKr)}  /  평단가 ${fmt(entry, isKr)}`;
+
+  let phaseTag = '';
+  if      (profit < 0)   phaseTag = '📍 손절 구간\n초기 −' + d.initialStopPct + '% 적용';
+  else if (profit < 5)   phaseTag = '📍 Phase 0\n초기손절→본전 전환 중';
+  else if (profit < 20)  phaseTag = '📈 Phase 1\nMA 트레일링 전환 중';
+  else                   phaseTag = '🔒 Phase 2\n이익 잠금 활성';
+  document.getElementById('rPhaseTag').textContent = phaseTag;
+
+  const stopPctFromCurrent = (stop - current) / current * 100;
+  const stopEl = document.getElementById('rStop');
+  stopEl.textContent = fmt(stop, isKr);
+  stopEl.className = 'price ' + (stopPctFromCurrent > -5 ? 'safe' : stopPctFromCurrent > -10 ? 'warn' : 'danger');
+  document.getElementById('rStopAway').textContent =
+    `현재가(전일종가) 대비 ${stopPctFromCurrent >= 0 ? '+' : ''}${stopPctFromCurrent.toFixed(1)}%`;
+
+  const rangeLow  = Math.min(stop, d.initialStop) * 0.995;
+  const rangeHigh = current * 1.005;
+  const span      = rangeHigh - rangeLow;
+  const curPos    = span > 0 ? ((current - rangeLow) / span * 100).toFixed(1) : 100;
+  const stopPos   = span > 0 ? Math.max(0, Math.min(100, (stop - rangeLow) / span * 100)).toFixed(1) : 0;
+  document.getElementById('barFill').style.width  = curPos + '%';
+  document.getElementById('barMarker').style.left = stopPos + '%';
+  document.getElementById('barLeft').textContent  = fmt(stop, isKr);
+
+  const peakRow = document.getElementById('peakRow');
+  if (d.peakProfitPct > 0.5) {
+    peakRow.innerHTML = `보유기간 최고가 <span>${fmt(d.peakPrice, isKr)}</span> (+${d.peakProfitPct.toFixed(2)}%)`;
+    peakRow.style.display = 'block';
+  } else {
+    peakRow.style.display = 'none';
+  }
+
+  // 구성요소
+  const sp = d.initialStopPct;
+  document.getElementById('initialStopLabel').textContent = `−${sp}%`;
+  document.getElementById('phase0Formula').textContent =
+    `initial_stop = entry × (1 − 0.${sp < 10 ? '0' + sp : sp})  ← 초기 손절 ${sp}%\nw = smoothstep(profit, 0%, +5%)\nfloor_stop  = initial_stop × (1−w) + entry × w`;
+
+  const floor     = d.floorStop;
+  const maStop    = d.maStop;
+  const lockFloor = d.lockFloor;
+  const vals = [
+    { name: 'floor', v: floor   || 0 },
+    { name: 'ma',    v: maStop  || 0 },
+    { name: 'lock',  v: lockFloor || 0 },
+  ];
+  const winner = vals.reduce((a, b) => b.v > a.v ? b : a).name;
+
+  setRow('r1', 'd1', fmt(d.initialStop, isKr), false, '');
+  setRow('r2', 'd2', fmt(floor, isKr), winner === 'floor', 'active');
+  document.getElementById('maPeriodLabel').textContent = d.maPeriod || '';
+  setRow('r3', 'd3', maStop ? fmt(maStop, isKr) : '—', winner === 'ma', 'active');
+
+  const lockPct = d.lockPct || 0;
+  if (lockFloor > 0) {
+    setRow('r4', 'd4', fmt(lockFloor, isKr) + `  (${lockPct.toFixed(1)}% 잠금)`, winner === 'lock', 'yellow');
+    document.getElementById('lockBar').style.width = Math.min(100, lockPct / 10 * 100) + '%';
+  } else {
+    document.getElementById('r4').textContent = '미활성 (수익 +5% 미만)';
+    document.getElementById('r4').className   = 'val';
+    document.getElementById('d4').className   = 'dot';
+    document.getElementById('lockBar').style.width = '0%';
+  }
+  document.getElementById('r5').textContent = fmt(stop, isKr);
+
+  document.getElementById('result').style.display = 'block';
+}
+
+function setRow(valId, dotId, text, isWinner, colorClass) {
+  const v = document.getElementById(valId);
+  const dot = document.getElementById(dotId);
+  v.textContent = text;
+  v.className   = isWinner ? 'val ' + colorClass : 'val';
+  dot.className = isWinner && colorClass ? 'dot ' + colorClass : 'dot';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+</script>
+</body>
+</html>
