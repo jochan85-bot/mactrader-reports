@@ -640,8 +640,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">Here’s Why SELLAS (SLS) is Among the 10 Best Performing American Stocks in June </div><div class="m">Insider Monkey · 2026-07-09</div></div><div class="news"><div class="t">SLS Stock Snaps 2-Day Slide: Sellas’ SLS009 AML Trial Spotlights Big Pharma Drug</div><div class="m">Stocktwits · 2026-07-09</div></div><div class="news"><div class="t">SLS Stock In The Spotlight As CEO Pushes Back On Regal Trial Criticism – ‘Let’s </div><div class="m">Stocktwits · 2026-07-08</div></div><div class="news"><div class="t">SLS Stock Logs 2-Day Losing Streak: Mixed Institutional Bets Emerge Ahead Of Key</div><div class="m">Stocktwits · 2026-07-08</div></div><div class="news"><div class="t">SLS Stock Rises Overnight: Why Retail Traders Prefer Sellas Over IBRX, ONDS, PYP</div><div class="m">Stocktwits · 2026-07-07</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">Phase 3 REGAL 임상 최종데이터 발표 임박(생존이벤트 78/80건 도달)이 최대 변수</div></div>
 </div>
-</div>
-<div class="card" style="--c:#0891B2;--cl:#E1F2F6;--cx:#F5FBFC" data-sector="healthcare" data-ai="false" data-unicorn="false" data-verdict="hold">
+</div><div class="card" style="--c:#0891B2;--cl:#E1F2F6;--cx:#F5FBFC" data-sector="healthcare" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -5984,60 +5983,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">8월6일 2분기 실적 발표 — ICE 계약 확대분의 실적 반영 여부가 관건</div></div>
 </div>
 </div>
-</div>
-
-<script>
-(function(){
-  var cards = document.querySelectorAll('.card');
-  function hint(c){var f=c.querySelector('.fold');if(f)f.textContent=c.classList.contains('open')?'\u25B2':'\u25BC';}
-  cards.forEach(function(c){
-    hint(c);
-    var h=c.querySelector('.chead');
-    if(h) h.addEventListener('click',function(){c.classList.toggle('open');hint(c);});
-  });
-  var curSector='all', curVerdict=null;
-  function applyFilters(){
-    cards.forEach(function(c){
-      var okS=(curSector==='all')||(curSector==='ai'&&c.dataset.ai==='true')||
-              (curSector==='unicorn'&&c.dataset.unicorn==='true')||
-              (curSector!=='ai'&&curSector!=='unicorn'&&c.dataset.sector===curSector);
-      var okV=!curVerdict||c.dataset.verdict===curVerdict;
-      c.style.display=(okS&&okV)?'':'none';
-    });
-  }
-  var tabs=document.querySelectorAll('.tab');
-  tabs.forEach(function(t){
-    t.addEventListener('click',function(){
-      tabs.forEach(function(x){x.classList.remove('active');});
-      t.classList.add('active');
-      curSector=t.getAttribute('data-filter');
-      applyFilters();
-    });
-  });
-  var vtabs=document.querySelectorAll('.vtab');
-  vtabs.forEach(function(t){
-    t.addEventListener('click',function(){
-      var v=t.getAttribute('data-vfilter');
-      if(curVerdict===v){ curVerdict=null; t.classList.remove('active'); }
-      else{
-        curVerdict=v;
-        vtabs.forEach(function(x){x.classList.remove('active');});
-        t.classList.add('active');
-      }
-      applyFilters();
-    });
-  });
-  var btn=document.getElementById('xall');
-  if(btn) btn.addEventListener('click',function(){
-    var anyClosed=Array.prototype.some.call(cards,function(c){return c.style.display!=='none'&&!c.classList.contains('open');});
-    cards.forEach(function(c){if(c.style.display==='none')return;c.classList.toggle('open',anyClosed);hint(c);});
-    btn.textContent=anyClosed?'\uC804\uCCB4 \uC811\uAE30 \u25B2':'\uC804\uCCB4 \uD3BC\uCE58\uAE30 \u25BC';
-  });
-})();
-</script>
-
-</body></html>
-<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="foot">교육·참고 목적이며 투자 권유가 아닙니다.<br>
+MacTrader · Minervini SEPA + VCP · 🧠 심층분석: Claude Sonnet (217/217종목)<br>
+📊 데이터: yfinance · Naver금융 · 자체 RS 엔진</div><div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -8651,6 +8599,56 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 </div>
 </div>
 
-<div class="foot">교육·참고 목적이며 투자 권유가 아닙니다.<br>
-MacTrader · Minervini SEPA + VCP · 🧠 심층분석: Claude Sonnet (217/217종목)<br>
-📊 데이터: yfinance · Naver금융 · 자체 RS 엔진</div>
+</div>
+
+<script>
+(function(){
+  var cards = document.querySelectorAll('.card');
+  function hint(c){var f=c.querySelector('.fold');if(f)f.textContent=c.classList.contains('open')?'\u25B2':'\u25BC';}
+  cards.forEach(function(c){
+    hint(c);
+    var h=c.querySelector('.chead');
+    if(h) h.addEventListener('click',function(){c.classList.toggle('open');hint(c);});
+  });
+  var curSector='all', curVerdict=null;
+  function applyFilters(){
+    cards.forEach(function(c){
+      var okS=(curSector==='all')||(curSector==='ai'&&c.dataset.ai==='true')||
+              (curSector==='unicorn'&&c.dataset.unicorn==='true')||
+              (curSector!=='ai'&&curSector!=='unicorn'&&c.dataset.sector===curSector);
+      var okV=!curVerdict||c.dataset.verdict===curVerdict;
+      c.style.display=(okS&&okV)?'':'none';
+    });
+  }
+  var tabs=document.querySelectorAll('.tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+      curSector=t.getAttribute('data-filter');
+      applyFilters();
+    });
+  });
+  var vtabs=document.querySelectorAll('.vtab');
+  vtabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var v=t.getAttribute('data-vfilter');
+      if(curVerdict===v){ curVerdict=null; t.classList.remove('active'); }
+      else{
+        curVerdict=v;
+        vtabs.forEach(function(x){x.classList.remove('active');});
+        t.classList.add('active');
+      }
+      applyFilters();
+    });
+  });
+  var btn=document.getElementById('xall');
+  if(btn) btn.addEventListener('click',function(){
+    var anyClosed=Array.prototype.some.call(cards,function(c){return c.style.display!=='none'&&!c.classList.contains('open');});
+    cards.forEach(function(c){if(c.style.display==='none')return;c.classList.toggle('open',anyClosed);hint(c);});
+    btn.textContent=anyClosed?'\uC804\uCCB4 \uC811\uAE30 \u25B2':'\uC804\uCCB4 \uD3BC\uCE58\uAE30 \u25BC';
+  });
+})();
+</script>
+
+</body></html>
