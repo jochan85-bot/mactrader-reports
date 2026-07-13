@@ -122,6 +122,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   .hdr-title{font-size:16px;}
   .cprice{font-size:14px;}
 }
+
+.vtab.active{background:#34D399;color:#0F172A;}
+.tab.attr.active{color:#0F172A !important;}
+.tabs.attrRow{padding-top:0;padding-bottom:6px;}
 </style>
 </head><body>
 <div class="hdr">
@@ -132,7 +136,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="hdr-stats">🤖 AI 12</div>
     </div>
   </div>
-  <div class="tabs"><button class="tab active" data-filter="all">전체 <span class="c">35</span></button><button class="tab" data-filter="ai" style="color:#C4B5FD;">🤖 AI <span class="c">12</span></button><button class="tab" data-filter="it">IT <span class="c">7</span></button><button class="tab" data-filter="healthcare">헬스케어 <span class="c">1</span></button><button class="tab" data-filter="comm">커뮤 <span class="c">1</span></button><button class="tab" data-filter="financial">금융 <span class="c">8</span></button><button class="tab" data-filter="cons-cyclical">경기소비 <span class="c">4</span></button><button class="tab" data-filter="cons-defensive">필수소비 <span class="c">3</span></button><button class="tab" data-filter="materials">소재 <span class="c">4</span></button><button class="tab" data-filter="energy">에너지 <span class="c">2</span></button><button class="tab" data-filter="unknown">기타 <span class="c">5</span></button><button class="tab" data-filter="fresh">☀️ 신선주도주 <span class="c">14</span></button></div><div class="vtabs"><button class="vtab vhold" data-vfilter="hold">🟡 관망 <span class="c">33</span></button><button class="vtab vavoid" data-vfilter="avoid">🔴 회피 <span class="c">1</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div>
+  <div class="tabs" id="secRow"><button class="tab active" data-sec="all">전체 <span class="c">35</span></button><button class="tab" data-sec="it">IT <span class="c">7</span></button><button class="tab" data-sec="healthcare">헬스케어 <span class="c">1</span></button><button class="tab" data-sec="comm">커뮤 <span class="c">1</span></button><button class="tab" data-sec="financial">금융 <span class="c">8</span></button><button class="tab" data-sec="cons-cyclical">경기소비 <span class="c">4</span></button><button class="tab" data-sec="cons-defensive">필수소비 <span class="c">3</span></button><button class="tab" data-sec="materials">소재 <span class="c">4</span></button><button class="tab" data-sec="energy">에너지 <span class="c">2</span></button><button class="tab" data-sec="unknown">기타 <span class="c">5</span></button></div><div class="tabs attrRow"><button class="tab attr" data-attr="ai">🤖 AI <span class="c">12</span></button><button class="tab attr" data-attr="fresh">☀️ 신선주도주 <span class="c">14</span></button></div><div class="vtabs"><button class="vtab vhold" data-vfilter="hold">🟡 관망 <span class="c">33</span></button><button class="vtab vavoid" data-vfilter="avoid">🔴 회피 <span class="c">1</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div>
 </div>
 <div class="wrap">
 <div class="mkt kr"><div class="mkt-title">🚨반도체 투매·호르무즈 리스크에 코스피 9%대 급락, 서킷브레이커</div><div class="mkt-grid"><div class="mkt-box"><div class="l">코스피</div><div class="v">-8.95%</div><div class="s">6806.93 마감, 7000선 붕괴</div></div><div class="mkt-box"><div class="l">코스닥</div><div class="v">-4.55%</div><div class="s">799.36 마감</div></div><div class="mkt-box"><div class="l">수급(외국인·기관)</div><div class="v">외인 -2.24조/기관 -0.57조</div><div class="s">코스피서 동반 순매도</div></div></div><div class="mkt-note">SK하이닉스 ADR 상장 재료 소멸에 따른 차익실현과 2분기 실적 눈높이 부담이 반도체 대형주 급락을 촉발했고, 삼성전자(-9.21%)·SK하이닉스(-13.35%)가 동반 급락하며 지수를 끌어내렸다. 주말 사이 이란의 호르무즈 해협 봉쇄 발표와 미국의 추가 공습으로 중동 지정학 리스크가 재점화되면서 투자심리가 급격히 얼어붙었고, 코스피는 장중 8% 이상 하락이 1분 이상 지속되며 오후 1시 28분 올해 7번째 서킷브레이커가 발동됐다.</div></div>
@@ -1529,40 +1533,64 @@ MacTrader · Minervini SEPA + VCP · 🧠 심층분석: Claude Sonnet (34/35종�
     var h=c.querySelector('.chead');
     if(h) h.addEventListener('click',function(){c.classList.toggle('open');hint(c);});
   });
-  var curSector='all', curVerdict=null;
+  var selSec=new Set(), selAttr=new Set(), selVerd=new Set();
+  var allBtn=document.querySelector('#secRow [data-sec="all"]');
+  function matchAttr(c){
+    var ok=false;
+    selAttr.forEach(function(a){
+      if(a==='ai'&&c.dataset.ai==='true')ok=true;
+      if(a==='unicorn'&&c.dataset.unicorn==='true')ok=true;
+      if(a==='fresh'&&c.dataset.fresh==='true')ok=true;
+    });
+    return ok;
+  }
   function applyFilters(){
     cards.forEach(function(c){
-      var okS=(curSector==='all')||(curSector==='ai'&&c.dataset.ai==='true')||
-              (curSector==='unicorn'&&c.dataset.unicorn==='true')||
-              (curSector==='fresh'&&c.dataset.fresh==='true')||
-              (curSector!=='ai'&&curSector!=='unicorn'&&curSector!=='fresh'&&c.dataset.sector===curSector);
-      var okV=!curVerdict||c.dataset.verdict===curVerdict;
-      c.style.display=(okS&&okV)?'':'none';
+      var okSec=selSec.size===0||selSec.has(c.dataset.sector);
+      var okAttr=selAttr.size===0||matchAttr(c);
+      var okVerd=selVerd.size===0||selVerd.has(c.dataset.verdict);
+      c.style.display=(okSec&&okAttr&&okVerd)?'':'none';
     });
   }
-  var tabs=document.querySelectorAll('.tab');
-  tabs.forEach(function(t){
+  var secBtns=document.querySelectorAll('#secRow .tab');
+  var attrBtns=document.querySelectorAll('.tab.attr');
+  var vtabs=document.querySelectorAll('.vtab');
+  function syncAll(){
+    if(allBtn)allBtn.classList.toggle('active',selSec.size===0&&selAttr.size===0&&selVerd.size===0);
+  }
+  function clearAll(){
+    selSec.clear();selAttr.clear();selVerd.clear();
+    secBtns.forEach(function(x){if(x.getAttribute('data-sec')!=='all')x.classList.remove('active');});
+    attrBtns.forEach(function(x){x.classList.remove('active');});
+    vtabs.forEach(function(x){x.classList.remove('active');});
+    syncAll();applyFilters();
+  }
+  secBtns.forEach(function(t){
     t.addEventListener('click',function(){
-      tabs.forEach(function(x){x.classList.remove('active');});
-      t.classList.add('active');
-      curSector=t.getAttribute('data-filter');
-      applyFilters();
+      var s=t.getAttribute('data-sec');
+      if(s==='all'){clearAll();return;}
+      if(selSec.has(s))selSec.delete(s);else selSec.add(s);
+      t.classList.toggle('active',selSec.has(s));
+      syncAll();applyFilters();
     });
   });
-  var vtabs=document.querySelectorAll('.vtab');
+  attrBtns.forEach(function(t){
+    t.addEventListener('click',function(){
+      var a=t.getAttribute('data-attr');
+      if(selAttr.has(a))selAttr.delete(a);else selAttr.add(a);
+      t.classList.toggle('active',selAttr.has(a));
+      syncAll();applyFilters();
+    });
+  });
   vtabs.forEach(function(t){
     t.addEventListener('click',function(){
       var v=t.getAttribute('data-vfilter');
-      if(curVerdict===v){ curVerdict=null; t.classList.remove('active'); }
-      else{
-        curVerdict=v;
-        vtabs.forEach(function(x){x.classList.remove('active');});
-        t.classList.add('active');
-      }
-      applyFilters();
+      if(selVerd.has(v))selVerd.delete(v);else selVerd.add(v);
+      t.classList.toggle('active',selVerd.has(v));
+      syncAll();applyFilters();
     });
   });
-  var btn=document.getElementById('xall');
+    var btn=document.getElementById('xall');
   if(btn) btn.addEventListener('click',function(){
     var anyClosed=Array.prototype.some.call(cards,function(c){return c.style.display!=='none'&&!c.classList.contains('open');});
     cards.forEach(function(c){if(c.style.display==='none')return;c.classList.toggle('open',anyClosed);hint(c);});
