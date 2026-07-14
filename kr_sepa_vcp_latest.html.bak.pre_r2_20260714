@@ -133,53 +133,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="hdr-in">
     <div class="hdr-label">MacTrader · SEPA + VCP · 2026년 07월 14일 (화) 종가 기준</div>
     <div class="hdr-row">
-      <div class="hdr-title">국장 SEPA + VCP 돌파 후보 <span class="n">52종목</span></div>
-      <div class="hdr-stats">🤖 AI 17</div>
+      <div class="hdr-title">국장 SEPA + VCP 돌파 후보 <span class="n">32종목</span></div>
+      <div class="hdr-stats">🤖 AI 10</div>
     </div>
   </div>
-  <div class="tabs" id="secRow"><button class="tab active" data-sec="all">전체 <span class="c">52</span></button><button class="tab" data-sec="it">IT <span class="c">18</span></button><button class="tab" data-sec="healthcare">헬스케어 <span class="c">1</span></button><button class="tab" data-sec="comm">커뮤 <span class="c">1</span></button><button class="tab" data-sec="financial">금융 <span class="c">8</span></button><button class="tab" data-sec="cons-cyclical">경기소비 <span class="c">3</span></button><button class="tab" data-sec="cons-defensive">필수소비 <span class="c">3</span></button><button class="tab" data-sec="industrial">산업 <span class="c">2</span></button><button class="tab" data-sec="materials">소재 <span class="c">7</span></button><button class="tab" data-sec="energy">에너지 <span class="c">2</span></button><button class="tab" data-sec="realestate">부동산 <span class="c">1</span></button><button class="tab" data-sec="unknown">기타 <span class="c">6</span></button></div><div class="tabs attrRow"><button class="tab attr" data-attr="ai">🤖 AI <span class="c">17</span></button><button class="tab attr" data-attr="fresh">☀️ 신선주도주 <span class="c">0</span></button></div><div class="vtabs"><button class="vtab vbuy" data-vfilter="buy">🟢 매수 고려 <span class="c">2</span></button><button class="vtab vhold" data-vfilter="hold">🟡 관망 <span class="c">49</span></button><button class="vtab vavoid" data-vfilter="avoid">🔴 회피 <span class="c">1</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div>
+  <div class="tabs" id="secRow"><button class="tab active" data-sec="all">전체 <span class="c">32</span></button><button class="tab" data-sec="it">IT <span class="c">7</span></button><button class="tab" data-sec="comm">커뮤 <span class="c">1</span></button><button class="tab" data-sec="financial">금융 <span class="c">8</span></button><button class="tab" data-sec="cons-cyclical">경기소비 <span class="c">3</span></button><button class="tab" data-sec="cons-defensive">필수소비 <span class="c">3</span></button><button class="tab" data-sec="materials">소재 <span class="c">4</span></button><button class="tab" data-sec="energy">에너지 <span class="c">2</span></button><button class="tab" data-sec="unknown">기타 <span class="c">4</span></button></div><div class="tabs attrRow"><button class="tab attr" data-attr="ai">🤖 AI <span class="c">10</span></button><button class="tab attr" data-attr="fresh">☀️ 신선주도주 <span class="c">14</span></button></div><div class="vtabs"><button class="vtab vbuy" data-vfilter="buy">🟢 매수 고려 <span class="c">2</span></button><button class="vtab vhold" data-vfilter="hold">🟡 관망 <span class="c">28</span></button><button class="vtab vavoid" data-vfilter="avoid">🔴 회피 <span class="c">1</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div>
 </div>
 <div class="wrap">
 <div class="mkt kr"><div class="mkt-title">🎢 급락 딛고 반도체가 살린 코스피 마감</div><div class="mkt-grid"><div class="mkt-box"><div class="l">코스피</div><div class="v">+0.73%</div><div class="s">6856.83 반도체 반등</div></div><div class="mkt-box"><div class="l">코스닥</div><div class="v">-1.92%</div><div class="s">783.98 매도사이드카</div></div><div class="mkt-box"><div class="l">수급(외국인·기관)</div><div class="v">기관 +3.5조·외인 +762억</div><div class="s">저가매수 유입</div></div></div><div class="mkt-note">코스피는 미국-이란 갈등에 따른 지정학적 불안과 반도체 업황 피크아웃 우려로 장중 6448선까지 5% 넘게 급락했으나, 삼성전자·SK하이닉스가 3%대 반등하며 낙폭을 만회하고 전일 대비 0.73% 오른 6856.83에 거래를 마쳤다. 코스닥은 장중 6% 넘게 밀리며 올해 8번째 매도사이드카가 발동된 끝에 1.92% 내린 783.98로 마감했다. 개인이 4조 원 넘게 순매도했지만 기관(+3조 4760억 원)과 외국인(+7616억 원)이 저가 매수에 나서며 지수 추가 하락을 방어했다.</div></div>
-<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">219130</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">타이거일렉</div>
-        <span class="ctag">반도체 검사PCB · EPS+250%</span>
-        <div class="chl">HBM 검사수요 훈풍에 매출 4분기 연속 증가, 영업이익 QoQ 급증</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩75,200</div>
-      <div class="cchg up">+3.72%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>98</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -7%)</small></b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출 성장률</div><div class="v">57.6%</div><div class="s up">전년 대비, 4분기 연속 증가</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">250.0%</div><div class="s up">이익 레버리지 확대</div></div><div class="num"><div class="l">영업이익률</div><div class="v">13.1%</div><div class="s up">판가 전가력 반영</div></div><div class="num"><div class="l">Forward PE</div><div class="v">65.0x</div><div class="s dn">밸류에이션 부담 구간</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>타이거일렉은 반도체 양산 전 최종 검사 단계에서 쓰이는 고다층·고밀도 인쇄회로기판(PCB)을 만들어 반도체 테스트 장비업체와 반도체 제조사에 공급하는 회사다. 주력 제품은 반도체 칩과 직접 접촉해 전기적 특성을 검사하는 카드형 기판인 프로브카드(Probe Card)와, 테스트 장비와 반도체 사이를 연결하는 로드보드(Load Board)다. 모기업인 티에스이(반도체 번인테스트 장비업체)를 비롯해 국내외 종합반도체기업에 납품하는 B2B 수주생산 구조로 매출을 낸다. 쉽게 말해 고객사가 요구하는 스펙에 맞춰 맞춤 설계·생산하는 커스터마이징 비중이 높아 원가 상승분을 판가에 전가하기 쉬운 구조가 경쟁사 대비 강점이다. 최근에는 AI 반도체와 HBM(고대역폭메모리) 생산이 늘면서 검사공정용 PCB 수요가 함께 늘고 있고, 베트남 공장 증설로 생산능력을 확충하며 성장 전환점을 맞고 있다. 그 결과 분기 매출이 192억원에서 316억원으로 4분기 연속 늘고 영업이익도 최근 분기 60억원까지 뛰는 등 실적 개선이 뚜렷하다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>삼성전자·SK하이닉스 반등을 계기로 반도체 중소형 소부장주 전반에 순환매가 유입된 가운데, 타이거일렉은 HBM 생산 확대에 따른 검사공정 수요 증가와 4분기 연속 매출 성장이 부각되며 RS 97의 강한 모멘텀을 형성했다.</p><p style="margin-top:6px;">코스닥이 매도사이드카까지 발동되며 급락했다가 기관·외국인 저가매수로 낙폭을 만회한 국면에서 대형 반도체주 중심 반등이 소부장으로 확산되는 로테이션이 이어지고 있어 동력은 아직 유효하나, 지수 변동성이 커 지속성은 불확실하다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">실적·모멘텀은 강하나 Forward PE 65배의 밸류 부담과 미형성된 기술적 베이스를 감안하면 눌림목 확인 후 접근이 바람직하다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩75,200 돌파 시 분할 진입, ₩72,192(-4%) 이탈 시 손절하는 추세추종 전략이 유효하다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩75,200 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩72,192 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>실적 퀀텀점프</b> — 분기 매출이 192억→316억원으로 4분기 연속 늘었고 영업이익도 최근 분기 60억원까지 급증했다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>HBM 검사수요 수혜</b> — HBM 생산 확대로 검사공정용 PCB 수요가 늘고 있고 베트남 공장 증설로 캐파 확충 중이다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>판가 전가력</b> — 커스터마이징 비중이 높아 원가 상승분을 판가에 반영하기 쉬운 구조다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>압도적 상대강도</b> — RS 97로 시장 대비 강한 주가 모멘텀을 보이고 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>Forward PE 65배로 밸류에이션 부담이 커 실적 기대치 미충족 시 조정 폭이 클 수 있다</div></div><div class="risk"><span>⚠</span><div>SEPA·VCP·RDY 스코어가 모두 낮아 정제된 기술적 베이스가 아직 형성되지 않았다</div></div><div class="risk"><span>⚠</span><div>코스닥 중소형 반도체주 특성상 변동성이 크고 개인 수급 이탈 시 낙폭이 확대될 수 있다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">800스닥 잔인한 6월, 반도체는 올랐다…시총 20위 6개→9개</div><div class="m">뉴스1 · 2026.06.24 06:00</div></div><div class="news"><div class="t">반도체 중소형주까지 급반등… 팔천피 탈환</div><div class="m">머니투데이 · 2026.06.10 04:10</div></div><div class="news"><div class="t">&quot;삼전닉스 믿고 있었어&quot; 화끈하게 반등...중소형주도 환호</div><div class="m">머니투데이 · 2026.06.09 16:42</div></div><div class="news"><div class="t">&quot;삼전닉스만 오르는 게 아냐&quot; 불붙은 중소형주...상승세 탔다?</div><div class="m">머니투데이 · 2026.06.09 13:58</div></div><div class="news"><div class="t">&#x27;삼전닉스 반등&#x27; 소부장도 강세…피에스케이 20%↑[핫종목]</div><div class="m">뉴스1 · 2026.06.09 11:03</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 분기 실적 발표에서 HBM 검사수요 증가분이 매출·이익에 실제 반영되는지 확인 필요</div></div>
-</div>
-</div>
 <div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
@@ -258,45 +219,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">하반기 HBM/DRAM 투자 확대에 따른 추가 수주 공시 및 2분기 실적 발표가 다음 트리거다.</div></div>
 </div>
 </div>
-<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">131290</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">티에스이</div>
-        <span class="ctag">DRAM 프로브카드 슈퍼사이클 · EPS+500%</span>
-        <div class="chl">DRAM 프로브카드 퀄테스트 완료로 메모리향 매출 확대, 3종 독점 보유 희소성</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩277,000</div>
-      <div class="cchg up">+10.58%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>98</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.7%</b></span><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -6%)</small></b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출 성장률</div><div class="v">81.6%</div><div class="s up">전년 대비</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">500%</div><div class="s up">이익 레버리지 극대화</div></div><div class="num"><div class="l">영업이익률</div><div class="v">27.9%</div><div class="s up">분기 영업이익 429억</div></div><div class="num"><div class="l">Forward PE</div><div class="v">76.4x</div><div class="s dn">고성장 프리미엄 반영·밸류 부담</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>티에스이는 반도체와 디스플레이 생산 과정에서 웨이퍼 위의 칩과 회로가 제대로 작동하는지 미세한 탐침으로 전기 신호를 찔러 검사하는 장비와 부품을 만들어 삼성전자, SK하이닉스 같은 메모리 반도체 제조사에 납품하는 회사다. 주력 제품은 프로브카드(웨이퍼 상태 칩을 검사하는 탐침 장비), 테스트소켓(패키징 이후 완성품을 검사하는 소켓), OLED 검사장비 세 가지로, 고객사 수주에 맞춰 제품을 개발·생산해 판매하는 B2B 장비 사업 구조다. 프로브카드·인터페이스보드(검사신호를 전달하는 회로기판)·테스트소켓을 한 회사가 동시에 만드는 곳은 전 세계에서 티에스이가 유일해, 검사장비 3종 세트를 묶어 공급할 수 있다는 점이 경쟁사 대비 핵심 강점이다. 최근에는 메이저 메모리 고객사향 DRAM 프로브카드 퀄테스트(품질 인증 테스트)가 마무리 단계에 들어서면서, NAND 대비 웨이퍼당 다이 수가 많고 단가도 높은 DRAM향 매출이 본격 확대될 것이라는 기대가 성장 스토리의 축이 되고 있다. 반도체 후공정 검사 수요 증가와 맞물려 매출·이익이 동반 급증하는 국면에 진입했다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>반도체 후공정 슈퍼사이클에 올라탄 티에스이는 메이저 메모리 고객사향 DRAM 프로브카드 퀄테스트가 마무리 단계에 접어들며 메모리향 매출 확대 기대가 커졌고, 분기 영업이익이 429억원까지 급증하는 실적 서프라이즈가 이어지고 있다. 프로브카드·인터페이스보드·테스트소켓을 동시에 보유한 세계 유일 기업이라는 희소성이 부각되며 반도체 소부장 랠리의 핵심 종목으로 개인 매수세가 집중된 결과다.</p><p style="margin-top:6px;">코스피가 지정학적 리스크와 반도체 피크아웃 우려로 급락했다가 삼성전자·SK하이닉스 반등에 낙폭을 만회한 가운데, 기관과 외국인이 저가매수에 나서며 반도체 섹터로 자금이 유입돼 상승 동력은 아직 살아있다. 다만 개인 순매도 4조원대와 코스닥 매도사이드카 발동은 단기 변동성이 확대되고 있음을 보여준다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">실적과 업황 동력은 강력하나 VCP·RDY 지표가 아직 뒷받침되지 않고 당일 10%대 급등으로 단기 과열된 만큼, 눌림목 확인 후 진입이 합리적이다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩277,000 돌파 시 분할 진입하고, 종가 기준 ₩265,920(-4%) 이탈 시 손절한다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩277,000 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩265,920 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>검사장비 3종 독점</b> — 프로브카드·인터페이스보드·테스트소켓을 동시에 생산하는 세계 유일 기업으로, 경쟁사가 쉽게 따라잡기 어려운 진입장벽을 보유했다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>DRAM향 매출 확대</b> — 메이저 메모리 고객사향 DRAM 프로브카드 퀄테스트가 마무리 단계로, 단가 높은 DRAM향 매출 비중 확대가 예상된다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>실적 고성장 지속</b> — 분기 영업이익이 148→429억원까지 뛰며 영업이익률 27.9%를 기록, 외형과 수익성이 함께 개선되고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>반도체 소부장 순풍</b> — 반도체 후공정·검사장비 업황 개선 기대와 코스닥 소부장 랠리가 겹치며 수급 모멘텀이 강하다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>Forward PE 76.4배로 밸류에이션 부담이 커, 실적 둔화 시 밸류 조정 폭이 클 수 있다</div></div><div class="risk"><span>⚠</span><div>지정학적 리스크(호르무즈 사태)와 반도체 업황 피크아웃 우려가 상존해 섹터 전반의 변동성이 높다</div></div><div class="risk"><span>⚠</span><div>당일 +10.58% 급등에 따른 단기 과열로 차익실현 매물이 출회할 가능성이 있다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">“코스피 진바닥 통과”…“AI·반도체 주도주 다시 담을 때”</div><div class="m">이데일리 · 2026.07.13 08:01</div></div><div class="news"><div class="t">7,300선까지 밀린 코스피... 반도체 쇼크에 호르무즈 악재까지</div><div class="m">MBN · 2026.07.08 10:25</div></div><div class="news"><div class="t">&#x27;반도체 슈퍼사이클&#x27; 올라탄 티에스이, 실적 개선 기대↑</div><div class="m">동행미디어 시대 · 2026.07.03 16:35</div></div><div class="news"><div class="t">&#x27;소부장&#x27;, 멱살잡고 끌어올렸다…코스닥 개미 함박웃음</div><div class="m">한국경제TV · 2026.06.11 15:45</div></div><div class="news"><div class="t">반도체 건강검진센터, ‘수율’을 잡는 자가 시장을 지배한다 [반도체.....</div><div class="m">한경비즈니스 · 2026.06.05 18:27</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">메이저 메모리 고객사 DRAM 프로브카드 퀄테스트 완료 및 차기 분기 실적 발표</div></div>
-</div>
-</div>
 <div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
@@ -336,85 +258,46 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 2분기 실적 발표(잠정 8월) 및 삼성전자·SK하이닉스 하반기 CAPEX 가이던스 공개</div></div>
 </div>
 </div>
-<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">095610</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">테스 🤖</div>
-        <span class="ctag">HBM 하이브리드본딩 · SK하이닉스 연속수주</span>
-        <div class="chl">SK하이닉스향 반복 수주 + 반도체 섹터 반등 동반, 하루 16.68% 급등</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩217,500</div>
-      <div class="cchg up">+16.68%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>98</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+0.0%</b></span><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 +32%)</small></b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">EPS 성장률</div><div class="v">+54.7%</div><div class="s up">이익 레버리지 확대</div></div><div class="num"><div class="l">매출 성장률</div><div class="v">+15.0%</div><div class="s up">전년 대비</div></div><div class="num"><div class="l">영업이익률</div><div class="v">22.8%</div><div class="s up">수익성 견조</div></div><div class="num"><div class="l">Forward PE</div><div class="v">64.1x</div><div class="s dn">성장 기대 선반영, 밸류 부담</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>테스는 반도체 제조 공정에 쓰이는 증착·식각 장비를 만들어 삼성전자와 SK하이닉스 같은 메모리 반도체 제조사에 납품하는 회사다. 주력 제품은 박막을 얇게 입히는 PECVD(플라즈마를 이용한 화학 증착 장비)와 기체 상태로 불필요한 물질을 제거하는 Gas Phase Etch &amp; Cleaning 장비이며, 그 외 디스플레이용 박막봉지장비와 UVC LED용 MOCVD 장비도 함께 생산한다. 돈 버는 구조는 고객사의 신규 팹 증설이나 장비 교체 시기에 맞춰 개별 공급계약을 수주하고 장비를 납품하는 수주형 B2B 모델이라, 실적이 고객사 설비투자(CAPEX) 사이클에 크게 연동된다. 경쟁사 대비 차별점은 HBM(고대역폭메모리) 생산에 필요한 하이브리드 본딩(반도체 칩을 접합제 없이 직접 접합하는 차세대 기술) 장비를 한미반도체와 공동 개발 중이라는 점으로, 전공정 장비의 미래 먹거리로 꼽히는 영역에 발을 걸치고 있다. 최근에는 SK하이닉스로부터 올해 들어 여러 차례 반복 수주를 따내며 HBM·D램 중심의 사업 구조 전환이 실적 개선으로 이어지는 국면에 들어섰다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>미국-이란 지정학 리스크로 코스피가 장중 5% 넘게 급락했다가 삼성전자·SK하이닉스가 3%대 반등하며 지수를 방어한 날, SK하이닉스향 반도체 장비 공급사인 테스도 반도체 섹터 저가매수 흐름을 타고 16.68% 급등했다. 여기에 올해 들어 SK하이닉스와 반복적으로 체결한 공급계약과 한미반도체와 공동 개발 중인 HBM 하이브리드 본딩 장비 모멘텀이 겹치며 상승폭을 키웠다.</p><p style="margin-top:6px;">오늘 급등의 상당 부분은 지정학 패닉 이후 반도체 대형주 중심의 시장 전체 되돌림 반등에서 비롯된 것으로, 기관·외국인의 저가매수가 삼성전자·SK하이닉스를 이끌며 낙수효과를 준 성격이 크다. SK하이닉스향 연속 수주와 HBM 본딩 기술 모멘텀 자체는 유효하지만, 하루 만에 이 정도 급등을 정당화할 만한 개별 신규 재료는 확인되지 않아 추격 매수보다는 변동성 관리가 우선이다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">SK하이닉스 수주와 HBM 본딩 모멘텀은 유효하나 오늘 급등은 섹터 패닉 되돌림 성격이 강하고 PE 64배 부담까지 겹쳐 눌림목 확인이 우선이다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩217,500 돌파 시 분할 진입, ₩208,800(-4%) 이탈 시 손절 대응. 오늘 급등이 섹터 반등 동반인 만큼 눌림목에서 재확인 후 추가 매수를 고려한다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩217,500 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩208,800 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>HBM 본딩 기술 협업</b> — 한미반도체와 하이브리드 본딩 장비를 공동 개발 중이며, 차세대 HBM 생산 핵심 공정으로 부각되고 있다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>SK하이닉스 연속 수주</b> — 올해 1월부터 6월까지 SK하이닉스와 수차례 반도체 제조장비 공급계약을 체결하며 수주 모멘텀이 이어지고 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>고객사 CAPEX 확대</b> — 삼성전자 P4, SK하이닉스 M15X 등 신규 팹 투자가 본격화되며 전공정 장비 발주 확대 기대감이 크다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>실적 반등 흐름</b> — 분기 영업이익이 84억원에서 265억원으로 회복세를 보이며 수주 증가가 실적에 반영되기 시작했다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>Forward PE 64.1x로 밸류에이션 부담이 크고, 오늘 하루 16.68% 급등해 단기 과열 신호가 뚜렷하다</div></div><div class="risk"><span>⚠</span><div>오늘 상승은 지정학 리스크발 패닉 셀 이후 삼성전자·SK하이닉스 중심 반도체 섹터 전반의 되돌림 반등 성격이 강해 개별 모멘텀만으로 보기 어렵다</div></div><div class="risk"><span>⚠</span><div>수주 계약은 건별로 공시되는 구조라 향후 신규 수주 공백 시 주가 변동성이 커질 수 있다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">개인 5.5조 &#x27;팔자&#x27; vs 기관 3.9조 &#x27;사자&#x27;…코스피, 수급 공방...</div><div class="m">뉴시스 · 2026.07.14 16:14</div></div><div class="news"><div class="t">&quot;&#x27;그냥 손절할까?&#x27; 하루 종일 고민&quot;?코스피 &#x27;기사회생&#x27;, 코스닥은 ...</div><div class="m">아이뉴스24 · 2026.07.14 16:08</div></div><div class="news"><div class="t">코스피 상승 전환했지만…코스닥 연중 최저 마감</div><div class="m">한국경제 · 2026.07.14 15:48</div></div><div class="news"><div class="t">코스피, 반도체 중심 상승 마감…코스닥은 바이오발 약세</div><div class="m">아시아경제 · 2026.07.14 16:05</div></div><div class="news"><div class="t">&#x27;삼전닉스&#x27;가 지수 방어…코스피, 급락 딛고 0.7% 상승[마감]</div><div class="m">이데일리 · 2026.07.14 15:53</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">SK하이닉스·삼성전자향 추가 수주 공시 및 하이브리드 본딩 장비 인증 일정</div></div>
-</div>
-</div>
 <div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
       <div class="tcol">
-        <div class="tpill">170920</div>
+        <div class="tpill">219130</div>
         <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
-        <div class="cname">엘티씨</div>
-        <span class="ctag">낸드 고단화 수혜 · 목표가 6만원</span>
-        <div class="chl">SK하이닉스 증설 수혜에 자회사 실적 급성장, 신한증권 매수 커버리지 개시</div>
+        <div class="cname">타이거일렉</div>
+        <span class="ctag">반도체 검사PCB · EPS+250%</span>
+        <div class="chl">HBM 검사수요 훈풍에 매출 4분기 연속 증가, 영업이익 QoQ 급증</div>
       </div>
     </div>
     <div class="cright">
-      <div class="cprice">₩55,500</div>
-      <div class="cchg up">+6.12%</div>
+      <div class="cprice">₩75,200</div>
+      <div class="cchg up">+3.72%</div>
       
     </div>
   </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>97</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.1%</b></span><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -5%)</small></b></span></div>
+  <div class="gline"><span class="g"><i></i><em>RS</em> <b>97</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -7%)</small></b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출 성장률</div><div class="v">+30.2%</div><div class="s up">전년동기대비</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">+155.2%</div><div class="s up">이익 레버리지 확대</div></div><div class="num"><div class="l">영업이익률</div><div class="v">18.3%</div><div class="s up">자회사 고마진 제품 비중 확대</div></div><div class="num"><div class="l">상대강도(RS)</div><div class="v">97.0</div><div class="s up">코스닥 상위권 모멘텀</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>엘티씨는 반도체와 디스플레이 제조공정에 쓰이는 습식 화학소재를 만들어 SK하이닉스 등 반도체 제조사에 공급하는 소재기업이다. 자회사 엘티씨에이엠(LTCAM)을 통해 D램·낸드용 세정액과 식각액을, 엘에스이(LSE)를 통해 웨이퍼 세정장비를 제조해 반도체 팹에 납품하는 방식으로 돈을 번다. 특히 낸드용 고선택비 인산(HSP, 실리콘 산화막과 질화막을 다르게 깎아내는 특수 식각액)을 독점 공급하고 있어 고객사의 낸드 적층 단수가 올라갈수록 매출이 함께 늘어나는 구조를 갖췄다. 경쟁사 대비로는 소재부터 세정장비까지 공정 전반을 계열사로 아우르고 있어 고객사 라인 증설 시 여러 품목을 동시에 수주할 수 있다는 강점이 있다. 최근에는 SK하이닉스의 청주 M15X 증설과 용인 반도체 클러스터 Y1 투자 확대가 맞물리며 자회사 엘에스이의 세정장비 수주가 크게 늘었고, 이것이 최근 분기 실적 급성장의 핵심 동력으로 부상했다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>신한투자증권이 목표주가 6만원, 매수의견으로 커버리지를 개시하며 낸드 고단화와 SK하이닉스 청주 M15X·용인 클러스터 Y1 투자 확대 수혜를 부각한 것이 상승의 직접적 계기다. 자회사 엘에스이의 세정장비 수주 급증과 낸드용 고선택비 인산(HSP) 공급 확대가 최근 분기 영업이익률 개선(18.3%)으로 이어지며 실적 서프라이즈가 이어지고 있다.</p><p style="margin-top:6px;">6월 코스닥 반도체 대형주 중심 순환매가 이어지는 가운데 기관·외국인이 저가 매수에 나서는 우호적 수급 환경이 유지되고 있어 상승 동력은 아직 살아있다. 다만 VCP·SEPA 베이스 지표가 확인되지 않은 채 당일 급등한 만큼 추가 상승 전 단기 눌림목 확인이 필요하다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">실적·수급 동력은 뚜렷하나 VCP 베이스 미형성 상태에서 당일 +6% 급등해 밸류·기술적 부담이 커 눌림목 확인 후 대응이 낫다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩55,500 돌파 후 분할 진입하되 당일 급등에 따른 과열 부담을 감안해 추격매수는 자제하고, 손절가 ₩53,280(-4%) 이탈 시 즉시 대응한다.</p>
+  <div class="nums"><div class="num"><div class="l">매출 성장률</div><div class="v">57.6%</div><div class="s up">전년 대비, 4분기 연속 증가</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">250.0%</div><div class="s up">이익 레버리지 확대</div></div><div class="num"><div class="l">영업이익률</div><div class="v">13.1%</div><div class="s up">판가 전가력 반영</div></div><div class="num"><div class="l">Forward PE</div><div class="v">65.0x</div><div class="s dn">밸류에이션 부담 구간</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>타이거일렉은 반도체 양산 전 최종 검사 단계에서 쓰이는 고다층·고밀도 인쇄회로기판(PCB)을 만들어 반도체 테스트 장비업체와 반도체 제조사에 공급하는 회사다. 주력 제품은 반도체 칩과 직접 접촉해 전기적 특성을 검사하는 카드형 기판인 프로브카드(Probe Card)와, 테스트 장비와 반도체 사이를 연결하는 로드보드(Load Board)다. 모기업인 티에스이(반도체 번인테스트 장비업체)를 비롯해 국내외 종합반도체기업에 납품하는 B2B 수주생산 구조로 매출을 낸다. 쉽게 말해 고객사가 요구하는 스펙에 맞춰 맞춤 설계·생산하는 커스터마이징 비중이 높아 원가 상승분을 판가에 전가하기 쉬운 구조가 경쟁사 대비 강점이다. 최근에는 AI 반도체와 HBM(고대역폭메모리) 생산이 늘면서 검사공정용 PCB 수요가 함께 늘고 있고, 베트남 공장 증설로 생산능력을 확충하며 성장 전환점을 맞고 있다. 그 결과 분기 매출이 192억원에서 316억원으로 4분기 연속 늘고 영업이익도 최근 분기 60억원까지 뛰는 등 실적 개선이 뚜렷하다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>삼성전자·SK하이닉스 반등을 계기로 반도체 중소형 소부장주 전반에 순환매가 유입된 가운데, 타이거일렉은 HBM 생산 확대에 따른 검사공정 수요 증가와 4분기 연속 매출 성장이 부각되며 RS 97의 강한 모멘텀을 형성했다.</p><p style="margin-top:6px;">코스닥이 매도사이드카까지 발동되며 급락했다가 기관·외국인 저가매수로 낙폭을 만회한 국면에서 대형 반도체주 중심 반등이 소부장으로 확산되는 로테이션이 이어지고 있어 동력은 아직 유효하나, 지수 변동성이 커 지속성은 불확실하다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">실적·모멘텀은 강하나 Forward PE 65배의 밸류 부담과 미형성된 기술적 베이스를 감안하면 눌림목 확인 후 접근이 바람직하다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩75,200 돌파 시 분할 진입, ₩72,192(-4%) 이탈 시 손절하는 추세추종 전략이 유효하다.</p>
     <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩55,500 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩53,280 (-4%)</div></div>
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩75,200 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩72,192 (-4%)</div></div>
     </div>
   </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>낸드 고단화 수혜</b> — 고선택비 인산(HSP)을 독점 공급해 고객사 낸드 적층 단수가 높아질수록 사용량이 함께 늘어나는 구조다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>반도체 투자 확대 직결</b> — SK하이닉스 청주 M15X 증설과 용인 클러스터 Y1 투자 확대로 자회사 엘에스이의 세정장비 수주가 급증했다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>증권가 매수 커버리지 개시</b> — 신한투자증권이 목표주가 6만원, 매수의견으로 커버리지를 시작하며 향후 2년 업종 내 최고 성장률을 전망했다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>증설 재원 선제 확보</b> — 발행주식수와 CB 발행한도를 확대해 향후 소재·장비 생산능력 증설에 필요한 재원을 미리 마련했다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>SK하이닉스 등 소수 고객사 의존도가 높아 해당 고객사의 투자 계획이 바뀌면 실적 변동성이 커질 수 있다</div></div><div class="risk"><span>⚠</span><div>VCP·SEPA 등 기술적 베이스 지표가 아직 확인되지 않은 상태에서 당일 +6%대 급등해 단기 과열 부담이 있다</div></div><div class="risk"><span>⚠</span><div>Forward PE 32.2배로 밸류에이션 부담이 있어 실적이 컨센서스를 밑돌면 조정 폭이 커질 수 있다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">800스닥 잔인한 6월, 반도체는 올랐다…시총 20위 6개→9개</div><div class="m">뉴스1 · 2026.06.24 06:00</div></div><div class="news"><div class="t">소형운용사, 액티브 ETF 출시 잇따라… 수익률도 기존 상품 상회</div><div class="m">머니투데이 · 2026.06.15 17:06</div></div><div class="news"><div class="t">&quot;반도체 호황 속 가파른 성장 전망&quot;…증권가 주목한 OOO은?[클릭 e...</div><div class="m">아시아경제 · 2026.06.04 06:01</div></div><div class="news"><div class="t">현대차·삼성전자 다시 담는 고수들…SK하이닉스는 ‘순매도 1위’ [주....</div><div class="m">서울경제 · 2026.05.26 14:16</div></div><div class="news"><div class="t">엘티씨, 자회사가 실적 견인차...자금조달 한도도 확대</div><div class="m">블로터 · 2026.05.15 15:27</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">신한투자증권 매수 커버리지 개시(목표가 6만원)에 이어 SK하이닉스 청주 M15X·용인 클러스터 Y1 증설 진행 상황이 향후 주가 트리거</div></div>
+  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>실적 퀀텀점프</b> — 분기 매출이 192억→316억원으로 4분기 연속 늘었고 영업이익도 최근 분기 60억원까지 급증했다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>HBM 검사수요 수혜</b> — HBM 생산 확대로 검사공정용 PCB 수요가 늘고 있고 베트남 공장 증설로 캐파 확충 중이다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>판가 전가력</b> — 커스터마이징 비중이 높아 원가 상승분을 판가에 반영하기 쉬운 구조다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>압도적 상대강도</b> — RS 97로 시장 대비 강한 주가 모멘텀을 보이고 있다.</div></div></div>
+  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>Forward PE 65배로 밸류에이션 부담이 커 실적 기대치 미충족 시 조정 폭이 클 수 있다</div></div><div class="risk"><span>⚠</span><div>SEPA·VCP·RDY 스코어가 모두 낮아 정제된 기술적 베이스가 아직 형성되지 않았다</div></div><div class="risk"><span>⚠</span><div>코스닥 중소형 반도체주 특성상 변동성이 크고 개인 수급 이탈 시 낙폭이 확대될 수 있다</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">800스닥 잔인한 6월, 반도체는 올랐다…시총 20위 6개→9개</div><div class="m">뉴스1 · 2026.06.24 06:00</div></div><div class="news"><div class="t">반도체 중소형주까지 급반등… 팔천피 탈환</div><div class="m">머니투데이 · 2026.06.10 04:10</div></div><div class="news"><div class="t">&quot;삼전닉스 믿고 있었어&quot; 화끈하게 반등...중소형주도 환호</div><div class="m">머니투데이 · 2026.06.09 16:42</div></div><div class="news"><div class="t">&quot;삼전닉스만 오르는 게 아냐&quot; 불붙은 중소형주...상승세 탔다?</div><div class="m">머니투데이 · 2026.06.09 13:58</div></div><div class="news"><div class="t">&#x27;삼전닉스 반등&#x27; 소부장도 강세…피에스케이 20%↑[핫종목]</div><div class="m">뉴스1 · 2026.06.09 11:03</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 분기 실적 발표에서 HBM 검사수요 증가분이 매출·이익에 실제 반영되는지 확인 필요</div></div>
 </div>
 </div>
-<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -431,6 +314,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩7,940</div>
       <div class="cchg down">-6.81%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
@@ -451,45 +335,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>당일 -6.81% 급락은 코스닥 전체가 매도사이드카까지 발동되며 급락한 날 동반 하락한 것으로, 개별 악재인지 시장 베타 영향인지 추가 확인이 필요하다</div></div><div class="risk"><span>⚠</span><div>SEPA/VCP/RDY 스코어가 사실상 0/10으로 기술적 셋업이 뒷받침되지 않아 추세 신뢰도가 낮다</div></div><div class="risk"><span>⚠</span><div>과거 원가율 상승과 해외법인 적자 이력이 완전히 해소된 것은 아니라 분기별 실적 변동성이 여전히 크다</div></div></div>
   <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">&#x27;먹어서 피부관리&#x27;…K뷰티 업계, 126조원 이너뷰티 시장 공략</div><div class="m">연합뉴스 · 2026.07.12 06:11</div></div><div class="news"><div class="t">코스맥스그룹, 中 HNC 2026 참가…소재·제형 기반 헬스케어 역량 ...</div><div class="m">전자신문 · 2026.06.23 11:01</div></div><div class="news"><div class="t">코스맥스그룹, 중국 HNC 참가…기술력으로 글로벌 시장 공략</div><div class="m">머니투데이 · 2026.06.23 10:26</div></div><div class="news"><div class="t">코스맥스그룹, &#x27;혁신 기술 집약&#x27; 亞 최대 건기식 B2B 박람회 참가</div><div class="m">뉴시스 · 2026.06.23 10:14</div></div><div class="news"><div class="t">&quot;500개 브랜드 몰렸다&quot;…코스맥스그룹, 中 상하이 건기식 박람회서 ...</div><div class="m">더팩트 · 2026.06.23 09:46</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기(2Q26) 실적 발표에서 영업이익 턴어라운드 지속 여부 확인이 핵심 카탈리스트</div></div>
-</div>
-</div>
-<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">031980</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">피에스케이홀딩스</div>
-        <span class="ctag">HBM 리플로우 유일공급 · EPS+29%</span>
-        <div class="chl">삼성·하이닉스·마이크론에 HBM 리플로우 장비 공급하는 국내 유일 기업</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩141,000</div>
-      <div class="cchg up">+0.64%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>96</b></span><span class="g"><i></i><em>돌파전</em> <b>-11.2%</b></span><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -11%)</small></b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">EPS 성장률</div><div class="v">+28.8%</div><div class="s up">매출 감소에도 이익은 증가</div></div><div class="num"><div class="l">영업이익률</div><div class="v">32.8%</div><div class="s up">장비주 중 상위권 수익성</div></div><div class="num"><div class="l">RS(상대강도)</div><div class="v">96.0</div><div class="s up">업종 내 최상위 모멘텀</div></div><div class="num"><div class="l">Forward PE</div><div class="v">31.6배</div><div class="s dn">목표가 대비 밸류 부담 존재</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>피에스케이홀딩스는 반도체 후공정(패키징) 단계에서 쓰이는 Descum(반도체 표면의 감광액 찌꺼기를 제거하는 세정 장비)과 Reflow(칩을 기판에 붙이는 범프를 녹여 접합하는 장비)를 만들어 삼성전자, SK하이닉스, 미국 마이크론 등 글로벌 D램 제조사에 직접 납품하는 회사다. 매출 비중은 Reflow 52%, Descum 43%로 사실상 이 두 장비가 회사의 전부이며, 고객사 발주에 맞춰 장비를 제작·공급하는 전형적인 B2B 수주 구조로 돈을 번다. 가장 큰 차별점은 HBM(여러 개의 D램을 수직으로 쌓아 만드는 고성능 메모리) 생산 공정에 필요한 리플로우 장비를 삼성전자·SK하이닉스·마이크론 세 곳 모두에 공급하는 국내 유일 기업이라는 점으로, 경쟁사 대비 진입장벽이 뚜렷하다. 미국 텍사스 오스틴에 자회사 SEMIgear Inc.를 두고 있어 해외 고객 대응 거점도 확보했다. 최근 성장 드라이버는 HBM 수요 확대에 따른 패키징 장비 발주 증가로, 매출 자체는 분기별 편차가 크지만 고부가 제품 비중이 늘며 수익성이 개선되는 흐름을 보이고 있다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>SK하이닉스가 8% 급락한 날에도 반도체 소부장(장비·부품)주는 오히려 강세를 보였고, 최태원 SK 회장의 미국 AI 인프라 수백억달러 투자 발언이 반도체 장비주 전반에 대한 기대감을 키웠다. 여기에 HBM 생산용 리플로우 장비를 국내 유일로 삼성전자·SK하이닉스·마이크론 3사 모두에 공급한다는 구조적 스토리가 부각되며 RS 96까지 오르는 강한 상대강도를 나타냈다.</p><p style="margin-top:6px;">코스피가 지정학적 리스크로 급락했다가 기관·외국인 저가매수로 반등한 국면에서 반도체 장비주에 대한 관심은 여전히 살아있지만, VCP·RDY 점수가 0으로 뚜렷한 기술적 베이스 없이 오른 만큼 시황 변동에 따른 되돌림 리스크에 유의해야 한다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">HBM 공급망 내 유일무이한 포지션은 매력적이나 매출 역성장과 부실한 기술적 베이스(VCP 0)를 감안하면 눌림목 확인 후 대응이 낫다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩141,000 돌파 시 분할 진입하고, ₩135,360(-4%) 이탈 시 손절하는 전략이 유효하다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩141,000 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩135,360 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>HBM 독점적 공급망</b> — 삼성전자·SK하이닉스·마이크론 모두에 HBM용 리플로우 장비를 공급하는 국내 유일 기업으로, HBM 생산 확대의 직접 수혜 구조를 갖고 있다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>매출 감소에도 수익성 방어</b> — 매출은 -10.3% 줄었지만 영업이익률 32.8%를 유지하며 EPS는 오히려 28.8% 늘어, 고부가 제품 믹스 개선이 진행 중임을 시사한다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>반도체 소부장 순풍</b> — 최태원 회장의 대규모 미국 AI 인프라 투자 발언 이후 반도체 장비·소재주 전반에 매수세가 유입되며 RS 96으로 업종 내 최상위 모멘텀을 보이고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>글로벌 대응 거점</b> — 미국 텍사스 오스틴 SEMIgear Inc.를 통해 해외 고객 서비스 대응력을 확보하고 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>매출 성장률 -10.3%로 역성장 중이라 발주 사이클 둔화 우려가 있다</div></div><div class="risk"><span>⚠</span><div>VCP·RDY 점수가 0으로 뚜렷한 기술적 베이스 없이 급등해 변동성이 크다</div></div><div class="risk"><span>⚠</span><div>SK하이닉스 8% 급락 사례처럼 반도체 업황 피크아웃 우려가 재부각되면 소부장 전반이 동반 조정될 수 있다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">최태원 “美 AI에 수백억달러 투자”…韓 반도체 장비·AI 인프라주도....</div><div class="m">헤럴드경제 · 2026.07.13 21:11</div></div><div class="news"><div class="t">삼전닉스 GO or STOP…하반기 증시 핵심 포인트 5 [스페셜리포트...</div><div class="m">매경이코노미 · 2026.07.13 21:01</div></div><div class="news"><div class="t">SK하이닉스 8% 급락에도 소부장은 웃었다…반도체주 엇갈린 하루 [칩칩...</div><div class="m">조세일보 · 2026.07.13 10:28</div></div><div class="news"><div class="t">&#x27;이게 며칠 만이야&#x27;…개미 숨죽이며 삼전닉스 &#x27;반등&#x27; 관망</div><div class="m">한국경제TV · 2026.07.09 09:08</div></div><div class="news"><div class="t">삼성 역대급 실적에도 30만원 붕괴…증권가 &quot;더 간다&quot; [칩칩폭폭]</div><div class="m">조세일보 · 2026.07.07 10:50</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 분기 실적 발표(HBM 리플로우 물량 반영 여부)와 삼성전자·SK하이닉스 HBM 증설 발주 일정</div></div>
 </div>
 </div>
 <div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="buy">
@@ -531,7 +376,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">차기 분기 실적 발표 및 SK하이닉스·삼성전자향 후속 발주 공시 여부</div></div>
 </div>
 </div>
-<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -548,6 +393,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩14,000</div>
       <div class="cchg up">+1.30%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
@@ -570,46 +416,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">하나증권 주간추천주 선정(2026.07.04) 이후 전고체전지 소재 사업 관련 후속 뉴스 여부</div></div>
 </div>
 </div>
-<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">094840</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">슈프리마에이치큐 🤖</div>
-        <span class="ctag">자사주 매입발표 · 바이오인식 테마</span>
-        <div class="chl">80억 자사주 신탁계약·주주환원 발표로 급등, 바이오인식 테마 동반 강세</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩12,460</div>
-      <div class="cchg up">+0.65%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>91</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.8%</b></span><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출 성장률</div><div class="v">+23.7%</div><div class="s up">YoY</div></div><div class="num"><div class="l">영업이익률</div><div class="v">19.4%</div><div class="s up">안정적 수익성</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">-47.9%</div><div class="s dn">YoY 감소</div></div><div class="num"><div class="l">RS</div><div class="v">91.0</div><div class="s up">상위권 모멘텀</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>슈프리마에이치큐는 지문·얼굴 등 바이오인식 기술을 활용한 출입보안·근태관리 시스템을 개발해 국내외 보안업체에 공급하는 ODM(브랜드사 주문을 받아 개발부터 생산까지 대신 만들어주는 방식) 전문기업이다. 주력 제품은 지문·안면 인식 리더기와 출입통제 단말기로, 해외 보안 브랜드사에는 완제품을 납품하고 국내에서는 근태관리·출입보안 솔루션을 직접 공급하는 B2B 구조로 매출을 낸다. 오랜 기간 축적한 바이오인식 알고리즘 기술력과 빠른 납기 대응력이 경쟁사 대비 강점으로 꼽힌다. 부동산 개발 자회사 더그루를 통한 비주력 사업도 병행하고 있어 본업인 보안 ODM 외의 실적 변수도 존재한다. 4월 자사주 취득 신탁계약 체결과 주주환원 계획 발표를 계기로 주가가 재평가받았고, 이후 바이오인식 테마 전반의 강세와 맞물려 상승세를 이어가고 있다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>4월 21~22일 80억원 규모 자사주 취득 신탁계약 체결과 주주환원 계획 발표가 나오며 주가가 12%대 급등했고, 이후 바이오인식 테마 전반의 강세가 더해지며 상승분을 지켰다. 매출 성장률 23.7%로 외형 확대가 확인되는 가운데 저평가된 밸류에이션(Forward PE 9.1배)이 재조명받은 것도 상승을 뒷받침했다.</p><p style="margin-top:6px;">자사주 매입이라는 수급 재료는 이미 4월에 상당 부분 반영됐고, VCP·RDY 스코어가 0/10에 그쳐 기술적으로 깨끗한 눌림목 없이 올라온 만큼 추가 상승 동력의 신선도는 약화된 상태다. 코스닥이 지정학적 리스크로 변동성이 큰 국면인 점도 신규 진입 시 유의해야 한다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">주주환원 재료는 이미 소화됐고 기술적 셋업(VCP·RDY 0/10)이 미흡해 신규 진입보다는 눌림목 확인 후 대응이 유리하다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩12,460 돌파 시 분할 진입을 고려하되, 자사주 매입 재료가 일부 소화된 만큼 손절가 ₩11,962(-4%)를 반드시 지켜 리스크를 제한한다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩12,460 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩11,962 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>주주환원 강화</b> — 80억원 규모 자사주 취득 신탁계약을 체결하고 주주환원 계획을 발표하며 수급 개선 기대감이 부각됐다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>매출 성장세 지속</b> — 분기 매출이 53→46→54→73억원으로 최근 분기 큰 폭 반등하며 외형 성장이 재개됐다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>안정적 수익성</b> — 영업이익률 19.4%를 유지하며 보안 ODM 사업의 견조한 마진 구조를 보여준다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>저평가 밸류</b> — Forward PE 9.1배로 코스닥 내 상대적으로 낮은 밸류에이션에 거래되고 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>EPS가 전년 대비 -47.9% 감소해 이익의 질에 대한 의문이 남는다.</div></div><div class="risk"><span>⚠</span><div>VCP·RDY 스코어가 0/10으로 기술적 베이스 형성이 미흡해 변동성이 클 수 있다.</div></div><div class="risk"><span>⚠</span><div>애널리스트 커버리지가 없어(0명) 목표주가·컨센서스 확인이 불가능하다.</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">역대 관제펀드에 울었는데…국민성장펀드, 이번엔 다를까 [스페셜리포...</div><div class="m">매경이코노미 · 2026.05.27 21:01</div></div><div class="news"><div class="t">슈프리마에이치큐, 주주환원 계획 발표…12%대 급등[특징주]</div><div class="m">이데일리 · 2026.04.22 09:15</div></div><div class="news"><div class="t">슈프리마에이치큐, 80억 규모 자사주 취득 신탁계약 체결</div><div class="m">이데일리 · 2026.04.21 17:51</div></div><div class="news"><div class="t">오늘의 메모[4월 22일]</div><div class="m">서울경제 · 2026.04.21 14:51</div></div><div class="news"><div class="t">자사주 소각 행렬 만든 상법 개정...&#x27;처분 막차타기&#x27; 마저 실패</div><div class="m">이데일리 · 2026.03.15 13:35</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">자사주 취득 신탁계약 이행 진행 상황 및 추가 주주환원책 발표 여부가 관건</div></div>
-</div>
-</div>
-<div class="card" style="--c:#DC2626;--cl:#FBE5E5;--cx:#FEF6F6" data-sector="energy" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#DC2626;--cl:#FBE5E5;--cx:#FEF6F6" data-sector="energy" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -626,10 +433,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩131,400</div>
       <div class="cchg down">-5.81%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>90</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.4%</b></span><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span></div>
+  <div class="gline"><span class="g"><i></i><em>RS</em> <b>91</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.4%</b></span><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -644,50 +452,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   </div>
   <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>정제마진 턴어라운드</b> — 분기 영업이익이 -3,440억원 적자에서 최근 두 분기 1조원대로 급반등하며 실적 개선 흐름이 뚜렷하다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>지정학적 반사이익</b> — 중동發 지정학 리스크가 부각되는 국면에서 비중동 지역 정제설비를 보유한 점이 수급 불균형 시 상대적 수혜 요인으로 꼽힌다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>샤힌 프로젝트 완공 임박</b> — 2026년 말 대규모 석유화학 신규설비 투자가 마무리 단계로, 배당성향 상향 가능성도 함께 거론된다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>밸류에이션 매력</b> — Forward PE 15.7배로 목표가(151,941원) 대비 추가 상승여력이 열려있다는 평가다.</div></div></div>
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>오늘 코스피 급락장 속 -5.81% 하락하며 VCP·RDY 셋업이 무너진 상태로 기술적 진입 신호가 부재하다</div></div><div class="risk"><span>⚠</span><div>매출성장률이 -0.5%로 정체돼 있어 이익 개선이 정제마진 등 외부변수에 의존적이다</div></div><div class="risk"><span>⚠</span><div>3월 고점(177,100원) 대비 이미 -25%가량 조정을 받아 추세 훼손 여부를 확인할 필요가 있다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">에쓰오일, 창립 50주년 기념 ‘감동의 마라톤’ 개최 후원</div><div class="m">디지털타임스 · 2026.07.14 19:07</div></div><div class="news"><div class="t">에쓰오일, 창립 50주년 기념 &#x27;감동의 마라톤&#x27; 개최 후원</div><div class="m">전자신문 · 2026.07.14 16:28</div></div><div class="news"><div class="t">장애인·비장애인 7000명 함께 뛴다…&#x27;감동의 마라톤&#x27; 부활</div><div class="m">한국경제 · 2026.07.14 16:02</div></div><div class="news"><div class="t">에쓰오일, 창립 50주년 맞아 &#x27;감동의 마라톤&#x27; 개최</div><div class="m">아시아경제 · 2026.07.14 10:25</div></div><div class="news"><div class="t">에쓰오일, 창립 50주년 기념 &#x27;감동의 마라톤&#x27;에 2억5천만원 후원</div><div class="m">연합뉴스 · 2026.07.14 10:09</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">에쓰오일, 창립 50주년 기념 &#x27;감동의 마라톤&#x27; 개최 후원</div><div class="m">전자신문 · 2026.07.14 16:28</div></div><div class="news"><div class="t">장애인·비장애인 7000명 함께 뛴다…&#x27;감동의 마라톤&#x27; 부활</div><div class="m">한국경제 · 2026.07.14 16:02</div></div><div class="news"><div class="t">에쓰오일, 창립 50주년 맞아 &#x27;감동의 마라톤&#x27; 개최</div><div class="m">아시아경제 · 2026.07.14 10:25</div></div><div class="news"><div class="t">에쓰오일, 창립 50주년 기념 &#x27;감동의 마라톤&#x27;에 2억5천만원 후원</div><div class="m">연합뉴스 · 2026.07.14 10:09</div></div><div class="news"><div class="t">에쓰오일, 창립50주년 기념 감동의 마라톤 개최 후원</div><div class="m">파이낸셜뉴스 · 2026.07.14 10:08</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 분기 실적 발표 및 2026년 말 샤힌 프로젝트 완공·배당정책 검토가 주요 변곡점</div></div>
 </div>
 </div>
-<div class="card" style="--c:#0891B2;--cl:#E1F2F6;--cx:#F5FBFC" data-sector="healthcare" data-ai="false" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">001540</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">안국약품</div>
-        <span class="ctag">실적 턴어라운드·다이소 진출</span>
-        <div class="chl">다이소·올리브영 진출과 고혈압 신약 출시로 분기 영업익 흑자전환, 실적 턴어라운드 본궤도</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩11,490</div>
-      <div class="cchg up">+2.22%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>90</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출성장(YoY)</div><div class="v">30.5%</div><div class="s up">다이소·올리브영 채널 확대 효과</div></div><div class="num"><div class="l">EPS성장(YoY)</div><div class="v">254.3%</div><div class="s up">이익 턴어라운드 반영</div></div><div class="num"><div class="l">분기 영업이익</div><div class="v">160억원</div><div class="s up">전분기 -59억→흑자전환</div></div><div class="num"><div class="l">RS(상대강도)</div><div class="v">90.0</div><div class="s up">시장 대비 강한 주가 모멘텀</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>안국약품은 진해거담제와 고혈압·고지혈증 등 순환기계 치료제를 만들어 병의원에 공급하고, 최근에는 건강기능식품과 뷰티 제품을 다이소·올리브영 등 소비자 채널에 직접 파는 제약회사다. 주력 전문의약품으로는 기침가래약 시네츄라, 고혈압치료제 레보텐션·레보살탄플러스, 소화제 슈바젯 등을 보유하고 있으며, 건기식·뷰티 라인은 눈건강 제품 토비콤과 재생크림 리쥬비더마, 최근 다이소에 입점한 영양제 브이팩이 대표적이다. 전문의약품은 병원 처방을 통해 유통사·약국에 공급하는 B2B형 구조이고, 건기식·뷰티는 다이소·올리브영·자사몰을 통한 B2C 판매로 매출원을 다변화하고 있다. 경쟁사 대비 차별점은 국내 최초로 인다파미드 성분을 넣은 3제 복합 고혈압약 &#x27;레보살탄플러스&#x27;를 자체 출시하고, 조지메디신스의 3제 복합제 &#x27;위다플릭&#x27; 국내 독점 판권을 확보하는 등 심혈관(CV) 영역에서 활발히 파이프라인을 확장하고 있다는 점이다. 다이소·올리브영 채널 확대가 실적에 반영되며 1분기 만에 지난해 연간 영업이익을 넘어섰고, 분기 영업이익이 적자에서 흑자로 급반전한 것이 최근 사업 전환점이다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>안국약품은 다이소·올리브영 등 유통 다각화 효과로 1분기 만에 전년 연간 영업이익을 넘어서는 실적 서프라이즈를 냈고, 분기 영업이익이 -59억원에서 160억원으로 급반전하며 턴어라운드를 확인시켰다. 여기에 7월 초 국내 최초 인다파미드 기반 고혈압 3제 복합제 &#x27;레보살탄플러스&#x27;를 출시하며 신성장동력까지 더해진 것이 최근 주가 상승의 핵심 배경이다.</p><p style="margin-top:6px;">다이소 채널 확대와 신약 처방은 이제 막 시작된 단계라 동력 자체는 아직 살아있지만, RS 90·Forward PE 20.3x까지 오른 반면 VCP·RDY 점수는 0으로 기술적 베이스가 없어 추격 매수보다는 다음 분기 실적으로 재확인이 필요한 구간이다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">실적 턴어라운드와 신약 모멘텀은 긍정적이나 VCP·RDY가 0/10으로 매수 타점을 만드는 베이스가 아직 형성되지 않아 눌림목 확인 후 접근이 안전하다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩11,490 돌파 시 분할 진입, 손절가 ₩11,030(-4%) 이탈 시 즉시 정리하는 전략이 유효하다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩11,490 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩11,030 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>실적 턴어라운드</b> — 1분기 만에 작년 연간 영업이익을 넘어섰고, 분기 영업이익이 -59억원에서 160억원으로 급반전했다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>유통채널 다변화</b> — 건기식 브이팩·눈건강 토비콤 등이 다이소·올리브영에 입점하며 병원 처방 의존도를 낮추는 B2C 매출원이 커지고 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>고혈압 신약 파이프라인</b> — 국내 최초 인다파미드 기반 3제 복합제 레보살탄플러스를 출시하고 위다플릭 독점판권을 확보하며 CV 포트폴리오를 강화했다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>강한 상대강도</b> — RS 90.0으로 시장 대비 주가 모멘텀이 뚜렷하게 우위에 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>영업이익률이 여전히 -7.7%로 수익성 개선은 진행형 단계</div></div><div class="risk"><span>⚠</span><div>VCP 0/10, RDY 0/10으로 기술적 베이스 형성이 확인되지 않은 상태에서 RS만 높은 구간</div></div><div class="risk"><span>⚠</span><div>다이소 등 저가 유통채널 매출 확대가 마진을 희석시킬 가능성</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">&quot;치료옵션 확대&quot;…안국약품, 고혈압 치료제 출시</div><div class="m">뉴시스 · 2026.07.08 09:59</div></div><div class="news"><div class="t">넷마블도 2028년 과천행… 대기업 집결하는 지정타, 오피스 시장도 들...</div><div class="m">디지털타임스 · 2026.07.07 15:47</div></div><div class="news"><div class="t">다이소로 몰려가는 제약사들</div><div class="m">아시아경제 · 2026.07.07 15:11</div></div><div class="news"><div class="t">“비타민부터 홍삼까지”…다이소로 번진 제약사 ‘가성비 전쟁’</div><div class="m">세계일보 · 2026.07.05 07:19</div></div><div class="news"><div class="t">최성구 피노바이오 사장 &quot;ADC플랫폼 검증 초읽기…자체 파이프라인으.....</div><div class="m">이데일리 · 2026.07.03 08:12</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표에서 다이소·올리브영 채널 매출 기여도 확인 및 레보살탄플러스 처방 확대 추이가 다음 촉매</div></div>
-</div>
-</div>
-<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -704,6 +473,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩79,700</div>
       <div class="cchg down">-2.21%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
@@ -724,45 +494,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>영업이익률 3.7%의 박리다매 구조라 유가·인건비 등 비용 변동에 실적이 민감하게 반응한다</div></div><div class="risk"><span>⚠</span><div>한진그룹 제주 지하수 증산 이슈처럼 계열·지역 리스크에 노출될 수 있다</div></div><div class="risk"><span>⚠</span><div>SEPA·VCP·RDY 지표가 모두 미형성 상태로 뚜렷한 기술적 매수 셋업이 확인되지 않는다</div></div></div>
   <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">한국공항, 대한항공 중심 재편 수혜…고유가 영향 제한적-하나</div><div class="m">이데일리 · 2026.06.11 07:47</div></div><div class="news"><div class="t">한진그룹 제주 지하수 증산 제동…도의회 마지막 회기 상정 불발</div><div class="m">연합뉴스 · 2026.06.09 14:55</div></div><div class="news"><div class="t">한국공항공사, 지난 20일 김포공항에서 대테러 부분훈련</div><div class="m">문화일보 · 2026.05.21 15:02</div></div><div class="news"><div class="t">한국공항, 1분기 영업익 196억원…전년비 35.51% 증가</div><div class="m">한국경제 · 2026.05.14 15:05</div></div><div class="news"><div class="t">한국공항, 1분기 영업익 197억…전년비 35.5% ↑</div><div class="m">헤럴드경제 · 2026.05.14 14:49</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 발표와 하계 성수기 여객 수요 회복 지표가 다음 트리거다.</div></div>
-</div>
-</div>
-<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">071200</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">인피니트헬스케어</div>
-        <span class="ctag">첫 중간배당 · 이익 턴어라운드</span>
-        <div class="chl">국내 PACS 점유율 1위, 첫 분기배당·지배구조 개선 기대감에 재평가 진행 중</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩8,920</div>
-      <div class="cchg up">+3.36%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>89</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.0%</b></span><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 +0%)</small></b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출 성장률</div><div class="v">+31.0%</div><div class="s up">YoY 성장 지속</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">+500%</div><div class="s up">이익 턴어라운드</div></div><div class="num"><div class="l">영업이익률</div><div class="v">38.6%</div><div class="s up">고수익 소프트웨어 구조</div></div><div class="num"><div class="l">Forward PE</div><div class="v">8.1x</div><div class="s up">이익 대비 저평가</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>인피니트헬스케어는 병원에서 쓰는 의료영상 저장·전송 시스템인 PACS와 AI 기반 영상판독 소프트웨어를 만들어 국내외 종합병원에 공급하는 의료 IT 기업이다. 핵심 제품은 자체 PACS 플랫폼과 디지털 병리(디지털 패솔로지) 솔루션으로, 국내 종합병원급 시장에서 70% 이상의 점유율을 확보하고 있고 미국·대만 등 8개 해외 법인을 통해 55개국 6,300여개 의료기관에 제품을 공급한다. 병원에 소프트웨어와 시스템을 구축해주고 대가를 받는 수주형 매출에 이후 유지보수 수수료가 더해지는 구조로 돈을 벌며, 최근에는 의료 데이터 통합 플랫폼과 AI 영상판독 솔루션으로 매출원을 넓히고 있다. 대형병원 레퍼런스를 기반으로 한 높은 전환장벽(락인 효과)이 핵심 경쟁력이며, 디지털 병리 솔루션이 미국 FDA 승인을 받으며 해외 확장 여지도 커졌다. 여기에 창사 이래 처음으로 분기 배당을 결정하고 소액주주 중심의 지배구조 개선 요구가 맞물리면서, 실적 턴어라운드와 함께 저평가 해소 기대감이 주가에 반영되는 국면이다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>3월 이후 소액주주 중심의 지배구조 개선 요구가 확산되며 저평가 해소 기대감이 주가를 밀어올렸고, 창사 이래 첫 분기배당(주당 100원, 9월 11일 지급) 결정이 이를 뒷받침했다. 여기에 디지털 병리 솔루션의 미국 FDA 승인과 분기 영업이익 급반등이 겹치며 실적 턴어라운드 스토리가 재평가 모멘텀으로 이어지고 있다.</p><p style="margin-top:6px;">지배구조 개선 및 배당 확대 기대감은 여전히 유효한 재료지만, 최근 코스닥이 매도사이드카까지 발동되며 급락하는 등 지수 변동성이 커진 국면이라 소형주 전반의 수급 리스크에 노출돼 있다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">실적 턴어라운드와 배당·거버넌스 모멘텀은 긍정적이나 기술적 셋업(VCP·RDY 0/10)이 아직 확인되지 않아 눌림목 확인 후 진입이 합리적이다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩8,920 돌파 시 분할 진입하되, 종가 기준 ₩8,563(-4%) 이탈 시 손절 대응이 유효하다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩8,920 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩8,563 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>이익 턴어라운드</b> — 분기 영업이익이 -15억→116억→95억원으로 급반등하며 고정비 레버리지 효과가 본격화되는 구간이다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>국내 압도적 점유율</b> — 종합병원급 PACS 시장 점유율 70% 이상을 바탕으로 안정적인 매출 기반을 갖추고 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>해외 확장 모멘텀</b> — 디지털 병리 솔루션이 FDA 승인을 획득하면서 미국 등 해외 매출 확대 가능성이 열렸다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>첫 분기배당·거버넌스 개선</b> — 창사 후 처음으로 분기배당(주당 100원, 9월 11일 지급)을 결정했고 소액주주 중심의 지배구조 개선 요구가 재평가 촉매로 작용 중이다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>VCP 0/10·RDY 0/10으로 기술적 셋업이 아직 확인되지 않아 변동성이 클 수 있다.</div></div><div class="risk"><span>⚠</span><div>애널리스트 커버리지가 0명으로 목표주가·컨센서스가 부재해 정보 비대칭 리스크가 있다.</div></div><div class="risk"><span>⚠</span><div>지배구조 개선 기대감이 이미 상당 부분 주가에 선반영된 상태로, 실제 개선안 지연 시 되돌림 가능성이 있다.</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">레몬헬스케어, 의료영상 모바일 발급 서비스 &#x27;MyScanView&#x27; 상용...</div><div class="m">한국경제 · 2026.07.03 11:11</div></div><div class="news"><div class="t">MRI.CT.X-ray, 이제 CD 대신 스마트폰으로 발급 받는다</div><div class="m">서울신문 · 2026.07.03 10:57</div></div><div class="news"><div class="t">“의료영상 CD 없는 병원 만든다”… 레몬헬스케어, ‘마이스캔뷰’ ....</div><div class="m">동아일보 · 2026.07.03 10:56</div></div><div class="news"><div class="t">와이즈넛, 홍수현 기타비상무이사 신규 선임</div><div class="m">블로터 · 2026.05.27 15:43</div></div><div class="news"><div class="t">산업부·코트라, 바이오헬스 시장공략…중남미 무역사절단 파견</div><div class="m">TV조선 · 2026.05.17 12:02</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">9월 11일 예정된 첫 분기배당 지급과 추가 지배구조 개선안 발표가 단기 catalyst.</div></div>
 </div>
 </div>
 <div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
@@ -800,50 +531,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   </div>
   <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>삼성전자 지분 재평가</b> — 보유 중인 삼성전자 지분 약 1.5%의 가치 상승이 반영되며 목표주가가 상향 조정되는 흐름이 이어지고 있다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>밸류업 기대감 유효</b> — 저PBR 손보주로서 기업 밸류업 프로그램 수혜 기대감이 여전히 살아있는 종목으로 꼽힌다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>데이터센터 신사업</b> — 10조원 규모로 커지는 데이터센터 시장을 겨냥해 특화 화재보험 등 신규 먹거리 선점에 나서고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>비급여 관리급여 전환</b> — 7월부터 도수치료 등 일부 비급여 항목이 관리급여로 전환되며 장기보험 손해율 개선 효과가 기대된다.</div></div></div>
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>자동차보험 사고접수 절차를 둘러싼 노조 반발 등 서비스 관련 잡음이 브랜드 리스크로 번질 가능성</div></div><div class="risk"><span>⚠</span><div>SEPA·VCP·RDY 스코어가 사실상 미형성 상태로 기술적 눌림목이 확인되지 않은 구간</div></div><div class="risk"><span>⚠</span><div>미국-이란 지정학적 갈등 등 외부 변수로 인한 코스피 전반의 변동성 확대</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">예선부터 강호들 격돌… 우승후보들 희비 엇갈려</div><div class="m">파이낸셜뉴스 · 2026.07.14 18:02</div></div><div class="news"><div class="t">주식시장 급락에 연기금 &#x27;줍줍&#x27;…어떤 종목을 샀을까</div><div class="m">머니투데이 · 2026.07.14 16:48</div></div><div class="news"><div class="t">AI가 찾아낸 전자정부 표준프레임워크 취약점 990건…공공기관 보안 ....</div><div class="m">뉴시스 · 2026.07.14 15:09</div></div><div class="news"><div class="t">&#x27;한방 과잉진료&#x27; 논란 재점화…국토부 &#x27;8주룰&#x27; 추진 촉각</div><div class="m">뉴시스 · 2026.07.14 13:50</div></div><div class="news"><div class="t">10조 데이터센터 시장 잡아라…보험업계 새 먹거리 선점 잰걸음</div><div class="m">헤럴드경제 · 2026.07.14 13:04</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">AI가 찾아낸 전자정부 표준프레임워크 취약점 990건…공공기관 보안 ....</div><div class="m">뉴시스 · 2026.07.14 15:09</div></div><div class="news"><div class="t">&#x27;한방 과잉진료&#x27; 논란 재점화…국토부 &#x27;8주룰&#x27; 추진 촉각</div><div class="m">뉴시스 · 2026.07.14 13:50</div></div><div class="news"><div class="t">10조 데이터센터 시장 잡아라…보험업계 새 먹거리 선점 잰걸음</div><div class="m">헤럴드경제 · 2026.07.14 13:04</div></div><div class="news"><div class="t">영상통화 사고 접수 폐기 촉구하는 삼성화재애니카 노조원들</div><div class="m">연합뉴스 · 2026.07.14 12:25</div></div><div class="news"><div class="t">사무금융노조, 삼성화재 교통사고 영상통화 접수 중단 촉구 기자회견</div><div class="m">연합뉴스 · 2026.07.14 12:25</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">밸류업 프로그램 세부안 발표 및 데이터센터 특화보험 등 신사업 진행 상황이 다음 트리거다.</div></div>
 </div>
 </div>
-<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">049430</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">코메론</div>
-        <span class="ctag">행동주의 밸류주 · 순현금 시총육박</span>
-        <div class="chl">행동주의 펀드발 자사주 매입 압박에 저평가 해소 진행중, 순현금이 시총과 맞먹는 수준</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩19,180</div>
-      <div class="cchg down">-1.79%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>87</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.0%</b></span><span class="g"><i></i><em>VCP</em> <b>4/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">Forward PE</div><div class="v">7.7배</div><div class="s up">코스닥 평균 대비 저평가</div></div><div class="num"><div class="l">영업이익률</div><div class="v">28.2%</div><div class="s up">고마진 니치 제조업</div></div><div class="num"><div class="l">자사주 매입</div><div class="v">100억원</div><div class="s up">신탁계약(~2026.9.11)</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">+15.2%</div><div class="s up">이익 우상향 유지</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>코메론은 건설·인테리어 현장에서 쓰는 줄자(측정용 자)를 만들어 국내외 유통업체와 건자재 매장에 판매하는 회사다. 미국 현지법인 KOMELON USA를 통해 자체 브랜드 &#x27;Komelon&#x27; 제품을 미국 시장에 직접 유통하고, 베트남 하노이의 KOMELON VINA 생산법인에서 완제품을 만들어 각지에 공급한다. 매출의 93.79%가 줄자사업에서 나오고, 나머지는 줄자 소재인 강철띠를 자체 생산하는 압연사업(1.98%)으로 부산과 인천에서 별도 공장을 운영하며 수직계열화를 갖췄다. 60년 넘게 줄자 한 우물을 파며 부산·하노이 이원화 생산체제로 원가경쟁력을 확보한 것이 핵심 강점이다. 최근 화두는 사업 자체보다 &#x27;주주환원&#x27;인데, 순현금과 금융투자자산이 1500억원 이상 쌓이며 시가총액(1735억원)에 맞먹는 수준까지 불어나자 퀸즈가드운용·피보나치자산운용 등 행동주의 펀드 연합이 자사주 매입과 자본 환원을 요구하며 2026년 초부터 경영권 분쟁이 벌어지고 있다. 3월 정기주총에서 연대 측의 405억원 규모 자기주식 매입 및 자본준비금 감소 안건이 통과됐고, 회사는 6월 100억원 규모 자사주 취득 신탁계약으로 일부 대응했다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>3월 정기주총에서 퀸즈가드운용·헤이홀더 연대가 405억원 규모 자사주 매입 및 자본준비금 감소 안건을 통과시키며 주가가 주총 전 대비 20% 넘게 상승했고, 6월에는 회사가 100억원 규모 자사주 취득 신탁계약을 체결하며 이 흐름을 이어갔다. 순현금 및 금융자산이 시가총액에 맞먹는 저평가 구조가 행동주의 펀드의 타겟이 되며 밸류 언락 기대감이 주가를 밀어올린 전형적 사례다.</p><p style="margin-top:6px;">당일 -1.79% 하락은 코스닥 전반의 지정학적 리스크발 급락(매도사이드카 발동)에 연동된 시장 전체 조정으로, 종목 고유의 동력 훼손으로 보이진 않는다. 다만 405억원 요구 대비 100억원 대응이라는 이행 갭이 남아있어, 9월 신탁계약 만기 전후 추가 조치가 나오는지가 동력 지속의 관건이다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">순현금·저평가 스토리는 매력적이나 이미 주총 이후 20%+ 급등분에 상당 부분 반영됐고, 405억원 요구 대비 100억원 대응이라는 이행 갭과 매출 정체가 남아있어 추가 확인 후 진입이 합리적이다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩19,180 돌파 시 분할 진입, 손절가는 ₩18,413(-4%)로 설정해 경영권 분쟁 관련 노이즈성 급락에 대비한다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩19,180 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩18,413 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>행동주의발 자본환원</b> — 퀸즈가드·피보나치 등 연합이 3월 주총에서 405억원 자사주 매입안을 통과시켰고, 회사가 6월 100억원 신탁계약으로 응수하며 주주환원 압박이 현실화되고 있다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>순현금이 시총 육박</b> — 순현금 및 금융투자자산이 1500억원을 넘어 시가총액 1735억원에 근접해, 본업 가치는 사실상 헐값에 거래되는 구조다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>고마진 니치 사업</b> — 60년 넘는 줄자 전문성과 부산·베트남 이원화 생산체제로 영업이익률 28%대의 안정적 수익성을 유지한다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>밸류에이션 매력</b> — Forward PE 7.7배로 순현금 대비 저평가 매력이 부각되며 LS증권 등에서 리포트가 나오고 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>행동주의 측 요구(405억원)와 회사 대응(100억원) 간 이행 갭이 남아있어 추가 자본환원 여부가 불확실하다</div></div><div class="risk"><span>⚠</span><div>분기 매출이 155~207억원 박스권에서 정체돼 있어 외형 성장 모멘텀은 약하다</div></div><div class="risk"><span>⚠</span><div>경영권 분쟁이 장기화될 경우 뉴스 노이즈에 따른 주가 변동성이 커질 수 있다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">코메론, 100억 규모 자사주 취득 신탁계약 체결 결정</div><div class="m">헤럴드경제 · 2026.06.15 14:16</div></div><div class="news"><div class="t">퀸즈가드운용, 코메론 주총 승리…행동주의 모델 새 지평 [시그널]</div><div class="m">서울경제 · 2026.04.16 06:31</div></div><div class="news"><div class="t">&quot;KCGI 출신 집결&quot;…코메론 둘러싼 행동주의 &#x27;동시다발 전개&#x27;</div><div class="m">아시아경제 · 2026.03.27 13:54</div></div><div class="news"><div class="t">코메론, 대규모 순현금 기반 고수익 구조…저평가 매력 부각-LS</div><div class="m">이데일리 · 2026.03.26 07:50</div></div><div class="news"><div class="t">퀸즈가드운용, 코메론에 임시주총 요구…경영권 분쟁 2라운드</div><div class="m">SBS Biz · 2026.03.24 13:48</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">9월 11일 자사주 취득 신탁계약 만기 전후 추가 주주환원 정책 발표 및 경영권 분쟁 후속 이슈</div></div>
-</div>
-</div>
-<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -860,6 +552,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩10,030</div>
       <div class="cchg down">-0.40%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
@@ -882,46 +575,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">하나증권의 여의도 빌딩 매각 절차 완료 시점과 특별배당 지급 여부</div></div>
 </div>
 </div>
-<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">105560</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">KB금융</div>
-        <span class="ctag">밸류업 대장주 · 자사주매입 70%</span>
-        <div class="chl">6천억 자사주매입 70% 소각+2Q 사상최대 순익 전망, PER 10.5배 저평가</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩180,000</div>
-      <div class="cchg down">-3.33%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>87</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.5%</b></span><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -7%)</small></b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">Forward PER</div><div class="v">10.5배</div><div class="s up">업종 평균 대비 저평가 구간</div></div><div class="num"><div class="l">CET1비율</div><div class="v">13.63%</div><div class="s up">보통주자본비율, 주주환원 여력 충분</div></div><div class="num"><div class="l">2Q26 순익 컨센서스</div><div class="v">1.97조원</div><div class="s up">전년동기 대비 +15%, 지주사 설립 이후 최대</div></div><div class="num"><div class="l">목표주가</div><div class="v">₩219,222</div><div class="s up">현재가 대비 +21.8% 상승여력</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>KB금융은 KB국민은행·KB증권·KB손해보험 등 11개 계열사를 거느리고 예금·대출·증권거래·보험판매 서비스를 제공해 수익을 내는 국내 최대 종합금융그룹이다. 핵심 자회사인 KB국민은행이 예대마진(대출금리와 예금금리 차이로 남기는 이익)을 통해 그룹 순이익의 상당 부분을 벌어들이고, KB증권·KB손해보험·KB카드 등 비은행 계열사가 수수료·보험료 수익으로 이를 보완하는 구조다. 신한금융·하나금융 등 경쟁 금융지주 대비 국민은행의 압도적 소매 고객 기반과 KB스타뱅킹 중심 디지털 플랫폼 경쟁력이 차별점으로 꼽힌다. 최근에는 정부의 기업가치제고(밸류업) 프로그램 세제 인센티브에 발맞춰 대규모 자사주 매입·소각과 배당 확대 등 주주환원을 공격적으로 강화하며 주가 재평가 국면에 들어섰다. 2분기에는 견조한 순이자마진(NIM)과 비은행 계열사 실적 개선에 힘입어 지주사 설립 이후 최대 분기 순이익이 예상된다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>정부 밸류업 프로그램 세제 인센티브와 6천억원 규모 자사주 매입·소각(진행률 약 70%)이 맞물리며 주주환원 매력이 부각됐고, 2분기 지배주주순익이 전년동기 대비 15% 증가한 1.97조원으로 지주사 설립 이후 최대치를 기록할 것이라는 전망이 상승 동력으로 작용했다.</p><p style="margin-top:6px;">오늘 코스피는 반도체 중심 반등으로 0.73% 상승 마감했지만 KB금융은 이 흐름과 무관하게 -3.33% 하락해 단기적으로 시장 대비 상대강도가 약화된 모습이다. 자사주매입 완료 시점과 2분기 실적 발표가 임박한 만큼 동력의 지속 여부는 실적 확인 전까지 유보적으로 봐야 한다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">밸류업·자사주매입·실적 개선이라는 펀더멘털 동력은 유효하나 VCP·RDY 준비도가 0/10이고 오늘 시장 대비 약세를 보인 만큼 2분기 실적 확인 전까지는 관망이 적절하다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩180,000 돌파 시 분할 진입, 손절가는 ₩172,800(-4%)로 설정해 시황 급변 리스크에 대응한다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩180,000 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩172,800 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>사상 최대 분기실적</b> — 2분기 지배주주순익 컨센서스 1.97조원으로 전년동기 대비 15% 증가, 지주사 설립 이후 최대 분기이익이 전망된다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>강도 높은 주주환원</b> — 6천억원 규모 자사주 매입·소각 중 7월 7일 기준 약 70%가 이미 완료됐고, 7월 20일 종료 예정이다. 밸류업 세제 인센티브와 맞물려 배당 매력도 부각된다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>견고한 자본·수익성</b> — CET1비율 13.63%로 자본여력이 충분하고 그룹·은행 NIM이 각각 1.99%·1.77%로 안정적으로 유지되고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>저평가 밸류에이션</b> — Forward PER 10.5배로 업종 평균 대비 낮은 수준이며, 증권사 목표주가는 최고 22.5만원까지 상향되고 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>오늘 코스피가 지정학 리스크發 급락 후 반도체 중심으로 반등했으나 KB금융은 이 흐름에서 소외되며 -3.33% 조정, 단기 변동성 확대 국면</div></div><div class="risk"><span>⚠</span><div>금리 하락 사이클 진입 시 순이자마진(NIM) 축소 우려</div></div><div class="risk"><span>⚠</span><div>가계부채 규제 강화 및 부동산 PF 관련 자산건전성 리스크</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">“대마불사라더니 잡주처럼 움직여”…200만원짜리 주식 43%폭락</div><div class="m">매일경제 · 2026.07.14 19:49</div></div><div class="news"><div class="t">시장 삼킨 단일종목 레버리지…거래대금 톱10 중 4개 차지</div><div class="m">서울경제 · 2026.07.14 17:40</div></div><div class="news"><div class="t">&#x27;냉온탕&#x27; 삼전닉스 덕에 6800피 지켰지만…&#x27;찐반등&#x27; 오늘 밤에 달렸...</div><div class="m">머니투데이 · 2026.07.14 17:23</div></div><div class="news"><div class="t">“갚을 수 있는데 왜 안 빌려주나요?” 너무 일찍 닫힌 은행 ‘대출 문...</div><div class="m">헤럴드경제 · 2026.07.14 17:22</div></div><div class="news"><div class="t">&#x27;주가 얼마나 낮길래&#x27;…지주 합병까지 거론된 지방금융지주</div><div class="m">머니투데이 · 2026.07.14 17:13</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">자사주매입 종료(7월 20일 예정) 및 2분기 실적 발표(7월 말) 앞두고 컨센서스 부합 여부가 관건</div></div>
-</div>
-</div>
-<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -938,6 +592,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩68,500</div>
       <div class="cchg down">-1.72%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
@@ -956,7 +611,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   </div>
   <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>EU 관세 반사이익</b> — EU가 중국산 승용·경트럭용 타이어에 최대 29.9% 반덤핑 관세를 부과하기로 하면서, 헝가리 현지 생산기지를 보유한 한국타이어는 3.4%의 업계 최저 관세율만 적용받아 유럽 내 가격경쟁력을 확보했다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>한온시스템 턴어라운드</b> — 자동차 열관리 시스템 자회사 한온시스템의 실적 개선이 이어지며 그룹 전체의 밸류에이션 디스카운트가 점차 해소될 것으로 기대된다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>고인치 믹스 개선</b> — 고부가 고인치 타이어 비중 확대와 환율 효과로 유럽·북미 중심의 외형 성장세가 지속되고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>저평가 밸류에이션</b> — Forward PE 8.2배로 글로벌 타이어 피어 그룹 대비 낮은 수준이며, 목표주가 85,733원은 현재가 대비 추가 상승여력을 시사한다.</div></div></div>
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>천연고무 등 타이어 원재료 가격 상승에 따른 원가 부담 확대 가능성</div></div><div class="risk"><span>⚠</span><div>2026년 영업이익률 가이던스(13.4%) 대비 현재 9.5% 수준으로 달성 불확실성 존재</div></div><div class="risk"><span>⚠</span><div>미국-이란發 지정학적 리스크로 코스피 변동성이 커질 경우 동반 조정 위험 (당일 -1.72%)</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">스마일게이트·넥슨 등 파트너사 12곳, &#x27;2026 유스 이스포츠 페스티...</div><div class="m">데일리안 · 2026.07.14 18:19</div></div><div class="news"><div class="t">‘2026 유스 이스포츠 페스티벌’ 12곳 파트너 참여</div><div class="m">매일경제 · 2026.07.14 11:59</div></div><div class="news"><div class="t">스마일게이트, ‘2026 유스 이스포츠 페스티벌’ 개최 예고</div><div class="m">지디넷코리아 · 2026.07.14 11:17</div></div><div class="news"><div class="t">&#x27;2026 유스 이스포츠 페스티벌&#x27; 12개 파트너사 참여</div><div class="m">포모스 · 2026.07.14 10:57</div></div><div class="news"><div class="t">넥슨재단·슈퍼셀·콘진원, ‘2026 유스 이스포츠 페스티벌’ 연다</div><div class="m">매일경제 · 2026.07.14 10:32</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">EU 관세 변수에도…타이어3사, 유럽 공략 가속</div><div class="m">디지털데일리 · 2026.07.14 16:38</div></div><div class="news"><div class="t">‘2026 유스 이스포츠 페스티벌’ 12곳 파트너 참여</div><div class="m">매일경제 · 2026.07.14 11:59</div></div><div class="news"><div class="t">스마일게이트, ‘2026 유스 이스포츠 페스티벌’ 개최 예고</div><div class="m">지디넷코리아 · 2026.07.14 11:17</div></div><div class="news"><div class="t">스마게·넥슨 등 &#x27;2026 유스 e스포츠 페스티벌&#x27; 개최... 게임 ...</div><div class="m">전자신문 · 2026.07.14 11:01</div></div><div class="news"><div class="t">&#x27;2026 유스 이스포츠 페스티벌&#x27; 12개 파트너사 참여</div><div class="m">포모스 · 2026.07.14 10:57</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">차기 분기 실적 발표 및 EU 대중국 타이어 반덤핑 관세 최종 판정·시행 여부</div></div>
 </div>
 </div>
@@ -999,7 +654,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">판호 관련 후속 공시 및 2분기 실적 발표 일정이 다음 관전 포인트다.</div></div>
 </div>
 </div>
-<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1016,6 +671,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩5,640</div>
       <div class="cchg up">+2.17%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
@@ -1036,45 +692,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>VCP·RDY 점수가 모두 0/10으로 기술적 베이스 정비가 확인되지 않아 눌림목 없이 진입 시 변동성 위험이 크다</div></div><div class="risk"><span>⚠</span><div>분기 매출이 616→553→573→567억원으로 정체·둔화 흐름을 보여 톱라인 모멘텀이 약하다</div></div><div class="risk"><span>⚠</span><div>시가총액 812억원의 소형주로 애널리스트 커버리지가 전무해(0명) 정보 비대칭과 유동성 리스크가 상존한다</div></div></div>
   <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">광주·전남 상장사 매출·영업이익·순이익 2년 연속 증가</div><div class="m">연합뉴스 · 2026.04.16 14:24</div></div><div class="news"><div class="t">&#x27;중동전쟁 여파&#x27; 광주·전남 상장사 3월 시가총액 23.7% 급감</div><div class="m">연합뉴스 · 2026.04.07 11:01</div></div><div class="news"><div class="t">DSR제강, 주당 430원 현금배당 결정</div><div class="m">헤럴드경제 · 2026.03.04 15:33</div></div><div class="news"><div class="t">‘기부왕’ DSR제강, 순천시에만 17억원 내놓아</div><div class="m">헤럴드경제 · 2025.12.11 13:56</div></div><div class="news"><div class="t">광주·전남 상장사 8월 시가총액 전월 대비 2조원 증가</div><div class="m">연합뉴스 · 2025.09.09 14:38</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 2분기 실적 발표 및 베트남 CABLE VINA 법인 실적 반영 규모가 다음 트리거</div></div>
-</div>
-</div>
-<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">137080</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">나래나노텍 🤖</div>
-        <span class="ctag">반도체장비 흑자전환 · 자사주 소각</span>
-        <div class="chl">12분기 만에 반도체 장비 흑자전환 + 20억 자사주 소각, 턴어라운드 부각</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩4,800</div>
-      <div class="cchg down">-11.76%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>86</b></span><span class="g"><i></i><em>돌파전</em> <b>-19.2%</b></span><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출 성장률</div><div class="v">+108.4%</div><div class="s up">YoY, 수주 확대 반영</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">+430.0%</div><div class="s up">적자에서 큰 폭 개선</div></div><div class="num"><div class="l">영업이익률</div><div class="v">2.2%</div><div class="s up">12분기 만에 흑자전환</div></div><div class="num"><div class="l">RS(상대강도)</div><div class="v">85.0</div><div class="s up">시장 대비 강한 주가 흐름</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>나래나노텍은 디스플레이·이차전지·반도체 공정에 쓰이는 생산장비를 만들어 국내외 패널·배터리·반도체 제조사에 납품하는 회사다. 주력 제품은 FPD(평판디스플레이) 공정 장비와 배터리 전극 공정 장비, 반도체 PLP(패널레벨패키징) 공정 장비, 모듈 공정 장비 등으로, 고객사 생산라인에 맞춰 장비를 수주·제작·설치하는 방식으로 매출을 낸다. 쉽게 말해 디스플레이·배터리·반도체 제조사가 공장 라인을 새로 깔거나 늘릴 때 필요한 생산설비를 만들어 파는 장비 전문업체다. 최근에는 자동차용 디스플레이와 페로브스카이트 태양전지 공정 장비까지 영역을 넓히며 사업 다각화를 진행 중이다. 2026년 5월 반도체 장비 부문 실적 개선에 힘입어 12분기 만에 분기 영업흑자로 돌아섰고, 6월에는 20억원 규모 자사주를 매입해 소각하기로 결정하며 주주환원에도 나섰다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>12분기 만에 반도체 장비 부문에서 분기 흑자전환에 성공했다는 소식(5월)과 20억원 규모 자사주 매입·소각 결정(6월)이 겹치며 실적 턴어라운드 기대와 주주환원 모멘텀이 동시에 작용해 RS 85까지 주가 강도가 올라온 것으로 보인다. 매출·EPS 성장률이 세 자릿수를 기록하며 소형 장비주 특유의 레버리지 효과가 부각된 점도 자금 유입을 이끈 요인이다.</p><p style="margin-top:6px;">다만 오늘 -11.76% 급락은 개별 재료 소멸이라기보다 코스닥 전반이 지정학적 리스크로 매도사이드카까지 발동된 시장 전체 조정에 연동된 결과로 보인다. 흑자전환·자사주 소각이라는 펀더멘털 동력 자체는 아직 살아있지만 시황 변동성이 커진 만큼 단기 되돌림 폭을 좀 더 지켜볼 필요가 있다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">턴어라운드·자사주 소각 재료는 유효하나 오늘 급락으로 기술적 셋업이 무너졌고 VCP·RDY 점수도 0/10이라 지금은 매수 타이밍이 아니다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩4,800선 돌파와 거래량 실림을 확인한 뒤 분할 진입하고, ₩4,608(-4%) 이탈 시 즉시 손절해 리스크를 제한한다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩4,800 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩4,608 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>12분기만에 흑자전환</b> — 2026년 1분기 반도체 장비 부문 실적 개선으로 12분기 만에 분기 영업흑자를 냈고, 직전 분기(4억) 대비 흑자 폭(7억)도 확대되는 흐름이다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>자사주 매입·소각</b> — 6월 20억원 규모 자사주 취득 및 소각을 동시에 결정했다. 시가총액 514억원 대비 작지 않은 규모로 주주환원 의지를 보여준다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>세 자릿수 성장 지표</b> — 매출 성장률 108.4%, EPS 성장률 430%로 외형과 이익 모두 가파르게 개선되는 구간에 들어섰다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>사업 다각화</b> — 디스플레이·배터리·반도체 3개 축에 자동차용 디스플레이, 페로브스카이트 태양전지 장비까지 더하며 신규 성장동력을 확보하고 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>영업이익률이 2.2%로 아직 이익 체력이 얇아 수주 변동에 따라 다시 적자로 돌아설 수 있음</div></div><div class="risk"><span>⚠</span><div>시가총액 514억원의 초소형주로 변동성이 크고 유동성이 낮음</div></div><div class="risk"><span>⚠</span><div>VCP 0/10, RDY 0/10로 기술적 셋업이 완성되지 않았고 애널리스트 커버리지도 전무해 목표가·다음 실적 시점 확인이 어려움</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">오늘의 메모[7월 8일]</div><div class="m">서울경제 · 2026.07.07 10:44</div></div><div class="news"><div class="t">기업 공시[6월 16일]</div><div class="m">서울경제 · 2026.06.16 17:11</div></div><div class="news"><div class="t">나래나노텍, 20억 규모 자사주 소각 결정</div><div class="m">이데일리 · 2026.06.16 15:12</div></div><div class="news"><div class="t">나래나노텍, 20억 규모 자사주 취득 결정</div><div class="m">헤럴드경제 · 2026.06.16 14:44</div></div><div class="news"><div class="t">&quot;반도체 장비 통했다&quot; 나래나노텍, 12분기 만에 흑자 전환</div><div class="m">파이낸셜뉴스 · 2026.05.15 12:56</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 2분기 실적 발표에서 반도체 장비 부문 흑자 기조 지속 여부가 다음 확인 포인트</div></div>
 </div>
 </div>
 <div class="card" style="--c:#DC2626;--cl:#FBE5E5;--cx:#FEF6F6" data-sector="energy" data-ai="false" data-unicorn="false" data-verdict="hold">
@@ -1116,45 +733,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 발표(자회사별 실적 확인)가 다음 주가 트리거</div></div>
 </div>
 </div>
-<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">045100</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">한양이엔지</div>
-        <span class="ctag">HBM 팹 수혜 · EPS +183%</span>
-        <div class="chl">청주·천안 HBM 팹 증설 수혜주, EPS +183% 급성장에도 마진은 3%대로 박한 편</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩32,750</div>
-      <div class="cchg down">-2.96%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>86</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.8%</b></span><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -17%)</small></b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">RS 등급</div><div class="v">86.0</div><div class="s up">상위권 상대강도</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">+182.6%</div><div class="s up">전년比 급성장</div></div><div class="num"><div class="l">매출 성장률</div><div class="v">+26.9%</div><div class="s up">청주·HBM 팹 수주 확대</div></div><div class="num"><div class="l">영업이익률</div><div class="v">3.1%</div><div class="s dn">수주업 특성상 박한 마진</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>한양이엔지는 반도체·디스플레이 생산라인(Fab)에 들어가는 초고순도(UHP) 배관과 특수설비를 시공하고 유지보수해 삼성전자, SK하이닉스 같은 대형 팹 운영사에 납품하는 회사다. 주력 사업은 UHP(Ultra High Purity, 반도체 공정용 가스·화학물질이 오염되지 않도록 설계한 초고순도 배관 설비) 시공과 화학물질중앙공급장치(CCSS, 여러 공정 설비에 화학물질을 한 곳에서 배분해 공급하는 시스템) 구축이며, 최근에는 산업플랜트, 환경에너지, 우주항공 분야로도 사업을 넓히고 있다. 돈 버는 구조는 반도체·디스플레이 대기업의 팹 신설·증설 프로젝트를 수주해 설계부터 시공, 유지보수까지 대행하는 B2B 수주형 매출이다. 1988년부터 UHP 설비 한 우물을 판 업력과 미국·베트남·중국·싱가포르 해외 법인망을 갖춰 글로벌 팹 프로젝트에도 대응할 수 있다는 점이 경쟁사 대비 강점으로 꼽힌다. 최근에는 정부의 반도체 메가프로젝트 발표로 충청권(천안·온양)에 HBM 후공정 전용 신규 팹이 들어서고 청주 기존 팹 증설도 재개되면서, 관련 UHP·유틸리티 설비 수주 기대감이 주가 상승 동력으로 작용했다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>정부의 반도체 메가프로젝트 발표(충청권 HBM 후공정 신규팹 81조원 투자, 삼성전자 천안·온양 HBM 팹 56조원 투자) 이후 UHP 설비·화학물질중앙공급장치 독점 노하우를 보유한 한양이엔지가 수혜주로 부각되며 거래량이 급증하고 주가가 상승했다. 여기에 청주 M15·M16 등 기존 팹 증설 재개 기대감도 겹치며 저평가된 반도체 장비 종목으로 재조명받았다.</p><p style="margin-top:6px;">오늘은 코스닥 전반 조정(매도사이드카 발동, 개인 대규모 순매도)에 따른 동반 하락(-2.96%)이지만 기관·외국인이 저가 매수에 나서며 지수 낙폭을 방어한 점을 보면 메가프로젝트發 수급 모멘텀 자체는 아직 크게 훼손되지 않았다. 다만 SEPA·VCP 스코어가 미형성(0/10) 상태라 기술적 베이스 완성 여부는 추가 확인이 필요하다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">HBM 팹 수혜 스토리는 유효하나 SEPA/VCP 베이스가 아직 형성되지 않았고 금일 지수 급락에 동반 하락해 기술적 진입 신호는 부재하다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩32,750 돌파 시 분할 진입, 손절가는 ₩31,440(-4%)로 설정해 리스크를 제한하는 전략이 유효하다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩32,750 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩31,440 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>HBM 메가팹 수혜</b> — 정부 반도체 메가프로젝트로 천안·온양 HBM 후공정 신규팹과 청주 팹 증설이 예고되며 UHP 설비 수주 기대가 부각됐다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>영업이익 턴어라운드</b> — 분기 영업이익이 97억에서 223억으로 급반등하며 수익성 회복 신호를 보였다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>저평가 밸류에이션</b> — Forward PE 13.7배로 반도체 장비株 평균 대비 낮아 밸류 매력이 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>글로벌 대응력</b> — 미국·베트남·중국·싱가포르 해외법인을 통해 국내외 팹 프로젝트에 동시 대응 가능하다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>영업이익률 3.1%로 마진이 얇아 원자재·인건비 상승에 실적 변동성이 크다</div></div><div class="risk"><span>⚠</span><div>오늘 코스닥 사이드카 발동 속 -2.96% 급락, 개별 모멘텀과 무관한 지수 조정 리스크</div></div><div class="risk"><span>⚠</span><div>반도체 팹 투자 사이클에 실적이 연동돼 있어 대기업 투자 일정이 지연되면 수주 공백이 발생할 수 있다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">&#x27;100조 잭팟&#x27; 청주 팹 본격화?삼성·현대·SK에코, &#x27;분할수주&#x27; 총...</div><div class="m">아이뉴스24 · 2026.07.08 10:31</div></div><div class="news"><div class="t">위험성평가 잘하면 &#x27;정기감독 면제&#x27;…안전관리 인센티브 확대</div><div class="m">머니투데이 · 2026.07.07 13:00</div></div><div class="news"><div class="t">2032년까지 2조2921억 투입→韓 재사용 발사체, 어디까지 왔나 [...</div><div class="m">아이뉴스24 · 2026.06.30 18:11</div></div><div class="news"><div class="t">우리도 재사용 발사체 개발 시동…“2032년에 달 착륙”</div><div class="m">채널A · 2026.06.30 14:31</div></div><div class="news"><div class="t">우주항공청 ‘차세대발사체’ 산학연 간담회…2032년 달 착륙 논의</div><div class="m">데일리안 · 2026.06.30 14:02</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">천안·온양 HBM 신규팹 및 청주 팹 증설 관련 추가 수주 공시, 2026년 2분기 실적 발표 일정</div></div>
-</div>
-</div>
 <div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="financial" data-ai="true" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
@@ -1190,7 +768,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   </div>
   <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>주주환원 확대</b> — 주당배당금에 더해 상·하반기 합산 1.5조원 규모 자사주 매입·소각이 예정돼 연간 총주주환원율이 49.3%까지 오를 전망이다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>실적 개선 전망</b> — 연간 지배주주 순이익이 5.9조원으로 전년 대비 18.5% 증가할 것으로 예상되며 이자이익 중심의 이익 성장이 뒷받침한다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>밸류에이션 매력</b> — Forward PER 9.7배로 업종 내에서도 저평가 구간에 위치해 목표주가 상향 리포트가 잇따르고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>금리 인상 기대</b> — 한국은행의 기준금리 인상 전망이 은행 이자이익 개선 기대와 맞물리며 은행주 전반의 순환매 수혜로 이어지고 있다.</div></div></div>
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>당국의 가계대출 규제 강화 — 5대 은행 순증 속도 70% 축소, 모기지보험 셧다운, 대출한도 축소 등 정책 리스크가 은행 본업 성장을 제약할 수 있다</div></div><div class="risk"><span>⚠</span><div>롯데손보 인수 단가 등 M&amp;A 관련 불확실성이 이익 전망에 변수로 작용할 수 있다</div></div><div class="risk"><span>⚠</span><div>미국-이란 지정학적 리스크와 반도체 업황 우려로 코스피 전반 변동성이 확대되고 있어 은행주도 단기 변동에 노출된다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">여전히 비싼 롯데손보...신한과 가격 줄다리기</div><div class="m">서울경제 · 2026.07.14 20:28</div></div><div class="news"><div class="t">“대마불사라더니 잡주처럼 움직여”…200만원짜리 주식 43%폭락</div><div class="m">매일경제 · 2026.07.14 19:49</div></div><div class="news"><div class="t">은행권 ‘대출 조이기’ 확산···우리은행, 지점당 주담대 한도 월 .....</div><div class="m">경향신문 · 2026.07.14 19:29</div></div><div class="news"><div class="t">우리은행도 주담대 조이기 동참…지점당 10억원으로 제한</div><div class="m">세계일보 · 2026.07.14 18:57</div></div><div class="news"><div class="t">우리은행, 지점당 주담대 한도 월 30억→10억으로 축소</div><div class="m">중앙일보 · 2026.07.14 17:33</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">우리은행, 16일부터 모기지보험 막고 영업점 대출한도 3분의 1로 줄인...</div><div class="m">한국경제 · 2026.07.14 16:37</div></div><div class="news"><div class="t">5대 은행, 연말까지 가계대출 순증 속도 70% 줄여야</div><div class="m">전자신문 · 2026.07.14 10:23</div></div><div class="news"><div class="t">주요 은행 모기지보험 일제 중단…대출 한도 5000만원 이상 축소</div><div class="m">조선일보 · 2026.07.14 16:32</div></div><div class="news"><div class="t">시중은행 모기지보험 셧다운…우리·SC도 일시 중단(종합)</div><div class="m">뉴스1 · 2026.07.14 16:23</div></div><div class="news"><div class="t">시중은행 모기지보험 셧다운…SC제일은행도 일시 중단</div><div class="m">뉴스1 · 2026.07.14 09:32</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">하반기 자사주 매입 8,000억원 집행 및 2026년 2분기 실적 발표</div></div>
 </div>
 </div>
@@ -1233,46 +811,47 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 배당 확정 공시 및 2027년 하반기 SK하이닉스향 차세대 ALD 캐니스터 매출 반영 여부</div></div>
 </div>
 </div>
-<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
       <div class="tcol">
-        <div class="tpill">339950</div>
+        <div class="tpill">105560</div>
         <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
-        <div class="cname">아이비김영</div>
-        <span class="ctag">흑자전환 교육주 · EPS +500%</span>
-        <div class="chl">편입·뷰티 교육 확장에 1분기 흑자전환, PER 6배 저평가 매력 부각</div>
+        <div class="cname">KB금융</div>
+        <span class="ctag">밸류업 대장주 · 자사주매입 70%</span>
+        <div class="chl">6천억 자사주매입 70% 소각+2Q 사상최대 순익 전망, PER 10.5배 저평가</div>
       </div>
     </div>
     <div class="cright">
-      <div class="cprice">₩2,690</div>
-      <div class="cchg up">+0.56%</div>
+      <div class="cprice">₩180,000</div>
+      <div class="cchg down">-3.33%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>85</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.6%</b></span><span class="g"><i></i><em>VCP</em> <b>4/4</b></span></div>
+  <div class="gline"><span class="g"><i></i><em>RS</em> <b>86</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.5%</b></span><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -7%)</small></b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출 성장률</div><div class="v">+6.1%</div><div class="s up">전년동기 대비</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">+500%</div><div class="s up">흑자전환 효과</div></div><div class="num"><div class="l">영업이익률</div><div class="v">18.0%</div><div class="s up">수익성 개선</div></div><div class="num"><div class="l">Forward PER</div><div class="v">6.0배</div><div class="s up">저평가 구간</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>아이비김영은 대학생 편입 교육과 미용 자격증·입시 교육을 함께 제공해 학생과 취업준비생에게 판매하는 종합 교육기업이다. 종속회사 메가커리어랩·브라운편입을 통해 편입 강좌, 학점은행제 원격교육, 국가기술자격증 취득 과정을 운영하고, 최근에는 뷰티 브랜드 사업으로도 영역을 넓히고 있다. 수강생에게 강의료와 교육비를 받는 B2C 구독형 매출이 핵심이고 여기에 뷰티 브랜드 유통 매출이 더해지는 구조다. 편입·미용 교육이라는 틈새시장에서 오랜 업력으로 쌓은 커리큘럼과 강사진이 경쟁사 대비 강점으로 꼽힌다. 온·오프라인 교육과 뷰티·자격증 신규사업이 고르게 성장하며 2025년 실적이 개선됐고, 2026년 1분기에는 영업이익·순이익이 나란히 흑자로 전환되는 변곡점을 맞았다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>2025년 연결 매출(+11.6%)과 영업이익(+15.6%)이 뷰티·자격증 신규사업 호조에 힘입어 두 자릿수로 성장했고, 2026년 1분기에는 영업이익·순이익이 나란히 흑자로 전환되며 개선세가 이어졌다. 여기에 K-뷰티 글로벌 확산을 겨냥한 뷰티 브랜드 사업 확장과 분기배당 신설 같은 주주환원 정책이 맞물리며 매수 심리를 자극한 것으로 보인다.</p><p style="margin-top:6px;">RS 84로 시장 대비 강한 상대강도를 유지하고 있고 코스닥 급락일에도 개별 모멘텀이 살아있다는 점은 긍정적이나, 최근 분기 영업이익이 3억원까지 급감했던 이력은 턴어라운드의 지속성을 지켜봐야 함을 시사한다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">실적 턴어라운드와 저평가 매력은 있으나 SEPA·VCP·RDY 스코어가 모두 낮아 기술적 매수 자리로 보기엔 이르다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩2,690 돌파 시 분할 매수로 접근하고, 종가 기준 ₩2,582(-4%) 이탈 시 손절 대응.</p>
+  <div class="nums"><div class="num"><div class="l">Forward PER</div><div class="v">10.5배</div><div class="s up">업종 평균 대비 저평가 구간</div></div><div class="num"><div class="l">CET1비율</div><div class="v">13.63%</div><div class="s up">보통주자본비율, 주주환원 여력 충분</div></div><div class="num"><div class="l">2Q26 순익 컨센서스</div><div class="v">1.97조원</div><div class="s up">전년동기 대비 +15%, 지주사 설립 이후 최대</div></div><div class="num"><div class="l">목표주가</div><div class="v">₩219,222</div><div class="s up">현재가 대비 +21.8% 상승여력</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>KB금융은 KB국민은행·KB증권·KB손해보험 등 11개 계열사를 거느리고 예금·대출·증권거래·보험판매 서비스를 제공해 수익을 내는 국내 최대 종합금융그룹이다. 핵심 자회사인 KB국민은행이 예대마진(대출금리와 예금금리 차이로 남기는 이익)을 통해 그룹 순이익의 상당 부분을 벌어들이고, KB증권·KB손해보험·KB카드 등 비은행 계열사가 수수료·보험료 수익으로 이를 보완하는 구조다. 신한금융·하나금융 등 경쟁 금융지주 대비 국민은행의 압도적 소매 고객 기반과 KB스타뱅킹 중심 디지털 플랫폼 경쟁력이 차별점으로 꼽힌다. 최근에는 정부의 기업가치제고(밸류업) 프로그램 세제 인센티브에 발맞춰 대규모 자사주 매입·소각과 배당 확대 등 주주환원을 공격적으로 강화하며 주가 재평가 국면에 들어섰다. 2분기에는 견조한 순이자마진(NIM)과 비은행 계열사 실적 개선에 힘입어 지주사 설립 이후 최대 분기 순이익이 예상된다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>정부 밸류업 프로그램 세제 인센티브와 6천억원 규모 자사주 매입·소각(진행률 약 70%)이 맞물리며 주주환원 매력이 부각됐고, 2분기 지배주주순익이 전년동기 대비 15% 증가한 1.97조원으로 지주사 설립 이후 최대치를 기록할 것이라는 전망이 상승 동력으로 작용했다.</p><p style="margin-top:6px;">오늘 코스피는 반도체 중심 반등으로 0.73% 상승 마감했지만 KB금융은 이 흐름과 무관하게 -3.33% 하락해 단기적으로 시장 대비 상대강도가 약화된 모습이다. 자사주매입 완료 시점과 2분기 실적 발표가 임박한 만큼 동력의 지속 여부는 실적 확인 전까지 유보적으로 봐야 한다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">밸류업·자사주매입·실적 개선이라는 펀더멘털 동력은 유효하나 VCP·RDY 준비도가 0/10이고 오늘 시장 대비 약세를 보인 만큼 2분기 실적 확인 전까지는 관망이 적절하다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩180,000 돌파 시 분할 진입, 손절가는 ₩172,800(-4%)로 설정해 시황 급변 리스크에 대응한다.</p>
     <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩2,690 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩2,582 (-4%)</div></div>
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩180,000 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩172,800 (-4%)</div></div>
     </div>
   </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>실적 턴어라운드</b> — 2025년 연결 매출과 영업이익이 두 자릿수로 성장했고 2026년 1분기 영업이익·순이익이 나란히 흑자 전환했다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>뷰티사업 확장</b> — K-뷰티 글로벌 확산에 맞춰 뷰티 브랜드 사업을 종합 뷰티기업으로 키우며 신규 성장축을 마련하고 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>주주환원 강화</b> — 주당 100원 분기배당을 결정하며 배당 정책을 강화, 주주환원에 대한 시장 신뢰를 높이고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>밸류에이션 매력</b> — Forward PER 6.0배로 교육서비스 업종 내에서도 저평가 구간에 위치해 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>분기별 실적 변동성이 커 최근 분기 영업이익이 급감한 이력이 있어 턴어라운드 지속성 확인 필요</div></div><div class="risk"><span>⚠</span><div>애널리스트 커버리지가 전무해 목표주가·컨센서스로 밸류에이션 검증이 어려움</div></div><div class="risk"><span>⚠</span><div>시가총액 1200억원대 소형주로 수급 변동에 따른 주가 변동성이 큼</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">기업 공시 [7월 1일]</div><div class="m">서울경제 · 2026.07.01 16:25</div></div><div class="news"><div class="t">아이비김영, 주당 100원 분기배당(감액배당) 결정…주주환원 정책 강....</div><div class="m">서울신문 · 2026.07.01 15:19</div></div><div class="news"><div class="t">아이비김영, 주당 100원 분기배당 결정</div><div class="m">이데일리 · 2026.07.01 15:16</div></div><div class="news"><div class="t">아이비김영, 2026년 1분기 영업이익·순이익 흑자 전환... 연결 매...</div><div class="m">서울신문 · 2026.05.15 10:01</div></div><div class="news"><div class="t">아이비김영, K-뷰티 글로벌 확산 속 뷰티 브랜드 사업 확장…종합 뷰....</div><div class="m">서울신문 · 2026.05.12 10:24</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 2분기 실적 발표 및 분기배당 지급 일정이 다음 주가 트리거</div></div>
+  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>사상 최대 분기실적</b> — 2분기 지배주주순익 컨센서스 1.97조원으로 전년동기 대비 15% 증가, 지주사 설립 이후 최대 분기이익이 전망된다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>강도 높은 주주환원</b> — 6천억원 규모 자사주 매입·소각 중 7월 7일 기준 약 70%가 이미 완료됐고, 7월 20일 종료 예정이다. 밸류업 세제 인센티브와 맞물려 배당 매력도 부각된다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>견고한 자본·수익성</b> — CET1비율 13.63%로 자본여력이 충분하고 그룹·은행 NIM이 각각 1.99%·1.77%로 안정적으로 유지되고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>저평가 밸류에이션</b> — Forward PER 10.5배로 업종 평균 대비 낮은 수준이며, 증권사 목표주가는 최고 22.5만원까지 상향되고 있다.</div></div></div>
+  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>오늘 코스피가 지정학 리스크發 급락 후 반도체 중심으로 반등했으나 KB금융은 이 흐름에서 소외되며 -3.33% 조정, 단기 변동성 확대 국면</div></div><div class="risk"><span>⚠</span><div>금리 하락 사이클 진입 시 순이자마진(NIM) 축소 우려</div></div><div class="risk"><span>⚠</span><div>가계부채 규제 강화 및 부동산 PF 관련 자산건전성 리스크</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">“레버리지 후폭풍에 중동 리스크까지”…코스피 6440선 밀렸다 반등</div><div class="m">디지털데일리 · 2026.07.14 16:44</div></div><div class="news"><div class="t">&#x27;혼돈의 증시&#x27; 코스피, 6400선까지 밀렸다가 0.73% 상승 마감</div><div class="m">이코노미스트 · 2026.07.14 16:31</div></div><div class="news"><div class="t">&quot;&#x27;그냥 손절할까?&#x27; 하루 종일 고민&quot;?코스피 &#x27;기사회생&#x27;, 코스닥은...</div><div class="m">아이뉴스24 · 2026.07.14 16:08</div></div><div class="news"><div class="t">코스피, 반도체 중심 상승 마감…코스닥은 바이오발 약세</div><div class="m">아시아경제 · 2026.07.14 16:05</div></div><div class="news"><div class="t">코스피 상승 전환했지만…코스닥 연중 최저 마감</div><div class="m">한국경제 · 2026.07.14 15:48</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">자사주매입 종료(7월 20일 예정) 및 2분기 실적 발표(7월 말) 앞두고 컨센서스 부합 여부가 관건</div></div>
 </div>
 </div>
-<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1289,6 +868,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩25,500</div>
       <div class="cchg down">-4.14%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
@@ -1307,7 +887,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   </div>
   <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>편의점 실적 회복</b> — GS25 기존점 성장률이 2016년 이후 최고 수준으로 올라오며 전사 실적 개선을 견인하는 구조다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>홈쇼핑 수익성 개선</b> — 송출수수료 부담 완화와 마케팅비 절감으로 매출은 줄어도 순이익은 늘어나는 흐름이 이어지고 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>유통 본업 집중</b> — 2024년 비핵심 사업(호텔·미트) 분할 이후 편의점·슈퍼·홈쇼핑 본업에 자원을 집중하는 체제다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>상생·ESG 마케팅</b> — 어촌어항공단·한돈자조금 등과 협업한 신제품 출시로 브랜드 이미지를 다지고 있으나 실적 기여는 제한적이다.</div></div></div>
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>고금리·고물가 장기화에 따른 소비심리 위축이 오프라인 유통 성장 정체로 이어질 우려</div></div><div class="risk"><span>⚠</span><div>편의점 출점 포화와 온라인 신선식품 배송 경쟁 심화로 구조적 성장 한계 지적</div></div><div class="risk"><span>⚠</span><div>금일 코스피 전반 급락 국면에서 기관·개인 매도 출회로 단기 변동성이 확대된 자리</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">배달앱·편의점·대형마트도 ‘퀵커머스’ 참전…1시간 내 쏜다 총알...</div><div class="m">경향신문 · 2026.07.14 20:36</div></div><div class="news"><div class="t">‘새벽배송’ 넘어 ‘즉시배송’ 시대···편의점·배달앱까지 나선...</div><div class="m">경향신문 · 2026.07.14 18:00</div></div><div class="news"><div class="t">4시간 걸리던 리포트를 5분만에 유통업계 실무중심 AI 활용 늘린다</div><div class="m">파이낸셜뉴스 · 2026.07.14 18:15</div></div><div class="news"><div class="t">호반 ‘한진칼 지분 경쟁’ 나서나</div><div class="m">부산일보 · 2026.07.14 18:05</div></div><div class="news"><div class="t">“K-푸드 시장 넓힌다”... 한돈자조금, 몽골 유통채널과 시장 공략</div><div class="m">문화일보 · 2026.07.14 14:59</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">“K-푸드 시장 넓힌다”... 한돈자조금, 몽골 유통채널과 시장 공략</div><div class="m">문화일보 · 2026.07.14 14:59</div></div><div class="news"><div class="t">플라스틱 상생협약 후 납품대금 200억 인상</div><div class="m">헤럴드경제 · 2026.07.14 11:38</div></div><div class="news"><div class="t">어촌어항공단-GS리테일, 초복 맞아 &#x27;통 한마리 장어덮밥&#x27; 출시…798...</div><div class="m">뉴스1 · 2026.07.14 10:53</div></div><div class="news"><div class="t">GS더프레시, 어촌 상생 &#x27;ESG 장어덮밥&#x27; 출시</div><div class="m">전자신문 · 2026.07.14 09:40</div></div><div class="news"><div class="t">GS더프레시, &#x27;국산 통한마리 장어덮밥&#x27; 출시…어가 상생 ESG 상품</div><div class="m">이데일리 · 2026.07.14 09:26</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 발표(7월 말~8월 예상)에서 편의점 기존점 성장률 지속 여부 확인 필요.</div></div>
 </div>
 </div>
@@ -1346,128 +926,90 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   </div>
   <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>역대 최대 실적</b> — 이자·수수료 균형 포트폴리오와 비은행 부문 회복이 맞물리며 분기 지배주주순이익이 역대 최대 수준을 경신하고 있다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>주주환원 확대</b> — 약 1조원 규모 자사주 매입·소각으로 주주환원율 50% 달성을 목표하며 배당·환원 매력이 부각되고 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>목표가 상향 랠리</b> — 증권가 평균 목표주가가 직전 6개월 대비 큰 폭 상향되며 161,150원까지 제시됐다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>저평가 매력</b> — Forward PER 8.9배로 실적 개선 속도 대비 밸류에이션 매력이 여전히 남아있다.</div></div></div>
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>코스피 전반의 변동성 확대(지정학적 리스크, 반도체 업황 우려)로 대형 금융주도 단기 수급 영향을 받을 수 있다</div></div><div class="risk"><span>⚠</span><div>ROE 등 핵심 수익성 지표 공개가 제한적이라 밸류에이션 판단 근거가 부족하다</div></div><div class="risk"><span>⚠</span><div>순이자마진(NIM) 둔화나 대손비용 확대 시 이익 모멘텀이 약화될 수 있다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">역대급 &#x27;패닉셀&#x27;에도 &quot;코스피 1만 간다&quot;…낙관론 이유 있었다 [분석+...</div><div class="m">한국경제 · 2026.07.14 20:01</div></div><div class="news"><div class="t">증시 변동성 키운 &#x27;단일종목 레버리지&#x27;, 업계가 선제 대응 나서</div><div class="m">TV조선 · 2026.07.14 19:58</div></div><div class="news"><div class="t">은행권 ‘대출 조이기’ 확산···우리은행, 지점당 주담대 한도 월 .....</div><div class="m">경향신문 · 2026.07.14 19:29</div></div><div class="news"><div class="t">우리은행도 주담대 조이기 동참…지점당 10억원으로 제한</div><div class="m">세계일보 · 2026.07.14 18:57</div></div><div class="news"><div class="t">우리은행, 지점당 주담대 한도 월 30억→10억으로 축소</div><div class="m">중앙일보 · 2026.07.14 17:33</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">냉온탕 오간 코스피</div><div class="m">뉴스1 · 2026.07.14 16:16</div></div><div class="news"><div class="t">냉온탕 오간 코스피</div><div class="m">뉴스1 · 2026.07.14 15:43</div></div><div class="news"><div class="t">“코스피, 가장 중요한 6800선 못지키면…” 골드만삭스의 경고</div><div class="m">문화일보 · 2026.07.14 16:16</div></div><div class="news"><div class="t">집없는 서민에 8% 금리우대 … 아이 많을수록 혜택이 &#x27;쑥쑥&#x27;</div><div class="m">매일경제 · 2026.07.14 16:09</div></div><div class="news"><div class="t">코스피, 오르락내리락 끝에 0.7% 상승…코스닥 1.9%↓</div><div class="m">연합뉴스 · 2026.07.14 16:09</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표 및 자사주 매입·소각 등 주주환원 정책 구체화 시점이 다음 트리거</div></div>
 </div>
 </div>
-<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
       <div class="tcol">
-        <div class="tpill">093320</div>
+        <div class="tpill">137080</div>
         <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
-        <div class="cname">케이아이엔엑스</div>
-        <span class="ctag">과천센터 완판 · EPS +133%</span>
-        <div class="chl">과천센터 완판·이익률 급등에 반도체 대장주 조정 속 순환매 수혜</div>
+        <div class="cname">나래나노텍 🤖</div>
+        <span class="ctag">반도체장비 흑자전환 · 자사주 소각</span>
+        <div class="chl">12분기 만에 반도체 장비 흑자전환 + 20억 자사주 소각, 턴어라운드 부각</div>
       </div>
     </div>
     <div class="cright">
-      <div class="cprice">₩131,900</div>
-      <div class="cchg up">+2.57%</div>
+      <div class="cprice">₩4,800</div>
+      <div class="cchg down">-11.76%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>85</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.4%</b></span><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -6%)</small></b></span></div>
+  <div class="gline"><span class="g"><i></i><em>RS</em> <b>85</b></span><span class="g"><i></i><em>돌파전</em> <b>-19.2%</b></span><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
-  <div class="nums"><div class="num"><div class="l">EPS 성장률</div><div class="v">+133.3%</div><div class="s up">이익률 레버리지 반영</div></div><div class="num"><div class="l">영업이익률</div><div class="v">16.8%</div><div class="s up">직전분기 20%대로 급등</div></div><div class="num"><div class="l">RS(상대강도)</div><div class="v">85.0</div><div class="s up">시장 대비 강세 상위권</div></div><div class="num"><div class="l">Forward PER</div><div class="v">33.0x</div><div class="s dn">밸류에이션 부담 구간</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>케이아이엔엑스(KINX)는 데이터센터와 인터넷 회선망을 직접 구축·운영하며 기업 고객에게 서버 공간 임대(IDC), 인터넷 트래픽 교환(IX), 콘텐츠 전송(CDN), 클라우드 인프라를 임대료와 트래픽 사용료 형태로 제공해 돈을 버는 회사다. 국내 유일의 중립적 IX 사업자로서 특정 통신사에 종속되지 않고 여러 통신망을 중립적으로 연동해줘, 데이터센터 입주 기업이 원하는 회선을 자유롭게 골라 쓸 수 있게 하는 것이 최대 강점이다. 도곡·과천 등 6개 센터를 운영 중이며, 특히 10MW 규모의 과천 지식정보타운 데이터센터는 목표치를 넘는 계약률로 이미 만실 상태로 향후 몇 년에 걸쳐 매출로 순차 인식될 예정이다. 종속회사 에스피소프트를 통해 마이크로소프트 SPLA(기업용 소프트웨어 임대 라이선스) 유통의 약 70%를 담당하며 안정적인 캐시카우 역할도 겸한다. 최근에는 IXCLOUD·MIDIBUS 등 자체 클라우드·CDN 브랜드로 사업을 확장하며 단순 공간 임대업에서 부가가치가 높은 서비스 사업자로 전환하는 중이다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>코스피가 반도체 대장주 급락으로 서킷브레이커까지 발동된 혼란 속에서도 KINX는 2.57% 상승 마감했는데, 과천 데이터센터가 목표 입주율을 넘겨 사실상 완판되며 향후 몇 년간 매출 가시성을 확보한 점과 직전 분기 영업이익률이 20%대로 뛴 실적 레버리지가 겹친 결과로 풀이된다. 여기에 과천 지식정보타운이 IT·게임·바이오 기업 800여 곳이 몰리는 &#x27;제2의 판교&#x27;로 부상하며 지역 데이터센터 수요 테마로도 재조명받고 있다.</p><p style="margin-top:6px;">삼성전자·SK하이닉스 쏠림이 급락 이후 진정 국면에 들어가며 자금이 실적이 받쳐주는 중형 IT인프라주로 순환하는 흐름은 당분간 이어질 여지가 있으나, 과천센터 매출 반영은 2027~2028년에 걸쳐 서서히 나타나는 구조라 단기 주가에 이미 상당 부분 선반영됐을 가능성도 염두에 둬야 한다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">과천센터 완판과 이익률 개선이라는 펀더멘털 동력은 확인되나 VCP·RDY 점수가 0/10으로 기술적 셋업이 아직 미완성이고 PER 33배의 밸류 부담도 있어, 눌림목 확인 전까지는 관망이 합리적이다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩131,900 돌파 시 순환매 흐름에 편승한 단기 진입을 고려하되, ₩126,624(-4%) 이탈 시 손절해 변동성 장세의 하방 리스크를 제한한다.</p>
+  <div class="nums"><div class="num"><div class="l">매출 성장률</div><div class="v">+108.4%</div><div class="s up">YoY, 수주 확대 반영</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">+430.0%</div><div class="s up">적자에서 큰 폭 개선</div></div><div class="num"><div class="l">영업이익률</div><div class="v">2.2%</div><div class="s up">12분기 만에 흑자전환</div></div><div class="num"><div class="l">RS(상대강도)</div><div class="v">85.0</div><div class="s up">시장 대비 강한 주가 흐름</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>나래나노텍은 디스플레이·이차전지·반도체 공정에 쓰이는 생산장비를 만들어 국내외 패널·배터리·반도체 제조사에 납품하는 회사다. 주력 제품은 FPD(평판디스플레이) 공정 장비와 배터리 전극 공정 장비, 반도체 PLP(패널레벨패키징) 공정 장비, 모듈 공정 장비 등으로, 고객사 생산라인에 맞춰 장비를 수주·제작·설치하는 방식으로 매출을 낸다. 쉽게 말해 디스플레이·배터리·반도체 제조사가 공장 라인을 새로 깔거나 늘릴 때 필요한 생산설비를 만들어 파는 장비 전문업체다. 최근에는 자동차용 디스플레이와 페로브스카이트 태양전지 공정 장비까지 영역을 넓히며 사업 다각화를 진행 중이다. 2026년 5월 반도체 장비 부문 실적 개선에 힘입어 12분기 만에 분기 영업흑자로 돌아섰고, 6월에는 20억원 규모 자사주를 매입해 소각하기로 결정하며 주주환원에도 나섰다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>12분기 만에 반도체 장비 부문에서 분기 흑자전환에 성공했다는 소식(5월)과 20억원 규모 자사주 매입·소각 결정(6월)이 겹치며 실적 턴어라운드 기대와 주주환원 모멘텀이 동시에 작용해 RS 85까지 주가 강도가 올라온 것으로 보인다. 매출·EPS 성장률이 세 자릿수를 기록하며 소형 장비주 특유의 레버리지 효과가 부각된 점도 자금 유입을 이끈 요인이다.</p><p style="margin-top:6px;">다만 오늘 -11.76% 급락은 개별 재료 소멸이라기보다 코스닥 전반이 지정학적 리스크로 매도사이드카까지 발동된 시장 전체 조정에 연동된 결과로 보인다. 흑자전환·자사주 소각이라는 펀더멘털 동력 자체는 아직 살아있지만 시황 변동성이 커진 만큼 단기 되돌림 폭을 좀 더 지켜볼 필요가 있다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">턴어라운드·자사주 소각 재료는 유효하나 오늘 급락으로 기술적 셋업이 무너졌고 VCP·RDY 점수도 0/10이라 지금은 매수 타이밍이 아니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩4,800선 돌파와 거래량 실림을 확인한 뒤 분할 진입하고, ₩4,608(-4%) 이탈 시 즉시 손절해 리스크를 제한한다.</p>
     <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩131,900 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩126,624 (-4%)</div></div>
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩4,800 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩4,608 (-4%)</div></div>
     </div>
   </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>과천센터 완판</b> — 2024년 개관한 과천 데이터센터(10MW)가 목표 입주율을 넘겨 이미 만실 상태이며, 2027~2028년까지 순차적으로 매출에 반영될 예정이다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>이익률 레버리지</b> — 직전 분기 영업이익이 매출 대비 20%를 웃도는 수준까지 뛰며 데이터센터·클라우드 사업의 고정비 레버리지 효과가 본격화되고 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>과천 테마 확산</b> — 과천 지식정보타운에 IT·게임·바이오 기업 800여 곳이 몰리며 &#x27;제2의 판교&#x27;로 부상, KINX의 로컬 데이터센터 수요 기반도 함께 넓어지는 구조다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>순환매 수혜</b> — 반도체 대형주 삼성전자·SK하이닉스의 급등락으로 쏠림이 흔들리는 가운데 자금이 실적이 받쳐주는 중형 IT인프라주로 이동하는 흐름의 수혜를 받고 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>Forward PER 33배로 밸류에이션 부담이 있어 실적 모멘텀 둔화 시 배수 조정 위험이 있다</div></div><div class="risk"><span>⚠</span><div>매출 성장률은 7.9%로 완만해 EPS 급증이 이익률 개선에 크게 의존하는 구조로, 마진 피크아웃 시 성장 스토리가 훼손될 수 있다</div></div><div class="risk"><span>⚠</span><div>코스피 전반의 변동성 확대(서킷브레이커 발동 등 지정학 리스크)로 개별 종목 수급도 함께 출렁일 수 있다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">7000선도 깨진 코스피…&#x27;삼전닉스&#x27; 독주 쉬어가자 &#x27;이곳&#x27;으로 이동했...</div><div class="m">매일신문 · 2026.07.14 10:01</div></div><div class="news"><div class="t">기업 몰리는 과천 지식정보타운 더블역세권 기대감까지… ‘포스트 판...</div><div class="m">디지털타임스 · 2026.07.10 10:42</div></div><div class="news"><div class="t">&quot;중복상장 해소해야&quot;…얼라인, 묵묵부답 가비아에 공개서한</div><div class="m">아시아경제 · 2026.06.16 11:13</div></div><div class="news"><div class="t">&#x27;제2의 판교&#x27; 과천 뜬다...게임·IT·바이오 등 기업 잇따라 둥지</div><div class="m">파이낸셜뉴스 · 2026.06.05 15:04</div></div><div class="news"><div class="t">기업 800여 곳 입주한 과천 지식정보타운…판교형 성장 모델과 유사</div><div class="m">한국경제 · 2026.06.05 15:00</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2027~2028년 과천센터 순차 입주 완료 및 임대매출 반영, 차기 분기 실적 발표를 통한 이익률 추세 확인</div></div>
+  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>12분기만에 흑자전환</b> — 2026년 1분기 반도체 장비 부문 실적 개선으로 12분기 만에 분기 영업흑자를 냈고, 직전 분기(4억) 대비 흑자 폭(7억)도 확대되는 흐름이다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>자사주 매입·소각</b> — 6월 20억원 규모 자사주 취득 및 소각을 동시에 결정했다. 시가총액 514억원 대비 작지 않은 규모로 주주환원 의지를 보여준다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>세 자릿수 성장 지표</b> — 매출 성장률 108.4%, EPS 성장률 430%로 외형과 이익 모두 가파르게 개선되는 구간에 들어섰다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>사업 다각화</b> — 디스플레이·배터리·반도체 3개 축에 자동차용 디스플레이, 페로브스카이트 태양전지 장비까지 더하며 신규 성장동력을 확보하고 있다.</div></div></div>
+  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>영업이익률이 2.2%로 아직 이익 체력이 얇아 수주 변동에 따라 다시 적자로 돌아설 수 있음</div></div><div class="risk"><span>⚠</span><div>시가총액 514억원의 초소형주로 변동성이 크고 유동성이 낮음</div></div><div class="risk"><span>⚠</span><div>VCP 0/10, RDY 0/10로 기술적 셋업이 완성되지 않았고 애널리스트 커버리지도 전무해 목표가·다음 실적 시점 확인이 어려움</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">오늘의 메모[7월 8일]</div><div class="m">서울경제 · 2026.07.07 10:44</div></div><div class="news"><div class="t">기업 공시[6월 16일]</div><div class="m">서울경제 · 2026.06.16 17:11</div></div><div class="news"><div class="t">나래나노텍, 20억 규모 자사주 소각 결정</div><div class="m">이데일리 · 2026.06.16 15:12</div></div><div class="news"><div class="t">나래나노텍, 20억 규모 자사주 취득 결정</div><div class="m">헤럴드경제 · 2026.06.16 14:44</div></div><div class="news"><div class="t">&quot;반도체 장비 통했다&quot; 나래나노텍, 12분기 만에 흑자 전환</div><div class="m">파이낸셜뉴스 · 2026.05.15 12:56</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 2분기 실적 발표에서 반도체 장비 부문 흑자 기조 지속 여부가 다음 확인 포인트</div></div>
 </div>
 </div>
-<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
       <div class="tcol">
-        <div class="tpill">037760</div>
+        <div class="tpill">339950</div>
         <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
-        <div class="cname">쎄니트</div>
-        <span class="ctag">철강 소형주 · 자사주 테마</span>
-        <div class="chl">RS 84로 시장 대비 강세지만 영업이익률 0.9%로 수익성은 아직 부족</div>
+        <div class="cname">아이비김영</div>
+        <span class="ctag">흑자전환 교육주 · EPS +500%</span>
+        <div class="chl">편입·뷰티 교육 확장에 1분기 흑자전환, PER 6배 저평가 매력 부각</div>
       </div>
     </div>
     <div class="cright">
-      <div class="cprice">₩2,440</div>
-      <div class="cchg flat">+0.00%</div>
+      <div class="cprice">₩2,690</div>
+      <div class="cchg up">+0.56%</div>
       
     </div>
   </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>84</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.6%</b></span><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span></div>
+  <div class="gline"><span class="g"><i></i><em>RS</em> <b>84</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.6%</b></span><span class="g"><i></i><em>VCP</em> <b>4/4</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출 성장률</div><div class="v">+8.4%</div><div class="s up">YoY</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">+52.6%</div><div class="s up">저 베이스 효과 가능성</div></div><div class="num"><div class="l">영업이익률</div><div class="v">0.9%</div><div class="s dn">수익성 미약</div></div><div class="num"><div class="l">상대강도(RS)</div><div class="v">84.0</div><div class="s up">시장 대비 강세</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>쎄니트는 스테인리스 냉연강판을 정밀박판 압연 방식으로 생산해 국내외 제조업체에 공급하는 철강 소재 회사다. 철강 사업 외에도 상영관을 운영하는 시네마 사업, 레미콘·골재를 만드는 콘크리트 사업, 의약품 시험검사 사업까지 함께 영위하는 다각화된 사업 포트폴리오를 갖고 있다. 돈 버는 구조는 철강재를 국내외 제조업체에 직접 파는 B2B 방식이 핵심이고, 시네마·콘크리트 부문은 각각 티켓·매점 수익과 레미콘 판매로 이를 보완한다. 경쟁사 대비 강점은 강판을 얇게 가공하는 정밀박판 압연 기술로, 스테인리스 박판이라는 틈새 시장에서 경쟁력을 확보하고 있다. 최근에는 2025년 9월 자사주를 활용한 교환사채(EB, 주식으로 바꿀 수 있는 채권) 발행으로 운영자금을 확보했고, 상법 개정에 따른 자사주 의무소각 이슈가 부각되며 관련 테마주로 시장 관심을 받았다. 2026년 3월에는 주당 50원 현금배당을 결정하며 주주환원 의지도 보여줬다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>2025년 9월 자사주를 활용한 EB 발행과 상법 개정을 앞둔 자사주 의무소각 이슈가 맞물리며 관련 테마주로 시장 관심을 받았고, 2026년 3월 소액배당 결정도 주주환원 기대를 더했다. 여기에 EPS 성장률 52.6%라는 숫자가 부각되며 저평가 소형 철강주로 매수세가 유입된 것으로 보인다.</p><p style="margin-top:6px;">다만 자사주 테마는 상법 개정안 통과 여부라는 정책 변수에 달려 있어 지속성이 불확실하고, 직전 분기 영업손실 전환은 실적 펀더멘털이 테마를 뒷받침하지 못하고 있음을 보여준다. 최근 지수 급락 후 기관·외국인 저가매수로 반등한 시황에서 소형주 변동성이 커진 점도 유의할 필요가 있다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">RS와 테마 모멘텀은 살아있지만 영업이익률 1% 미만과 직전 분기 적자 전환으로 펀더멘털 뒷받침이 약해 관망이 적절하다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩2,440 돌파 시 분할 진입을 고려하되, 손절가는 ₩2,342(-4%)로 설정해 리스크를 제한하는 전략이 유효하다.</p>
+  <div class="nums"><div class="num"><div class="l">매출 성장률</div><div class="v">+6.1%</div><div class="s up">전년동기 대비</div></div><div class="num"><div class="l">EPS 성장률</div><div class="v">+500%</div><div class="s up">흑자전환 효과</div></div><div class="num"><div class="l">영업이익률</div><div class="v">18.0%</div><div class="s up">수익성 개선</div></div><div class="num"><div class="l">Forward PER</div><div class="v">6.0배</div><div class="s up">저평가 구간</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>아이비김영은 대학생 편입 교육과 미용 자격증·입시 교육을 함께 제공해 학생과 취업준비생에게 판매하는 종합 교육기업이다. 종속회사 메가커리어랩·브라운편입을 통해 편입 강좌, 학점은행제 원격교육, 국가기술자격증 취득 과정을 운영하고, 최근에는 뷰티 브랜드 사업으로도 영역을 넓히고 있다. 수강생에게 강의료와 교육비를 받는 B2C 구독형 매출이 핵심이고 여기에 뷰티 브랜드 유통 매출이 더해지는 구조다. 편입·미용 교육이라는 틈새시장에서 오랜 업력으로 쌓은 커리큘럼과 강사진이 경쟁사 대비 강점으로 꼽힌다. 온·오프라인 교육과 뷰티·자격증 신규사업이 고르게 성장하며 2025년 실적이 개선됐고, 2026년 1분기에는 영업이익·순이익이 나란히 흑자로 전환되는 변곡점을 맞았다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2025년 연결 매출(+11.6%)과 영업이익(+15.6%)이 뷰티·자격증 신규사업 호조에 힘입어 두 자릿수로 성장했고, 2026년 1분기에는 영업이익·순이익이 나란히 흑자로 전환되며 개선세가 이어졌다. 여기에 K-뷰티 글로벌 확산을 겨냥한 뷰티 브랜드 사업 확장과 분기배당 신설 같은 주주환원 정책이 맞물리며 매수 심리를 자극한 것으로 보인다.</p><p style="margin-top:6px;">RS 84로 시장 대비 강한 상대강도를 유지하고 있고 코스닥 급락일에도 개별 모멘텀이 살아있다는 점은 긍정적이나, 최근 분기 영업이익이 3억원까지 급감했던 이력은 턴어라운드의 지속성을 지켜봐야 함을 시사한다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">실적 턴어라운드와 저평가 매력은 있으나 SEPA·VCP·RDY 스코어가 모두 낮아 기술적 매수 자리로 보기엔 이르다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩2,690 돌파 시 분할 매수로 접근하고, 종가 기준 ₩2,582(-4%) 이탈 시 손절 대응.</p>
     <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩2,440 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩2,342 (-4%)</div></div>
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩2,690 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩2,582 (-4%)</div></div>
     </div>
   </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>코스닥 대비 강한 상대강도</b> — RS 84.0으로 코스닥 평균 대비 강한 주가 흐름을 보이고 있다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>자사주 활용 테마 부각</b> — 2025년 9월 자사주 기반 EB 발행에 이어 상법 개정에 따른 자사주 의무소각 이슈로 관련 테마 관심이 이어지고 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>철강 외 사업 다각화</b> — 시네마·콘크리트·의약품 시험검사로 사업을 분산해 철강 업황 변동에 대한 방어력을 갖췄다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>주당 50원 소액배당 개시</b> — 2026년 3월 현금배당을 결정하며 주주환원에 처음 나섰다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>영업이익률 0.9%로 수익성이 매우 낮고 직전 분기 영업손실(-13억원)을 기록했다</div></div><div class="risk"><span>⚠</span><div>분기 매출이 346억→318억→319억→311억원으로 감소 추세를 보이고 있다</div></div><div class="risk"><span>⚠</span><div>SEPA 0/10, VCP 0/10 등 기술적 베이스 지표가 낮아 상승 추세의 안정성이 검증되지 않았다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">?니트, 주당 50원 현금배당 결정</div><div class="m">이데일리 · 2026.03.10 16:03</div></div><div class="news"><div class="t">한국철강협회 스테인리스스틸클럽, &#x27;STS 산업발전세미나&#x27; 개최</div><div class="m">아이뉴스24 · 2025.11.20 11:12</div></div><div class="news"><div class="t">한국철강협회 스테인리스스틸클럽, &#x27;2025 STS 산업발전세미나&#x27; 개최</div><div class="m">디지털데일리 · 2025.11.20 10:51</div></div><div class="news"><div class="t">코리아 프리미엄 시험대?…20조 자사주 ‘의무 소각’ 초읽기 [커버스....</div><div class="m">한경비즈니스 · 2025.09.23 07:58</div></div><div class="news"><div class="t">자사주 활용 막차?…상법 개정 앞두고 기업 EB 발행 급증</div><div class="m">뉴시스 · 2025.09.16 16:05</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">상법 개정안(자사주 의무소각) 처리 여부와 다음 분기 실적 발표가 주가 방향의 분기점이 될 전망</div></div>
+  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>실적 턴어라운드</b> — 2025년 연결 매출과 영업이익이 두 자릿수로 성장했고 2026년 1분기 영업이익·순이익이 나란히 흑자 전환했다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>뷰티사업 확장</b> — K-뷰티 글로벌 확산에 맞춰 뷰티 브랜드 사업을 종합 뷰티기업으로 키우며 신규 성장축을 마련하고 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>주주환원 강화</b> — 주당 100원 분기배당을 결정하며 배당 정책을 강화, 주주환원에 대한 시장 신뢰를 높이고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>밸류에이션 매력</b> — Forward PER 6.0배로 교육서비스 업종 내에서도 저평가 구간에 위치해 있다.</div></div></div>
+  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>분기별 실적 변동성이 커 최근 분기 영업이익이 급감한 이력이 있어 턴어라운드 지속성 확인 필요</div></div><div class="risk"><span>⚠</span><div>애널리스트 커버리지가 전무해 목표주가·컨센서스로 밸류에이션 검증이 어려움</div></div><div class="risk"><span>⚠</span><div>시가총액 1200억원대 소형주로 수급 변동에 따른 주가 변동성이 큼</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">기업 공시 [7월 1일]</div><div class="m">서울경제 · 2026.07.01 16:25</div></div><div class="news"><div class="t">아이비김영, 주당 100원 분기배당(감액배당) 결정…주주환원 정책 강....</div><div class="m">서울신문 · 2026.07.01 15:19</div></div><div class="news"><div class="t">아이비김영, 주당 100원 분기배당 결정</div><div class="m">이데일리 · 2026.07.01 15:16</div></div><div class="news"><div class="t">아이비김영, 2026년 1분기 영업이익·순이익 흑자 전환... 연결 매...</div><div class="m">서울신문 · 2026.05.15 10:01</div></div><div class="news"><div class="t">아이비김영, K-뷰티 글로벌 확산 속 뷰티 브랜드 사업 확장…종합 뷰....</div><div class="m">서울신문 · 2026.05.12 10:24</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 2분기 실적 발표 및 분기배당 지급 일정이 다음 주가 트리거</div></div>
 </div>
 </div>
-<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">017890</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">한국알콜</div>
-        <span class="ctag">자사주 소각 · EPS +38.5%</span>
-        <div class="chl">72억 자사주 소각과 이익 턴어라운드 겹친 저평가 화학 소재주</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩13,890</div>
-      <div class="cchg down">-1.07%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>84</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.2%</b></span><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">EPS 성장률</div><div class="v">+38.5%</div><div class="s up">전년 대비 이익 개선</div></div><div class="num"><div class="l">분기 영업이익</div><div class="v">107억원</div><div class="s up">직전분기 54억 대비 약 2배 증가</div></div><div class="num"><div class="l">Forward PER</div><div class="v">7.8배</div><div class="s up">화학업종 평균 대비 저평가 구간</div></div><div class="num"><div class="l">상대강도(RS)</div><div class="v">84.0</div><div class="s up">시장 대비 강한 주가 흐름</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>한국알콜은 반도체 세정용 IPA(이소프로필알코올), 의약·화장품 원료용 에탄올(주정), 초산에틸 등 정밀화학 용제를 만들어 반도체·제약·화장품 제조사에 직접 판매하는 화학 소재 기업이다. 국내에서 몇 안 되는 주정 제조 허가 업체 중 하나로 진입장벽이 높은 사업구조를 갖고 있으며, 이 점이 경쟁사 대비 안정적인 수익 기반이 된다. 자회사로 미국 LA 소재 부동산임대업체 Soosan Corporation과 기초화학물질 제조업체 퓨릿을 두고 있는데, 퓨릿을 통해 반도체용 정밀화학소재 사업으로 영역을 넓히고 있다. 최근에는 친환경 제품 및 차세대 석유화학 소재 개발에 연구개발을 확대하며 사업 포트폴리오 전환을 시도하는 중이다. 2026년 6월 72억원 규모의 자사주 소각을 결정하며 주주환원 정책을 강화한 점도 눈에 띈다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>6월 중순 72억원 규모 자사주 소각 결정이 주주환원 기대를 자극했고, 4분기 영업이익이 직전분기 대비 약 2배 늘며 실적 턴어라운드 신호가 겹쳤다. 다만 웹검색 결과 개별 재료보다는 코스피 급락 후 반등 국면에서 순환매 수급이 유입된 영향이 크다는 분석이 우세하다.</p><p style="margin-top:6px;">이날 코스피가 미국-이란 지정학 리스크로 급락했다가 반도체 대형주 반등에 힘입어 낙폭을 만회한 변동성 장세였던 만큼, 이 종목의 상승도 개별 펀더멘털보다 지수 반등에 편승한 성격이 강해 지속성은 지켜봐야 한다. 당일 주가가 -1.07%로 조정받은 점도 단기 과열 해소 국면일 가능성을 시사한다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">자사주 소각과 이익 개선은 긍정적이나 VCP·RDY 셋업이 전무하고 이번 상승이 지수 반등발 순환매 성격이 강해, 눌림 확인 후 대응이 합리적이다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩13,890 돌파 시 분할 진입, 손절가는 ₩13,334(-4%)로 설정해 리스크를 제한한다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩13,890 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩13,334 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>실적 턴어라운드</b> — 4분기 영업이익이 107억원으로 직전분기(54억원) 대비 두 배 가까이 늘며 수익성이 회복되는 흐름을 보였다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>주주환원 강화</b> — 72억원 규모 자사주 소각 결정으로 유통주식수가 줄어 주당가치 제고 효과가 기대된다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>저평가 밸류에이션</b> — Forward PER 7.8배로 이익 대비 주가가 낮게 형성돼 있어 밸류 매력이 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>반도체 소재 확장성</b> — 자회사 퓨릿을 통한 반도체용 정밀화학소재 사업 확장이 장기 성장 스토리로 작용할 수 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>매출 성장률 0.6%로 외형 성장이 사실상 정체된 상태</div></div><div class="risk"><span>⚠</span><div>애널리스트 커버리지 0명, ROE 데이터 부재로 펀더멘털 검증이 어려움</div></div><div class="risk"><span>⚠</span><div>VCP·SEPA·RDY 점수 모두 0/10으로 기술적 셋업이 확인되지 않아 추세 초입 여부 불확실</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">한국알콜, 72억 규모 자사주 소각 결정</div><div class="m">이데일리 · 2026.06.16 17:12</div></div><div class="news"><div class="t">헥토파이낸셜, 2025년 코스닥 공시우수법인</div><div class="m">아이뉴스24 · 2026.03.06 17:24</div></div><div class="news"><div class="t">거래소, GS건설·LG화학·하나금융 등 공시우수법인 선정</div><div class="m">뉴시스 · 2026.03.05 19:32</div></div><div class="news"><div class="t">거래소 &quot;GS건설·LG유플러스 등 2025년도 공시우수법인 선정&quot;</div><div class="m">이코노미스트 · 2026.03.05 18:01</div></div><div class="news"><div class="t">한국거래소, KAI·한화 등 공시우수법인 선정</div><div class="m">한국경제TV · 2026.03.05 17:26</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">자사주 소각 절차 마무리 시점과 다음 분기 실적 발표 일정을 확인할 필요</div></div>
-</div>
-</div>
-<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1484,6 +1026,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩37,200</div>
       <div class="cchg down">-3.50%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
@@ -1502,7 +1045,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   </div>
   <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>1분기 실적 서프라이즈</b> — 순이익 2233억원으로 컨센서스(1572억원)를 크게 웃돌았고, 장기보험 손익이 71.7% 급증하며 이익 개선을 이끌었다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>자본여력 뚜렷한 개선</b> — 1분기 말 K-ICS 지급여력비율이 207.2%로 전년말보다 17%포인트 상승해 배당 재개 기대감이 살아있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>초저평가 밸류에이션</b> — Forward PE 3.1배로 손보업종 내에서도 극히 낮은 밸류에이션을 유지하고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>실손 요율 인상 효과</b> — 실손 3·4세대 보험료 요율 인상이 반영되며 2026년을 손익 정상화 원년으로 보는 시각이 늘고 있다.</div></div></div>
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>자동차보험 손해율 악화 — 폭설 등 사고 급증으로 자동차보험 부문이 다시 적자 전환</div></div><div class="risk"><span>⚠</span><div>배당 재개 지연 — 해약환급금준비금 적립 부담으로 2023년 이후 무배당 지속, 배당 정책 불확실성 지속</div></div><div class="risk"><span>⚠</span><div>기술 지표 부진 — SEPA/VCP/RDY 모두 0/10에 당일 -3.5% 하락까지 겹쳐 단기 추세 이탈 우려</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">예선부터 강호들 격돌… 우승후보들 희비 엇갈려</div><div class="m">파이낸셜뉴스 · 2026.07.14 18:02</div></div><div class="news"><div class="t">대학생 지역 문제 해결 돕는 현대해상</div><div class="m">매일경제 · 2026.07.14 17:33</div></div><div class="news"><div class="t">대학생들이 지역사회 문제 해결…현대해상 후원 ‘인액터스 코리아’...</div><div class="m">매일경제 · 2026.07.14 15:14</div></div><div class="news"><div class="t">대학생이 지역사회 문제를 해결한다…정경선 “AI 시대 가장 필요한 ....</div><div class="m">디지털타임스 · 2026.07.14 15:08</div></div><div class="news"><div class="t">현대해상, 사회 문제 해결하는 &#x27;인액터스 코리아&#x27; 국내 대회 성료</div><div class="m">이데일리 · 2026.07.14 10:52</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">대학생들이 지역사회 문제 해결…현대해상 후원 ‘인액터스 코리아’...</div><div class="m">매일경제 · 2026.07.14 15:14</div></div><div class="news"><div class="t">대학생이 지역사회 문제를 해결한다…정경선 “AI 시대 가장 필요한 ....</div><div class="m">디지털타임스 · 2026.07.14 15:08</div></div><div class="news"><div class="t">현대해상, 사회 문제 해결하는 &#x27;인액터스 코리아&#x27; 국내 대회 성료</div><div class="m">이데일리 · 2026.07.14 10:52</div></div><div class="news"><div class="t">대학생 아이디어로 환경·사회문제 해결…현대해상 &#x27;인액터스 코리아...</div><div class="m">뉴스1 · 2026.07.14 10:50</div></div><div class="news"><div class="t">현대해상 후원, &#x27;인액터스 코리아&#x27; 국내 대회 개최</div><div class="m">전자신문 · 2026.07.14 09:41</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 발표(자동차보험 손해율 확인)와 배당 정책 발표 여부가 다음 변곡점</div></div>
 </div>
 </div>
@@ -1541,50 +1084,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   </div>
   <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>분기 실적 우상향</b> — 최근 분기 매출 8,247억원·영업이익 949억원으로 직전 분기 대비 크게 개선됐고, 2분기도 컨센서스 상회가 예상된다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>K뷰티 수주 확대</b> — 국내외 브랜드사의 ODM 주문이 늘고 선케어 카테고리 판매가 호조를 보이며 별도 법인 성장세가 두드러진다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>밸류 부담 낮음</b> — Forward PE 12.2배로 EPS 158.6% 성장 대비 밸류에이션 매력이 남아있다.</div></div></div>
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>VCP 0/10, RDY 0/10로 기술적 셋업이 무너진 상태라 변동성 확대 국면</div></div><div class="risk"><span>⚠</span><div>미국-이란 지정학 리스크·반도체 업황 피크아웃 우려로 촉발된 증시 전반 급락에 동반 낙폭 확대 가능성</div></div><div class="risk"><span>⚠</span><div>미국·중국 등 해외 법인 적자가 지속되면 연결 이익이 훼손될 수 있음</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">한국콜마, 5년째 자립준비청년 후원</div><div class="m">파이낸셜뉴스 · 2026.07.14 18:25</div></div><div class="news"><div class="t">한국콜마, 자립준비청년 5년째 후원</div><div class="m">파이낸셜뉴스 · 2026.07.14 11:28</div></div><div class="news"><div class="t">한국콜마, 자립준비청년 후원금 전달…진로 교육도 지원</div><div class="m">스포츠조선 · 2026.07.14 11:17</div></div><div class="news"><div class="t">한국콜마, 자립준비청년 위해 3700만원 후원...실무 교육도 지원</div><div class="m">서울경제 · 2026.07.14 10:12</div></div><div class="news"><div class="t">한국콜마, 자립준비청년 지원 5년째…장학금·실무 교육 후원</div><div class="m">머니투데이 · 2026.07.14 09:57</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">시설퇴소 청년들의 디딤돌 자처… 한국콜마, 홀로서기 돕는 사회공헌...</div><div class="m">동아일보 · 2026.07.14 16:23</div></div><div class="news"><div class="t">한국콜마, 자립준비청년 5년째 후원</div><div class="m">파이낸셜뉴스 · 2026.07.14 11:28</div></div><div class="news"><div class="t">한국콜마, 자립준비청년 후원금 전달…진로 교육도 지원</div><div class="m">스포츠조선 · 2026.07.14 11:17</div></div><div class="news"><div class="t">한국콜마, 자립준비청년 위해 3700만원 후원...실무 교육도 지원</div><div class="m">서울경제 · 2026.07.14 10:12</div></div><div class="news"><div class="t">한국콜마, 자립준비청년 지원 5년째…장학금·실무 교육 후원</div><div class="m">머니투데이 · 2026.07.14 09:57</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">8월 예정 2분기 실적 발표(컨센서스 상회 여부)와 하반기 글로벌 ODM 수주 확대 지속 여부</div></div>
 </div>
 </div>
-<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">036800</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">나이스정보통신 🤖</div>
-        <span class="ctag">VAN 1위·KIS정보통신 인수 시너지</span>
-        <div class="chl">VAN 업계 1위 지배력에 KIS정보통신 인수로 연결 영업이익 25~30% 증가 전망</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩29,700</div>
-      <div class="cchg down">-0.17%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>84</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.7%</b></span><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">EPS 성장률</div><div class="v">+71.6%</div><div class="s up">전년대비 이익 급증</div></div><div class="num"><div class="l">Forward PER</div><div class="v">6.0배</div><div class="s up">이익 대비 저평가 구간</div></div><div class="num"><div class="l">VAN 시장점유율</div><div class="v">27.9%</div><div class="s up">업계 1위 지배력</div></div><div class="num"><div class="l">목표주가 괴리율</div><div class="v">+17.9%</div><div class="s up">목표가 35,000원 기준</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>나이스정보통신은 가맹점의 카드 결제 정보를 카드사·은행에 중계해주는 VAN(부가가치통신망) 서비스와 온라인 결제를 대신 처리해주는 PG(결제대행) 서비스를 함께 제공해, 편의점·마트·온라인 쇼핑몰 등 전국 가맹점으로부터 결제 건당 수수료를 받아 돈을 버는 회사다. 자체 VAN망과 나이스페이먼츠 브랜드의 PG 서비스에 더해, 인천공항·김포공항·김해공항 등에서 외국인 관광객에게 부가세를 즉시 돌려주는 TRS(외국인 세금환급대행) 사업도 함께 운영한다. VAN 시장 점유율 27.9%로 업계 1위를 지키고 있고, 2025년 계열사 나이스페이먼츠의 결제사업부를 인적분할 후 합병하면서 VAN과 PG를 한 회사 안에서 통합 운영해 비용 효율을 높인 구조로 바뀌었다. 최근에는 NICE홀딩스가 보유하던 KIS정보통신 지분을 인수하기로 하면서 VAN 시장 지배력을 한층 강화하고 있고, 공항 세금환급 대행 TRS 사업도 매출이 2년 새 4배 넘게 늘며 새로운 성장축으로 자리잡고 있다. 간편결제·생체인증 등 신규 결제수단을 빠르게 도입하고 해외 결제수단 지원을 넓히며 통합 지급결제사로 사업 영역을 확장하는 중이다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>이번 상승은 KIS정보통신 인수를 통한 VAN 시장 지배력 강화와, 나이스페이먼츠 합병 이후 영업이익이 고성장 궤도에 오른 데 따른 것이다. 매년 배당을 10% 이상 늘리겠다는 주주환원 정책과 공항 세금환급 대행 TRS 사업의 고성장이 겹치며 저평가 매력이 부각됐다.</p><p style="margin-top:6px;">KIS정보통신 인수 시너지는 아직 실적에 온전히 반영되지 않아 향후 분기 실적에서 확인될 경우 추가 상승 여력이 있다. 다만 최근 코스닥이 지정학적 리스크로 급락 후 반등하는 변동성 장세인 만큼 인수 마무리와 실적 확인 전까지는 단기 조정 가능성도 염두에 둬야 한다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">펀더멘털과 밸류에이션은 매력적이나 VCP·RDY 스코어가 0/10으로 기술적 매수 시점은 아직 형성되지 않아, 신고가 돌파 확인 후 진입이 합리적이다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩29,700 돌파를 확인하고 분할 매수로 접근하되, 손절가는 ₩28,512(-4%)로 설정해 하방 리스크를 제한한다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩29,700 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩28,512 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>KIS정보통신 인수</b> — NICE홀딩스 보유 지분 96.1%를 약 1,123억원에 인수하며 연결 영업이익을 25~30% 끌어올릴 것으로 전망된다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>나이스페이먼츠 합병 효과</b> — 2025년 결제사업부 합병 이후 인력·조직을 효율화하며 최근 분기 영업이익이 전년대비 큰 폭으로 개선되는 흐름이 이어지고 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>TRS 신사업 고성장</b> — 인천공항·김포공항 등에서 운영하는 외국인 세금환급대행 사업이 2023년 82억원에서 2025년 360억원으로 급성장했다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>주주환원 확대</b> — 주당배당금을 2023년 730원에서 2025년 1,100원으로 늘렸고 2026~2028년에도 매년 10% 이상 증액을 예고했다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>VAN 수수료율은 카드사와의 협상 및 정부 규제 변화에 따라 조정될 수 있어 수익성 압박 요인이 될 수 있다</div></div><div class="risk"><span>⚠</span><div>영업이익률이 5%대로 낮은 박리다매 구조라 결제 처리량 변동이 실적에 크게 영향을 준다</div></div><div class="risk"><span>⚠</span><div>KIS정보통신 인수에 따른 자금 부담과 조직 통합 과정에서 일회성 비용이 발생할 수 있다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">위메이드 &#x27;위믹스&#x27;, 미국 디지털자산거래소 크라켄 상장</div><div class="m">이데일리 · 2026.07.08 17:39</div></div><div class="news"><div class="t">위메이드 &#x27;위믹스&#x27;, 암호화폐 거래소 크라켄 상장</div><div class="m">전자신문 · 2026.07.08 14:17</div></div><div class="news"><div class="t">위믹스, 美 가상자산 거래소 &#x27;크라켄&#x27; 상장</div><div class="m">뉴시스 · 2026.07.08 09:03</div></div><div class="news"><div class="t">위믹스, 암호화폐 거래소 ‘크라켄’ 상장…글로벌 인지도 ‘up’</div><div class="m">매일경제 · 2026.07.08 10:53</div></div><div class="news"><div class="t">위믹스, 美 가상자산 거래소 크라켄 상장</div><div class="m">디지털데일리 · 2026.07.08 10:10</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">KIS정보통신 인수 마무리 및 다음 분기 실적 발표에서 영업이익 개선 폭 확인이 관건</div></div>
-</div>
-</div>
-<div class="card" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="avoid">
+<div class="card" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="avoid" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1601,6 +1105,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩3,110</div>
       <div class="cchg down">-2.66%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
@@ -1623,7 +1128,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 발표 및 이노페이스發 차입금·지분 관련 추가 공시, 바이오 신사업 구체화 여부가 다음 트리거</div></div>
 </div>
 </div>
-<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1640,6 +1145,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩13,750</div>
       <div class="cchg down">-1.29%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
@@ -1701,46 +1207,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">6월·12월 배당지급 기준일, GTX-C·동부간선도로 등 신규자산 편입 공시</div></div>
 </div>
 </div>
-<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">052330</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">코텍 🤖</div>
-        <span class="ctag">영업익 44%↑ 서프라이즈 · PER 7.4배</span>
-        <div class="chl">슬롯머신 디스플레이 강자, 4분기 연속 마진 확대에 저평가 매력 부각</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩11,910</div>
-      <div class="cchg up">+0.85%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>82</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.7%</b></span><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출성장률</div><div class="v">+38.6%</div><div class="s up">YoY 고성장 지속</div></div><div class="num"><div class="l">EPS성장률</div><div class="v">+74.4%</div><div class="s up">이익 레버리지 확대</div></div><div class="num"><div class="l">영업이익률</div><div class="v">10.8%</div><div class="s up">7%대→13%대로 개선</div></div><div class="num"><div class="l">Forward PER</div><div class="v">7.4배</div><div class="s up">이익 대비 저평가 구간</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>코텍은 산업용 모니터와 디스플레이를 만들어 카지노·슬롯머신 운영사, 의료기관, 항공사 등 B2B 고객사에 납품하는 회사다. 주력 사업은 게이밍 모니터와 PID(공공정보 디스플레이) 두 축인데, 게이밍 모니터는 슬롯머신 화면 표시와 터치 조작을 담당하는 핵심 부품으로 글로벌 카지노·게이밍 기기 업체에 직접 공급된다. 돈 버는 구조는 완제품·부품을 카지노 기기 제조사에 주문 방식으로 판매하는 전형적 B2B 제조업 모델이다. 인천 송도와 베트남에 생산라인을 두고 아이디스홀딩스 계열 시너지를 활용해 원가 경쟁력을 확보한 점이 경쟁사 대비 차별점이다. 최근에는 게이밍 모니터 제품 믹스 개선으로 영업이익률이 분기마다 뚜렷하게 올라가는 턴어라운드형 마진 확대 국면에 들어섰다. 실제로 1분기 영업이익이 154억원으로 전년비 44.5% 증가하며 4개 분기 연속 이익 레버리지가 확대되는 흐름이다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>1분기 영업이익이 전년비 44.5% 급증하고 작년 연간 영업이익도 60.5% 늘며 게이밍 모니터 믹스 개선에 따른 마진 확대가 실적으로 확인된 점이 상승 동력이다. 여기에 주당 300원 현금배당 실시로 주주환원 스토리까지 더해지며 저평가된 이익 성장주로 재평가받는 흐름이 이어졌다.</p><p style="margin-top:6px;">실적 서프라이즈 자체는 발표 시점에 이미 상당 부분 반영됐으나, 마진 확대 추세가 4개 분기 연속 이어지고 있어 다음 분기 확인 전까지는 동력이 살아있다고 볼 수 있다. 다만 최근 CB 전환가 하향 조정은 개인 매도 우위 장세와 겹칠 경우 단기 수급에 부담이 될 수 있다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">실적·마진 개선 스토리는 뚜렷하지만 SEPA·VCP 기술적 베이스가 아직 형성되지 않고 CB 오버행 변수가 있어, 눌림목이나 베이스 완성을 확인한 뒤 진입하는 편이 안전하다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩11,910 돌파 시 분할 진입하고, ₩11,434(-4%) 하회 시 손절로 대응하는 실적 모멘텀 추종 전략이 적합.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩11,910 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩11,434 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>실적 서프라이즈</b> — 1분기 영업이익 154억원으로 전년비 44.5% 증가했고, 작년 연간 영업이익도 377억원으로 60.5% 늘며 이익 성장 스토리가 재확인되는 구조.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>마진 확대 추세</b> — 분기 영업이익률이 7%대에서 13%대로 4개 분기 연속 개선되며 게이밍 모니터 제품 믹스 개선 효과가 숫자로 드러나는 중.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>저평가 매력</b> — Forward PER 7.4배로 이익 성장 속도 대비 밸류에이션 부담이 크지 않고, RS 82로 시장 대비 상대강도도 우수한 편.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>카지노 부품 구조적 수요</b> — 슬롯머신 핵심부품인 게이밍 모니터는 글로벌 카지노 기기 교체 수요와 연동되는 구조라 실적 가시성이 상대적으로 높음.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>애널리스트 커버리지 0명으로 목표주가·컨센서스 확인 불가, 밸류 판단을 스스로 해야 함</div></div><div class="risk"><span>⚠</span><div>1회차 CB 전환가액 하향 조정으로 잠재적 지분 희석·오버행 우려 존재</div></div><div class="risk"><span>⚠</span><div>SEPA·VCP 점수가 아직 형성되지 않아 기술적 베이스 완성도가 실적 모멘텀 대비 낮음</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">코텍, 1분기 영업익 154억…전년比 44.5%↑</div><div class="m">블로터 · 2026.05.08 11:34</div></div><div class="news"><div class="t">코텍, 1분기 영업익 154억…전년비 44.5% ↑</div><div class="m">헤럴드경제 · 2026.05.08 10:57</div></div><div class="news"><div class="t">코텍, 지난해 영업익 377억원…전년비 60.5%↑</div><div class="m">이데일리 · 2026.02.05 17:27</div></div><div class="news"><div class="t">코텍, 지난해 영업익 378억…전년비 60.5%↑·주당 300원 현금...</div><div class="m">헤럴드경제 · 2026.02.05 10:53</div></div><div class="news"><div class="t">코텍, 1회차 CB 전환가액 하향 조정</div><div class="m">이데일리 · 2026.01.28 10:50</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">차기 분기 실적 발표(일정 미정) 및 CB 전환 물량 소화 여부 확인</div></div>
-</div>
-</div>
-<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1750,8 +1217,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       </div>
       <div class="cmain">
         <div class="cname">미창석유</div>
-        <span class="ctag">실적 턴어라운드 · Forward PE 3.5배</span>
-        <div class="chl">EPS +445% 급증, PE 3.5배 초저평가지만 기술적 셋업은 아직 미완성</div>
+        <span class="ctag">수익성 폭발 · EPS +445%</span>
+        <div class="chl">동사는 1962년 미창석유공업사로 설립되어 1989년 상장된 산업 윤활유 전문회사임. 자동차용, 선박용, 산</div>
       </div>
     </div>
     <div class="cright">
@@ -1764,22 +1231,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
-  <div class="nums"><div class="num"><div class="l">EPS 성장률</div><div class="v">+445.2%</div><div class="s up">전년 동기 대비</div></div><div class="num"><div class="l">Forward PE</div><div class="v">3.5x</div><div class="s up">절대적 저평가 구간</div></div><div class="num"><div class="l">영업이익률</div><div class="v">7.7%</div><div class="s up">안정적 수익성 유지</div></div><div class="num"><div class="l">분기 영업이익</div><div class="v">137억원</div><div class="s up">직전 분기 73억 대비 급증</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>미창석유는 자동차용·선박용·산업용 윤활유와 전기절연유, 고무배합유, 유동파라핀 등 특수 오일 제품을 만들어 완성차업체와 산업용 수요처에 공급하는 회사다. 일본 ENEOS와의 기술제휴를 바탕으로 품질 경쟁력을 확보했고, 자동차용 윤활유를 완성차 출고 단계에서 미리 주입하는 &#x27;팩토리필링&#x27; 방식에서 강점을 갖고 있다. 전기절연유와 고무배합유 시장에서는 오랜 업력을 바탕으로 확고한 거래처 기반을 구축해 매출 변동성이 크지 않은 편이다. 완성차·전력·타이어 업체 등에 직접 납품하는 B2B 구조로, 원재료인 기유 가격과 판매가 스프레드가 수익성을 좌우한다. 최근에는 매출 자체는 정체돼 있지만 원가 관리와 제품 믹스 개선으로 영업이익이 크게 늘며 이익 턴어라운드가 부각되고 있다. 국내 윤활유 업체 중 중상위권 지위를 유지하며 안정적 현금창출력을 바탕으로 매년 배당을 실시해온 점도 특징이다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>최근 분기 영업이익이 137억원으로 직전 분기 대비 급증하며 EPS 기준 전년 대비 445.2% 증가를 기록한 것이 주가 재평가의 핵심 동력으로 보인다. 여기에 Forward PE 3.5배라는 극단적 저평가 구간에서 3월 주당 3,500원 배당 발표가 더해지며 가치주 성격의 매수세가 유입된 것으로 판단된다. 다만 개별 종목 차원의 명확한 신규 계약이나 업황 개선 뉴스는 확인되지 않았고, 4월 코스피 전반의 신고가 랠리 국면에서 저평가 종목군이 동반 순환매를 받은 측면도 있다.</p><p style="margin-top:6px;">당일 주가는 -0.72%로 상승 탄력이 다소 둔화된 모습이고, SEPA·VCP·RDY 점수가 모두 0점대라 기술적 베이스는 아직 형성되지 못했다. 이익 개선이라는 펀더멘털 동력은 살아있지만 기술적 셋업이 뒷받침되지 않아 추세 전환을 단정하기는 이르다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">EPS 턴어라운드와 초저평가는 매력적이나 기술적 셋업 부재와 매출 정체로 지금 시점의 추격 매수는 리스크가 크다</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩138,200 돌파 시 분할 진입을 고려하고, 손절가는 ₩132,672(-4%)로 설정해 리스크를 제한하는 전략이 유효하다. 다만 VCP·SEPA 셋업이 미완성인 만큼 돌파 후 거래량 동반 여부를 반드시 확인해야 한다.</p>
+  <div class="nums"><div class="num"><div class="l">매출 성장</div><div class="v">+0.1%</div><div class="s up">EPS +445.2%</div></div><div class="num"><div class="l">영업이익률</div><div class="v">7.7%</div><div class="s up"></div></div><div class="num"><div class="l">목표가 (평균)</div><div class="v">—</div><div class="s dn"></div></div><div class="num"><div class="l">Forward PE</div><div class="v">3.5x</div><div class="s up"></div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>동사는 1962년 미창석유공업사로 설립되어 1989년 상장된 산업 윤활유 전문회사임. 자동차용, 선박용, 산업용 윤활유와 전기절연유, 고무배합유, 유동파라핀 등을 생산하며, ENEOS CORPORATION과의 기술제휴로 우수한 기술력과 품질을 확보하고 있음. 국내 윤활유 생산업체 중 중상위 그룹에 속하며, 자동차용 윤활유 팩토리필링에 강점을 보유하고 전기절연유와 고무배합유 분야에서 확고한 시장기반을 구축하고 있음.</p></div>
+  
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩138,200 돌파 시 거래량 확인 후 진입, 손절 ₩132,672(-4%).</p>
     <div class="es">
       <div class="en"><div class="l">📍 진입</div><div class="v">₩138,200 돌파</div></div>
       <div class="st"><div class="l">🛑 손절</div><div class="v">₩132,672 (-4%)</div></div>
     </div>
   </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>이익 턴어라운드</b> — EPS가 전년 대비 445.2% 급증했고 최근 분기 영업이익도 137억원으로 직전 분기 대비 크게 늘며 이익 개선 흐름이 뚜렷하다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>초저평가 밸류에이션</b> — Forward PE가 3.5배에 불과해 절대적인 저평가 구간에 위치해 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>안정적 배당 매력</b> — 주당 3,500원의 현금배당을 실시하며 안정적인 주주환원 정책을 이어가고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>확고한 시장 지위</b> — ENEOS 기술제휴 기반 품질력과 자동차용 팩토리필링 강점으로 국내 윤활유 시장 중상위권 지위를 유지하고 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>매출 성장률이 0.1%에 그쳐 이익 개선이 원가·믹스 효과에 의존하는 구조로 지속가능성이 불확실하다</div></div><div class="risk"><span>⚠</span><div>SEPA·VCP·RDY 점수가 모두 0점대로 기술적 베이스 형성이 미흡해 RS 강세 대비 셋업이 부실하다</div></div><div class="risk"><span>⚠</span><div>애널리스트 커버리지가 전무해 목표주가·컨센서스 없이 개별 판단에 의존해야 한다</div></div></div>
+  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>수익성 폭발적 개선</b> — EPS +445% — 비용 구조 개선 또는 마진 확대로 이익 J커브 단계</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>성장 대비 저평가</b> — Forward PE 3.5x — 섹터 평균(~25x) 절반 수준이지만 EPS +445% 성장 중 — 밸류에이션 재평가 여지</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>외국인 보유 견고</b> — 외국인 보유율 31% — 글로벌 펀드 매수 기반 안정적</div></div></div>
+  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>일반적 시장 변동성 — 매크로 이벤트(FOMC, CPI 등) 주의</div></div></div>
   <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">딥서치, 타법인 출자 전수 분석…상장사 출자 구조 4년 새 달라졌다</div><div class="m">이데일리 · 2026.04.23 14:17</div></div><div class="news"><div class="t">&quot;77% 급등 종목도&quot; 신고가 대잔치…코스피 제대로 불붙었다</div><div class="m">이데일리 · 2026.04.22 16:10</div></div><div class="news"><div class="t">미창석유공업, 정연근 사외이사 신임</div><div class="m">블로터 · 2026.03.30 17:59</div></div><div class="news"><div class="t">하르그 섬 공격에도, 유가 100달러 하회…정유주 약세</div><div class="m">머니투데이 · 2026.03.16 09:23</div></div><div class="news"><div class="t">미창석유공업, 주당 3500원 현금배당</div><div class="m">아시아경제 · 2026.03.11 14:00</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 분기 실적 발표에서 영업이익 개선 지속 여부가 핵심 확인 포인트</div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">📊 분기 실적 시즌 진행 중 — 섹터 전반 변동성 확대 · 💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
 </div>
 </div>
-<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="financial" data-ai="true" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="financial" data-ai="true" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1796,6 +1263,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩18,170</div>
       <div class="cchg down">-0.27%</div>
+      <div class="fresh-sun">☀️</div>
       
     </div>
   </div>
@@ -1814,47 +1282,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   </div>
   <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>주주환원 확대</b> — 2025년 결산배당 700원(+40%)에 이어 2027년까지 1,500억원 규모 자사주 매입·소각을 추진 중이며, 총주주환원율이 38.8%까지 상승했다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>저PBR 재평가 기대</b> — PBR 0.4~0.5배 수준의 저평가 상태에서 비과세 배당 재원 확보 등 밸류업 정책이 본격화되면 재평가 여지가 크다는 평가다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>실적 턴어라운드</b> — 2025년 순이익이 전년 대비 크게 늘었고, 최근 분기 영업이익도 직전분기 대비 반등하며 회복 흐름을 보이고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>비은행 이익 기여 확대</b> — iM증권·iM라이프생명보험·iM캐피탈 등 비은행 계열사의 순이익 기여도가 높아지며 은행 단일 리스크에서 벗어나는 중이다.</div></div></div>
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>최근 시중은행권의 모기지보험 중단·대출한도 축소 등 가계대출 규제 강화로 대출자산 성장 둔화 우려</div></div><div class="risk"><span>⚠</span><div>VCP·RDY 기술적 셋업 점수가 0/10으로 아직 눌림목·베이스 형성이 확인되지 않은 상태</div></div><div class="risk"><span>⚠</span><div>EPS 성장률이 정체(-0.3%) 상태여서 저PER 밸류에이션 대비 실제 이익 모멘텀은 아직 뚜렷하지 않음</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">우리-SC제일銀도 모기지보험 중단…대출절벽 현실화</div><div class="m">동아일보 · 2026.07.14 18:56</div></div><div class="news"><div class="t">은행들 모기지보험 중단…우리銀 지점별 주담대 한도 축소</div><div class="m">노컷뉴스 · 2026.07.14 18:02</div></div><div class="news"><div class="t">주요 은행 모기지보험 일제 중단…대출 한도 5000만원 이상 축소</div><div class="m">조선일보 · 2026.07.14 16:32</div></div><div class="news"><div class="t">은행 모기지보험 셧다운…우리銀 지점별 주담대 한도 30억→10억(종합...</div><div class="m">뉴스1 · 2026.07.14 16:23</div></div><div class="news"><div class="t">시중은행 모기지보험 셧다운…SC제일은행도 일시 중단</div><div class="m">뉴스1 · 2026.07.14 09:32</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">우리은행, 16일부터 모기지보험 막고 영업점 대출한도 3분의 1로 줄인...</div><div class="m">한국경제 · 2026.07.14 16:37</div></div><div class="news"><div class="t">시중은행 막혀 지방은행으로…풍선효과 차단, 실수요자 &#x27;진퇴양난&#x27;</div><div class="m">데일리안 · 2026.07.14 07:07</div></div><div class="news"><div class="t">주요 은행 모기지보험 일제 중단…대출 한도 5000만원 이상 축소</div><div class="m">조선일보 · 2026.07.14 16:32</div></div><div class="news"><div class="t">시중은행 모기지보험 셧다운…우리·SC도 일시 중단(종합)</div><div class="m">뉴스1 · 2026.07.14 16:23</div></div><div class="news"><div class="t">시중은행 모기지보험 셧다운…SC제일은행도 일시 중단</div><div class="m">뉴스1 · 2026.07.14 09:32</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 발표 및 추가 자사주 매입·소각 공시, 밸류업 정책 후속 조치 여부</div></div>
-</div>
-</div>
-<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">093190</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">빅솔론</div>
-        <span class="ctag">실적 턴어라운드 · EPS +288%</span>
-        <div class="chl">영업이익 68.8%↑·PER 8.4배 저평가, 산업용 프린터 실적 턴어라운드</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩8,030</div>
-      <div class="cchg up">+0.25%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g"><i></i><em>RS</em> <b>80</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.5%</b></span><span class="g"><i></i><em>VCP</em> <b>4/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출 성장</div><div class="v">+35.4%</div><div class="s up">전년 대비</div></div><div class="num"><div class="l">EPS 성장</div><div class="v">+288.2%</div><div class="s up">전년 대비</div></div><div class="num"><div class="l">영업이익률</div><div class="v">21.6%</div><div class="s up">연간 기준</div></div><div class="num"><div class="l">Forward PE</div><div class="v">8.4x</div><div class="s up">저평가 구간</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>빅솔론은 포스(POS) 프린터, 라벨 프린터, 모바일 프린터 등 산업용 소형 프린터를 만들어 백화점·할인마트·물류회사·의료기관 등에 공급하는 회사다. 국내외 유통·물류 현장에서 쓰이는 영수증 발급기(포스프린터)와 배송 라벨 프린터가 주력 라인업이며, 북미의 Bixolon America와 유럽의 Bixolon Europe, 남미의 Bixolon Mexico 등 해외 법인을 통해 현지 유통·물류 기업에 직접 공급하는 구조다. 매출의 대부분은 프린터 완제품을 유통·물류·의료 사업자에게 직접 판매하는 B2B 하드웨어 판매 방식에서 나오며, 수출 비중이 높아 환율이 오를 때 수익성이 개선되는 구조를 갖고 있다. 2002년 삼성전기에서 분사한 이후 범용 프린터가 아닌 산업용 소형 프린터 한 분야에 집중해온 전문 기업으로, 유통·물류 현장에 특화된 내구성과 신뢰성이 경쟁력의 핵심이다. 2025년에는 매출과 EPS가 각각 35.4%, 288.2% 급증하며 영업이익이 전년비 68.8% 늘어난 159억원을 기록해 오랜 박스권을 벗어나는 실적 턴어라운드 국면에 들어섰다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026년 2월 발표된 2025년 연간 실적에서 영업이익이 159억원으로 전년비 68.8% 증가했고 주당 325원 결산배당을 결정한 점이 저평가 매력과 맞물려 재평가 동력으로 작용한 것으로 보인다. 매출 35.4%, EPS 288.2% 고성장에 Forward PER 8.4배의 낮은 밸류에이션이 부각되며 실적 개선주로 주목받은 것으로 판단된다.</p><p style="margin-top:6px;">다만 해당 실적·배당 발표는 이미 5개월 전 뉴스로 촉매의 신선도가 떨어졌고, 최근 분기 매출·영업이익이 직전 분기 대비 꺾인 점은 모멘텀 둔화 신호다. 코스닥이 지정학적 리스크로 변동성이 큰 국면인 만큼 후속 실적 확인 전까지는 상승 동력의 지속성을 단정하기 어렵다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">저PER·배당 매력은 있으나 촉매가 5개월 지난 뉴스이고 직전 분기 실적 둔화·기술지표 미충족까지 겹쳐 신규 진입보다는 후속 실적 확인이 우선이다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>현재가 ₩8,030 돌파 시 신규 진입을 고려하되, 종가 기준 ₩7,709(-4%) 이탈 시 손절 대응.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩8,030 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩7,709 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>실적 턴어라운드</b> — 연간 영업이익 159억원으로 전년비 68.8% 증가했고, 매출·EPS도 각각 35.4%, 288.2% 급증하며 뚜렷한 이익 개선 흐름을 보였다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>저평가 밸류에이션</b> — Forward PER 8.4배로 실적 개선 대비 저평가 구간이며, 주당 325원 현금배당을 결정해 주주환원 매력도 갖췄다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>수출 비중 높은 구조</b> — 매출 상당 부분이 북미·유럽·남미 해외 법인을 통한 수출에서 나와 원화 약세 국면에서 수익성 레버리지가 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>산업용 프린터 니치 리더</b> — 포스·라벨·모바일 프린터 전 라인업을 갖추고 유통·물류·의료기관 등 다양한 B2B 채널에 공급하는 구조로 안정적인 반복 수요를 확보하고 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>직전 분기 매출(463→375억원)과 영업이익(100→56억원)이 전분기 대비 꺾여 실적 모멘텀 둔화 우려가 있다</div></div><div class="risk"><span>⚠</span><div>SEPA·VCP·RDY 지표가 모두 미충족(—/10)이고 애널리스트 커버리지가 전무해 목표주가 등 외부 검증이 부족하다</div></div><div class="risk"><span>⚠</span><div>시가총액 1,545억원의 소형주로 유동성이 낮아 변동성이 클 수 있다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">기업공시 [2월 4일]</div><div class="m">서울경제 · 2026.02.04 16:52</div></div><div class="news"><div class="t">빅솔론, 주당 325원 현금 배당 결정</div><div class="m">아시아경제 · 2026.02.04 11:58</div></div><div class="news"><div class="t">빅솔론, 1주당 325원 현금 결산배당 결정</div><div class="m">이데일리 · 2026.02.04 11:10</div></div><div class="news"><div class="t">빅솔론, 지난해 영업익 159억원…전년비 68.8%↑</div><div class="m">이데일리 · 2026.02.04 11:08</div></div><div class="news"><div class="t">빅솔론, 주당 325원 결산배당</div><div class="m">뉴시스 · 2026.02.04 10:42</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">차기 분기 실적 발표 및 후속 배당·수출 환율 흐름 확인이 다음 관전 포인트.</div></div>
 </div>
 </div>
 <div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
@@ -1892,47 +1321,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   </div>
   <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>M&amp;A 인수 기대감</b> — 신한금융그룹과 한국투자금융지주가 인수를 검토 중인 것으로 알려지며 매각가 프리미엄 기대가 주가에 반영되고 있다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>디지털 전환 추진</b> — 생활밀착형 플랫폼 ALICE와 영업지원 플랫폼 wonder를 통해 채널 경쟁력 강화를 시도하고 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>전속설계사 채널 강화</b> — GA(법인보험대리점) 의존도를 낮추고 전속설계사 채널을 키워 언더라이팅 질적 개선을 노리는 흐름이다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>매출 반등 조짐</b> — 직전 분기 매출이 8,710억원으로 저점 대비 회복세를 보이고 있다.</div></div></div>
   <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>매각 협상이 2024년부터 이어진 만큼 최종 계약 무산 시 주가 되돌림 리스크가 크다</div></div><div class="risk"><span>⚠</span><div>신지급여력제도(K-ICS) 기본자본 규제 시행이 6개월 앞으로 다가와 자본관리 부담이 가중되는 국면이다</div></div><div class="risk"><span>⚠</span><div>최근 2개 분기 연속 영업적자에 EPS 성장률이 -200%로 펀더멘털 훼손이 확인된다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">여전히 비싼 롯데손보...신한과 가격 줄다리기</div><div class="m">서울경제 · 2026.07.14 20:28</div></div><div class="news"><div class="t">하루 1000원으로 &#x27;물놀이 보험&#x27; 골절·수술·후유장해 집중보장</div><div class="m">매일경제 · 2026.07.14 16:09</div></div><div class="news"><div class="t">삼성SDI, UPS 배터리 세계 최초 화재 차단 인증</div><div class="m">서울경제 · 2026.07.14 09:10</div></div><div class="news"><div class="t">손보사, 전속설계사 채널 &#x27;강화&#x27;…GA 의존도 낮춘다</div><div class="m">뉴스1 · 2026.07.14 05:40</div></div><div class="news"><div class="t">기본자본 규제 D-6개월…보험사 7곳, 자본관리 능력 &#x27;시험대&#x27;</div><div class="m">전자신문 · 2026.07.13 12:38</div></div></div>
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">하루 1000원으로 &#x27;물놀이 보험&#x27; 골절·수술·후유장해 집중보장</div><div class="m">매일경제 · 2026.07.14 16:09</div></div><div class="news"><div class="t">삼성SDI, AI DC용 UPS 배터리 화재 차단 테스트 통과</div><div class="m">서울경제 · 2026.07.14 09:10</div></div><div class="news"><div class="t">손보사, 전속설계사 채널 &#x27;강화&#x27;…GA 의존도 낮춘다</div><div class="m">뉴스1 · 2026.07.14 05:40</div></div><div class="news"><div class="t">기본자본 규제 D-6개월…보험사 7곳, 자본관리 능력 &#x27;시험대&#x27;</div><div class="m">전자신문 · 2026.07.13 12:38</div></div><div class="news"><div class="t">&quot;신한지주, 목표가 12.9만↑…실적·환원 양호&quot;-유안타</div><div class="m">머니투데이 · 2026.07.13 08:54</div></div></div>
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">신한금융·한국투자금융 인수 협상 결과 발표, K-ICS 기본자본 규제 시행(약 6개월 후) 및 자본확충 계획 공개</div></div>
-</div>
-</div>
-<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">236200</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">슈프리마 🤖</div>
-        <span class="ctag">주주환원 강화 · 저평가 해소</span>
-        <div class="chl">달튼 지분참여+40% 주주환원 정책에 랠리, PER 9.6배 저평가 여전</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩46,950</div>
-      <div class="cchg down">-0.32%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g warn"><i></i><em>RS</em> <b>79</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출 성장</div><div class="v">+8.0%</div><div class="s up">전년동기대비</div></div><div class="num"><div class="l">EPS 성장</div><div class="v">+23.5%</div><div class="s up">이익 개선 속도</div></div><div class="num"><div class="l">영업이익률</div><div class="v">17.3%</div><div class="s up">안정적 수익성</div></div><div class="num"><div class="l">Forward PE</div><div class="v">9.6배</div><div class="s up">목표가 6.3만원 대비 저평가</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>슈프리마는 지문·얼굴인식 등 바이오인식 기술을 활용한 출입보안 시스템과 근태관리 솔루션을 만들어 기업과 기관에 판매하는 회사다. 스마트폰 지문인식 알고리즘과 바이오인식 모듈을 공급하고, 최근에는 AI 영상감시카메라와 VMS(영상관리시스템)로 사업을 확장하며 현대차그룹, 메타(Meta), 에퀴닉스 등 글로벌 기업의 데이터센터 보안 프로젝트에 레퍼런스를 쌓고 있다. 하드웨어(리더기·모듈)와 소프트웨어를 기업·기관에 직접 판매하거나 파트너사를 통해 공급하는 B2B 제품판매 구조로 수익을 낸다. 지문인식 알고리즘 자체 기술력을 바탕으로 글로벌 바이오인식 시장에서 경쟁력을 확보했고, AI 제품 비중을 2021년 23.5%에서 2025년 53%까지 끌어올리며 단순 하드웨어 업체에서 AI 보안 플랫폼 기업으로 전환 중이다. 올해 4월 순이익의 40%를 주주에게 환원하겠다는 정책과 120억원 규모 자사주 매입 신탁계약을 발표했고, 6월에는 미국 행동주의펀드 달튼인베스트먼트가 지분 5%를 확보하며 저평가 해소 기대감이 부각됐다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>4월 21~22일 순이익 40% 환원 정책과 120억원 자사주 신탁계약 발표로 주가가 12%대 급등했고, 6월 초 미국 행동주의펀드 달튼인베스트먼트의 지분 5.05% 확보 공시가 저평가 해소 기대를 재점화했다. AI 제품 비중 확대와 글로벌 빅테크 레퍼런스 확보 스토리도 밸류 리레이팅 근거로 작용하고 있다.</p><p style="margin-top:6px;">다만 1분기 영업이익은 전년대비 5% 줄었고 VCP·RDY 스코어가 모두 0/10에 머물러 있어 주주환원·행동주의 모멘텀이 아직 뚜렷한 기술적 베이스로 이어지지는 못한 상태다. 코스닥이 반도체 업황 우려로 변동성이 큰 국면인 만큼 개별 모멘텀의 지속력 확인이 필요하다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">주주환원·저평가 스토리는 유효하나 1분기 이익 둔화와 미완성 기술적 셋업 감안 시 베이스 완성 확인 후 접근이 합리적.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩46,950 돌파 시 분할 진입, 종가 기준 ₩45,072(-4%) 이탈 시 손절 대응.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩46,950 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩45,072 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>주주환원 강화</b> — 순이익 40% 환원 정책과 120억원 자사주 신탁계약 체결로 주주가치 제고 기대가 커졌다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>행동주의펀드 지분참여</b> — 달튼인베스트먼트가 지분 5.05%를 확보하며 저평가 해소를 위한 주주활동 가능성이 제기된다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>AI 보안 전환</b> — AI 제품 비중이 53%까지 확대됐고 현대차·메타·에퀴닉스 등 글로벌 데이터센터향 레퍼런스가 쌓이고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>밸류에이션 매력</b> — Forward PE 9.6배로 목표가(6.3만원) 대비 상승여력이 남아있다는 평가다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>1분기 영업이익이 전년대비 5% 감소해 단기 실적 모멘텀은 둔화된 상태</div></div><div class="risk"><span>⚠</span><div>VCP·RDY 스코어가 0/10으로 기술적 베이스 형성이 아직 확인되지 않음</div></div><div class="risk"><span>⚠</span><div>달튼인베스트먼트 보유목적이 &#x27;단순투자&#x27;로 명시돼 실제 주주활동으로 이어질지 불확실</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">美 행동주의 펀드 달튼, 슈프리마 주요주주 등극…주주활동 나서나</div><div class="m">이데일리 · 2026.06.04 15:57</div></div><div class="news"><div class="t">슈프리마, 1분기 영업익 54억…전년비 5% 감소</div><div class="m">이데일리 · 2026.04.30 17:59</div></div><div class="news"><div class="t">슈프리마에이치큐, 주주환원 계획 발표…12%대 급등[특징주]</div><div class="m">이데일리 · 2026.04.22 09:15</div></div><div class="news"><div class="t">슈프리마, 당기순이익 40% 주주환원 선언…저평가 해소 기대-NH</div><div class="m">이데일리 · 2026.04.22 07:52</div></div><div class="news"><div class="t">슈프리마, 120억 규모 자사주 취득 신탁계약 체결</div><div class="m">이데일리 · 2026.04.21 17:54</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 발표 및 반기배당 지급 시점, 달튼인베스트먼트의 추가 주주활동 여부가 다음 트리거.</div></div>
 </div>
 </div>
 <div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold">
@@ -1994,7 +1384,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>RS</em> <b>78</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.3%</b></span><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span></div>
+  <div class="gline"><span class="g warn"><i></i><em>RS</em> <b>77</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.3%</b></span><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2013,164 +1403,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">8월 10일 중간배당 지급 예정일과 향후 3년간 주당 800원 이상 배당 계획의 후속 이행 여부가 관전포인트.</div></div>
 </div>
 </div>
-<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">017650</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">대림제지</div>
-        <span class="ctag">저평가 반등 · 배당 100원</span>
-        <div class="chl">현금배당 발표·업계 주주환원 바람 속 저평가 반등, 실적 펀더멘털은 아직 부진</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩9,240</div>
-      <div class="cchg down">-1.07%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g warn"><i></i><em>RS</em> <b>77</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.5%</b></span><span class="g"><i></i><em>VCP</em> <b>4/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">RS(상대강도)</div><div class="v">77.0</div><div class="s up">코스닥 대비 모멘텀 상위권</div></div><div class="num"><div class="l">Forward PE</div><div class="v">12.7x</div><div class="s up">밸류 부담 낮은 편</div></div><div class="num"><div class="l">영업이익률</div><div class="v">-8.2%</div><div class="s dn">최근 분기 기준 적자 구간</div></div><div class="num"><div class="l">EPS 성장</div><div class="v">-74.3%</div><div class="s dn">이익 기반 크게 위축</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>대림제지는 골판지용 원지와 골판지상자에 쓰이는 라이너·골심지를 만들어 삼보판지, 동진판지 등 골판지 가공업체에 공급하는 회사다. 완성품인 골판지 박스를 직접 팔기보다 그 전 단계 원재료인 원지를 대형 가공업체에 안정적으로 납품하는 B2B 제조·판매 구조로 매출을 낸다. 오랜 기간 확보한 대형 거래처 기반이 경쟁사 대비 강점이지만, 업황 자체가 공급과잉과 원가 부담에 취약한 저성장 산업이라 자체 성장 동력은 크지 않다. 최근에는 주당 100원 현금배당을 결정하며 업계 전반의 자사주 소각·주주환원 확산 흐름에 동참하는 모습을 보였고, 제지업계는 AI 시대 수요 변화에 대응한 체질개선 논의도 함께 나오고 있다. 다만 매출 성장은 거의 정체돼 있고 최근 분기 영업이익은 적자와 소폭 흑자를 오가는 불안정한 흐름을 보이는 만큼, 지금의 주가 움직임은 실적 개선보다는 저평가 인식과 배당 매력에 기댄 측면이 크다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>주당 100원 현금배당 결정이 업계 전반의 자사주 소각·주주환원 확산 분위기와 맞물리며 저평가 인식에 따른 반등 매수세를 자극한 것으로 보인다. 다만 이번 상승을 뒷받침할 만한 뚜렷한 실적 서프라이즈나 신규 계약 등 회사 고유의 강한 촉매는 확인되지 않는다.</p><p style="margin-top:6px;">당일 주가가 -1.07% 조정을 보이며 진입가 ₩9,240을 아직 돌파하지 못한 상태로, 배당·주주환원 테마 모멘텀이 이어질지는 추가 확인이 필요하다. 코스닥 지수 자체도 최근 변동성이 커진 국면이라 개별 종목 모멘텀의 지속력을 보수적으로 판단할 필요가 있다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">배당·주주환원 테마로 반등했으나 영업적자와 EPS 급감 등 실적 펀더멘털이 약하고 애널리스트 검증도 없어, 돌파 확인 전까지는 관망이 합리적이다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩9,240 돌파 시 분할 진입, 손절가 ₩8,870(-4%) 이탈 시 즉시 청산하는 단기 대응이 적절하다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩9,240 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩8,870 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>주주환원 강화</b> — 주당 100원 현금배당을 결정하며 업계 전반의 자사주 소각·배당 확대 분위기에 동참했다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>낮은 밸류 부담</b> — Forward PE 12.7배로 이익 대비 주가 부담이 크지 않아 저평가 매수세가 유입될 여지가 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>안정적 거래선</b> — 삼보판지·동진판지 등 대형 골판지 가공업체를 주요 고객사로 확보해 매출 기반이 상대적으로 안정적이다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>업계 구조조정 기대</b> — 제지업계 전반이 AI 시대 수요 변화에 맞춰 체질개선을 모색 중으로, 공급과잉 완화 시 마진 개선 여지가 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>영업이익률 -8.2%, EPS -74.3%로 실적 펀더멘털이 뚜렷하게 약화된 상태</div></div><div class="risk"><span>⚠</span><div>매출 성장률 -0.2%로 외형 성장 모멘텀이 사실상 부재</div></div><div class="risk"><span>⚠</span><div>애널리스트 커버리지 0명으로 목표가·컨센서스 확인이 불가능해 밸류 판단 근거가 제한적</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">제지업계 &#x27;연봉킹&#x27; 조동길 한솔 회장…2위 이동욱 무림 회장</div><div class="m">뉴스1 · 2026.03.25 06:30</div></div><div class="news"><div class="t">자사주 소각 150개사 응답… 지난해보다 2배 늘어났다</div><div class="m">머니투데이 · 2026.03.17 04:00</div></div><div class="news"><div class="t">주주환원 전성시대...&#x27;주주제안&#x27; 표 대결 뜨거워지나</div><div class="m">머니투데이 · 2026.03.16 15:55</div></div><div class="news"><div class="t">대림제지, 주당 100원 현금배당 결정</div><div class="m">이데일리 · 2026.03.10 14:51</div></div><div class="news"><div class="t">“AI시대, 어쩔 수가 없다” 제지업계 ‘체질개선’ 사활</div><div class="m">헤럴드경제 · 2026.02.19 11:23</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 실적 발표 일정 미정 — 배당 후속 조치 및 제지업계 구조조정 관련 뉴스 흐름 주시</div></div>
-</div>
-</div>
-<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">101160</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">월덱스</div>
-        <span class="ctag">자사주 200억 매입·2600억 투자</span>
-        <div class="chl">반도체 부품 강자, 200억 자사주 매입·2600억 투자로 주주환원 강화</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩28,750</div>
-      <div class="cchg down">-0.17%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g warn"><i></i><em>RS</em> <b>76</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.5%</b></span><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">EPS 성장률</div><div class="v">+46.7%</div><div class="s up">이익 개선 뚜렷</div></div><div class="num"><div class="l">영업이익률</div><div class="v">26.6%</div><div class="s up">고수익성 유지</div></div><div class="num"><div class="l">Forward PE</div><div class="v">11.6배</div><div class="s up">저평가 구간</div></div><div class="num"><div class="l">매출 성장률</div><div class="v">-6.7%</div><div class="s dn">외형은 역성장</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>월덱스는 반도체 에칭(식각) 공정에 들어가는 실리콘 부품과 쿼츠(석영) 부품, 파인세라믹 부품을 만들어 국내외 반도체 제조사에 공급하는 소재 전문기업이다. 주력 매출은 실리콘 부품에서 나오며, 미국 실리콘잉곳·쿼츠 전문업체 WCQ 인수 이후 원재료 잉곳 생산부터 완제품 가공까지 수직계열화한 구조를 갖춰 원가와 품질을 동시에 통제할 수 있다는 점이 경쟁사 대비 강점이다. 돈 버는 방식은 반도체 팹(공장)에 소모성 부품을 지속적으로 납품하는 B2B 제품판매 구조로, 반도체 생산량이 늘수록 부품 교체 수요도 함께 늘어난다. 최근에는 주주행동주의 압력 속에서 하반기 200억원 규모 자사주 매입·소각과 2030년까지 2600억원 투자 계획을 발표하며 주주환원 강화에 나섰다. 매출은 최근 분기 기준 전년 대비 역성장했지만 영업이익률은 26.6%로 높은 수익성을 유지하고 있어, 외형보다 이익의 질이 부각되는 국면이다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>주주행동주의 압력(이사 보수 논란)이 불거진 가운데 월덱스가 하반기 200억원 자사주 매입·소각과 2030년까지 2600억원 투자계획을 발표하며 주가 저평가 해소 기대감이 커졌다. 밸류업 프로그램에 우호적인 시장 분위기 속에서 주주환원 확대 종목에 대한 관심이 반영된 것으로 풀이된다.</p><p style="margin-top:6px;">코스피·코스닥이 지정학적 리스크와 반도체 피크아웃 우려로 급락했다가 기관·외국인 매수로 낙폭을 만회한 변동성 장세에서, 월덱스의 자사주 매입 재료는 개별 이벤트로 시황과 별개로 작동 중이다. 다만 SEPA·VCP·RDY 점수가 전무해 기술적 모멘텀은 아직 뒷받침되지 않는다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">주주환원 확대는 긍정적이나 매출 역성장과 형성되지 않은 기술적 베이스를 감안하면 추격매수보다 확인 후 대응이 합리적이다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩28,750 돌파 시 분할 진입, ₩27,600(-4%) 이탈 시 손절하는 단기 대응이 적합하다. 자사주 매입 재료는 이미 알려진 만큼 추격보다는 눌림목 확인 후 접근이 낫다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩28,750 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩27,600 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>대규모 주주환원</b> — 하반기 200억원 자사주 매입·소각과 2027~2028년 순이익 40% 환원 계획을 발표해 주주가치 제고 의지를 명확히 했다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>높은 수익성</b> — 매출 역성장에도 영업이익률 26.6%를 유지해 반도체 에칭 부품 시장에서의 가격 결정력을 보여준다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>저평가 밸류에이션</b> — Forward PE 11.6배로 동종 반도체 소부장 업종 대비 낮은 밸류에이션을 유지하고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>중장기 투자 확대</b> — 2030년까지 실리콘·쿼츠·세라믹 부품 생산능력 확충에 2600억원을 투입해 성장 기반을 다지는 중이다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>매출이 전년 대비 -6.7% 역성장했고 반도체 업황 피크아웃 우려가 겹쳐 있다</div></div><div class="risk"><span>⚠</span><div>SEPA·VCP·RDY 스코어가 모두 0에 가까워 기술적 베이스가 형성되지 않은 상태다</div></div><div class="risk"><span>⚠</span><div>분기 영업이익이 224억원 정점 이후 143억원으로 둔화되는 등 실적 변동성이 크다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">행동주의 타깃 된 에이플러스에셋, 70억원 규모 자사주 매입</div><div class="m">매일경제 · 2026.07.14 15:46</div></div><div class="news"><div class="t">월덱스, 2030년까지 2600억 투자·올 하반기 200억 자사주 매입</div><div class="m">블로터 · 2026.07.13 18:52</div></div><div class="news"><div class="t">월덱스, 200억 자사주 매입·소각 결정…주주 요구 반영</div><div class="m">비즈워치 · 2026.07.13 17:31</div></div><div class="news"><div class="t">이사 보수 문제와 주주행동주의 [딜레터]</div><div class="m">헤럴드경제 · 2026.07.10 11:30</div></div><div class="news"><div class="t">4조원 몰린 밸류업 ETF, 수익률도 코스피 웃돌아</div><div class="m">비즈워치 · 2026.07.07 11:20</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">하반기 200억원 자사주 매입 집행 및 2030년 2600억원 투자계획 구체화 여부</div></div>
-</div>
-</div>
-<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="realestate" data-ai="true" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">033560</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">블루콤 🤖</div>
-        <span class="ctag">이어폰→부동산 전환 · PER 3.9배</span>
-        <div class="chl">무선이어폰 사업 접고 부동산 임대업 전환, 초저PER+자사주 매입 겹친 자산주</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩3,745</div>
-      <div class="cchg up">+3.17%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g warn"><i></i><em>RS</em> <b>75</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.7%</b></span><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">Forward PER</div><div class="v">3.9배</div><div class="s up">코스닥 평균 대비 저평가</div></div><div class="num"><div class="l">매출성장률</div><div class="v">+38.5%</div><div class="s up">전년 동기 대비</div></div><div class="num"><div class="l">EPS성장률</div><div class="v">-88.1%</div><div class="s dn">이익 급감, 질적 점검 필요</div></div><div class="num"><div class="l">영업이익률</div><div class="v">239.7%</div><div class="s up">이례적 고마진, 일회성 요인 가능성 유의</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>블루콤은 과거 블루투스 이어폰을 만들어 LG전자 등에 납품하던 회사였지만, 지금은 보유 부동산을 임대해 수익을 내는 부동산 투자·임대회사다. 2025년 12월 무선헤드셋 ODM(브랜드사 주문을 받아 개발부터 생산까지 대신 맡아주는 방식) 사업을 완전히 정리했고, 전체 자산의 약 70%를 차지하는 투자부동산을 굴려 임대료 수익을 얻는 구조로 전환했다. 특정 고객사에 제품을 파는 방식이 아니라 임차인에게 부동산을 빌려주고 임대료를 받는 B2B 임대수익 모델로 돈을 번다. 신설한 부동산투자운용팀을 통해 자산가치 극대화를 노린다는 점, 그리고 제조업 대비 변동성이 낮은 임대 현금흐름을 지향한다는 점이 특징이다. 과거 LG전자 완전무선이어폰 &#x27;톤프리&#x27; ODM으로 성장했으나 경쟁 심화와 수요 둔화로 본업 사업성이 악화되면서 결국 완전히 새 비즈니스 모델로 갈아탄 것이 최근 가장 큰 변화점이다. 2025년 8월에는 30억 규모 자사주 취득 신탁계약을 체결하며 주주환원 의지도 함께 보였다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>웹검색으로는 오늘 3.17% 상승을 설명하는 구체적 뉴스는 확인되지 않았다. 다만 무선이어폰 사업 완전 철수 이후 초저PER(3.9배) 부동산 자산주로 재평가받는 흐름과 2025년 8월 자사주 매입 신탁계약이 저평가·주주환원 매력을 부각시키며 저유동성 소형주 특유의 수급성 매수세를 유발했을 가능성이 있다.</p><p style="margin-top:6px;">오늘 코스닥 지수는 매도사이드카까지 발동되며 1.92% 급락했는데 이 종목만 반대로 상승한 점은 개별 수급 이슈로 보이며, SEPA·VCP·RDY 점수가 모두 낮아 기술적 모멘텀이 뒷받침되는 상황은 아니다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">구체적 상승 동력 미확인, 이익의 질 불투명, SEPA/VCP/RDY 기술적 셋업 미완성이 겹쳐 현시점 진입 근거가 약하다</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>₩3,745 돌파 시 분할 진입, ₩3,595(-4%) 이탈 시 손절로 대응하는 단기 대응이 적합하다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩3,745 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩3,595 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>초저PER 밸류에이션</b> — Forward PER 3.9배로 코스닥 내에서도 현저히 낮은 수준이며, 부동산 임대업 전환 후 안정적 현금흐름 스토리가 부각될 여지가 있다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>부동산 임대업 전환</b> — 무선이어폰 ODM 사업을 완전히 정리하고 전체 자산의 약 70%인 투자부동산을 중심으로 임대수익 구조로 재편했다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>자사주 매입 진행</b> — 2025년 8월 30억 규모 자사주 취득 신탁계약을 체결해 주주환원 의지를 보였다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>상대강도 양호</b> — RS 75로 시장 대비 상대강도는 나쁘지 않지만 SEPA·VCP·RDY 점수는 아직 낮아 기술적 셋업은 미완성 상태다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>EPS -88.1% 급감에 영업이익률 239.7%라는 이례적 수치가 겹쳐 있어, 일회성 자산 관련 이익일 가능성이 크고 이익의 질을 신뢰하기 어렵다</div></div><div class="risk"><span>⚠</span><div>본업이던 무선이어폰 사업을 완전히 접으면서 기존 성장 스토리가 소멸했고, 신규 부동산 임대사업은 아직 트랙레코드가 짧다</div></div><div class="risk"><span>⚠</span><div>애널리스트 커버리지가 전무하고 목표주가·다음 실적 일정도 확인되지 않아 밸류에이션 근거와 이벤트 트리거가 부족하다</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">블루콤, 무선헤드셋 ODM 개발·제조 사업 중단</div><div class="m">이데일리 · 2025.12.05 14:50</div></div><div class="news"><div class="t">블루콤, 30억 규모 자사주 취득 신탁계약 체결</div><div class="m">헤럴드경제 · 2025.08.11 15:10</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 실적 발표 일정 미확정 — 부동산투자운용팀의 신규 임대차 계약이나 자산 매각 공시 여부가 다음 트리거가 될 전망</div></div>
-</div>
-</div>
-<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="industrial" data-ai="true" data-unicorn="false" data-verdict="hold">
-<div class="chead">
-  <div class="ctop">
-    <div class="cleft">
-      <div class="tcol">
-        <div class="tpill">053160</div>
-        <div class="sbadge">SEPA ✓</div>
-      </div>
-      <div class="cmain">
-        <div class="cname">프리엠스 🤖</div>
-        <span class="ctag">자사주 취득 발표 · 단기 급등</span>
-        <div class="chl">50억 자사주 취득 공시로 급등했으나 매출 역성장·고밸류 부담 상존</div>
-      </div>
-    </div>
-    <div class="cright">
-      <div class="cprice">₩9,280</div>
-      <div class="cchg down">-0.22%</div>
-      
-    </div>
-  </div>
-  <div class="gline"><span class="g warn"><i></i><em>RS</em> <b>73</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.2%</b></span><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span></div>
-  <div class="fold">▼</div>
-</div>
-<div class="cbody">
-  <div class="nums"><div class="num"><div class="l">매출성장률</div><div class="v">-2.0%</div><div class="s dn">전년 대비 역성장</div></div><div class="num"><div class="l">영업이익률</div><div class="v">2.2%</div><div class="s dn">저마진 구조</div></div><div class="num"><div class="l">Forward PE</div><div class="v">69.6x</div><div class="s dn">이익 규모 대비 고밸류</div></div><div class="num"><div class="l">RS(상대강도)</div><div class="v">73.0</div><div class="s up">코스닥 내 상대적 주가 강세</div></div></div>
-  <div class="sec"><div class="sl">기업 개요</div><p>프리엠스는 건설용 중장비와 산업차량에 들어가는 전장품인 와이어하네스(배선을 묶어놓은 전선다발)와 배터리케이블을 만들어 파는 회사다. HD현대건설기계, HD현대사이트솔루션, 두산밥캣코리아 등 국내 대형 중장비 업체에 부품을 납품하는 B2B 구조로, 고객사의 장비 생산 물량에 실적이 그대로 연동된다. 중국 산동성 위해시에 위해선중전자장배유한공사와 위해부선전자장배유한공사 두 개의 생산 자회사를 두고 있어 현지 저비용 생산 기반이 경쟁사 대비 강점으로 꼽힌다. 최근에는 본업 실적보다 50억원 규모 자사주 취득 결정이라는 주주환원 이벤트가 주가를 크게 움직인 계기가 됐고, 앞서 4월경에도 20억원 규모 자사주 취득·소각을 마무리한 바 있다. 다만 매출은 역성장 중이고 영업이익률도 2%대에 머물러 있어 지금의 강세는 펀더멘털 개선보다 수급 이벤트성 등락에 가깝다.</p></div>
-  <div class="sec"><div class="sl">상승 동력 진단</div><p>6월 16일 50억원 규모 자사주 취득 결정 공시 직후 장 초반 10%대 급등했으며, 이는 4월경 20억원 규모 자사주 취득·소각을 마무리한 이력과 맞물려 주주환원 모멘텀으로 부각됐다.</p><p style="margin-top:6px;">다만 해당 이벤트는 한 달가량 지난 뉴스로 현재는 당일 -0.22%로 숨고르기 중이고, VCP·RDY 점수가 모두 0/10에 그쳐 명확한 기술적 베이스는 확인되지 않는다.</p><div class="vd hold"><span class="vlab">🤖 현시점 판단 (AI 의견)</span><span class="vcall">관망</span><div class="vwhy">자사주 취득이라는 일회성 수급 이벤트는 대부분 소화됐고 매출 역성장·고밸류에 기술적 베이스 미형성까지 겹쳐 추가 상승 근거가 약하다.</div></div></div>
-  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입가 ₩9,280 돌파 시 분할 매수 접근, 손절가는 ₩8,909(-4%) 이탈 시 즉시 대응한다.</p>
-    <div class="es">
-      <div class="en"><div class="l">📍 진입</div><div class="v">₩9,280 돌파</div></div>
-      <div class="st"><div class="l">🛑 손절</div><div class="v">₩8,909 (-4%)</div></div>
-    </div>
-  </div>
-  <div class="sec"><div class="sl">투자 근거</div><div class="bull"><div class="bn">1</div><div class="bt"><b>주주환원 강화</b> — 50억원 규모 자사주 취득을 새로 결정했고, 앞서 20억원 규모 취득·소각도 완료해 주주가치 제고 의지를 확인시켰다.</div></div><div class="bull"><div class="bn">2</div><div class="bt"><b>대형 고객사 기반</b> — HD현대건설기계, HD현대사이트솔루션, 두산밥캣코리아 등 국내 중장비 선두업체향 납품망을 갖추고 있다.</div></div><div class="bull"><div class="bn">3</div><div class="bt"><b>중국 생산기지 보유</b> — 산동성 위해 소재 2개 자회사를 통해 현지 저비용 생산 체제를 운영하며 원가 경쟁력을 확보하고 있다.</div></div><div class="bull"><div class="bn">4</div><div class="bt"><b>상대강도 우위</b> — RS 73으로 코스닥 전반 대비 주가 강세가 이어지고 있다.</div></div></div>
-  <div class="sec"><div class="sl">리스크</div><div class="risk"><span>⚠</span><div>매출 역성장과 EPS 급감 등 실적 펀더멘털이 부진한 상태</div></div><div class="risk"><span>⚠</span><div>Forward PE 69.6x로 이익 체력 대비 밸류에이션 부담이 큼</div></div><div class="risk"><span>⚠</span><div>VCP·RDY 점수가 각각 0/10으로 눌림목이나 베이스 없이 급등해 기술적 안정성이 낮음</div></div></div>
-  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t">50억원 자사주 취득 결정… 프리엠스, 장 초반 10%대↑</div><div class="m">머니투데이 · 2026.06.16 09:43</div></div><div class="news"><div class="t">종전 MOU에 재건주 &#x27;들썩&#x27;…퍼스텍 &#x27;上&#x27;·대우건설 24%↑</div><div class="m">뉴시스 · 2026.06.16 09:55</div></div><div class="news"><div class="t">프리엠스, 50억 규모 자사주 취득 결정</div><div class="m">이데일리 · 2026.06.15 16:54</div></div><div class="news"><div class="t">프리엠스, 50억 규모 자사주 취득 결정</div><div class="m">헤럴드경제 · 2026.06.15 15:59</div></div></div>
-  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">자사주 매입 진행 상황 및 소각 여부에 대한 후속 공시 확인 필요, 별도 실적 발표 일정은 확인되지 않음</div></div>
-</div>
-</div>
 <div class="foot">교육·참고 목적이며 투자 권유가 아닙니다.<br>
-MacTrader · Minervini SEPA + VCP · 🧠 심층분석: Claude Sonnet (52/52종목)<br>
+MacTrader · Minervini SEPA + VCP · 🧠 심층분석: Claude Sonnet (31/32종목)<br>
 📊 데이터: yfinance · Naver금융 · 자체 RS 엔진</div>
 </div>
 
