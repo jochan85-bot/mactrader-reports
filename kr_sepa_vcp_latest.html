@@ -136,6 +136,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .vtab.active{background:#34D399;color:#0F172A;}
 .tab.attr.active{color:#0F172A !important;}
 .tabs.attrRow{padding-top:0;padding-bottom:6px;}
+
+.tabs{gap:4px;padding:5px 12px 7px;}
+.tab{padding:4px 8px;font-size:11px;border-radius:15px;}
+.tab .c{font-size:10px;}
+.tab-util{padding:4px 8px;font-size:10.5px;border-radius:15px;}
+.vtabs{gap:4px;padding:0 12px 7px;}
+.vtab{padding:4px 8px;font-size:11px;border-radius:15px;}
+.vtab .c{font-size:10px;}
+#fbar{display:none;justify-content:center;align-items:center;padding:2px 0 7px;cursor:pointer;color:#94A3B8;font-size:13px;line-height:1;}
+.hdr.fold #fmenu{display:none}
+.hdr.fold #fbar{display:flex}
 </style>
 </head><body>
 <div class="hdr">
@@ -146,7 +157,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="hdr-stats">🤖 AI 13</div>
     </div>
   </div>
-  <div class="tabs" id="secRow"><button class="tab active" data-sec="all">전체 <span class="c">52</span></button><button class="tab" data-sec="it">IT <span class="c">10</span></button><button class="tab" data-sec="healthcare">헬스케어 <span class="c">1</span></button><button class="tab" data-sec="comm">커뮤 <span class="c">2</span></button><button class="tab" data-sec="financial">금융 <span class="c">8</span></button><button class="tab" data-sec="cons-cyclical">경기소비 <span class="c">5</span></button><button class="tab" data-sec="cons-defensive">필수소비 <span class="c">5</span></button><button class="tab" data-sec="industrial">산업 <span class="c">2</span></button><button class="tab" data-sec="materials">소재 <span class="c">8</span></button><button class="tab" data-sec="energy">에너지 <span class="c">4</span></button><button class="tab" data-sec="utilities">유틸 <span class="c">0</span></button><button class="tab" data-sec="realestate">부동산 <span class="c">1</span></button><button class="tab" data-sec="unknown">기타 <span class="c">6</span></button></div><div class="tabs attrRow"><button class="tab attr" data-attr="ai">🤖 AI <span class="c">13</span></button><button class="tab attr" data-attr="unicorn">🦄 유니콘 <span class="c">0</span></button><button class="tab attr" data-attr="fresh">☀️ 신선주도주 <span class="c">18</span></button></div><div class="vtabs"><button class="vtab vbuy" data-vfilter="buy">🟢 매수 고려 <span class="c">0</span></button><button class="vtab vcan" data-vfilter="can">🔵 매수 가능 <span class="c">14</span></button><button class="vtab vhold" data-vfilter="hold">🟡 관망 <span class="c">37</span></button><button class="vtab vavoid" data-vfilter="avoid">🔴 회피 <span class="c">1</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div>
+  <div id="fmenu"><div class="tabs" id="secRow"><button class="tab active" data-sec="all">전체 <span class="c">52</span></button><button class="tab" data-sec="it">IT <span class="c">10</span></button><button class="tab" data-sec="healthcare">헬스케어 <span class="c">1</span></button><button class="tab" data-sec="comm">커뮤 <span class="c">2</span></button><button class="tab" data-sec="financial">금융 <span class="c">8</span></button><button class="tab" data-sec="cons-cyclical">경기소비 <span class="c">5</span></button><button class="tab" data-sec="cons-defensive">필수소비 <span class="c">5</span></button><button class="tab" data-sec="industrial">산업 <span class="c">2</span></button><button class="tab" data-sec="materials">소재 <span class="c">8</span></button><button class="tab" data-sec="energy">에너지 <span class="c">4</span></button><button class="tab" data-sec="utilities">유틸 <span class="c">0</span></button><button class="tab" data-sec="realestate">부동산 <span class="c">1</span></button><button class="tab" data-sec="unknown">기타 <span class="c">6</span></button></div><div class="tabs attrRow"><button class="tab attr" data-attr="ai">🤖 AI <span class="c">13</span></button><button class="tab attr" data-attr="unicorn">🦄 유니콘 <span class="c">0</span></button><button class="tab attr" data-attr="fresh">☀️ 신선주도주 <span class="c">18</span></button></div><div class="vtabs"><button class="vtab vbuy" data-vfilter="buy">🟢 매수고려 <span class="c">0</span></button><button class="vtab vcan" data-vfilter="can">🔵 매수가능 <span class="c">14</span></button><button class="vtab vhold" data-vfilter="hold">🟡 관망 <span class="c">37</span></button><button class="vtab vavoid" data-vfilter="avoid">🔴 회피 <span class="c">1</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div></div><div id="fbar" title="필터 펼치기">▼</div>
 </div>
 <div class="wrap">
 <div class="mkt kr"><div class="mkt-title">🔥 중동發 유가 급등에 코스피 5.7% 급락, 6690선 붕괴</div><div class="mkt-grid"><div class="mkt-box"><div class="l">코스피</div><div class="v">-5.72%</div><div class="s">6690.62 마감</div></div><div class="mkt-box"><div class="l">코스닥</div><div class="v">-5.32%</div><div class="s">748.22 마감</div></div><div class="mkt-box"><div class="l">수급(외국인·기관)</div><div class="v">-5.2조 순매도</div><div class="s">개인 5.2조 순매수</div></div></div><div class="mkt-note">미국과 이란 간 군사적 긴장이 고조되면서 브렌트유가 배럴당 100달러를 넘고 미 국채 10년물 금리가 4.7%를 돌파하자, 간밤 뉴욕 증시(나스닥 -2.15%)가 급락한 여파로 코스피와 코스닥 모두 장중 매도 사이드카가 발동될 정도로 투매가 쏟아졌다. 여기에 트럼프 행정부의 &#x27;강제노동 관세&#x27;(10~12.5%) 발표까지 겹치면서 외국인과 기관이 각각 3조2829억원, 1조9514억원을 순매도해 지수를 끌어내렸고, 개인이 5조1783억원을 순매수하며 낙폭 방어에 나섰지만 코스피는 6700선을, 코스닥은 750선을 모두 내줬다.</div></div>
@@ -2276,4 +2287,18 @@ MacTrader · Minervini SEPA + VCP · 🧠 심층분석: Claude Sonnet (52/52종�
 })();
 </script>
 
+<script>(function(){
+  var hdrEl=document.querySelector('.hdr'),fbarEl=document.getElementById('fbar');
+  if(!hdrEl||!fbarEl)return;
+  var fManual=false,fOpenY=0;
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY||document.documentElement.scrollTop||0;
+    if(y<60){hdrEl.classList.remove('fold');fManual=false;return;}
+    if(fManual){if(Math.abs(y-fOpenY)>300){fManual=false;hdrEl.classList.add('fold');}return;}
+    hdrEl.classList.add('fold');
+  },{passive:true});
+  fbarEl.addEventListener('click',function(){
+    hdrEl.classList.remove('fold');fManual=true;fOpenY=window.scrollY||0;
+  });
+})();</script>
 </body></html>
