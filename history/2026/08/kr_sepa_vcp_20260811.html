@@ -74,6 +74,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .g i{width:6px;height:6px;border-radius:50%;background:#22C55E;flex-shrink:0;}
 .g.warn i{background:#F59E0B;}.g.fail i{background:#EF4444;}.g.can i{background:#22D3EE;}
 .g.na{color:#9CA3AF;}.g.na i{background:#D1D5DB;}
+/* [TAG-PATCH-1 2026-08-11] 패턴 관찰 태그 — 범주 구분색(서열 없음), 녹/적 신호등 계열 배제 */
+.g.pt-con i{background:#4A7EBB;}   /* 수축 */
+.g.pt-pul i{background:#7B5EA7;}   /* 눌림 */
+.g.pt-flt i{background:#6B8E9F;}   /* 플랫 */
+.g.pt-exp i{background:#D98E32;}   /* 확장 */
+.g.pt-cfx i{background:#8B6F4E;}   /* 수축이탈 */
+.g.pt-non i{background:#9E9E9E;}   /* 무형 */
+.g.pt-na  i{background:#D1D5DB;}   /* — */
+.g.vt{color:#374151;}.g.vt i{display:none;}   /* 거래량 태그 = 무색 텍스트 */
 .gline.gtags{margin-top:5px;}
 .g b{font-weight:600;}.g em{color:#9CA3AF;font-style:normal;}
 .fold{text-align:center;margin-top:6px;font-size:11px;color:#D1D5DB;}
@@ -181,7 +190,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+3.6%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+3.6%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -222,7 +231,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -262,7 +271,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -17%)</small></b></span><span class="g"><i></i><em>돌파전</em> <b>-7.7%</b></span><span class="g"><i></i><em>AI</em> <b>8/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>패턴</em> <b>무형</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.7%</b></span><span class="g"><i></i><em>AI</em> <b>8/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -303,7 +312,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 +10%)</small></b></span><span class="g warn"><i></i><em>돌파후</em> <b>+15.6%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+15.6%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -343,7 +352,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 +61%)</small></b></span><span class="g"><i></i><em>돌파전</em> <b>-8.0%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>부진</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.0%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>부진</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -383,7 +392,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+2.5%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>패턴</em> <b>무형</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+2.5%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -423,7 +432,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 +15%)</small></b></span><span class="g"><i></i><em>돌파전</em> <b>-4.0%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.0%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -463,7 +472,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 +50%)</small></b></span><span class="g"><i></i><em>돌파전</em> <b>-4.6%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.6%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -503,7 +512,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.9%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.9%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -543,7 +552,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.9%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.9%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -584,7 +593,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.3%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.3%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -624,7 +633,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.9%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.9%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -664,7 +673,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -705,7 +714,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.7%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.7%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -746,7 +755,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.9%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.9%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -787,7 +796,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+1.1%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
+  <div class="gline"><span class="g pt-cfx"><i></i><em>패턴</em> <b>수축이탈</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+1.1%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -827,7 +836,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -5%)</small></b></span><span class="g warn"><i></i><em>돌파후</em> <b>+6.0%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+6.0%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -867,7 +876,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 +1%)</small></b></span><span class="g"><i></i><em>돌파전</em> <b>-4.1%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.1%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -908,7 +917,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 +5%)</small></b></span><span class="g warn"><i></i><em>돌파후</em> <b>+0.0%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-cfx"><i></i><em>패턴</em> <b>수축이탈</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+0.0%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -949,7 +958,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.7%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.7%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -990,7 +999,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 +9%)</small></b></span><span class="g"><i></i><em>돌파전</em> <b>-6.6%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.6%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1031,7 +1040,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -2%)</small></b></span><span class="g warn"><i></i><em>돌파후</em> <b>+8.7%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+8.7%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1072,7 +1081,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.4%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.4%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1112,7 +1121,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-10.2%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-10.2%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1152,7 +1161,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.9%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.9%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1193,7 +1202,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.2%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>패턴</em> <b>무형</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.2%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1234,7 +1243,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+6.3%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+6.3%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1274,7 +1283,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g"><i></i><em>VCP</em> <b>4/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.6%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>패턴</em> <b>플랫</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.6%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1314,7 +1323,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.8%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.8%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1354,7 +1363,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.7%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.7%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1395,7 +1404,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g"><i></i><em>VCP</em> <b>4/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.6%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.6%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1435,7 +1444,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.8%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.8%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1475,7 +1484,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.2%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.2%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1516,7 +1525,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1557,7 +1566,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.2%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.2%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1598,7 +1607,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.0%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>부진</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.0%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>부진</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1638,7 +1647,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.7%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>부진</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.7%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>부진</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1678,7 +1687,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 +14%)</small></b></span><span class="g"><i></i><em>돌파전</em> <b>-3.4%</b></span><span class="g"><i></i><em>AI</em> <b>8/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.4%</b></span><span class="g"><i></i><em>AI</em> <b>8/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1718,7 +1727,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 +34%)</small></b></span><span class="g"><i></i><em>돌파전</em> <b>-2.8%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.8%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1758,7 +1767,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.4%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>패턴</em> <b>무형</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.4%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1799,7 +1808,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.2%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.2%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1840,7 +1849,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.2%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.2%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1880,7 +1889,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.3%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.3%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1921,7 +1930,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.6%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.6%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1962,7 +1971,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.3%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.3%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span><span class="g warn"><i></i><b>📦적체</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2002,7 +2011,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 -3%)</small></b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2042,7 +2051,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.0%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.0%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2083,7 +2092,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g"><i></i><em>VCP</em> <b>4/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.6%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>4/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.6%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>4/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2124,7 +2133,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+2.3%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+2.3%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2164,7 +2173,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.8%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.8%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2205,7 +2214,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.7%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.7%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2246,7 +2255,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.9%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.9%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2286,7 +2295,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.3%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>패턴</em> <b>무형</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.3%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2326,7 +2335,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.5%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.5%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2366,7 +2375,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.3%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>패턴</em> <b>무형</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.3%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2406,7 +2415,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.8%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>패턴</em> <b>무형</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.8%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2446,7 +2455,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>NA <small>(천장 +11%)</small></b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2486,7 +2495,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g"><i></i><em>VCP</em> <b>4/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.2%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>패턴</em> <b>무형</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.2%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2527,7 +2536,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.3%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.3%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2567,7 +2576,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g"><i></i><em>VCP</em> <b>4/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.1%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>4/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.1%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>4/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2608,7 +2617,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.2%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.2%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2648,7 +2657,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.4%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.4%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2689,7 +2698,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.6%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.6%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2729,7 +2738,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.4%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>부진</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.4%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>부진</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2769,7 +2778,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2810,7 +2819,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.2%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>패턴</em> <b>무형</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.2%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2851,7 +2860,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.9%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.9%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2891,7 +2900,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+5.3%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+5.3%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>음전</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2931,7 +2940,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2972,7 +2981,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.7%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.7%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3013,7 +3022,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.0%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.0%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>1/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3053,7 +3062,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.9%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.9%</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3093,7 +3102,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.4%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.4%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g na"><i></i><em>성장 가속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3134,7 +3143,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.6%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>패턴</em> <b>눌림</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.6%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3175,7 +3184,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.4%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>부진</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>패턴</em> <b>확장</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.4%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g warn"><i></i><em>성장 가속</em> <b>부진</b></span><span class="g warn"><i></i><em>감속지표</em> <b>3/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3216,7 +3225,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>3/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.0%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.0%</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3256,7 +3265,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.9%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
+  <div class="gline"><span class="g pt-cfx"><i></i><em>패턴</em> <b>수축이탈</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.9%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>가속</b></span><span class="g"><i></i><em>감속지표</em> <b>0/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3297,7 +3306,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g warn"><i></i><em>VCP</em> <b>2/4</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.4%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>패턴</em> <b>수축</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.4%</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div><div class="gline gtags"><span class="g"><i></i><em>성장 가속</em> <b>💎압축</b></span><span class="g warn"><i></i><em>감속지표</em> <b>2/6</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3316,7 +3325,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 잔여 자사주 매입 진행상황(2024~2026년 총 450억원 계획), 3분기 실적 발표 일정, 코람코자산운용 등 금융계열사 유동성·유상증자 모니터링</div></div>
 </div>
 </div>
-<div class="foot">성장패턴 태그는 성장률의 방향 관찰 기록 — 매수 판단과 무관. 음전·부진도 역성장 아님(성장 지속 중 속도 감소)<br>
+<div class="foot">패턴·거래량 = 관찰 태그 (매매 판정 무관)<br>
+성장패턴 태그는 성장률의 방향 관찰 기록 — 매수 판단과 무관. 음전·부진도 역성장 아님(성장 지속 중 속도 감소)<br>
 교육·참고 목적이며 투자 권유가 아닙니다.<br>
 MacTrader · Minervini SEPA + VCP · 🧠 심층분석: Claude Sonnet (78/78종목)<br>
 📊 데이터: yfinance · Naver금융 · 자체 RS 엔진</div>
