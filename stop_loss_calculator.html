@@ -256,11 +256,11 @@
       <div class="field">
         <label>초기 손절 %</label>
         <div style="display:flex;align-items:center;gap:8px;">
-          <input type="number" id="stopPct" value="4" min="1" max="30" step="0.5" style="width:80px;">
-          <input type="range" id="stopSlider" min="1" max="15" step="0.5" value="4"
+          <input type="number" id="stopPct" value="8" min="1" max="30" step="0.5" style="width:80px;">
+          <input type="range" id="stopSlider" min="1" max="15" step="0.5" value="8"
                  style="flex:1;accent-color:var(--accent);cursor:pointer;">
         </div>
-        <div class="hint">수익 +5%에서 평단가로 자동 이동</div>
+        <div class="hint" id="stopHint">−8% 설정 시 수익 +8%까지 −8% 유지 → +8% 도달 시 평단가로 이동</div>
       </div>
     </div>
 
@@ -315,11 +315,11 @@
 
       <div class="breakdown">
         <div class="brow">
-          <span class="blabel"><span class="dot" id="d1"></span>초기 손절 (<span id="initLabel">−4%</span>)</span>
+          <span class="blabel"><span class="dot" id="d1"></span>초기 손절 (<span id="initLabel">−8%</span>)</span>
           <span class="bval" id="b1"></span>
         </div>
         <div class="brow">
-          <span class="blabel"><span class="dot" id="d2"></span>본전 Floor</span>
+          <span class="blabel"><span class="dot" id="d2"></span>Floor (평평 유지 / 본전)</span>
           <span class="bval" id="b2"></span>
         </div>
         <div class="brow">
@@ -357,24 +357,28 @@
     <div class="phase-row">
       <div class="phase-num">0</div>
       <div class="phase-content">
-        <div class="pname">초기 손절 → 본전 (진입 ~ +5%)</div>
-        <div class="pdesc">초기 손절가에서 시작, 수익 +5% 도달 시 본전(매수가)으로 이동</div>
-        <div class="formula-inline">floor = initial × (1−w) + entry × w,  w = smoothstep(profit, 0%, 5%)</div>
+        <div class="pname">평평 유지 (진입 ~ +n%)</div>
+        <div class="pdesc">초기 손절을 −n% 로 잡으면 <b>수익 +n% 에 닿기 전까지 스탑을 −n% 에 그대로 둔다.</b>
+          이 구간에서는 MA·이익잠금이 스탑을 끌어올리지 않는다. +n% 도달 시 본전(매수가)으로 이동.
+          <br>기본값 n = 8 → −8% 손절 · +8% 에서 평단가.</div>
+        <div class="formula-inline">stop = (profit &lt; n) ? entry × (1−n) : max(MA blend, lock floor)</div>
       </div>
     </div>
     <div class="phase-row">
       <div class="phase-num">1</div>
       <div class="phase-content">
-        <div class="pname">MA 트레일링 전환 (+5% ~ +20%)</div>
-        <div class="pdesc">수익이 커질수록 MA 기간 단축 (90일→30일 × tightness 배율), 가격을 더 밀착 추적</div>
+        <div class="pname">MA 트레일링 전환 (+n% ~ +20%)</div>
+        <div class="pdesc">수익이 커질수록 MA 기간 단축 (90일→30일 × tightness 배율), 가격을 더 밀착 추적.
+          전환 시작점도 n 에 연동된다.</div>
         <div class="formula-inline">MA_period = max(10, round(base × lerp(1.5, 0.5, tightness/100)))</div>
       </div>
     </div>
     <div class="phase-row">
       <div class="phase-num">2</div>
       <div class="phase-content">
-        <div class="pname">이익 잠금 사다리 (+5%~)</div>
-        <div class="pdesc">이익 일부를 영구 보호 — tightness에 따라 잠금 비율 0.3x~1.7x 조절</div>
+        <div class="pname">이익 잠금 사다리 (+n%~)</div>
+        <div class="pdesc">이익 일부를 영구 보호 — tightness에 따라 잠금 비율 0.3x~1.7x 조절.
+          기산점도 n 에 연동 (그 전에 켜지면 평평 구간이 깨지므로).</div>
         <div class="formula-inline">lock = base_lock × lerp(0.3, 1.7, tightness/100)</div>
       </div>
     </div>
@@ -385,6 +389,15 @@
         <div class="pdesc">매일 재계산해도 이전 Stop보다 낮아지지 않음. 이 계산기는 진입일부터 시뮬레이션합니다.</div>
       </div>
     </div>
+  </div>
+
+  <div style="font-size:0.72rem;color:#7a7f96;line-height:1.6;border:1px solid #2a2d3a;
+              border-radius:8px;padding:10px 12px;margin-top:4px;background:#14161f;">
+    ⚠️ <b>라이브 엔진과의 차이</b> — 실제 <code>exit_engine_unified.py</code> 는 0 ~ +n% 구간을
+    smoothstep 으로 <b>연속 블렌딩</b>합니다(예: n=8 일 때 수익 +4% 면 스탑이 이미 −4%).
+    이 계산기는 요청에 따라 해당 구간을 <b>평평 유지</b>로 단순화했습니다.
+    초기 손절 −n% · 본전 도달점 +n% · 래칫(스탑 하향 금지)은 라이브와 동일하며,
+    P-E 분할손절은 계산기 범위에서 제외했습니다.
   </div>
 
   <div style="text-align:center;font-size:0.72rem;color:#3a3f55;padding-top:4px;">
@@ -412,29 +425,50 @@ function maPeriodFor(profit, tightness) {
 }
 
 // Lock ratio: 50→1.0×, 100→1.7×(더 많이 잠금), 0→0.3×(적게 잠금)
-function profitLockPct(profit, tightness) {
-  if (profit < 0.05) return 0;
-  const baseLr = profit * (0.50 * smoothstep(profit, 0.05, 0.20)
-                          + 0.10 * smoothstep(profit, 0.20, 0.40));
+// [STOP-8% 2026-08-18] lock 사다리 기산점을 초기손절폭 n 에 연동 (구: 0.05 고정).
+//   n 연동이 필수인 이유 — lock 이 n 보다 먼저 켜지면 lock floor 가 평평 구간의
+//   −n% 스탑을 위로 밀어올려 "+n% 까지 −n% 유지" 규칙이 깨진다.
+function profitLockPct(profit, tightness, lockStart) {
+  const ls  = (lockStart == null) ? 0.08 : lockStart;
+  if (profit < ls) return 0;
+  const mid = Math.max(0.20, ls + 0.01);   // 구간 역전 방지 가드
+  const hi  = Math.max(0.40, mid + 0.01);
+  const baseLr = profit * (0.50 * smoothstep(profit, ls, mid)
+                          + 0.10 * smoothstep(profit, mid, hi));
   const mult = lerp(0.3, 1.7, tightness / 100);
   return baseLr * mult;
 }
 
+// [STOP-8% 2026-08-18] 초기손절 −n% → 수익 +n% 까지 스탑을 −n% 에 그대로 유지.
+//   n 은 사용자가 고른 초기손절폭이며 본전 도달점·MA 전환점·lock 기산점이 모두 n 에 연동된다.
+//   (기본 n = 8% → −8% 손절, +8% 에서 평단가)
 function computeStop(entryPrice, currentPrice, closes, initialStopPct, tightness) {
   const profit    = (currentPrice - entryPrice) / entryPrice;
   const stopInit  = entryPrice * (1 - initialStopPct);
-  const wBe       = smoothstep(profit, 0, 0.05);
-  const floorStop = stopInit * (1 - wBe) + entryPrice * wBe;
+  const beTrigger = initialStopPct;               // ★ n → n 연동
+
+  // Phase 0 — 평평 유지: 수익이 +n% 에 닿기 전까지 floor 는 초기손절가 그대로.
+  const floorStop = profit >= beTrigger ? entryPrice : stopInit;
+
   const period    = maPeriodFor(profit, tightness);
   const slice     = closes.slice(-Math.min(period, closes.length));
   const maStop    = slice.reduce((a, b) => a + b, 0) / slice.length;
-  const wMa       = smoothstep(profit, 0.05, 0.20);
+
+  // Phase 1 — MA 전환도 +n% 부터 시작 (그 전에 켜지면 평평 구간이 깨짐)
+  const maHi      = Math.max(0.20, beTrigger + 0.01);
+  const wMa       = smoothstep(profit, beTrigger, maHi);
   const blended   = floorStop * (1 - wMa) + maStop * wMa;
-  const lockPct   = profitLockPct(profit, tightness);
+
+  // Phase 2 — 이익 잠금도 +n% 부터
+  const lockPct   = profitLockPct(profit, tightness, beTrigger);
   const lockFloor = lockPct > 0 ? entryPrice * (1 + lockPct) : 0;
-  const stopLevel = Math.max(blended, lockFloor);
+
+  // 평평 구간에서는 MA·lock 이 스탑을 끌어올리지 못하도록 초기손절가로 고정
+  const stopLevel = profit < beTrigger ? stopInit : Math.max(blended, lockFloor);
+
   return { profit, profitPct: profit*100, maPeriod: period, maStop, floorStop,
-           lockFloor, lockPct: lockPct*100, stopLevel, initialStop: stopInit };
+           lockFloor, lockPct: lockPct*100, stopLevel, initialStop: stopInit,
+           beTrigger, flatZone: profit < beTrigger };
 }
 
 // ── 시뮬레이션 (진입일~현재 래칫) ──────────────────
@@ -504,7 +538,7 @@ const tightnessEl    = document.getElementById('tightnessSlider');
 const tightnessValEl = document.getElementById('tightnessVal');
 
 stopPctEl.addEventListener('input', () => {
-  stopSliderEl.value = Math.min(15, parseFloat(stopPctEl.value)||4);
+  stopSliderEl.value = Math.min(15, parseFloat(stopPctEl.value)||8);
   if (lastCache) rerenderFromCache();
 });
 stopSliderEl.addEventListener('input', () => {
@@ -538,7 +572,7 @@ function hideErr() { document.getElementById('errBox').style.display = 'none'; }
 let lastCache = null; // { closes, timestamps, currentPrice, isKr, ticker, usedTicker, entryPrice, entryDate }
 
 function getTightness() { return parseInt(tightnessEl.value, 10); }
-function getStopPct()   { return Math.max(1, Math.min(30, parseFloat(stopPctEl.value) || 4)) / 100; }
+function getStopPct()   { return Math.max(1, Math.min(30, parseFloat(stopPctEl.value) || 8)) / 100; }
 
 function rerenderFromCache() {
   if (!lastCache) return;
@@ -631,11 +665,13 @@ function render(d) {
     `현재가 ${fmt(currentPrice, isKr)}  /  평단가 ${fmt(entryPrice, isKr)}`;
 
   let phaseTag = '';
-  const sp = (stopPct * 100).toFixed(1);
-  if      (profit < 0)  phaseTag = `📍 손절 구간\n초기 −${sp}% 적용`;
-  else if (profit < 5)  phaseTag = '📍 Phase 0\n초기손절→본전';
-  else if (profit < 20) phaseTag = '📈 Phase 1\nMA 트레일링';
-  else                  phaseTag = '🔒 Phase 2\n이익 잠금';
+  const sp   = (stopPct * 100).toFixed(1);
+  const spN  = stopPct * 100;                       // ★ n (%) — 평평 구간 상단
+  const maHiPct = Math.max(20, spN + 1);
+  if      (profit < 0)     phaseTag = `📍 손절 구간\n초기 −${sp}% 적용`;
+  else if (profit < spN)   phaseTag = `📍 Phase 0\n−${sp}% 평평 유지`;
+  else if (profit < maHiPct) phaseTag = '📈 Phase 1\nMA 트레일링';
+  else                     phaseTag = '🔒 Phase 2\n이익 잠금';
   document.getElementById('rPhaseTag').textContent = phaseTag;
 
   const stopFromCurrent = (ratchetStop - currentPrice) / currentPrice * 100;
@@ -647,6 +683,9 @@ function render(d) {
 
   const spPct = (stopPct * 100).toFixed(1);
   document.getElementById('initLabel').textContent = `−${spPct}%`;
+  const hintEl = document.getElementById('stopHint');
+  if (hintEl) hintEl.textContent =
+    `−${spPct}% 설정 시 수익 +${spPct}%까지 −${spPct}% 유지 → +${spPct}% 도달 시 평단가로 이동`;
   const floor     = lastR.floorStop;
   const maStop    = lastR.maStop;
   const lockFloor = lastR.lockFloor;
@@ -657,7 +696,8 @@ function render(d) {
     { k:'ma',    v: maStop || 0 },
     { k:'lock',  v: lockFloor || 0 },
   ];
-  const winner = vals.reduce((a,b) => b.v > a.v ? b : a).k;
+  // 평평 구간(<+n%)에서는 MA·lock 이 무력화되므로 승자는 항상 floor(=초기손절가)
+  const winner = lastR.flatZone ? 'floor' : vals.reduce((a,b) => b.v > a.v ? b : a).k;
 
   setRow('b1','d1', fmt(lastR.initialStop, isKr), false, '');
   setRow('b2','d2', fmt(floor, isKr), winner === 'floor', 'active');
@@ -665,7 +705,7 @@ function render(d) {
   setRow('b3','d3', fmt(maStop, isKr), winner === 'ma', 'active');
   document.getElementById('lockLabel').textContent =
     lockPct > 0 ? `이익 ${lastR.profitPct.toFixed(1)}%의 ${lockPct.toFixed(1)}%` : '미활성';
-  setRow('b4','d4', lockFloor > 0 ? fmt(lockFloor, isKr) : '미활성 (<+5%)', winner === 'lock', 'yellow');
+  setRow('b4','d4', lockFloor > 0 ? fmt(lockFloor, isKr) : `미활성 (<+${sp}%)`, winner === 'lock', 'yellow');
   document.getElementById('b5').textContent = fmt(ratchetStop, isKr);
 
   document.getElementById('result').style.display = 'block';
@@ -735,15 +775,17 @@ function drawTheoryChart(initialStopPct, entryPrice, isKr, tightness) {
     const profit = p / 100;
     labels.push(p + '%');
 
-    const stopInit = 1 - initialStopPct;
-    const wBe = smoothstep(profit, 0, 0.05);
-    const floorPct = (stopInit * (1 - wBe) + 1 * wBe - 1) * 100;
+    const beTrigger = initialStopPct;                 // ★ n → n 연동
+    // 평평 유지: 수익이 +n% 에 닿기 전까지 floor = −n% 고정
+    const floorPct = (profit >= beTrigger ? 0 : -initialStopPct) * 100;
     floorData.push(+floorPct.toFixed(2));
 
-    const lockPct = profitLockPct(profit, tightness) * 100;
+    const lockPct = profitLockPct(profit, tightness, beTrigger) * 100;
     lockData.push(lockPct > 0 ? +lockPct.toFixed(2) : null);
 
-    const fin = Math.max(floorPct, lockPct > 0 ? lockPct : floorPct);
+    const fin = profit < beTrigger
+      ? -initialStopPct * 100
+      : Math.max(floorPct, lockPct > 0 ? lockPct : floorPct);
     finalData.push(+fin.toFixed(2));
   }
 
