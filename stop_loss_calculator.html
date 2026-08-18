@@ -323,12 +323,12 @@
           <span class="bval" id="b2"></span>
         </div>
         <div class="brow">
-          <span class="blabel"><span class="dot" id="d3"></span>MA<span id="maPer"></span> 트레일링</span>
-          <span class="bval" id="b3"></span>
-        </div>
-        <div class="brow">
           <span class="blabel"><span class="dot" id="d4"></span>이익 잠금 (<span id="lockLabel">—</span>)</span>
           <span class="bval" id="b4"></span>
+        </div>
+        <div class="brow">
+          <span class="blabel"><span class="dot" id="d3"></span>MA<span id="maPer"></span> 트레일링</span>
+          <span class="bval" id="b3"></span>
         </div>
         <div class="brow" style="padding-top:10px;">
           <span class="blabel" style="color:var(--text);font-weight:600;">✅ 최종 래칫 Stop</span>
@@ -361,25 +361,27 @@
         <div class="pdesc">초기 손절을 −n% 로 잡으면 <b>수익 +n% 에 닿기 전까지 스탑을 −n% 에 그대로 둔다.</b>
           이 구간에서는 MA·이익잠금이 스탑을 끌어올리지 않는다. +n% 도달 시 본전(매수가)으로 이동.
           <br>기본값 n = 8 → −8% 손절 · +8% 에서 평단가.</div>
-        <div class="formula-inline">stop = (profit &lt; n) ? entry × (1−n) : max(MA blend, lock floor)</div>
+        <div class="formula-inline">stop = (profit &lt; n) ? entry × (1−n) : max(lock floor, MA blend)</div>
       </div>
     </div>
     <div class="phase-row">
       <div class="phase-num">1</div>
       <div class="phase-content">
-        <div class="pname">MA 트레일링 전환 (+n% ~ +20%)</div>
-        <div class="pdesc">수익이 커질수록 MA 기간 단축 (90일→30일 × tightness 배율), 가격을 더 밀착 추적.
-          전환 시작점도 n 에 연동된다.</div>
-        <div class="formula-inline">MA_period = max(10, round(base × lerp(1.5, 0.5, tightness/100)))</div>
+        <div class="pname">이익 잠금 사다리 (+n%~) — <b>먼저 구속하는 쪽</b></div>
+        <div class="pdesc">이익 일부를 영구 보호 — tightness에 따라 잠금 비율 0.3x~1.7x 조절.
+          기산점은 n 에 연동 (그 전에 켜지면 평평 구간이 깨지므로).
+          <br>최종 stop 은 <b>max(잠금 floor, MA 블렌드)</b> 인데, 상승 종목은 MA 가 주가보다 한참 아래에 있어
+          <b>대부분 구간에서 잠금 floor 가 실제 스탑을 결정</b>한다. MA 는 그 위로 올라올 때만 지배권을 가져간다.</div>
+        <div class="formula-inline">lock = base_lock × lerp(0.3, 1.7, tightness/100)</div>
       </div>
     </div>
     <div class="phase-row">
       <div class="phase-num">2</div>
       <div class="phase-content">
-        <div class="pname">이익 잠금 사다리 (+n%~)</div>
-        <div class="pdesc">이익 일부를 영구 보호 — tightness에 따라 잠금 비율 0.3x~1.7x 조절.
-          기산점도 n 에 연동 (그 전에 켜지면 평평 구간이 깨지므로).</div>
-        <div class="formula-inline">lock = base_lock × lerp(0.3, 1.7, tightness/100)</div>
+        <div class="pname">MA 트레일링 전환 (+n% ~ +20%) — <b>나중에 인수</b></div>
+        <div class="pdesc">수익이 커질수록 MA 기간 단축 (90일→30일 × tightness 배율), 가격을 더 밀착 추적.
+          전환 시작점도 n 에 연동된다. MA 값이 잠금 floor 를 넘어설 때부터 스탑을 끌어올리는 주체가 된다.</div>
+        <div class="formula-inline">MA_period = max(10, round(base × lerp(1.5, 0.5, tightness/100)))</div>
       </div>
     </div>
     <div class="phase-row">
@@ -667,11 +669,13 @@ function render(d) {
   let phaseTag = '';
   const sp   = (stopPct * 100).toFixed(1);
   const spN  = stopPct * 100;                       // ★ n (%) — 평평 구간 상단
-  const maHiPct = Math.max(20, spN + 1);
+  // [ORDER-FIX 2026-08-18] 수익 구간이 아니라 '실제로 stop 을 결정한 주체'로 표기.
+  //   stop = max(lock floor, MA blend) 이므로 상승 종목은 대개 lock 이 먼저·계속 구속한다.
+  const _lockDrives = (lastR.lockFloor > 0) && (lastR.lockFloor >= lastR.stopLevel - 1e-9);
   if      (profit < 0)     phaseTag = `📍 손절 구간\n초기 −${sp}% 적용`;
   else if (profit < spN)   phaseTag = `📍 Phase 0\n−${sp}% 평평 유지`;
-  else if (profit < maHiPct) phaseTag = '📈 Phase 1\nMA 트레일링';
-  else                     phaseTag = '🔒 Phase 2\n이익 잠금';
+  else if (_lockDrives)    phaseTag = '🔒 Phase 1\n이익 잠금';
+  else                     phaseTag = '📈 Phase 2\nMA 트레일링';
   document.getElementById('rPhaseTag').textContent = phaseTag;
 
   const stopFromCurrent = (ratchetStop - currentPrice) / currentPrice * 100;
