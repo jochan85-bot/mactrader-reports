@@ -504,7 +504,9 @@ function renderChart(trace, isKr, ticker) {
     const dead = (c !== liveCycle);
     marks.push({ idx: c.setIdx, label: 'B1', anchor: true, reset: false, dead });
     c.events.forEach(e => marks.push({
-      idx: e.idx, label: 'B' + e.baseCount, reset: e.undercutReset, anchor: false, dead,
+      idx: e.idx,
+      label: (e.counted === false ? '\u21BAB' : 'B') + e.baseCount,
+      reset: (e.undercutReset || e.depthOverCap), anchor: false, dead,
     }));
   });
   marks.sort((a, b) => a.idx - b.idx);
@@ -588,13 +590,16 @@ function renderChart(trace, isKr, ticker) {
           + (c.contextNa ? ' <span style="color:#f1c40f">(직전 국면 관측 불가 — 실제 시작은 더 이전일 수 있음)</span>' : '')
           + `</span></div>`;
     c.events.forEach(e => {
-      html += `<div class="row"><span class="bk"${dead ? ' style="color:#7a7f96"' : (e.undercutReset ? ' style="color:#e74c3c"' : '')}>B${e.baseCount}</span><span>`
+      const _rst = (e.undercutReset || e.depthOverCap);
+      html += `<div class="row"><span class="bk"${dead ? ' style="color:#7a7f96"' : (_rst ? ' style="color:#e74c3c"' : '')}>${e.counted === false ? '\u21BA' : ''}B${e.baseCount}</span><span>`
             + `<b>${labels[e.idx]}</b> 신고가 돌파 · 조정 ${labels[e.corrStartIdx]}부터 <b>${e.corrDays}봉</b>, 깊이 <b>${e.depthPct}%</b>`
+            + (e.depthOverCap ? ` <span class="rst">— 깊이 상한 초과, 계수 없이 B${e.baseCount}으로 리셋</span>` : '')
             + (e.undercutReset ? ` <span class="rst">— 직전 베이스 저점을 깨서 B1으로 리셋</span>` : '')
+            + (e.segBars ? ` <span style="color:#7a7f96">· 표시 구간 ${e.segBars}봉${e.segPicked === 'none' ? ' (트리밍 불가)' : ''}</span>` : '')
             + `</span></div>`;
     });
     if (!c.events.length) {
-      html += `<div style="margin-left:38px">추가 베이스 없음 (조정 <b>-10% 이상 · 25봉 이상</b>을 딛고 신고가를 뚫어야 1회로 인정)</div>`;
+      html += `<div style="margin-left:38px">추가 베이스 없음 (조정 <b>-10% ~ -25% · 25봉 이상</b>을 딛고 신고가를 뚫어야 1회로 인정. 깊이가 -25%를 넘으면 계수 없이 B1으로 리셋되고, 표시 구간은 바닥 횡보부로 축소된다)</div>`;
     }
     html += `</div>`;
   });

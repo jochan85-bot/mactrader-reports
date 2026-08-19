@@ -65,10 +65,82 @@ function checkTT(i, closes, highs, lows, sma50, sma150, sma200, rsScore, P) {
   }
 }
 
+// ─── [STAGE-BASE-WIRE-1C 2026-08-19] 표시 구간 트리밍 (방식① 최장 채택) ────────
+//   파이썬 stage_tag.py 의 _maximal_flat / _longest_run_below / _trim_segment 이식본.
+//   ⚠️ 표시 전용 — baseCount·계수·리셋 판정에 일체 개입하지 않는다.
+//   상수는 전부 stage_params.json(P) 에서 온다. 하드코딩 금지.
+function maximalFlat(closes, bs, be, W) {
+  const n = be - bs + 1;
+  if (n <= 0) return [];
+  const c = closes.slice(bs, be + 1);
+  const res = [];
+  let ePrev = -1;
+  const maxd = [], mind = [];       // 단조 덱 (인덱스 저장, head 포인터로 popleft)
+  let mh = 0, nh = 0;               // maxd/mind head
+  let e = -1;
+  for (let st = 0; st < n; st++) {
+    if (e < st - 1) { e = st - 1; maxd.length = 0; mind.length = 0; mh = 0; nh = 0; }
+    while (e + 1 < n) {
+      const v = c[e + 1];
+      while (maxd.length > mh && c[maxd[maxd.length - 1]] <= v) maxd.pop();
+      while (mind.length > nh && c[mind[mind.length - 1]] >= v) mind.pop();
+      maxd.push(e + 1); mind.push(e + 1);
+      const lo = c[mind[nh]], hi = c[maxd[mh]];
+      if (lo > 0 && (hi - lo) / lo <= W) { e += 1; }
+      else {
+        if (maxd.length > mh && maxd[maxd.length - 1] === e + 1) maxd.pop();
+        if (mind.length > nh && mind[mind.length - 1] === e + 1) mind.pop();
+        break;
+      }
+    }
+    if (e >= st && e > ePrev) { res.push([bs + st, bs + e]); ePrev = e; }
+    if (maxd.length > mh && maxd[mh] === st) mh += 1;
+    if (mind.length > nh && mind[nh] === st) nh += 1;
+  }
+  return res;
+}
+
+function longestRunBelow(closes, s, e, thr) {
+  let best = null, cs = null;
+  for (let i = s; i <= e; i++) {
+    if (closes[i] <= thr) {
+      if (cs === null) cs = i;
+      if (best === null || (i - cs) > (best[1] - best[0])) best = [cs, i];
+    } else { cs = null; }
+  }
+  return best;
+}
+
+function segRangePct(closes, s, e) {
+  const seg = closes.slice(s, e + 1);
+  const lo = Math.min.apply(null, seg), hi = Math.max.apply(null, seg);
+  return lo > 0 ? Math.round((hi - lo) / lo * 10000) / 100 : null;
+}
+
+function trimSegment(closes, s, e, P) {
+  const lo = Math.min.apply(null, closes.slice(s, e + 1));
+  const hi = closes[s];
+  const cands = maximalFlat(closes, s, e, P.BASE_TRIM_RANGE_W);
+  let cb = null;
+  for (const t of cands) if (cb === null || (t[1] - t[0]) > (cb[1] - cb[0])) cb = t;
+  const cc = (hi > lo)
+    ? longestRunBelow(closes, s, e, lo + (hi - lo) * P.BASE_TRIM_HALF_FRAC)
+    : null;
+  const lb = cb === null ? 0 : cb[1] - cb[0] + 1;
+  const lc = cc === null ? 0 : cc[1] - cc[0] + 1;
+  const pick = (lb >= lc) ? "b" : "c";            // 동률 → (b) 우선
+  const cand = (lb >= lc) ? cb : cc;
+  if (cand === null || (cand[1] - cand[0] + 1) < P.BASE_TRIM_MIN_BARS) {
+    return [s, e, "none"];                        // 트리밍 불가 → 원 구간
+  }
+  return [cand[0], cand[1], pick];
+}
+
 function _naBase(flag) {
   return {
     stage: "NA", stage_sub: null, stage2_start_date: null, stage2_elapsed_years: null,
-    cycle_type: null, base_count: null, censored: false, start_context_na: false,
+    cycle_type: null, base_count: null, base_segments: [],
+    censored: false, start_context_na: false,
     na_flag: flag,
   };
 }
@@ -148,6 +220,9 @@ function computeStageCore(hist, rsScore, P, trace) {
   let corrPeak = null;
   let corrLow = null;
   let prevBaseLow = null;
+  let cyclePeakIdx = null;      // [WIRE-1C]
+  let corrPeakIdx = null;       // [WIRE-1C] 조정 시작 고점 인덱스 (표시 구간 시작점)
+  const baseSegments = [];      // [WIRE-1C] 표시 전용 구간 목록
 
   for (let i = 0; i < n; i++) {
     const raw = rawSignal(i, closes, sma150, P);
@@ -181,10 +256,12 @@ function computeStageCore(hist, rsScore, P, trace) {
             cycleAnchorContextNa = (oldState === null);
             baseCount = 1;
             cyclePeak = closes[i];
+            cyclePeakIdx = i;
             inCorrection = false;
             corrStartIdx = null;
             corrPeak = null;
             corrLow = null;
+            corrPeakIdx = null;
             prevBaseLow = null;
             // 앵커 확정 = B1 시작점. 베이스 이벤트 목록에는 안 들어오므로 별도 기록.
             if (trace) trace.anchorEvents.push({
@@ -214,22 +291,43 @@ function computeStageCore(hist, rsScore, P, trace) {
 
       if (cyclePeak === null || cClose > cyclePeak) {
         cyclePeak = cClose;
+        cyclePeakIdx = i;
 
         if (inCorrection && corrStartIdx !== null) {
           const corrDays = i - corrStartIdx;
           if (corrPeak !== null && corrLow !== null && corrDays >= P.BASE_CORR_DAYS_MIN) {
             const depth = (corrLow - corrPeak) / corrPeak;
             if (depth <= -P.BASE_CORR_DEPTH_THR) {
-              // wasReset 은 prevBaseLow 를 갱신하기 전에 읽어야 한다 (판정에는 미사용, 기록 전용)
+              // ── [STAGE-BASE-WIRE-1C] (가)안 계수 규칙 (파이썬 stage_tag.py 와 동일) ──
+              //   ① |depth| > BASE_DEPTH_CAP → 계수하지 않고 리셋
+              //   ② 언더컷 → 리셋 (기존 로직 유지, 상한 리셋과 병존)
+              //   ③ 그 외 → +1
+              //   리셋값은 P.BASE_RESET_FLOOR(=1). 0은 산출되지 않는다.
+              const segS = (corrPeakIdx !== null) ? corrPeakIdx : corrStartIdx;
+              const overCap = Math.abs(depth) > P.BASE_DEPTH_CAP;
               const wasReset = (prevBaseLow !== null && corrLow < prevBaseLow);
-              if (prevBaseLow !== null && corrLow < prevBaseLow) baseCount = 1;
-              else baseCount += 1;
+              let counted = true;
+              if (overCap) { baseCount = P.BASE_RESET_FLOOR; counted = false; }
+              else if (wasReset) { baseCount = P.BASE_RESET_FLOOR; }
+              else { baseCount += 1; }
               prevBaseLow = corrLow;
+              // 표시 구간 트리밍 — baseCount 에 무개입
+              const tr3 = trimSegment(closes, segS, i, P);
+              baseSegments.push({
+                start_date: dates[tr3[0]], end_date: dates[tr3[1]],
+                bars: tr3[1] - tr3[0] + 1,
+                depth_pct: Math.round(depth * 10000) / 100,
+                range_pct: segRangePct(closes, tr3[0], tr3[1]),
+                picked: tr3[2], counted,
+              });
               if (trace) trace.baseEvents.push({
                 idx: i, date: dates[i], baseCount,
                 corrStartIdx, corrStartDate: dates[corrStartIdx],
                 corrDays, depthPct: Math.round(depth * 1000) / 10,
-                undercutReset: wasReset,
+                undercutReset: wasReset && !overCap,
+                depthOverCap: overCap, counted,
+                segStartIdx: tr3[0], segEndIdx: tr3[1],
+                segBars: tr3[1] - tr3[0] + 1, segPicked: tr3[2],
               });
             }
           }
@@ -237,6 +335,7 @@ function computeStageCore(hist, rsScore, P, trace) {
           corrStartIdx = null;
           corrPeak = null;
           corrLow = null;
+          corrPeakIdx = null;
         }
       }
 
@@ -246,6 +345,7 @@ function computeStageCore(hist, rsScore, P, trace) {
           inCorrection = true;
           corrStartIdx = i;
           corrPeak = cyclePeak;
+          corrPeakIdx = cyclePeakIdx;   // [WIRE-1C] 표시 구간 시작점
           corrLow = cLow;
         } else if (inCorrection && cLow < corrLow) {
           corrLow = cLow;
@@ -298,6 +398,7 @@ function computeStageCore(hist, rsScore, P, trace) {
     stage2_elapsed_years: stage2ElapsedYears,
     cycle_type: cycleType,
     base_count: (stage === "St2") ? baseCount : null,
+    base_segments: baseSegments,   // [WIRE-1C] 표시 전용
     censored,
     start_context_na: startContextNa,
     na_flag: null,

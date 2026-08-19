@@ -12,6 +12,12 @@
   "TT_52W_HIGH_LOSS": 0.25,
   "BASE_CORR_DEPTH_THR": 0.10,
   "BASE_CORR_DAYS_MIN": 25,
+  "_note_ga": "[STAGE-BASE-WIRE-1C 2026-08-19] base 정의 (가)안 상수. 사전등록 동결본 fund_study/study_base_ga_prereg.md (sha256 e6890dbec33f15f618911513296caf6e8b035bb6eab187661f4c1b7a6b264276). BASE_TRIM_* 는 표시 전용 — base_count 판정에 개입하지 않음. 값 변경 시 stage_tag.py(파이썬)와 stage_reader.html(JS) 판정이 동시에 바뀐다. 이 파일은 워크스페이스와 mactrader-reports 두 사본이 항상 동일해야 한다.",
+  "BASE_DEPTH_CAP": 0.25,
+  "BASE_RESET_FLOOR": 1,
+  "BASE_TRIM_RANGE_W": 0.10,
+  "BASE_TRIM_HALF_FRAC": 0.50,
+  "BASE_TRIM_MIN_BARS": 15,
   "FETCH_KR_DAYS": 1095,
   "FETCH_US_PERIOD": "3y"
 }
