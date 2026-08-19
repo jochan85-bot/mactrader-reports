@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stage 판독기 — MacTrader</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="stage_algo.js"></script>
 <style>
   :root {
@@ -133,6 +134,18 @@
   }
   .disclaimer b { color: var(--yellow); }
 
+  #chartCard { display: none; }
+  .chart-wrap { position: relative; height: 300px; margin-bottom: 4px; }
+  .clegend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.7rem; color: var(--muted); margin-top: 10px; }
+  .clegend span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+  .clegend i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; }
+  .clegend u { display: inline-block; width: 14px; height: 0; border-top: 2px solid; text-decoration: none; }
+  .bevents { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--border); font-size: 0.75rem; line-height: 1.85; color: var(--muted); }
+  .bevents b { color: var(--text); }
+  .bevents .rst { color: var(--red); font-weight: 700; }
+  .bevents .row { display: flex; gap: 8px; }
+  .bevents .row .bk { flex: none; width: 30px; font-weight: 700; color: #a8c0ff; }
+
   .backlink { display: block; text-align: center; margin-top: 22px; }
   .backlink a { color: var(--muted); font-size: 0.82rem; text-decoration: none; }
   .backlink a:hover { color: var(--text); }
@@ -179,6 +192,27 @@
     </div>
 
     <div class="src-line" id="srcLine"></div>
+  </div>
+
+  <div id="chartCard" class="card">
+    <div class="card-title">사이클 차트 — Stage 구간 · 베이스</div>
+    <div class="chart-wrap"><canvas id="stageChart"></canvas></div>
+    <div class="clegend">
+      <span><u style="border-color:#e8eaf0"></u>주가</span>
+      <span><u style="border-color:#f1c40f"></u>150일선</span>
+      <span><u style="border-color:#5b8ef0"></u>50일선</span>
+      <span><u style="border-color:#7a7f96"></u>200일선</span>
+      <span><i style="background:rgba(122,127,150,.45)"></i>Stage1</span>
+      <span><i style="background:rgba(46,204,113,.45)"></i>Stage2</span>
+      <span><i style="background:rgba(241,196,15,.45)"></i>Stage3</span>
+      <span><i style="background:rgba(231,76,60,.45)"></i>Stage4</span>
+    </div>
+    <div class="clegend" style="margin-top:6px">
+      <span><i style="background:#2ecc71;border-radius:2px"></i>세로선 = 사이클 시작(B1)</span>
+      <span><i style="background:#5b8ef0;border-radius:2px"></i>베이스 완성</span>
+      <span><i style="background:#e74c3c;border-radius:2px"></i>언더컷 리셋</span>
+    </div>
+    <div class="bevents" id="bevents"></div>
   </div>
 
   <div class="disclaimer">
@@ -312,10 +346,11 @@ async function readStage() {
 
     const { hist: hist2, droppedToday } = dropUnconfirmedToday(hist);
 
-    const result = computeStage(hist2, null, P);
+    // [STAGE-CHART-1] 차트용 타임라인까지 함께 산출 — result 는 computeStage() 와 동일
+    const { result, trace } = computeStageTrace(hist2, null, P);
     const display = stageDisplayText(result);
 
-    renderResult({ raw, usedTicker, isKr, hist: hist2, result, display, droppedToday });
+    renderResult({ raw, usedTicker, isKr, hist: hist2, result, display, droppedToday, trace });
   } catch (e) {
     showErr('조회 실패 — ' + (e && e.message ? e.message : '알 수 없는 오류'));
   } finally {
@@ -323,7 +358,7 @@ async function readStage() {
   }
 }
 
-function renderResult({ raw, usedTicker, isKr, hist, result, display, droppedToday }) {
+function renderResult({ raw, usedTicker, isKr, hist, result, display, droppedToday, trace }) {
   const badge = document.getElementById('stageBadge');
   badge.textContent = display;
   badge.className = 'stage-badge ' + (
@@ -351,6 +386,223 @@ function renderResult({ raw, usedTicker, isKr, hist, result, display, droppedTod
     `소스: Yahoo Finance (query1.finance.yahoo.com, corsproxy.io 경유) · 조회 봉수 ${hist.length}개`;
 
   document.getElementById('result').style.display = 'block';
+
+  renderChart(trace, isKr, raw);
+}
+
+// ── 차트 ────────────────────────────────────────────
+let stageChartObj = null;
+
+function _roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y); ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r); ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h); ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+// 카테고리 축 대신 인덱스 비례로 x픽셀을 직접 계산 — 스케일 API 버전차에 의존하지 않게.
+function _px(area, i, n) {
+  if (n <= 1) return area.left;
+  return area.left + (i / (n - 1)) * (area.right - area.left);
+}
+
+const STAGE_FILL = {
+  St1: 'rgba(122,127,150,0.17)', St2: 'rgba(46,204,113,0.15)',
+  St3: 'rgba(241,196,15,0.15)',  St4: 'rgba(231,76,60,0.15)',
+};
+
+const stageBandsPlugin = {
+  id: 'stageBands',
+  beforeDatasetsDraw(chart, args, opts) {
+    const tl = opts && opts.timeline;
+    if (!tl || !tl.length) return;
+    const { ctx, chartArea } = chart;
+    const n = tl.length;
+    ctx.save();
+    let i = 0;
+    while (i < n) {
+      const s = tl[i];
+      let j = i;
+      while (j + 1 < n && tl[j + 1] === s) j++;
+      if (s && STAGE_FILL[s]) {
+        const x1 = _px(chartArea, i, n), x2 = _px(chartArea, j, n);
+        ctx.fillStyle = STAGE_FILL[s];
+        ctx.fillRect(x1, chartArea.top, Math.max(1, x2 - x1), chartArea.bottom - chartArea.top);
+      }
+      i = j + 1;
+    }
+    ctx.restore();
+  }
+};
+
+const baseMarksPlugin = {
+  id: 'baseMarks',
+  afterDatasetsDraw(chart, args, opts) {
+    const marks = opts && opts.marks;
+    const n = opts && opts.n;
+    if (!marks || !marks.length || !n) return;
+    const { ctx, chartArea } = chart;
+    ctx.save();
+    marks.forEach((m, k) => {
+      const px = _px(chartArea, m.idx, n);
+      const col = m.dead ? 'rgba(122,127,150,.85)'
+                : m.reset ? 'rgba(231,76,60,.95)'
+                : m.anchor ? 'rgba(46,204,113,.95)' : 'rgba(91,142,240,.95)';
+      ctx.strokeStyle = col;
+      ctx.setLineDash([3, 3]); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(px, chartArea.top); ctx.lineTo(px, chartArea.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.font = '700 10px -apple-system, "Segoe UI", sans-serif';
+      const w = ctx.measureText(m.label).width + 9;
+      const bx = Math.min(Math.max(px - w / 2, chartArea.left), chartArea.right - w);
+      const by = chartArea.top + 2 + (k % 2) * 16;
+      ctx.fillStyle = col;
+      _roundRect(ctx, bx, by, w, 14, 3); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(m.label, bx + w / 2, by + 7.5);
+    });
+    ctx.restore();
+  }
+};
+
+function renderChart(trace, isKr, ticker) {
+  const card = document.getElementById('bevents').parentElement;
+  // [C-3 동일 원칙] 타임라인이 없으면(이력부족·조회실패) 차트를 그리지 않고 숨긴다 — 빈 축 표시 금지
+  if (!trace || !trace.timeline || !trace.timeline.length) {
+    card.style.display = 'none';
+    if (stageChartObj) { stageChartObj.destroy(); stageChartObj = null; }
+    return;
+  }
+  const { dates, closes, sma50, sma150, sma200, timeline, baseEvents, anchorEvents } = trace;
+  const n = closes.length;
+  const labels = dates.map(d => `${d.slice(2, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`);
+
+  // 마커 조립 — ① 앵커(B1 시작) ② 베이스 완성 이벤트(B2부터)
+  //   ⚠️ 베이스 마커는 Stage2 음영과 독립이다. 베이스 카운팅은 사이클 앵커가 살아있는
+  //      Stage2/3/1 전 구간에서 돌기 때문에, 마커가 노란(St3) 구간 안에 찍히는 것이 정상.
+  //   ⚠️ 3년 창 안에 사이클이 여러 개 있을 수 있다. St4 확정으로 끝난 사이클의 마커를
+  //      현재 사이클과 같은 색으로 그리면, 이미 종료된 베이스 카운트를 "지금 값"으로
+  //      오해하게 된다 (예: 현재 Stage1인데 옛 사이클의 B2가 그대로 보임). 그래서
+  //      set/clear 를 짝지어 사이클 단위로 나누고, 종료된 사이클은 회색으로 죽인다.
+  const cycles = [];
+  (anchorEvents || []).forEach(a => {
+    if (a.type === 'set') cycles.push({ setIdx: a.idx, contextNa: a.contextNa, clearIdx: null, events: [] });
+    else if (cycles.length) { const c = cycles[cycles.length - 1]; if (c.clearIdx === null) c.clearIdx = a.idx; }
+  });
+  (baseEvents || []).forEach(e => {
+    for (let k = cycles.length - 1; k >= 0; k--) {
+      const c = cycles[k];
+      if (e.idx >= c.setIdx && (c.clearIdx === null || e.idx <= c.clearIdx)) { c.events.push(e); break; }
+    }
+  });
+  const liveCycle = cycles.length && cycles[cycles.length - 1].clearIdx === null ? cycles[cycles.length - 1] : null;
+
+  const marks = [];
+  cycles.forEach(c => {
+    const dead = (c !== liveCycle);
+    marks.push({ idx: c.setIdx, label: 'B1', anchor: true, reset: false, dead });
+    c.events.forEach(e => marks.push({
+      idx: e.idx, label: 'B' + e.baseCount, reset: e.undercutReset, anchor: false, dead,
+    }));
+  });
+  marks.sort((a, b) => a.idx - b.idx);
+
+  const mkLine = (data, color, width) => ({
+    data, borderColor: color, borderWidth: width, pointRadius: 0,
+    tension: 0, fill: false, spanGaps: false,
+  });
+
+  if (stageChartObj) { stageChartObj.destroy(); stageChartObj = null; }
+  stageChartObj = new Chart(document.getElementById('stageChart'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        mkLine(sma200, '#7a7f96', 1.1),
+        mkLine(sma150, '#f1c40f', 1.6),
+        mkLine(sma50,  '#5b8ef0', 1.1),
+        mkLine(closes, '#e8eaf0', 1.3),
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      animation: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: (items) => {
+              const i = items[0].dataIndex;
+              const st = timeline[i];
+              return `${labels[i]}  ·  ${st ? 'Stage' + st.slice(2) : '미확정'}`;
+            },
+            label: (it) => {
+              const nm = ['200일선', '150일선', '50일선', '주가'][it.datasetIndex];
+              const v = it.parsed.y;
+              if (v == null) return null;
+              return `${nm} ${isKr ? Math.round(v).toLocaleString('ko-KR') + '원' : '$' + v.toFixed(2)}`;
+            },
+          },
+        },
+        stageBands: { timeline },
+        baseMarks: { marks, n },
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: {
+            color: '#7a7f96', font: { size: 9 }, maxRotation: 0, autoSkip: true,
+            maxTicksLimit: 6, callback(v, i) { const l = this.getLabelForValue(v); return l ? l.slice(0, 5) : l; },
+          },
+        },
+        y: {
+          position: 'right',
+          grid: { color: 'rgba(42,45,58,.6)' },
+          ticks: {
+            color: '#7a7f96', font: { size: 9 },
+            callback: (v) => isKr ? Math.round(v).toLocaleString('ko-KR') : v,
+          },
+        },
+      },
+    },
+    plugins: [stageBandsPlugin, baseMarksPlugin],
+  });
+
+  // 베이스 이벤트 목록 — 차트와 동일하게 사이클 단위로 묶고, 종료된 사이클은 회색 처리
+  const be = document.getElementById('bevents');
+  let html = '';
+  if (!cycles.length) {
+    html += `<div>이 창 안에서 확정된 Stage2 사이클이 없습니다.</div>`;
+  }
+  cycles.forEach((c, ci) => {
+    const dead = (c !== liveCycle);
+    const dim = dead ? ' style="opacity:.55"' : '';
+    const head = dead
+      ? `<span style="color:#7a7f96">사이클 ${ci + 1} — <b style="color:#9aa0b8">종료</b> (${labels[c.setIdx]} ~ ${labels[c.clearIdx]}, Stage4 확정)</span>`
+      : `<span style="color:#2ecc71;font-weight:700">현재 사이클</span> <span>(${labels[c.setIdx]} ~ 진행 중)</span>`;
+    html += `<div${dim}><div style="margin:${ci ? '10px' : '0'} 0 3px">${head}</div>`;
+    html += `<div class="row"><span class="bk"${dead ? ' style="color:#7a7f96"' : ''}>B1</span><span>사이클 시작 <b>${labels[c.setIdx]}</b>`
+          + (c.contextNa ? ' <span style="color:#f1c40f">(직전 국면 관측 불가 — 실제 시작은 더 이전일 수 있음)</span>' : '')
+          + `</span></div>`;
+    c.events.forEach(e => {
+      html += `<div class="row"><span class="bk"${dead ? ' style="color:#7a7f96"' : (e.undercutReset ? ' style="color:#e74c3c"' : '')}>B${e.baseCount}</span><span>`
+            + `<b>${labels[e.idx]}</b> 신고가 돌파 · 조정 ${labels[e.corrStartIdx]}부터 <b>${e.corrDays}봉</b>, 깊이 <b>${e.depthPct}%</b>`
+            + (e.undercutReset ? ` <span class="rst">— 직전 베이스 저점을 깨서 B1으로 리셋</span>` : '')
+            + `</span></div>`;
+    });
+    if (!c.events.length) {
+      html += `<div style="margin-left:38px">추가 베이스 없음 (조정 <b>-10% 이상 · 25봉 이상</b>을 딛고 신고가를 뚫어야 1회로 인정)</div>`;
+    }
+    html += `</div>`;
+  });
+  html += `<div style="margin-top:10px;color:#6a6f86">· 베이스 마커는 Stage2 음영과 무관하게 찍힙니다 — 베이스 카운팅은 사이클이 살아있는 Stage2·3·1 전 구간에서 진행되기 때문입니다.`
+        + `<br>· <b style="color:#9aa0b8">회색</b>은 Stage4로 이미 끝난 사이클입니다. 위 판독 결과의 베이스 수는 <b>현재 사이클</b> 기준입니다.</div>`;
+  be.innerHTML = html;
+
+  card.style.display = 'block';
 }
 
 document.getElementById('ticker').addEventListener('keydown', (e) => {

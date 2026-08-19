@@ -107,7 +107,11 @@ function determineCycleType(closes, sma150, n, st2StartIdx, censored, P) {
   return hadSt4 ? "fresh" : "continuation";
 }
 
-function computeStageCore(hist, rsScore, P) {
+// [STAGE-CHART-1 2026-08-19] trace 는 순수 계측 훅이다 — 판정에 쓰이는 어떤 변수도
+//   읽거나 바꾸지 않고 기록만 한다. 계측판을 따로 복제하지 않고 이 함수 하나에
+//   옵션 인자로 붙인 이유: 사본을 두면 두 경로가 나중에 갈라질 수 있기 때문.
+//   trace 를 넘기지 않으면 기존 동작과 바이트 단위로 동일하다.
+function computeStageCore(hist, rsScore, P, trace) {
   if (!hist || hist.length < P.MIN_BARS) {
     const n = hist ? hist.length : 0;
     return _naBase(`NA(이력부족:${n}/${P.MIN_BARS})`);
@@ -123,6 +127,13 @@ function computeStageCore(hist, rsScore, P) {
   const sma150 = smaSeries(closes, P.SMA_WINDOWS[1]);
   const sma200 = smaSeries(closes, P.SMA_WINDOWS[2]);
   const firstLabelable = firstLabelableIdx(closes, sma150, P);
+
+  if (trace) {
+    trace.dates = dates; trace.closes = closes;
+    trace.sma50 = sma50; trace.sma150 = sma150; trace.sma200 = sma200;
+    trace.timeline = []; trace.baseEvents = []; trace.anchorEvents = [];
+    trace.firstLabelable = firstLabelable;
+  }
 
   let confirmed = null, streakType = null, streakStart = 0, streakLen = 0;
   let currentSt2StartIdx = null;
@@ -175,16 +186,27 @@ function computeStageCore(hist, rsScore, P) {
             corrPeak = null;
             corrLow = null;
             prevBaseLow = null;
+            // 앵커 확정 = B1 시작점. 베이스 이벤트 목록에는 안 들어오므로 별도 기록.
+            if (trace) trace.anchorEvents.push({
+              type: "set", idx: retroactiveStart, date: dates[retroactiveStart],
+              contextNa: (oldState === null), confirmedAt: i, confirmedAtDate: dates[i],
+            });
           }
           // else: continuation — 앵커·베이스카운트·조정추적 전부 보존
         }
         if (newState === "St4") {
           st4SinceSt2Exit = true;
+          if (trace && cycleAnchorIdx !== null) trace.anchorEvents.push({
+            type: "clear", idx: i, date: dates[i],
+          });
           cycleAnchorIdx = null;
           cycleAnchorContextNa = false;
         }
       }
     }
+
+    // 봉별 확정 상태 기록 (전이 처리 직후 = 파이썬 계측 프로토타입과 동일 지점)
+    if (trace) trace.timeline.push(confirmed);
 
     if (cycleAnchorIdx !== null) {
       const cClose = closes[i];
@@ -198,9 +220,17 @@ function computeStageCore(hist, rsScore, P) {
           if (corrPeak !== null && corrLow !== null && corrDays >= P.BASE_CORR_DAYS_MIN) {
             const depth = (corrLow - corrPeak) / corrPeak;
             if (depth <= -P.BASE_CORR_DEPTH_THR) {
+              // wasReset 은 prevBaseLow 를 갱신하기 전에 읽어야 한다 (판정에는 미사용, 기록 전용)
+              const wasReset = (prevBaseLow !== null && corrLow < prevBaseLow);
               if (prevBaseLow !== null && corrLow < prevBaseLow) baseCount = 1;
               else baseCount += 1;
               prevBaseLow = corrLow;
+              if (trace) trace.baseEvents.push({
+                idx: i, date: dates[i], baseCount,
+                corrStartIdx, corrStartDate: dates[corrStartIdx],
+                corrDays, depthPct: Math.round(depth * 1000) / 10,
+                undercutReset: wasReset,
+              });
             }
           }
           inCorrection = false;
@@ -282,6 +312,19 @@ function computeStage(hist, rsScore, P) {
   }
 }
 
+// [STAGE-CHART-1] 차트용 — 판정 결과 + 봉별 타임라인/베이스 이벤트를 같이 반환.
+//   result 는 computeStage() 와 동일해야 한다 (같은 코드 경로를 쓰므로 구조적으로 보장).
+function computeStageTrace(hist, rsScore, P) {
+  const trace = {};
+  let result;
+  try {
+    result = computeStageCore(hist, rsScore, P, trace);
+  } catch (e) {
+    result = _naBase(`NA(예외:${e && e.name ? e.name : "Error"})`);
+  }
+  return { result, trace };
+}
+
 function stageDisplayText(result) {
   const stage = result.stage || "NA";
   if (stage !== "St2") {
@@ -305,5 +348,5 @@ function stageDisplayText(result) {
 }
 
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { computeStage, stageDisplayText, smaSeries, rawSignal, checkTT, determineCycleType };
+  module.exports = { computeStage, computeStageTrace, stageDisplayText, smaSeries, rawSignal, checkTT, determineCycleType };
 }
