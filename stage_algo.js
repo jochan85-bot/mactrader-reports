@@ -444,7 +444,7 @@ function stageDisplayText(result) {
   if (bc != null) bcS = "B" + bc + ((cens || ctxNa) ? "+" : "");
   const inner = [elapS, bcS].filter(Boolean).join(", ");
 
-  if (sub === "early2") return inner ? `Stage2e (${inner})` : "Stage2e";
+  if (sub === "early2") return inner ? `Stage2? (${inner})` : "Stage2?";
   return inner ? `Stage2 (${inner})` : "Stage2";
 }
 
