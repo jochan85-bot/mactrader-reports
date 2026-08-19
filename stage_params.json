@@ -1,0 +1,17 @@
+{
+  "_note": "STAGE-TAG-WIRE-1 동결 상수 단일 출처 (STAGE-WEB-READER-1R B-1). 값 변경 금지 — stage_tag.py 코드 리터럴을 AST 추출해 그대로 옮김. 이 값을 바꾸면 stage_tag.py의 라이브 판정과 stage_reader.html의 웹 판독기가 동시에 바뀐다.",
+  "MIN_BARS": 221,
+  "SMA_WINDOWS": [50, 150, 200],
+  "SMA150_RATE_DAYS": 21,
+  "SMA200_RATE_DAYS": 21,
+  "SMA150_UP_THR": 0.005,
+  "SMA150_DN_THR": -0.005,
+  "CONFIRM_BARS": 5,
+  "TT_RS_MIN": 70.0,
+  "TT_52W_LOW_GAIN": 0.25,
+  "TT_52W_HIGH_LOSS": 0.25,
+  "BASE_CORR_DEPTH_THR": 0.10,
+  "BASE_CORR_DAYS_MIN": 25,
+  "FETCH_KR_DAYS": 1095,
+  "FETCH_US_PERIOD": "3y"
+}
