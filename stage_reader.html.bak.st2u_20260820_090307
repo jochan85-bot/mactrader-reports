@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 판독기 — MacTrader</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="stage_algo.js"></script>
+<style>
+  :root {
+    --bg:      #0f1117;
+    --card:    #1a1d27;
+    --border:  #2a2d3a;
+    --accent:  #5b8ef0;
+    --accent2: #7c6fff;
+    --green:   #2ecc71;
+    --red:     #e74c3c;
+    --yellow:  #f1c40f;
+    --text:    #e8eaf0;
+    --muted:   #7a7f96;
+    --input-bg:#22253a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    padding: 32px 16px 80px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .subtitle { text-align: center; color: var(--muted); font-size: 0.82rem; margin-bottom: 32px; }
+  .container { max-width: 640px; margin: 0 auto; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 24px 20px;
+    margin-bottom: 18px;
+  }
+  .card-title { font-size: 0.78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 18px; }
+
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 5px; font-weight: 500; }
+  .field input[type="text"] {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+  .field input:focus { outline: none; border-color: var(--accent); }
+  .hint { font-size: 0.72rem; color: var(--muted); margin-top: 5px; line-height: 1.5; }
+
+  #readBtn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    font-size: 0.97rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .2s, transform .1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  #readBtn:hover { opacity: .9; }
+  #readBtn:active { transform: scale(0.98); }
+  #readBtn:disabled { opacity: .5; cursor: not-allowed; }
+
+  #errBox {
+    display: none;
+    background: #2b1218;
+    border: 1px solid var(--red);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: #ff7070;
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+    line-height: 1.6;
+  }
+
+  #result { display: none; }
+
+  .stage-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 1.35rem; font-weight: 800;
+    padding: 10px 18px; border-radius: 12px;
+    margin-bottom: 4px;
+  }
+  .stage-badge.st2   { background: rgba(46,204,113,.14); color: var(--green); border: 1px solid rgba(46,204,113,.35); }
+  .stage-badge.st2e  { background: rgba(241,196,15,.14); color: var(--yellow); border: 1px solid rgba(241,196,15,.35); }
+  .stage-badge.st134 { background: rgba(231,76,60,.14); color: var(--red); border: 1px solid rgba(231,76,60,.35); }
+  .stage-badge.na    { background: rgba(122,127,150,.14); color: var(--muted); border: 1px solid var(--border); }
+
+  .subrow { font-size: 0.8rem; color: var(--muted); margin: 10px 0 16px; line-height: 1.7; }
+  .subrow b { color: var(--text); }
+
+  .kvgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
+  .kv { background: var(--input-bg); border: 1px solid var(--border); border-radius: 10px; padding: 9px 12px; }
+  .kv .k { font-size: 0.7rem; color: var(--muted); }
+  .kv .v { font-size: 0.92rem; font-weight: 700; margin-top: 2px; }
+
+  .glossary { font-size: 0.74rem; color: var(--muted); line-height: 1.9; margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--border); }
+  .glossary b { color: #a8c0ff; }
+
+  .src-line { font-size: 0.7rem; color: var(--muted); margin-top: 10px; }
+
+  .disclaimer {
+    background: rgba(241,196,15,.06);
+    border: 1px solid rgba(241,196,15,.28);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 0.78rem;
+    color: #d8d2b8;
+    line-height: 1.75;
+    margin-top: 4px;
+  }
+  .disclaimer b { color: var(--yellow); }
+
+  #chartCard { display: none; }
+  .chart-wrap { position: relative; height: 300px; margin-bottom: 4px; }
+  .clegend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.7rem; color: var(--muted); margin-top: 10px; }
+  .clegend span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+  .clegend i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; }
+  .clegend u { display: inline-block; width: 14px; height: 0; border-top: 2px solid; text-decoration: none; }
+  .bevents { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--border); font-size: 0.75rem; line-height: 1.85; color: var(--muted); }
+  .bevents b { color: var(--text); }
+  .bevents .rst { color: var(--red); font-weight: 700; }
+  .bevents .row { display: flex; gap: 8px; }
+  .bevents .row .bk { flex: none; width: 30px; font-weight: 700; color: #a8c0ff; }
+
+  .backlink { display: block; text-align: center; margin-top: 22px; }
+  .backlink a { color: var(--muted); font-size: 0.82rem; text-decoration: none; }
+  .backlink a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Stage 판독기</h1>
+  <p class="subtitle">Weinstein 4단계 사이클 — 티커 조회 (관찰 전용)</p>
+
+  <div class="card">
+    <div class="card-title">티커 조회</div>
+    <div class="field">
+      <label>티커 심볼</label>
+      <input type="text" id="ticker" placeholder="AMLX / 131290" autocomplete="off" autocapitalize="characters">
+      <div class="hint">미국은 티커, 한국은 6자리 종목코드 (예: 삼성전자 005930)</div>
+    </div>
+    <button id="readBtn" onclick="readStage()">
+      <span id="btnIcon">🔍</span>
+      <span id="btnText">Stage 조회</span>
+    </button>
+  </div>
+
+  <div id="errBox"></div>
+
+  <div id="result" class="card">
+    <div class="card-title">판독 결과</div>
+    <div id="stageBadge" class="stage-badge">Stage2</div>
+    <div id="subrow" class="subrow"></div>
+
+    <div class="kvgrid">
+      <div class="kv"><div class="k">티커</div><div class="v" id="rTicker">—</div></div>
+      <div class="kv"><div class="k">기준 확정봉</div><div class="v" id="rDate">—</div></div>
+      <div class="kv"><div class="k">사이클 시작</div><div class="v" id="rStart">—</div></div>
+      <div class="kv"><div class="k">유형</div><div class="v" id="rCycle">—</div></div>
+    </div>
+
+    <div class="glossary">
+      <b>elapsed</b> = 사이클 앵커(St2 소급 시작일) 이후 경과 연수 &nbsp;·&nbsp;
+      <b>B</b> = 그 사이클 안의 베이스(조정→신고가) 카운트 &nbsp;·&nbsp;
+      <b>fresh</b> = 직전에 St4(하락)를 거치고 새로 시작된 사이클, <b>continuation</b> = St4 없이 이어진 사이클 &nbsp;·&nbsp;
+      <b>censored</b> = 조회 창(KR 약 41개월·US 3년) 시작 시점에 이미 St2였음 — 실제 시작일·베이스 수는 표시값보다 큼(≥, +)
+    </div>
+
+    <div class="src-line" id="srcLine"></div>
+  </div>
+
+  <div id="chartCard" class="card">
+    <div class="card-title">사이클 차트 — Stage 구간 · 베이스</div>
+    <div class="chart-wrap"><canvas id="stageChart"></canvas></div>
+    <div class="clegend">
+      <span><u style="border-color:#e8eaf0"></u>주가</span>
+      <span><u style="border-color:#f1c40f"></u>150일선</span>
+      <span><u style="border-color:#5b8ef0"></u>50일선</span>
+      <span><u style="border-color:#7a7f96"></u>200일선</span>
+      <span><i style="background:rgba(122,127,150,.45)"></i>Stage1</span>
+      <span><i style="background:rgba(46,204,113,.45)"></i>Stage2</span>
+      <span><i style="background:rgba(241,196,15,.45)"></i>Stage3</span>
+      <span><i style="background:rgba(231,76,60,.45)"></i>Stage4</span>
+    </div>
+    <div class="clegend" style="margin-top:6px">
+      <span><i style="background:#2ecc71;border-radius:2px"></i>세로선 = 사이클 시작(B1)</span>
+      <span><i style="background:#5b8ef0;border-radius:2px"></i>베이스 완성</span>
+      <span><i style="background:#e74c3c;border-radius:2px"></i>언더컷 리셋</span>
+    </div>
+    <div class="bevents" id="bevents"></div>
+  </div>
+
+  <div class="disclaimer">
+    Stage 태그는 Weinstein 30주선(SMA150) 상태기계 기반의 관찰 지표이며 매수·매도 신호가
+    아닙니다. 2026-08-18 종결된 백테스트(7,104건)에서 경과시간·베이스 수를 진입 기준으로
+    쓸 근거는 확인되지 않았고, 오히려 후기 베이스·최고령 코호트에 고수익 사례가 집중되는
+    역방향 관찰이 나왔습니다. 조회 시점 데이터에 따라 판정이 미세하게 달라질 수 있습니다(실측 0.16%).
+  </div>
+
+  <div class="backlink"><a href="index.html">← 홈으로 돌아가기</a> &nbsp;·&nbsp; <a href="guide.html">리포트 Guide</a></div>
+
+</div>
+
+<script>
+// [STAGE-WEB-READER-1R] 손절 계산기와 동일한 조회 경로 재사용 — 관찰·표시 전용.
+// 매매 로직·게이트·정렬키·LLM 입력 무접촉 (stage_tag.py 원본과 동일 계약).
+const PROXY = 'https://corsproxy.io/?url=';
+
+let STAGE_PARAMS = null;
+async function loadParams() {
+  if (STAGE_PARAMS) return STAGE_PARAMS;
+  const res = await fetch('stage_params.json', { cache: 'no-store' });
+  if (!res.ok) throw new Error('상수 파일 로드 실패');
+  STAGE_PARAMS = await res.json();
+  return STAGE_PARAMS;
+}
+
+// [C-2] 파이썬 fetch_stage_ohlcv와 동일 창 길이를 흉내낸다 — KR ≈41개월(FETCH_KR_DAYS
+// 1095일 계산 방식과 동일하게 월단위로 소급), US = 3년(FETCH_US_PERIOD). range 토큰이
+// 아니라 period1/period2(초 단위 유닉스)를 써서 창 길이를 직접 지정한다 — Yahoo chart
+// API의 range 열거값(1y/2y/5y 등)에는 3y·41mo에 정확히 대응하는 토큰이 없기 때문.
+function computeWindow(isKr) {
+  const now = new Date();
+  const p2 = Math.floor(now.getTime() / 1000);
+  const start = new Date(now);
+  if (isKr) start.setMonth(start.getMonth() - 41);
+  else start.setFullYear(start.getFullYear() - 3);
+  const p1 = Math.floor(start.getTime() / 1000);
+  return { p1, p2 };
+}
+
+async function fetchOhlc(yfTicker, isKr) {
+  const { p1, p2 } = computeWindow(isKr);
+  const yUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${yfTicker}?period1=${p1}&period2=${p2}&interval=1d`;
+  const res = await fetch(PROXY + encodeURIComponent(yUrl));
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const js = await res.json();
+  const result = js && js.chart && js.chart.result && js.chart.result[0];
+  if (!result) throw new Error('데이터 없음');
+  const q = (result.indicators && result.indicators.quote && result.indicators.quote[0]) || {};
+  const opens = q.open || [], highs = q.high || [], lows = q.low || [], closes = q.close || [];
+  const vols  = q.volume || [];
+  const timestamps = result.timestamp || [];
+
+  const hist = [];
+  for (let i = 0; i < timestamps.length; i++) {
+    const c = closes[i], h = highs[i], l = lows[i], o = opens[i];
+    // [손절 계산기와 동일 원칙] null/NaN 봉 제외 — 이동평균 계산이 NaN으로 오염되는 것 방지
+    if (c == null || isNaN(c) || h == null || isNaN(h) || l == null || isNaN(l)) continue;
+    const d = new Date(timestamps[i] * 1000);
+    const date = d.getUTCFullYear().toString()
+      + (d.getUTCMonth() + 1).toString().padStart(2, '0')
+      + d.getUTCDate().toString().padStart(2, '0');
+    hist.push({ date, open: o != null ? o : c, high: h, low: l, close: c, volume: vols[i] || 0 });
+  }
+  return hist;
+}
+
+// [C-6] 장중 미확정 당일봉 제외 — stage_tag.py 계약상 입력은 "확정봉"만이다.
+// 마지막 봉의 날짜(UTC 기준)가 오늘이면 미확정으로 간주해 제외하고, 그 사실을 UI에 표시한다.
+function dropUnconfirmedToday(hist) {
+  if (!hist.length) return { hist, droppedToday: false };
+  const now = new Date();
+  const todayStr = now.getUTCFullYear().toString()
+    + (now.getUTCMonth() + 1).toString().padStart(2, '0')
+    + now.getUTCDate().toString().padStart(2, '0');
+  const last = hist[hist.length - 1];
+  if (last.date === todayStr) {
+    return { hist: hist.slice(0, -1), droppedToday: true };
+  }
+  return { hist, droppedToday: false };
+}
+
+function fmtDate(d) {
+  if (!d || d.length < 8) return d || '—';
+  return `${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}`;
+}
+
+function setLoading(on) {
+  document.getElementById('readBtn').disabled = on;
+  document.getElementById('btnIcon').textContent = on ? '⏳' : '🔍';
+  document.getElementById('btnText').textContent = on ? '조회 중...' : 'Stage 조회';
+}
+function showErr(msg) {
+  const b = document.getElementById('errBox');
+  b.innerHTML = '❌ ' + msg;
+  b.style.display = 'block';
+  document.getElementById('result').style.display = 'none';
+}
+function hideErr() { document.getElementById('errBox').style.display = 'none'; }
+
+async function readStage() {
+  hideErr();
+  const raw = document.getElementById('ticker').value.trim().toUpperCase();
+  if (!raw) { showErr('티커를 입력해주세요'); return; }
+
+  setLoading(true);
+  document.getElementById('result').style.display = 'none';
+
+  try {
+    const P = await loadParams();
+    const isKr = /^\d{6}$/.test(raw);
+    const candidates = isKr ? [raw + '.KS', raw + '.KQ'] : [raw];
+
+    let hist = null, usedTicker = null, lastFetchErr = null;
+    for (const t of candidates) {
+      try {
+        const h = await fetchOhlc(t, isKr);
+        // [_yf_kr_ohlcv 동일 기준] 50봉 미만이면 잘못된 접미사(.KS/.KQ 오매칭)로 보고
+        // 다음 후보로 넘어간다 — 여기서 그냥 accept하면 얇은 유령 심볼에 고정된다.
+        if (h.length >= 50) { hist = h; usedTicker = t; break; }
+      } catch (e) { lastFetchErr = e; }
+    }
+
+    if (hist === null) {
+      // [C-3] 조회 자체가 실패 (네트워크·404·존재하지 않는 티커) — 추정·근사 금지, 명확히 실패로 표시
+      showErr(`조회 실패 — 티커를 확인해주세요 (${raw})`);
+      setLoading(false);
+      return;
+    }
+
+    const { hist: hist2, droppedToday } = dropUnconfirmedToday(hist);
+
+    // [STAGE-CHART-1] 차트용 타임라인까지 함께 산출 — result 는 computeStage() 와 동일
+    const { result, trace } = computeStageTrace(hist2, null, P);
+    const display = stageDisplayText(result);
+
+    renderResult({ raw, usedTicker, isKr, hist: hist2, result, display, droppedToday, trace });
+  } catch (e) {
+    showErr('조회 실패 — ' + (e && e.message ? e.message : '알 수 없는 오류'));
+  } finally {
+    setLoading(false);
+  }
+}
+
+function renderResult({ raw, usedTicker, isKr, hist, result, display, droppedToday, trace }) {
+  const badge = document.getElementById('stageBadge');
+  badge.textContent = display;
+  badge.className = 'stage-badge ' + (
+    result.stage === 'St2' ? (result.stage_sub === 'early2' ? 'st2e' : 'st2') :
+    (result.stage === 'St1' || result.stage === 'St3' || result.stage === 'St4') ? 'st134' : 'na'
+  );
+
+  const sub = document.getElementById('subrow');
+  if (result.stage === 'NA') {
+    // [C-3] 봉수 부족 — 추정·근사·폴백 없이 부족 사실만 표시
+    sub.innerHTML = `⚠️ <b>이력 부족 — 판정 불가</b> (${result.na_flag || ''})`;
+  } else if (result.stage === 'St1' || result.stage === 'St3' || result.stage === 'St4') {
+    sub.innerHTML = `괄호 없는 단독 표기 — 사이클 위치를 확정할 St2 진입 이력이 이 창 안에 없습니다.`;
+  } else {
+    const ttNote = 'RS 조건은 공개 조회 특성상 반영하지 않습니다 (아래 참고 참조) — 그 결과 리포트 표기와 confirmed2/early2가 다를 수 있습니다.';
+    sub.innerHTML = `추세 템플릿 ${result.stage_sub === 'confirmed2' ? '통과' : '미충족'}(${result.stage_sub}) · ${ttNote}`;
+  }
+
+  document.getElementById('rTicker').textContent = raw + (usedTicker !== raw ? ` (${usedTicker})` : '');
+  document.getElementById('rDate').textContent = hist.length ? fmtDate(hist[hist.length - 1].date) + (droppedToday ? ' (당일봉 제외)' : '') : '—';
+  document.getElementById('rStart').textContent = result.stage2_start_date ? fmtDate(result.stage2_start_date) : '—';
+  document.getElementById('rCycle').textContent = result.cycle_type || '—';
+
+  document.getElementById('srcLine').textContent =
+    `소스: Yahoo Finance (query1.finance.yahoo.com, corsproxy.io 경유) · 조회 봉수 ${hist.length}개`;
+
+  document.getElementById('result').style.display = 'block';
+
+  renderChart(trace, isKr, raw);
+}
+
+// ── 차트 ────────────────────────────────────────────
+let stageChartObj = null;
+
+function _roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y); ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r); ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h); ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+// 카테고리 축 대신 인덱스 비례로 x픽셀을 직접 계산 — 스케일 API 버전차에 의존하지 않게.
+function _px(area, i, n) {
+  if (n <= 1) return area.left;
+  return area.left + (i / (n - 1)) * (area.right - area.left);
+}
+
+const STAGE_FILL = {
+  St1: 'rgba(122,127,150,0.17)', St2: 'rgba(46,204,113,0.15)',
+  St3: 'rgba(241,196,15,0.15)',  St4: 'rgba(231,76,60,0.15)',
+};
+
+const stageBandsPlugin = {
+  id: 'stageBands',
+  beforeDatasetsDraw(chart, args, opts) {
+    const tl = opts && opts.timeline;
+    if (!tl || !tl.length) return;
+    const { ctx, chartArea } = chart;
+    const n = tl.length;
+    ctx.save();
+    let i = 0;
+    while (i < n) {
+      const s = tl[i];
+      let j = i;
+      while (j + 1 < n && tl[j + 1] === s) j++;
+      if (s && STAGE_FILL[s]) {
+        const x1 = _px(chartArea, i, n), x2 = _px(chartArea, j, n);
+        ctx.fillStyle = STAGE_FILL[s];
+        ctx.fillRect(x1, chartArea.top, Math.max(1, x2 - x1), chartArea.bottom - chartArea.top);
+      }
+      i = j + 1;
+    }
+    ctx.restore();
+  }
+};
+
+const baseMarksPlugin = {
+  id: 'baseMarks',
+  afterDatasetsDraw(chart, args, opts) {
+    const marks = opts && opts.marks;
+    const n = opts && opts.n;
+    if (!marks || !marks.length || !n) return;
+    const { ctx, chartArea } = chart;
+    ctx.save();
+    marks.forEach((m, k) => {
+      const px = _px(chartArea, m.idx, n);
+      const col = m.dead ? 'rgba(122,127,150,.85)'
+                : m.reset ? 'rgba(231,76,60,.95)'
+                : m.anchor ? 'rgba(46,204,113,.95)' : 'rgba(91,142,240,.95)';
+      ctx.strokeStyle = col;
+      ctx.setLineDash([3, 3]); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(px, chartArea.top); ctx.lineTo(px, chartArea.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.font = '700 10px -apple-system, "Segoe UI", sans-serif';
+      const w = ctx.measureText(m.label).width + 9;
+      const bx = Math.min(Math.max(px - w / 2, chartArea.left), chartArea.right - w);
+      const by = chartArea.top + 2 + (k % 2) * 16;
+      ctx.fillStyle = col;
+      _roundRect(ctx, bx, by, w, 14, 3); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(m.label, bx + w / 2, by + 7.5);
+    });
+    ctx.restore();
+  }
+};
+
+function renderChart(trace, isKr, ticker) {
+  const card = document.getElementById('bevents').parentElement;
+  // [C-3 동일 원칙] 타임라인이 없으면(이력부족·조회실패) 차트를 그리지 않고 숨긴다 — 빈 축 표시 금지
+  if (!trace || !trace.timeline || !trace.timeline.length) {
+    card.style.display = 'none';
+    if (stageChartObj) { stageChartObj.destroy(); stageChartObj = null; }
+    return;
+  }
+  const { dates, closes, sma50, sma150, sma200, timeline, baseEvents, anchorEvents } = trace;
+  const n = closes.length;
+  const labels = dates.map(d => `${d.slice(2, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`);
+
+  // 마커 조립 — ① 앵커(B1 시작) ② 베이스 완성 이벤트(B2부터)
+  //   ⚠️ 베이스 마커는 Stage2 음영과 독립이다. 베이스 카운팅은 사이클 앵커가 살아있는
+  //      Stage2/3/1 전 구간에서 돌기 때문에, 마커가 노란(St3) 구간 안에 찍히는 것이 정상.
+  //   ⚠️ 3년 창 안에 사이클이 여러 개 있을 수 있다. St4 확정으로 끝난 사이클의 마커를
+  //      현재 사이클과 같은 색으로 그리면, 이미 종료된 베이스 카운트를 "지금 값"으로
+  //      오해하게 된다 (예: 현재 Stage1인데 옛 사이클의 B2가 그대로 보임). 그래서
+  //      set/clear 를 짝지어 사이클 단위로 나누고, 종료된 사이클은 회색으로 죽인다.
+  const cycles = [];
+  (anchorEvents || []).forEach(a => {
+    if (a.type === 'set') cycles.push({ setIdx: a.idx, contextNa: a.contextNa, clearIdx: null, events: [] });
+    else if (cycles.length) { const c = cycles[cycles.length - 1]; if (c.clearIdx === null) c.clearIdx = a.idx; }
+  });
+  (baseEvents || []).forEach(e => {
+    for (let k = cycles.length - 1; k >= 0; k--) {
+      const c = cycles[k];
+      if (e.idx >= c.setIdx && (c.clearIdx === null || e.idx <= c.clearIdx)) { c.events.push(e); break; }
+    }
+  });
+  const liveCycle = cycles.length && cycles[cycles.length - 1].clearIdx === null ? cycles[cycles.length - 1] : null;
+
+  const marks = [];
+  cycles.forEach(c => {
+    const dead = (c !== liveCycle);
+    marks.push({ idx: c.setIdx, label: 'B1', anchor: true, reset: false, dead });
+    c.events.forEach(e => marks.push({
+      idx: e.idx,
+      label: (e.counted === false ? '\u21BAB' : 'B') + e.baseCount,
+      reset: (e.undercutReset || e.depthOverCap), anchor: false, dead,
+    }));
+  });
+  marks.sort((a, b) => a.idx - b.idx);
+
+  const mkLine = (data, color, width) => ({
+    data, borderColor: color, borderWidth: width, pointRadius: 0,
+    tension: 0, fill: false, spanGaps: false,
+  });
+
+  if (stageChartObj) { stageChartObj.destroy(); stageChartObj = null; }
+  stageChartObj = new Chart(document.getElementById('stageChart'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        mkLine(sma200, '#7a7f96', 1.1),
+        mkLine(sma150, '#f1c40f', 1.6),
+        mkLine(sma50,  '#5b8ef0', 1.1),
+        mkLine(closes, '#e8eaf0', 1.3),
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      animation: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: (items) => {
+              const i = items[0].dataIndex;
+              const st = timeline[i];
+              return `${labels[i]}  ·  ${st ? 'Stage' + st.slice(2) : '미확정'}`;
+            },
+            label: (it) => {
+              const nm = ['200일선', '150일선', '50일선', '주가'][it.datasetIndex];
+              const v = it.parsed.y;
+              if (v == null) return null;
+              return `${nm} ${isKr ? Math.round(v).toLocaleString('ko-KR') + '원' : '$' + v.toFixed(2)}`;
+            },
+          },
+        },
+        stageBands: { timeline },
+        baseMarks: { marks, n },
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: {
+            color: '#7a7f96', font: { size: 9 }, maxRotation: 0, autoSkip: true,
+            maxTicksLimit: 6, callback(v, i) { const l = this.getLabelForValue(v); return l ? l.slice(0, 5) : l; },
+          },
+        },
+        y: {
+          position: 'right',
+          grid: { color: 'rgba(42,45,58,.6)' },
+          ticks: {
+            color: '#7a7f96', font: { size: 9 },
+            callback: (v) => isKr ? Math.round(v).toLocaleString('ko-KR') : v,
+          },
+        },
+      },
+    },
+    plugins: [stageBandsPlugin, baseMarksPlugin],
+  });
+
+  // 베이스 이벤트 목록 — 차트와 동일하게 사이클 단위로 묶고, 종료된 사이클은 회색 처리
+  const be = document.getElementById('bevents');
+  let html = '';
+  if (!cycles.length) {
+    html += `<div>이 창 안에서 확정된 Stage2 사이클이 없습니다.</div>`;
+  }
+  cycles.forEach((c, ci) => {
+    const dead = (c !== liveCycle);
+    const dim = dead ? ' style="opacity:.55"' : '';
+    const head = dead
+      ? `<span style="color:#7a7f96">사이클 ${ci + 1} — <b style="color:#9aa0b8">종료</b> (${labels[c.setIdx]} ~ ${labels[c.clearIdx]}, Stage4 확정)</span>`
+      : `<span style="color:#2ecc71;font-weight:700">현재 사이클</span> <span>(${labels[c.setIdx]} ~ 진행 중)</span>`;
+    html += `<div${dim}><div style="margin:${ci ? '10px' : '0'} 0 3px">${head}</div>`;
+    html += `<div class="row"><span class="bk"${dead ? ' style="color:#7a7f96"' : ''}>B1</span><span>사이클 시작 <b>${labels[c.setIdx]}</b>`
+          + (c.contextNa ? ' <span style="color:#f1c40f">(직전 국면 관측 불가 — 실제 시작은 더 이전일 수 있음)</span>' : '')
+          + `</span></div>`;
+    c.events.forEach(e => {
+      const _rst = (e.undercutReset || e.depthOverCap);
+      html += `<div class="row"><span class="bk"${dead ? ' style="color:#7a7f96"' : (_rst ? ' style="color:#e74c3c"' : '')}>${e.counted === false ? '\u21BA' : ''}B${e.baseCount}</span><span>`
+            + `<b>${labels[e.idx]}</b> 신고가 돌파 · 조정 ${labels[e.corrStartIdx]}부터 <b>${e.corrDays}봉</b>, 깊이 <b>${e.depthPct}%</b>`
+            + (e.depthOverCap ? ` <span class="rst">— 깊이 상한 초과, 계수 없이 B${e.baseCount}으로 리셋</span>` : '')
+            + (e.undercutReset ? ` <span class="rst">— 직전 베이스 저점을 깨서 B1으로 리셋</span>` : '')
+            + (e.segBars ? ` <span style="color:#7a7f96">· 표시 구간 ${e.segBars}봉${e.segPicked === 'none' ? ' (트리밍 불가)' : ''}</span>` : '')
+            + `</span></div>`;
+    });
+    if (!c.events.length) {
+      html += `<div style="margin-left:38px">추가 베이스 없음 (조정 <b>-10% ~ -25% · 25봉 이상</b>을 딛고 신고가를 뚫어야 1회로 인정. 깊이가 -25%를 넘으면 계수 없이 B1으로 리셋되고, 표시 구간은 바닥 횡보부로 축소된다)</div>`;
+    }
+    html += `</div>`;
+  });
+  html += `<div style="margin-top:10px;color:#6a6f86">· 베이스 마커는 Stage2 음영과 무관하게 찍힙니다 — 베이스 카운팅은 사이클이 살아있는 Stage2·3·1 전 구간에서 진행되기 때문입니다.`
+        + `<br>· <b style="color:#9aa0b8">회색</b>은 Stage4로 이미 끝난 사이클입니다. 위 판독 결과의 베이스 수는 <b>현재 사이클</b> 기준입니다.</div>`;
+  be.innerHTML = html;
+
+  card.style.display = 'block';
+}
+
+document.getElementById('ticker').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') readStage();
+});
+</script>
+</body>
+</html>
