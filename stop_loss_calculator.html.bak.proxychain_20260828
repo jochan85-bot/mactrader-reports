@@ -539,57 +539,15 @@ function simulate(entryPrice, closes, lows, timestamps, entryDateStr, isp, n) {
   return { history, exit };
 }
 
-// ── Yahoo Finance (CORS 프록시 폴백 체인) ──────────────
-//   [PROXYCHAIN-20260828] 단일 프록시(corsproxy.io) 의존을 폐기.
-//     2026-08-28 장애 원인 = corsproxy.io 가 무료 게이트를 닫고 401(API key required)
-//     을 뱉기 시작 → 계산기가 통째로 "데이터 없음"으로 죽었다.
-//   ⚠️ Yahoo 원본을 브라우저에서 직접 부르는 경로도 남겨 뒀다. 다만 crumb/쿠키 없는
-//      생 요청은 Yahoo 가 429 로 막는 경우가 많다(2026-08-28 실측: 이 집 IP 에서
-//      curl 직결 429 / yfinance(쿠키+crumb 세션)는 정상). 그래서 프록시가 먼저다.
-//   실측 생존 순서 (2026-08-28, 실제 브라우저 origin 기준 11개 후보 중):
-//     api.cors.lol ✅ / proxy.corsfix.com ✅ / 나머지 9개 전부 실패
-const PROXIES = [
-  { name: 'cors.lol',    build: u => 'https://api.cors.lol/?url=' + encodeURIComponent(u) },
-  { name: 'corsfix',     build: u => 'https://proxy.corsfix.com/?' + u },
-  { name: 'corsproxy.io',build: u => 'https://corsproxy.io/?url=' + encodeURIComponent(u) },
-  { name: 'allorigins',  build: u => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u) },
-  { name: 'codetabs',    build: u => 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(u) },
-  { name: 'direct',      build: u => u },
-];
-// 마지막 시도 로그 — 실패 시 사용자에게 어디서 막혔는지 그대로 보여준다.
-let lastProxyLog = [];
-
-function parseYahoo(js) {
-  // allorigins/get 류가 {contents:"..."} 로 감싸는 경우까지 흡수
-  if (js && typeof js.contents === 'string') { try { js = JSON.parse(js.contents); } catch(e) {} }
-  return js?.chart?.result?.[0] ?? null;
-}
-
-async function fetchViaProxy(proxy, yUrl, timeoutMs) {
-  const ctrl = new AbortController();
-  const to = setTimeout(() => ctrl.abort(), timeoutMs);
-  try {
-    const res = await fetch(proxy.build(yUrl), { signal: ctrl.signal });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const result = parseYahoo(await res.json());
-    if (!result) throw new Error('chart.result 없음');
-    return result;
-  } finally { clearTimeout(to); }
-}
-
+// ── Yahoo Finance ──────────────────────────────────
+const PROXY = 'https://corsproxy.io/?url=';
 async function fetchCloses(yfTicker) {
   const yUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${yfTicker}?range=2y&interval=1d`;
-  let result = null;
-  for (const proxy of PROXIES) {
-    try {
-      result = await fetchViaProxy(proxy, yUrl, 12000);
-      lastProxyLog.push(`${proxy.name} ✅`);
-      break;
-    } catch (e) {
-      lastProxyLog.push(`${proxy.name} ✕ ${String(e.message || e).slice(0, 40)}`);
-    }
-  }
-  if (!result) throw new Error('ALL_PROXIES_FAILED');
+  const res = await fetch(PROXY + encodeURIComponent(yUrl));
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const js = await res.json();
+  const result = js?.chart?.result?.[0];
+  if (!result) throw new Error('데이터 없음');
   const q = result.indicators?.quote?.[0] ?? {};
   const raw = q.close ?? [];
   const rawLow = q.low ?? [];
@@ -713,21 +671,12 @@ async function calculate() {
 
   const isKr = /^\d{6}$/.test(ticker);
   const candidates = isKr ? [ticker + '.KS', ticker + '.KQ'] : [ticker];
-  let fetchResult = null, usedTicker = null, allProxyFail = false;
-  lastProxyLog = [];
+  let fetchResult = null, usedTicker = null;
   for (const t of candidates) {
-    try { fetchResult = await fetchCloses(t); usedTicker = t; break; }
-    catch(e) { if (String(e.message) === 'ALL_PROXIES_FAILED') allProxyFail = true; }
+    try { fetchResult = await fetchCloses(t); usedTicker = t; break; } catch(e) {}
   }
   if (!fetchResult) {
-    // [PROXYCHAIN-20260828] "티커 확인" 만 뜨고 끝나던 구 메시지 폐기 —
-    //   프록시 전멸인지 티커 오류인지 화면에서 바로 구분되게 한다.
-    if (allProxyFail) {
-      showErr('시세 서버 접속 실패 — 프록시 전 경로가 막혔습니다.<br>'
-            + '<span style="font-size:0.75rem;color:#c58a8a;">' + lastProxyLog.join(' · ') + '</span>');
-    } else {
-      showErr('데이터 없음 — 티커를 확인해주세요 (KR은 6자리 숫자, US는 심볼)');
-    }
+    showErr('데이터 없음 — 티커 또는 인터넷 연결을 확인해주세요');
     setLoading(false);
     return;
   }
