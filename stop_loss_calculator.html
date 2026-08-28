@@ -256,7 +256,8 @@
         <input type="number" id="ispPct" value="8" min="1" max="30" step="0.5">
         <input type="range" id="ispSlider" min="1" max="20" step="0.5" value="8">
       </div>
-      <div class="hint">증명 전(<span class="proofRef">+16%</span> 미달) 구간의 <b>바닥 하한</b>. 장중 하드바닥도 같은 값.</div>
+      <div class="hint">증명 전(<span class="proofRef">+16%</span> 미달) 구간의 <b>바닥 하한</b>. 장중 하드바닥도 같은 값.
+        <br>이 값이 <b>1R</b>이며, 증명 문턱 <b>2R</b>(= <span class="proofRef">+16%</span>)도 여기에 연동돼 함께 움직인다.</div>
     </div>
 
     <div class="field" style="margin-bottom:18px;">
@@ -301,7 +302,7 @@
 
       <div class="proof-box">
         <div class="proof-head">
-          <span class="plabel">사이클 증명 진행도 (<span class="proofRef">+16%</span> 문턱)</span>
+          <span class="plabel">사이클 증명 진행도 (2R = <span class="proofRef">+16%</span> · 종가 기준)</span>
           <span class="badge off" id="provenBadge">미증명</span>
         </div>
         <div class="proof-bar"><i id="proofFill" style="width:0%"></i></div>
@@ -351,8 +352,9 @@
       <div class="chart-title">🔢 증명 진행도별 바닥 이론 계단</div>
       <div class="chart-wrap"><canvas id="chartTheory"></canvas></div>
       <div style="font-size:0.72rem;color:var(--muted);margin-top:8px;line-height:1.5;">
-        가로축 = <b>사이클 최고 종가</b>(평단 대비). <span class="proofRef">+16%</span>에 닿는 순간 하한선이
-        <b>−n% → 본전으로 1회 점프</b>하고, 최고종가는 비가역이라 되돌아가지 않는다.<br>
+        가로축 = <b>사이클 최고 종가</b>(평단 대비). <b>2R</b>(= <span class="proofRef">+16%</span>)에 닿는 순간 하한선이
+        <b>−n% → 본전으로 1회 점프</b>하고, 최고종가는 비가역이라 되돌아가지 않는다.
+        손절선을 바꾸면 계단 위치(2R)도 같이 움직인다.<br>
         보라 선 = 현재 MA<span class="maRef">50</span> 위치 — 이 선이 계단보다 위에 있으면 <b>MA가 실제 바닥</b>이 된다.
       </div>
     </div>
@@ -365,11 +367,14 @@
     <div class="phase-row">
       <div class="phase-num">1</div>
       <div class="phase-content">
-        <div class="pname">하한선 — 증명 전 <b>−n%</b> / 증명 후 <b>본전</b></div>
-        <div class="pdesc">사이클 최고 종가가 <b>+16%</b>에 닿기 전까지 하한선은 평단가 −n%(기본 −8%).
-          닿는 순간 <b>평단가(본전)</b>로 올라가고, 이 전환은 <b>비가역</b>이다 — 이후 주가가 밀려도 −n%로 되돌아가지 않는다.
-          <br>⚠️ +16%(<code>PROOF_PCT</code>)는 라이브 <b>고정 리터럴</b>이라 n을 바꿔도 따라 움직이지 않는다.</div>
-        <div class="formula-inline">base = proven ? entry : entry × (1 − n)</div>
+        <div class="pname">하한선 — 증명 전 <b>−n%</b> / 증명 후 <b>본전</b> (문턱 = <b>2R</b>)</div>
+        <div class="pdesc">사이클 최고 <b>종가</b>가 <b>2R</b>(= 초기 손절폭 n의 2배, 기본 −8% → <b>+16%</b>)에 닿기 전까지
+          하한선은 평단가 −n%. 닿는 순간 <b>평단가(본전)</b>로 올라가고, 이 전환은 <b>비가역</b>이다 —
+          이후 주가가 밀려도 −n%로 되돌아가지 않는다.
+          <br>📌 판정은 <b>확정 종가 기준</b>이다 — 장중 고가로 2R을 스치는 것은 증명으로 치지 않는다.
+          <br>⚠️ 라이브는 <code>PROOF_PCT</code>=0.16 <b>고정 리터럴</b>(<code>LIVE_ISP</code>와 무연동)이다.
+          이 계산기는 이를 <b>2R로 묶어</b> n을 바꾸면 문턱도 따라오게 했다 — n=8%에서 두 방식이 정확히 일치한다.</div>
+        <div class="formula-inline">proven = max(진입 후 종가) ≥ entry × (1 + 2n) · base = proven ? entry : entry × (1 − n)</div>
       </div>
     </div>
 
@@ -412,8 +417,10 @@
     <code>exit_engine_unified.py</code> 의 <code>compute_m50_floor()</code> · <code>compute_ma50_pair()</code> ·
     장중 하드바닥 블록을 그대로 옮겼습니다. 상수 <code>PROOF_PCT</code>=0.16 · <code>LIVE_ISP</code>=0.08 ·
     <code>MA_TRAIL_N</code>=50.
-    <br>남은 차이 4가지: ① <b>MA 기간</b>은 계산기 전용 조절값 — 50에서 라이브와 정확히 일치합니다.
-    ② <b>초기 손절선</b>도 조절값 — 8%에서 라이브 일치. ③ <b>P-E 분할손절</b>·<b>피벗 실패 룰</b>·
+    <br>남은 차이 5가지: ① <b>MA 기간</b>은 계산기 전용 조절값 — 50에서 라이브와 정확히 일치합니다.
+    ② <b>초기 손절선</b>도 조절값 — 8%에서 라이브 일치. ⑤ <b>증명 문턱을 2R(=2n)로 연동</b>했습니다 —
+    라이브는 0.16 고정 리터럴이라 <b>n=8%에서만 동일</b>하고 n을 바꾸면 갈라집니다(의도된 계산기 전용 동작).
+    ③ <b>P-E 분할손절</b>·<b>피벗 실패 룰</b>·
     <b>법인이벤트 가드</b>·<b>가짜돌파 룰</b>은 범위 제외. ④ 라이브는 <b>재매수 다리(leg)별</b>로 관리하지만
     여기는 단일 다리 기준입니다.
   </div>
@@ -429,7 +436,12 @@
 //  [WIRE-M50-20260901 §1-B] 라이브 exit_engine_unified.py 이식
 //    라이브 리터럴 — 계산기에서 조절 가능한 것은 isp / maN 둘뿐이다.
 // ══════════════════════════════════════════════════════════════
-const PROOF_PCT   = 0.16;   // 사이클 증명 문턱 — 조절 불가(라이브 고정)
+// [2R-PROOF-20260828] 사이클 증명 문턱 = 2R = 초기 손절폭 × 2 (종가 기준).
+//   라이브는 PROOF_PCT = 0.16 **고정 리터럴**이고 LIVE_ISP 와 연동되지 않는다.
+//   계산기는 이를 2R 로 묶는다 — isp=8% 일 때 2×0.08 = 0.16 으로 라이브와 정확히 일치하고,
+//   isp 를 움직였을 때만 갈라진다(의도된 계산기 전용 동작).
+const PROOF_R_MULT = 2;
+function proofPctFor(isp) { return PROOF_R_MULT * isp; }
 const LIVE_ISP_DEF = 0.08;  // 초기 손절폭 기본값
 const MA_TRAIL_DEF = 50;    // 라이브 MA 기간
 
@@ -450,7 +462,9 @@ function computeM50Floor(entryPrice, curPrice, confirmedCloses, cycleMaxPrev, pr
   const maNa = (ma === null);
 
   let cycleMax = Math.max(curPrice, cycleMaxPrev || 0);
-  const proven = !!provenPrev || (entryPrice > 0 && cycleMax >= entryPrice * (1 + PROOF_PCT));
+  // 증명 판정 = 사이클 최고 **종가** 기준 (장중 고가 미사용) ≥ entry × (1 + 2R)
+  const proofPct = proofPctFor(isp);
+  const proven = !!provenPrev || (entryPrice > 0 && cycleMax >= entryPrice * (1 + proofPct));
 
   let base, floor, driver;
   if (proven) {
@@ -565,7 +579,8 @@ function parseDate(s) {
   const now = new Date();
   const week = new Date(now - 7*86400e3);
   document.getElementById('entryDate').value = week.toISOString().slice(0,10);
-  document.querySelectorAll('.proofRef').forEach(e => e.textContent = '+' + (PROOF_PCT*100).toFixed(0) + '%');
+  // ⚠️ syncProofRefs() 를 여기서 부르면 ispEl(const, 아래 선언) TDZ 로 스크립트 전체가 죽는다.
+  //    아래 입력 핸들러 배선 직후의 syncLabels() 가 어차피 호출한다.
 })();
 
 const ispEl       = document.getElementById('ispPct');
@@ -573,10 +588,16 @@ const ispSliderEl = document.getElementById('ispSlider');
 const maEl        = document.getElementById('maN');
 const maSliderEl  = document.getElementById('maSlider');
 
+function syncProofRefs() {
+  const v = proofPctFor(getIsp()) * 100;
+  const txt = '+' + (Math.abs(v - Math.round(v)) < 0.05 ? v.toFixed(0) : v.toFixed(1)) + '%';
+  document.querySelectorAll('.proofRef').forEach(e => e.textContent = txt);
+}
 function syncLabels() {
   document.getElementById('ispLabel').textContent = (parseFloat(ispEl.value) || 8);
   document.getElementById('maLabel').textContent  = getMaN();
   document.querySelectorAll('.maRef').forEach(e => e.textContent = getMaN());
+  syncProofRefs();
 }
 ispEl.addEventListener('input', () => {
   const v = Math.max(1, Math.min(20, parseFloat(ispEl.value) || 8));
@@ -718,14 +739,15 @@ function render(d) {
   // 증명 진행도
   const cycleMax = last.cycleMax || refPrice;
   const gain     = (cycleMax / entryPrice - 1);
-  const pct      = Math.max(0, Math.min(100, gain / PROOF_PCT * 100));
+  const proofPct = proofPctFor(isp);
+  const pct      = Math.max(0, Math.min(100, gain / proofPct * 100));
   document.getElementById('proofFill').style.width = pct.toFixed(1) + '%';
   const badge = document.getElementById('provenBadge');
   badge.className = 'badge ' + (last.proven ? 'on' : 'off');
   badge.textContent = last.proven ? '증명 완료 (본전 바닥)' : '미증명';
   document.getElementById('proofSub').innerHTML = last.proven
-    ? `사이클 최고 종가 <b>${fmt(cycleMax, isKr)}</b> (+${(gain*100).toFixed(1)}%) — 문턱 통과. 하한선이 <b>본전</b>으로 고정됐고 되돌아가지 않습니다.`
-    : `사이클 최고 종가 <b>${fmt(cycleMax, isKr)}</b> (${gain >= 0 ? '+' : ''}${(gain*100).toFixed(1)}%) · 문턱까지 <b>${fmt(entryPrice*(1+PROOF_PCT), isKr)}</b> 필요 (앞으로 +${((entryPrice*(1+PROOF_PCT)/cycleMax - 1)*100).toFixed(1)}%)`;
+    ? `사이클 최고 종가 <b>${fmt(cycleMax, isKr)}</b> (+${(gain*100).toFixed(1)}%) — 2R(+${(proofPct*100).toFixed(1)}%) 통과. 하한선이 <b>본전</b>으로 고정됐고 되돌아가지 않습니다.`
+    : `사이클 최고 종가 <b>${fmt(cycleMax, isKr)}</b> (${gain >= 0 ? '+' : ''}${(gain*100).toFixed(1)}%) · 2R 문턱 <b>${fmt(entryPrice*(1+proofPct), isKr)}</b> (+${(proofPct*100).toFixed(1)}%) 까지 <b>+${((entryPrice*(1+proofPct)/cycleMax - 1)*100).toFixed(1)}%</b> 남음`;
 
   // 바닥 표시
   const floorNow = last.floor;
@@ -834,10 +856,15 @@ function drawTheoryChart(entryPrice, isp, n, maVal, cycleMax, isKr) {
   destroyChart(chartTheory);
   const labels = [], baseData = [], maData = [], finalData = [];
   const maPct = (maVal != null) ? (maVal / entryPrice - 1) * 100 : null;
+  // 2R 이 isp 에 따라 움직이므로 x 축 범위도 따라간다 (문턱 계단이 항상 화면 안에 들어오도록)
+  const proofPct = proofPctFor(isp);
+  const xMin  = -Math.ceil(isp * 100 + 2);
+  const xMax  = Math.ceil(proofPct * 100 * 1.6) + 5;
+  const xStep = Math.max(1, Math.round((xMax - xMin) / 55));
 
-  for (let p = -10; p <= 40; p += 1) {
+  for (let p = xMin; p <= xMax; p += xStep) {
     labels.push((p >= 0 ? '+' : '') + p + '%');
-    const proven  = (p / 100) >= PROOF_PCT;
+    const proven  = (p / 100) >= proofPct;
     const basePct = proven ? 0 : -isp * 100;
     baseData.push(+basePct.toFixed(2));
     maData.push(maPct != null ? +maPct.toFixed(2) : null);
@@ -845,7 +872,7 @@ function drawTheoryChart(entryPrice, isp, n, maVal, cycleMax, isKr) {
   }
 
   const nowPct = (cycleMax / entryPrice - 1) * 100;
-  const nowIdx = Math.round(Math.max(-10, Math.min(40, nowPct))) + 10;
+  const nowIdx = Math.round((Math.max(xMin, Math.min(xMax, nowPct)) - xMin) / xStep);
   const nowData = labels.map((_, i) => (i === nowIdx) ? finalData[i] : null);
 
   const ctx2 = document.getElementById('chartTheory').getContext('2d');
@@ -889,7 +916,7 @@ function drawTheoryChart(entryPrice, isp, n, maVal, cycleMax, isKr) {
       scales: {
         x: { ticks: { color: '#7a7f96', font: { size: 10 }, maxTicksLimit: 11, maxRotation: 0 },
              grid: { color: '#1e2130' },
-             title: { display: true, text: '사이클 최고 종가 (평단 대비)', color: '#7a7f96', font: { size: 10 } } },
+             title: { display: true, text: '사이클 최고 종가 (평단 대비) · 계단 = 2R', color: '#7a7f96', font: { size: 10 } } },
         y: { ticks: { color: '#7a7f96', font: { size: 10 }, callback: v => (v >= 0 ? '+' : '') + v + '%' },
              grid: { color: '#1e2130' },
              title: { display: true, text: '바닥 위치 (평단 대비)', color: '#7a7f96', font: { size: 10 } } }
