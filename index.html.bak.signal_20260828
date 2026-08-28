@@ -25,9 +25,6 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
 .card-date{font-size:12px;color:#58a6ff;font-weight:600;white-space:nowrap}
 .desc{display:block;font-size:12px;color:#8b949e;margin-top:4px}
 .arrow{float:right;color:#58a6ff;font-size:18px;line-height:1.2}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.grid2 .card{margin:0}
-.sig-ico{width:20px;height:20px;flex-shrink:0;display:block}
 </style>
 </head>
 <body>
@@ -72,24 +69,6 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
     <span class="arrow">›</span>
     <span class="desc">년도 / 월별 리포트 모음</span>
   </a>
-</div>
-
-<div class="section">
-  <div class="section-title">📡 시그널 시스템</div>
-  <div class="grid2">
-    <a class="card" href="https://jochan85-bot.github.io/crypto-reports/">
-      <div class="card-left">
-        <svg class="sig-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#f7931a"/><text x="12" y="17.4" font-size="15" font-weight="700" fill="#fff" text-anchor="middle" font-family="Helvetica,Arial">₿</text></svg>
-        <span>가상화폐 신호</span>
-      </div>
-    </a>
-    <a class="card" href="https://jochan85-bot.github.io/gold-reports/">
-      <div class="card-left">
-        <svg class="sig-ico" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="goldg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset="1" stop-color="#d4a017"/></linearGradient></defs><path d="M4 17h16l-2.2-5.4H6.2z" fill="url(#goldg)" stroke="#a97b0d" stroke-width="0.7"/><path d="M6.6 10.6h10.8L15.6 6H8.4z" fill="url(#goldg)" stroke="#a97b0d" stroke-width="0.7"/></svg>
-        <span>금 신호</span>
-      </div>
-    </a>
-  </div>
 </div>
 
 </body>
