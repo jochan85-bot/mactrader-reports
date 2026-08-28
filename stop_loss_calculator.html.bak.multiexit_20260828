@@ -343,11 +343,10 @@
       <div class="chart-title">📈 주가 + 바닥 라인 히스토리</div>
       <div class="chart-wrap"><canvas id="chartPrice"></canvas></div>
       <div style="font-size:0.72rem;color:var(--muted);margin-top:8px;line-height:1.5;">
-        빨간 실선 = <b>M50 바닥</b>(트레일링) · 주황 점선 = <b>장중 하드바닥</b> · 보라 점선 = MA<span class="maRef">50</span> · 회색 점선 = 평단가.
-        노란 ▼ = <b>청산 신호가 뜬 지점</b> (연속으로 바닥 아래 머무는 구간은 첫 봉 1개만 표시).
-        <br>청산 신호가 떠도 <b>멈추지 않고 현재까지</b> 트레일링을 이어 그립니다 —
-        "그때 안 털렸으면 스탑이 어떻게 따라갔을까"를 보기 위한 관찰 모드입니다.
-        실거래는 <b>첫 신호에서 청산</b>되고 사이클이 끝납니다.
+        빨간 실선 = 실제 적용된 <b>M50 바닥</b> · 주황 점선 = <b>장중 하드바닥</b> · 보라 점선 = MA<span class="maRef">50</span> · 회색 점선 = 평단가.
+        노란 점 = 시뮬레이션 <b>청산 발생 지점</b>.
+        <br>청산이 나도 주가는 <b>현재까지 계속</b> 그립니다 — 청산 이후 구간은 <b>회색 점선</b>(미보유)이고,
+        바닥·MA 선은 포지션이 없는 구간이라 거기서 끊깁니다.
       </div>
     </div>
 
@@ -483,22 +482,19 @@ function computeM50Floor(entryPrice, curPrice, confirmedCloses, cycleMaxPrev, pr
 }
 
 // ── 시뮬레이션 (진입일 → 현재, 일봉 재현) ────────────────────
-//   [MULTIEXIT-20260828] 청산 신호가 떠도 **멈추지 않는다** — 계속 보유했다고 가정하고
-//     트레일링 바닥을 마지막 봉까지 이어서 산출하고, 룰이 발동한 지점을 전부 표시한다.
-//     "그때 안 털렸으면 스탑이 어떻게 따라갔을까"를 한 화면에서 보기 위한 관찰 모드.
-//   ⚠️ 실거래와 다른 점: 실거래는 첫 발동에서 청산되고 사이클이 끝난다. 여기서는
-//      cycle_max_close·proven 이 발동 이후에도 계속 누적된다(같은 사이클 유지 가정).
-//   라이브 판정 순서는 그대로 따른다:
-//     ① 장중 하드바닥 — 직전 마감창에 persist된 proven 으로 base 산출, 저가가 뚫으면 발동
+//   라이브 판정 순서를 그대로 따른다:
+//     ① 장중 하드바닥 — 직전 마감창에 persist된 proven 으로 base 산출, 저가가 뚫으면 즉시 청산
 //     ② 마감창 — 오늘 종가로 cycleMax/proven 갱신 후 max(base, MA_N) 판정
-//   마커는 **엣지 트리거** — 바닥 아래에 연속으로 머무는 구간은 1건으로 센다.
 function simulate(entryPrice, closes, lows, timestamps, entryDateStr, isp, n, gmtoffset) {
   // 라이브 cycle_max_close 는 `dd >= entry_date` 인 봉만 센다 — 진입 전 봉이 한 개라도
   //   섞이면 proven 이 오판정된다(WIRE-M50-0.6 TRLV 실사례).
   // [TZFIX-20260828] 봉 날짜는 반드시 **거래소 현지 날짜**로 뽑는다.
   //   Yahoo 의 KR 일봉 타임스탬프는 00:00 KST = **전날 15:00 UTC** 라서,
   //   UTC 로 날짜를 자르면 KR 만 하루씩 밀린다(실측: 8/25 봉의 UTC 날짜가 08-24).
-  //   meta.gmtoffset(초)을 더해 UTC 게터로 읽으면 거래소 현지 날짜가 나온다.
+  //   그 결과 ① 진입일 봉이 통째로 스킵되고 ② 청산일이 하루 이르게 표시됐다.
+  //   meta.gmtoffset(초)을 더해 UTC 게터로 읽으면 거래소 현지 날짜가 나온다
+  //   (KR +32400 → 00:00 KST / US -14400 → 09:30 ET, 둘 다 거래일과 일치).
+  //   뷰어 로컬 타임존과 무관하게 동작한다.
   const off = Number(gmtoffset) || 0;
   const localDate = ts => new Date((ts + off) * 1000);
   const barDate = ts => localDate(ts).toISOString().slice(0, 10);
@@ -506,13 +502,12 @@ function simulate(entryPrice, closes, lows, timestamps, entryDateStr, isp, n, gm
   for (let i = 0; i < timestamps.length; i++) {
     if (barDate(timestamps[i]) >= entryDateStr) { startIdx = i; break; }
   }
-  if (startIdx < 0) return { history: [], exits: [], exit: null };
+  if (startIdx < 0) return { history: [], exit: null };
 
   let cycleMax = 0;
   let proven   = false;
-  let prevBreach = false;
   const history = [];
-  const exits   = [];
+  let exit = null;
 
   for (let i = startIdx; i < closes.length; i++) {
     const cp  = closes[i];
@@ -521,10 +516,31 @@ function simulate(entryPrice, closes, lows, timestamps, entryDateStr, isp, n, gm
     const label = (d.getUTCMonth() + 1).toString().padStart(2, '0') + '/' + d.getUTCDate().toString().padStart(2, '0');
     const dateStr = d.toISOString().slice(0, 10);
 
+    // [POSTEXIT-20260828] 청산이 이미 났으면 판정은 멈추되 **주가 경로는 현재까지 계속 그린다**.
+    //   포지션이 없는 구간이므로 바닥·MA·하드바닥은 전부 null (차트에서 선이 끊긴다).
+    if (exit) {
+      history.push({ label, dateStr, price: cp, low,
+                     floor: null, hardFloor: null, ma: null, base: null,
+                     proven: null, cycleMax: null, driver: null,
+                     exited: false, postExit: true });
+      continue;
+    }
+
     // ① 장중 하드바닥 — persisted proven(전일 마감창 값) 기준
-    const provenPrev = proven;
-    const hardFloor  = provenPrev ? entryPrice : entryPrice * (1 - isp);
-    const intradayBreach = low < hardFloor;
+    const hardFloor = proven ? entryPrice : entryPrice * (1 - isp);
+    if (low < hardFloor) {
+      // ma 는 **표시 전용** — 장중 하드바닥은 MA 를 보지 않고 발동한다(라이브 동일).
+      //   null 로 두면 화면에 "봉 부족"으로 오표기되므로 값만 채워 둔다.
+      history.push({ label, dateStr, price: cp, low,
+                     floor: hardFloor, hardFloor, base: hardFloor,
+                     ma: maToday(closes.slice(0, i), cp, n),
+                     proven, cycleMax,
+                     driver: 'M50-HARD-INTRADAY', exited: true, intradayExit: true });
+      exit = { idx: history.length - 1, label, dateStr, price: hardFloor,
+               code: 'M50_HARD_INTRADAY',
+               reason: 'M50 하드바닥 발동 (장중, proven=' + proven + ')' };
+      continue;
+    }
 
     // ② 마감창 — 오늘 확정 종가로 sticky 갱신 후 최종 바닥 판정
     const confirmed = closes.slice(0, i);   // 오늘 봉 제외 = hist[:-1]
@@ -532,30 +548,19 @@ function simulate(entryPrice, closes, lows, timestamps, entryDateStr, isp, n, gm
     cycleMax = r.cycleMax;
     proven   = r.proven;
 
-    const closeBreach = cp < r.floor;
-    const breach = intradayBreach || closeBreach;
-
+    const exited = cp < r.floor;
     history.push({ label, dateStr, price: cp, low,
                    floor: r.floor, hardFloor, ma: r.ma, base: r.base,
-                   proven: r.proven, cycleMax: r.cycleMax,
-                   driver: intradayBreach ? 'M50-HARD-INTRADAY' : r.driver,
-                   breach, intradayExit: intradayBreach });
-
-    if (breach && !prevBreach) {
-      exits.push({
-        idx: history.length - 1, label, dateStr,
-        price: intradayBreach ? hardFloor : cp,
-        intraday: intradayBreach,
-        code: intradayBreach ? 'M50_HARD_INTRADAY'
-            : r.driver.startsWith('M50-PROVEN') ? 'M50_PROVEN'
-            : r.driver.startsWith('M50-MA')     ? 'M50_MA' + n : 'M50_FLAT',
-        reason: intradayBreach
-            ? 'M50 하드바닥 발동 (장중, proven=' + provenPrev + ')'
-            : 'M50 바닥 발동 (' + r.driver + ')' });
+                   proven: r.proven, cycleMax: r.cycleMax, driver: r.driver, exited });
+    if (exited) {
+      exit = { idx: history.length - 1, label, dateStr, price: cp,
+               code: r.driver.startsWith('M50-PROVEN') ? 'M50_PROVEN'
+                   : r.driver.startsWith('M50-MA')     ? 'M50_MA' + n : 'M50_FLAT',
+               reason: 'M50 바닥 발동 (' + r.driver + ')' };
+      continue;
     }
-    prevBreach = breach;
   }
-  return { history, exits, exit: exits[0] || null };
+  return { history, exit };
 }
 
 // ── Yahoo Finance (CORS 프록시 폴백 체인) ──────────────
@@ -783,16 +788,17 @@ async function calculate() {
 function render(d) {
   const { isKr, entryPrice, isp, n, sim } = d;
   const history = sim.history;
-  const exits   = sim.exits || [];
-  // [MULTIEXIT-20260828] 트레일링을 현재까지 이어 그리므로 패널 기준은 항상 **마지막 봉**.
-  const last     = history[history.length - 1];
-  const refPrice = d.currentPrice;
+  // [POSTEXIT-20260828] history 는 청산 이후 구간까지 담고 있으므로 마지막 행이
+  //   판정 행이 아닐 수 있다. 지표 패널은 반드시 **청산 시점 행**을 본다.
+  const last    = sim.exit ? history[sim.exit.idx] : history[history.length - 1];
+  // 청산이 발생했다면 그 시점이 "현재" — 이후는 보유하지 않은 구간이므로 기준가를 청산가로 둔다
+  const refPrice = sim.exit ? sim.exit.price : d.currentPrice;
   const profit   = (refPrice - entryPrice) / entryPrice * 100;
 
   document.getElementById('rTicker').textContent = d.ticker;
-  document.getElementById('rDays').textContent =
-    `보유 ${d.daysHeld}일 · 시뮬 ${history.length}거래일` +
-    (exits.length ? ` · 🚪 청산 신호 ${exits.length}회` : ' · 청산 신호 없음');
+  document.getElementById('rDays').textContent = sim.exit
+    ? `보유 ${d.daysHeld}일 · 청산까지 ${sim.exit.idx + 1}거래일 (이후 ${history.length - sim.exit.idx - 1}거래일 관찰)`
+    : `보유 ${d.daysHeld}일 · 시뮬 ${history.length}거래일`;
   const yfEl = document.getElementById('rYfLabel');
   yfEl.textContent = (d.usedTicker !== d.ticker) ? `(${d.usedTicker})` : '';
 
@@ -800,36 +806,29 @@ function render(d) {
   banner.className = 'profit-banner ' + (profit > 1 ? 'positive' : profit < -0.5 ? 'negative' : 'neutral');
   document.getElementById('rProfit').textContent = (profit >= 0 ? '+' : '') + profit.toFixed(2) + '%';
   document.getElementById('rPriceInfo').textContent =
-    `현재가 ${fmt(refPrice, isKr)}  /  평단가 ${fmt(entryPrice, isKr)}`;
+    `${sim.exit ? '청산가' : '현재가'} ${fmt(refPrice, isKr)}  /  평단가 ${fmt(entryPrice, isKr)}`;
 
-  // 상태 태그 — 마지막 봉의 라이브 driver 라벨 그대로
+  // 상태 태그 — 라이브 driver 라벨 그대로
   let phaseTag;
-  if (last.breach)                               phaseTag = '🚪 바닥 이탈 중\n' + last.driver;
+  if (sim.exit)                       phaseTag = '🚪 청산 발생\n' + sim.exit.code;
   else if (last.driver.startsWith('M50-PROVEN')) phaseTag = '🟢 PROVEN\n본전 바닥' + (last.ma && last.ma > entryPrice ? ` → MA${n}` : '');
   else if (last.driver.startsWith('M50-MA'))     phaseTag = `📈 MA${n}\nMA가 바닥 인수`;
-  else                                           phaseTag = `📍 FLAT\n−${(isp*100).toFixed(1)}% 하한`;
+  else                                phaseTag = `📍 FLAT\n−${(isp*100).toFixed(1)}% 하한`;
   document.getElementById('rPhaseTag').textContent = phaseTag;
 
-  // 청산 박스 — 발동 지점 전체 목록
+  // 청산 박스
   const eb = document.getElementById('exitBox');
-  if (exits.length) {
+  if (sim.exit) {
     eb.style.display = 'block';
-    const rows = exits.map((e, k) => {
-      const pl = (e.price - entryPrice) / entryPrice * 100;
-      return `<div style="padding:3px 0;${k ? 'border-top:1px solid #4a2020;' : ''}">` +
-             `<b>${k + 1}. ${e.dateStr}</b> — ${fmt(e.price, isKr)} ` +
-             `(평단 대비 <b>${pl >= 0 ? '+' : ''}${pl.toFixed(2)}%</b>) · ` +
-             `<span style="color:#c58a8a;">${e.code}</span></div>`;
-    });
-    const shown = rows.slice(0, 8).join('');
-    eb.innerHTML = `🚪 <b>청산 신호 ${exits.length}회</b> — 룰이 발동한 지점 (차트의 노란 점)<br>` +
-                   `<div style="margin-top:5px;font-size:0.78rem;">${shown}` +
-                   (rows.length > 8 ? `<div style="padding-top:4px;color:#c58a8a;">…외 ${rows.length - 8}건</div>` : '') +
-                   `</div>` +
-                   `<div style="margin-top:6px;color:#7a7f96;font-size:0.75rem;">` +
-                   `실거래라면 <b>1번에서 청산</b>되고 사이클이 끝납니다. 이 화면은 "안 털렸다면 스탑이 ` +
-                   `어떻게 따라갔을까"를 보려고 <b>계속 보유했다고 가정</b>하고 현재까지 이어 그린 것입니다 ` +
-                   `— 그래서 사이클 최고종가·증명 상태도 계속 누적됩니다.</div>`;
+    const after = (d.currentPrice - sim.exit.price) / sim.exit.price * 100;
+    const nAfter = history.length - sim.exit.idx - 1;
+    eb.innerHTML = `🚪 <b>${sim.exit.dateStr}</b> 에 청산됐을 것 — ${sim.exit.reason}<br>` +
+                   `청산 기준가 <b>${fmt(sim.exit.price, isKr)}</b> · 손익 <b>${profit >= 0 ? '+' : ''}${profit.toFixed(2)}%</b>` +
+                   (nAfter > 0
+                     ? `<br><span style="color:#7a7f96;">청산 후 ${nAfter}거래일 — 현재가 <b>${fmt(d.currentPrice, isKr)}</b> ` +
+                       `(청산가 대비 <b style="color:${after >= 0 ? '#2ecc71' : '#e74c3c'}">${after >= 0 ? '+' : ''}${after.toFixed(2)}%</b>). ` +
+                       `아래 차트는 이 구간까지 이어 그립니다 — 바닥·MA 선은 보유하지 않은 구간이라 끊깁니다.</span>`
+                     : `<br><span style="color:#7a7f96;">청산일이 마지막 거래일입니다.</span>`);
   } else {
     eb.style.display = 'none';
   }
@@ -850,12 +849,13 @@ function render(d) {
   // 바닥 표시
   const floorNow = last.floor;
   const away = (floorNow - refPrice) / refPrice * 100;
-  document.getElementById('rStopLabel').textContent = '현재 M50 바닥 (마감창 판정)';
+  document.getElementById('rStopLabel').textContent =
+    sim.exit ? '청산 시점 M50 바닥' : '현재 M50 바닥 (마감창 판정)';
   const stopEl = document.getElementById('rStop');
   stopEl.textContent = fmt(floorNow, isKr);
   stopEl.className = 'price ' + (away > -5 ? 'safe' : away > -10 ? 'warn' : 'danger');
   document.getElementById('rStopAway').textContent =
-    `현재가 대비 ${away >= 0 ? '+' : ''}${away.toFixed(1)}%  ·  평단 대비 ${((floorNow/entryPrice-1)*100 >= 0 ? '+' : '')}${((floorNow/entryPrice-1)*100).toFixed(1)}%`;
+    `${sim.exit ? '청산가' : '현재가'} 대비 ${away >= 0 ? '+' : ''}${away.toFixed(1)}%  ·  평단 대비 ${((floorNow/entryPrice-1)*100 >= 0 ? '+' : '')}${((floorNow/entryPrice-1)*100).toFixed(1)}%`;
 
   // 브레이크다운
   const base = last.base != null ? last.base : last.hardFloor;
@@ -880,7 +880,7 @@ function render(d) {
 
   document.getElementById('result').style.display = 'block';
 
-  drawPriceChart(history, entryPrice, isKr, n, exits);
+  drawPriceChart(history, entryPrice, isKr, n, sim.exit);
   drawTheoryChart(entryPrice, isp, n, maVal, cycleMax, isKr);
 }
 
@@ -891,19 +891,19 @@ function setRow(valId, dotId, text, isWinner, cls) {
 }
 
 // ── 차트 A: 주가 + 바닥 히스토리 ──────────────────
-function drawPriceChart(history, entryPrice, isKr, n, exits) {
+function drawPriceChart(history, entryPrice, isKr, n, exit) {
   destroyChart(chartPrice);
-  exits = exits || [];
   const labels    = history.map(h => h.label);
-  // [MULTIEXIT-20260828] 주가·바닥·MA 전부 마지막 봉까지 이어 그린다.
-  //   청산 신호는 발생한 봉마다 노란 점으로 개별 표시한다(엣지 트리거).
-  const exitAt    = new Map(exits.map(e => [e.idx, e]));
-  const prices    = history.map(h => h.price);
+  // [POSTEXIT-20260828] 주가는 현재까지 전 구간 / 청산 이후는 별도 계열로 회색 처리.
+  //   경계 봉(청산일)을 양쪽에 모두 넣어 선이 끊겨 보이지 않게 한다.
+  const xi        = exit ? exit.idx : -1;
+  const prices    = history.map((h, i) => (xi < 0 || i <= xi) ? h.price : null);
+  const pricesOut = history.map((h, i) => (xi >= 0 && i >= xi) ? h.price : null);
   const floors    = history.map(h => h.floor);
   const hards     = history.map(h => h.hardFloor);
   const mas       = history.map(h => h.ma);
   const entryLine = history.map(() => entryPrice);
-  const exitPts   = history.map((h, i) => exitAt.has(i) ? exitAt.get(i).price : null);
+  const exitPts   = history.map((h, i) => (exit && i === exit.idx) ? exit.price : null);
   const formatY   = v => isKr ? Math.round(v).toLocaleString('ko-KR') + '원' : '$' + v.toFixed(2);
 
   const ctx = document.getElementById('chartPrice').getContext('2d');
@@ -914,7 +914,10 @@ function drawPriceChart(history, entryPrice, isKr, n, exits) {
       datasets: [
         { label: '주가(종가)', data: prices, borderColor: '#5b8ef0',
           backgroundColor: 'rgba(91,142,240,0.08)', fill: true,
-          pointRadius: 0, tension: 0.15, borderWidth: 2, order: 2 },
+          pointRadius: 0, tension: 0.15, borderWidth: 2, order: 2, spanGaps: false },
+        { label: '청산 후 주가(미보유)', data: pricesOut, borderColor: '#5a6076',
+          borderDash: [5,3], backgroundColor: 'transparent', fill: false,
+          pointRadius: 0, tension: 0.15, borderWidth: 1.6, order: 2, spanGaps: false },
         { label: 'M50 바닥', data: floors, borderColor: '#e74c3c',
           backgroundColor: 'transparent', fill: false,
           pointRadius: 0, tension: 0.1, borderWidth: 2, order: 1, stepped: false },
@@ -927,10 +930,9 @@ function drawPriceChart(history, entryPrice, isKr, n, exits) {
         { label: '평단가', data: entryLine, borderColor: 'rgba(122,127,150,0.5)',
           borderDash: [3,4], backgroundColor: 'transparent', fill: false,
           pointRadius: 0, borderWidth: 1, order: 5 },
-        { label: '🚪 청산 신호', data: exitPts, borderColor: '#f1c40f',
+        { label: '청산 발생', data: exitPts, borderColor: '#f1c40f',
           backgroundColor: '#f1c40f', showLine: false,
-          pointStyle: 'triangle', pointRotation: 180,
-          pointRadius: 8, pointHoverRadius: 11, order: 0 },
+          pointRadius: 6, pointHoverRadius: 8, order: 0 },
       ]
     },
     options: {
@@ -944,12 +946,9 @@ function drawPriceChart(history, entryPrice, isKr, n, exits) {
           callbacks: {
             label: ctx => (ctx.raw == null) ? null : ` ${ctx.dataset.label}: ${formatY(ctx.raw)}`,
             afterBody: items => {
-              const i = items[0].dataIndex;
-              const h = history[i];
+              const h = history[items[0].dataIndex];
               if (!h) return [];
-              const out = ['driver: ' + (h.driver || '—')];
-              if (exitAt.has(i)) out.push('🚪 청산 신호 — ' + exitAt.get(i).code);
-              return out;
+              return [h.postExit ? '청산 후 — 미보유 구간' : 'driver: ' + (h.driver || '—')];
             }
           }
         }
