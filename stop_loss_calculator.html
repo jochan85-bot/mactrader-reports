@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stop-Loss 계산기 — MacTrader</title>
+<title>Stop-Loss 계산기 (M50) — MacTrader</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
   :root {
@@ -64,36 +64,17 @@
   }
   .field input:focus { border-color: var(--accent); }
   .field input::placeholder { color: var(--muted); font-size: 0.88rem; }
-  .field .hint { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+  .field .hint { font-size: 0.72rem; color: var(--muted); margin-top: 4px; line-height: 1.5; }
 
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-  /* Tightness 슬라이더 */
-  .tightness-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 2px;
-  }
-  .tightness-row span.tag {
-    font-size: 0.7rem;
-    color: var(--muted);
-    white-space: nowrap;
-    min-width: 22px;
-  }
+  .knob-row { display: flex; align-items: center; gap: 8px; }
+  .knob-row input[type="number"] { width: 86px; }
   input[type="range"] {
     flex: 1;
     accent-color: var(--accent);
     cursor: pointer;
     height: 4px;
-  }
-  .tightness-badge {
-    display: inline-block;
-    min-width: 32px;
-    text-align: center;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--accent);
   }
 
   #calcBtn {
@@ -155,6 +136,22 @@
   .stop-display .price.danger { color: var(--red); }
   .stop-display .pct-away { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
 
+  /* 증명(proven) 진행 바 */
+  .proof-box { background: var(--input-bg); border-radius: 12px; padding: 13px 15px; margin-bottom: 14px; }
+  .proof-head { display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; margin-bottom: 8px; }
+  .proof-head .plabel { color: var(--muted); }
+  .badge { font-size: 0.68rem; font-weight: 700; padding: 3px 9px; border-radius: 20px; }
+  .badge.on  { background: #12331f; color: var(--green); border: 1px solid #1e5c35; }
+  .badge.off { background: #2a2d3a; color: var(--muted); border: 1px solid var(--border); }
+  .proof-bar { height: 7px; border-radius: 4px; background: #12151f; overflow: hidden; }
+  .proof-bar i { display: block; height: 100%; border-radius: 4px;
+                 background: linear-gradient(90deg, var(--accent), var(--green)); }
+  .proof-sub { font-size: 0.72rem; color: var(--muted); margin-top: 7px; line-height: 1.5; }
+
+  .exit-box { display: none; border-radius: 12px; padding: 12px 15px; margin-bottom: 14px;
+              background: #2b1218; border: 1px solid var(--red); color: #ff9b9b;
+              font-size: 0.82rem; line-height: 1.6; }
+
   .breakdown { margin-top: 2px; }
   .brow { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
   .brow:last-child { border-bottom: none; }
@@ -177,7 +174,7 @@
     align-items: center;
     gap: 6px;
   }
-  .chart-wrap { position: relative; height: 260px; }
+  .chart-wrap { position: relative; height: 280px; }
   .chart-wrap canvas { width: 100% !important; }
 
   .explain-compact {
@@ -219,7 +216,6 @@
     font-size: 0.73rem;
     color: #a8c0ff;
     margin-top: 4px;
-    white-space: nowrap;
   }
 
   @media (max-width: 480px) {
@@ -231,7 +227,7 @@
 <div class="container">
 
   <h1>Stop-Loss 계산기</h1>
-  <p class="subtitle">MacTrader 트레일링 스탑 — 진입일부터 래칫 시뮬레이션</p>
+  <p class="subtitle">MacTrader <b>M50 청산 바닥</b> — 진입일부터 일봉 재현 시뮬레이션</p>
 
   <div class="card">
     <div class="card-title">종목 정보</div>
@@ -239,49 +235,43 @@
     <div class="grid2">
       <div class="field">
         <label>티커 심볼</label>
-        <input type="text" id="ticker" placeholder="SEPN / 010950" autocomplete="off" autocapitalize="characters">
+        <input type="text" id="ticker" placeholder="SLS / 088350" autocomplete="off" autocapitalize="characters">
       </div>
       <div class="field">
-        <label>구매일</label>
-        <input type="text" id="entryDate" placeholder="2026-07-01">
+        <label>구매일 (해당 다리 진입일)</label>
+        <input type="text" id="entryDate" placeholder="2026-08-01">
         <div class="hint">YYYY-MM-DD 또는 YYYYMMDD</div>
       </div>
     </div>
 
-    <div class="grid2">
-      <div class="field">
-        <label>평단가</label>
-        <input type="number" id="entryPrice" placeholder="36.47 / 119655" step="any" min="0">
-      </div>
-      <div class="field">
-        <label>초기 손절 %</label>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <input type="number" id="stopPct" value="8" min="1" max="30" step="0.5" style="width:80px;">
-          <input type="range" id="stopSlider" min="1" max="15" step="0.5" value="8"
-                 style="flex:1;accent-color:var(--accent);cursor:pointer;">
-        </div>
-        <div class="hint" id="stopHint">−8% 고정 유지 → 도달 최고 종가가 +8%에 닿으면 평단가로 1회 점프</div>
-      </div>
+    <div class="field">
+      <label>평단가 (해당 다리 진입가)</label>
+      <input type="number" id="entryPrice" placeholder="14.97 / 5910" step="any" min="0">
     </div>
 
-    <!-- Tightness 슬라이더 -->
-    <div class="field" style="margin-bottom:18px;">
-      <label>
-        Stop 밀착도 (Tightness)
-        <span class="tightness-badge" id="tightnessVal">50</span>
-        <span style="font-size:0.7rem;color:var(--muted);font-weight:400;margin-left:4px;">/ 100</span>
-      </label>
-      <div class="tightness-row">
-        <span class="tag">여유 0</span>
-        <input type="range" id="tightnessSlider" min="0" max="100" step="1" value="50">
-        <span class="tag">100 밀착</span>
+    <div class="field">
+      <label>초기 손절선 <span style="color:var(--accent);font-weight:700;">−<span id="ispLabel">8</span>%</span>
+        <span style="font-size:0.7rem;font-weight:400;">(라이브 <code>LIVE_ISP</code> = 8%)</span></label>
+      <div class="knob-row">
+        <input type="number" id="ispPct" value="8" min="1" max="30" step="0.5">
+        <input type="range" id="ispSlider" min="1" max="20" step="0.5" value="8">
       </div>
-      <div class="hint">50 = 기본값 · 높을수록 주가 밀착 추적 · 낮을수록 여유 있게</div>
+      <div class="hint">증명 전(<span class="proofRef">+16%</span> 미달) 구간의 <b>바닥 하한</b>. 장중 하드바닥도 같은 값.</div>
+    </div>
+
+    <div class="field" style="margin-bottom:18px;">
+      <label>트레일링 MA 기간 <span style="color:var(--accent);font-weight:700;">MA<span id="maLabel">50</span></span>
+        <span style="font-size:0.7rem;font-weight:400;">(라이브 <code>MA_TRAIL_N</code> = 50 고정)</span></label>
+      <div class="knob-row">
+        <input type="number" id="maN" value="50" min="30" max="150" step="1">
+        <input type="range" id="maSlider" min="30" max="150" step="1" value="50">
+      </div>
+      <div class="hint">30 ~ 150 · MA가 하한선보다 위에 있으면 <b>MA가 바닥을 인수</b>한다 (마감창 판정 전용).</div>
     </div>
 
     <button id="calcBtn" onclick="calculate()">
       <span id="btnIcon">📊</span>
-      <span id="btnText">Stop 시뮬레이션 실행</span>
+      <span id="btnText">M50 바닥 시뮬레이션 실행</span>
     </button>
   </div>
 
@@ -307,223 +297,232 @@
         <div class="phase-tag" id="rPhaseTag"></div>
       </div>
 
+      <div class="exit-box" id="exitBox"></div>
+
+      <div class="proof-box">
+        <div class="proof-head">
+          <span class="plabel">사이클 증명 진행도 (<span class="proofRef">+16%</span> 문턱)</span>
+          <span class="badge off" id="provenBadge">미증명</span>
+        </div>
+        <div class="proof-bar"><i id="proofFill" style="width:0%"></i></div>
+        <div class="proof-sub" id="proofSub"></div>
+      </div>
+
       <div class="stop-display">
-        <div class="slabel">래칫 시뮬레이션 Stop 라인</div>
+        <div class="slabel" id="rStopLabel">현재 M50 바닥 (마감창 판정)</div>
         <div class="price" id="rStop"></div>
         <div class="pct-away" id="rStopAway"></div>
       </div>
 
       <div class="breakdown">
         <div class="brow">
-          <span class="blabel"><span class="dot" id="d1"></span>초기 손절 (<span id="initLabel">−8%</span>)</span>
+          <span class="blabel"><span class="dot" id="d1"></span>하한선 (<span id="baseLabel">−8%</span> / 증명 후 본전)</span>
           <span class="bval" id="b1"></span>
         </div>
         <div class="brow">
-          <span class="blabel"><span class="dot" id="d2"></span>Floor (계단: −n% / 본전)</span>
+          <span class="blabel"><span class="dot" id="d2"></span>MA<span id="maPer">50</span> (당일 포함 <span id="maPer2">50</span>봉 평균)</span>
           <span class="bval" id="b2"></span>
         </div>
         <div class="brow">
-          <span class="blabel"><span class="dot" id="d4"></span>이익 잠금 (<span id="lockLabel">—</span>)</span>
-          <span class="bval" id="b4"></span>
-        </div>
-        <div class="brow">
-          <span class="blabel"><span class="dot" id="d3"></span>MA<span id="maPer"></span> 트레일링</span>
+          <span class="blabel"><span class="dot" id="d3"></span>장중 하드바닥 (매 스캔 즉시)</span>
           <span class="bval" id="b3"></span>
         </div>
+        <div class="brow">
+          <span class="blabel"><span class="dot" id="d4"></span>사이클 최고 종가 (비가역)</span>
+          <span class="bval" id="b4"></span>
+        </div>
         <div class="brow" style="padding-top:10px;">
-          <span class="blabel" style="color:var(--text);font-weight:600;">✅ 최종 래칫 Stop</span>
+          <span class="blabel" style="color:var(--text);font-weight:600;">✅ 최종 바닥 = max(하한선, MA)</span>
           <span class="bval active" id="b5" style="font-size:1rem;"></span>
         </div>
       </div>
     </div>
 
     <div class="card chart-card">
-      <div class="chart-title">📈 주가 + Stop 라인 히스토리</div>
+      <div class="chart-title">📈 주가 + 바닥 라인 히스토리</div>
       <div class="chart-wrap"><canvas id="chartPrice"></canvas></div>
+      <div style="font-size:0.72rem;color:var(--muted);margin-top:8px;line-height:1.5;">
+        빨간 실선 = 실제 적용된 <b>M50 바닥</b> · 주황 점선 = <b>장중 하드바닥</b> · 보라 점선 = MA<span class="maRef">50</span> · 회색 점선 = 평단가.
+        노란 점 = 시뮬레이션 <b>청산 발생 지점</b>(발생 시).
+      </div>
     </div>
 
     <div class="card chart-card">
-      <div class="chart-title">🔢 수익률별 Stop 라인 이론 곡선</div>
+      <div class="chart-title">🔢 증명 진행도별 바닥 이론 계단</div>
       <div class="chart-wrap"><canvas id="chartTheory"></canvas></div>
       <div style="font-size:0.72rem;color:var(--muted);margin-top:8px;line-height:1.5;">
-        MA 트레일링은 실제 주가 데이터에 따라 달라지므로 이론 곡선에서는 Floor + 이익잠금만 표시합니다.<br>        또한 이론 곡선은 <b>경로를 모르므로</b> 본전 도달 여부를 현재 수익률로 판정합니다 — 실제로는 과거에 한 번 +8%를 찍었다면 지금 수익률이 그 아래여도 본전 floor가 유지됩니다(위 시뮬레이션 차트가 정확).
+        가로축 = <b>사이클 최고 종가</b>(평단 대비). <span class="proofRef">+16%</span>에 닿는 순간 하한선이
+        <b>−n% → 본전으로 1회 점프</b>하고, 최고종가는 비가역이라 되돌아가지 않는다.<br>
+        보라 선 = 현재 MA<span class="maRef">50</span> 위치 — 이 선이 계단보다 위에 있으면 <b>MA가 실제 바닥</b>이 된다.
       </div>
     </div>
 
   </div>
 
   <div class="explain-compact">
-    <div class="explain-title">계산 방식</div>
+    <div class="explain-title">계산 방식 — M50 청산 바닥</div>
+
     <div class="phase-row">
       <div class="phase-num">1</div>
       <div class="phase-content">
-        <div class="pname">구간1 — 계단 (본전 도달 전)</div>
-        <div class="pdesc">진입 후 <b>도달 최고 종가</b>가 +8%에 닿기 전까지 스탑을 <b>−n%에 그대로</b> 둔다.
-          MA·이익잠금이 이 구간을 끌어올리지 못하며, <b>래칫도 걸리지 않는다</b>(한 번 올라간 스탑도 −n%로 되돌아옴).
-          MA가 −n%보다 아래여도 <b>하한 클램프</b>로 −n% 밑으로는 내려가지 않는다.
-          <br>기본값 n = 8 → −8% 고정.</div>
-        <div class="formula-inline">floor = entry × (1−n) · stop = max(그 결과, entry × (1−n))</div>
+        <div class="pname">하한선 — 증명 전 <b>−n%</b> / 증명 후 <b>본전</b></div>
+        <div class="pdesc">사이클 최고 종가가 <b>+16%</b>에 닿기 전까지 하한선은 평단가 −n%(기본 −8%).
+          닿는 순간 <b>평단가(본전)</b>로 올라가고, 이 전환은 <b>비가역</b>이다 — 이후 주가가 밀려도 −n%로 되돌아가지 않는다.
+          <br>⚠️ +16%(<code>PROOF_PCT</code>)는 라이브 <b>고정 리터럴</b>이라 n을 바꿔도 따라 움직이지 않는다.</div>
+        <div class="formula-inline">base = proven ? entry : entry × (1 − n)</div>
       </div>
     </div>
-    <div class="phase-row">
-      <div class="phase-num">→</div>
-      <div class="phase-content">
-        <div class="pname">전환 — 본전 도달 (+8%, 라이브 고정값)</div>
-        <div class="pdesc"><b>도달 최고 종가</b>가 매수가 대비 +8%에 닿는 순간 floor가 <b>−n% → 본전으로 1회 점프</b>한다.
-          이 판정은 <b>되돌아가지 않는다</b> — 이후 주가가 밀려도 구간1로 복귀하지 않는다.
-          장중 고가는 쓰지 않고 <b>확정 종가</b>만 본다.
-          <br>⚠️ +8%는 라이브의 <b>고정 리터럴</b>이라 n을 바꿔도 따라 움직이지 않는다(예: n=4면 +8%까지 −4% 유지).</div>
-        <div class="formula-inline">be_reached = max(진입 후 종가) / entry − 1 ≥ 0.08</div>
-      </div>
-    </div>
+
     <div class="phase-row">
       <div class="phase-num">2</div>
       <div class="phase-content">
-        <div class="pname">이익 잠금 사다리 (+8%~) — <b>먼저 구속하는 쪽</b></div>
-        <div class="pdesc">이익 일부를 영구 보호 — tightness에 따라 잠금 비율 0.3x~1.7x 조절.
-          기산점 +8% 고정(라이브 <code>lock_start</code>).
-          <br>구간2의 최종 stop은 <b>max(잠금 floor, MA 블렌드)</b>인데, 상승 종목은 MA가 주가보다 한참 아래에 있어
-          <b>대부분 구간에서 잠금 floor가 실제 스탑을 결정</b>한다.</div>
-        <div class="formula-inline">lock = base_lock × lerp(0.3, 1.7, tightness/100)</div>
+        <div class="pname">MA 트레일 — MA<b>N</b>이 하한선을 넘으면 바닥을 인수</div>
+        <div class="pdesc">확정봉 (N−1)개 + 현재가, 총 N봉 평균. 라이브는 <b>50 고정</b>이고 이 계산기만 30~150으로 조절한다.
+          수익률에 따라 기간이 변하는 <b>가변 MA는 폐지</b>됐다(구 <code>ma_period_for</code>).
+          확정봉이 N−1개 미만이면 MA 항은 <b>제외</b>된다.</div>
+        <div class="formula-inline">floor = max(base, MA_N)</div>
       </div>
     </div>
+
     <div class="phase-row">
       <div class="phase-num">3</div>
       <div class="phase-content">
-        <div class="pname">MA 트레일링 (+5% ~ +20%) — <b>나중에 인수</b></div>
-        <div class="pdesc">수익이 커질수록 MA 기간 단축 (90일→30일 × tightness 배율), 가격을 더 밀착 추적.
-          블렌드 가중은 +5%~+20% 구간(라이브 고정값)이며, MA 값이 잠금 floor를 넘어설 때부터 스탑을 끌어올리는 주체가 된다.
-          <br>구간1에서는 하한 클램프에 막혀 스탑에 영향을 주지 못한다.</div>
-        <div class="formula-inline">MA_period = max(10, round(base × lerp(1.5, 0.5, tightness/100)))</div>
+        <div class="pname">판정 시점 — 하드바닥은 장중 즉시 / MA 항은 마감창 1회</div>
+        <div class="pdesc"><b>하드바닥</b>(= 하한선)은 <b>매 스캔 장중 즉시</b> 판정한다 — 가격이 이 아래로 내려가면 그 자리에서 전량 청산.
+          MA 성분이 포함된 <b>최종 바닥</b>은 <b>마감창에서 하루 1회만</b> 판정한다 — 장중에 MA를 스치는 것은 무시된다.
+          <br>🔒 이 분리는 오너 승인된 정규 설계다(<code>WIRE-M50-2E §AM</code>).</div>
+        <div class="formula-inline">장중: cur &lt; base → EXIT · 마감창: cur &lt; max(base, MA_N) → EXIT</div>
       </div>
     </div>
+
     <div class="phase-row">
-      <div class="phase-num">↑</div>
+      <div class="phase-num">✕</div>
       <div class="phase-content">
-        <div class="pname">래칫 — 구간2에서만 작동</div>
-        <div class="pdesc">본전 도달 <b>이후</b>에는 이전 Stop보다 낮아지지 않는다.
-          구간1에서는 래칫이 꺼져 있어 스탑이 −n%로 되돌아갈 수 있다 — 이번 개정의 핵심 변화점.</div>
+        <div class="pname">폐지된 것들 — 래칫 · 이익잠금 사다리 · 가변 MA · +8% 본전점프</div>
+        <div class="pdesc">구 <code>compute_stop_level()</code>의 래칫(하향 금지), 이익잠금 사다리(<code>profit_lock_pct</code>),
+          smoothstep MA 블렌드, 수익률 연동 가변 MA 기간, +8% 도달 최고종가 기준 본전 점프는
+          <b>라이브 청산 경로에서 전부 빠졌다</b>. 비가역성은 이제 <b>사이클 최고 종가 + proven 플래그</b>가 담당한다.</div>
       </div>
     </div>
   </div>
 
   <div style="font-size:0.72rem;color:#7a7f96;line-height:1.6;border:1px solid #2a2d3a;
               border-radius:8px;padding:10px 12px;margin-top:4px;background:#14161f;">
-    ✅ <b>라이브 엔진과 동일</b> (2026-08-19 기준, 블록 <code>STOPFLAT-WIRE-20260818</code>) —
-    <code>exit_engine_unified.py</code> 의 계단 floor · 도달 최고 종가 기준 본전 판정 ·
-    구간1 래칫 미적용 · 구간1 하한 클램프 · <code>w_ma</code>(0.05~0.20) ·
-    <code>lock_start</code>(0.08) · <code>ma_period_for</code> 를 그대로 옮겼습니다.
-    <br>남은 차이 3가지: ① <b>Stop 밀착도(tightness)</b> 는 계산기 전용 조절값 — 라이브에는 없고
-    50에서 라이브와 정확히 일치합니다. ② <b>P-E 분할손절</b>·피벗 실패 룰은 범위 제외.
-    ③ 이론 곡선(아래쪽 차트)은 경로를 모르므로 본전 도달을 현재 수익률로 폴백 판정합니다.
+    ✅ <b>라이브 엔진과 동일</b> (2026-08-28 기준, 블록 <code>WIRE-M50-20260901 §1-B</code> / <code>WIRE-M50-1K-URGENT</code>) —
+    <code>exit_engine_unified.py</code> 의 <code>compute_m50_floor()</code> · <code>compute_ma50_pair()</code> ·
+    장중 하드바닥 블록을 그대로 옮겼습니다. 상수 <code>PROOF_PCT</code>=0.16 · <code>LIVE_ISP</code>=0.08 ·
+    <code>MA_TRAIL_N</code>=50.
+    <br>남은 차이 4가지: ① <b>MA 기간</b>은 계산기 전용 조절값 — 50에서 라이브와 정확히 일치합니다.
+    ② <b>초기 손절선</b>도 조절값 — 8%에서 라이브 일치. ③ <b>P-E 분할손절</b>·<b>피벗 실패 룰</b>·
+    <b>법인이벤트 가드</b>·<b>가짜돌파 룰</b>은 범위 제외. ④ 라이브는 <b>재매수 다리(leg)별</b>로 관리하지만
+    여기는 단일 다리 기준입니다.
   </div>
 
   <div style="text-align:center;font-size:0.72rem;color:#3a3f55;padding-top:4px;">
-    📡 Yahoo Finance · 전일 종가 기준 · LLM 없음 · 토큰 0원
+    📡 Yahoo Finance · 일봉 종가·저가 기준 · LLM 없음 · 토큰 0원
   </div>
 
 </div>
 
 <script>
-// ── 수학 ──────────────────────────────────────────
-function lerp(a, b, t) { return a + (b - a) * t; }
+// ══════════════════════════════════════════════════════════════
+//  [WIRE-M50-20260901 §1-B] 라이브 exit_engine_unified.py 이식
+//    라이브 리터럴 — 계산기에서 조절 가능한 것은 isp / maN 둘뿐이다.
+// ══════════════════════════════════════════════════════════════
+const PROOF_PCT   = 0.16;   // 사이클 증명 문턱 — 조절 불가(라이브 고정)
+const LIVE_ISP_DEF = 0.08;  // 초기 손절폭 기본값
+const MA_TRAIL_DEF = 50;    // 라이브 MA 기간
 
-function smoothstep(x, lo, hi) {
-  if (hi <= lo) return x >= hi ? 1 : 0;
-  const t = Math.max(0, Math.min(1, (x - lo) / (hi - lo)));
-  return t * t * (3 - 2 * t);
+// compute_ma50_pair() 이식 — 확정봉(마지막 인덱스 무조건 드롭) 최근 (N-1)개 + 현재가
+//   confirmedCloses = 오늘 봉을 제외한 종가 배열 (오래→최신)
+function maToday(confirmedCloses, curPrice, n) {
+  if (confirmedCloses.length < (n - 1)) return null;
+  const lastN = confirmedCloses.slice(-(n - 1));
+  let s = 0;
+  for (const c of lastN) s += c;
+  return (s + curPrice) / (lastN.length + 1);
 }
 
-// tightness 0~100: 50=기본값
-// MA period: 50→base, 100→0.5×base(짧고 빠름), 0→1.5×base(길고 느림)
-function maPeriodFor(profit, tightness) {
-  const base = Math.max(30, Math.round(90 - 34.64 * Math.sqrt(Math.max(0, profit))));
-  const mult = lerp(1.5, 0.5, tightness / 100);
-  return Math.max(10, Math.round(base * mult));
+// compute_m50_floor() 이식
+//   proven / cycleMaxClose 는 비가역(sticky) — 호출측이 병합해 넘긴다.
+function computeM50Floor(entryPrice, curPrice, confirmedCloses, cycleMaxPrev, provenPrev, isp, n) {
+  let ma = maToday(confirmedCloses, curPrice, n);
+  const maNa = (ma === null);
+
+  let cycleMax = Math.max(curPrice, cycleMaxPrev || 0);
+  const proven = !!provenPrev || (entryPrice > 0 && cycleMax >= entryPrice * (1 + PROOF_PCT));
+
+  let base, floor, driver;
+  if (proven) {
+    base   = entryPrice;
+    floor  = maNa ? base : Math.max(base, ma);
+    driver = maNa ? 'M50-PROVEN' : ('M50-PROVEN(ma' + n + '=' + ma.toFixed(2) + ')');
+  } else {
+    base   = entryPrice * (1 - isp);
+    floor  = maNa ? base : Math.max(base, ma);
+    driver = (maNa || base >= ma) ? 'M50-FLAT' : ('M50-MA' + n + '(' + ma.toFixed(2) + ')');
+  }
+  return { ma, maNa, base, floor, proven, cycleMax, driver };
 }
 
-// ── [STOPFLAT-WIRE-20260818] 라이브 exit_engine_unified.py 리터럴 그대로 ──
-//   전부 initial_stop_pct 와 **무관한 고정 리터럴**이다 (라이브에서 연동되지 않음).
-const BE_FLOOR   = 0.08;   // BREAKEVEN_TRIGGER_FLOOR — floor 계단 문턱
-const MA_LO      = 0.05;   // w_ma = _smoothstep(profit, breakeven_trigger=0.05, 0.20)
-const MA_HI      = 0.20;
-const LOCK_START = 0.08;   // profit_lock_pct(lock_start=0.08)
-
-// Lock ratio: 50→1.0×, 100→1.7×(더 많이 잠금), 0→0.3×(적게 잠금)
-// [STOPFLAT-WIRE-20260818] 기산점을 라이브와 동일한 고정 0.08 로 환원
-//   (구 2026-08-18 오전판: 초기손절폭 n 연동 — 라이브에 없는 동작이라 폐기).
-//   tightness 배율만 계산기 고유 기능으로 유지.
-function profitLockPct(profit, tightness) {
-  if (profit < LOCK_START) return 0;
-  const baseLr = profit * (0.50 * smoothstep(profit, LOCK_START, 0.20)
-                          + 0.10 * smoothstep(profit, 0.20, 0.40));
-  const mult = lerp(0.3, 1.7, tightness / 100);
-  return baseLr * mult;
-}
-
-// [STOPFLAT-WIRE-20260818] 라이브 compute_stop_level() 이식 — 계단 구조.
-//   구간1 (본전 미도달) → floor = 매수가 × (1 − n)  … 계단, 래칫 미적용
-//   구간2 (본전 도달 후) → floor = 매수가          … 1회 점프, 래칫 재개
-//   본전 도달 판정(beReached)은 **진입 후 도달 최고 종가**가 +8%(BE_FLOOR)에
-//   닿았는지로 하며, 한 번 참이면 되돌아가지 않는다. 장중 고가는 쓰지 않는다.
-//   미주입(null) 시에만 현재 수익률 단독으로 폴백 판정(라이브와 동일한 폴백).
-function computeStop(entryPrice, currentPrice, closes, initialStopPct, tightness, beReached) {
-  const profit   = (currentPrice - entryPrice) / entryPrice;
-  const stopInit = entryPrice * (1 - initialStopPct);
-
-  const be = (beReached == null) ? (profit >= BE_FLOOR) : !!beReached;
-  const floorStop = be ? entryPrice : stopInit;
-
-  const period  = maPeriodFor(profit, tightness);
-  const slice   = closes.slice(-Math.min(period, closes.length));
-  const maStop  = slice.reduce((a, b) => a + b, 0) / slice.length;
-
-  const wMa     = smoothstep(profit, MA_LO, MA_HI);
-  const blended = floorStop * (1 - wMa) + maStop * wMa;
-
-  const lockPct   = profitLockPct(profit, tightness);
-  const lockFloor = lockPct > 0 ? entryPrice * (1 + lockPct) : 0;
-
-  // 래칫·하한 클램프는 호출측(simulate)에서 라이브와 동일 순서로 적용
-  const stopLevel = Math.max(blended, lockFloor);
-
-  return { profit, profitPct: profit*100, maPeriod: period, maStop, floorStop,
-           blended, lockFloor, lockPct: lockPct*100, stopLevel, initialStop: stopInit,
-           beReached: be, wMa, flatZone: !be };
-}
-
-// ── 시뮬레이션 (진입일~현재 래칫) ──────────────────
-function simulate(entryPrice, closes, timestamps, entryDateStr, initialStopPct, tightness) {
-  const entryTs = new Date(entryDateStr).getTime() / 1000 - 86400;
-  let startIdx = 0;
+// ── 시뮬레이션 (진입일 → 현재, 일봉 재현) ────────────────────
+//   라이브 판정 순서를 그대로 따른다:
+//     ① 장중 하드바닥 — 직전 마감창에 persist된 proven 으로 base 산출, 저가가 뚫으면 즉시 청산
+//     ② 마감창 — 오늘 종가로 cycleMax/proven 갱신 후 max(base, MA_N) 판정
+function simulate(entryPrice, closes, lows, timestamps, entryDateStr, isp, n) {
+  // 라이브 cycle_max_close 는 `dd >= entry_date` 인 봉만 센다 — 진입 전 봉이 한 개라도
+  //   섞이면 proven 이 오판정된다(WIRE-M50-0.6 TRLV 실사례). 타임스탬프 산술 대신
+  //   봉의 날짜(UTC=거래일)와 진입일을 문자열로 직접 비교한다.
+  const barDate = ts => new Date(ts * 1000).toISOString().slice(0, 10);
+  let startIdx = -1;
   for (let i = 0; i < timestamps.length; i++) {
-    if (timestamps[i] >= entryTs) { startIdx = i; break; }
+    if (barDate(timestamps[i]) >= entryDateStr) { startIdx = i; break; }
   }
-  let prevStop = 0;
-  let beReached = false;      // [STOPFLAT-WIRE] 도달 최고 종가 기준, 단조 (한 번 참이면 유지)
-  let maxClose  = 0;
-  const stopInit = entryPrice * (1 - initialStopPct);
+  if (startIdx < 0) return { history: [], exit: null };
+
+  let cycleMax = 0;
+  let proven   = false;
   const history = [];
+  let exit = null;
+
   for (let i = startIdx; i < closes.length; i++) {
-    const cp = closes[i];
-    const closesNow = closes.slice(0, i + 1);
+    const cp  = closes[i];
+    const low = (lows[i] != null && !isNaN(lows[i])) ? lows[i] : cp;
+    const d   = new Date(timestamps[i] * 1000);
+    const label = (d.getMonth() + 1).toString().padStart(2, '0') + '/' + d.getDate().toString().padStart(2, '0');
+    const dateStr = d.toISOString().slice(0, 10);
 
-    // 진입일 이후 확정 종가의 러닝 최고치로 본전 도달 판정 (장중 고가 미사용)
-    if (cp > maxClose) maxClose = cp;
-    if (!beReached && (maxClose / entryPrice - 1) >= BE_FLOOR) beReached = true;
+    // ① 장중 하드바닥 — persisted proven(전일 마감창 값) 기준
+    const hardFloor = proven ? entryPrice : entryPrice * (1 - isp);
+    if (low < hardFloor) {
+      history.push({ label, dateStr, price: cp, low,
+                     floor: hardFloor, hardFloor, ma: null, proven, cycleMax,
+                     driver: 'M50-HARD-INTRADAY', exited: true });
+      exit = { idx: history.length - 1, label, dateStr, price: hardFloor,
+               code: 'M50_HARD_INTRADAY',
+               reason: 'M50 하드바닥 발동 (장중, proven=' + proven + ')' };
+      break;
+    }
 
-    const r = computeStop(entryPrice, cp, closesNow, initialStopPct, tightness, beReached);
-    // 라이브와 동일 순서: ① 래칫(구간2 한정) ② 구간1 하한 클램프
-    r.ratchetApplied = beReached && (r.stopLevel < prevStop);
-    if (r.ratchetApplied) r.stopLevel = prevStop;
-    r.floorClamped = (!beReached) && (r.stopLevel < stopInit);
-    if (r.floorClamped) r.stopLevel = stopInit;
-    prevStop = r.stopLevel;
-    const d = new Date(timestamps[i] * 1000);
-    const label = (d.getMonth()+1).toString().padStart(2,'0') + '/' + d.getDate().toString().padStart(2,'0');
-    history.push({ label, price: cp, stop: r.stopLevel, result: r });
+    // ② 마감창 — 오늘 확정 종가로 sticky 갱신 후 최종 바닥 판정
+    const confirmed = closes.slice(0, i);   // 오늘 봉 제외 = hist[:-1]
+    const r = computeM50Floor(entryPrice, cp, confirmed, cycleMax, proven, isp, n);
+    cycleMax = r.cycleMax;
+    proven   = r.proven;
+
+    const exited = cp < r.floor;
+    history.push({ label, dateStr, price: cp, low,
+                   floor: r.floor, hardFloor, ma: r.ma, base: r.base,
+                   proven: r.proven, cycleMax: r.cycleMax, driver: r.driver, exited });
+    if (exited) {
+      exit = { idx: history.length - 1, label, dateStr, price: cp,
+               code: r.driver.startsWith('M50-PROVEN') ? 'M50_PROVEN'
+                   : r.driver.startsWith('M50-MA')     ? 'M50_MA' + n : 'M50_FLAT',
+               reason: 'M50 바닥 발동 (' + r.driver + ')' };
+      break;
+    }
   }
-  return history;
+  return { history, exit };
 }
 
 // ── Yahoo Finance ──────────────────────────────────
@@ -535,17 +534,20 @@ async function fetchCloses(yfTicker) {
   const js = await res.json();
   const result = js?.chart?.result?.[0];
   if (!result) throw new Error('데이터 없음');
-  const raw  = result.indicators?.quote?.[0]?.close ?? [];
+  const q = result.indicators?.quote?.[0] ?? {};
+  const raw = q.close ?? [];
+  const rawLow = q.low ?? [];
   const timestamps = result.timestamp ?? [];
-  const closes = [], tsClean = [];
+  const closes = [], lows = [], tsClean = [];
   for (let i = 0; i < raw.length; i++) {
     if (raw[i] != null && !isNaN(raw[i])) {
       closes.push(Number(raw[i]));
+      lows.push(rawLow[i] != null && !isNaN(rawLow[i]) ? Number(rawLow[i]) : Number(raw[i]));
       tsClean.push(timestamps[i]);
     }
   }
   if (!closes.length) throw new Error('종가 데이터 없음');
-  return { closes, timestamps: tsClean, currentPrice: closes[closes.length - 1] };
+  return { closes, lows, timestamps: tsClean, currentPrice: closes[closes.length - 1] };
 }
 
 // ── 날짜 파싱 ──────────────────────────────────────
@@ -563,36 +565,47 @@ function parseDate(s) {
   const now = new Date();
   const week = new Date(now - 7*86400e3);
   document.getElementById('entryDate').value = week.toISOString().slice(0,10);
+  document.querySelectorAll('.proofRef').forEach(e => e.textContent = '+' + (PROOF_PCT*100).toFixed(0) + '%');
 })();
 
-const stopPctEl      = document.getElementById('stopPct');
-const stopSliderEl   = document.getElementById('stopSlider');
-const tightnessEl    = document.getElementById('tightnessSlider');
-const tightnessValEl = document.getElementById('tightnessVal');
+const ispEl       = document.getElementById('ispPct');
+const ispSliderEl = document.getElementById('ispSlider');
+const maEl        = document.getElementById('maN');
+const maSliderEl  = document.getElementById('maSlider');
 
-stopPctEl.addEventListener('input', () => {
-  stopSliderEl.value = Math.min(15, parseFloat(stopPctEl.value)||8);
-  if (lastCache) rerenderFromCache();
+function syncLabels() {
+  document.getElementById('ispLabel').textContent = (parseFloat(ispEl.value) || 8);
+  document.getElementById('maLabel').textContent  = getMaN();
+  document.querySelectorAll('.maRef').forEach(e => e.textContent = getMaN());
+}
+ispEl.addEventListener('input', () => {
+  const v = Math.max(1, Math.min(20, parseFloat(ispEl.value) || 8));
+  ispSliderEl.value = v; syncLabels(); if (lastCache) rerenderFromCache();
 });
-stopSliderEl.addEventListener('input', () => {
-  stopPctEl.value = stopSliderEl.value;
-  if (lastCache) rerenderFromCache();
+ispSliderEl.addEventListener('input', () => {
+  ispEl.value = ispSliderEl.value; syncLabels(); if (lastCache) rerenderFromCache();
 });
-tightnessEl.addEventListener('input', () => {
-  tightnessValEl.textContent = tightnessEl.value;
-  if (lastCache) rerenderFromCache();
+maEl.addEventListener('input', () => {
+  maSliderEl.value = getMaN(); syncLabels(); if (lastCache) rerenderFromCache();
 });
+maSliderEl.addEventListener('input', () => {
+  maEl.value = maSliderEl.value; syncLabels(); if (lastCache) rerenderFromCache();
+});
+syncLabels();
+
+function getIsp() { return Math.max(1, Math.min(30, parseFloat(ispEl.value) || 8)) / 100; }
+function getMaN() { return Math.max(30, Math.min(150, parseInt(maEl.value, 10) || MA_TRAIL_DEF)); }
 
 function fmt(v, isKr) {
   if (v == null) return '—';
   const n = Number(v);
-  if (isKr) return n.toLocaleString('ko-KR') + '원';
+  if (isKr) return Math.round(n).toLocaleString('ko-KR') + '원';
   return '$' + n.toFixed(2);
 }
 function setLoading(on) {
   document.getElementById('calcBtn').disabled = on;
   document.getElementById('btnIcon').textContent = on ? '⏳' : '📊';
-  document.getElementById('btnText').textContent = on ? '데이터 불러오는 중...' : 'Stop 시뮬레이션 실행';
+  document.getElementById('btnText').textContent = on ? '데이터 불러오는 중...' : 'M50 바닥 시뮬레이션 실행';
 }
 function showErr(msg) {
   const b = document.getElementById('errBox');
@@ -602,27 +615,17 @@ function showErr(msg) {
 function hideErr() { document.getElementById('errBox').style.display = 'none'; }
 
 // ── 캐시 (re-render without re-fetch) ──────────────
-let lastCache = null; // { closes, timestamps, currentPrice, isKr, ticker, usedTicker, entryPrice, entryDate }
-
-function getTightness() { return parseInt(tightnessEl.value, 10); }
-function getStopPct()   { return Math.max(1, Math.min(30, parseFloat(stopPctEl.value) || 8)) / 100; }
+let lastCache = null;
 
 function rerenderFromCache() {
   if (!lastCache) return;
-  const { closes, timestamps, currentPrice, isKr, ticker, usedTicker, entryPrice, entryDate } = lastCache;
-  const stopPct  = getStopPct();
-  const tightness = getTightness();
-
-  const history = simulate(entryPrice, closes, timestamps, entryDate, stopPct, tightness);
-  if (!history.length) return;
-
-  const today   = new Date();
-  const entry   = new Date(entryDate);
+  const { closes, lows, timestamps, currentPrice, isKr, ticker, usedTicker, entryPrice, entryDate } = lastCache;
+  const isp = getIsp(), n = getMaN();
+  const sim = simulate(entryPrice, closes, lows, timestamps, entryDate, isp, n);
+  if (!sim.history.length) return;
+  const today = new Date(), entry = new Date(entryDate);
   const daysHeld = Math.max(0, Math.round((today - entry) / 86400e3));
-  const last = history[history.length - 1];
-
-  render({ ticker, usedTicker, isKr, daysHeld, currentPrice, entryPrice,
-           stopPct, tightness, ratchetStop: last.stop, lastR: last.result, history });
+  render({ ticker, usedTicker, isKr, daysHeld, currentPrice, entryPrice, isp, n, sim });
 }
 
 // ── Chart 인스턴스 ──────────────────────────────────
@@ -636,8 +639,7 @@ async function calculate() {
   const entryDateRaw = document.getElementById('entryDate').value;
   const entryDate    = parseDate(entryDateRaw);
   const entryPrice   = parseFloat(document.getElementById('entryPrice').value);
-  const stopPct      = getStopPct();
-  const tightness    = getTightness();
+  const isp = getIsp(), n = getMaN();
 
   if (!ticker)                        { showErr('티커를 입력해주세요'); return; }
   if (!entryDate)                     { showErr('구매일 형식 오류 — YYYY-MM-DD 또는 YYYYMMDD'); return; }
@@ -658,98 +660,102 @@ async function calculate() {
     return;
   }
 
-  const { closes, timestamps, currentPrice } = fetchResult;
+  const { closes, lows, timestamps, currentPrice } = fetchResult;
+  lastCache = { closes, lows, timestamps, currentPrice, isKr, ticker, usedTicker, entryPrice, entryDate };
 
-  // 캐시 저장
-  lastCache = { closes, timestamps, currentPrice, isKr, ticker, usedTicker, entryPrice, entryDate };
-
-  const history = simulate(entryPrice, closes, timestamps, entryDate, stopPct, tightness);
-  if (!history.length) {
+  const sim = simulate(entryPrice, closes, lows, timestamps, entryDate, isp, n);
+  if (!sim.history.length) {
     showErr('진입일 이후 데이터가 없습니다 — 구매일을 확인해주세요');
     setLoading(false);
     return;
   }
 
-  const last     = history[history.length - 1];
-  const today    = new Date();
-  const entry    = new Date(entryDate);
+  const today = new Date(), entry = new Date(entryDate);
   const daysHeld = Math.max(0, Math.round((today - entry) / 86400e3));
-
-  render({ ticker, usedTicker, isKr, daysHeld, currentPrice, entryPrice,
-           stopPct, tightness, ratchetStop: last.stop, lastR: last.result, history });
+  render({ ticker, usedTicker, isKr, daysHeld, currentPrice, entryPrice, isp, n, sim });
   setLoading(false);
 }
 
 // ── 렌더 ──────────────────────────────────────────
 function render(d) {
-  const { isKr, currentPrice, entryPrice, ratchetStop, lastR, history, stopPct, tightness } = d;
-  const profit = (currentPrice - entryPrice) / entryPrice * 100;
+  const { isKr, entryPrice, isp, n, sim } = d;
+  const history = sim.history;
+  const last    = history[history.length - 1];
+  // 청산이 발생했다면 그 시점이 "현재" — 이후는 보유하지 않은 구간이므로 기준가를 청산가로 둔다
+  const refPrice = sim.exit ? sim.exit.price : d.currentPrice;
+  const profit   = (refPrice - entryPrice) / entryPrice * 100;
 
   document.getElementById('rTicker').textContent = d.ticker;
-  document.getElementById('rDays').textContent   = `보유 ${d.daysHeld}일`;
+  document.getElementById('rDays').textContent   = `보유 ${d.daysHeld}일 · 시뮬 ${history.length}거래일`;
   const yfEl = document.getElementById('rYfLabel');
   yfEl.textContent = (d.usedTicker !== d.ticker) ? `(${d.usedTicker})` : '';
 
   const banner = document.getElementById('profitBanner');
   banner.className = 'profit-banner ' + (profit > 1 ? 'positive' : profit < -0.5 ? 'negative' : 'neutral');
-  document.getElementById('rProfit').textContent =
-    (profit >= 0 ? '+' : '') + profit.toFixed(2) + '%';
+  document.getElementById('rProfit').textContent = (profit >= 0 ? '+' : '') + profit.toFixed(2) + '%';
   document.getElementById('rPriceInfo').textContent =
-    `현재가 ${fmt(currentPrice, isKr)}  /  평단가 ${fmt(entryPrice, isKr)}`;
+    `${sim.exit ? '청산가' : '현재가'} ${fmt(refPrice, isKr)}  /  평단가 ${fmt(entryPrice, isKr)}`;
 
-  let phaseTag = '';
-  const sp   = (stopPct * 100).toFixed(1);
-  const spN  = stopPct * 100;                       // ★ n (%) — 평평 구간 상단
-  // [STOPFLAT-WIRE-20260818] 라이브 compute_stop_level() 의 driver 판정 순서 그대로:
-  //   RATCHET → LOCK → MA → BE floor → FLAT
-  const _lockDrives = (lastR.lockPct > 0) && (lastR.lockFloor >= lastR.blended - 1e-9);
-  if      (lastR.floorClamped || !lastR.beReached)
-                             phaseTag = `📍 구간1 (계단)\n−${sp}% 고정 · 래칫 없음`;
-  else if (lastR.ratchetApplied) phaseTag = '🔒 RATCHET\n직전 Stop 유지';
-  else if (_lockDrives)      phaseTag = '🔒 LOCK\n이익 잠금 사다리';
-  else if (lastR.wMa >= 0.5) phaseTag = `📈 MA${lastR.maPeriod}\nMA 트레일링`;
-  else                       phaseTag = '⬆️ BE floor\n본전 floor';
+  // 상태 태그 — 라이브 driver 라벨 그대로
+  let phaseTag;
+  if (sim.exit)                       phaseTag = '🚪 청산 발생\n' + sim.exit.code;
+  else if (last.driver.startsWith('M50-PROVEN')) phaseTag = '🟢 PROVEN\n본전 바닥' + (last.ma && last.ma > entryPrice ? ` → MA${n}` : '');
+  else if (last.driver.startsWith('M50-MA'))     phaseTag = `📈 MA${n}\nMA가 바닥 인수`;
+  else                                phaseTag = `📍 FLAT\n−${(isp*100).toFixed(1)}% 하한`;
   document.getElementById('rPhaseTag').textContent = phaseTag;
 
-  const stopFromCurrent = (ratchetStop - currentPrice) / currentPrice * 100;
+  // 청산 박스
+  const eb = document.getElementById('exitBox');
+  if (sim.exit) {
+    eb.style.display = 'block';
+    eb.innerHTML = `🚪 <b>${sim.exit.dateStr}</b> 에 청산됐을 것 — ${sim.exit.reason}<br>` +
+                   `청산 기준가 <b>${fmt(sim.exit.price, isKr)}</b> · 손익 <b>${profit >= 0 ? '+' : ''}${profit.toFixed(2)}%</b>` +
+                   `<br><span style="color:#7a7f96;">이후 구간은 보유하지 않았을 것이므로 시뮬레이션을 여기서 종료합니다.</span>`;
+  } else {
+    eb.style.display = 'none';
+  }
+
+  // 증명 진행도
+  const cycleMax = last.cycleMax || refPrice;
+  const gain     = (cycleMax / entryPrice - 1);
+  const pct      = Math.max(0, Math.min(100, gain / PROOF_PCT * 100));
+  document.getElementById('proofFill').style.width = pct.toFixed(1) + '%';
+  const badge = document.getElementById('provenBadge');
+  badge.className = 'badge ' + (last.proven ? 'on' : 'off');
+  badge.textContent = last.proven ? '증명 완료 (본전 바닥)' : '미증명';
+  document.getElementById('proofSub').innerHTML = last.proven
+    ? `사이클 최고 종가 <b>${fmt(cycleMax, isKr)}</b> (+${(gain*100).toFixed(1)}%) — 문턱 통과. 하한선이 <b>본전</b>으로 고정됐고 되돌아가지 않습니다.`
+    : `사이클 최고 종가 <b>${fmt(cycleMax, isKr)}</b> (${gain >= 0 ? '+' : ''}${(gain*100).toFixed(1)}%) · 문턱까지 <b>${fmt(entryPrice*(1+PROOF_PCT), isKr)}</b> 필요 (앞으로 +${((entryPrice*(1+PROOF_PCT)/cycleMax - 1)*100).toFixed(1)}%)`;
+
+  // 바닥 표시
+  const floorNow = last.floor;
+  const away = (floorNow - refPrice) / refPrice * 100;
+  document.getElementById('rStopLabel').textContent =
+    sim.exit ? '청산 시점 M50 바닥' : '현재 M50 바닥 (마감창 판정)';
   const stopEl = document.getElementById('rStop');
-  stopEl.textContent = fmt(ratchetStop, isKr);
-  stopEl.className = 'price ' + (stopFromCurrent > -5 ? 'safe' : stopFromCurrent > -10 ? 'warn' : 'danger');
+  stopEl.textContent = fmt(floorNow, isKr);
+  stopEl.className = 'price ' + (away > -5 ? 'safe' : away > -10 ? 'warn' : 'danger');
   document.getElementById('rStopAway').textContent =
-    `현재가 대비 ${stopFromCurrent >= 0 ? '+' : ''}${stopFromCurrent.toFixed(1)}%`;
+    `${sim.exit ? '청산가' : '현재가'} 대비 ${away >= 0 ? '+' : ''}${away.toFixed(1)}%  ·  평단 대비 ${((floorNow/entryPrice-1)*100 >= 0 ? '+' : '')}${((floorNow/entryPrice-1)*100).toFixed(1)}%`;
 
-  const spPct = (stopPct * 100).toFixed(1);
-  document.getElementById('initLabel').textContent = `−${spPct}%`;
-  const hintEl = document.getElementById('stopHint');
-  if (hintEl) hintEl.textContent =
-    `−${spPct}% 고정 유지 → 도달 최고 종가가 +8%(라이브 고정값)에 닿으면 평단가로 1회 점프`;
-  const floor     = lastR.floorStop;
-  const maStop    = lastR.maStop;
-  const lockFloor = lastR.lockFloor;
-  const lockPct   = lastR.lockPct;
+  // 브레이크다운
+  const base = last.base != null ? last.base : last.hardFloor;
+  document.getElementById('baseLabel').textContent = '−' + (isp*100).toFixed(1) + '%';
+  document.getElementById('maPer').textContent  = n;
+  document.getElementById('maPer2').textContent = n;
 
-  const vals = [
-    { k:'floor', v: floor || 0 },
-    { k:'ma',    v: maStop || 0 },
-    { k:'lock',  v: lockFloor || 0 },
-  ];
-  // 평평 구간(<+n%)에서는 MA·lock 이 무력화되므로 승자는 항상 floor(=초기손절가)
-  // 구간1은 하한 클램프가 항상 이기므로 승자 = floor 고정
-  const winner = !lastR.beReached ? 'floor' : vals.reduce((a,b) => b.v > a.v ? b : a).k;
-
-  setRow('b1','d1', fmt(lastR.initialStop, isKr), false, '');
-  setRow('b2','d2', fmt(floor, isKr), winner === 'floor', 'active');
-  document.getElementById('maPer').textContent = lastR.maPeriod || '';
-  setRow('b3','d3', fmt(maStop, isKr), winner === 'ma', 'active');
-  document.getElementById('lockLabel').textContent =
-    lockPct > 0 ? `이익 ${lastR.profitPct.toFixed(1)}%의 ${lockPct.toFixed(1)}%` : '미활성';
-  setRow('b4','d4', lockFloor > 0 ? fmt(lockFloor, isKr) : `미활성 (<+${sp}%)`, winner === 'lock', 'yellow');
-  document.getElementById('b5').textContent = fmt(ratchetStop, isKr);
+  const maVal = last.ma;
+  const maWins = (maVal != null) && (maVal > base);
+  setRow('b1','d1', fmt(base, isKr), !maWins, 'active');
+  setRow('b2','d2', maVal != null ? fmt(maVal, isKr) : `봉 부족 (<${n-1}개) — 항 제외`, maWins, 'active');
+  setRow('b3','d3', fmt(last.hardFloor, isKr), false, '');
+  setRow('b4','d4', fmt(cycleMax, isKr) + `  (${gain >= 0 ? '+' : ''}${(gain*100).toFixed(1)}%)`, false, '');
+  document.getElementById('b5').textContent = fmt(floorNow, isKr);
 
   document.getElementById('result').style.display = 'block';
 
-  drawPriceChart(history, entryPrice, isKr, d.ticker);
-  drawTheoryChart(stopPct, entryPrice, isKr, tightness);
+  drawPriceChart(history, entryPrice, isKr, n, sim.exit);
+  drawTheoryChart(entryPrice, isp, n, maVal, cycleMax, isKr);
 }
 
 function setRow(valId, dotId, text, isWinner, cls) {
@@ -758,14 +764,17 @@ function setRow(valId, dotId, text, isWinner, cls) {
   document.getElementById(dotId).className   = isWinner && cls ? 'dot ' + cls : 'dot';
 }
 
-// ── 차트 A: 주가 + Stop 히스토리 ──────────────────
-function drawPriceChart(history, entryPrice, isKr, ticker) {
+// ── 차트 A: 주가 + 바닥 히스토리 ──────────────────
+function drawPriceChart(history, entryPrice, isKr, n, exit) {
   destroyChart(chartPrice);
   const labels    = history.map(h => h.label);
   const prices    = history.map(h => h.price);
-  const stops     = history.map(h => h.stop);
+  const floors    = history.map(h => h.floor);
+  const hards     = history.map(h => h.hardFloor);
+  const mas       = history.map(h => h.ma);
   const entryLine = history.map(() => entryPrice);
-  const formatY   = v => isKr ? v.toLocaleString('ko-KR') + '원' : '$' + v.toFixed(2);
+  const exitPts   = history.map((h, i) => (exit && i === exit.idx) ? exit.price : null);
+  const formatY   = v => isKr ? Math.round(v).toLocaleString('ko-KR') + '원' : '$' + v.toFixed(2);
 
   const ctx = document.getElementById('chartPrice').getContext('2d');
   chartPrice = new Chart(ctx, {
@@ -773,15 +782,24 @@ function drawPriceChart(history, entryPrice, isKr, ticker) {
     data: {
       labels,
       datasets: [
-        { label: '주가', data: prices, borderColor: '#5b8ef0',
+        { label: '주가(종가)', data: prices, borderColor: '#5b8ef0',
           backgroundColor: 'rgba(91,142,240,0.08)', fill: true,
-          pointRadius: 0, tension: 0.15, borderWidth: 2, order: 1 },
-        { label: 'Stop 라인', data: stops, borderColor: '#e74c3c',
+          pointRadius: 0, tension: 0.15, borderWidth: 2, order: 2 },
+        { label: 'M50 바닥', data: floors, borderColor: '#e74c3c',
+          backgroundColor: 'transparent', fill: false,
+          pointRadius: 0, tension: 0.1, borderWidth: 2, order: 1, stepped: false },
+        { label: '장중 하드바닥', data: hards, borderColor: '#e8873c',
           borderDash: [6,3], backgroundColor: 'transparent', fill: false,
-          pointRadius: 0, tension: 0.1, borderWidth: 1.5, order: 2 },
-        { label: '매수가', data: entryLine, borderColor: 'rgba(122,127,150,0.5)',
+          pointRadius: 0, tension: 0, borderWidth: 1.3, order: 3 },
+        { label: 'MA' + n, data: mas, borderColor: '#7c6fff',
+          borderDash: [3,3], backgroundColor: 'transparent', fill: false,
+          pointRadius: 0, tension: 0.15, borderWidth: 1.3, order: 4, spanGaps: false },
+        { label: '평단가', data: entryLine, borderColor: 'rgba(122,127,150,0.5)',
           borderDash: [3,4], backgroundColor: 'transparent', fill: false,
-          pointRadius: 0, borderWidth: 1, order: 3 },
+          pointRadius: 0, borderWidth: 1, order: 5 },
+        { label: '청산 발생', data: exitPts, borderColor: '#f1c40f',
+          backgroundColor: '#f1c40f', showLine: false,
+          pointRadius: 6, pointHoverRadius: 8, order: 0 },
       ]
     },
     options: {
@@ -792,7 +810,13 @@ function drawPriceChart(history, entryPrice, isKr, ticker) {
         tooltip: {
           backgroundColor: '#1a1d27', borderColor: '#2a2d3a', borderWidth: 1,
           titleColor: '#e8eaf0', bodyColor: '#7a7f96',
-          callbacks: { label: ctx => ` ${ctx.dataset.label}: ${formatY(ctx.raw)}` }
+          callbacks: {
+            label: ctx => (ctx.raw == null) ? null : ` ${ctx.dataset.label}: ${formatY(ctx.raw)}`,
+            afterBody: items => {
+              const h = history[items[0].dataIndex];
+              return h ? ['driver: ' + (h.driver || '—')] : [];
+            }
+          }
         }
       },
       scales: {
@@ -805,29 +829,24 @@ function drawPriceChart(history, entryPrice, isKr, ticker) {
   });
 }
 
-// ── 차트 B: 이론 Stop 곡선 (tightness 반영) ──────────
-function drawTheoryChart(initialStopPct, entryPrice, isKr, tightness) {
+// ── 차트 B: 증명 진행도별 바닥 이론 계단 ──────────
+function drawTheoryChart(entryPrice, isp, n, maVal, cycleMax, isKr) {
   destroyChart(chartTheory);
-  const labels = [], floorData = [], lockData = [], finalData = [];
-  for (let p = -10; p <= 50; p += 1) {
-    const profit = p / 100;
-    labels.push(p + '%');
+  const labels = [], baseData = [], maData = [], finalData = [];
+  const maPct = (maVal != null) ? (maVal / entryPrice - 1) * 100 : null;
 
-    // [STOPFLAT-WIRE] 이론 곡선은 경로를 모르므로 beReached 를 현재 수익률로 폴백 판정
-    //   (라이브의 be_reached 미주입 폴백과 동일). 실제 보유 경로에서는 과거에 +8% 를
-    //   찍었다면 현재 수익률이 그 아래여도 본전 floor 가 유지된다 — 위 시뮬레이션 참조.
-    const be = profit >= BE_FLOOR;
-    const floorPct = (be ? 0 : -initialStopPct) * 100;
-    floorData.push(+floorPct.toFixed(2));
-
-    const lockPct = profitLockPct(profit, tightness) * 100;
-    lockData.push(lockPct > 0 ? +lockPct.toFixed(2) : null);
-
-    // 구간1 = 하한 클램프로 −n% 고정 / 구간2 = max(본전 floor, 잠금 floor)
-    const fin = be ? Math.max(floorPct, lockPct > 0 ? lockPct : floorPct)
-                   : -initialStopPct * 100;
-    finalData.push(+fin.toFixed(2));
+  for (let p = -10; p <= 40; p += 1) {
+    labels.push((p >= 0 ? '+' : '') + p + '%');
+    const proven  = (p / 100) >= PROOF_PCT;
+    const basePct = proven ? 0 : -isp * 100;
+    baseData.push(+basePct.toFixed(2));
+    maData.push(maPct != null ? +maPct.toFixed(2) : null);
+    finalData.push(+(maPct != null ? Math.max(basePct, maPct) : basePct).toFixed(2));
   }
+
+  const nowPct = (cycleMax / entryPrice - 1) * 100;
+  const nowIdx = Math.round(Math.max(-10, Math.min(40, nowPct))) + 10;
+  const nowData = labels.map((_, i) => (i === nowIdx) ? finalData[i] : null);
 
   const ctx2 = document.getElementById('chartTheory').getContext('2d');
   chartTheory = new Chart(ctx2, {
@@ -835,15 +854,18 @@ function drawTheoryChart(initialStopPct, entryPrice, isKr, tightness) {
     data: {
       labels,
       datasets: [
-        { label: '최종 Stop (매수가 대비 %)', data: finalData, borderColor: '#e74c3c',
+        { label: '최종 바닥 = max(하한선, MA' + n + ')', data: finalData, borderColor: '#e74c3c',
           backgroundColor: 'rgba(231,76,60,0.07)', fill: true,
-          pointRadius: 0, tension: 0.3, borderWidth: 2, order: 1 },
-        { label: '이익 잠금 Floor', data: lockData, borderColor: '#f1c40f',
+          pointRadius: 0, tension: 0, borderWidth: 2, order: 2, stepped: true },
+        { label: '하한선 (−' + (isp*100).toFixed(1) + '% → 본전)', data: baseData, borderColor: '#5b8ef0',
           backgroundColor: 'transparent', fill: false, pointRadius: 0,
-          tension: 0.3, borderWidth: 1.5, borderDash: [4,3], order: 2, spanGaps: false },
-        { label: 'Floor (초기손절→본전)', data: floorData, borderColor: '#5b8ef0',
+          tension: 0, borderWidth: 1.5, borderDash: [2,3], order: 3, stepped: true },
+        { label: '현재 MA' + n + ' 위치', data: maData, borderColor: '#7c6fff',
           backgroundColor: 'transparent', fill: false, pointRadius: 0,
-          tension: 0.3, borderWidth: 1.5, borderDash: [2,3], order: 3 },
+          tension: 0, borderWidth: 1.5, borderDash: [4,3], order: 4, spanGaps: true },
+        { label: '현재 위치', data: nowData, borderColor: '#f1c40f',
+          backgroundColor: '#f1c40f', showLine: false,
+          pointRadius: 6, pointHoverRadius: 8, order: 1 },
       ]
     },
     options: {
@@ -857,18 +879,20 @@ function drawTheoryChart(initialStopPct, entryPrice, isKr, tightness) {
           callbacks: {
             label: ctx => {
               if (ctx.raw == null) return null;
-              return ` ${ctx.dataset.label}: ${ctx.raw >= 0 ? '+' : ''}${ctx.raw}%`;
+              const abs = entryPrice * (1 + ctx.raw / 100);
+              const absS = isKr ? Math.round(abs).toLocaleString('ko-KR') + '원' : '$' + abs.toFixed(2);
+              return ` ${ctx.dataset.label}: ${ctx.raw >= 0 ? '+' : ''}${ctx.raw}% (${absS})`;
             }
           }
         }
       },
       scales: {
-        x: { ticks: { color: '#7a7f96', font: { size: 10 }, maxTicksLimit: 13, maxRotation: 0 },
+        x: { ticks: { color: '#7a7f96', font: { size: 10 }, maxTicksLimit: 11, maxRotation: 0 },
              grid: { color: '#1e2130' },
-             title: { display: true, text: '수익률 (진입 이후)', color: '#7a7f96', font: { size: 10 } } },
+             title: { display: true, text: '사이클 최고 종가 (평단 대비)', color: '#7a7f96', font: { size: 10 } } },
         y: { ticks: { color: '#7a7f96', font: { size: 10 }, callback: v => (v >= 0 ? '+' : '') + v + '%' },
              grid: { color: '#1e2130' },
-             title: { display: true, text: 'Stop 위치 (매수가 대비)', color: '#7a7f96', font: { size: 10 } } }
+             title: { display: true, text: '바닥 위치 (평단 대비)', color: '#7a7f96', font: { size: 10 } } }
       }
     }
   });
