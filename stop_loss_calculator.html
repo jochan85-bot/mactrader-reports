@@ -548,7 +548,17 @@ function simulate(entryPrice, closes, lows, timestamps, entryDateStr, isp, n) {
 //      curl 직결 429 / yfinance(쿠키+crumb 세션)는 정상). 그래서 프록시가 먼저다.
 //   실측 생존 순서 (2026-08-28, 실제 브라우저 origin 기준 11개 후보 중):
 //     api.cors.lol ✅ / proxy.corsfix.com ✅ / 나머지 9개 전부 실패
+//   ⚠️ 프록시마다 '도메인 게이트'가 다르다 — 로컬(127.0.0.1)에서 되는 것이
+//      배포 도메인(jochan85-bot.github.io)에서 막히는 경우가 있다. 실측 2026-08-28:
+//        cors.sh     ✅ 배포 도메인 200 (ACAO *)          ← 1순위
+//        cors.lol    ✅ 브라우저 OK / 분당 레이트리밋 있음   ← 2순위
+//        corsfix     ✕ domain_not_registered (로컬 전용)   ← 로컬 개발용으로만 잔류
+//        corsproxy.io ✕ 401 API key required (이번 장애 원인)
+//        allorigins / codetabs ✕ 백엔드 다운(500/522)
+//      전부 3자 무료 서비스라 언제든 또 죽을 수 있다 — 체인으로 버티되,
+//      영구 해법은 우리 origin 에서 시세를 직접 서빙하는 것(오너 결정 대기).
 const PROXIES = [
+  { name: 'cors.sh',     build: u => 'https://proxy.cors.sh/' + u },
   { name: 'cors.lol',    build: u => 'https://api.cors.lol/?url=' + encodeURIComponent(u) },
   { name: 'corsfix',     build: u => 'https://proxy.corsfix.com/?' + u },
   { name: 'corsproxy.io',build: u => 'https://corsproxy.io/?url=' + encodeURIComponent(u) },
