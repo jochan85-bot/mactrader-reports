@@ -28,7 +28,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .grid2 .card{margin:0}
 .sig-ico{width:20px;height:20px;flex-shrink:0;display:block}
-/* --- 시장경보 정사각 박스 (초안 v2) --- */
+/* --- 하락장 경보 정사각 박스 (초안 v2) --- */
 .report-row{display:flex;align-items:stretch;gap:8px;margin:6px 0}
 .report-row .card{flex:1 1 auto;min-width:0;margin:0}
 .bear-sq{flex:0 0 60px;width:60px;display:flex;flex-direction:column;
@@ -64,7 +64,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
         <span class="card-date" id="us-date">2026. 09.04 (금)</span>
       </div>
     </a>
-    <a class="bear-sq" id="us-badge" href="bear_us.html" aria-label="미장 시장경보 시스템">
+    <a class="bear-sq" id="us-badge" href="bear_us.html" aria-label="미장 하락장 경보 상세">
       <span class="dot"></span><span class="lv">L?</span>
     </a>
   </div>
@@ -79,7 +79,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
         <span class="card-date" id="kr-date">2026. 09.07 (월)</span>
       </div>
     </a>
-    <a class="bear-sq" id="kr-badge" href="bear_kr.html" aria-label="국장 시장경보 시스템">
+    <a class="bear-sq" id="kr-badge" href="bear_kr.html" aria-label="국장 하락장 경보 상세">
       <span class="dot"></span><span class="lv">L?</span>
     </a>
   </div>
