@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국장 시장경보 시스템</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;padding:16px;max-width:640px;margin:0 auto}
+a{color:#58a6ff;text-decoration:none}
+.top-nav{display:flex;align-items:center;gap:8px;margin:6px 0 16px;font-size:13px;color:#8b949e}
+.top-nav a{color:#8b949e;border:1px solid #30363d;border-radius:6px;padding:4px 10px}
+.top-nav a:active{color:#e6edf3;border-color:#58a6ff}
+h1{color:#58a6ff;font-size:20px;line-height:1.3;margin-bottom:2px}
+.h1-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.guide-btn{font-size:12px;color:#8b949e;border:1px solid #30363d;border-radius:6px;padding:4px 10px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.guide-btn:hover{color:#e6edf3;border-color:#58a6ff}
+.subtitle{font-size:12px;color:#8b949e;margin-bottom:16px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;margin-bottom:16px}
+.section-title{color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #21262d}
+
+/* --- 오늘의 경보 --- */
+.alert-head{display:flex;align-items:center;gap:14px}
+.big-light{width:58px;height:58px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:19px;font-weight:800;background:#484f58;color:#0d1117;box-shadow:0 0 0 3px #0d1117,0 0 0 4px #30363d}
+.alert-title{font-size:20px;font-weight:700;line-height:1.25}
+.alert-date{font-size:12px;color:#8b949e;margin-top:3px}
+.lv-row{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:5px;background:#0d1117;border:1px solid #30363d;border-radius:6px;
+  padding:4px 9px;font-size:12px;color:#8b949e;line-height:1.5}
+.chip b{color:#e6edf3;font-size:13px}
+.chip .mini-dot{width:8px;height:8px;border-radius:50%;background:#484f58;flex-shrink:0}
+.chip-final{border-width:2px}
+.lv-arrow{color:#8b949e;font-size:14px}
+.diff-note{font-size:12px;margin-top:8px;color:#8b949e}
+.diff-note b{color:#e6edf3}
+.clamp-badge{display:inline-block;margin-top:8px;font-size:11px;font-weight:600;color:#e3b341;
+  border:1px solid #9e6a03;border-radius:6px;padding:3px 8px;background:rgba(187,128,9,.12)}
+.reason-box{margin-top:14px;border-top:1px solid #21262d;padding-top:12px}
+.reason-label{font-size:11px;color:#8b949e;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.reason-text{font-size:13.5px;line-height:1.65;color:#c9d1d9;white-space:pre-wrap}
+.reason-text.clamped{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.reason-toggle{display:inline-block;margin-top:8px;font-size:12px;color:#58a6ff;background:none;border:none;padding:0;cursor:pointer;font-family:inherit}
+
+/* --- Plotly 차트 --- */
+#chart{width:100%;height:400px;touch-action:pan-y}
+/* Plotly 드래그 레이어 위에서도 세로 스크롤이 통과하도록 (크립토 리포트와 동일) */
+.js-plotly-plot .nsewdrag{touch-action:pan-y !important}
+.footnote{font-size:11px;color:#8b949e;margin-top:10px;line-height:1.5}
+
+/* --- 일별 이력 (월별 그룹) --- */
+.hist-head,.hist-row{display:grid;grid-template-columns:1fr 76px 34px 34px 38px;gap:4px;align-items:center}
+.hist-head{font-size:10.5px;color:#8b949e;text-transform:uppercase;letter-spacing:.5px;padding:0 4px 8px;border-bottom:1px solid #21262d}
+.hist-head .num{text-align:right}
+.hist-head .lv{text-align:center}
+.hist-row{padding:9px 4px;border-bottom:1px solid #21262d;font-size:13px;cursor:pointer}
+.hist-row:active{background:#1c2128}
+.hist-date{color:#c9d1d9;white-space:nowrap}
+.hist-close{text-align:right;color:#8b949e;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lv-pill{display:inline-flex;align-items:center;justify-content:center;width:100%;border-radius:5px;
+  font-size:11px;font-weight:700;padding:2px 0;color:#0d1117;background:#484f58}
+.lv-pill.dim{background:transparent;color:#484f58;border:1px dashed #30363d}
+.hist-reason{display:none;grid-column:1 / -1;font-size:12.5px;line-height:1.6;color:#8b949e;
+  padding:8px 4px 2px;white-space:pre-wrap}
+.hist-row.open .hist-reason{display:block}
+.mon{border-bottom:1px solid #21262d}
+.mon-head{display:flex;align-items:center;gap:8px;padding:12px 4px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mon-head:active{background:#1c2128}
+.mon-title{font-size:14px;font-weight:700;color:#e6edf3;white-space:nowrap}
+.mon-sum{flex:1;display:flex;align-items:center;justify-content:flex-end;gap:6px;font-size:11.5px;color:#8b949e;flex-wrap:wrap}
+.mon-max{display:inline-flex;align-items:center;justify-content:center;border-radius:5px;
+  font-size:10.5px;font-weight:700;padding:2px 7px;color:#0d1117;background:#484f58}
+.mon-caret{color:#8b949e;font-size:11px;transition:transform .15s;flex-shrink:0}
+.mon.open .mon-caret{transform:rotate(180deg)}
+.mon-body{display:none}
+.mon.open .mon-body{display:block}
+.mon-body .hist-row:last-child{border-bottom:none}
+
+.err-box{display:none;background:rgba(248,81,73,.1);border:1px solid #f85149;border-radius:8px;
+  padding:14px 16px;font-size:13px;line-height:1.6;color:#ffa198;margin-bottom:16px}
+.chart-fallback{display:none;background:rgba(187,128,9,.1);border:1px solid #9e6a03;border-radius:8px;
+  padding:14px 16px;font-size:13px;line-height:1.6;color:#e3b341}
+</style>
+</head>
+<body>
+
+<div class="top-nav"><a href="index_draft.html">‹ 홈</a></div>
+<div class="h1-row">
+  <h1>🚦 <span id="mk-label">국장</span> 시장경보 시스템</h1>
+  <a class="guide-btn" href="bear_guide.html">📖 Guide</a>
+</div>
+<div class="subtitle" id="subtitle">지수·경보 레벨 이력</div>
+
+<div class="err-box" id="err">
+  ⚠️ 경보 데이터를 불러오지 못했습니다.<br>
+  파일을 <code>file://</code> 로 직접 열면 브라우저가 데이터 로드를 차단합니다.
+  웹 주소(https)로 접속하거나 로컬 http 서버로 열어주세요.
+</div>
+
+<div class="card" id="alert-card" style="display:none">
+  <div class="alert-head">
+    <div class="big-light" id="big-light">L?</div>
+    <div>
+      <div class="alert-title" id="alert-title">Level ? —</div>
+      <div class="alert-date" id="alert-date"></div>
+    </div>
+  </div>
+  <div class="lv-row" id="lv-row"></div>
+  <div class="diff-note" id="diff-note" style="display:none"></div>
+  <div><span class="clamp-badge" id="clamp-badge" style="display:none">🔒 AI 제안이 1단계로 제한됨</span></div>
+  <div class="reason-box" id="reason-box" style="display:none">
+    <div class="reason-label">판단 근거</div>
+    <div class="reason-text clamped" id="reason-text"></div>
+    <button class="reason-toggle" id="reason-toggle">펼치기 ▾</button>
+  </div>
+</div>
+
+<div class="card" id="chart-card" style="display:none">
+  <div class="section-title">📈 지수 · 경보 레벨 추이</div>
+  <div class="chart-fallback" id="chart-fallback">
+    📉 차트 라이브러리(Plotly CDN)를 불러오지 못했습니다.
+    오프라인이거나 CDN 이 차단된 환경입니다. 경보·일별 이력은 아래에서 정상 확인할 수 있습니다.
+  </div>
+  <div id="chart"></div>
+  <div class="footnote" id="chart-note"></div>
+</div>
+
+<div class="card" id="hist-card" style="display:none">
+  <div class="section-title">🗓️ 일별 이력</div>
+  <div class="hist-head">
+    <span>날짜</span><span class="num">종가</span>
+    <span class="lv">규칙</span><span class="lv">AI</span><span class="lv">최종</span>
+  </div>
+  <div id="hist-body"></div>
+</div>
+
+<script>
+(function(){
+'use strict';
+var SRC = 'bear_history_kr.json';
+
+var LV = {
+  1:{c:'#3fb950', n:'정상', tx:'#0d1117'},
+  2:{c:'#e3b341', n:'주의', tx:'#0d1117'},
+  3:{c:'#f0883e', n:'경계', tx:'#0d1117'},
+  4:{c:'#f85149', n:'위험', tx:'#fff'},
+  5:{c:'#b62324', n:'극도', tx:'#fff'}
+};
+var C_INDEX='#58a6ff', C_RULE='#e3b341', C_AI='#f778ba';
+var DAY=['일','월','화','수','목','금','토'];
+
+function $(id){return document.getElementById(id);}
+function fmtDate(iso, withDay){
+  if(!iso) return '—';
+  var p=iso.split('-');
+  var s=p[0]+'. '+p[1]+'. '+p[2];
+  if(withDay){
+    var d=new Date(iso+'T00:00:00');
+    if(!isNaN(d)) s+=' ('+DAY[d.getDay()]+')';
+  }
+  return s;
+}
+function fmtNum(v){
+  if(v==null) return '—';
+  return v.toLocaleString('ko-KR',{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+function lvTxt(v){return v==null?'—':'L'+v;}
+function esc(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+fetch(SRC).then(function(r){
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  return r.json();
+}).then(init).catch(function(e){
+  $('err').style.display='block';
+  console.error(e);
+});
+
+function init(data){
+  var S = data.series || [];
+  document.title = (data.market_label||'') + ' 시장경보 시스템';
+  $('mk-label').textContent = data.market_label||'';
+  $('subtitle').textContent = (data.index_name||'') + ' 지수 기준 · 갱신 ' + fmtDate((data.generated_at||'').slice(0,10));
+
+  renderAlert(data, S);
+  renderChart(data, S);
+  renderHistory(S);
+}
+
+/* ---------- 오늘의 경보 ---------- */
+function renderAlert(data, S){
+  var L = data.latest || {};
+  var row = null;
+  for(var i=S.length-1;i>=0;i--){ if(S[i].date===L.date){row=S[i];break;} }
+  if(!row && S.length) row = S[S.length-1];
+  row = row || {};
+
+  var fin = L.final_level;
+  var lv = LV[fin];
+  $('alert-card').style.display='block';
+  if(lv){
+    var bl=$('big-light');
+    bl.textContent='L'+fin;
+    bl.style.background=lv.c;
+    bl.style.color=lv.tx;
+    bl.style.boxShadow='0 0 0 3px #161b22, 0 0 0 4px '+lv.c+'55';
+    $('alert-title').textContent='Level '+fin+' · '+lv.n;
+    $('alert-title').style.color=lv.c;
+  }
+  $('alert-date').textContent=fmtDate(L.date,true)+' 평가';
+
+  var dirRaw = row.direction;
+  var dir = (dirRaw==='up'||dirRaw==='down') ? dirRaw : 'agree';
+  var html='';
+  html+=chip('규칙', L.rule_raw, false);
+  html+=chip('AI', L.ai_level, dir!=='agree');
+  html+='<span class="lv-arrow">→</span>';
+  html+=chip('최종', fin, false, true);
+  $('lv-row').innerHTML=html;
+
+  if(dir!=='agree' && L.ai_level!=null && L.rule_raw!=null){
+    var d=Math.abs(L.ai_level-L.rule_raw);
+    $('diff-note').style.display='block';
+    $('diff-note').innerHTML = (dir==='up'?'▲':'▼')+' AI가 규칙보다 <b>'+d+'단계 '+(dir==='up'?'높게':'낮게')+'</b> 판단했습니다 (규칙 L'+L.rule_raw+' → AI L'+L.ai_level+').';
+    $('diff-note').style.color = dir==='up' ? '#ffa198' : '#7ee787';
+  } else if(L.ai_level==null){
+    $('diff-note').style.display='block';
+    $('diff-note').textContent='ⓘ 이날은 AI 평가가 없어 규칙 레벨을 그대로 사용했습니다.';
+  }
+  if(row.clamped) $('clamp-badge').style.display='inline-block';
+
+  if(row.reason){
+    $('reason-box').style.display='block';
+    var rt=$('reason-text');
+    rt.textContent=row.reason;
+    var btn=$('reason-toggle');
+    btn.addEventListener('click',function(){
+      var open=!rt.classList.contains('clamped');
+      rt.classList.toggle('clamped');
+      btn.textContent = open ? '펼치기 ▾' : '접기 ▴';
+    });
+  }
+}
+function chip(label, v, hot, isFinal){
+  var lv=LV[v];
+  var dot = lv ? lv.c : '#484f58';
+  var style='';
+  if(hot && lv) style=' style="border-color:'+lv.c+';box-shadow:0 0 0 1px '+lv.c+'44"';
+  else if(isFinal && lv) style=' style="border-color:'+lv.c+'"';
+  return '<span class="chip'+(isFinal?' chip-final':'')+'"'+style+'>'+
+    '<span class="mini-dot" style="background:'+dot+'"></span>'+label+' <b>'+lvTxt(v)+'</b></span>';
+}
+
+/* ---------- 그래프 (Plotly, 크립토·골드 리포트와 동일 방식) ---------- */
+function renderChart(data, S){
+  if(!S.length) return;
+  $('chart-card').style.display='block';
+  $('chart-note').textContent='* 데이터는 '+fmtDate(data.range_start)+' 이후만 표시됩니다 ('+(data.range_start_note||'')+'). 좌측축 = 종가 · 우측축 = 경보 레벨(1~5).';
+
+  if(typeof Plotly==='undefined'){
+    $('chart-fallback').style.display='block';
+    $('chart').style.display='none';
+    return;
+  }
+
+  var x = S.map(function(s){return s.date;});
+  var idxName = (data.index_name||'지수');
+
+  var traces = [
+    { x: x, y: S.map(function(s){return s.close;}),
+      name: idxName+' 종가', type:'scatter', mode:'lines',
+      line:{color:C_INDEX, width:2}, yaxis:'y',
+      hovertemplate:'종가 <b>%{y:,.2f}</b><extra></extra>' },
+    { x: x, y: S.map(function(s){return s.rule_raw;}),
+      name:'규칙 레벨', type:'scatter', mode:'lines',
+      line:{color:C_RULE, width:1.8, shape:'hv'}, yaxis:'y2',
+      hovertemplate:'규칙 <b>L%{y}</b><extra></extra>' },
+    { x: x, y: S.map(function(s){return s.ai_level;}),
+      name:'AI 레벨', type:'scatter', mode:'lines', connectgaps:false,
+      line:{color:C_AI, width:1.8, shape:'hv', dash:'dash'}, yaxis:'y2',
+      hovertemplate:'AI <b>L%{y}</b><extra></extra>' },
+    // 최종 레벨은 선으로 그리지 않고 호버에만 노출
+    { x: x, y: S.map(function(s){return s.final_level;}),
+      name:'최종', type:'scatter', mode:'lines', showlegend:false,
+      line:{color:'#8b949e', width:0.001, shape:'hv'}, yaxis:'y2', opacity:0,
+      hovertemplate:'최종 <b>L%{y}</b><extra></extra>' }
+  ];
+
+  // 우측축 레벨 배경 띠 (옅게)
+  var shapes=[];
+  for(var l=1;l<=5;l++){
+    shapes.push({type:'rect', xref:'paper', yref:'y2', x0:0, x1:1, y0:l-0.5, y1:l+0.5,
+      fillcolor:LV[l].c, opacity:l>=3?0.06:0.04, line:{width:0}, layer:'below'});
+  }
+
+  var layout = {
+    paper_bgcolor:'#161b22',
+    plot_bgcolor:'#0d1117',
+    font:{color:'#e6edf3', family:"-apple-system, BlinkMacSystemFont, Pretendard, sans-serif", size:12},
+    margin:{l:52, r:34, t:30, b:40},
+    hovermode:'x unified',
+    dragmode:'pan',
+    legend:{orientation:'h', y:-0.24},
+    shapes:shapes,
+    hoverlabel:{bgcolor:'#1c2128', bordercolor:'#444c56', font:{color:'#e6edf3', size:12}},
+    xaxis:{
+      gridcolor:'#1f2a3a', linecolor:'#1f2a3a',
+      hoverformat:'%Y.%m.%d',
+      tickformatstops:[
+        {dtickrange:[null, 2419200000], value:'%m/%d'},
+        {dtickrange:[2419200000, null], value:'%Y.%m'}
+      ],
+      rangeslider:{visible:false},
+      rangeselector:{
+        bgcolor:'#0b0f17', activecolor:'#3b82f6', bordercolor:'#1f2a3a',
+        buttons:[
+          { count:1,  label:'1달', step:'month', stepmode:'backward' },
+          { count:6,  label:'6달', step:'month', stepmode:'backward' },
+          { count:1,  label:'1년', step:'year',  stepmode:'backward' },
+          { count:3,  label:'3년', step:'year',  stepmode:'backward' },
+          { step:'all', label:'전체' }
+        ]
+      }
+    },
+    yaxis:{ title:{text:idxName, font:{size:11, color:'#8b949e'}},
+      gridcolor:'#1f2a3a', linecolor:'#1f2a3a', side:'left', tickformat:',.0f' },
+    yaxis2:{ title:{text:'레벨', font:{size:11, color:'#8b949e'}},
+      gridcolor:'transparent', linecolor:'#1f2a3a', overlaying:'y', side:'right',
+      range:[0.5,5.5], tickvals:[1,2,3,4,5], ticktext:['1','2','3','4','5'] }
+  };
+
+  Plotly.newPlot('chart', traces, layout, {
+    responsive:true, displaylogo:false, displayModeBar:false, scrollZoom:true
+  });
+  setupTouchGestures();
+}
+
+/* ---------- 모바일 터치 제스처 (크립토 리포트에서 이식) ----------
+// 차트 위 터치는 차트가 전담한다(페이지 세로 스크롤은 차트 밖에서 그대로 동작):
+//   1손가락: 상하좌우 자유 패닝 — x축과 y축(+y2축)을 동시에 이동.
+//   2손가락: 핀치줌 — 가로 간격 변화는 x축만, 세로 간격 변화는 y축(+y2축)만
+//            독립적으로 확대/축소(대각선 핀치는 둘 다 비례해서 확대/축소).
+// Plotly의 scrollZoom은 'wheel' 이벤트만 처리해 터치 핀치를 지원하지 않아 직접 구현. */
+var _CHART_IDS = ['chart'];
+var MIN_AXIS_PX = 20;
+var _touchReady = false;
+
+function _axisInfo(gd, axisName, clientPos, isY) {
+  var ax = gd._fullLayout[axisName];
+  if (!ax || !ax._length) return null;
+  var bb = gd.getBoundingClientRect();
+  var px = isY ? (clientPos - bb.top - ax._offset) : (clientPos - bb.left - ax._offset);
+  var isDate = typeof ax.range[0] !== 'number';
+  var toNum = function(v){ return (typeof v === 'number') ? v : new Date(v).getTime(); };
+  var d0 = toNum(ax.p2d(px));
+  var d1 = toNum(ax.p2d(px + 1));
+  return { range: ax.range.map(toNum), dataAtTouch: d0, dataPerPx: d1 - d0, isDate: isDate };
+}
+function _fmtAxisVal(v, isDate) { return isDate ? new Date(v).toISOString() : v; }
+function _readAxes(gd, clientX, clientY) {
+  return {
+    x:  _axisInfo(gd, 'xaxis', clientX, false),
+    y:  _axisInfo(gd, 'yaxis', clientY, true),
+    y2: gd._fullLayout.yaxis2 ? _axisInfo(gd, 'yaxis2', clientY, true) : null
+  };
+}
+function _findChartUnderPoint(clientX, clientY) {
+  for (var i=0;i<_CHART_IDS.length;i++) {
+    var el = document.getElementById(_CHART_IDS[i]);
+    if (!el) continue;
+    var bb = el.getBoundingClientRect();
+    if (clientX >= bb.left && clientX <= bb.right && clientY >= bb.top && clientY <= bb.bottom) return _CHART_IDS[i];
+  }
+  return null;
+}
+function _isInsideChart(e) {
+  return _CHART_IDS.some(function(id){
+    var el = document.getElementById(id);
+    return el && el.contains(e.target);
+  });
+}
+
+var _gesture = { mode: null, chartId: null };  // mode: 'pan' | 'pinch'
+var _gestureFrame = null;
+var _gestureTouches = null;
+
+function _applyGesture() {
+  _gestureFrame = null;
+  if (!_gesture.chartId || !_gestureTouches) return;
+  var gd = document.getElementById(_gesture.chartId);
+  if (!gd || !gd._fullLayout) return;
+  var patch = {};
+  var AXES = [['x','xaxis'],['y','yaxis'],['y2','yaxis2']];
+
+  if (_gesture.mode === 'pinch') {
+    var t0 = _gestureTouches[0], t1 = _gestureTouches[1];
+    var distX = Math.max(Math.abs(t0.clientX - t1.clientX), MIN_AXIS_PX);
+    var distY = Math.max(Math.abs(t0.clientY - t1.clientY), MIN_AXIS_PX);
+    var scaleX = _gesture.startDistX / distX;
+    var scaleY = _gesture.startDistY / distY;
+    AXES.forEach(function(a){
+      var key=a[0], axKey=a[1];
+      var info = _gesture['start_' + key];
+      if (!info) return;
+      var scale = key === 'x' ? scaleX : scaleY;
+      var r0 = info.range[0], r1 = info.range[1];
+      var span = r1 - r0;
+      var newSpan = Math.max(span * scale, key === 'x' ? 86400000 : Math.abs(span) * 0.02);
+      var frac = (info.dataAtTouch - r0) / span;
+      var newR0 = info.dataAtTouch - frac * newSpan;
+      var newR1 = newR0 + newSpan;
+      patch[axKey + '.range[0]'] = _fmtAxisVal(newR0, info.isDate);
+      patch[axKey + '.range[1]'] = _fmtAxisVal(newR1, info.isDate);
+      patch[axKey + '.autorange'] = false;
+    });
+  } else if (_gesture.mode === 'pan') {
+    var p0 = _gestureTouches[0];
+    var dx = p0.clientX - _gesture.startClientX;
+    var dy = p0.clientY - _gesture.startClientY;
+    AXES.forEach(function(a){
+      var key=a[0], axKey=a[1];
+      var delta = key === 'x' ? dx : dy;
+      var info = _gesture['start_' + key];
+      if (!info) return;
+      var shift = -delta * info.dataPerPx;
+      patch[axKey + '.range[0]'] = _fmtAxisVal(info.range[0] + shift, info.isDate);
+      patch[axKey + '.range[1]'] = _fmtAxisVal(info.range[1] + shift, info.isDate);
+      patch[axKey + '.autorange'] = false;
+    });
+  }
+  if (Object.keys(patch).length) Plotly.relayout(_gesture.chartId, patch);
+}
+
+function setupTouchGestures(){
+  if (_touchReady) return;
+  _touchReady = true;
+
+  document.addEventListener('touchstart', function(e){
+    if (!_isInsideChart(e)) return;
+    e.stopPropagation();  // Plotly 자체 dragElement.onStart가 실행되지 않게 차단
+    e.preventDefault();
+    if (e.touches.length === 1) {
+      var t0 = e.touches[0];
+      var chartId = _findChartUnderPoint(t0.clientX, t0.clientY);
+      if (!chartId) return;
+      var gd = document.getElementById(chartId);
+      if (!gd || !gd._fullLayout) return;
+      _gesture.mode = 'pan';
+      _gesture.chartId = chartId;
+      _gesture.startClientX = t0.clientX;
+      _gesture.startClientY = t0.clientY;
+      var ax = _readAxes(gd, t0.clientX, t0.clientY);
+      _gesture.start_x = ax.x; _gesture.start_y = ax.y; _gesture.start_y2 = ax.y2;
+    } else if (e.touches.length === 2) {
+      var u0 = e.touches[0], u1 = e.touches[1];
+      var midX = (u0.clientX + u1.clientX) / 2, midY = (u0.clientY + u1.clientY) / 2;
+      var cid = _gesture.chartId || _findChartUnderPoint(midX, midY);
+      if (!cid) return;
+      var gd2 = document.getElementById(cid);
+      if (!gd2 || !gd2._fullLayout) return;
+      _gesture.mode = 'pinch';
+      _gesture.chartId = cid;
+      _gesture.startDistX = Math.max(Math.abs(u0.clientX - u1.clientX), MIN_AXIS_PX);
+      _gesture.startDistY = Math.max(Math.abs(u0.clientY - u1.clientY), MIN_AXIS_PX);
+      var ax2 = _readAxes(gd2, midX, midY);
+      _gesture.start_x = ax2.x; _gesture.start_y = ax2.y; _gesture.start_y2 = ax2.y2;
+    }
+  }, { passive: false, capture: true });
+
+  document.addEventListener('touchmove', function(e){
+    if (!_isInsideChart(e) || !_gesture.mode) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if (_gesture.mode === 'pinch' && e.touches.length === 2) {
+      _gestureTouches = [e.touches[0], e.touches[1]];
+    } else if (_gesture.mode === 'pan' && e.touches.length === 1) {
+      _gestureTouches = [e.touches[0]];
+    } else {
+      return;
+    }
+    if (_gestureFrame == null) _gestureFrame = requestAnimationFrame(_applyGesture);
+  }, { passive: false, capture: true });
+
+  document.addEventListener('touchend', function(e){
+    if (e.touches.length === 0) {
+      _gesture.mode = null; _gesture.chartId = null; _gestureTouches = null;
+      if (_gestureFrame != null) { cancelAnimationFrame(_gestureFrame); _gestureFrame = null; }
+      return;
+    }
+    if (e.touches.length === 1 && _gesture.mode === 'pinch') {
+      // 핀치 중 손가락 하나를 뗌 → 남은 손가락으로 패닝을 자연스럽게 이어감
+      var t0 = e.touches[0];
+      var gd = document.getElementById(_gesture.chartId);
+      if (gd && gd._fullLayout) {
+        _gesture.mode = 'pan';
+        _gesture.startClientX = t0.clientX;
+        _gesture.startClientY = t0.clientY;
+        var ax = _readAxes(gd, t0.clientX, t0.clientY);
+        _gesture.start_x = ax.x; _gesture.start_y = ax.y; _gesture.start_y2 = ax.y2;
+      } else {
+        _gesture.mode = null; _gesture.chartId = null;
+      }
+      if (_gestureFrame != null) { cancelAnimationFrame(_gestureFrame); _gestureFrame = null; }
+    }
+  }, { capture: true });
+
+  _CHART_IDS.forEach(function(id){
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('gesturestart',  function(e){e.preventDefault();}, { passive: false });
+    el.addEventListener('gesturechange', function(e){e.preventDefault();}, { passive: false });
+    el.addEventListener('gestureend',    function(e){e.preventDefault();}, { passive: false });
+  });
+}
+
+/* ---------- 일별 이력 (월별 그룹) ---------- */
+function renderHistory(S){
+  if(!S.length) return;
+  $('hist-card').style.display='block';
+  var body=$('hist-body');
+
+  // 월별 그룹 (시간순 → 월 키 오름차순 수집 후 역순 출력)
+  var byMonth={}, monthOrder=[];
+  S.forEach(function(s){
+    var m=s.date.slice(0,7);
+    if(!byMonth[m]){byMonth[m]=[];monthOrder.push(m);}
+    byMonth[m].push(s);
+  });
+  monthOrder.reverse();
+
+  function pill(v){
+    var lv=LV[v];
+    if(!lv) return '<span class="lv-pill dim">—</span>';
+    return '<span class="lv-pill" style="background:'+lv.c+';color:'+lv.tx+'">L'+v+'</span>';
+  }
+
+  monthOrder.forEach(function(m, mi){
+    var rows=byMonth[m];             // 시간순 (오름차순)
+    var maxLv=null, changes=0;
+    rows.forEach(function(s,i){
+      if(s.final_level!=null && (maxLv==null || s.final_level>maxLv)) maxLv=s.final_level;
+      if(i>0 && rows[i].final_level!==rows[i-1].final_level) changes++;
+    });
+    var mp=m.split('-');
+    var label=(+mp[0])+'년 '+(+mp[1])+'월';
+    var maxLvHtml = maxLv!=null && LV[maxLv]
+      ? '<span class="mon-max" style="background:'+LV[maxLv].c+';color:'+LV[maxLv].tx+'">최고 L'+maxLv+'</span>'
+      : '';
+
+    var sec=document.createElement('div');
+    sec.className='mon'+(mi===0?' open':'');   // 최신 달만 펼침
+    var head=document.createElement('div');
+    head.className='mon-head';
+    head.innerHTML='<span class="mon-title">'+label+'</span>'+
+      '<span class="mon-sum">'+rows.length+'거래일 · 레벨 변동 '+changes+'회 '+maxLvHtml+'</span>'+
+      '<span class="mon-caret">▼</span>';
+    head.addEventListener('click',function(){sec.classList.toggle('open');});
+    sec.appendChild(head);
+
+    var mbody=document.createElement('div');
+    mbody.className='mon-body';
+    rows.slice().reverse().forEach(function(s){   // 최신일이 위로
+      var row=document.createElement('div');
+      row.className='hist-row';
+      row.innerHTML='<span class="hist-date">'+fmtDate(s.date,true)+'</span>'+
+        '<span class="hist-close">'+fmtNum(s.close)+'</span>'+
+        pill(s.rule_raw)+pill(s.ai_level)+pill(s.final_level)+
+        '<div class="hist-reason">'+(s.reason?esc(s.reason):'(판단 근거 없음)')+'</div>';
+      row.addEventListener('click',function(){this.classList.toggle('open');});
+      mbody.appendChild(row);
+    });
+    sec.appendChild(mbody);
+    body.appendChild(sec);
+  });
+}
+})();
+</script>
+</body>
+</html>

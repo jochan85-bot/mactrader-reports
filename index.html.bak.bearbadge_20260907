@@ -28,16 +28,6 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .grid2 .card{margin:0}
 .sig-ico{width:20px;height:20px;flex-shrink:0;display:block}
-/* --- 하락장 경보 정사각 박스 (초안 v2) --- */
-.report-row{display:flex;align-items:stretch;gap:8px;margin:6px 0}
-.report-row .card{flex:1 1 auto;min-width:0;margin:0}
-.bear-sq{flex:0 0 60px;width:60px;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:6px;
-  background:#161b22;border:1px solid #30363d;border-radius:8px;
-  color:#8b949e;text-decoration:none}
-.bear-sq:active{border-color:#58a6ff}
-.bear-sq .dot{width:14px;height:14px;border-radius:50%;background:#484f58}
-.bear-sq .lv{font-size:13px;font-weight:700;letter-spacing:.3px}
 </style>
 </head>
 <body>
@@ -54,35 +44,25 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
 <div class="section">
   <div class="section-title">📅 최신 리포트</div>
 
-  <div class="report-row">
-    <a class="card" href="sepa_vcp_latest.html">
-      <div class="card-top">
-        <div class="card-left">
-          <span class="icon">🎯</span>
-          <span>미장 리포트</span>
-        </div>
-        <span class="card-date" id="us-date">2026. 09.04 (금)</span>
+  <a class="card" href="sepa_vcp_latest.html">
+    <div class="card-top">
+      <div class="card-left">
+        <span class="icon">🎯</span>
+        <span>미장 리포트</span>
       </div>
-    </a>
-    <a class="bear-sq" id="us-badge" href="bear_us.html" aria-label="미장 하락장 경보 상세">
-      <span class="dot"></span><span class="lv">L?</span>
-    </a>
-  </div>
+      <span class="card-date" id="us-date">2026. 09.04 (금)</span>
+    </div>
+  </a>
 
-  <div class="report-row">
-    <a class="card" href="kr_sepa_vcp_latest.html">
-      <div class="card-top">
-        <div class="card-left">
-          <span class="icon">🇰🇷</span>
-          <span>국장 리포트</span>
-        </div>
-        <span class="card-date" id="kr-date">2026. 09.07 (월)</span>
+  <a class="card" href="kr_sepa_vcp_latest.html">
+    <div class="card-top">
+      <div class="card-left">
+        <span class="icon">🇰🇷</span>
+        <span>국장 리포트</span>
       </div>
-    </a>
-    <a class="bear-sq" id="kr-badge" href="bear_kr.html" aria-label="국장 하락장 경보 상세">
-      <span class="dot"></span><span class="lv">L?</span>
-    </a>
-  </div>
+      <span class="card-date" id="kr-date">2026. 09.07 (월)</span>
+    </div>
+  </a>
 </div>
 
 <div class="section">
@@ -112,32 +92,5 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
   </div>
 </div>
 
-<script>
-(function(){
-  var LV = {
-    1:{c:'#3fb950', n:'정상'},
-    2:{c:'#e3b341', n:'주의'},
-    3:{c:'#f0883e', n:'경계'},
-    4:{c:'#f85149', n:'위험'},
-    5:{c:'#b62324', n:'극도'}
-  };
-  function setBadge(id, src){
-    fetch(src).then(function(r){
-      if(!r.ok) throw new Error(r.status);
-      return r.json();
-    }).then(function(j){
-      var lv = j && j.latest && j.latest.final_level;
-      var el = document.getElementById(id);
-      if(!el || !LV[lv]) return;
-      el.querySelector('.dot').style.background = LV[lv].c;
-      el.querySelector('.lv').textContent = 'L' + lv;
-      el.querySelector('.lv').style.color = '#e6edf3';
-      el.setAttribute('aria-label', el.getAttribute('aria-label') + ' — L' + lv + ' ' + LV[lv].n);
-    }).catch(function(){ /* 폴백: 회색 L? 유지 */ });
-  }
-  setBadge('us-badge', 'bear_history_us.json');
-  setBadge('kr-badge', 'bear_history_kr.json');
-})();
-</script>
 </body>
 </html>

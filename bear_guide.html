@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시장경보 시스템 가이드</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;padding:16px;max-width:640px;margin:0 auto}
+a{color:#58a6ff;text-decoration:none}
+.top-nav{display:flex;align-items:center;gap:8px;margin:6px 0 16px;font-size:13px;color:#8b949e}
+.top-nav a{color:#8b949e;border:1px solid #30363d;border-radius:6px;padding:4px 10px}
+.top-nav a:active{color:#e6edf3;border-color:#58a6ff}
+h1{color:#58a6ff;font-size:20px;line-height:1.3;margin-bottom:2px}
+.subtitle{font-size:12px;color:#8b949e;margin-bottom:16px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;margin-bottom:16px}
+.section-title{color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #21262d}
+p{font-size:13.5px;line-height:1.7;color:#c9d1d9;margin-bottom:10px}
+p:last-child{margin-bottom:0}
+b{color:#e6edf3}
+ul{margin:0 0 10px;padding-left:18px}
+ul:last-child{margin-bottom:0}
+li{font-size:13.5px;line-height:1.7;color:#c9d1d9;margin-bottom:4px}
+.note{font-size:12.5px;color:#8b949e;line-height:1.6}
+.lv-list{list-style:none;padding:0}
+.lv-list li{display:flex;align-items:flex-start;gap:10px;margin-bottom:9px}
+.lv-tag{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:64px;border-radius:5px;font-size:11.5px;font-weight:700;padding:3px 0;color:#0d1117;margin-top:2px}
+.lv-desc{font-size:13.5px;line-height:1.6;color:#c9d1d9}
+.num-list{list-style:none;padding:0}
+.num-list li{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.num-list .no{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#0d1117;border:1px solid #30363d;color:#58a6ff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;margin-top:2px}
+.hl{background:rgba(88,166,255,.08);border:1px solid rgba(88,166,255,.35);border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.65;color:#c9d1d9;margin-bottom:10px}
+.hl:last-child{margin-bottom:0}
+</style>
+</head>
+<body>
+
+<div class="top-nav"><a href="#" id="back-link">‹ 돌아가기</a></div>
+<h1>🚦 시장경보 시스템 가이드</h1>
+<div class="subtitle">국장·미장 공통 · 경보의 원리와 읽는 법</div>
+
+<div class="card">
+  <div class="section-title">이 시스템이 하는 일</div>
+  <p>지수 하나를 매일 보고 시장 위험을 <b>1에서 5까지 다섯 단계</b>로 매깁니다. 국장은 코스피, 미장은 S&amp;P 500 을 봅니다.</p>
+  <div class="hl">⚠️ <b>자동 매도는 없습니다.</b> 최종 판단은 사용자 몫이고, 이 경보는 신규 진입과 손절 강도를 조절하는 참고입니다.</div>
+</div>
+
+<div class="card">
+  <div class="section-title">평가 시각</div>
+  <ul>
+    <li><b>국장</b> — 매일 오후 3시 40분 (한국시간), 그날 국내 장 기준</li>
+    <li><b>미장</b> — 매일 아침 6시 50분 (한국시간), <b>전날 미국 장 기준</b></li>
+    <li>화면의 모든 날짜는 각 시장의 실제 거래일로 맞춰져 있습니다</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="section-title">다섯 단계</div>
+  <ul class="lv-list">
+    <li><span class="lv-tag" style="background:#3fb950">L1 정상</span><span class="lv-desc">추세 위. 거래 지속</span></li>
+    <li><span class="lv-tag" style="background:#e3b341">L2 주의</span><span class="lv-desc">단기 이탈(가격이 50일선 아래). 흔한 조정, 모니터링</span></li>
+    <li><span class="lv-tag" style="background:#f0883e">L3 경계</span><span class="lv-desc">가격이 200일선 아래 + (200일선이 하락 중이거나 데드크로스). 추세 전환 의심, 신규 진입 축소</span></li>
+    <li><span class="lv-tag" style="background:#f85149;color:#fff">L4 위험</span><span class="lv-desc">L3 조건에 낙폭 10% 이상 또는 변동성 급등이 겹침. 현금 비중 검토</span></li>
+    <li><span class="lv-tag" style="background:#b62324;color:#fff">L5 극도</span><span class="lv-desc">L4 에 낙폭 20% 이상과 다수 신호가 겹침. 전량 청산 검토</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="section-title">판단에 쓰는 여섯 신호</div>
+  <ul>
+    <li>가격이 200일선 아래인지</li>
+    <li>200일선이 하락 중인지</li>
+    <li>데드크로스 (50일선이 200일선 아래)</li>
+    <li>가격이 50일선 아래인지</li>
+    <li>최근 1년(252거래일) 고점 대비 낙폭</li>
+    <li>변동성 급등 (VIX 25 이상)</li>
+  </ul>
+  <p class="note">· 변동성은 <b>미장에만</b> 씁니다. 국장은 변동성 지표의 신뢰도가 낮아 빼놓았습니다<br>
+  · 점수를 더하는 방식이 아니라 조건 조합으로 단계를 정합니다</p>
+</div>
+
+<div class="card">
+  <div class="section-title">헛경보를 막는 장치 셋</div>
+  <ul class="num-list">
+    <li><span class="no">1</span><span class="lv-desc"><b>의미 있는 낙폭 관문</b> — 고점 대비 8% 넘게 빠지지 않았으면 L3 이상으로 안 올립니다. 고점 근처에서 200일선이 노이즈로 살짝 꺾이는 경우를 걸러냅니다.</span></li>
+    <li><span class="no">2</span><span class="lv-desc"><b>3일 확인</b> — 위험을 올릴 때는 사흘 연속 그 수준이어야 확정합니다. 내릴 때는 즉시 반영합니다. 늦더라도 확실하게 올리고, 풀 때는 빨리 푸는 쪽입니다.</span></li>
+    <li><span class="no">3</span><span class="lv-desc"><b>래칫</b> — 한 번 L3 이상에 들어가면 시장이 확실히 회복될 때까지 L3 밑으로 안 내려갑니다. 해제 조건은 세 가지가 동시에 성립할 때입니다. 가격이 200일선을 3% 넘게 웃돌 것, 50일선이 상승 중일 것, 200일선이 하락 중이 아닐 것.</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="section-title">급락 전용 통로 (2026년 7월 28일 추가)</div>
+  <p>위 규칙만으로는 <b>급등한 뒤 폭락하는 장</b>을 놓쳤습니다. 가격이 아직 200일선 위에 있으면 낙폭이 아무리 커도 단계가 안 올라갔기 때문입니다. 실제로 2026년 7월 코스피가 고점 대비 32% 빠졌는데 L2 에 머무는 일이 있었습니다.</p>
+  <p>그래서 200일선을 보지 않는 통로를 따로 뚫었습니다.</p>
+  <ul>
+    <li>낙폭 <b>20% 이상</b>이고 가격이 50일선 아래 → 곧바로 <b>L4</b></li>
+    <li>낙폭 <b>10% 이상</b>이고 가격이 50일선 아래 → 곧바로 <b>L3</b></li>
+  </ul>
+  <p>이 통로로 올라간 단계는 <b>3일 확인을 건너뛰고 그날 바로 확정</b>됩니다. 10년치 되돌려보기로 검증한 뒤 반영했습니다.</p>
+</div>
+
+<div class="card">
+  <div class="section-title">AI 보정층</div>
+  <p>규칙이 단계를 낸 뒤, AI 가 그날 시장 상황을 따로 읽고 자기 단계를 제시합니다.</p>
+  <ul>
+    <li>규칙과 AI 의 차이가 <b>한 단계 이내면 AI 판단을 그대로 씁니다</b></li>
+    <li><b>두 단계 이상 벌어지면 규칙에서 한 단계까지만</b> 움직입니다. AI 방향은 존중하되 폭을 제한합니다. 이때는 큰 이견이 있었다는 표시가 따로 남습니다</li>
+    <li>기준점은 언제나 <b>그날의 규칙 단계</b>입니다. 전날 AI 값이 아닙니다. 오차가 누적되지 않게 하려는 설계입니다</li>
+    <li>AI 가 실패하면 규칙 단계를 쓰고 실패했다고 표시합니다. 조용히 넘어가지 않습니다</li>
+    <li>AI 판단은 규칙 쪽 기록에 되먹이지 않습니다. 규칙은 규칙대로 독립적으로 굴러갑니다</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="section-title">이 화면의 그래프 읽는 법</div>
+  <ul>
+    <li><b>파란 선</b> = 지수 종가 (왼쪽 눈금)</li>
+    <li><b>실선 계단</b> = 규칙이 낸 단계 (오른쪽 눈금 1~5)</li>
+    <li><b>점선 계단</b> = AI 가 낸 단계</li>
+    <li>두 계단이 갈라진 날이 AI 가 규칙과 다르게 본 날입니다</li>
+    <li>기간 버튼과 두 손가락 확대로 구간을 좁혀 볼 수 있습니다</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="section-title">기록 범위</div>
+  <p><b>2026년 7월 29일부터</b>입니다. 그 전 기록은 위의 급락 통로와 AI 보정이 없던 판정이라 같은 선에 이으면 오해를 부릅니다. 이 날짜 이후 기록은 계속 쌓입니다.</p>
+</div>
+
+<div class="card">
+  <div class="section-title">아직 없는 것</div>
+  <ul>
+    <li>시장 광도(전체 종목 중 200일선 위 비율)는 아직 연동돼 있지 않습니다</li>
+    <li>국장 변동성 지표는 쓰지 않습니다</li>
+    <li>그날의 가격·이동평균·낙폭 수치는 알림 본문에만 있고 이력에는 남지 않습니다</li>
+  </ul>
+</div>
+
+<script>
+(function(){
+  // 두 경보 페이지가 공유하는 가이드라 고정 목적지 대신 브라우저 이력으로 복귀.
+  // 직접 열어 이력이 없으면 국장 경보 페이지로 보낸다.
+  document.getElementById('back-link').addEventListener('click', function(e){
+    e.preventDefault();
+    if (history.length > 1) history.back();
+    else location.href = 'bear_kr.html';
+  });
+})();
+</script>
+</body>
+</html>
