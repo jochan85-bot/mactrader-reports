@@ -6,12 +6,12 @@
  "date_basis": "market_session",
  "range_start": "2026-07-29",
  "range_start_note": "v2.2 낙폭경로 수리 + AI 레벨보정 도입 이후",
- "generated_at": "2026-09-09T06:50:54+09:00",
+ "generated_at": "2026-09-09T07:00:38+09:00",
  "latest": {
   "date": "2026-09-08",
   "rule_raw": 1,
   "rule_confirmed": 1,
-  "ai_level": null,
+  "ai_level": 1,
   "final_level": 1
  },
  "series": [
@@ -328,11 +328,11 @@
    "close": 7673.52,
    "rule_raw": 1,
    "rule_confirmed": 1,
-   "ai_level": null,
+   "ai_level": 1,
    "final_level": 1,
    "clamped": false,
-   "direction": null,
-   "reason": null
+   "direction": "agree",
+   "reason": "고점(7,798.99, 8/13) 대비 낙폭 -1.61%, 가격 7,673.52가 MA50(7,598.10)·MA200(7,147.05) 모두 위에 위치해 추세 훼손 없음. VIX 15.72로 낮은 변동성 유지, S5/S6 등 낙폭·변동성 급등 신호 모두 미발생. 직전(9/5) 판정과 동일하게 규칙엔진 L1 그대로 확인되어 레벨 변경 근거 없음."
   }
  ]
 }
