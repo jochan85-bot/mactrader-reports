@@ -6,12 +6,12 @@
  "date_basis": "market_session",
  "range_start": "2026-07-29",
  "range_start_note": "v2.2 낙폭경로 수리 + AI 레벨보정 도입 이후",
- "generated_at": "2026-09-07T17:21:50+09:00",
+ "generated_at": "2026-09-09T06:50:54+09:00",
  "latest": {
-  "date": "2026-09-04",
+  "date": "2026-09-08",
   "rule_raw": 1,
   "rule_confirmed": 1,
-  "ai_level": 1,
+  "ai_level": null,
   "final_level": 1
  },
  "series": [
@@ -322,6 +322,17 @@
    "clamped": false,
    "direction": "agree",
    "reason": "S&P500 종가 7,718.60으로 고점(7,798.99) 대비 낙폭 -1.03%에 불과하고 200MA(7,141.76)를 크게 상회하는 상승 추세이며, VIX도 14.13(전일比 -1.33%)으로 낮은 수준을 유지해 서킷브레이커·급락 등 위험 신호가 전혀 확인되지 않는다. 최근 5거래일간 AI 판정과 동일하게 L1을 유지하며, 반도체 섹터로의 자금 로테이션 등 시장 내부 건전성도 확인됐다."
+  },
+  {
+   "date": "2026-09-08",
+   "close": 7673.52,
+   "rule_raw": 1,
+   "rule_confirmed": 1,
+   "ai_level": null,
+   "final_level": 1,
+   "clamped": false,
+   "direction": null,
+   "reason": null
   }
  ]
 }
