@@ -13,8 +13,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .hdr-title{font-size:18px;font-weight:800;color:#fff;}
 .hdr-title .n{color:#34D399;}
 .hdr-stats{font-size:11px;color:#94A3B8;font-weight:600;text-align:right;line-height:1.5;flex-shrink:0;}
-.hdr-link{font-size:11px;color:#94A3B8;border:1px solid #334155;border-radius:6px;padding:3px 9px;text-decoration:none;white-space:nowrap;flex-shrink:0;}
-.hdr-link:hover{color:#E2E8F0;border-color:#60A5FA;}
 .tabs{display:flex;flex-wrap:wrap;gap:4px;padding:5px 12px 7px;}
 .tab{flex-shrink:0;padding:4px 8px;border-radius:15px;border:none;cursor:pointer;
   font-size:11px;font-weight:600;background:#1E293B;color:#94A3B8;white-space:nowrap;}
@@ -168,7 +166,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="hdr-label">뭉치 트레이더 · SEPA + VCP · 2026년 09월 08일 (화) 종가 기준</div>
     <div class="hdr-row">
       <div class="hdr-title">국장 SEPA + VCP 돌파 후보 <span class="n">48종목</span></div>
-      <a class="hdr-link" href="sectors_kr_20260908.html">주도섹터</a>
       <div class="hdr-stats">🤖 AI 9</div>
     </div>
   </div>
@@ -177,7 +174,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 </div>
 <div class="wrap">
 <div class="mkt kr"><div class="mkt-title">🛢️ 코스피, 7000 재탈환 실패…유가·美캐나다 갈등에 반락</div><div class="mkt-grid"><div class="mkt-box"><div class="l">코스피</div><div class="v">-0.58%</div><div class="s">6954.52, 7000선 반납</div></div><div class="mkt-box"><div class="l">코스닥</div><div class="v">-1.25%</div><div class="s">811.88, 장중 반락</div></div><div class="mkt-box"><div class="l">수급(외인·기관)</div><div class="v">동반 순매수</div><div class="s">개인 3조원대 순매도</div></div></div><div class="mkt-note">코스피는 장중 한때 7000선을 15거래일 만에 재돌파했으나 장 막판 상승분을 반납하며 6954.52로 마감했다.<br>오전 강세는 OpenAI의 GPT-6 아스트라 공개와 미국 투자 프로젝트 기대감에 반도체주 투자심리가 회복된 데다 전날 미국 증시가 휴장이었던 점이 우호적으로 작용한 결과다.<br>그러나 국제유가 급등과 미국·캐나다 무역 갈등이라는 대외 변수가 부각되고, 다가오는 미국 PPI·CPI 발표를 앞둔 경계심리가 커지며 장 후반 지수가 미끄러졌다.<br>수급 측면에서는 외국인과 기관이 각각 6482억원, 6428억원을 순매수했지만 개인이 3조333억원을 순매도하며 지수를 끌어내렸다.<br>코스닥은 상승 출발 후 약세로 전환해 811.88로 마감했는데, 기관이 2178억원을 순매도한 반면 외국인과 개인은 각각 607억원, 1490억원을 순매수했다.</div></div>
-<div class="card" id="t-002990" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -217,7 +214,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">호남 반도체클러스터 착공 일정 확정 여부, 삼성전자향 HVAC 신축공사 후속 진행 및 추가 수주 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-036930" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -258,7 +255,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">ALG 장비 추가 수주·출하 소식 여부, 2027~2028년 매출 반영 관련 후속 공시, 다음 분기 실적 발표 시 ALG 관련 매출 기여 확인</div></div>
 </div>
 </div>
-<div class="card" id="t-131290" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -298,7 +295,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 디램향 프로브카드 매출 확대(증권가 전망) / 9월 3일 대구시 반도체 검사 디자인센터 300억원 투자협약 / 다음 실적 발표 일정 미확인</div></div>
 </div>
 </div>
-<div class="card" id="t-031980" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -339,7 +336,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">AI 반도체 후공정(HBM·첨단패키징) 투자 확대 사이클 지속 여부, 코스피 반도체 섹터 랠리(9월 삼성전자·SK하이닉스 급등) 지속 여부, 목표주가 20만5000원 대비 추가 상승 확인</div></div>
 </div>
 </div>
-<div class="card" id="t-119850" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -380,7 +377,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">테스트베드 증설 완료(2026년 3월) 이후 수주잔고 실적화 진행 상황, 연내 예상되는 대규모 신규 수주 공시, 당진 AIDC 개발 구체화 일정</div></div>
 </div>
 </div>
-<div class="card" id="t-222800" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -421,7 +418,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">차기 분기(3Q) 실적 발표 시 이익률 개선 지속 여부 확인, 낸드 MCP 수주·QLC SSD 채택 확대 관련 후속 뉴스</div></div>
 </div>
 </div>
-<div class="card" id="t-064290" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -462,7 +459,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">TSMC 첨단 패키징 외주 확대에 따른 국내 후공정 장비사 추가 수주 발표 여부, 8월 보도된 하반기 실적 반등 전망의 분기 실적 확인, HBM발 D램·낸드 후공정 소부장 섹터 순풍 지속 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-241710" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -503,7 +500,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(다음 실적 일정 미확정), 증권가 추가 목표주가 조정 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-010950" style="--c:#DC2626;--cl:#FBE5E5;--cx:#FEF6F6" data-sector="energy" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#DC2626;--cl:#FBE5E5;--cx:#FEF6F6" data-sector="energy" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -543,7 +540,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">NH투자증권 목표가 상향 리포트(9/1) 이후 정제마진·OSP 흐름 지속 여부, 9/8 국제유가 6주 최고치 이후 정유 섹터 모멘텀 지속성, 3분기 실적 발표(구체 일정 미확정)</div></div>
 </div>
 </div>
-<div class="card" id="t-241770" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -583,7 +580,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">삼일테크 인수 후속 통합 성과 확인, 삼성 충청 투자 프로젝트 구체화 일정, 반도체 업황 회복에 따른 메탈히터블럭 수주 흐름</div></div>
 </div>
 </div>
-<div class="card" id="t-161890" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -623,7 +620,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(구체 일정 미확정), K뷰티 업계 컨퍼런스(9/7) 후속 정책·수요 뉴스</div></div>
 </div>
 </div>
-<div class="card" id="t-244920" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -664,7 +661,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">얼라인파트너스의 추가 지분 확대나 주주행동 여부, GA 업계 판매수수료 규제 이슈, 3분기 실적 발표(일정 미확정)</div></div>
 </div>
 </div>
-<div class="card" id="t-041830" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -704,7 +701,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">한미약품 등 차세대 비만치료제 임상·출시 진행 상황, 다음 분기 실적 발표(9분기 연속 최대 실적 이어갈지 여부), 비만클리닉·제약사향 체성분분석기 공급 확대 소식</div></div>
 </div>
 </div>
-<div class="card" id="t-089860" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -744,7 +741,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">TPG 인수 거래 완료(대금 납입·경영권 이전) 및 신규 배당 정책 공식화, 차기 분기 실적 발표를 통한 배당성향 가이던스 확인</div></div>
 </div>
 </div>
-<div class="card" id="t-121440" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -784,7 +781,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">최대주주 측 밸류업 정책 구체안(배당·자사주) 발표 여부, 재차 공개매수 재추진 가능성</div></div>
 </div>
 </div>
-<div class="card" id="t-181710" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -825,7 +822,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">차기 분기 실적 발표(GPUaaS 매출 기여 확인), 포항 AIDC 추가 10MW 자체 증설 진행 상황, 추가 애널리스트 목표가 조정</div></div>
 </div>
 </div>
-<div class="card" id="t-212560" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -866,7 +863,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">9/21 주주 확정기준일 및 간담회, 12/16 임시주주총회(주식교환 승인), 2027/2/1 주식교환 절차 최종 완료</div></div>
 </div>
 </div>
-<div class="card" id="t-001450" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -906,7 +903,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">11월 5세대 실손보험 반값 전환 시행, 3분기 실적 발표(일정 미확정), 손보 섹터 자금 순환매 지속 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-006360" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -947,7 +944,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">GS그룹 동해 북평 AI데이터센터 1차 1.2GW 수주 여부 및 시기, 향후 실적 발표에서 정비사업 매출 반영 규모 확인</div></div>
 </div>
 </div>
-<div class="card" id="t-073240" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -988,7 +985,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">광주공장 부지 매각·호남 반도체클러스터 조성 진행 상황, 하반기 유럽 등 주요시장 타이어 가격 인상 계획, 다음 분기 실적 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-079940" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1028,7 +1025,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">특별위원회 공개매수가 적정성 권고 의견 발표(9월 둘째주 초 예상), 공개매수 마감(9/17), 얼라인 측 임시주총 소집 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-049430" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1068,7 +1065,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">9월 4일 체결된 SK증권 100억원 자사주 취득 신탁계약 이행 진행 상황 / 3분기 실적 발표(일정 미확정) / 퀸즈가드운용·헤이홀더 연합의 추가 감사위원·사외이사 선임 추진 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-088350" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1109,7 +1106,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">해약환급금준비금 규제 개선 여부(일정 미확정) 및 후속 배당 정책 발표, 3분기 실적 발표(날짜 미확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-192820" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1149,7 +1146,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(중국·미국 법인 고성장 지속 여부 확인 포인트), 코스맥스이스트 CB 조기상환 완료 절차, K뷰티 수출 데이터 지속 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-011560" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1189,7 +1186,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">반도체 팹 관련 추가 설비공사 수주 공시 여부, 청주 팹 등 대형 프로젝트 분할수주 진행 상황(구체 일정 미확인), 다음 분기 실적 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-417310" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="avoid">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="avoid">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1229,7 +1226,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">임시주주총회를 통한 청산 절차 마무리(일정 미정), 잔여재산 최종 분배 규모 확정</div></div>
 </div>
 </div>
-<div class="card" id="t-005830" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1270,7 +1267,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">11월 5세대 실손보험 시행(요율 개편), 주주환원 이행 모니터링을 위한 CEO 주관 분기 컨퍼런스콜 확대, 손보업종 전반의 밸류업 자금 유입 지속 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-093320" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1310,7 +1307,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">과천센터 캐파 증설 효과가 실적에 반영되는 시점, 다음 분기 실적 발표(일정 미확정)</div></div>
 </div>
 </div>
-<div class="card" id="t-017890" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1350,7 +1347,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">미리펀드 추가 지분공시 여부, 대한주정판매 독점 구조 관련 정책 논의 진행 상황, 산업용 에탄올·주정 수요 확대 관련 다음 분기 실적 확인(구체적 실적 일정 미확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-028050" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="buy" data-fresh="true">
+<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="buy" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1391,7 +1388,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">연내 반도체 공장 증설 착공 발표, 중동 대형 프로젝트 수주 확정 소식, 3분기 실적 발표 시 수주잔고 업데이트</div></div>
 </div>
 </div>
-<div class="card" id="t-055550" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="financial" data-ai="true" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="financial" data-ai="true" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1431,7 +1428,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 발표(지배주주 순이익 컨센서스 상회 여부), 하반기 추가 자사주 매입 규모 확정 발표, 최대주주등소유주식변동 공시 후속 세부 내용 공개</div></div>
 </div>
 </div>
-<div class="card" id="t-086790" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="financial" data-ai="true" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="financial" data-ai="true" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1471,7 +1468,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">4분기 추가 자사주 매입·소각 발표(약 3000억원 규모, 시기 미확정), 3분기 실적 발표(지배주주순이익 1.3조원 예상), 연간 총주주환원율 51.0% 달성 여부 확인</div></div>
 </div>
 </div>
-<div class="card" id="t-035610" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1512,7 +1509,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">와이브레인 BCI 웨어러블 로봇 국책과제 진행(2027년까지 R&amp;D), BCI 얼라이언스 후속 행보, 인피니트헬스케어 소송 관련 후속 절차</div></div>
 </div>
 </div>
-<div class="card" id="t-086670" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1552,7 +1549,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(일정 미정) — 반도체·조선 쌍끌이 성장 지속 여부 확인 포인트. 8월 10일 2분기 실적 발표(영업이익 +84.2%)가 최근 핵심 촉매였으며 이후 신규 촉매는 확인되지 않음.</div></div>
 </div>
 </div>
-<div class="card" id="t-204610" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="comm" data-ai="true" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="comm" data-ai="true" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1592,7 +1589,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(일정 미정) / 2026년 11월말 분기배당 기준일 / 오디션 해외 로열티 매출 추이 확인</div></div>
 </div>
 </div>
-<div class="card" id="t-028670" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1633,7 +1630,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">하반기 BDI(벌크선 운임지수) 추이 및 물동량 지표, 3분기 실적 발표, 증권사 추가 리포트·목표주가 조정</div></div>
 </div>
 </div>
-<div class="card" id="t-004770" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1673,7 +1670,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">KX그룹과의 경영권 분쟁 향방(지분 매집·후속 조치), 안철수 관련 정치 이슈 재부각 여부, B² 피벗 2,180원 돌파 시도</div></div>
 </div>
 </div>
-<div class="card" id="t-044820" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1713,7 +1710,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">코스맥스엔비티 2분기 실적 발표 시점(다음 분기 실적 확인 필요) / K뷰티 수출·규제 관련 정부 정책 후속 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-105560" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1753,7 +1750,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">기업 밸류업 프로그램 관련 정책 발표 및 구체화 일정, 배당·자사주 매입 계획 IR</div></div>
 </div>
 </div>
-<div class="card" id="t-180640" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1793,7 +1790,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">산업은행 보유 지분 매각·처분 결정 시점, 델타항공·JAL 등 외국 항공사의 추가 지분 행보, 경찰 배임 혐의 수사 진행 상황</div></div>
 </div>
 </div>
-<div class="card" id="t-051160" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1833,7 +1830,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">9월 3일 200억원 규모 자기주식 199만주 소각 결정(완료) — 이후 확인된 추가 일정 없음</div></div>
 </div>
 </div>
-<div class="card" id="t-093190" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1873,7 +1870,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 실적 발표 일정 미확정 — 현재 별도로 확인된 촉매 이벤트 없음</div></div>
 </div>
 </div>
-<div class="card" id="t-003490" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1914,7 +1911,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">12월 17일 통합 대한항공 출범, 3분기 성수기 실적(발표일 미확정), 조종사 노조 노동쟁의 조정 결과</div></div>
 </div>
 </div>
-<div class="card" id="t-092730" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1955,7 +1952,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표 일정 미확정 — 아마존·프라임데이 채널 성장 반영 여부 확인 필요 / 올리브영 제로이드 등 신규 채널 확장 지속 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-000810" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1995,7 +1992,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">11월 5세대 실손보험 반값 전환 시행, 저PBR 밸류업 프로그램 관련 정책 발표 여부, 차기 분기 실적 발표(일정 미정)</div></div>
 </div>
 </div>
-<div class="card" id="t-003690" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -2035,7 +2032,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">보험업권 킥스(기본자본 규제) 도입 일정 확정 여부, 해약환급금준비금 제도개선 관련 당국 발표, 2분기 실적 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-282330" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -2075,7 +2072,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">[&#x27;NH투자증권 목표주가 상향(16만원, 매수의견 유지) 발표&#x27;, &#x27;추석 명절 간편식 시즌 매출 집중 구간(9월)&#x27;, &#x27;차기 분기 실적 발표(일정 미정)&#x27;]</div></div>
 </div>
 </div>
-<div class="card" id="t-096530" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
