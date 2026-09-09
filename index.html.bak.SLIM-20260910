@@ -19,10 +19,6 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
 .card{display:block;background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:14px 16px;border-radius:8px;text-decoration:none;margin:6px 0;font-size:15px}
 .card:active{border-color:#58a6ff}
 .card-history{font-size:16px;font-weight:600;padding:18px 20px}
-/* [INDEX-SLIM-20260910] 히스토리 박스 — 한 줄 제목만, 세로 얇게 (모바일 한 화면) */
-.card-slim{padding:8px 16px;font-size:13px;color:#8b949e}
-.card-slim .icon{font-size:14px;margin-right:8px}
-.card-slim .arrow{font-size:14px}
 .card-top{display:flex;align-items:center;justify-content:space-between}
 .card-left{display:flex;align-items:center;gap:10px}
 .icon{font-size:18px}
@@ -87,11 +83,6 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
       <span class="dot"></span><span class="lv">L?</span>
     </a>
   </div>
-
-  <a class="card card-slim" href="history/index.html">
-    <span class="icon">📁</span>리포트 히스토리
-    <span class="arrow">›</span>
-  </a>
 </div>
 
 <div class="section">
@@ -105,6 +96,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
       </div>
       <span class="card-date" id="sec-us-date">2026. 09.08 (화)</span>
     </div>
+    <span class="desc">그룹 F2T3 순위 · 상위 27% 통과 · 그날 리스트 티커 (표시 전용)</span>
   </a>
 
   <a class="card" href="sectors_kr.html">
@@ -115,11 +107,22 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
       </div>
       <span class="card-date" id="sec-kr-date">2026. 09.09 (수)</span>
     </div>
+    <span class="desc">그룹 F2T3 순위 · 상위 27% 통과 · 그날 리스트 티커 (표시 전용)</span>
   </a>
 
-  <a class="card card-slim" href="history/index.html">
-    <span class="icon">📁</span>주도섹터 히스토리
+  <a class="card" href="history/index.html">
+    <span class="icon">📁</span>날짜별 아카이브
     <span class="arrow">›</span>
+    <span class="desc">일별 주도섹터 페이지 — 리스트 아카이브와 같은 목록</span>
+  </a>
+</div>
+
+<div class="section">
+  <div class="section-title">🗂️ 히스토리</div>
+  <a class="card card-history" href="history/index.html">
+    <span class="icon">📁</span>히스토리
+    <span class="arrow">›</span>
+    <span class="desc">년도 / 월별 리포트 모음</span>
   </a>
 </div>
 
