@@ -218,8 +218,6 @@ details.mcard[open] summary::after{content:"▴ 접기"}
 }
 .note b{color:#d29922}
 .note.info{background:rgba(88,166,255,.06);border-color:rgba(88,166,255,.3)}
-.note.warn{background:rgba(210,153,34,.07);border-color:rgba(210,153,34,.35)}
-.grn{color:#3fb950;font-weight:700}
 .note.info b{color:#58a6ff}
 
 /* ── 차트 (인라인 SVG) ── */
@@ -437,15 +435,15 @@ footer .disc{color:#6e7681;margin-top:10px}
 
   <!-- SEPA -->
   <div class="card metric accent">
-    <div class="m-head"><span class="m-code">SEPA</span><span class="m-name">Minervini 추세 템플릿 (통과/불통과)</span></div>
-    <p>전설적 트레이더 Mark Minervini의 <b>8가지 추세 조건</b>을 모두 통과했는지 확인합니다. 점수가 아니라 <b>관문(gate)</b>입니다.</p>
+    <div class="m-head"><span class="m-code">SEPA ✓</span><span class="m-name">Minervini 추세 템플릿 (통과/불통과)</span></div>
+    <p>전설적 트레이더 Mark Minervini의 <b>8가지 추세 조건</b>을 모두 통과했는지 확인합니다. 통과 시 <span class="badge b-blue">SEPA ✓</span> 배지가 붙습니다. 점수가 아니라 <b>관문(gate)</b>입니다.</p>
     <ul>
       <li>200일 이동평균선이 상승 중인가</li>
       <li>주가 &gt; 150일선 &gt; 200일선 정배열인가</li>
       <li>52주 신고가에 근접(고점 -25% 이내)했는가</li>
       <li>52주 저점 대비 +30% 이상 올라왔는가 … 등</li>
     </ul>
-    <div class="m-cut">💡 리스트에 오른 종목은 <b>전부 SEPA를 통과한 상태</b>입니다. 장기 상승 추세가 확실히 살아있는 종목만 후보가 됩니다. 그래서 카드에 <b>따로 배지를 달지 않습니다</b> — 전건이 통과라 정보가 되지 못합니다(그 자리는 <a href="#sector">섹터 순위</a>가 씁니다).</div>
+    <div class="m-cut">💡 리스트에 오른 종목은 <b>전부 SEPA를 통과한 상태</b>입니다. 장기 상승 추세가 확실히 살아있는 종목만 후보가 됩니다.</div>
   </div>
 
   <!-- Stage (Weinstein 스테이지) -->
@@ -726,7 +724,7 @@ footer .disc{color:#6e7681;margin-top:10px}
   <ul class="pts">
     <li><b>미장</b> — 142개 중 <b>38위 이내</b>가 주도섹터입니다.</li>
     <li><b>국장</b> — 77개 중 <b>21위 이내</b>가 주도섹터입니다.</li>
-    <li>배지가 <b class="grn">초록</b>이면 주도섹터, <b class="muted">회색</b>이면 비주도입니다. 업종 라벨이 없는 종목은 <b>섹터 NA</b>로 표시됩니다.</li>
+    <li>배지가 <b class="up">초록</b>이면 주도섹터, <b class="muted">회색</b>이면 비주도입니다. 업종 라벨이 없는 종목은 <b>섹터 NA</b>로 표시됩니다.</li>
   </ul>
 
   <div class="note warn"><b>이 순위는 실제 매매에 쓰입니다.</b> 배지 자체는 보여주기용이지만, <b>같은 판정 파일</b>이 신규 진입 게이트로 물려 있습니다(2026-09-09 미장·국장 동시 적용). 비주도 섹터 종목은 신규 진입이 막히고, 자금이 부족해 여러 후보가 경합할 때는 <b>순위가 높은 업종부터</b> 삽니다. 이미 보유 중인 종목의 청산·손절에는 영향이 없습니다.</div>
@@ -746,7 +744,7 @@ footer .disc{color:#6e7681;margin-top:10px}
     <li><b>리스트에 있으나 비주도 섹터</b> — 신호는 떴지만 업종이 약해 걸러진 종목들입니다.</li>
     <li><b>섹터 점수표</b> — 순위 · F2T3 · <b>Δ5 · Δ21</b>(5거래일 · 21거래일 전 대비 순위 변화, 양수면 상승) · 구성 종목 수.</li>
   </ul>
-  <div class="note info">Δ가 크게 <b class="grn">플러스</b>로 튄 업종은 <b>돈이 새로 들어오고 있는 곳</b>입니다. 순위 자체보다 이 변화가 먼저 움직이는 경우가 많습니다.</div>
+  <div class="note info">Δ가 크게 <b class="up">플러스</b>로 튄 업종은 <b>돈이 새로 들어오고 있는 곳</b>입니다. 순위 자체보다 이 변화가 먼저 움직이는 경우가 많습니다.</div>
 </section>
 
 <section>

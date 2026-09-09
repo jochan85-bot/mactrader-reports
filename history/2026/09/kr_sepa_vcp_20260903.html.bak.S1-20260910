@@ -60,7 +60,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .tpill{background:var(--c);color:#fff;font-weight:800;font-size:14.5px;padding:4px 8px;border-radius:7px;}
 .sbadge{margin-top:4px;font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px;background:#DCFCE7;color:#15803D;display:inline-block;}
 .sbadge.no{background:#F1F5F9;color:#94A3B8;}
-.card{scroll-margin-top:96px;}
 .tcol .sbadge{display:block;font-size:10px;padding:2px 6px;margin-top:4px;text-align:center;}
 .cmain{min-width:0;}
 .cname{font-weight:700;font-size:14px;color:#111827;line-height:1.3;word-break:keep-all;}
@@ -185,7 +184,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">002990</div>
         <div class="sbadge">RS 99</div>
-        <div class="sbadge" title="건설 — 주도섹터 · F2T3 98.3333 · 구성 52 · 상위3 317400, 002990, 047040 · 표시 전용(매매 무관)">섹터 1/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">금호건설</div>
@@ -200,7 +199,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-12.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-12.4%</b></span><span class="g" title="건설 — F2T3 98.3333 · 구성 52 · 상위3 317400, 002990, 047040 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>1/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -226,7 +225,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">079650</div>
         <div class="sbadge">RS 99</div>
-        <div class="sbadge" title="건축자재 — 주도섹터 · F2T3 98.0 · 구성 31 · 상위3 079650, 038500, 228340 · 표시 전용(매매 무관)">섹터 3/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">서산</div>
@@ -241,7 +240,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-na"><i></i><em>VCP 패턴</em> <b>—</b></span><span class="g"><i></i><em>수축깊이</em> <b>23.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>—</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+11.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.20yr, B1)</b></span><span class="g fail"><i></i><em>AI</em> <b>2/10</b></span></div>
+  <div class="gline"><span class="g pt-na"><i></i><em>VCP 패턴</em> <b>—</b></span><span class="g"><i></i><em>수축깊이</em> <b>23.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>—</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+11.5%</b></span><span class="g" title="건축자재 — F2T3 98.0 · 구성 31 · 상위3 079650, 038500, 228340 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>3/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.20yr, B1)</b></span><span class="g fail"><i></i><em>AI</em> <b>2/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -267,7 +266,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">317400</div>
         <div class="sbadge">RS 99</div>
-        <div class="sbadge" title="건설 — 주도섹터 · F2T3 98.3333 · 구성 52 · 상위3 317400, 002990, 047040 · 표시 전용(매매 무관)">섹터 1/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">자이에스앤디 🤖</div>
@@ -282,7 +281,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>19.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.9%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.13yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>19.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.9%</b></span><span class="g" title="건설 — F2T3 98.3333 · 구성 52 · 상위3 317400, 002990, 047040 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>1/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.13yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -308,7 +307,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">067290</div>
         <div class="sbadge">RS 98</div>
-        <div class="sbadge" title="제약 — 주도섹터 · F2T3 97.6667 · 구성 126 · 상위3 187660, 067290, 365270 · 표시 전용(매매 무관)">섹터 7/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">JW신약</div>
@@ -323,7 +322,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>21.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.69yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>21.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span><span class="g" title="제약 — F2T3 97.6667 · 구성 126 · 상위3 187660, 067290, 365270 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>7/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.69yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -349,7 +348,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">159010</div>
         <div class="sbadge">RS 98</div>
-        <div class="sbadge" title="기계 — 주도섹터 · F2T3 97.3333 · 구성 81 · 상위3 319400, 159010, 413630 · 표시 전용(매매 무관)">섹터 8/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">아스플로</div>
@@ -363,7 +362,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>20.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.64yr, B1)</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>20.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span><span class="g" title="기계 — F2T3 97.3333 · 구성 81 · 상위3 319400, 159010, 413630 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>8/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.64yr, B1)</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -389,7 +388,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">457600</div>
         <div class="sbadge">RS 98</div>
-        <div class="sbadge no" title="교육서비스 — 비주도 · F2T3 82.0 · 구성 14 · 상위3 457600, 339950, 068930 · 표시 전용(매매 무관)">섹터 43/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">벡트 🤖</div>
@@ -403,7 +402,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.11yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span><span class="g na" title="교육서비스 — F2T3 82.0 · 구성 14 · 상위3 457600, 339950, 068930 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>43/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.11yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -429,7 +428,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">417840</div>
         <div class="sbadge">RS 96</div>
-        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 98.3333 · 구성 145 · 상위3 032580, 030530, 402340 · 표시 전용(매매 무관)">섹터 2/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">저스템 🤖</div>
@@ -444,7 +443,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (1.23yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.8%</b></span><span class="g" title="반도체와반도체장비 — F2T3 98.3333 · 구성 145 · 상위3 032580, 030530, 402340 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>2/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (1.23yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -470,7 +469,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">003010</div>
         <div class="sbadge">RS 95</div>
-        <div class="sbadge" title="기계 — 주도섹터 · F2T3 97.3333 · 구성 81 · 상위3 319400, 159010, 413630 · 표시 전용(매매 무관)">섹터 8/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">혜인</div>
@@ -484,7 +483,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>29.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.04yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>29.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.8%</b></span><span class="g" title="기계 — F2T3 97.3333 · 구성 81 · 상위3 319400, 159010, 413630 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>8/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.04yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -510,7 +509,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">031980</div>
         <div class="sbadge">RS 95</div>
-        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 98.3333 · 구성 145 · 상위3 032580, 030530, 402340 · 표시 전용(매매 무관)">섹터 2/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">피에스케이홀딩스</div>
@@ -525,7 +524,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.6%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.87yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.6%</b></span><span class="g" title="반도체와반도체장비 — F2T3 98.3333 · 구성 145 · 상위3 032580, 030530, 402340 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>2/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.87yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -551,7 +550,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">078930</div>
         <div class="sbadge">RS 95</div>
-        <div class="sbadge" title="석유와가스 — 주도섹터 · F2T3 94.0 · 구성 12 · 상위3 078930, 010950, 034730 · 표시 전용(매매 무관)">섹터 19/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">GS</div>
@@ -565,7 +564,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>12.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>12.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.2%</b></span><span class="g" title="석유와가스 — F2T3 94.0 · 구성 12 · 상위3 078930, 010950, 034730 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>19/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -591,7 +590,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">119850</div>
         <div class="sbadge">RS 95</div>
-        <div class="sbadge" title="전기장비 — 주도섹터 · F2T3 96.3333 · 구성 27 · 상위3 000500, 006340, 119850 · 표시 전용(매매 무관)">섹터 13/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">지엔씨에너지</div>
@@ -605,7 +604,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.08yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.7%</b></span><span class="g" title="전기장비 — F2T3 96.3333 · 구성 27 · 상위3 000500, 006340, 119850 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>13/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.08yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -631,7 +630,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">198440</div>
         <div class="sbadge">RS 95</div>
-        <div class="sbadge" title="건축자재 — 주도섹터 · F2T3 98.0 · 구성 31 · 상위3 079650, 038500, 228340 · 표시 전용(매매 무관)">섹터 3/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">강동씨앤엘</div>
@@ -645,7 +644,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>18.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.20yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>18.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.8%</b></span><span class="g" title="건축자재 — F2T3 98.0 · 구성 31 · 상위3 079650, 038500, 228340 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>3/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.20yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -671,7 +670,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">241710</div>
         <div class="sbadge">RS 95</div>
-        <div class="sbadge" title="화장품 — 주도섹터 · F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 048410 · 표시 전용(매매 무관)">섹터 18/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">코스메카코리아</div>
@@ -686,7 +685,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.13yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.4%</b></span><span class="g" title="화장품 — F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 048410 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>18/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.13yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -712,7 +711,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">020120</div>
         <div class="sbadge">RS 94</div>
-        <div class="sbadge no" title="양방향미디어와서비스 — 비주도 · F2T3 92.0 · 구성 12 · 상위3 134580, 020120, 089230 · 표시 전용(매매 무관)">섹터 23/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">키다리스튜디오</div>
@@ -726,7 +725,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>19.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-15.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.04yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>19.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-15.8%</b></span><span class="g na" title="양방향미디어와서비스 — F2T3 92.0 · 구성 12 · 상위3 134580, 020120, 089230 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>23/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.04yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -752,7 +751,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">161890</div>
         <div class="sbadge">RS 94</div>
-        <div class="sbadge" title="화장품 — 주도섹터 · F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 048410 · 표시 전용(매매 무관)">섹터 18/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">한국콜마</div>
@@ -766,7 +765,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.36yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.5%</b></span><span class="g" title="화장품 — F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 048410 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>18/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.36yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -792,7 +791,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">010950</div>
         <div class="sbadge">RS 93</div>
-        <div class="sbadge" title="석유와가스 — 주도섹터 · F2T3 94.0 · 구성 12 · 상위3 078930, 010950, 034730 · 표시 전용(매매 무관)">섹터 19/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">S-Oil</div>
@@ -806,7 +805,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.17yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.7%</b></span><span class="g" title="석유와가스 — F2T3 94.0 · 구성 12 · 상위3 078930, 010950, 034730 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>19/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.17yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -832,7 +831,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">052860</div>
         <div class="sbadge">RS 93</div>
-        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 98.3333 · 구성 145 · 상위3 032580, 030530, 402340 · 표시 전용(매매 무관)">섹터 2/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">아이앤씨</div>
@@ -847,7 +846,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.34yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.7%</b></span><span class="g" title="반도체와반도체장비 — F2T3 98.3333 · 구성 145 · 상위3 032580, 030530, 402340 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>2/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.34yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -873,7 +872,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">121440</div>
         <div class="sbadge">RS 93</div>
-        <div class="sbadge no" title="레저용장비와제품 — 비주도 · F2T3 66.0 · 구성 5 · 상위3 121440, 024950, 002450 · 표시 전용(매매 무관)">섹터 58/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">골프존홀딩스</div>
@@ -887,7 +886,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.15yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span><span class="g na" title="레저용장비와제품 — F2T3 66.0 · 구성 5 · 상위3 121440, 024950, 002450 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>58/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.15yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -913,7 +912,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">181710</div>
         <div class="sbadge">RS 93</div>
-        <div class="sbadge" title="IT서비스 — 주도섹터 · F2T3 94.3333 · 구성 61 · 상위3 242040, 124500, 181710 · 표시 전용(매매 무관)">섹터 17/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">NHN 🤖</div>
@@ -928,7 +927,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>15.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.36yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>15.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.5%</b></span><span class="g" title="IT서비스 — F2T3 94.3333 · 구성 61 · 상위3 242040, 124500, 181710 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>17/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.36yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -954,7 +953,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">222040</div>
         <div class="sbadge">RS 93</div>
-        <div class="sbadge" title="건강관리업체및서비스 — 주도섹터 · F2T3 96.0 · 구성 18 · 상위3 065170, 221800, 222040 · 표시 전용(매매 무관)">섹터 15/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">코스맥스엔비티</div>
@@ -968,7 +967,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>14.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.6%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.38yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>14.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.6%</b></span><span class="g" title="건강관리업체및서비스 — F2T3 96.0 · 구성 18 · 상위3 065170, 221800, 222040 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>15/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.38yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -994,7 +993,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">241770</div>
         <div class="sbadge">RS 93</div>
-        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 98.3333 · 구성 145 · 상위3 032580, 030530, 402340 · 표시 전용(매매 무관)">섹터 2/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">메카로 🤖</div>
@@ -1009,7 +1008,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.50yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.1%</b></span><span class="g" title="반도체와반도체장비 — F2T3 98.3333 · 구성 145 · 상위3 032580, 030530, 402340 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>2/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.50yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1035,7 +1034,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">244920</div>
         <div class="sbadge">RS 93</div>
-        <div class="sbadge no" title="손해보험 — 비주도 · F2T3 92.3333 · 구성 10 · 상위3 001450, 244920, 005830 · 표시 전용(매매 무관)">섹터 22/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">에이플러스에셋</div>
@@ -1050,7 +1049,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B1+)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.4%</b></span><span class="g na" title="손해보험 — F2T3 92.3333 · 구성 10 · 상위3 001450, 244920, 005830 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>22/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B1+)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1076,7 +1075,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">089860</div>
         <div class="sbadge">RS 92</div>
-        <div class="sbadge" title="도로와철도운송 — 주도섹터 · F2T3 94.6667 · 구성 8 · 상위3 000650, 084670, 089860 · 표시 전용(매매 무관)">섹터 16/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">롯데렌탈</div>
@@ -1090,7 +1089,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.41yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.1%</b></span><span class="g" title="도로와철도운송 — F2T3 94.6667 · 구성 8 · 상위3 000650, 084670, 089860 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>16/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.41yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1116,7 +1115,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">417310</div>
         <div class="sbadge">RS 92</div>
-        <div class="sbadge no" title="부동산 — 비주도 · F2T3 88.0 · 구성 23 · 상위3 417310, 094800, 033560 · 표시 전용(매매 무관)">섹터 30/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">코람코더원리츠</div>
@@ -1130,7 +1129,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>2.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.27yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>2.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.2%</b></span><span class="g na" title="부동산 — F2T3 88.0 · 구성 23 · 상위3 417310, 094800, 033560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>30/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.27yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1156,7 +1155,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">001450</div>
         <div class="sbadge">RS 91</div>
-        <div class="sbadge no" title="손해보험 — 비주도 · F2T3 92.3333 · 구성 10 · 상위3 001450, 244920, 005830 · 표시 전용(매매 무관)">섹터 22/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">현대해상</div>
@@ -1170,7 +1169,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.05yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.2%</b></span><span class="g na" title="손해보험 — F2T3 92.3333 · 구성 10 · 상위3 001450, 244920, 005830 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>22/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.05yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1196,7 +1195,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">041830</div>
         <div class="sbadge">RS 91</div>
-        <div class="sbadge" title="건강관리장비와용품 — 주도섹터 · F2T3 96.0 · 구성 61 · 상위3 376900, 042520, 041920 · 표시 전용(매매 무관)">섹터 14/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">인바디</div>
@@ -1210,7 +1209,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.0%</b></span><span class="g" title="건강관리장비와용품 — F2T3 96.0 · 구성 61 · 상위3 376900, 042520, 041920 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>14/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1236,7 +1235,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">079940</div>
         <div class="sbadge">RS 90</div>
-        <div class="sbadge" title="IT서비스 — 주도섹터 · F2T3 94.3333 · 구성 61 · 상위3 242040, 124500, 181710 · 표시 전용(매매 무관)">섹터 17/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">가비아</div>
@@ -1250,7 +1249,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.61yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.2%</b></span><span class="g" title="IT서비스 — F2T3 94.3333 · 구성 61 · 상위3 242040, 124500, 181710 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>17/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.61yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1276,7 +1275,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">088350</div>
         <div class="sbadge">RS 90</div>
-        <div class="sbadge no" title="생명보험 — 비주도 · F2T3 91.0 · 구성 3 · 상위3 085620, 088350, 032830 · 표시 전용(매매 무관)">섹터 24/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">한화생명</div>
@@ -1291,7 +1290,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+1.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.20yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+1.0%</b></span><span class="g na" title="생명보험 — F2T3 91.0 · 구성 3 · 상위3 085620, 088350, 032830 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>24/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.20yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1317,7 +1316,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">137080</div>
         <div class="sbadge">RS 90</div>
-        <div class="sbadge" title="디스플레이장비및부품 — 주도섹터 · F2T3 97.0 · 구성 37 · 상위3 001210, 351320, 092190 · 표시 전용(매매 무관)">섹터 10/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">나래나노텍 🤖</div>
@@ -1331,7 +1330,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.13yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.0%</b></span><span class="g" title="디스플레이장비및부품 — F2T3 97.0 · 구성 37 · 상위3 001210, 351320, 092190 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>10/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.13yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1357,7 +1356,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">192820</div>
         <div class="sbadge">RS 90</div>
-        <div class="sbadge" title="화장품 — 주도섹터 · F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 048410 · 표시 전용(매매 무관)">섹터 18/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">코스맥스</div>
@@ -1371,7 +1370,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.10yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.8%</b></span><span class="g" title="화장품 — F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 048410 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>18/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.10yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1397,7 +1396,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">073240</div>
         <div class="sbadge">RS 89</div>
-        <div class="sbadge" title="자동차부품 — 주도섹터 · F2T3 98.0 · 구성 94 · 상위3 126640, 085910, 448900 · 표시 전용(매매 무관)">섹터 4/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">금호타이어</div>
@@ -1412,7 +1411,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-9.3%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.79yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-9.3%</b></span><span class="g" title="자동차부품 — F2T3 98.0 · 구성 94 · 상위3 126640, 085910, 448900 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>4/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.79yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1438,7 +1437,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">049430</div>
         <div class="sbadge">RS 88</div>
-        <div class="sbadge" title="기계 — 주도섹터 · F2T3 97.3333 · 구성 81 · 상위3 319400, 159010, 413630 · 표시 전용(매매 무관)">섹터 8/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">코메론</div>
@@ -1452,7 +1451,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.13yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.2%</b></span><span class="g" title="기계 — F2T3 97.3333 · 구성 81 · 상위3 319400, 159010, 413630 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>8/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.13yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1478,7 +1477,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">006360</div>
         <div class="sbadge">RS 87</div>
-        <div class="sbadge" title="건설 — 주도섹터 · F2T3 98.3333 · 구성 52 · 상위3 317400, 002990, 047040 · 표시 전용(매매 무관)">섹터 1/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">GS건설</div>
@@ -1493,7 +1492,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.48yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.0%</b></span><span class="g" title="건설 — F2T3 98.3333 · 구성 52 · 상위3 317400, 002990, 047040 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>1/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.48yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1519,7 +1518,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">011560</div>
         <div class="sbadge">RS 87</div>
-        <div class="sbadge" title="건설 — 주도섹터 · F2T3 98.3333 · 구성 52 · 상위3 317400, 002990, 047040 · 표시 전용(매매 무관)">섹터 1/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">세보엠이씨</div>
@@ -1533,7 +1532,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-10.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.27yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-10.0%</b></span><span class="g" title="건설 — F2T3 98.3333 · 구성 52 · 상위3 317400, 002990, 047040 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>1/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.27yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1559,7 +1558,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">024800</div>
         <div class="sbadge">RS 86</div>
-        <div class="sbadge" title="도로와철도운송 — 주도섹터 · F2T3 94.6667 · 구성 8 · 상위3 000650, 084670, 089860 · 표시 전용(매매 무관)">섹터 16/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">유성티엔에스</div>
@@ -1574,7 +1573,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.32yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.8%</b></span><span class="g" title="도로와철도운송 — F2T3 94.6667 · 구성 8 · 상위3 000650, 084670, 089860 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>16/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.32yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1600,7 +1599,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">044820</div>
         <div class="sbadge">RS 86</div>
-        <div class="sbadge" title="건강관리업체및서비스 — 주도섹터 · F2T3 96.0 · 구성 18 · 상위3 065170, 221800, 222040 · 표시 전용(매매 무관)">섹터 15/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">코스맥스비티아이</div>
@@ -1614,7 +1613,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.29yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.0%</b></span><span class="g" title="건강관리업체및서비스 — F2T3 96.0 · 구성 18 · 상위3 065170, 221800, 222040 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>15/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.29yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1640,7 +1639,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">071200</div>
         <div class="sbadge">RS 86</div>
-        <div class="sbadge no" title="건강관리기술 — 비주도 · F2T3 88.3333 · 구성 11 · 상위3 458870, 071200, 035610 · 표시 전용(매매 무관)">섹터 29/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">인피니트헬스케어</div>
@@ -1654,7 +1653,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.35yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.7%</b></span><span class="g na" title="건강관리기술 — F2T3 88.3333 · 구성 11 · 상위3 458870, 071200, 035610 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>29/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.35yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1680,7 +1679,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">204610</div>
         <div class="sbadge">RS 86</div>
-        <div class="sbadge no" title="게임엔터테인먼트 — 비주도 · F2T3 76.6667 · 구성 25 · 상위3 204610, 094860, 042420 · 표시 전용(매매 무관)">섹터 45/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">티쓰리 🤖</div>
@@ -1694,7 +1693,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.48yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.1%</b></span><span class="g na" title="게임엔터테인먼트 — F2T3 76.6667 · 구성 25 · 상위3 204610, 094860, 042420 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>45/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.48yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1720,7 +1719,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">028670</div>
         <div class="sbadge">RS 85</div>
-        <div class="sbadge no" title="해운사 — 비주도 · F2T3 83.6667 · 구성 10 · 상위3 109070, 028670, 005880 · 표시 전용(매매 무관)">섹터 39/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">팬오션</div>
@@ -1735,7 +1734,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+1.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+1.5%</b></span><span class="g na" title="해운사 — F2T3 83.6667 · 구성 10 · 상위3 109070, 028670, 005880 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>39/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1761,7 +1760,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">033560</div>
         <div class="sbadge">RS 85</div>
-        <div class="sbadge no" title="부동산 — 비주도 · F2T3 88.0 · 구성 23 · 상위3 417310, 094800, 033560 · 표시 전용(매매 무관)">섹터 30/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">블루콤 🤖</div>
@@ -1775,7 +1774,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.3%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.39yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>3/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.3%</b></span><span class="g na" title="부동산 — F2T3 88.0 · 구성 23 · 상위3 417310, 094800, 033560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>30/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.39yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>3/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1801,7 +1800,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">055550</div>
         <div class="sbadge">RS 85</div>
-        <div class="sbadge no" title="은행 — 비주도 · F2T3 84.3333 · 구성 10 · 상위3 055550, 086790, 105560 · 표시 전용(매매 무관)">섹터 36/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">신한지주 🤖</div>
@@ -1815,7 +1814,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.2%</b></span><span class="g na" title="은행 — F2T3 84.3333 · 구성 10 · 상위3 055550, 086790, 105560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>36/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1841,7 +1840,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">086790</div>
         <div class="sbadge">RS 85</div>
-        <div class="sbadge no" title="은행 — 비주도 · F2T3 84.3333 · 구성 10 · 상위3 055550, 086790, 105560 · 표시 전용(매매 무관)">섹터 36/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">하나금융지주 🤖</div>
@@ -1855,7 +1854,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.29yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span><span class="g na" title="은행 — F2T3 84.3333 · 구성 10 · 상위3 055550, 086790, 105560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>36/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.29yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1881,7 +1880,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">092230</div>
         <div class="sbadge">RS 85</div>
-        <div class="sbadge no" title="화학 — 비주도 · F2T3 89.3333 · 구성 83 · 상위3 010060, 093370, 900290 · 표시 전용(매매 무관)">섹터 28/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">KPX홀딩스</div>
@@ -1895,7 +1894,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.31yr, B4)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.2%</b></span><span class="g na" title="화학 — F2T3 89.3333 · 구성 83 · 상위3 010060, 093370, 900290 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>28/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.31yr, B4)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1921,7 +1920,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">093320</div>
         <div class="sbadge">RS 85</div>
-        <div class="sbadge" title="IT서비스 — 주도섹터 · F2T3 94.3333 · 구성 61 · 상위3 242040, 124500, 181710 · 표시 전용(매매 무관)">섹터 17/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">케이아이엔엑스</div>
@@ -1935,7 +1934,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.3%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.40yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.3%</b></span><span class="g" title="IT서비스 — F2T3 94.3333 · 구성 61 · 상위3 242040, 124500, 181710 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>17/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.40yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1961,7 +1960,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">236200</div>
         <div class="sbadge">RS 85</div>
-        <div class="sbadge" title="전자장비와기기 — 주도섹터 · F2T3 97.6667 · 구성 62 · 상위3 017900, 009150, 222800 · 표시 전용(매매 무관)">섹터 6/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">슈프리마 🤖</div>
@@ -1976,7 +1975,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.49yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.0%</b></span><span class="g" title="전자장비와기기 — F2T3 97.6667 · 구성 62 · 상위3 017900, 009150, 222800 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>6/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.49yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2002,7 +2001,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">017650</div>
         <div class="sbadge">RS 84</div>
-        <div class="sbadge no" title="포장재 — 비주도 · F2T3 82.3333 · 구성 16 · 상위3 017650, 251970, 002310 · 표시 전용(매매 무관)">섹터 42/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">대림제지</div>
@@ -2016,7 +2015,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>3.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.17yr, B3)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>3.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.4%</b></span><span class="g na" title="포장재 — F2T3 82.3333 · 구성 16 · 상위3 017650, 251970, 002310 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>42/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.17yr, B3)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2042,7 +2041,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">035610</div>
         <div class="sbadge">RS 84</div>
-        <div class="sbadge no" title="건강관리기술 — 비주도 · F2T3 88.3333 · 구성 11 · 상위3 458870, 071200, 035610 · 표시 전용(매매 무관)">섹터 29/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">솔본</div>
@@ -2057,7 +2056,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.12yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.2%</b></span><span class="g na" title="건강관리기술 — F2T3 88.3333 · 구성 11 · 상위3 458870, 071200, 035610 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>29/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.12yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2083,7 +2082,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">069730</div>
         <div class="sbadge">RS 84</div>
-        <div class="sbadge no" title="철강 — 비주도 · F2T3 84.3333 · 구성 37 · 상위3 001430, 053260, 069730 · 표시 전용(매매 무관)">섹터 37/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">DSR제강</div>
@@ -2097,7 +2096,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.6%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.19yr, B3)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.6%</b></span><span class="g na" title="철강 — F2T3 84.3333 · 구성 37 · 상위3 001430, 053260, 069730 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>37/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.19yr, B3)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2123,7 +2122,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">086670</div>
         <div class="sbadge">RS 84</div>
-        <div class="sbadge" title="기계 — 주도섹터 · F2T3 97.3333 · 구성 81 · 상위3 319400, 159010, 413630 · 표시 전용(매매 무관)">섹터 8/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">비엠티</div>
@@ -2138,7 +2137,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.4%</b></span><span class="g" title="기계 — F2T3 97.3333 · 구성 81 · 상위3 319400, 159010, 413630 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>8/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2164,7 +2163,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">123330</div>
         <div class="sbadge">RS 84</div>
-        <div class="sbadge" title="화장품 — 주도섹터 · F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 048410 · 표시 전용(매매 무관)">섹터 18/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">제닉</div>
@@ -2178,7 +2177,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>12.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.18yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>12.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.0%</b></span><span class="g" title="화장품 — F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 048410 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>18/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.18yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2204,7 +2203,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">278470</div>
         <div class="sbadge">RS 84</div>
-        <div class="sbadge" title="화장품 — 주도섹터 · F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 048410 · 표시 전용(매매 무관)">섹터 18/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">에이피알</div>
@@ -2219,7 +2218,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>19.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.46yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>19.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.0%</b></span><span class="g" title="화장품 — F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 048410 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>18/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.46yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2245,7 +2244,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">017890</div>
         <div class="sbadge">RS 83</div>
-        <div class="sbadge no" title="화학 — 비주도 · F2T3 89.3333 · 구성 83 · 상위3 010060, 093370, 900290 · 표시 전용(매매 무관)">섹터 28/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">한국알콜</div>
@@ -2259,7 +2258,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B4)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.0%</b></span><span class="g na" title="화학 — F2T3 89.3333 · 구성 83 · 상위3 010060, 093370, 900290 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>28/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B4)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2285,7 +2284,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">053260</div>
         <div class="sbadge">RS 83</div>
-        <div class="sbadge no" title="철강 — 비주도 · F2T3 84.3333 · 구성 37 · 상위3 001430, 053260, 069730 · 표시 전용(매매 무관)">섹터 37/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">금강철강</div>
@@ -2300,7 +2299,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>19.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-9.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.40yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>19.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-9.4%</b></span><span class="g na" title="철강 — F2T3 84.3333 · 구성 37 · 상위3 001430, 053260, 069730 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>37/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.40yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2326,7 +2325,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">105560</div>
         <div class="sbadge">RS 82</div>
-        <div class="sbadge no" title="은행 — 비주도 · F2T3 84.3333 · 구성 10 · 상위3 055550, 086790, 105560 · 표시 전용(매매 무관)">섹터 36/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">KB금융</div>
@@ -2340,7 +2339,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.6%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.30yr, B4)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.6%</b></span><span class="g na" title="은행 — F2T3 84.3333 · 구성 10 · 상위3 055550, 086790, 105560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>36/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.30yr, B4)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2366,7 +2365,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">007070</div>
         <div class="sbadge">RS 81</div>
-        <div class="sbadge no" title="백화점과일반상점 — 비주도 · F2T3 87.3333 · 구성 11 · 상위3 452260, 004170, 007070 · 표시 전용(매매 무관)">섹터 31/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">GS리테일</div>
@@ -2380,7 +2379,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.9%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.96yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.9%</b></span><span class="g na" title="백화점과일반상점 — F2T3 87.3333 · 구성 11 · 상위3 452260, 004170, 007070 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>31/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.96yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2406,7 +2405,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">041520</div>
         <div class="sbadge">RS 81</div>
-        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 98.3333 · 구성 145 · 상위3 032580, 030530, 402340 · 표시 전용(매매 무관)">섹터 2/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">이엘씨</div>
@@ -2420,7 +2419,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.41yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span><span class="g" title="반도체와반도체장비 — F2T3 98.3333 · 구성 145 · 상위3 032580, 030530, 402340 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>2/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.41yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2446,7 +2445,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">092730</div>
         <div class="sbadge">RS 81</div>
-        <div class="sbadge" title="화장품 — 주도섹터 · F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 048410 · 표시 전용(매매 무관)">섹터 18/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">네오팜</div>
@@ -2461,7 +2460,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.06yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span><span class="g" title="화장품 — F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 048410 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>18/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.06yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2487,7 +2486,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">093190</div>
         <div class="sbadge">RS 81</div>
-        <div class="sbadge no" title="컴퓨터와주변기기 — 비주도 · F2T3 85.0 · 구성 9 · 상위3 046970, 093190, 054800 · 표시 전용(매매 무관)">섹터 35/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">빅솔론</div>
@@ -2501,7 +2500,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.52yr, B4)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.0%</b></span><span class="g na" title="컴퓨터와주변기기 — F2T3 85.0 · 구성 9 · 상위3 046970, 093190, 054800 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>35/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.52yr, B4)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2527,7 +2526,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">000810</div>
         <div class="sbadge">RS 80</div>
-        <div class="sbadge no" title="손해보험 — 비주도 · F2T3 92.3333 · 구성 10 · 상위3 001450, 244920, 005830 · 표시 전용(매매 무관)">섹터 22/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">삼성화재</div>
@@ -2541,7 +2540,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B1+)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.4%</b></span><span class="g na" title="손해보험 — F2T3 92.3333 · 구성 10 · 상위3 001450, 244920, 005830 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>22/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B1+)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2567,7 +2566,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">003690</div>
         <div class="sbadge">RS 80</div>
-        <div class="sbadge no" title="손해보험 — 비주도 · F2T3 92.3333 · 구성 10 · 상위3 001450, 244920, 005830 · 표시 전용(매매 무관)">섹터 22/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">코리안리</div>
@@ -2581,7 +2580,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-cfx"><i></i><em>VCP 패턴</em> <b>수축이탈</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B5+)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div>
+  <div class="gline"><span class="g pt-cfx"><i></i><em>VCP 패턴</em> <b>수축이탈</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.2%</b></span><span class="g na" title="손해보험 — F2T3 92.3333 · 구성 10 · 상위3 001450, 244920, 005830 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>22/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B5+)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2607,7 +2606,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">004770</div>
         <div class="sbadge">RS 80</div>
-        <div class="sbadge" title="전자장비와기기 — 주도섹터 · F2T3 97.6667 · 구성 62 · 상위3 017900, 009150, 222800 · 표시 전용(매매 무관)">섹터 6/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">써니전자 🤖</div>
@@ -2621,7 +2620,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>29.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.36yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>29.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.7%</b></span><span class="g" title="전자장비와기기 — F2T3 97.6667 · 구성 62 · 상위3 017900, 009150, 222800 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>6/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.36yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2647,7 +2646,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">002810</div>
         <div class="sbadge no">RS 79</div>
-        <div class="sbadge no" title="화학 — 비주도 · F2T3 89.3333 · 구성 83 · 상위3 010060, 093370, 900290 · 표시 전용(매매 무관)">섹터 28/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">삼영무역</div>
@@ -2661,7 +2660,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.9%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.44yr, B3)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.9%</b></span><span class="g na" title="화학 — F2T3 89.3333 · 구성 83 · 상위3 010060, 093370, 900290 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>28/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.44yr, B3)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2687,7 +2686,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">007690</div>
         <div class="sbadge no">RS 78</div>
-        <div class="sbadge no" title="화학 — 비주도 · F2T3 89.3333 · 구성 83 · 상위3 010060, 093370, 900290 · 표시 전용(매매 무관)">섹터 28/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">국도화학</div>
@@ -2701,7 +2700,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.7%</b></span><span class="g na" title="화학 — F2T3 89.3333 · 구성 83 · 상위3 010060, 093370, 900290 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>28/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.21yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2727,7 +2726,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">138040</div>
         <div class="sbadge no">RS 77</div>
-        <div class="sbadge no" title="증권 — 비주도 · F2T3 90.3333 · 구성 25 · 상위3 006800, 001510, 001290 · 표시 전용(매매 무관)">섹터 26/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">메리츠금융지주</div>
@@ -2741,7 +2740,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.6%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.10yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.6%</b></span><span class="g na" title="증권 — F2T3 90.3333 · 구성 25 · 상위3 006800, 001510, 001290 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>26/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.10yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2767,7 +2766,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">282330</div>
         <div class="sbadge no">RS 77</div>
-        <div class="sbadge no" title="백화점과일반상점 — 비주도 · F2T3 87.3333 · 구성 11 · 상위3 452260, 004170, 007070 · 표시 전용(매매 무관)">섹터 31/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">BGF리테일</div>
@@ -2781,7 +2780,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.18yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.8%</b></span><span class="g na" title="백화점과일반상점 — F2T3 87.3333 · 구성 11 · 상위3 452260, 004170, 007070 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>31/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.18yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2807,7 +2806,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">052330</div>
         <div class="sbadge no">RS 76</div>
-        <div class="sbadge no" title="디스플레이패널 — 비주도 · F2T3 59.6667 · 구성 4 · 상위3 052330, 121800, 020760 · 표시 전용(매매 무관)">섹터 65/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">코텍 🤖</div>
@@ -2821,7 +2820,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>5.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.6%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.55yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>5.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.6%</b></span><span class="g na" title="디스플레이패널 — F2T3 59.6667 · 구성 4 · 상위3 052330, 121800, 020760 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>65/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.55yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2847,7 +2846,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">000400</div>
         <div class="sbadge no">RS 75</div>
-        <div class="sbadge no" title="손해보험 — 비주도 · F2T3 92.3333 · 구성 10 · 상위3 001450, 244920, 005830 · 표시 전용(매매 무관)">섹터 22/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">롯데손해보험</div>
@@ -2861,7 +2860,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.89yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.4%</b></span><span class="g na" title="손해보험 — F2T3 92.3333 · 구성 10 · 상위3 001450, 244920, 005830 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>22/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.89yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2887,7 +2886,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">003490</div>
         <div class="sbadge no">RS 74</div>
-        <div class="sbadge no" title="항공사 — 비주도 · F2T3 67.3333 · 구성 7 · 상위3 003490, 180640, 020560 · 표시 전용(매매 무관)">섹터 57/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">대한항공 <span style="font-size:10px;font-weight:700;color:#F87171;" title="G1 VCP tightness 게이트 차단 — 구 체계였다면 진입." 최종 수축 12.23% &gt; 상한 12%">[G1 차단]</span></div>
@@ -2902,7 +2901,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>12.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+0.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.58yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>12.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+0.7%</b></span><span class="g na" title="항공사 — F2T3 67.3333 · 구성 7 · 상위3 003490, 180640, 020560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>57/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.58yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2928,7 +2927,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">004430</div>
         <div class="sbadge no">RS 74</div>
-        <div class="sbadge no" title="화학 — 비주도 · F2T3 89.3333 · 구성 83 · 상위3 010060, 093370, 900290 · 표시 전용(매매 무관)">섹터 28/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">송원산업</div>
@@ -2942,7 +2941,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-cfx"><i></i><em>VCP 패턴</em> <b>수축이탈</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.9%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.33yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-cfx"><i></i><em>VCP 패턴</em> <b>수축이탈</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.9%</b></span><span class="g na" title="화학 — F2T3 89.3333 · 구성 83 · 상위3 010060, 093370, 900290 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>28/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.33yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2968,7 +2967,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">051160</div>
         <div class="sbadge no">RS 74</div>
-        <div class="sbadge no" title="판매업체 — 비주도 · F2T3 61.0 · 구성 5 · 상위3 051160, 063170, 052020 · 표시 전용(매매 무관)">섹터 63/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">지어소프트 🤖</div>
@@ -2982,7 +2981,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>15.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.09yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>15.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.4%</b></span><span class="g na" title="판매업체 — F2T3 61.0 · 구성 5 · 상위3 051160, 063170, 052020 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>63/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.09yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3008,7 +3007,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">053160</div>
         <div class="sbadge no">RS 73</div>
-        <div class="sbadge" title="기계 — 주도섹터 · F2T3 97.3333 · 구성 81 · 상위3 319400, 159010, 413630 · 표시 전용(매매 무관)">섹터 8/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">프리엠스 🤖</div>
@@ -3022,7 +3021,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.36yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span><span class="g" title="기계 — F2T3 97.3333 · 구성 81 · 상위3 319400, 159010, 413630 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>8/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.36yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3048,7 +3047,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">143240</div>
         <div class="sbadge no">RS 73</div>
-        <div class="sbadge no" title="상업서비스와공급품 — 비주도 · F2T3 82.6667 · 구성 24 · 상위3 377450, 036800, 143240 · 표시 전용(매매 무관)">섹터 41/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">사람인</div>
@@ -3062,7 +3061,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>5.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.9%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.42yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>5.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.9%</b></span><span class="g na" title="상업서비스와공급품 — F2T3 82.6667 · 구성 24 · 상위3 377450, 036800, 143240 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>41/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.42yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3088,7 +3087,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">180640</div>
         <div class="sbadge no">RS 73</div>
-        <div class="sbadge no" title="항공사 — 비주도 · F2T3 67.3333 · 구성 7 · 상위3 003490, 180640, 020560 · 표시 전용(매매 무관)">섹터 57/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">한진칼</div>
@@ -3102,7 +3101,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.4%</b></span></div><div class="gline"><span class="g warn"><i></i><em>Stage</em> <b>Stage3</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.4%</b></span><span class="g na" title="항공사 — F2T3 67.3333 · 구성 7 · 상위3 003490, 180640, 020560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>57/77</b></span></div><div class="gline"><span class="g warn"><i></i><em>Stage</em> <b>Stage3</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -3128,7 +3127,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="tcol">
         <div class="tpill">228850</div>
         <div class="sbadge no">RS 73</div>
-        <div class="sbadge" title="건강관리장비와용품 — 주도섹터 · F2T3 96.0 · 구성 61 · 상위3 376900, 042520, 041920 · 표시 전용(매매 무관)">섹터 14/77</div>
+        <div class="sbadge">SEPA ✓</div>
       </div>
       <div class="cmain">
         <div class="cname">레이언스</div>
@@ -3142,7 +3141,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.31yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.8%</b></span><span class="g" title="건강관리장비와용품 — F2T3 96.0 · 구성 61 · 상위3 376900, 042520, 041920 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>14/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.31yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
