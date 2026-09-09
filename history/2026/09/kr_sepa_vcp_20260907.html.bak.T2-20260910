@@ -13,8 +13,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .hdr-title{font-size:18px;font-weight:800;color:#fff;}
 .hdr-title .n{color:#34D399;}
 .hdr-stats{font-size:11px;color:#94A3B8;font-weight:600;text-align:right;line-height:1.5;flex-shrink:0;}
-.hdr-link{font-size:11px;color:#94A3B8;border:1px solid #334155;border-radius:6px;padding:3px 9px;text-decoration:none;white-space:nowrap;flex-shrink:0;}
-.hdr-link:hover{color:#E2E8F0;border-color:#60A5FA;}
 .tabs{display:flex;flex-wrap:wrap;gap:4px;padding:5px 12px 7px;}
 .tab{flex-shrink:0;padding:4px 8px;border-radius:15px;border:none;cursor:pointer;
   font-size:11px;font-weight:600;background:#1E293B;color:#94A3B8;white-space:nowrap;}
@@ -168,7 +166,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="hdr-label">뭉치 트레이더 · SEPA + VCP · 2026년 09월 07일 (월) 종가 기준</div>
     <div class="hdr-row">
       <div class="hdr-title">국장 SEPA + VCP 돌파 후보 <span class="n">49종목</span></div>
-      <a class="hdr-link" href="sectors_kr_20260907.html">주도섹터</a>
       <div class="hdr-stats">🤖 AI 11</div>
     </div>
   </div>
@@ -177,7 +174,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 </div>
 <div class="wrap">
 <div class="mkt kr"><div class="mkt-title">🚀 오픈AI發 훈풍, 반도체 급등에 코스피 4.61%↑</div><div class="mkt-grid"><div class="mkt-box"><div class="l">코스피</div><div class="v">+4.61%</div><div class="s">반도체 랠리 급반등</div></div><div class="mkt-box"><div class="l">코스닥</div><div class="v">+1.07%</div><div class="s">대형주 상승 동반</div></div><div class="mkt-box"><div class="l">수급(외국인·기관)</div><div class="v">쌍끌이 순매수</div><div class="s">개인은 차익실현 매도</div></div></div><div class="mkt-note">코스피는 오픈AI의 차세대 모델 &#x27;GPT-6 아스트라&#x27; 공개를 계기로 AGI 시대 진입 기대감이 커지면서 반도체 대형주를 중심으로 급등세를 나타냈다.<br>삼성전자가 5.68% 오른 27만원, SK하이닉스가 8.26% 급등한 178만3000원을 기록하며 지수 상승을 이끌었고, 엔비디아의 허깅페이스 인수 소식과 미국 마이크론(6.1%)·샌디스크(11.9%) 등 메모리 반도체주 급등이 국내 증시에 긍정적 모멘텀을 제공했다.<br>수급 측면에서는 외국인이 2조5533억원, 기관이 2조6327억원을 각각 순매수하며 쌍끌이 매수에 나선 반면, 개인은 차익 실현 물량을 쏟아내며 6조원대 순매도를 기록했다.<br>미국의 9월 기준금리 인상 우려와 국제유가 상승이라는 악재에도 불구하고 반도체 업황 개선 기대가 이를 압도하며 지수는 7000선 턱밑인 6995.39까지 치솟았다.<br>코스닥도 1.07% 오른 822.19로 마감하며 대형주 중심의 상승 흐름에 동반했다.</div></div>
-<div class="card" id="t-131290" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="buy">
+<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="buy">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -198,7 +195,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>16.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span><span class="g" title="반도체와반도체장비 — F2T3 98.3333 · 구성 145 · 상위3 032580, 402340, 131290 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>2/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.91yr, B1)</b></span><span class="g"><i></i><em>AI</em> <b>8/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>16.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.91yr, B1)</b></span><span class="g"><i></i><em>AI</em> <b>8/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -217,7 +214,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 디램향 프로브카드 매출 확대 시점, 대구시 반도체 검사 디자인센터 설립 협약(2026.09.03) 후속 진행 상황</div></div>
 </div>
 </div>
-<div class="card" id="t-119850" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -238,7 +235,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.3%</b></span><span class="g" title="전기장비 — F2T3 97.0 · 구성 27 · 상위3 000500, 119850, 006340 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>10/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.09yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.3%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.09yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -257,7 +254,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">연내 대규모 신규 수주 공시 여부(NH투자증권 제시 관전포인트), 당진 AI데이터센터 개발 구체화 일정, 2027~2028년 데이터센터향 납품 본격화</div></div>
 </div>
 </div>
-<div class="card" id="t-222800" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="buy" data-fresh="true">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="buy" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -279,7 +276,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.2%</b></span><span class="g" title="전자장비와기기 — F2T3 97.6667 · 구성 62 · 상위3 017900, 009150, 222800 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>5/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (1.24yr, B1)</b></span><span class="g"><i></i><em>AI</em> <b>8/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (1.24yr, B1)</b></span><span class="g"><i></i><em>AI</em> <b>8/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -298,7 +295,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(가동률 추가 상승 확인 포인트), 3000억원 증설 계획 진행 상황, 낸드/QLC SSD 수요 확대에 따른 MCP 수주 흐름</div></div>
 </div>
 </div>
-<div class="card" id="t-064290" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -320,7 +317,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.4%</b></span><span class="g" title="반도체와반도체장비 — F2T3 98.3333 · 구성 145 · 상위3 032580, 402340, 131290 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>2/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.97yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.97yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -339,7 +336,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">TSMC 첨단 패키징 외주확대에 따른 후공정 장비 수주 흐름, 다음 분기 실적 발표를 통한 영업이익 흑자전환 지속 여부 확인</div></div>
 </div>
 </div>
-<div class="card" id="t-010950" style="--c:#DC2626;--cl:#FBE5E5;--cx:#FEF6F6" data-sector="energy" data-ai="false" data-unicorn="false" data-verdict="">
+<div class="card" style="--c:#DC2626;--cl:#FBE5E5;--cx:#FEF6F6" data-sector="energy" data-ai="false" data-unicorn="false" data-verdict="">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -360,7 +357,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.3%</b></span><span class="g" title="석유와가스 — F2T3 94.3333 · 구성 12 · 상위3 078930, 010950, 034730 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>17/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.18yr, B1)</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.3%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.18yr, B1)</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -379,7 +376,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">💼 분기 어닝 + 코스닥 우량주 편입 가능성</div></div>
 </div>
 </div>
-<div class="card" id="t-161890" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -400,7 +397,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-9.4%</b></span><span class="g" title="화장품 — F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 032940 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>20/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.37yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-9.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.37yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -419,7 +416,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 분기(3Q) 실적 발표(일정 미확정), K뷰티 인디브랜드 글로벌 진출 확대 흐름 지속 여부, 증권사 목표주가 추가 상향(하나증권 18만원 등)</div></div>
 </div>
 </div>
-<div class="card" id="t-041830" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -440,7 +437,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span><span class="g" title="건강관리장비와용품 — F2T3 96.0 · 구성 61 · 상위3 042520, 376900, 041920 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>14/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.22yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.22yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -459,7 +456,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 실적 발표 일정은 미확정. 8/7 가정용 체성분측정기 &#x27;InBody H2&#x27; 출시, 9/3 비만치료제 수혜 부각에 따른 IBK투자증권 매수의견(목표가 8.1만원) 제시가 최근 촉매였으며, 이후 비만치료제 시장 확대 관련 추가 뉴스·다음 분기 실적이 주요 관찰 포인트다.</div></div>
 </div>
 </div>
-<div class="card" id="t-121440" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -480,7 +477,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>17.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.5%</b></span><span class="g na" title="레저용장비와제품 — F2T3 67.0 · 구성 5 · 상위3 121440, 024950, 002450 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>55/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.16yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>17.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.16yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -499,7 +496,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">원앤파트너스의 밸류업 전략 구체안 발표 여부, 3차 공개매수 또는 추가 지분 매입 진행 여부, 터톤 등 소액주주 측 법적조치 진행 상황</div></div>
 </div>
 </div>
-<div class="card" id="t-244920" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -521,7 +518,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span><span class="g na" title="손해보험 — F2T3 91.3333 · 구성 10 · 상위3 244920, 001450, 005830 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>23/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B1+)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B1+)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -540,7 +537,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">차기 분기 실적 발표(일정 미확정), 얼라인파트너스 지분(12.14%) 관련 후속 행동 여부, 보험사와의 관계 개선 흐름 지속 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-222040" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="buy">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="buy">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -561,7 +558,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.3%</b></span><span class="g" title="건강관리업체및서비스 — F2T3 96.0 · 구성 18 · 상위3 065170, 221800, 222040 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>15/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.39yr, B1)</b></span><span class="g"><i></i><em>AI</em> <b>8/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.3%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.39yr, B1)</b></span><span class="g"><i></i><em>AI</em> <b>8/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -580,7 +577,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(신유통 채널·수출 확대 지속 여부 확인), 하반기 신제형(구미·젤리 등) 라인 증설 효과, 미국·호주법인 추가 고객사 확보 소식</div></div>
 </div>
 </div>
-<div class="card" id="t-241770" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -602,7 +599,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.6%</b></span><span class="g" title="반도체와반도체장비 — F2T3 98.3333 · 구성 145 · 상위3 032580, 402340, 131290 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>2/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.51yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.6%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.51yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -621,7 +618,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">삼일테크 인수 후속 사업 통합 진행 상황, 삼성전자 충청 투자 관련 팹 증설 발주 일정, 다음 분기 실적 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-073240" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -643,7 +640,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span><span class="g" title="자동차부품 — F2T3 97.6667 · 구성 94 · 상위3 448900, 012200, 085910 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>6/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.80yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.80yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -662,7 +659,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">정부 호남권 반도체 메가클러스터 부지 확정 및 공장 이전 논의 진행 상황, 하반기 유럽 등 추가 가격 인상 시행 여부, 3분기 실적 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-001450" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -683,7 +680,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.8%</b></span><span class="g na" title="손해보험 — F2T3 91.3333 · 구성 10 · 상위3 244920, 001450, 005830 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>23/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.07yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g na" title="no_revenue_stage(avail=3)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.07yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g na" title="no_revenue_stage(avail=3)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -702,7 +699,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">자동차보험 경상환자 &#x27;8주룰&#x27; 시행 임박(9월 중순, 9/7 기사 기준 D-3), 실손보험 도수치료 관리급여 효과 하반기 반영, 배당가능이익 결손 축소 추이에 따른 배당재개 여부 결정</div></div>
 </div>
 </div>
-<div class="card" id="t-006360" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -724,7 +721,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span><span class="g" title="건설 — F2T3 98.3333 · 구성 52 · 상위3 317400, 002990, 047040 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>1/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.49yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.49yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -743,7 +740,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">AI데이터센터 1차 1.2GW 프로젝트 수주 발표 여부(시기 미정), 서울 정비사업 추가 수주·유찰 결과, 3분기 실적 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-011560" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -764,7 +761,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.9%</b></span><span class="g" title="건설 — F2T3 98.3333 · 구성 52 · 상위3 317400, 002990, 047040 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>1/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.28yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.9%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.28yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -783,7 +780,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">추가 설비 수주 공시 가능성(반도체 팹 증설 랠리 지속 여부), 청주 팹 등 대형 발주 구체화 시점, 다음 분기 실적 발표(일정 미확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-079940" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -804,7 +801,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>4.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.2%</b></span><span class="g" title="IT서비스 — F2T3 94.3333 · 구성 61 · 상위3 242040, 124500, 052460 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>19/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.62yr, B1+)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>4.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.62yr, B1+)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -823,7 +820,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">① 맥쿼리 공개매수 마감 9월17일 ② 특별위원회 권고 의견 9월 둘째주 초 발표 예정 ③ 얼라인파트너스 임시주총 소집 절차 진행 중</div></div>
 </div>
 </div>
-<div class="card" id="t-088350" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -845,7 +842,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.1%</b></span><span class="g na" title="생명보험 — F2T3 89.3333 · 구성 3 · 상위3 085620, 088350, 032830 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>26/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.22yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="no_revenue_stage(avail=3)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.22yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="no_revenue_stage(avail=3)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -864,7 +861,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">차기 분기 실적 발표 시점의 이익 전망 재확인, 내부모형 승인 및 K-ICS 위험액 축소 조치 진행 상황, 주주환원 정책 구체화 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-212560" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -886,7 +883,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-cfx"><i></i><em>VCP 패턴</em> <b>수축이탈</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+0.0%</b></span><span class="g" title="자동차부품 — F2T3 97.6667 · 구성 94 · 상위3 448900, 012200, 085910 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>6/77</b></span></div><div class="gline"><span class="g warn"><i></i><em>Stage</em> <b>Stage3</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-cfx"><i></i><em>VCP 패턴</em> <b>수축이탈</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+0.0%</b></span></div><div class="gline"><span class="g warn"><i></i><em>Stage</em> <b>Stage3</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -905,7 +902,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">오토인더스트리 완전자회사 편입 절차 진행(주식교환 계약 체결 2026.09.07), 다음 분기 실적 발표(편입 시너지 반영 여부 확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-005830" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -927,7 +924,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.0%</b></span><span class="g na" title="손해보험 — F2T3 91.3333 · 구성 10 · 상위3 244920, 001450, 005830 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>23/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.19yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.19yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -946,7 +943,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">환원율 상향 후속 이행(2030년까지 단계적 DPS 10%+ 증가), 3분기 실적발표(CEO 주관 컨퍼런스콜 확대), 밸류업 계획 이행 점검</div></div>
 </div>
 </div>
-<div class="card" id="t-049430" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -967,7 +964,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.3%</b></span><span class="g" title="기계 — F2T3 97.3333 · 구성 81 · 상위3 159010, 413630, 319400 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>8/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.14yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.3%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.14yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -986,7 +983,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">9월 4일 SK증권 자사주 신탁계약 체결(100억원) / 3분기 실적 발표 일정 미확정 / 소액주주연대 후속 감사위원·사외이사 선임 검토 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-009420" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="healthcare" data-ai="true" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="healthcare" data-ai="true" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1007,7 +1004,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.7%</b></span><span class="g" title="제약 — F2T3 97.6667 · 구성 126 · 상위3 187660, 067290, 004310 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>7/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.84yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.84yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1026,7 +1023,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">그레이브스병 임상 탑라인 데이터(2027년 예정), 잔여 5개 적응증(중증근무력증·쇼그렌증후군 등) 순차 임상 결과 발표, 이뮤노반트 분기 실적 발표 시 추가 오픈라벨 데이터 공개 가능성</div></div>
 </div>
 </div>
-<div class="card" id="t-053260" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1048,7 +1045,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+0.8%</b></span><span class="g na" title="철강 — F2T3 83.3333 · 구성 37 · 상위3 053260, 001430, 001080 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>38/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.41yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+0.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.41yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1067,7 +1064,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">트럼프 알래스카 LNG 프로젝트 관련 후속 발표, 미-이란 군사 충돌 추가 확산 여부, 중국 후판가격 추이</div></div>
 </div>
 </div>
-<div class="card" id="t-093320" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1088,7 +1085,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.6%</b></span><span class="g" title="IT서비스 — F2T3 94.3333 · 구성 61 · 상위3 242040, 124500, 052460 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>19/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.41yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.6%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.41yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1107,7 +1104,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 분기 실적 발표(일정 미확정) 시 영업이익 성장세 지속 여부, 데이터센터 증설·클라우드·CDN 트래픽 확대에 따른 추가 매출 성장 가능성</div></div>
 </div>
 </div>
-<div class="card" id="t-417310" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="avoid">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="avoid">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1128,7 +1125,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>타이트 6일/폭 1.7%</b> <small>(종가 0.6%)</small></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.2%</b></span><span class="g na" title="부동산 — F2T3 87.0 · 구성 23 · 상위3 094800, 417310, 033560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>30/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.28yr, B1)</b></span><span class="g fail"><i></i><em>AI</em> <b>2/10</b></span><span class="g na" title="no_revenue_stage(avail=0)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>타이트 6일/폭 1.7%</b> <small>(종가 0.6%)</small></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.28yr, B1)</b></span><span class="g fail"><i></i><em>AI</em> <b>2/10</b></span><span class="g na" title="no_revenue_stage(avail=0)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1147,7 +1144,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">임시주주총회를 통한 청산 절차 확정 여부 (일정 미확정)</div></div>
 </div>
 </div>
-<div class="card" id="t-017890" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1168,7 +1165,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.6%</b></span><span class="g na" title="화학 — F2T3 90.3333 · 구성 83 · 상위3 900290, 010060, 093370 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>24/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.22yr, B4)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.6%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.22yr, B4)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1187,7 +1184,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">확정된 일정 촉매는 없음 — 주정 유통구조(대한주정판매 직거래 확대) 관련 후속 정책 동향, 다음 분기 실적 발표(일정 미정) 정도가 관찰 포인트</div></div>
 </div>
 </div>
-<div class="card" id="t-028670" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1209,7 +1206,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.4%</b></span><span class="g na" title="해운사 — F2T3 81.6667 · 구성 10 · 상위3 109070, 028670, 005880 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>41/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.22yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.22yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1228,7 +1225,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">9/7 대신증권 하반기 운임 수혜 코멘트, BDI·벌크운임 추이, 3분기 실적 발표(일정 미확정)</div></div>
 </div>
 </div>
-<div class="card" id="t-086790" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="financial" data-ai="true" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="financial" data-ai="true" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1249,7 +1246,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.6%</b></span><span class="g na" title="은행 — F2T3 83.6667 · 구성 10 · 상위3 086790, 055550, 105560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>37/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.30yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="no_revenue_stage(avail=3)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.6%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.30yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="no_revenue_stage(avail=3)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1268,7 +1265,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 하반기 실적 발표(3분기 잠정), 2026년 주주환원율 50% 조기 달성 여부 확인, 비과세 배당 관련 세부 계획 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-180640" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1289,7 +1286,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.3%</b></span><span class="g na" title="항공사 — F2T3 73.0 · 구성 7 · 상위3 180640, 003490, 020560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>48/77</b></span></div><div class="gline"><span class="g warn"><i></i><em>Stage</em> <b>Stage3</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.3%</b></span></div><div class="gline"><span class="g warn"><i></i><em>Stage</em> <b>Stage3</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1308,7 +1305,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">산업은행 보유 지분(10.58%) 매각 여부 — 대한항공·아시아나 통합 마무리 시점(연말) 전후 / 경찰의 자사주 배임 혐의 수사 진행상황 / 호반건설 추가 지분 매입 공시 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-204610" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="comm" data-ai="true" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="comm" data-ai="true" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1329,7 +1326,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.7%</b></span><span class="g na" title="게임엔터테인먼트 — F2T3 76.3333 · 구성 25 · 상위3 204610, 094860, 042420 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>45/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.49yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="no_revenue_stage(avail=4)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.49yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="no_revenue_stage(avail=4)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1348,7 +1345,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(일정 미확정), 분기배당 기준일(11월말) 및 배당금 규모 확정 공시, 하반기 사업 다변화(솔루션 부문) 진행 상황</div></div>
 </div>
 </div>
-<div class="card" id="t-055550" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="financial" data-ai="true" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="financial" data-ai="true" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1369,7 +1366,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g" title="no_2bar_contraction"><i></i><em>수축깊이</em> <b>NA</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.7%</b></span><span class="g na" title="은행 — F2T3 83.6667 · 구성 10 · 상위3 086790, 055550, 105560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>37/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.22yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="no_revenue_stage(avail=3)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g" title="no_2bar_contraction"><i></i><em>수축깊이</em> <b>NA</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.22yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="no_revenue_stage(avail=3)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1388,7 +1385,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">자사주 매입 종료 예정(내달 22일, 잔여 370만8564주·3831억8272만원)과 이후 추가 매입(최대 9000억원 거론) 여부, 2분기 실적 발표(컨센서스 상회 전망, 충당금 환입 가능성 포함)</div></div>
 </div>
 </div>
-<div class="card" id="t-311320" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1409,7 +1406,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.9%</b></span><span class="g" title="반도체와반도체장비 — F2T3 98.3333 · 구성 145 · 상위3 032580, 402340, 131290 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>2/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.65yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.9%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.65yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1428,7 +1425,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 실적 발표 일정 미확인 / 반도체 업황(ALD 장비투자) 확대 지속 여부 / 자회사 지오어플라이언스 흑자기조 유지 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-035610" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1450,7 +1447,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.3%</b></span><span class="g na" title="건강관리기술 — F2T3 85.6667 · 구성 11 · 상위3 458870, 071200, 035610 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>34/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.13yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.3%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.13yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1469,7 +1466,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">와이브레인 BCI 국책과제 R&amp;D 진행(2027년까지 60억원 지원, 후속 마일스톤 공개 여부 미확인); 다음 실적 발표 일정 미확인</div></div>
 </div>
 </div>
-<div class="card" id="t-044820" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1490,7 +1487,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.1%</b></span><span class="g" title="건강관리업체및서비스 — F2T3 96.0 · 구성 18 · 상위3 065170, 221800, 222040 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>15/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.30yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.30yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1509,7 +1506,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">코스맥스엔비티 1분기 실적 발표(9/7 공시) 이후 지분가치 재평가 흐름 지속 여부, 코스맥스엔비티 2차 미국 공장 매각 대금 확정 및 차입금 상환 일정</div></div>
 </div>
 </div>
-<div class="card" id="t-071200" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1530,7 +1527,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.4%</b></span><span class="g na" title="건강관리기술 — F2T3 85.6667 · 구성 11 · 상위3 458870, 071200, 035610 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>34/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.36yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.36yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1549,7 +1546,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">지배구조 소송 항소심 판결, FDA 승인 후속 미국 시장 확대 진행 상황, AI 기반 의료영상 신제품 출시</div></div>
 </div>
 </div>
-<div class="card" id="t-003550" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1571,7 +1568,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.9%</b></span><span class="g na" title="복합기업 — F2T3 86.6667 · 구성 13 · 상위3 028260, 000150, 004800 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>33/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (1.18yr, B4)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.9%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (1.18yr, B4)</b></span><span class="g can"><i></i><em>AI</em> <b>7/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1590,7 +1587,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">휴머노이드 로봇 내년 1분기 공개 예정, 계열사(LG전자·LG CNS 등) 3분기 실적 발표, 젠슨 황 CEO 추가 방한·협력 논의 가능성</div></div>
 </div>
 </div>
-<div class="card" id="t-086670" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1611,7 +1608,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.4%</b></span><span class="g" title="기계 — F2T3 97.3333 · 구성 81 · 상위3 159010, 413630, 319400 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>8/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (1.22yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (1.22yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g"><i></i><em>매출 감속</em> <b>X</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1630,7 +1627,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 분기(3분기) 실적 발표 시 반도체·조선 쌍끌이 흐름 지속 여부 확인, 반도체 대형주 설비투자 확대 속도</div></div>
 </div>
 </div>
-<div class="card" id="t-105560" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1651,7 +1648,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.7%</b></span><span class="g na" title="은행 — F2T3 83.6667 · 구성 10 · 상위3 086790, 055550, 105560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>37/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.31yr, B4)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="no_revenue_stage(avail=2)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.31yr, B4)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="no_revenue_stage(avail=2)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1670,7 +1667,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(일정 미확정), 주주환원 정책(자사주 매입·배당) 관련 IR 이벤트, 은행주 순환매 테마 지속 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-093190" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#1D4ED8;--cl:#E4EAFA;--cx:#F6F8FD" data-sector="it" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1691,7 +1688,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.5%</b></span><span class="g na" title="컴퓨터와주변기기 — F2T3 84.0 · 구성 9 · 상위3 046970, 093190, 054800 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>36/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.53yr, B4)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.53yr, B4)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1710,7 +1707,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2월 4일 2025년 실적발표(영업이익 +68.8%) 및 배당 결정 완료, 이후 신규 실적·수주 공시 일정 미확인</div></div>
 </div>
 </div>
-<div class="card" id="t-051160" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1731,7 +1728,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-10.0%</b></span><span class="g na" title="판매업체 — F2T3 65.6667 · 구성 5 · 상위3 051160, 063170, 003580 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>59/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.10yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-10.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.10yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>4/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1750,7 +1747,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">9월 3일 200억원 규모 자사주 199만주 소각 결정(주주환원 이벤트) — 추가 일정 공시 확인 안 됨</div></div>
 </div>
 </div>
-<div class="card" id="t-092730" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1772,7 +1769,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.9%</b></span><span class="g" title="화장품 — F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 032940 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>20/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.07yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.9%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.07yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1791,7 +1788,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">미국/일본 등 해외 채널 수출 확대 지속 여부, K-더마 카테고리 확장 관련 신제품·유통 소식, 다음 분기 실적 발표(일정 미확정)</div></div>
 </div>
 </div>
-<div class="card" id="t-194370" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1813,7 +1810,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-10.6%</b></span><span class="g na" title="섬유,의류,신발,호화품 — F2T3 87.0 · 구성 43 · 상위3 047770, 014990, 481070 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>31/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.39yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-10.6%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.39yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1832,7 +1829,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">상법개정 후속 배당정책 발표 여부, 온타이드 해외 생산기지(미국·멕시코·인도네시아) 가동 확대, 다음 분기 실적 발표(일정 미확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-003490" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1854,7 +1851,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.8%</b></span><span class="g na" title="항공사 — F2T3 73.0 · 구성 7 · 상위3 180640, 003490, 020560 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>48/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.59yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.2%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.59yr, B3)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1873,7 +1870,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">한진칼과의 합병 절차 완료 시점(구체 일정 미확인), 화물운임·원/달러 환율 흐름 지속 여부, 다음 실적 발표(일정 미확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-003690" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="can">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1894,7 +1891,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-cfx"><i></i><em>VCP 패턴</em> <b>수축이탈</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span><span class="g na" title="손해보험 — F2T3 91.3333 · 구성 10 · 상위3 244920, 001450, 005830 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>23/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B5+)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="no_revenue_stage(avail=3)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-cfx"><i></i><em>VCP 패턴</em> <b>수축이탈</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B5+)</b></span><span class="g can"><i></i><em>AI</em> <b>6/10</b></span><span class="g na" title="no_revenue_stage(avail=3)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1913,7 +1910,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">K-ICS 기본자본비율 규제 세부안 확정 일정(미정), 다음 분기 실적 발표(일정 미확인), 보험업계 해약환급금준비금 제도 개선 논의 진행 상황</div></div>
 </div>
 </div>
-<div class="card" id="t-004770" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="avoid">
+<div class="card" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="avoid">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1934,7 +1931,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>12.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.1%</b></span><span class="g" title="전자장비와기기 — F2T3 97.6667 · 구성 62 · 상위3 017900, 009150, 222800 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>5/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.38yr, B2)</b></span><span class="g fail"><i></i><em>AI</em> <b>2/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>12.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.38yr, B2)</b></span><span class="g fail"><i></i><em>AI</em> <b>2/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1953,7 +1950,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">KX그룹발 경영권 분쟁 전개(지분 매입·임시주총 등 후속 공시) / 안철수 관련 정치 이슈 재부각 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-123330" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1974,7 +1971,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>22.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-10.4%</b></span><span class="g" title="화장품 — F2T3 94.0 · 구성 42 · 상위3 161890, 241710, 032940 · 표시 전용(매매 무관)"><i></i><em>주도섹터</em> <b>20/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.19yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>22.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-10.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.19yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -1993,7 +1990,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">7월 신규 브랜드 &#x27;시아베리어&#x27; 론칭 효과 확인, 다음 분기 실적 발표를 통한 흑자 기조 지속 여부, 코스트코·세포라 등 신규 유통채널 입점 확대 진행 상황</div></div>
 </div>
 </div>
-<div class="card" id="t-000810" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -2014,7 +2011,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.4%</b></span><span class="g na" title="손해보험 — F2T3 91.3333 · 구성 10 · 상위3 244920, 001450, 005830 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>23/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B1+)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="no_revenue_stage(avail=3)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.4%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B1+)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="no_revenue_stage(avail=3)"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2033,7 +2030,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">8주룰(자동차보험 경상환자 치료비 제한) 시행 임박(D-3, 2026.09.07 기준), 밸류업 프로그램 관련 추가 정책 발표 여부, 다음 분기 실적 발표(일정 미정)</div></div>
 </div>
 </div>
-<div class="card" id="t-282330" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#BE185D;--cl:#F7E3EC;--cx:#FCF6F9" data-sector="cons-cyclical" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -2054,7 +2051,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.1%</b></span><span class="g na" title="백화점과일반상점 — F2T3 86.6667 · 구성 11 · 상위3 452260, 004170, 007070 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>32/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.19yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.1%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.19yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2073,7 +2070,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 분기 실적 발표 일정(미확정), 2026년 점포 300개 순증 목표 진행 상황, 추가 증권사 리포트를 통한 목표주가 조정 여부.</div></div>
 </div>
 </div>
-<div class="card" id="t-138040" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" style="--c:#059669;--cl:#E1F2ED;--cx:#F5FBF9" data-sector="financial" data-ai="false" data-unicorn="false" data-verdict="hold">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -2094,7 +2091,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g" title="no_2bar_contraction"><i></i><em>수축깊이</em> <b>NA</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.9%</b></span><span class="g na" title="증권 — F2T3 89.3333 · 구성 25 · 상위3 001510, 006800, 001290 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>27/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.11yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g" title="no_2bar_contraction"><i></i><em>수축깊이</em> <b>NA</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.9%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.11yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g na" title="kr_not_in_universe"><i></i><em>매출 감속</em> <b>NA</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
@@ -2113,7 +2110,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">하반기 해외주식 정보 플랫폼 &#x27;모음&#x27; 출시, 발행어음 인가 여부 확정, 차기 분기 실적 발표(리테일 부문 개선 여부)</div></div>
 </div>
 </div>
-<div class="card" id="t-096530" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -2135,7 +2132,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       
     </div>
   </div>
-  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-12.2%</b></span><span class="g na" title="생명과학도구및서비스 — F2T3 85.3333 · 구성 21 · 상위3 226950, 127120, 039860 · 표시 전용(매매 무관)"><i></i><em>비주도</em> <b>35/77</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.30yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>13.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-12.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.30yr, B2)</b></span><span class="g warn"><i></i><em>AI</em> <b>5/10</b></span><span class="g fail"><i></i><em>매출 감속</em> <b>O</b></span></div>
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
