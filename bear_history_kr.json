@@ -6,13 +6,13 @@
  "date_basis": "market_session",
  "range_start": "2026-07-29",
  "range_start_note": "v2.2 낙폭경로 수리 + AI 레벨보정 도입 이후",
- "generated_at": "2026-09-11T15:40:53+09:00",
+ "generated_at": "2026-09-14T15:40:49+09:00",
  "latest": {
-  "date": "2026-09-11",
-  "rule_raw": 3,
-  "rule_confirmed": 3,
-  "ai_level": 3,
-  "final_level": 3
+  "date": "2026-09-14",
+  "rule_raw": 4,
+  "rule_confirmed": 4,
+  "ai_level": 4,
+  "final_level": 4
  },
  "series": [
   {
@@ -358,7 +358,7 @@
   },
   {
    "date": "2026-09-11",
-   "close": 6910.9,
+   "close": 6909.91,
    "rule_raw": 3,
    "rule_confirmed": 3,
    "ai_level": 3,
@@ -366,6 +366,17 @@
    "clamped": false,
    "direction": "agree",
    "reason": "코스피는 124.01P(-1.76%) 하락해 6,909.91로 마감했으나 여전히 50MA(6,799.62)·200MA(6,135.67) 위에서 상승추세를 유지 중이며, 서킷브레이커·사이드카 발동 등 검증된 급락 이벤트는 확인되지 않았다. 활성신호는 낙폭10%+/20%+로 직전 판정(L3)과 동일하며 추세·이격 조건에 변화가 없어 Level 3 유지를 제안한다."
+  },
+  {
+   "date": "2026-09-14",
+   "close": 6681.73,
+   "rule_raw": 4,
+   "rule_confirmed": 4,
+   "ai_level": 4,
+   "final_level": 4,
+   "clamped": false,
+   "direction": "agree",
+   "reason": "코스피가 개장부터 3.14%(217.30p) 급락해 6692.61로 출발했고 오후에도 6700선을 재차 하회했으며, 외국인 약 3.5조원·기관 약 1.4조원의 쌍끌이 순매도가 확인됨. 고점(9114.55, 6/22) 대비 낙폭이 -26.7%로 심화되고 가격이 50MA(6780)를 하회한 상태가 지속되어, 최근 5거래일간의 L3 판정 대비 하락폭·매도 규모가 실질적으로 확대된 점을 근거로 L4를 제안함."
   }
  ]
 }
