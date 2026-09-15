@@ -6,10 +6,10 @@
  "date_basis": "market_session",
  "range_start": "2026-07-29",
  "range_start_note": "v2.2 낙폭경로 수리 + AI 레벨보정 도입 이후",
- "generated_at": "2026-09-15T06:50:42+09:00",
+ "generated_at": "2026-09-16T06:50:38+09:00",
  "latest": {
-  "date": "2026-09-14",
-  "rule_raw": 1,
+  "date": "2026-09-15",
+  "rule_raw": 2,
   "rule_confirmed": 1,
   "ai_level": 1,
   "final_level": 1
@@ -377,6 +377,17 @@
    "clamped": false,
    "direction": "agree",
    "reason": "고점 대비 낙폭 -2.3%로 가격이 MA50(7,610)과 MA200(7,167) 위에 유지되고 있으며, VIX도 17.1로 경계 임계선(통상 20) 아래에 머물러 있다. 전일 S&P500 -0.48% 조정과 VIX +7.95% 상승은 있었으나 서킷브레이커·급락 등 위험 신호는 확인되지 않아 규칙 레벨 및 최근 판정 이력(L1 유지)과 동일하게 L1을 제안한다."
+  },
+  {
+   "date": "2026-09-15",
+   "close": 7585.73,
+   "rule_raw": 2,
+   "rule_confirmed": 1,
+   "ai_level": 1,
+   "final_level": 1,
+   "clamped": false,
+   "direction": "agree",
+   "reason": "고점 대비 낙폭 -2.7%로 10% 이상 하락 기준 미충족, VIX 17.2로 변동성 급등(S6_vol_spike) 미확인, 서킷브레이커·사이드카 발동 등 검증 가능한 위험 신호 없음. 가격이 50MA는 이탈했으나 200MA(7,171)는 상회 중이며, 최근 7일 AI 판정(L1) 대비 상황 변화 없어 동일 레벨 유지가 타당함."
   }
  ]
 }
