@@ -164,6 +164,37 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .vtab.active{background:#34D399;color:#0F172A;}
 .tab.attr.active{color:#0F172A !important;}
 .tabs.attrRow{padding-top:0;padding-bottom:6px;}
+
+/* [FWD-OBS-COMP100-RETRO-20260915] 아래 2블록은 라이브 템플릿 원문 복제 */
+/* COMP100-CSS-A-START  [FWD-OBS-COMP100-UX-20260915 오너 지시 ①] 정렬 줄.
+   버튼은 지표당 **하나** — 같은 버튼 재클릭이 내림↔오름 반전이다(COMP·RS 동일 규칙).
+   클라이언트 표시 순서만 바꾼다 — 서버측 정렬키·게이트·판정 무접촉. */
+.sortRow{display:flex;flex-wrap:wrap;gap:4px;padding:0 12px 7px;align-items:center;}
+.sortRow .slab{font-size:10.5px;color:#9CA3AF;font-weight:700;margin-right:2px;}
+.sbtn{font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;border:1px solid #E5E7EB;
+  background:#fff;color:#6B7280;cursor:pointer;}
+.sbtn.on{background:#1E3A8A;border-color:#1E3A8A;color:#fff;}
+.sbtn .ar{margin-left:3px;font-weight:800;}
+/* COMP100-CSS-A-END */
+/* COMP100-CSS-B-START  [FWD-OBS-COMP100-20260917 §5-1] 원전 COMP 관찰 배지 —
+   주가·등락률 바로 아래. 게이트 배지(.g)와 분리된 계열색. 표시 전용 — 판정 무영향.
+   [UX-20260915 오너 지시 ③] NA 는 **"COMP NA" 까지만** 박스에 넣는다. 결측 항목은
+   툴팁으로만 — 사유 문자열이 길어 모바일 카드가 가로로 터졌다(실측). */
+.ccomp{margin-top:4px;font-size:11.5px;font-weight:800;white-space:nowrap;color:#1E3A8A;
+  background:#EEF2FF;border:1px solid #C7D2FE;border-radius:5px;padding:2px 6px;
+  display:block;width:fit-content;margin-left:auto;}
+.ccomp.na{color:#6B7280;background:#F3F4F6;border-color:#E5E7EB;font-weight:700;}
+.ccomp .gr{font-weight:700;opacity:.85;margin-left:2px;}
+/* [NARULE-20260917 §9-2] 애널리스트<3 = NA 아님. 점수는 내되 (n=…) 로 얇은 커버리지 표기. */
+.ccomp .lc{font-weight:700;font-size:10px;opacity:.7;margin-left:3px;}
+/* [UX2-20260915 오너 지시 ②] COMP-X 도 100점 환산해 **같이** 박스로 표시.
+   🔴 원전 COMP 와 **다른 척도**다 — 색 계열을 갈라 눈으로 구분되게 둔다(혼용 금지). */
+/* COMP 과 **한 줄씩** 쌓는다(오너 지시 "COMP 아래") — 우측 정렬 유지. */
+.ccompx{margin-top:3px;font-size:11px;font-weight:700;white-space:nowrap;color:#0F766E;
+  background:#F0FDFA;border:1px solid #99F6E4;border-radius:5px;padding:2px 6px;
+  display:block;width:fit-content;margin-left:auto;}
+.ccompx.na{color:#9CA3AF;background:#F9FAFB;border-color:#E5E7EB;}
+/* COMP100-CSS-B-END */
 </style>
 </head><body>
 <div class="hdr">
@@ -175,12 +206,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
       <div class="hdr-stats">🤖 AI 11</div>
     </div>
   </div>
-  <div id="fmenu"><div class="tabs" id="secRow"><button class="tab active" data-sec="all">전체 <span class="c">49</span></button><button class="tab" data-sec="it">IT <span class="c">0</span></button><button class="tab" data-sec="healthcare">헬스케어 <span class="c">0</span></button><button class="tab" data-sec="comm">커뮤 <span class="c">0</span></button><button class="tab" data-sec="financial">금융 <span class="c">0</span></button><button class="tab" data-sec="cons-cyclical">경기소비 <span class="c">0</span></button><button class="tab" data-sec="cons-defensive">필수소비 <span class="c">0</span></button><button class="tab" data-sec="industrial">산업 <span class="c">0</span></button><button class="tab" data-sec="materials">소재 <span class="c">0</span></button><button class="tab" data-sec="energy">에너지 <span class="c">0</span></button><button class="tab" data-sec="utilities">유틸 <span class="c">0</span></button><button class="tab" data-sec="realestate">부동산 <span class="c">0</span></button><button class="tab" data-sec="unknown">기타 <span class="c">49</span></button></div><div class="tabs attrRow"><button class="tab attr" data-attr="ai">🤖 AI <span class="c">11</span></button><button class="tab attr" data-attr="unicorn">🦄 유니콘 <span class="c">0</span></button><button class="tab attr" data-attr="fresh">☀️ 신선주도주 <span class="c">19</span></button></div><div class="vtabs"><button class="vtab vbuy" data-vfilter="buy">🟢 매수고려 <span class="c">4</span></button><button class="vtab vcan" data-vfilter="can">🔵 매수가능 <span class="c">23</span></button><button class="vtab vhold" data-vfilter="hold">🟡 관망 <span class="c">22</span></button><button class="vtab vavoid" data-vfilter="avoid">🔴 회피 <span class="c">0</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div></div>
+  <div id="fmenu"><div class="tabs" id="secRow"><button class="tab active" data-sec="all">전체 <span class="c">49</span></button><button class="tab" data-sec="it">IT <span class="c">0</span></button><button class="tab" data-sec="healthcare">헬스케어 <span class="c">0</span></button><button class="tab" data-sec="comm">커뮤 <span class="c">0</span></button><button class="tab" data-sec="financial">금융 <span class="c">0</span></button><button class="tab" data-sec="cons-cyclical">경기소비 <span class="c">0</span></button><button class="tab" data-sec="cons-defensive">필수소비 <span class="c">0</span></button><button class="tab" data-sec="industrial">산업 <span class="c">0</span></button><button class="tab" data-sec="materials">소재 <span class="c">0</span></button><button class="tab" data-sec="energy">에너지 <span class="c">0</span></button><button class="tab" data-sec="utilities">유틸 <span class="c">0</span></button><button class="tab" data-sec="realestate">부동산 <span class="c">0</span></button><button class="tab" data-sec="unknown">기타 <span class="c">49</span></button></div><div class="tabs attrRow"><button class="tab attr" data-attr="ai">🤖 AI <span class="c">11</span></button><button class="tab attr" data-attr="unicorn">🦄 유니콘 <span class="c">0</span></button><button class="tab attr" data-attr="fresh">☀️ 신선주도주 <span class="c">19</span></button></div><div class="vtabs"><button class="vtab vbuy" data-vfilter="buy">🟢 매수고려 <span class="c">4</span></button><button class="vtab vcan" data-vfilter="can">🔵 매수가능 <span class="c">23</span></button><button class="vtab vhold" data-vfilter="hold">🟡 관망 <span class="c">22</span></button><button class="vtab vavoid" data-vfilter="avoid">🔴 회피 <span class="c">0</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div><div class="sortRow"><span class="slab">정렬</span><button class="sbtn on" data-key="rs">RS <span class="ar">↓</span></button><button class="sbtn" data-key="comp">COMP <span class="ar">↓</span></button><button class="sbtn" data-key="compx">COMP-X <span class="ar">↓</span></button></div></div>
   <div id="fbar" title="필터 펼치기">▼</div>
 </div>
 <div class="wrap">
 <div class="mkt kr"><div class="mkt-title">📉 美 CPI 쇼크·유가 급등···코스피 6700 붕괴</div><div class="mkt-grid"><div class="mkt-box"><div class="l">코스피</div><div class="v">-3.26%</div><div class="s">6684.37, 225P↓</div></div><div class="mkt-box"><div class="l">코스닥</div><div class="v">-1.69%</div><div class="s">806.79, 14P↓</div></div><div class="mkt-box"><div class="l">수급(외국인·기관)</div><div class="v">외국인 -3.29조/기관 -1.17조</div><div class="s">코스피 동반 순매도</div></div></div><div class="mkt-note">미국 8월 근원 소비자물가지수가 예상치(0.2%)를 웃도는 0.3% 상승을 기록하면서 9월 FOMC 금리 인상 가능성이 80%대 후반까지 치솟았고, 미국 10년물 국채금리는 장중 5%선을 터치했다.<br>여기에 사우디 송유관 피해와 중동 지역 긴장 고조로 국제유가까지 급등하면서 투자심리가 급격히 얼어붙었다.<br>외국인과 기관은 유가증권시장에서 각각 3조2870억원, 1조1720억원어치를 동반 순매도하며 지수를 끌어내렸고, 개인이 이를 받아내며 낙폭을 일부 방어했다.<br>금리에 민감한 삼성전자·SK하이닉스 등 대형 반도체주가 급락을 주도하며 코스피는 6700선을 내줬고, 코스닥도 동반 약세를 면치 못했다.<br>증권사 전산장애까지 겹치며 시장 변동성을 한층 키운 하루였다.</div></div>
-<div class="card" id="t-036930" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" id="t-036930" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true" data-comp="84.5" data-compx="89.7" data-rs="98">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -198,7 +229,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩206,000</div>
       <div class="cchg down">-1.44%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 결측 항목: 선행PER  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님)">COMP 84.5<span class="gr">매수</span><span class="lc">(n=1)</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 89.7</div>
       
     </div>
   </div>
@@ -221,7 +252,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">AI·메모리 첨단공정향 반도체 장비 발주 확대 기대감(구체적 일정 미확인), 반도체 대형 고객사 설비투자 계획 발표 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-159010" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-159010" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-comp="" data-compx="63.9" data-rs="98">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -239,6 +270,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩22,300</div>
       <div class="cchg flat">+0.00%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 적자 기업: PSR 기준  · 결측 항목: ROE_fwd·선행PSR·매출성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 63.9</div>
       
     </div>
   </div>
@@ -261,7 +293,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">삼성전자 HBM3E 관련 뉴스 확산 지속 여부, 반도체 팹 증설 투자 발표 일정, 다음 분기 실적 발표(일정 미확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-222800" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" id="t-222800" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true" data-comp="75.6" data-compx="76.7" data-rs="97">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -279,7 +311,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩124,700</div>
       <div class="cchg down">-4.95%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 적자 기업: PSR 기준">COMP 75.6<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 76.7</div>
       
     </div>
   </div>
@@ -302,7 +334,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2분기 실적 공시(2026.08.05) 후속 컨센서스 재산정, 9/14 AI 수요 대응 장기공급계약 체결 공시, SOCAMM·GDDR7 신제품 출하 본격화 일정</div></div>
 </div>
 </div>
-<div class="card" id="t-119850" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="buy" data-fresh="true">
+<div class="card" id="t-119850" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="buy" data-fresh="true" data-comp="66.3" data-compx="67.9" data-rs="96">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -320,7 +352,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩49,750</div>
       <div class="cchg down">-1.68%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 결측 항목: 성장률  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님)">COMP 66.3<span class="gr">보유</span><span class="lc">(n=1)</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 67.9</div>
       
     </div>
   </div>
@@ -343,7 +375,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">469억원 발전기 공급계약 체결(2026.09.11 공시), 데이터센터 투자 확대에 따른 추가 수주 가능성, 다음 분기 실적 발표(ASP·수주 반영 여부 확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-417840" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" id="t-417840" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true" data-comp="77.0" data-compx="80.1" data-rs="96">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -361,7 +393,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩14,860</div>
       <div class="cchg flat">+0.00%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 애널리스트 2명 — 컨센서스가 얇다(NA 아님)">COMP 77.0<span class="gr">보유</span><span class="lc">(n=2)</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 80.1</div>
       
     </div>
   </div>
@@ -384,7 +416,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(삼성전자 평택향 기수주 물량 반영 예정), 마이크론 싱가포르 팹 2세대 장비 추가 공급 일정, 중화권·TSMC向 고객사 확대 진행 상황</div></div>
 </div>
 </div>
-<div class="card" id="t-219130" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-219130" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="60.0" data-rs="95">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -402,6 +434,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩68,700</div>
       <div class="cchg flat">+0.00%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 결측 항목: ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 60.0</div>
       
     </div>
   </div>
@@ -424,7 +457,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2025년 흑자전환 이후 분기 실적 발표 시 이익 개선세 지속 여부, 메모리 업황 회복·AI반도체 및 HBM 수요 확대에 따른 추가 수주 소식</div></div>
 </div>
 </div>
-<div class="card" id="t-241710" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="buy" data-fresh="true">
+<div class="card" id="t-241710" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="buy" data-fresh="true" data-comp="75.9" data-compx="74.3" data-rs="95">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -442,7 +475,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩125,700</div>
       <div class="cchg flat">+0.00%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 75.9<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 74.3</div>
       
     </div>
   </div>
@@ -465,7 +498,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">ODM 3사 생산시설 증설 경쟁 지속 여부, 2026년 하반기 미국법인(G사) 온쇼어 물량 확대, 차기 분기 실적 발표(일정 미확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-078930" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-078930" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-comp="74.0" data-compx="72.2" data-rs="94">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -483,6 +516,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩116,400</div>
       <div class="cchg down">-2.18%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 74.0<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 72.2</div>
       
     </div>
   </div>
@@ -505,7 +539,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">[&#x27;GS칼텍스 3분기 실적(정제마진 반영 선행 지표)&#x27;, &#x27;정제마진 추이 지속 확인&#x27;, &#x27;GS 3분기 실적 발표&#x27;]</div></div>
 </div>
 </div>
-<div class="card" id="t-252990" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-252990" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold" data-comp="78.2" data-compx="84.6" data-rs="94">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -523,6 +557,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩15,780</div>
       <div class="cchg flat">+0.00%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님)">COMP 78.2<span class="gr">보유</span><span class="lc">(n=1)</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 84.6</div>
       
     </div>
   </div>
@@ -545,7 +580,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">삼성전자 HBM3E 엔비디아 테스트 통과 관련 후속 뉴스 흐름 지속 여부, 자체 실적 발표 일정 미확인</div></div>
 </div>
 </div>
-<div class="card" id="t-005090" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" id="t-005090" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true" data-comp="61.3" data-compx="65.4" data-rs="93">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -563,7 +598,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩58,700</div>
       <div class="cchg down">-4.08%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 적자 기업: PSR 기준  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님)">COMP 61.3<span class="gr">매도검토</span><span class="lc">(n=1)</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 65.4</div>
       
     </div>
   </div>
@@ -586,7 +621,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2028년 1분기 AI 데이터센터 가동 목표, PEF 자금조달 후속 진행 발표, 다음 분기 실적(SMP 연동 영업이익 추이) 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-161890" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-161890" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="78.0" data-compx="75.8" data-rs="93">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -604,6 +639,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩146,100</div>
       <div class="cchg up">+3.40%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 78.0<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 75.8</div>
       
     </div>
   </div>
@@ -626,7 +662,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(일정 미확정), K뷰티 ODM 3사 증설 관련 후속 소식, 북미·유럽向 수출 확대 지표 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-241770" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-241770" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-comp="" data-compx="" data-rs="93">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -644,6 +680,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩40,000</div>
       <div class="cchg flat">+0.00%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914 · NA = 부정 신호 아님(D16) · 사유: 모집단밖">COMP NA</div><div class="ccompx na" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X NA</div>
       
     </div>
   </div>
@@ -666,7 +703,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">삼일테크 인수 후속 통합 성과, 삼성전자 충청권 140조원 투자 프로젝트 집행 일정, 반도체 업황 호황 지속 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-010950" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-010950" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-comp="82.1" data-compx="82.0" data-rs="92">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -684,6 +721,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩148,600</div>
       <div class="cchg down">-0.93%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 82.1<span class="gr">매수</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 82.0</div>
       
     </div>
   </div>
@@ -706,7 +744,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(NH증권 전망 영업이익 1조2945억원, +34.1% QoQ, 구체 일정 미확정) · 공정거래위원회 정유 4사 가격담합 조사 결과 발표(5개월째 진행) · 2027년 Capex 사이클 종료에 따른 배당성향 확대 시점</div></div>
 </div>
 </div>
-<div class="card" id="t-181710" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" id="t-181710" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold" data-fresh="true" data-comp="59.5" data-compx="59.1" data-rs="92">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -724,7 +762,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩56,900</div>
       <div class="cchg up">+0.89%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 59.5<span class="gr">매도검토</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 59.1</div>
       
     </div>
   </div>
@@ -747,7 +785,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">[&#x27;NHN클라우드 2027년 말까지 데이터센터 30MW 확보 계획 진행 상황&#x27;, &#x27;다음 분기 실적 발표에서 클라우드 매출 성장 확인&#x27;, &#x27;추가 GPU 인프라 임차·계약 공시 여부&#x27;]</div></div>
 </div>
 </div>
-<div class="card" id="t-446540" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" id="t-446540" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true" data-comp="" data-compx="68.8" data-rs="91">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -765,7 +803,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩8,490</div>
       <div class="cchg flat">+0.00%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 적자 기업: PSR 기준  · 결측 항목: ROE_fwd·선행PSR·매출성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 68.8</div>
       
     </div>
   </div>
@@ -788,7 +826,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2Q26 실적 발표 — 1Q26 흑자전환 추세 지속 여부 확인, 프로브카드 신사업 관련 후속 계약·수주 공시 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-192820" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-192820" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="75.8" data-compx="73.3" data-rs="89">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -806,6 +844,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩276,000</div>
       <div class="cchg up">+2.03%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 75.8<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 73.3</div>
       
     </div>
   </div>
@@ -828,7 +867,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">미국 법인 흑자전환 여부가 확인될 향후 분기 실적 발표, ODM 3사 증설 관련 후속 보도, 중국 매출 회복 지표 공개</div></div>
 </div>
 </div>
-<div class="card" id="t-006360" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" id="t-006360" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true" data-comp="82.5" data-compx="88.2" data-rs="88">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -846,7 +885,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩36,650</div>
       <div class="cchg down">-4.81%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 82.5<span class="gr">매수</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 88.2</div>
       
     </div>
   </div>
@@ -869,7 +908,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">4분기 동해 AI데이터센터 수주 여부 / 팀코리아 베트남·사우디 원전 프로젝트 수주 결과 / 하반기 실적 발표(주택 믹스 개선 확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-001450" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-001450" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-comp="81.4" data-compx="80.6" data-rs="87">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -887,6 +926,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩51,200</div>
       <div class="cchg down">-0.19%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 81.4<span class="gr">매수</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 80.6</div>
       
     </div>
   </div>
@@ -909,7 +949,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">차기 실적 발표(일정 미확정), 국채금리 추이에 따른 방카슈랑스 신계약 유입 확대 여부, 자동차보험 손해율 월별 추이 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-049430" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-049430" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-comp="" data-compx="" data-rs="87">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -927,6 +967,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩22,000</div>
       <div class="cchg down">-3.08%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914 · NA = 부정 신호 아님(D16) · 사유: 모집단밖">COMP NA</div><div class="ccompx na" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X NA</div>
       
     </div>
   </div>
@@ -949,7 +990,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">자사주 취득 신탁계약 진행 상황(2026-09-04 체결분 집행), 행동주의펀드(퀸즈가드·피보나치자산운용)의 추가 주주제안·모니터링 여부, 3분기 실적 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-088350" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" id="t-088350" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true" data-comp="74.5" data-compx="74.2" data-rs="87">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -967,7 +1008,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩6,020</div>
       <div class="cchg up">+0.50%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 74.5<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 74.2</div>
       
     </div>
   </div>
@@ -990,7 +1031,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">확인된 구체적 일정은 없음 — 9월 초 기관 매수세 유입·업황 개선 기대감이 유일하게 언급된 동력이며, 다음 실적 발표 일정은 미확인 상태다.</div></div>
 </div>
 </div>
-<div class="card" id="t-073240" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" id="t-073240" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true" data-comp="68.9" data-compx="71.4" data-rs="86">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1008,7 +1049,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩7,110</div>
       <div class="cchg down">-3.53%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님)">COMP 68.9<span class="gr">보유</span><span class="lc">(n=1)</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 71.4</div>
       
     </div>
   </div>
@@ -1031,7 +1072,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">[&#x27;광주공장 매각/부지 개발 계약 확정 여부(구체 일정 미확정)&#x27;, &#x27;2분기 실적 발표(컨센서스 영업이익 1487억원, 전년비 -15.1% 추정)&#x27;, &#x27;신용등급 A+ 상향(2026.09.11, 나이스신용평가)&#x27;]</div></div>
 </div>
 </div>
-<div class="card" id="t-011560" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="buy">
+<div class="card" id="t-011560" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="buy" data-comp="" data-compx="67.7" data-rs="85">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1049,6 +1090,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩24,050</div>
       <div class="cchg flat">+0.00%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 결측 항목: ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 67.7</div>
       
     </div>
   </div>
@@ -1071,7 +1113,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">삼성물산발 추가 수주 공시 가능성, 반도체 설비투자 확대 사이클 지속 여부, 향후 실적 발표를 통한 수주잔고 반영 확인</div></div>
 </div>
 </div>
-<div class="card" id="t-236200" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" id="t-236200" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-fresh="true" data-comp="65.3" data-compx="63.6" data-rs="85">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1089,7 +1131,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩52,600</div>
       <div class="cchg up">+1.35%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 애널리스트 2명 — 컨센서스가 얇다(NA 아님)">COMP 65.3<span class="gr">보유</span><span class="lc">(n=2)</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 63.6</div>
       
     </div>
   </div>
@@ -1112,7 +1154,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">인도 FSIE 2026 &#x27;바이오스테이션 3 맥스&#x27; 첫 공개(2026.09.02) / AI 카메라 기술 내재화(M&amp;A·자체개발) 추진 / 3분기 실적 발표(일정 미확정)</div></div>
 </div>
 </div>
-<div class="card" id="t-005830" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true">
+<div class="card" id="t-005830" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-fresh="true" data-comp="73.5" data-compx="70.3" data-rs="84">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1130,7 +1172,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩192,500</div>
       <div class="cchg up">+0.42%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 73.5<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 70.3</div>
       
     </div>
   </div>
@@ -1153,7 +1195,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2030년까지 단계적 주주환원율 상향 로드맵 이행 여부, CEO 주관으로 확대되는 분기 실적발표 컨퍼런스콜, 보험업 자산운용 3% 규제 완화 및 해약환급금준비금 제도 개편 논의 진행</div></div>
 </div>
 </div>
-<div class="card" id="t-035610" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" id="t-035610" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true" data-comp="" data-compx="" data-rs="84">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1171,7 +1213,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩5,090</div>
       <div class="cchg up">+0.99%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914 · NA = 부정 신호 아님(D16) · 사유: 모집단밖">COMP NA</div><div class="ccompx na" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X NA</div>
       
     </div>
   </div>
@@ -1194,7 +1236,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">[&#x27;와이브레인 BCI 웨어러블 로봇 국책과제 R&amp;D 진행(2027년까지 3년)&#x27;, &#x27;인피니트헬스케어 임시주총 관련 법적 이슈 후속 경과&#x27;]</div></div>
 </div>
 </div>
-<div class="card" id="t-051160" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-051160" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold" data-comp="" data-compx="72.7" data-rs="84">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1212,6 +1254,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩10,310</div>
       <div class="cchg up">+2.69%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 결측 항목: ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 72.7</div>
       
     </div>
   </div>
@@ -1234,7 +1277,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">9월3일 200억원(199만주) 자사주 소각 공시 / 8월4일 자기주식취득결정 주요사항보고(DART)</div></div>
 </div>
 </div>
-<div class="card" id="t-055550" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-055550" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-comp="74.8" data-compx="71.1" data-rs="84">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1252,6 +1295,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩114,600</div>
       <div class="cchg up">+1.51%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 74.8<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 71.1</div>
       
     </div>
   </div>
@@ -1274,7 +1318,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">4분기 추가 자사주 매입(1.4조원 이상분) 발표 예정 / 3분기 실적 발표 / 9월 FOMC 금리 결정</div></div>
 </div>
 </div>
-<div class="card" id="t-094800" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" id="t-094800" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true" data-comp="" data-compx="" data-rs="84">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1292,7 +1336,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩7,420</div>
       <div class="cchg flat"></div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914 · NA = 부정 신호 아님(D16) · 사유: 모집단밖">COMP NA</div><div class="ccompx na" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X NA</div>
       
     </div>
   </div>
@@ -1315,7 +1359,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">도쿄 임대주택 인수 완료(2026.09.01) 이후 추가 해외 자산 편입 공시 여부, 리츠 특성상 정기 배당 지급 일정 확인 필요</div></div>
 </div>
 </div>
-<div class="card" id="t-204610" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-204610" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="hold" data-comp="" data-compx="" data-rs="84">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1333,6 +1377,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩3,205</div>
       <div class="cchg flat">+0.00%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914 · NA = 부정 신호 아님(D16) · 사유: 모집단밖">COMP NA</div><div class="ccompx na" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X NA</div>
       
     </div>
   </div>
@@ -1355,7 +1400,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 11월말 분기배당 기준일 도래 / 2026년 6월25일 결정된 자사주 매입 진행·소각 여부 / 3분기 실적 발표(구체 일정 미확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-017890" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-017890" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="74.2" data-rs="83">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1373,6 +1418,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩14,360</div>
       <div class="cchg down">-2.25%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 결측 항목: ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 74.2</div>
       
     </div>
   </div>
@@ -1395,7 +1441,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">주정 직거래 확대·유통구조 개선 관련 정책 동향(구체적 시행 일정 미확인), 다음 실적 발표 일정 미확인</div></div>
 </div>
 </div>
-<div class="card" id="t-028050" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="buy" data-fresh="true">
+<div class="card" id="t-028050" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="buy" data-fresh="true" data-comp="76.9" data-compx="79.2" data-rs="83">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1413,7 +1459,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩50,800</div>
       <div class="cchg down">-0.39%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 76.9<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 79.2</div>
       
     </div>
   </div>
@@ -1436,7 +1482,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">중동 대형 플랜트 신규 수주 발표 여부, 국제유가·중동 정세 추이, 차기 실적 발표 일정(미확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-086790" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-086790" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-comp="73.9" data-compx="71.3" data-rs="83">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1454,6 +1500,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩140,800</div>
       <div class="cchg up">+2.18%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 73.9<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 71.3</div>
       
     </div>
   </div>
@@ -1476,7 +1523,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(역대 최대 전망), 밸류업 계획에 따른 주주환원 정책 구체화</div></div>
 </div>
 </div>
-<div class="card" id="t-093320" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-093320" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="65.6" data-rs="82">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1494,6 +1541,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩140,100</div>
       <div class="cchg up">+1.23%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 결측 항목: ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 65.6</div>
       
     </div>
   </div>
@@ -1516,7 +1564,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">[&#x27;2026-09-10 169억원 콜로케이션 공급계약 공시&#x27;, &#x27;약 303.62억원 규모 콜로케이션 공급계약 공시&#x27;, &#x27;2029년 3월 31일 계약 만기까지 매출 인식 지속&#x27;]</div></div>
 </div>
 </div>
-<div class="card" id="t-105560" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-105560" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="74.1" data-compx="71.4" data-rs="82">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1534,6 +1582,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩181,600</div>
       <div class="cchg up">+2.08%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 74.1<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 71.4</div>
       
     </div>
   </div>
@@ -1556,7 +1605,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">[&#x27;Circle 협력 원화 스테이블코인(USDC) 도입 추진 경과&#x27;, &#x27;양종희 회장 후임 의장 선출 절차(11월 임기 종료 예정)&#x27;]</div></div>
 </div>
 </div>
-<div class="card" id="t-007070" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-007070" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="67.7" data-compx="66.0" data-rs="81">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1574,6 +1623,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩25,900</div>
       <div class="cchg up">+3.39%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 67.7<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 66.0</div>
       
     </div>
   </div>
@@ -1596,7 +1646,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">차기 분기 실적 발표(일정 미확인), 증권가 추가 목표주가 상향 가능성, 하반기 소비심리·금리 인하 관련 지표 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-028670" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-028670" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="71.9" data-compx="69.9" data-rs="81">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1614,6 +1664,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩6,040</div>
       <div class="cchg up">+0.17%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 71.9<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 69.9</div>
       
     </div>
   </div>
@@ -1636,7 +1687,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">하반기 벌크선 운임(BDI) 강세 흐름 지속 여부 / 중동 정세 전개 및 물류 재편 뉴스 / 다음 분기 실적 발표(일정 미확인)</div></div>
 </div>
 </div>
-<div class="card" id="t-090430" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-090430" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="78.8" data-compx="84.2" data-rs="80">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1654,6 +1705,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩146,000</div>
       <div class="cchg up">+3.91%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 78.8<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 84.2</div>
       
     </div>
   </div>
@@ -1676,7 +1728,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">[&#x27;인베스터데이 후속 2027 중장기 목표 이행 점검&#x27;, &#x27;2035년 매출 15조원 비전 세부 로드맵 발표&#x27;, &#x27;다음 분기 실적 발표(일정 미확정)&#x27;]</div></div>
 </div>
 </div>
-<div class="card" id="t-044820" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-044820" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-comp="" data-compx="" data-rs="79">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1694,6 +1746,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩22,900</div>
       <div class="cchg up">+1.33%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914 · NA = 부정 신호 아님(D16) · 사유: 모집단밖">COMP NA</div><div class="ccompx na" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X NA</div>
       
     </div>
   </div>
@@ -1716,7 +1769,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">신임 이병주 단독대표 체제 하 경영전략·조직개편 발표 여부, 향후 실적 발표 일정(미확정), B² 피벗 ₩23,350 돌파 시도 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-096770" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-096770" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-comp="80.9" data-compx="86.1" data-rs="79">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1734,6 +1787,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩136,700</div>
       <div class="cchg down">-5.59%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 적자 기업: PSR 기준">COMP 80.9<span class="gr">매수</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 86.1</div>
       
     </div>
   </div>
@@ -1756,7 +1810,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">[&#x27;SK온-네오볼타 파워 추가 9GWh 협력 계약 연내 성사 여부(총 18GWh 확대 전망)&#x27;, &#x27;SK그룹 합병 관련 후속 공시(2026.08.25~26 주요사항보고 기재정정)&#x27;]</div></div>
 </div>
 </div>
-<div class="card" id="t-093190" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-093190" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-comp="" data-compx="" data-rs="78">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1774,6 +1828,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩8,520</div>
       <div class="cchg up">+1.19%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914 · NA = 부정 신호 아님(D16) · 사유: 모집단밖">COMP NA</div><div class="ccompx na" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X NA</div>
       
     </div>
   </div>
@@ -1796,7 +1851,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026.2.4 FY25 실적발표(영업이익 159억원, +68.8%) 및 주당 325원 현금배당 결정 — 이미 반영된 과거 이벤트, 신규 확인된 향후 일정 없음</div></div>
 </div>
 </div>
-<div class="card" id="t-000810" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-000810" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="71.8" data-compx="69.0" data-rs="77">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1814,6 +1869,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩675,000</div>
       <div class="cchg down">-1.60%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 71.8<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 69.0</div>
       
     </div>
   </div>
@@ -1836,7 +1892,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">해약환급금준비금 제도 개편 향방(2026-09-13 보도, 확정 시점 미정), 손보업종 3분기 실적 시즌 진입, 추가 목표주가 상향 여부(직전 상향 2026-08-25 NH투자증권·iM증권)</div></div>
 </div>
 </div>
-<div class="card" id="t-003690" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-003690" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-comp="71.5" data-compx="68.9" data-rs="77">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1854,6 +1910,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩15,180</div>
       <div class="cchg up">+1.88%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 애널리스트 2명 — 컨센서스가 얇다(NA 아님)">COMP 71.5<span class="gr">보유</span><span class="lc">(n=2)</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 68.9</div>
       
     </div>
   </div>
@@ -1876,7 +1933,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">美 9월 FOMC 금리 결정 결과 확인, 해약환급금준비금 제도 개편 후속 조치 발표 일정, 특종보험 요율 산정 AI 협업(로민) 확대 여부</div></div>
 </div>
 </div>
-<div class="card" id="t-092730" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" id="t-092730" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true" data-comp="63.5" data-compx="60.5" data-rs="76">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1894,7 +1951,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩21,550</div>
       <div class="cchg down">-0.23%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 결측 항목: 선행PER  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님)">COMP 63.5<span class="gr">매도검토</span><span class="lc">(n=1)</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 60.5</div>
       
     </div>
   </div>
@@ -1917,7 +1974,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">다음 분기 실적 발표(일정 미확인) · 일본 오프라인 확장 진행 상황 · 글로벌 더마 브랜드 확장 관련 추가 소식</div></div>
 </div>
 </div>
-<div class="card" id="t-086670" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-086670" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="" data-rs="75">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1935,6 +1992,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩16,780</div>
       <div class="cchg down">-0.83%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914 · NA = 부정 신호 아님(D16) · 사유: 모집단밖">COMP NA</div><div class="ccompx na" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X NA</div>
       
     </div>
   </div>
@@ -1957,7 +2015,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표 시점(반도체·조선 수주 지속 여부 확인), 반도체 설비투자 캐펙스 가이던스 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-096530" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-096530" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-comp="73.4" data-compx="75.6" data-rs="75">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -1975,6 +2033,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩31,950</div>
       <div class="cchg up">+1.27%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 애널리스트 2명 — 컨센서스가 얇다(NA 아님)">COMP 73.4<span class="gr">보유</span><span class="lc">(n=2)</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 75.6</div>
       
     </div>
   </div>
@@ -1997,7 +2056,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">9월 9일 고위험 HPV 12종 개별 판별 신제품 공개 / 2분기 실적 발표(비호흡기 매출 성장 지속 여부 확인 포인트) / ESCMID 등 유럽 학회 기반 스타고라·큐레카 채택 확대</div></div>
 </div>
 </div>
-<div class="card" id="t-194370" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" id="t-194370" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true" data-comp="63.0" data-compx="64.0" data-rs="75">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -2015,7 +2074,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩13,100</div>
       <div class="cchg up">+1.39%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님)">COMP 63.0<span class="gr">매도검토</span><span class="lc">(n=1)</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 64.0</div>
       
     </div>
   </div>
@@ -2038,7 +2097,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 발표(일정 미확정), 상법 개정에 따른 섬유·의류 업종 배당정책 후속 발표</div></div>
 </div>
 </div>
-<div class="card" id="t-002810" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold">
+<div class="card" id="t-002810" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-comp="" data-compx="" data-rs="74">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -2056,6 +2115,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩22,100</div>
       <div class="cchg up">+1.38%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914 · NA = 부정 신호 아님(D16) · 사유: 모집단밖">COMP NA</div><div class="ccompx na" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X NA</div>
       
     </div>
   </div>
@@ -2078,7 +2138,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">합병 관련 후속 공시(합병비율·일정 확정), 최대주주 지분 변동 추가 공시 여부, B² 피벗(₩22,500) 돌파 시도</div></div>
 </div>
 </div>
-<div class="card" id="t-282330" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true">
+<div class="card" id="t-282330" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-fresh="true" data-comp="69.1" data-compx="67.8" data-rs="74">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -2096,7 +2156,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩145,900</div>
       <div class="cchg up">+0.62%</div>
-      <div class="fresh-sun">☀️</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20260914">COMP 69.1<span class="gr">보유</span></div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 67.8</div>
       
     </div>
   </div>
@@ -2119,7 +2179,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">CU 한국조리과학고 협업 도시락 순차 출시, B² 피벗 ₩147,800 돌파 여부 확인</div></div>
 </div>
 </div>
-<div class="card" id="t-439090" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can">
+<div class="card" id="t-439090" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="69.4" data-rs="70">
 <div class="chead">
   <div class="ctop">
     <div class="cleft">
@@ -2137,6 +2197,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
     <div class="cright">
       <div class="cprice">₩16,940</div>
       <div class="cchg flat">+0.00%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20260914  · 결측 항목: 기관20일·외인20일·ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 스마트머니·밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 69.4</div>
       
     </div>
   </div>
@@ -2256,4 +2317,54 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 })();
 </script>
 
+
+<script>
+/* [FWD-OBS-COMP100-RETRO-20260915] 본문 = 라이브 템플릿 마커 구간 복제 */
+(function(){
+  var cards = document.querySelectorAll('.card');
+/* COMP100-JS-START  [FWD-OBS-COMP100-UX-20260915 오너 지시 ①] COMP·RS 정렬.
+     지표당 버튼 1개 — 활성 버튼 재클릭이 내림↔오름 반전, 다른 버튼 클릭은 내림부터.
+     표시 순서만 바꾼다(판정·필터·서버 정렬키 무관). NA 는 방향과 무관하게 항상 하단,
+     동점·NA 내부는 서버 원순서(RS↓VCP↓) 유지. 초기 상태 = RS↓ = 서버 원순서. */
+  var wrapEl=document.querySelector('.wrap');
+  var footEl=wrapEl?wrapEl.querySelector('.foot'):null;
+  var origOrder=Array.prototype.slice.call(cards);
+  var origIdx=new Map(); origOrder.forEach(function(c,i){origIdx.set(c,i);});
+  var sortKey='rs', sortDir='desc';
+  function sortCards(key,dir){
+    var arr=origOrder.slice();
+    arr.sort(function(a,b){
+      var x=parseFloat(a.dataset[key==='comp'?'comp':(key==='compx'?'compx':'rs')]);
+      var y=parseFloat(b.dataset[key==='comp'?'comp':(key==='compx'?'compx':'rs')]);
+      var nx=isNaN(x), ny=isNaN(y);
+      if(nx&&ny) return origIdx.get(a)-origIdx.get(b);
+      if(nx) return 1;
+      if(ny) return -1;
+      if(x===y) return origIdx.get(a)-origIdx.get(b);
+      return dir==='desc' ? (y-x) : (x-y);
+    });
+    arr.forEach(function(c){
+      if(footEl) wrapEl.insertBefore(c, footEl); else wrapEl.appendChild(c);
+    });
+  }
+  var sbtns=Array.prototype.slice.call(document.querySelectorAll('.sbtn'));
+  sbtns.forEach(function(t){
+    t.addEventListener('click',function(){
+      var key=t.getAttribute('data-key');
+      if(sortKey===key){ sortDir = (sortDir==='desc') ? 'asc' : 'desc'; }
+      else { sortKey=key; sortDir='desc'; }
+      sbtns.forEach(function(x){
+        x.classList.remove('on');
+        var a=x.querySelector('.ar');
+        if(a) a.textContent='↓';
+      });
+      t.classList.add('on');
+      var ar=t.querySelector('.ar');
+      if(ar) ar.textContent = (sortDir==='desc') ? '↓' : '↑';
+      sortCards(sortKey,sortDir);
+    });
+  });
+  /* COMP100-JS-END */
+})();
+</script>
 </body></html>
