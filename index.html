@@ -149,15 +149,15 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
   }).then(function(j){
     [['us-regime','US'],['kr-regime','KR']].forEach(function(p){
       var el=document.getElementById(p[0]), d=j[p[1]];
-      if(!el||!d||!ST[d.raw]) return;
-      var st=ST[d.raw], cs=ST[d.state]||st, cap=(d.cap===0?'차단':Math.round(d.cap*100)+'%');
+      if(!el||!d||!ST[d.state]) return;
+      var st=ST[d.state], cap=(d.cap===0?'차단':Math.round(d.cap*100)+'%');
       el.querySelector('.dot').style.background=st.c;
       el.querySelector('.dot').style.boxShadow='0 0 6px '+st.c+'88';
       var t=el.querySelector('.lv');
-      t.textContent=d.raw+'/4';
+      t.textContent=d.state+'/4';
       t.style.color='#e6edf3';
-      el.setAttribute('aria-label', el.getAttribute('aria-label')+' — 활성 플래그 '+d.raw+'/4, 확정 상태 '+d.state+' '+cs.n+', 노출 상한 '+cap);
-      el.setAttribute('title','활성 플래그 '+d.raw+'/4 · 확정 상태 '+d.state+' '+cs.n+' · 노출 상한 '+cap+' · '+d.date);
+      el.setAttribute('aria-label', el.getAttribute('aria-label')+' — 확정 상태 '+d.state+'/4 '+st.n+', 오늘 raw '+d.raw+', 노출 상한 '+cap);
+      el.setAttribute('title','확정 '+d.state+'/4 '+st.n+' · 오늘 raw '+d.raw+' · 노출 상한 '+cap+' · '+d.date);
     });
   }).catch(function(){});
 })();
