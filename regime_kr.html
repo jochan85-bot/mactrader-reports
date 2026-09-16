@@ -26,7 +26,6 @@ h1{color:#58a6ff;font-size:20px;line-height:1.3;margin-bottom:2px}
 .big-light-wrap{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .big-light{display:flex;flex-direction:column;gap:3px;width:46px;flex-shrink:0}
 .big-light i{display:block;height:10px;border-radius:3px;background:#30363d;transition:background .2s,box-shadow .2s}
-.big-light-num{font-size:22px;font-weight:800;color:#e6edf3;line-height:1}
 .st-txt{flex:1;min-width:160px}
 .st-title{font-size:20px;font-weight:700;line-height:1.25}
 .st-sub{font-size:12px;color:#8b949e;margin-top:3px}
@@ -141,7 +140,7 @@ h3{font-size:13.5px;color:#58a6ff;margin:18px 0 6px}
 <div class="card" id="state-card" style="display:none">
   <div class="section-title">① 현재 상태</div>
   <div class="st-head">
-    <div class="big-light-wrap"><div class="big-light" id="big-light"></div><div class="big-light-num" id="big-light-num">?/4</div></div>
+    <div class="big-light-wrap"><div class="big-light" id="big-light"></div></div>
     <div class="st-txt">
       <div class="st-title" id="st-title">—</div>
       <div class="st-sub" id="st-sub"></div>
@@ -284,9 +283,7 @@ function renderState(L){
   var s=L.S, st=ST[s];
   var bl=$('big-light');
   bl.innerHTML=lightHTML(s);
-  $('big-light-num').textContent=s+'/4';
-  $('big-light-num').style.color=st.c;
-  $('st-title').textContent=st.n+' · 노출 상한 '+capTxt(s);
+  $('st-title').textContent='경보 '+s+'/4 '+st.n;
   $('st-title').style.color=st.c;
   $('st-sub').textContent=fmtD(L.d,true)+' 종가 기준 · 확정 상태 '+s+' / 4';
 
