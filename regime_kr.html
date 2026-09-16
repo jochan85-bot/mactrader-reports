@@ -291,7 +291,6 @@ function renderState(L){
   D.legs.forEach(function(g,i){
     html+=chip(g.label, L.r[i], false);
   });
-  if(D.legs.length>1) html+='<span class="lv-arrow">→ 낮은 쪽</span>';
   html+=chip('오늘 raw', L.R, false);
   html+='<span class="lv-arrow">→</span>';
   html+=chip('확정', L.S, true);
