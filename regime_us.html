@@ -4,33 +4,669 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>진입환경 게이트 · 미장</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
 <style>*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;padding:16px;max-width:760px;margin:0 auto;line-height:1.55}
-a{color:#58a6ff}
-h1{color:#58a6ff;font-size:21px;margin:14px 0 6px}
-h2{font-size:15px;color:#e6edf3;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid #21262d}
-.sub{color:#8b949e;font-size:12px;margin-bottom:14px}
-.badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700;margin-left:6px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Pretendard,sans-serif;background:#0d1117;color:#e6edf3;padding:16px;max-width:680px;margin:0 auto}
+a{color:#58a6ff;text-decoration:none}
+.top-nav{display:flex;align-items:center;gap:8px;margin:6px 0 16px;font-size:13px;color:#8b949e}
+.top-nav a{color:#8b949e;border:1px solid #30363d;border-radius:6px;padding:4px 10px}
+.top-nav a:active{color:#e6edf3;border-color:#58a6ff}
+.h1-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+h1{color:#58a6ff;font-size:20px;line-height:1.3;margin-bottom:2px}
+.guide-btn{font-size:12px;color:#8b949e;border:1px solid #30363d;border-radius:6px;padding:5px 11px;white-space:nowrap;flex-shrink:0;font-weight:600;letter-spacing:.4px}
+.guide-btn:active{color:#e6edf3;border-color:#58a6ff}
+.subtitle{font-size:12px;color:#8b949e;margin-bottom:14px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;margin-bottom:16px}
+.section-title{color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #21262d}
+.badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700;margin-left:6px;vertical-align:middle}
 .b-live{background:#1f6f3f;color:#d7ffe8}.b-back{background:#6b4b16;color:#ffe9c2}
-.card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:14px 16px;margin:10px 0}
-.big{font-size:30px;font-weight:800;letter-spacing:-.5px}
-.kv{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:13px;border-bottom:1px solid #1c2128}
-.kv:last-child{border-bottom:0}.kv span:first-child{color:#8b949e}
-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
-th,td{padding:6px 5px;text-align:right;border-bottom:1px solid #21262d;white-space:nowrap}
-th:first-child,td:first-child{text-align:left}
+
+/* 현재 상태 */
+.st-head{display:flex;align-items:center;gap:14px}
+.big-light{width:62px;height:62px;border-radius:14px;flex-shrink:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:1px;background:#484f58;color:#0d1117;box-shadow:0 0 0 3px #161b22,0 0 0 4px #30363d}
+.big-light .n{font-size:23px;font-weight:800;line-height:1}
+.big-light .d{font-size:10px;font-weight:700;opacity:.75}
+.st-title{font-size:20px;font-weight:700;line-height:1.25}
+.st-sub{font-size:12px;color:#8b949e;margin-top:3px}
+.lv-row{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:5px;background:#0d1117;border:1px solid #30363d;border-radius:6px;
+  padding:4px 9px;font-size:12px;color:#8b949e;line-height:1.5}
+.chip b{color:#e6edf3;font-size:13px}
+.chip .mini-dot{width:8px;height:8px;border-radius:50%;background:#484f58;flex-shrink:0}
+.chip-final{border-width:2px}
+.lv-arrow{color:#8b949e;font-size:14px}
+.kv{display:flex;justify-content:space-between;gap:10px;padding:7px 0;font-size:13px;border-bottom:1px solid #21262d}
+.kv:last-child{border-bottom:0}.kv .k{color:#8b949e;flex-shrink:0}.kv .v{text-align:right}
+.kv b{color:#e6edf3}
+.kv-wrap{margin-top:14px;border-top:1px solid #21262d;padding-top:6px}
+.sub-head{font-size:11px;color:#8b949e;text-transform:uppercase;letter-spacing:1px;margin:18px 0 4px}
+html,body{max-width:100%;overflow-x:hidden}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:6px}
+.tw::-webkit-scrollbar{height:5px}.tw::-webkit-scrollbar-thumb{background:#30363d;border-radius:3px}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{padding:7px 5px;text-align:right;border-bottom:1px solid #21262d;white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
 th{color:#8b949e;font-weight:600;font-size:11px}
+tr:last-child td{border-bottom:0}
 .on{color:#ff7b72;font-weight:700}.off{color:#3fb950}
-.s0{color:#3fb950}.s1{color:#d29922}.s2{color:#d29922}.s3{color:#f0883e}.s4{color:#ff7b72}
-img{width:100%;border-radius:8px;border:1px solid #30363d;margin-top:8px}
-.note{color:#8b949e;font-size:12px;margin-top:8px}
-.warn{background:#2d2010;border:1px solid #6b4b16;border-radius:8px;padding:10px 12px;font-size:12.5px;color:#ffd9a0;margin:10px 0}
+.fdesc{display:block;color:#6e7681;font-size:11px;margin-top:2px;white-space:normal;line-height:1.45}
+
+/* 차트 */
+#chart{width:100%;height:400px;touch-action:pan-y}
+#chart2{width:100%;height:230px;touch-action:pan-y}
+.js-plotly-plot .nsewdrag{touch-action:pan-y !important}
+.footnote{font-size:11px;color:#8b949e;margin-top:10px;line-height:1.55}
+.chart-fallback{display:none;background:rgba(187,128,9,.1);border:1px solid #9e6a03;border-radius:8px;
+  padding:14px 16px;font-size:13px;line-height:1.6;color:#e3b341}
+
+/* 일별 이력 */
+.hist-head,.hist-row{display:grid;gap:4px;align-items:center}
+.hist-head{font-size:10.5px;color:#8b949e;text-transform:uppercase;letter-spacing:.5px;padding:0 4px 8px;border-bottom:1px solid #21262d}
+.hist-head .num{text-align:right}.hist-head .lv{text-align:center}
+.hist-row{padding:9px 4px;border-bottom:1px solid #21262d;font-size:13px;cursor:pointer}
+.hist-row:active{background:#1c2128}
+.hist-date{color:#c9d1d9;white-space:nowrap}
+.hist-close{text-align:right;color:#8b949e;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lv-pill{display:inline-flex;align-items:center;justify-content:center;width:100%;border-radius:5px;
+  font-size:11px;font-weight:700;padding:2px 0;color:#0d1117;background:#484f58}
+.lv-pill.dim{background:transparent;color:#6e7681;border:1px dashed #30363d}
+.hist-detail{display:none;grid-column:1 / -1;padding:8px 2px 4px}
+.hist-row.open .hist-detail{display:block}
+.mon{border-bottom:1px solid #21262d}
+.mon-head{display:flex;align-items:center;gap:8px;padding:12px 4px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mon-head:active{background:#1c2128}
+.mon-title{font-size:14px;font-weight:700;color:#e6edf3;white-space:nowrap}
+.mon-sum{flex:1;display:flex;align-items:center;justify-content:flex-end;gap:6px;font-size:11.5px;color:#8b949e;flex-wrap:wrap}
+.mon-max{display:inline-flex;align-items:center;justify-content:center;border-radius:5px;font-size:10.5px;font-weight:700;padding:2px 7px;color:#0d1117;background:#484f58}
+.mon-caret{color:#8b949e;font-size:11px;transition:transform .15s;flex-shrink:0}
+.mon.open .mon-caret{transform:rotate(180deg)}
+.mon-body{display:none}.mon.open .mon-body{display:block}
+.mon-body .hist-row:last-child{border-bottom:none}
+
+.err-box{display:none;background:rgba(248,81,73,.1);border:1px solid #f85149;border-radius:8px;
+  padding:14px 16px;font-size:13px;line-height:1.6;color:#ffa198;margin-bottom:16px}
+.warn{background:#2d2010;border:1px solid #6b4b16;border-radius:8px;padding:11px 13px;font-size:12.5px;color:#ffd9a0;margin-bottom:16px;line-height:1.6}
+.note{color:#8b949e;font-size:12px;margin-top:10px;line-height:1.6}
 .foot{color:#6e7681;font-size:11px;margin:30px 0 10px;text-align:center}
-ol{padding-left:20px}ol li{margin:9px 0;font-size:13.5px}
-.gl{font-size:13.5px}.gl b{color:#e6edf3}
+ol{padding-left:20px}ol li{margin:9px 0;font-size:13.5px;line-height:1.7}
+ul{padding-left:19px}ul li{margin:6px 0;font-size:13.5px;line-height:1.7}
+.gl{font-size:13.5px;line-height:1.75;color:#c9d1d9}.gl b{color:#e6edf3}
+h2{font-size:15px;color:#e6edf3;margin:28px 0 10px;padding-bottom:6px;border-bottom:1px solid #21262d}
+h3{font-size:13.5px;color:#58a6ff;margin:18px 0 6px}
 </style>
 </head>
 <body>
-<h1>🧭 진입환경 게이트 — 미장(NASDAQ)<span class="badge b-back">소급 산출</span></h1><div class="sub">기준 세션 2026-09-14 · 생성 2026-09-16 10:19 KST</div><div class="warn">라이브 적용 2026-09-16 17:05 예정 — 현재 값은 <b>소급 산출</b>입니다.</div><h2>① 현재 상태</h2><div class="card"><div class="big s3">확정 상태 3 / 4</div><div class="kv"><span>raw (오늘 켜진 플래그 수)</span><span><b>4</b></span></div><div class="kv"><span>총 노출 상한</span><span><b>50%</b></span></div><div class="kv"><span>신규 진입 사이즈 배율</span><span>50%</span></div><div class="kv"><span>현재 노출률</span><span>92.14%</span></div><div class="kv"><span>오늘 차단·축소</span><span>기록 없음</span></div><div class="kv"><span>상태 변경일</span><span>2026-09-09</span></div><div class="kv"><span>지수 구간 (관측)</span><span>Z_other · 52주 고점 대비 -4.11% · 20세션 내 FTD 없음</span></div></div><h2>② 4플래그 원값</h2><table><tr><th>플래그</th><th>문턱</th><th>값</th><th></th></tr><tr><td>F_dist</td><td>지수 분배일 25일 내 ≥5</td><td>6.0000</td><td class="on">ON</td></tr><tr><td>F_nhnl</td><td>52주 신고−신저 10일 합 &lt; 0</td><td>-10.0000</td><td class="on">ON</td></tr><tr><td>F_ma50</td><td>MA50 상회 비율 &lt; 50%</td><td>38.1254</td><td class="on">ON</td></tr><tr><td>F_adv</td><td>상승비율 10일 EMA &lt; 0.50</td><td>0.4492</td><td class="on">ON</td></tr></table><h2>③ 최근 20세션</h2><table><tr><th>날짜</th><th>raw</th><th>확정</th><th>상한</th><th>차단</th></tr><tr><td>2026-08-17</td><td>0</td><td class="s0">0</td><td>100%</td><td>—</td></tr><tr><td>2026-08-18</td><td>1</td><td class="s0">0</td><td>100%</td><td>—</td></tr><tr><td>2026-08-19</td><td>0</td><td class="s0">0</td><td>100%</td><td>—</td></tr><tr><td>2026-08-20</td><td>1</td><td class="s0">0</td><td>100%</td><td>—</td></tr><tr><td>2026-08-21</td><td>0</td><td class="s0">0</td><td>100%</td><td>—</td></tr><tr><td>2026-08-24</td><td>1</td><td class="s0">0</td><td>100%</td><td>—</td></tr><tr><td>2026-08-25</td><td>0</td><td class="s0">0</td><td>100%</td><td>—</td></tr><tr><td>2026-08-26</td><td>1</td><td class="s0">0</td><td>100%</td><td>—</td></tr><tr><td>2026-08-27</td><td>1</td><td class="s1">1</td><td>90%</td><td>—</td></tr><tr><td>2026-08-28</td><td>1</td><td class="s1">1</td><td>90%</td><td>—</td></tr><tr><td>2026-08-31</td><td>2</td><td class="s1">1</td><td>90%</td><td>—</td></tr><tr><td>2026-09-01</td><td>2</td><td class="s2">2</td><td>70%</td><td>—</td></tr><tr><td>2026-09-02</td><td>2</td><td class="s2">2</td><td>70%</td><td>—</td></tr><tr><td>2026-09-03</td><td>1</td><td class="s1">1</td><td>90%</td><td>—</td></tr><tr><td>2026-09-04</td><td>1</td><td class="s1">1</td><td>90%</td><td>—</td></tr><tr><td>2026-09-08</td><td>3</td><td class="s1">1</td><td>90%</td><td>—</td></tr><tr><td>2026-09-09</td><td>3</td><td class="s3">3</td><td>50%</td><td>—</td></tr><tr><td>2026-09-10</td><td>3</td><td class="s3">3</td><td>50%</td><td>—</td></tr><tr><td>2026-09-11</td><td>3</td><td class="s3">3</td><td>50%</td><td>—</td></tr><tr><td>2026-09-14</td><td>4</td><td class="s3">3</td><td>50%</td><td>—</td></tr></table><h2>④ 차트</h2><img src="regime/regime_chart_US2_recent12m.png" alt="최근 12개월"><div class="note">최근 12개월 — 지수·플래그 개수·확정 상태·지수 구간·개별 플래그(일일 갱신)</div><img src="regime/regime_chart_US1_2020_2026.png" alt="장기"><div class="note">2020년 이후 장기. 세로 점선은 데이터 패널이 바뀌는 지점으로, 이어 붙인 것이 아니라 전환 지점입니다.</div><h2>⑤ 차단·축소 로그</h2><div class="note">아직 기록이 없습니다. 게이트가 신규 진입을 실제로 막거나 줄인 순간부터 쌓입니다.</div><h2>⑥ 예정 항목 (아직 매매에 쓰이지 않음)</h2><table><tr><th>항목</th><th>상태</th></tr><tr><td>바닥권 완화 (하락 15% 이상 + 회복 신호일 때 4/4를 50%로)</td><td>관측 예정</td></tr><tr><td>AI 판정층 (악화 시 한 단계 상향 / 바닥권 조기 해제)</td><td>관측 예정</td></tr><tr><td>통합 방식 참고 열</td><td>해당 없음</td></tr></table><div class="note">위 항목은 기록만 하며 실제 매매 동작은 현재 규칙 그대로입니다.</div><h2>⑦ 이 지표가 무엇인가</h2><div class="gl"><a href="regime_guide.html">📖 진입환경 게이트 가이드 열기 →</a></div><div class="foot">뭉치 트레이더 리포트 · 진입환경 게이트</div>
+
+<div class="top-nav"><a href="index.html">‹ 홈</a></div>
+<div class="h1-row">
+  <h1>🧭 <span id="mk-label">—</span> 진입환경 게이트</h1>
+  <a class="guide-btn" href="regime_guide.html">📖 GUIDE</a>
+</div>
+<div class="subtitle" id="subtitle">불러오는 중…</div>
+
+<div class="err-box" id="err">
+  ⚠️ 진입환경 데이터를 불러오지 못했습니다.<br>
+  파일을 <code>file://</code> 로 직접 열면 브라우저가 데이터 로드를 차단합니다.
+  웹 주소(https)로 접속해 주세요.
+</div>
+<div class="warn" id="warn" style="display:none"></div>
+
+<div class="card" id="state-card" style="display:none">
+  <div class="section-title">① 현재 상태</div>
+  <div class="st-head">
+    <div class="big-light" id="big-light"><span class="n">?</span><span class="d">/ 4</span></div>
+    <div>
+      <div class="st-title" id="st-title">—</div>
+      <div class="st-sub" id="st-sub"></div>
+    </div>
+  </div>
+  <div class="lv-row" id="lv-row"></div>
+  <div class="kv-wrap" id="kv-wrap"></div>
+  <div class="sub-head">오늘의 플래그 원값</div>
+  <div id="flag-wrap"></div>
+  <div class="note" id="flag-note"></div>
+</div>
+
+<div class="card" id="chart-card" style="display:none">
+  <div class="section-title">② 지수 · 진입환경 추이</div>
+  <div class="chart-fallback" id="chart-fallback">
+    📉 차트 라이브러리(CDN)를 불러오지 못했습니다. 아래 표는 정상 확인할 수 있습니다.
+  </div>
+  <div id="chart"></div>
+  <div class="footnote" id="chart-note"></div>
+</div>
+
+<div class="card" id="heat-card" style="display:none">
+  <div class="section-title">③ 플래그 켜짐 이력</div>
+  <div id="chart2"></div>
+  <div class="footnote" id="heat-note"></div>
+</div>
+
+<div class="card" id="hist-card" style="display:none">
+  <div class="section-title">④ 일별 이력</div>
+  <div class="hist-head" id="hist-head"></div>
+  <div id="hist-body"></div>
+  <div class="note">행을 누르면 그날의 플래그 원값이 펼쳐집니다. 달 제목을 누르면 접거나 펼칩니다.</div>
+</div>
+
+<div class="card" id="blk-card" style="display:none">
+  <div class="section-title">⑤ 차단 · 축소 로그</div>
+  <div id="blk-body"></div>
+</div>
+
+<div class="card" id="plan-card" style="display:none">
+  <div class="section-title">⑥ 예정 항목 (아직 매매에 쓰이지 않음)</div>
+  <div id="plan-body"></div>
+  <div class="note">위 항목은 기록만 하며 실제 매매 동작은 현재 규칙 그대로입니다.</div>
+</div>
+
+<div class="foot">뭉치 트레이더 리포트 · 진입환경 게이트 · <a href="regime_guide.html">가이드</a></div>
+
+<script>window.__REGIME_SRC__='regime_history_us.json';</script>
+<script>
+(function(){
+'use strict';
+var SRC = window.__REGIME_SRC__;
+var ST = {
+  0:{c:'#3fb950', n:'정상', tx:'#0d1117'},
+  1:{c:'#e3b341', n:'주의', tx:'#0d1117'},
+  2:{c:'#f0883e', n:'경계', tx:'#0d1117'},
+  3:{c:'#f85149', n:'위험', tx:'#ffffff'},
+  4:{c:'#b62324', n:'차단', tx:'#ffffff'}
+};
+var C_IDX='#58a6ff', C_IDX2='#a371f7', C_RAW='#e3b341', C_ST='#f778ba';
+var DAY=['일','월','화','수','목','금','토'];
+var ZONE={Z_high:'고점권', Z_fall:'하락 진행', Z_bottom:'바닥권', Z_other:'중간'};
+var D=null;
+
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function capTxt(s){var c=D.meta.caps[s]; return c===0 ? '신규 진입 차단' : Math.round(c*100)+'%';}
+function fmtD(iso, withDay){
+  if(!iso) return '—';
+  var p=iso.split('-'), s=p[0]+'. '+p[1]+'. '+p[2];
+  if(withDay){var d=new Date(iso+'T00:00:00'); if(!isNaN(d)) s+=' ('+DAY[d.getDay()]+')';}
+  return s;
+}
+function fmtShort(iso){
+  var p=iso.split('-'), d=new Date(iso+'T00:00:00');
+  return p[1]+'.'+p[2]+(isNaN(d)?'':' ('+DAY[d.getDay()]+')');
+}
+function num(v,dec){
+  if(v==null) return '—';
+  return v.toLocaleString('ko-KR',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+}
+function onTxt(v){return v==null?'—':(v?'켜짐':'꺼짐');}
+function onCls(v){return v==null?'':(v?'on':'off');}
+function fval(v,i){
+  if(v==null) return '—';
+  var f=D.meta.flags[i];
+  return num(v,f.dec)+(f.unit?(f.unit==='%'?'%':' '+f.unit):'');
+}
+
+fetch(SRC).then(function(r){
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  return r.json();
+}).then(init).catch(function(e){ $('err').style.display='block'; console.error(e); });
+
+function init(data){
+  D=data;
+  var L=data.series[data.series.length-1];
+  document.title='진입환경 게이트 · '+data.market_label;
+  $('mk-label').textContent=data.market_label;
+  $('subtitle').innerHTML=esc(data.legs.map(function(g){return g.index;}).join(' · '))
+    +' 기준 · 생성 '+esc(data.meta.generated_at)
+    +'<span class="badge '+(data.is_live?'b-live':'b-back')+'">'+(data.is_live?'라이브':'소급 산출')+'</span>';
+  if(data.meta.label_note){ $('warn').style.display='block'; $('warn').innerHTML=data.meta.label_note; }
+  renderState(L);
+  renderChart();
+  renderHeat();
+  renderHistory();
+  renderBlocked();
+  renderPlan();
+}
+
+/* ───────── ① 현재 상태 ───────── */
+function renderState(L){
+  $('state-card').style.display='block';
+  var s=L.S, st=ST[s];
+  var bl=$('big-light');
+  bl.querySelector('.n').textContent=s;
+  bl.style.background=st.c; bl.style.color=st.tx;
+  bl.style.boxShadow='0 0 0 3px #161b22, 0 0 0 4px '+st.c+'55';
+  $('st-title').textContent=st.n+' · 노출 상한 '+capTxt(s);
+  $('st-title').style.color=st.c;
+  $('st-sub').textContent=fmtD(L.d,true)+' 종가 기준 · 확정 상태 '+s+' / 4';
+
+  var html='';
+  D.legs.forEach(function(g,i){
+    html+=chip(g.label, L.r[i], false);
+  });
+  if(D.legs.length>1) html+='<span class="lv-arrow">→ 낮은 쪽</span>';
+  html+=chip('오늘 raw', L.R, false);
+  html+='<span class="lv-arrow">→</span>';
+  html+=chip('확정', L.S, true);
+  $('lv-row').innerHTML=html;
+
+  var m=D.meta, k='';
+  k+=kv('총 노출 상한', '<b>'+capTxt(s)+'</b>');
+  k+=kv('신규 진입 사이즈 배율', (m.caps[s]===0?'0% (차단)':Math.round(m.caps[s]*100)+'%'));
+  k+=kv('현재 계좌 노출률', m.exposure_pct==null?'—':num(m.exposure_pct,2)+'%');
+  k+=kv('오늘 차단 · 축소', m.blocked==null?'기록 없음':(m.blocked_today+'건'));
+  k+=kv('상태가 바뀐 날', m.state_changed_at?fmtD(m.state_changed_at,true):'—');
+  if(L.z) k+=kv('지수 구간 (관측 · '+esc(D.zone_index)+')', (ZONE[L.z]||L.z)+' · 52주 고점 대비 '+(L.dd==null?'—':num(L.dd,2)+'%'));
+  if(L.S1!=null) k+=kv('참고 · 통합 방식', 'raw '+L.R1+' → 확정 '+L.S1);
+  $('kv-wrap').innerHTML=k;
+
+  var multi=D.legs.length>1;
+  var t='<table><tr><th>플래그</th><th>문턱</th>';
+  D.legs.forEach(function(g){ t+='<th>'+esc(g.label)+'</th><th></th>'; });
+  t+='</tr>';
+  D.meta.flags.forEach(function(f,i){
+    t+='<tr><td><b>'+esc(f.name)+'</b><span class="fdesc">'+esc(f.desc)+' · '+esc(f.src)+'</span></td>'
+      +'<td>'+esc(f.thr)+'</td>';
+    D.legs.forEach(function(g,li){
+      var on=L.f[li][i];
+      t+='<td>'+fval(L.v[li][i],i)+'</td><td class="'+onCls(on)+'">'+onTxt(on)+'</td>';
+    });
+    t+='</tr>';
+  });
+  t+='</table>';
+  $('flag-wrap').innerHTML=tbl(t);
+  $('flag-note').innerHTML = multi
+    ? '켜진 플래그 수를 <b>코스피·코스닥 각각</b> 세고 <b>둘 중 작은 값</b>을 오늘의 raw 로 씁니다 — 둘 다 나쁠 때만 진짜 하락장으로 봅니다. 대상 종목 수는 코스피 '+D.legs[0].n.toLocaleString()+'종 · 코스닥 '+D.legs[1].n.toLocaleString()+'종입니다.'
+    : '켜진 플래그 수가 오늘의 raw 입니다. 확정 상태는 여기서 <b>악화는 2일 연속 확인, 개선은 즉시</b> 규칙을 거쳐 나옵니다.';
+}
+function kv(k,v){return '<div class="kv"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>';}
+function tbl(inner){return '<div class="tw">'+inner+'</div>';}
+function chip(label,v,isFinal){
+  var st=ST[v], dot=st?st.c:'#484f58', style='';
+  if(isFinal&&st) style=' style="border-color:'+st.c+'"';
+  return '<span class="chip'+(isFinal?' chip-final':'')+'"'+style+'>'
+    +'<span class="mini-dot" style="background:'+dot+'"></span>'+label+' <b>'+(v==null?'—':v)+'</b></span>';
+}
+
+/* ───────── ② 지수 · 진입환경 추이 ───────── */
+function plotlyReady(){ return typeof Plotly!=='undefined'; }
+function defaultRange(x, months){
+  var last=new Date(x[x.length-1]+'T00:00:00');
+  var first=new Date(x[0]+'T00:00:00');
+  var from=new Date(last.getTime()); from.setMonth(from.getMonth()-months);
+  if(from<first) from=first;
+  var pad=new Date(last.getTime()+6*864e5);
+  return [from.toISOString().slice(0,10), pad.toISOString().slice(0,10)];
+}
+function baseLayout(){
+  return {
+    paper_bgcolor:'#161b22', plot_bgcolor:'#0d1117',
+    font:{color:'#e6edf3', family:"-apple-system, BlinkMacSystemFont, Pretendard, sans-serif", size:12},
+    hovermode:'x unified', dragmode:'pan',
+    hoverlabel:{bgcolor:'#1c2128', bordercolor:'#444c56', font:{color:'#e6edf3', size:12}}
+  };
+}
+function xaxisCfg(x, months){
+  return {
+    gridcolor:'#1f2a3a', linecolor:'#1f2a3a', hoverformat:'%Y.%m.%d',
+    range: defaultRange(x, months),
+    tickformatstops:[{dtickrange:[null,2419200000],value:'%m/%d'},{dtickrange:[2419200000,null],value:'%Y.%m'}],
+    rangeslider:{visible:false},
+    rangeselector:{bgcolor:'#0b0f17', activecolor:'#3b82f6', bordercolor:'#1f2a3a', font:{size:11},
+      buttons:[{count:1,label:'1달',step:'month',stepmode:'backward'},
+               {count:6,label:'6달',step:'month',stepmode:'backward'},
+               {count:1,label:'1년',step:'year',stepmode:'backward'},
+               {count:3,label:'3년',step:'year',stepmode:'backward'},
+               {step:'all',label:'전체'}]}
+  };
+}
+function stateBands(){
+  var sh=[];
+  for(var s=0;s<=4;s++){
+    sh.push({type:'rect', xref:'paper', yref:'y2', x0:0, x1:1, y0:s-0.5, y1:s+0.5,
+      fillcolor:ST[s].c, opacity:s>=3?0.08:0.045, line:{width:0}, layer:'below'});
+  }
+  return sh;
+}
+function renderChart(){
+  var S=D.series;
+  if(!S.length) return;
+  $('chart-card').style.display='block';
+  var lbl=D.legs.map(function(g){return g.index;}).join(' · ');
+  $('chart-note').innerHTML='왼쪽 눈금 = '+esc(D.legs[0].index)+' 종가 · 오른쪽 눈금 = 진입환경 상태(0~4).'
+    +(D.legs.length>1?' 코스피 지수는 눈금이 다르므로 <b>모양 비교용</b>으로만 겹쳐 그렸습니다(눈금 숨김).':'')
+    +' 손가락 하나로 이동, 두 손가락으로 확대·축소. 위 버튼으로 기간을 바꿀 수 있습니다.'
+    +' 세로 점선은 집계 패널이 바뀌는 지점으로, 이어 붙인 것이 아니라 전환 지점입니다.';
+  if(!plotlyReady()){ $('chart-fallback').style.display='block'; $('chart').style.display='none'; return; }
+
+  var x=S.map(function(s){return s.d;});
+  var tr=[
+    {x:x, y:S.map(function(s){return s.c[0];}), name:D.legs[0].index, type:'scatter', mode:'lines',
+     line:{color:C_IDX,width:2}, yaxis:'y', hovertemplate:'%{y:,.2f}<extra>'+D.legs[0].index+'</extra>'}
+  ];
+  if(D.legs.length>1){
+    tr.push({x:x, y:S.map(function(s){return s.c[1];}), name:D.legs[1].index+' (모양만)', type:'scatter',
+      mode:'lines', line:{color:C_IDX2,width:1.4}, yaxis:'y3',
+      hovertemplate:'%{y:,.2f}<extra>'+D.legs[1].index+'</extra>'});
+  }
+  tr.push({x:x, y:S.map(function(s){return s.R;}), name:'오늘 raw', type:'scatter', mode:'lines',
+    line:{color:C_RAW,width:1.4,shape:'hv',dash:'dot'}, yaxis:'y2',
+    hovertemplate:'raw <b>%{y}</b><extra></extra>'});
+  tr.push({x:x, y:S.map(function(s){return s.S;}), name:'확정 상태', type:'scatter', mode:'lines',
+    line:{color:C_ST,width:2.2,shape:'hv'}, yaxis:'y2',
+    hovertemplate:'확정 <b>%{y}</b><extra></extra>'});
+  if(D.legs.length>1){
+    D.legs.forEach(function(g,i){
+      tr.push({x:x, y:S.map(function(s){return s.r[i];}), name:g.label+' raw', type:'scatter', mode:'lines',
+        line:{color:i?'#7ee787':'#ffa657',width:1,shape:'hv'}, yaxis:'y2', visible:'legendonly',
+        hovertemplate:g.label+' <b>%{y}</b><extra></extra>'});
+    });
+  }
+
+  var sh=stateBands();
+  if(D.panel_cut && x[0]<D.panel_cut && x[x.length-1]>D.panel_cut){
+    sh.push({type:'line', xref:'x', yref:'paper', x0:D.panel_cut, x1:D.panel_cut, y0:0, y1:1,
+      line:{color:'#6e7681', width:1, dash:'dash'}});
+  }
+  var lay=baseLayout();
+  lay.margin={l:56,r:34,t:34,b:40};
+  lay.legend={orientation:'h', y:-0.22, font:{size:11}};
+  lay.shapes=sh;
+  lay.xaxis=xaxisCfg(x,12);
+  lay.yaxis={title:{text:D.legs[0].index, font:{size:11,color:'#8b949e'}},
+    gridcolor:'#1f2a3a', linecolor:'#1f2a3a', side:'left', tickformat:',.0f'};
+  lay.yaxis2={title:{text:'상태', font:{size:11,color:'#8b949e'}}, gridcolor:'transparent',
+    linecolor:'#1f2a3a', overlaying:'y', side:'right', range:[-0.6,4.6],
+    tickvals:[0,1,2,3,4], ticktext:['0','1','2','3','4']};
+  if(D.legs.length>1){
+    lay.yaxis3={overlaying:'y', side:'right', showgrid:false, showticklabels:false,
+      zeroline:false, linecolor:'transparent'};
+  }
+  Plotly.newPlot('chart', tr, lay, {responsive:true, displaylogo:false, displayModeBar:false, scrollZoom:true});
+  setupTouchGestures();
+}
+
+/* ───────── ③ 플래그 켜짐 이력 (히트맵) ───────── */
+function renderHeat(){
+  var S=D.series;
+  if(!S.length || !plotlyReady()) return;
+  $('heat-card').style.display='block';
+  $('heat-note').innerHTML='붉은 칸 = 그날 그 플래그가 <b>켜짐</b>(나쁨), 어두운 칸 = 꺼짐. 한 세로줄의 붉은 칸 개수가 그날의 raw 입니다.'
+    +' 차트와 마찬가지로 확대·축소·이동이 됩니다.';
+  var x=S.map(function(s){return s.d;});
+  var y=[], z=[], cd=[];
+  for(var li=D.legs.length-1; li>=0; li--){
+    for(var fi=D.meta.flags.length-1; fi>=0; fi--){
+      y.push((D.legs.length>1? D.legs[li].label+' · ':'')+D.meta.flags[fi].name);
+      z.push(S.map(function(s){return s.f[li][fi];}));
+      cd.push(S.map(function(s){return onTxt(s.f[li][fi]);}));
+    }
+  }
+  var lay=baseLayout();
+  lay.hovermode='closest';
+  lay.margin={l:104,r:24,t:34,b:40};
+  lay.xaxis=xaxisCfg(x,12);
+  lay.yaxis={automargin:true, tickfont:{size:11}, fixedrange:true};
+  $('chart2').style.height=(78+y.length*22)+'px';
+  Plotly.newPlot('chart2', [{
+    x:x, y:y, z:z, customdata:cd, type:'heatmap', xgap:0, ygap:2, showscale:false,
+    zmin:0, zmax:1, colorscale:[[0,'#16231b'],[0.49,'#16231b'],[0.5,'#8b2c2c'],[1,'#8b2c2c']],
+    hovertemplate:'%{y}<br>%{x|%Y.%m.%d} · <b>%{customdata}</b><extra></extra>'
+  }], lay, {responsive:true, displaylogo:false, displayModeBar:false, scrollZoom:true});
+}
+
+/* ───────── ④ 일별 이력 (월별 그룹 · 최신 위) ───────── */
+function pill(v){
+  var st=ST[v];
+  if(!st) return '<span class="lv-pill dim">—</span>';
+  return '<span class="lv-pill" style="background:'+st.c+';color:'+st.tx+'">'+v+'</span>';
+}
+function renderHistory(){
+  var S=D.series;
+  if(!S.length) return;
+  $('hist-card').style.display='block';
+  var multi=D.legs.length>1;
+  var cols=multi ? '1fr 72px 48px 30px 44px' : '1fr 78px 34px 30px 44px';
+  var head=$('hist-head');
+  head.style.gridTemplateColumns=cols;
+  head.innerHTML='<span>날짜</span><span class="num">'+esc(D.legs[0].label==='전체'?'지수':D.legs[0].label)+' 종가</span>'
+    +'<span class="lv">'+(multi?'코스피·코스닥':'raw')+'</span><span class="lv">확정</span><span class="lv">상한</span>';
+
+  var byMonth={}, order=[];
+  S.forEach(function(s){
+    var m=s.d.slice(0,7);
+    if(!byMonth[m]){byMonth[m]=[];order.push(m);}
+    byMonth[m].push(s);
+  });
+  order.reverse();
+  var body=$('hist-body');
+  body.innerHTML='';
+
+  order.forEach(function(m, mi){
+    var rows=byMonth[m], maxS=null, chg=0;
+    rows.forEach(function(s,i){
+      if(maxS==null||s.S>maxS) maxS=s.S;
+      if(i>0 && rows[i].S!==rows[i-1].S) chg++;
+    });
+    var mp=m.split('-'), label=(+mp[0])+'년 '+(+mp[1])+'월';
+    var mx = ST[maxS] ? '<span class="mon-max" style="background:'+ST[maxS].c+';color:'+ST[maxS].tx+'">최고 '+maxS+'</span>' : '';
+    var sec=document.createElement('div');
+    sec.className='mon'+(mi===0?' open':'');
+    var h=document.createElement('div');
+    h.className='mon-head';
+    h.innerHTML='<span class="mon-title">'+label+'</span>'
+      +'<span class="mon-sum">'+rows.length+'거래일 · 상태 변동 '+chg+'회 '+mx+'</span>'
+      +'<span class="mon-caret">▼</span>';
+    h.addEventListener('click',function(){sec.classList.toggle('open');});
+    sec.appendChild(h);
+
+    var mb=document.createElement('div');
+    mb.className='mon-body';
+    rows.slice().reverse().forEach(function(s){
+      var row=document.createElement('div');
+      row.className='hist-row';
+      row.style.gridTemplateColumns=cols;
+      var rawCell = multi ? '<span style="text-align:center;font-variant-numeric:tabular-nums">'+(s.r[0]==null?'—':s.r[0])+' · '+(s.r[1]==null?'—':s.r[1])+'</span>'
+                          : '<span style="text-align:center">'+s.R+'</span>';
+      row.innerHTML='<span class="hist-date">'+fmtShort(s.d)+'</span>'
+        +'<span class="hist-close">'+num(s.c[0],2)+'</span>'
+        +rawCell+pill(s.S)
+        +'<span class="hist-close" style="color:#c9d1d9">'+(D.meta.caps[s.S]===0?'차단':Math.round(D.meta.caps[s.S]*100)+'%')+'</span>'
+        +'<div class="hist-detail">'+detail(s)+'</div>';
+      row.addEventListener('click',function(){this.classList.toggle('open');});
+      mb.appendChild(row);
+    });
+    sec.appendChild(mb);
+    body.appendChild(sec);
+  });
+}
+function detail(s){
+  var t='<table><tr><th>플래그</th>';
+  D.legs.forEach(function(g){ t+='<th>'+esc(g.label)+'</th><th></th>'; });
+  t+='</tr>';
+  D.meta.flags.forEach(function(f,i){
+    t+='<tr><td>'+esc(f.name)+'</td>';
+    D.legs.forEach(function(g,li){
+      var on=s.f[li][i];
+      t+='<td>'+fval(s.v[li][i],i)+'</td><td class="'+onCls(on)+'">'+onTxt(on)+'</td>';
+    });
+    t+='</tr>';
+  });
+  t+='</table>';
+  var extra='<div class="note">raw '+s.R+' → 확정 '+s.S+' · 노출 상한 '+capTxt(s.S);
+  if(s.z) extra+=' · 지수 구간 '+(ZONE[s.z]||s.z)+' ('+(s.dd==null?'—':num(s.dd,2)+'%')+')';
+  if(s.S1!=null) extra+=' · 통합 방식 참고 '+s.R1+'/'+s.S1;
+  extra+='</div>';
+  return tbl(t)+extra;
+}
+
+/* ───────── ⑤ 차단 · 축소 로그 ───────── */
+function renderBlocked(){
+  $('blk-card').style.display='block';
+  var b=D.meta.blocked;
+  if(b==null){
+    $('blk-body').innerHTML='<div class="note">아직 기록이 없습니다. 게이트가 신규 진입을 실제로 막거나 줄인 순간부터 쌓입니다.</div>';
+    return;
+  }
+  if(!b.length){ $('blk-body').innerHTML='<div class="note">기록 0건.</div>'; return; }
+  var t='<table><tr><th>날짜</th><th>종목</th><th>사유</th><th>상태</th><th>노출</th></tr>';
+  b.slice(-40).reverse().forEach(function(r){
+    t+='<tr><td>'+esc(String(r.date||'').slice(0,10))+'</td><td>'+esc(r.ticker||'')+'</td>'
+      +'<td>'+esc(r.reason||'')+'</td><td>'+esc(r.regime_state==null?'':r.regime_state)+'</td>'
+      +'<td>'+(r.exposure_pct==null?'—':num(r.exposure_pct,2)+'%')+'</td></tr>';
+  });
+  $('blk-body').innerHTML=tbl(t+'</table>');
+}
+
+/* ───────── ⑥ 예정 항목 ───────── */
+function renderPlan(){
+  var p=D.meta.planned||[];
+  if(!p.length) return;
+  $('plan-card').style.display='block';
+  var t='<table><tr><th>항목</th><th>상태</th></tr>';
+  p.forEach(function(r){ t+='<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>'; });
+  $('plan-body').innerHTML=tbl(t+'</table>');
+}
+
+/* ───────── 모바일 터치 제스처 (크립토 리포트에서 이식) ─────────
+   1손가락 = 상하좌우 패닝 / 2손가락 = 가로·세로 독립 핀치줌.
+   Plotly 의 scrollZoom 은 wheel 만 처리해 터치 핀치를 지원하지 않아 직접 구현. */
+var _CHART_IDS=['chart','chart2'];
+var MIN_AXIS_PX=20, _touchReady=false;
+function _axisInfo(gd, axisName, clientPos, isY){
+  var ax=gd._fullLayout[axisName];
+  if(!ax||!ax._length) return null;
+  var bb=gd.getBoundingClientRect();
+  var px=isY?(clientPos-bb.top-ax._offset):(clientPos-bb.left-ax._offset);
+  var isDate=typeof ax.range[0]!=='number';
+  var toNum=function(v){return (typeof v==='number')?v:new Date(v).getTime();};
+  var d0=toNum(ax.p2d(px)), d1=toNum(ax.p2d(px+1));
+  return {range:ax.range.map(toNum), dataAtTouch:d0, dataPerPx:d1-d0, isDate:isDate};
+}
+function _fmtAxisVal(v,isDate){return isDate?new Date(v).toISOString():v;}
+function _axKeys(gd){
+  var out=[['x','xaxis']];
+  ['yaxis','yaxis2','yaxis3'].forEach(function(a){
+    if(gd._fullLayout[a] && !gd._fullLayout[a].fixedrange) out.push([a,a]);
+  });
+  return out;
+}
+function _readAxes(gd, cx, cy){
+  var o={};
+  _axKeys(gd).forEach(function(a){
+    o[a[0]]=_axisInfo(gd, a[1], a[0]==='x'?cx:cy, a[0]!=='x');
+  });
+  return o;
+}
+function _findChartUnderPoint(cx,cy){
+  for(var i=0;i<_CHART_IDS.length;i++){
+    var el=document.getElementById(_CHART_IDS[i]);
+    if(!el) continue;
+    var bb=el.getBoundingClientRect();
+    if(cx>=bb.left&&cx<=bb.right&&cy>=bb.top&&cy<=bb.bottom) return _CHART_IDS[i];
+  }
+  return null;
+}
+function _isInsideChart(e){
+  return _CHART_IDS.some(function(id){
+    var el=document.getElementById(id);
+    return el&&el.contains(e.target);
+  });
+}
+var _g={mode:null, chartId:null, ax:null}, _gFrame=null, _gTouches=null;
+function _applyGesture(){
+  _gFrame=null;
+  if(!_g.chartId||!_gTouches) return;
+  var gd=document.getElementById(_g.chartId);
+  if(!gd||!gd._fullLayout) return;
+  var patch={}, keys=_axKeys(gd);
+  if(_g.mode==='pinch'){
+    var t0=_gTouches[0], t1=_gTouches[1];
+    var dX=Math.max(Math.abs(t0.clientX-t1.clientX),MIN_AXIS_PX);
+    var dY=Math.max(Math.abs(t0.clientY-t1.clientY),MIN_AXIS_PX);
+    var sX=_g.startDistX/dX, sY=_g.startDistY/dY;
+    keys.forEach(function(a){
+      var info=_g.ax[a[0]]; if(!info) return;
+      var scale=(a[0]==='x')?sX:sY;
+      var r0=info.range[0], span=info.range[1]-r0;
+      var newSpan=Math.max(span*scale, a[0]==='x'?86400000:Math.abs(span)*0.02);
+      var frac=(info.dataAtTouch-r0)/span;
+      var n0=info.dataAtTouch-frac*newSpan;
+      patch[a[1]+'.range[0]']=_fmtAxisVal(n0,info.isDate);
+      patch[a[1]+'.range[1]']=_fmtAxisVal(n0+newSpan,info.isDate);
+      patch[a[1]+'.autorange']=false;
+    });
+  } else if(_g.mode==='pan'){
+    var p0=_gTouches[0];
+    var dx=p0.clientX-_g.startClientX, dy=p0.clientY-_g.startClientY;
+    keys.forEach(function(a){
+      var info=_g.ax[a[0]]; if(!info) return;
+      var shift=-((a[0]==='x')?dx:dy)*info.dataPerPx;
+      patch[a[1]+'.range[0]']=_fmtAxisVal(info.range[0]+shift,info.isDate);
+      patch[a[1]+'.range[1]']=_fmtAxisVal(info.range[1]+shift,info.isDate);
+      patch[a[1]+'.autorange']=false;
+    });
+  }
+  if(Object.keys(patch).length) Plotly.relayout(_g.chartId, patch);
+}
+function setupTouchGestures(){
+  if(_touchReady) return;
+  _touchReady=true;
+  document.addEventListener('touchstart',function(e){
+    if(!_isInsideChart(e)) return;
+    e.stopPropagation(); e.preventDefault();
+    if(e.touches.length===1){
+      var t0=e.touches[0], cid=_findChartUnderPoint(t0.clientX,t0.clientY);
+      if(!cid) return;
+      var gd=document.getElementById(cid);
+      if(!gd||!gd._fullLayout) return;
+      _g.mode='pan'; _g.chartId=cid;
+      _g.startClientX=t0.clientX; _g.startClientY=t0.clientY;
+      _g.ax=_readAxes(gd,t0.clientX,t0.clientY);
+    } else if(e.touches.length===2){
+      var u0=e.touches[0], u1=e.touches[1];
+      var mx=(u0.clientX+u1.clientX)/2, my=(u0.clientY+u1.clientY)/2;
+      var cid2=_g.chartId||_findChartUnderPoint(mx,my);
+      if(!cid2) return;
+      var gd2=document.getElementById(cid2);
+      if(!gd2||!gd2._fullLayout) return;
+      _g.mode='pinch'; _g.chartId=cid2;
+      _g.startDistX=Math.max(Math.abs(u0.clientX-u1.clientX),MIN_AXIS_PX);
+      _g.startDistY=Math.max(Math.abs(u0.clientY-u1.clientY),MIN_AXIS_PX);
+      _g.ax=_readAxes(gd2,mx,my);
+    }
+  },{passive:false,capture:true});
+  document.addEventListener('touchmove',function(e){
+    if(!_isInsideChart(e)||!_g.mode) return;
+    e.preventDefault(); e.stopPropagation();
+    if(_g.mode==='pinch'&&e.touches.length===2) _gTouches=[e.touches[0],e.touches[1]];
+    else if(_g.mode==='pan'&&e.touches.length===1) _gTouches=[e.touches[0]];
+    else return;
+    if(_gFrame==null) _gFrame=requestAnimationFrame(_applyGesture);
+  },{passive:false,capture:true});
+  document.addEventListener('touchend',function(e){
+    if(e.touches.length===0){
+      _g.mode=null; _g.chartId=null; _gTouches=null;
+      if(_gFrame!=null){cancelAnimationFrame(_gFrame); _gFrame=null;}
+      return;
+    }
+    if(e.touches.length===1&&_g.mode==='pinch'){
+      var t0=e.touches[0], gd=document.getElementById(_g.chartId);
+      if(gd&&gd._fullLayout){
+        _g.mode='pan'; _g.startClientX=t0.clientX; _g.startClientY=t0.clientY;
+        _g.ax=_readAxes(gd,t0.clientX,t0.clientY);
+      } else { _g.mode=null; _g.chartId=null; }
+      if(_gFrame!=null){cancelAnimationFrame(_gFrame); _gFrame=null;}
+    }
+  },{capture:true});
+  _CHART_IDS.forEach(function(id){
+    var el=document.getElementById(id);
+    if(!el) return;
+    ['gesturestart','gesturechange','gestureend'].forEach(function(ev){
+      el.addEventListener(ev,function(e){e.preventDefault();},{passive:false});
+    });
+  });
+}
+})();
+</script>
 </body>
 </html>
