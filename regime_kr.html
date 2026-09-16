@@ -358,15 +358,21 @@ function panelCutShape(){
 function plotCfg(){ return {responsive:true, displaylogo:false, displayModeBar:false, scrollZoom:true}; }
 function fitY(r){
   var el=$('chart'); if(!el||!el._fullLayout) return;
-  var a=String(r[0]).slice(0,10), b=String(r[1]).slice(0,10), lo=null, hi=null;
-  D.series.forEach(function(s){
-    if(s.d<a||s.d>b||s.c[0]==null) return;
-    if(lo==null||s.c[0]<lo) lo=s.c[0];
-    if(hi==null||s.c[0]>hi) hi=s.c[0];
+  var a=String(r[0]).slice(0,10), b=String(r[1]).slice(0,10), patch={};
+  [['yaxis',0],['yaxis4',1]].forEach(function(ax){
+    if(ax[1]>0 && D.legs.length<2) return;
+    var lo=null, hi=null;
+    D.series.forEach(function(s){
+      var v=s.c[ax[1]];
+      if(s.d<a||s.d>b||v==null) return;
+      if(lo==null||v<lo) lo=v;
+      if(hi==null||v>hi) hi=v;
+    });
+    if(lo==null||hi==null) return;
+    var pad=(hi-lo)*0.08||hi*0.02;
+    patch[ax[0]+'.range']=[lo-pad, hi+pad]; patch[ax[0]+'.autorange']=false;
   });
-  if(lo==null||hi==null) return;
-  var pad=(hi-lo)*0.08||hi*0.02;
-  Plotly.relayout('chart', {'yaxis.range':[lo-pad, hi+pad], 'yaxis.autorange':false});
+  if(Object.keys(patch).length) Plotly.relayout('chart', patch);
 }
 function applyRange(r, fromBtn){
   if(_syncing) return;
@@ -423,9 +429,12 @@ function renderIndexChart(){
   if(!S.length) return;
   $('chart-card').style.display='block';
   _X=S.map(function(s){return s.d;});
-  var idx=D.legs[0].index;
-  $('idx-title').textContent=idx;
-  $('chart-note').innerHTML='선 = '+esc(idx)+' 종가. 배경색 = 그날의 <b>확정 상태</b>(0 초록 · 1 노랑 · 2 주황 · 3 진주황 · 4 빨강).'
+  var idx=D.legs[0].index, multi=D.legs.length>1;
+  $('idx-title').textContent=multi ? D.legs.map(function(g){return g.label;}).join(' · ')+' 지수' : idx;
+  $('chart-note').innerHTML=(multi
+      ? '흰 선 = '+esc(D.legs[0].index)+' 종가(왼쪽 눈금), 보라 선 = '+esc(D.legs[1].index)+' 종가(오른쪽 눈금).'
+      : '선 = '+esc(idx)+' 종가.')
+    +' 배경색 = 그날의 <b>확정 상태</b>(0 초록 · 1 노랑 · 2 주황 · 3 진주황 · 4 빨강).'
     +' 색이 짙어지는 구간이 게이트가 신규 진입을 줄이거나 막던 때입니다.'
     +' 손가락 하나로 이동, 두 손가락으로 확대·축소. 여기서 움직이면 ③ ④ 차트도 같은 구간으로 따라갑니다.'
     +(D.panel_cut?' 세로 점선은 집계 패널 전환 지점입니다.':'');
@@ -443,16 +452,24 @@ function renderIndexChart(){
   }
   tr.push({x:x, y:S.map(function(s){return s.c[0];}), name:idx, type:'scatter', mode:'lines',
     line:{color:C_IDX,width:2.4}, yaxis:'y', hovertemplate:'%{y:,.2f}<extra>'+idx+'</extra>'});
+  if(multi){
+    tr.push({x:x, y:S.map(function(s){return s.c[1];}), name:D.legs[1].index, type:'scatter', mode:'lines',
+      line:{color:C_IDX2,width:2}, yaxis:'y4', hovertemplate:'%{y:,.2f}<extra>'+D.legs[1].index+'</extra>'});
+  }
   tr.push({x:x, y:S.map(function(s){return s.S;}), name:'확정 상태', type:'scatter', mode:'lines',
     line:{width:0,color:'rgba(0,0,0,0)'}, yaxis:'y3', showlegend:false, hovertemplate:'확정 <b>%{y}</b><extra></extra>'});
   var lay=baseLayout();
-  lay.margin={l:56,r:16,t:16,b:40};
+  lay.margin={l:56,r:multi?56:16,t:16,b:40};
   lay.legend={orientation:'h', y:-0.2, font:{size:10.5}, itemwidth:30};
   lay.shapes=panelCutShape();
   lay.xaxis=xaxisCfg();
   lay.yaxis={title:{text:idx, font:{size:11,color:'#8b949e'}}, gridcolor:'#1f2a3a', linecolor:'#1f2a3a', side:'left', tickformat:',.0f'};
   lay.yaxis2={overlaying:'y', range:[0,1], visible:false, fixedrange:true};
   lay.yaxis3={overlaying:'y', range:[0,1], visible:false, fixedrange:true};
+  if(multi){
+    lay.yaxis4={title:{text:D.legs[1].index, font:{size:11,color:C_IDX2}}, overlaying:'y', side:'right',
+      showgrid:false, linecolor:'#1f2a3a', tickformat:',.0f', tickfont:{color:C_IDX2}};
+  }
   Plotly.newPlot('chart', tr, lay, plotCfg()).then(function(){ hookSync('chart'); fitY(lay.xaxis.range); });
   setupTouchGestures();
 }
@@ -686,7 +703,7 @@ function _axisInfo(gd, axisName, clientPos, isY){
 function _fmtAxisVal(v,isDate){return isDate?new Date(v).toISOString():v;}
 function _axKeys(gd){
   var out=[['x','xaxis']];
-  ['yaxis','yaxis2','yaxis3'].forEach(function(a){
+  ['yaxis','yaxis2','yaxis3','yaxis4'].forEach(function(a){
     if(gd._fullLayout[a] && !gd._fullLayout[a].fixedrange) out.push([a,a]);
   });
   return out;
