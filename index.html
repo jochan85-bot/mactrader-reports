@@ -70,7 +70,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
         <span class="card-date" id="us-date">2026. 09.15 (화)</span>
       </div>
     </a>
-    <!--RG_us-regime_BEGIN--><a class="bear-sq" id="us-regime" href="regime_us.html" aria-label="미장 진입환경 게이트"><span class="dot"></span><span class="lv">—</span></a><!--RG_us-regime_END-->
+    <!--RG_us-regime_BEGIN--><a class="bear-sq" id="us-regime" href="regime_us.html" aria-label="미장 진입환경 게이트"><span class="rg-mini"></span></a><!--RG_us-regime_END-->
   </div>
 
   <div class="report-row">
@@ -83,7 +83,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
         <span class="card-date" id="kr-date">2026. 09.16 (수)</span>
       </div>
     </a>
-    <!--RG_kr-regime_BEGIN--><a class="bear-sq" id="kr-regime" href="regime_kr.html" aria-label="국장 진입환경 게이트"><span class="dot"></span><span class="lv">—</span></a><!--RG_kr-regime_END-->
+    <!--RG_kr-regime_BEGIN--><a class="bear-sq" id="kr-regime" href="regime_kr.html" aria-label="국장 진입환경 게이트"><span class="rg-mini"></span></a><!--RG_kr-regime_END-->
   </div>
 
   <a class="card card-slim" href="history/index.html">
@@ -141,8 +141,13 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
 <!--RG_JS_BEGIN-->
 <script>
 (function(){
-  var ST={0:{c:'#30d158',n:'정상'},1:{c:'#ffd60a',n:'주의'},2:{c:'#ff9f0a',n:'경계'},
-          3:{c:'#ff5a1f',n:'위험'},4:{c:'#ff2d55',n:'차단'}};
+  var ST={0:{c:'#4FC3F7',n:'정상'},1:{c:'#8BC34A',n:'주의'},2:{c:'#FFD600',n:'경계'},
+          3:{c:'#FF6D00',n:'위험'},4:{c:'#D50000',n:'차단'}};
+  function miniHTML(s){
+    var h='';
+    for(var i=4;i>=0;i--){ var on=i<=s; h+='<i style="background:'+(on?ST[i].c:'#30363d')+'"></i>'; }
+    return h;
+  }
   fetch('regime_latest.json').then(function(r){
     if(!r.ok) throw new Error(r.status);
     return r.json();
@@ -151,11 +156,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
       var el=document.getElementById(p[0]), d=j[p[1]];
       if(!el||!d||!ST[d.state]) return;
       var st=ST[d.state], cap=(d.cap===0?'차단':Math.round(d.cap*100)+'%');
-      el.querySelector('.dot').style.background=st.c;
-      el.querySelector('.dot').style.boxShadow='0 0 6px '+st.c+'88';
-      var t=el.querySelector('.lv');
-      t.textContent=d.state+'/4';
-      t.style.color='#e6edf3';
+      el.querySelector('.rg-mini').innerHTML=miniHTML(d.state);
       el.setAttribute('aria-label', el.getAttribute('aria-label')+' — 확정 상태 '+d.state+'/4 '+st.n+', 오늘 raw '+d.raw+', 노출 상한 '+cap);
       el.setAttribute('title','확정 '+d.state+'/4 '+st.n+' · 오늘 raw '+d.raw+' · 노출 상한 '+cap+' · '+d.date);
     });

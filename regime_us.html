@@ -23,10 +23,10 @@ h1{color:#58a6ff;font-size:20px;line-height:1.3;margin-bottom:2px}
 
 /* 현재 상태 */
 .st-head{display:flex;align-items:center;gap:14px}
-.big-light{width:62px;height:62px;border-radius:14px;flex-shrink:0;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:1px;background:#484f58;color:#0d1117;box-shadow:0 0 0 3px #161b22,0 0 0 4px #30363d}
-.big-light .n{font-size:23px;font-weight:800;line-height:1}
-.big-light .d{font-size:10px;font-weight:700;opacity:.75}
+.big-light-wrap{display:flex;align-items:center;gap:12px}
+.big-light{display:flex;flex-direction:column;gap:3px;width:46px;flex-shrink:0}
+.big-light i{display:block;height:10px;border-radius:3px;background:#30363d;transition:background .2s,box-shadow .2s}
+.big-light-num{font-size:22px;font-weight:800;color:#e6edf3;line-height:1}
 .st-title{font-size:20px;font-weight:700;line-height:1.25}
 .st-sub{font-size:12px;color:#8b949e;margin-top:3px}
 .lv-row{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:14px}
@@ -133,7 +133,7 @@ h3{font-size:13.5px;color:#58a6ff;margin:18px 0 6px}
 <div class="card" id="state-card" style="display:none">
   <div class="section-title">① 현재 상태</div>
   <div class="st-head">
-    <div class="big-light" id="big-light"><span class="n">?</span><span class="d">/ 4</span></div>
+    <div class="big-light-wrap"><div class="big-light" id="big-light"></div><div class="big-light-num" id="big-light-num">?/4</div></div>
     <div>
       <div class="st-title" id="st-title">—</div>
       <div class="st-sub" id="st-sub"></div>
@@ -200,11 +200,11 @@ h3{font-size:13.5px;color:#58a6ff;margin:18px 0 6px}
 var SRC = window.__REGIME_SRC__;
 /* 5단 신호등 — 다섯 색이 어두운 배경에서도 확실히 갈리도록 (2026-09-16 오너 지시) */
 var ST = {
-  0:{c:'#30d158', n:'정상', tx:'#0d1117'},
-  1:{c:'#ffd60a', n:'주의', tx:'#0d1117'},
-  2:{c:'#ff9f0a', n:'경계', tx:'#0d1117'},
-  3:{c:'#ff5a1f', n:'위험', tx:'#ffffff'},
-  4:{c:'#ff2d55', n:'차단', tx:'#ffffff'}
+  0:{c:'#4FC3F7', n:'정상', tx:'#0d1117'},
+  1:{c:'#8BC34A', n:'주의', tx:'#0d1117'},
+  2:{c:'#FFD600', n:'경계', tx:'#0d1117'},
+  3:{c:'#FF6D00', n:'위험', tx:'#ffffff'},
+  4:{c:'#D50000', n:'차단', tx:'#ffffff'}
 };
 var C_IDX='#e6edf3', C_IDX2='#a371f7', C_RAW='#e3b341', C_ST='#f778ba';
 var DAY=['일','월','화','수','목','금','토'];
@@ -260,14 +260,24 @@ function init(data){
   renderPlan();
 }
 
+/* 5단 경보등 — 아래(0)부터 위(4)로 누적 점등 (2026-09-16 오너 지시) */
+function lightHTML(s){
+  var h='';
+  for(var i=4;i>=0;i--){
+    var on=i<=s;
+    h+='<i style="background:'+(on?ST[i].c:'#30363d')+(on?';box-shadow:0 0 6px '+ST[i].c+'aa':'')+'"></i>';
+  }
+  return h;
+}
+
 /* ───────── ① 현재 상태 ───────── */
 function renderState(L){
   $('state-card').style.display='block';
   var s=L.S, st=ST[s];
   var bl=$('big-light');
-  bl.querySelector('.n').textContent=s;
-  bl.style.background=st.c; bl.style.color=st.tx;
-  bl.style.boxShadow='0 0 0 3px #161b22, 0 0 0 4px '+st.c+'55';
+  bl.innerHTML=lightHTML(s);
+  $('big-light-num').textContent=s+'/4';
+  $('big-light-num').style.color=st.c;
   $('st-title').textContent=st.n+' · 노출 상한 '+capTxt(s);
   $('st-title').style.color=st.c;
   $('st-sub').textContent=fmtD(L.d,true)+' 종가 기준 · 확정 상태 '+s+' / 4';
