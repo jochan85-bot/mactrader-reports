@@ -6,9 +6,9 @@
  "date_basis": "market_session",
  "range_start": "2026-07-29",
  "range_start_note": "v2.2 낙폭경로 수리 + AI 레벨보정 도입 이후",
- "generated_at": "2026-09-16T06:50:38+09:00",
+ "generated_at": "2026-09-17T06:51:09+09:00",
  "latest": {
-  "date": "2026-09-15",
+  "date": "2026-09-16",
   "rule_raw": 2,
   "rule_confirmed": 1,
   "ai_level": 1,
@@ -388,6 +388,17 @@
    "clamped": false,
    "direction": "agree",
    "reason": "고점 대비 낙폭 -2.7%로 10% 이상 하락 기준 미충족, VIX 17.2로 변동성 급등(S6_vol_spike) 미확인, 서킷브레이커·사이드카 발동 등 검증 가능한 위험 신호 없음. 가격이 50MA는 이탈했으나 200MA(7,171)는 상회 중이며, 최근 7일 AI 판정(L1) 대비 상황 변화 없어 동일 레벨 유지가 타당함."
+  },
+  {
+   "date": "2026-09-16",
+   "close": 7551.81,
+   "rule_raw": 2,
+   "rule_confirmed": 1,
+   "ai_level": 1,
+   "final_level": 1,
+   "clamped": false,
+   "direction": "agree",
+   "reason": "가격(7551.81)이 200일선(7174.92) 대비 +5.3% 위에서 유지되고 있고 데드크로스·서킷브레이커 등 확인된 구조적 붕괴 신호가 없으며, VIX 17.71은 여전히 20 미만의 정상 범주다. 고점 대비 낙폭도 -3.17%로 완만해 최근 7영업일 연속 L1 판정과 동일하게 L1을 유지한다."
   }
  ]
 }
