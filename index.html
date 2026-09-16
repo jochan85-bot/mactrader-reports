@@ -142,22 +142,22 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
 <script>
 (function(){
   var ST={0:{c:'#3fb950',n:'정상'},1:{c:'#e3b341',n:'주의'},2:{c:'#f0883e',n:'경계'},
-          3:{c:'#f85149',n:'위험'},4:{c:'#b62324',n:'차단'}};
+          3:{c:'#e8590c',n:'위험'},4:{c:'#f85149',n:'차단'}};
   fetch('regime_latest.json').then(function(r){
     if(!r.ok) throw new Error(r.status);
     return r.json();
   }).then(function(j){
     [['us-regime','US'],['kr-regime','KR']].forEach(function(p){
       var el=document.getElementById(p[0]), d=j[p[1]];
-      if(!el||!d||!ST[d.state]) return;
-      var st=ST[d.state];
+      if(!el||!d||!ST[d.raw]) return;
+      var st=ST[d.raw], cs=ST[d.state]||st, cap=(d.cap===0?'차단':Math.round(d.cap*100)+'%');
       el.querySelector('.dot').style.background=st.c;
       el.querySelector('.dot').style.boxShadow='0 0 6px '+st.c+'88';
       var t=el.querySelector('.lv');
-      t.textContent=(d.cap===0?'차단':Math.round(d.cap*100)+'%');
+      t.textContent=d.raw+'/4';
       t.style.color='#e6edf3';
-      el.setAttribute('aria-label', el.getAttribute('aria-label')+' — 상태 '+d.state+' '+st.n+', 노출 상한 '+t.textContent);
-      el.setAttribute('title','상태 '+d.state+'/4 · '+st.n+' · 노출 상한 '+t.textContent+' · '+d.date);
+      el.setAttribute('aria-label', el.getAttribute('aria-label')+' — 활성 플래그 '+d.raw+'/4, 확정 상태 '+d.state+' '+cs.n+', 노출 상한 '+cap);
+      el.setAttribute('title','활성 플래그 '+d.raw+'/4 · 확정 상태 '+d.state+' '+cs.n+' · 노출 상한 '+cap+' · '+d.date);
     });
   }).catch(function(){});
 })();
