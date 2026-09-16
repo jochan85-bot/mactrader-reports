@@ -432,10 +432,12 @@ function renderIndexChart(){
   var x=_X, tr=[];
   for(var st=0; st<=4; st++){
     (function(st){
-      var y=S.map(function(s,i){ return (s.S===st || (i>0 && S[i-1].S===st)) ? 1 : null; });
+      /* 구간 밖은 null 이 아니라 0 — Plotly 는 null 틈을 건너뛰지 않고 채우기를 이어 그려
+         다섯 색이 전부 겹쳐 섞인다(2026-09-16 실사례). 계단(hv)이라 그날 값이 다음 날까지 유지된다. */
+      var y=S.map(function(s){ return s.S===st ? 1 : 0; });
       tr.push({x:x, y:y, name:'확정 '+st+' '+ST[st].n, type:'scatter', mode:'lines', fill:'tozeroy',
-        fillcolor:hexA(ST[st].c, st===0?0.06:st===1?0.12:st===2?0.15:st===3?0.18:0.22),
-        line:{width:0, color:'rgba(0,0,0,0)'}, yaxis:'y2', hoverinfo:'skip', connectgaps:false, showlegend:true});
+        fillcolor:hexA(ST[st].c, st===0?0.20:st===1?0.30:st===2?0.34:st===3?0.38:0.42),
+        line:{width:0, color:'rgba(0,0,0,0)', shape:'hv'}, yaxis:'y2', hoverinfo:'skip', showlegend:true});
     })(st);
   }
   tr.push({x:x, y:S.map(function(s){return s.c[0];}), name:idx, type:'scatter', mode:'lines',
