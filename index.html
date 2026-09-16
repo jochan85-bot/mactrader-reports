@@ -141,8 +141,8 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
 <!--RG_JS_BEGIN-->
 <script>
 (function(){
-  var ST={0:{c:'#3fb950',n:'정상'},1:{c:'#e3b341',n:'주의'},2:{c:'#f0883e',n:'경계'},
-          3:{c:'#e8590c',n:'위험'},4:{c:'#f85149',n:'차단'}};
+  var ST={0:{c:'#30d158',n:'정상'},1:{c:'#ffd60a',n:'주의'},2:{c:'#ff9f0a',n:'경계'},
+          3:{c:'#ff5a1f',n:'위험'},4:{c:'#ff2d55',n:'차단'}};
   fetch('regime_latest.json').then(function(r){
     if(!r.ok) throw new Error(r.status);
     return r.json();
