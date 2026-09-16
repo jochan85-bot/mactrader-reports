@@ -55,6 +55,15 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
   </div>
 </div>
 
+<!--REGIME_BLOCK_BEGIN-->
+<div class="section">
+  <div class="section-title">🧭 진입환경 게이트</div>
+  <a class="card" href="regime_us.html"><div class="card-top"><div class="card-left"><span class="icon">🧭</span><span>미장 진입환경</span></div><span class="card-date">상태 3/4</span></div><span class="desc">raw 4 · 상한 50% · 사이즈 50% · 노출 92.1% · 2026-09-14 · 소급 산출</span></a>
+  <a class="card" href="regime_kr.html"><div class="card-top"><div class="card-left"><span class="icon">🧭</span><span>국장 진입환경</span></div><span class="card-date">상태 3/4</span></div><span class="desc">raw 코스피 3 · 코스닥 3 → 3 · 상한 50% · 사이즈 50% · 노출 87.9% · 2026-09-15 · 라이브 09-18 시작 예정</span></a>
+  <a class="card card-slim" href="regime_guide.html"><span class="icon">📖</span>진입환경 게이트 가이드<span class="arrow">›</span></a>
+</div>
+<!--REGIME_BLOCK_END-->
+
 <div class="section">
   <div class="section-title">📅 최신 리포트</div>
 
@@ -68,9 +77,6 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
         <span class="card-date" id="us-date">2026. 09.15 (화)</span>
       </div>
     </a>
-    <a class="bear-sq" id="us-badge" href="bear_us.html" aria-label="미장 시장경보 시스템">
-      <span class="dot"></span><span class="lv">L?</span>
-    </a>
   </div>
 
   <div class="report-row">
@@ -82,9 +88,6 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
         </div>
         <span class="card-date" id="kr-date">2026. 09.15 (화)</span>
       </div>
-    </a>
-    <a class="bear-sq" id="kr-badge" href="bear_kr.html" aria-label="국장 시장경보 시스템">
-      <span class="dot"></span><span class="lv">L?</span>
     </a>
   </div>
 
@@ -141,32 +144,5 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
   </div>
 </div>
 
-<script>
-(function(){
-  var LV = {
-    1:{c:'#3fb950', n:'정상'},
-    2:{c:'#e3b341', n:'주의'},
-    3:{c:'#f0883e', n:'경계'},
-    4:{c:'#f85149', n:'위험'},
-    5:{c:'#b62324', n:'극도'}
-  };
-  function setBadge(id, src){
-    fetch(src).then(function(r){
-      if(!r.ok) throw new Error(r.status);
-      return r.json();
-    }).then(function(j){
-      var lv = j && j.latest && j.latest.final_level;
-      var el = document.getElementById(id);
-      if(!el || !LV[lv]) return;
-      el.querySelector('.dot').style.background = LV[lv].c;
-      el.querySelector('.lv').textContent = 'L' + lv;
-      el.querySelector('.lv').style.color = '#e6edf3';
-      el.setAttribute('aria-label', el.getAttribute('aria-label') + ' — L' + lv + ' ' + LV[lv].n);
-    }).catch(function(){ /* 폴백: 회색 L? 유지 */ });
-  }
-  setBadge('us-badge', 'bear_history_us.json');
-  setBadge('kr-badge', 'bear_history_kr.json');
-})();
-</script>
 </body>
 </html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>진입환경 게이트 가이드</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0d1117;color:#e6edf3;padding:16px;max-width:760px;margin:0 auto;line-height:1.55}
+a{color:#58a6ff}
+h1{color:#58a6ff;font-size:21px;margin:14px 0 6px}
+h2{font-size:15px;color:#e6edf3;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid #21262d}
+.sub{color:#8b949e;font-size:12px;margin-bottom:14px}
+.badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700;margin-left:6px}
+.b-live{background:#1f6f3f;color:#d7ffe8}.b-back{background:#6b4b16;color:#ffe9c2}
+.card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:14px 16px;margin:10px 0}
+.big{font-size:30px;font-weight:800;letter-spacing:-.5px}
+.kv{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:13px;border-bottom:1px solid #1c2128}
+.kv:last-child{border-bottom:0}.kv span:first-child{color:#8b949e}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+th,td{padding:6px 5px;text-align:right;border-bottom:1px solid #21262d;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{color:#8b949e;font-weight:600;font-size:11px}
+.on{color:#ff7b72;font-weight:700}.off{color:#3fb950}
+.s0{color:#3fb950}.s1{color:#d29922}.s2{color:#d29922}.s3{color:#f0883e}.s4{color:#ff7b72}
+img{width:100%;border-radius:8px;border:1px solid #30363d;margin-top:8px}
+.note{color:#8b949e;font-size:12px;margin-top:8px}
+.warn{background:#2d2010;border:1px solid #6b4b16;border-radius:8px;padding:10px 12px;font-size:12.5px;color:#ffd9a0;margin:10px 0}
+.foot{color:#6e7681;font-size:11px;margin:30px 0 10px;text-align:center}
+ol{padding-left:20px}ol li{margin:9px 0;font-size:13.5px}
+.gl{font-size:13.5px}.gl b{color:#e6edf3}
+</style>
+</head>
+<body>
+<h1>📖 진입환경 게이트 가이드</h1><div class="sub">생성 2026-09-16 10:19 KST</div><div class="gl"><a href="regime_us.html">미장 현황 →</a> &nbsp;·&nbsp; <a href="regime_kr.html">국장 현황 →</a></div>
+<h2>(1) 무엇인가</h2>
+<div class="gl">역할3 개정판입니다. 지수 가격 위치만 보던 경보를 <b>전 종목 상태(breadth) + 지수 위치</b>로 바꾸고,
+출력을 경보 레벨이 아니라 <b>계좌 총 노출 상한·신규 진입 사이즈</b>로 바꿨습니다. 기존 경보(L1~L5)는 퇴역 예정입니다.</div>
+
+<h2>(2) 4플래그</h2>
+<table><tr><th>플래그</th><th>내용</th><th>출처</th></tr>
+<tr><td>F_dist</td><td>지수 분배일 25일 내 5개 이상</td><td>O'Neil</td></tr>
+<tr><td>F_nhnl</td><td>52주 신고가 − 신저가 10일 합이 0 미만</td><td>Weinstein</td></tr>
+<tr><td>F_ma50</td><td>MA50 상회 종목 비율 50% 미만</td><td>Weinstein</td></tr>
+<tr><td>F_adv</td><td>상승/(상승+하락) 10일 EMA가 0.50 미만</td><td>Zweig</td></tr></table>
+<div class="note">전일 종가 기준입니다. 문턱은 원전 수치이며 우리 데이터로 최적화하지 않았습니다.</div>
+
+<h2>(3) 개수 세는 법</h2>
+<div class="gl"><b>미장</b> = 나스닥 분배일 + 통합 유니버스 breadth 3종 → 0~4.<br>
+<b>국장</b> = 코스피(832종·코스피 지수)와 코스닥(1,748종·코스닥 지수)을 <b>각각</b> 4플래그로 세고
+<b>둘 중 작은 값</b>을 씁니다 — “둘 다 나쁠 때만 진짜 하락장”.<br>
+유니버스는 보통주입니다(우선주·스팩·ETF·ETN·KONEX 제외, 리츠 포함).</div>
+
+<h2>(4) 확정 상태</h2>
+<div class="gl">악화는 <b>2일 연속 확인</b>, 개선은 <b>즉시</b> 반영합니다.</div>
+
+<h2>(5) 행동</h2>
+<table><tr><th>확정 상태</th><th>총 노출 상한 · 진입 사이즈</th></tr>
+<tr><td>0</td><td>100%</td></tr><tr><td>1</td><td>90%</td></tr><tr><td>2</td><td>70%</td></tr>
+<tr><td>3</td><td>50%</td></tr><tr><td>4</td><td>신규 진입 차단</td></tr></table>
+<div class="gl">총 노출 상한과 개별 진입 사이즈에 <b>같은 비율</b>을 씁니다.
+신규 진입과 잔여 체결에만 적용하고, <b>재진입·리밸런스 매수는 면제</b>입니다.
+<b>강제 매도는 없습니다</b> — 청산 엔진이 팔아서 상한 아래로 내려올 때까지 신규만 보류합니다.</div>
+
+<h2>(6) 안전장치</h2>
+<div class="gl">상태 값이 <b>3세션 이상 낡았거나</b>, 종목 <b>커버리지가 90% 미만</b>이거나,
+<b>계좌 조회가 실패</b>하면 신규 진입을 차단합니다(모르면 멈춘다). 되돌림은 스위치 한 줄입니다.</div>
+
+<h2>(7) 시장별 상태</h2>
+<div class="gl">미장 <b>2026-09-16 라이브</b> / 국장 <b>2026-09-18 라이브</b>(시장별 산출 방식).
+둘 다 <b>오너 재량 배선</b>입니다. 재검토는 6개월 경과 또는 상태 전환 3회 중 먼저 오는 시점입니다.</div>
+
+<h2>(8) 예정</h2>
+<div class="gl">바닥권 완화(낙폭 15% 이상 + 회복 신호 시 4/4 → 50%, 관측 단계) ·
+AI 판정층(악화 시 한 칸 상향, 세션 3회 / 4/4이고 낙폭 15% 이상일 때 조기 해제 한 칸, 관측 단계) ·
+기존 경보 정지.</div>
+
+<h2>(9) 알려진 한계</h2>
+<ol>
+<li>급락 후 회복 초입 진입이 늦어집니다(의도된 비용).</li>
+<li>유니버스 생존편향으로 수준 문턱이 낙관 방향입니다.</li>
+<li>2019~2024 재현에서 개별 돌파 성과와의 단조 관계가 확인되지 않았습니다 → 노출 관리 목적의 재량 배선입니다.</li>
+<li>국장은 반등기에 상태 3~4 진입이 나쁘지 않은 현상이 해소되지 않았습니다.</li>
+<li>국장 방식은 급락 반응이 늦을 수 있습니다(2026-05~08 사례에서 −36%에 4/4 도달, 그 전은 50%).</li>
+</ol>
+
+<h2>(10) 개정 이력</h2>
+<div class="gl">09-15 설계 착수 → 09-16 미장 라이브 · 국장 방식 선택 · 완화안 동결 → 09-18 국장 라이브.</div>
+<div class="foot">뭉치 트레이더 리포트 · 진입환경 게이트</div>
+</body>
+</html>
