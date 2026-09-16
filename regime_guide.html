@@ -52,8 +52,26 @@ tr:last-child td{border-bottom:0}
 .fdesc{display:block;color:#6e7681;font-size:11px;margin-top:2px;white-space:normal;line-height:1.45}
 
 /* 차트 */
-#chart{width:100%;height:400px;touch-action:pan-y}
-#chart2{width:100%;height:230px;touch-action:pan-y}
+#chart{width:100%;height:340px;touch-action:pan-y}
+#chart2{width:100%;height:220px;touch-action:pan-y}
+#chart3{width:100%;height:230px;touch-action:pan-y}
+.rng-row{display:flex;gap:6px;flex-wrap:wrap;margin:2px 0 10px}
+.rng-btn{font-size:12px;font-weight:600;color:#8b949e;background:#0b0f17;border:1px solid #30363d;border-radius:6px;padding:5px 11px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.rng-btn.on{color:#e6edf3;background:#1f3a5f;border-color:#3b82f6}
+.rng-btn:active{color:#e6edf3}
+.sync-tag{font-size:11px;color:#6e7681;margin-left:auto;align-self:center}
+/* 연도 그룹 */
+.yr{border-bottom:1px solid #30363d}
+.yr-head{display:flex;align-items:center;gap:8px;padding:13px 4px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.yr-head:active{background:#1c2128}
+.yr-title{font-size:15px;font-weight:800;color:#e6edf3;white-space:nowrap}
+.yr-sum{flex:1;display:flex;align-items:center;justify-content:flex-end;gap:6px;font-size:11.5px;color:#8b949e;flex-wrap:wrap}
+.yr-caret{color:#8b949e;font-size:11px;transition:transform .15s;flex-shrink:0}
+.yr.open .yr-caret{transform:rotate(180deg)}
+.yr-body{display:none;padding-left:8px}.yr.open .yr-body{display:block}
+.yr-body .mon:last-child{border-bottom:none}
+.yr-bar{display:inline-flex;height:8px;width:90px;border-radius:3px;overflow:hidden;border:1px solid #21262d}
+.yr-bar span{display:block;height:100%}
 .js-plotly-plot .nsewdrag{touch-action:pan-y !important}
 .footnote{font-size:11px;color:#8b949e;margin-top:10px;line-height:1.55}
 .chart-fallback{display:none;background:rgba(187,128,9,.1);border:1px solid #9e6a03;border-radius:8px;
@@ -215,14 +233,19 @@ raw 가 3 → 4 → 2 였다면 확정은 3 → 3 → 2 입니다(4는 이틀을
 <li><b>① 현재 상태</b> — 왼쪽 큰 사각형이 오늘의 확정 상태(0~4)와 색입니다. 그 아래 칩은
 시장별 raw → 오늘 raw → 확정으로 이어지는 계산 흐름입니다. 표에는 네 플래그의 <b>원값</b>이
 문턱과 나란히 있습니다. 문턱을 얼마나 아슬아슬하게 넘겼는지 여기서 보입니다.</li>
-<li><b>② 추이</b> — 왼쪽 눈금은 지수, 오른쪽 눈금은 상태(0~4)입니다. 배경 띠 색이 상태 구간입니다.
-점선은 raw, 굵은 선은 확정 상태라서 <b>둘의 간격이 곧 2일 확인 규칙이 흡수한 흔들림</b>입니다.
-기간 버튼(1달/6달/1년/3년/전체), 두 손가락 확대, 한 손가락 이동이 됩니다.</li>
-<li><b>③ 플래그 켜짐 이력</b> — 어느 플래그가 언제 켜졌는지 한눈에 봅니다. 세로줄의 붉은 칸 개수가
+<li><b>② 지수 차트</b> — 미장은 나스닥 종합, 국장은 코스피 종가입니다. 선 위에 얹은 배경색이
+그날의 <b>확정 상태</b>입니다(0 초록 · 1 노랑 · 2 주황 · 3 진주황 · 4 빨강). 색이 짙어진 구간이
+게이트가 신규 진입을 줄이거나 막던 때라서, 지수가 어디쯤에서 그랬는지를 한눈에 대조할 수 있습니다.
+기간 버튼(1달/6달/1년/3년/전체)은 이 차트 위에 있고, 아래 ③ ④ 도 함께 움직입니다.</li>
+<li><b>③ 진입환경 추이</b> — 점선은 raw(오늘 켜진 플래그 수), 굵은 선은 확정 상태입니다.
+<b>둘의 간격이 곧 2일 확인 규칙이 흡수한 흔들림</b>입니다. 국장은 범례에서 코스피·코스닥 각각의 raw 를 켤 수 있습니다.</li>
+<li><b>④ 플래그 켜짐 이력</b> — 어느 플래그가 언제 켜졌는지 한눈에 봅니다. 세로줄의 붉은 칸 개수가
 그날의 raw 입니다. 한 줄만 계속 붉은 경우와 네 줄이 한꺼번에 붉어지는 경우는 성격이 다릅니다.</li>
-<li><b>④ 일별 이력</b> — 달 단위로 접혀 있고 최신 달이 펼쳐져 있습니다. 하루를 누르면 그날의
-플래그 원값이 나옵니다.</li>
-<li><b>⑤ 차단 · 축소 로그</b> — 게이트가 실제로 개입한 기록입니다. 여기가 비어 있으면
+<li><b>② ③ ④ 는 가로 시간축이 연동</b>됩니다 — 한 차트에서 두 손가락으로 확대하거나 한 손가락으로 옮기면
+나머지 둘도 같은 구간을 보여 줍니다.</li>
+<li><b>⑤ 일별 이력</b> — 연도 → 달 → 날짜로 접혀 있고 최신 연도·최신 달만 펼쳐져 있습니다.
+연도 줄의 색 막대는 그해 상태별 일수 비율입니다. 하루를 누르면 그날의 플래그 원값이 나옵니다.</li>
+<li><b>⑥ 차단 · 축소 로그</b> — 게이트가 실제로 개입한 기록입니다. 여기가 비어 있으면
 게이트는 아직 아무것도 막지 않은 것입니다.</li>
 </ul>
 

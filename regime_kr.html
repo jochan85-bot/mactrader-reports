@@ -53,8 +53,26 @@ tr:last-child td{border-bottom:0}
 .fdesc{display:block;color:#6e7681;font-size:11px;margin-top:2px;white-space:normal;line-height:1.45}
 
 /* 차트 */
-#chart{width:100%;height:400px;touch-action:pan-y}
-#chart2{width:100%;height:230px;touch-action:pan-y}
+#chart{width:100%;height:340px;touch-action:pan-y}
+#chart2{width:100%;height:220px;touch-action:pan-y}
+#chart3{width:100%;height:230px;touch-action:pan-y}
+.rng-row{display:flex;gap:6px;flex-wrap:wrap;margin:2px 0 10px}
+.rng-btn{font-size:12px;font-weight:600;color:#8b949e;background:#0b0f17;border:1px solid #30363d;border-radius:6px;padding:5px 11px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.rng-btn.on{color:#e6edf3;background:#1f3a5f;border-color:#3b82f6}
+.rng-btn:active{color:#e6edf3}
+.sync-tag{font-size:11px;color:#6e7681;margin-left:auto;align-self:center}
+/* 연도 그룹 */
+.yr{border-bottom:1px solid #30363d}
+.yr-head{display:flex;align-items:center;gap:8px;padding:13px 4px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.yr-head:active{background:#1c2128}
+.yr-title{font-size:15px;font-weight:800;color:#e6edf3;white-space:nowrap}
+.yr-sum{flex:1;display:flex;align-items:center;justify-content:flex-end;gap:6px;font-size:11.5px;color:#8b949e;flex-wrap:wrap}
+.yr-caret{color:#8b949e;font-size:11px;transition:transform .15s;flex-shrink:0}
+.yr.open .yr-caret{transform:rotate(180deg)}
+.yr-body{display:none;padding-left:8px}.yr.open .yr-body{display:block}
+.yr-body .mon:last-child{border-bottom:none}
+.yr-bar{display:inline-flex;height:8px;width:90px;border-radius:3px;overflow:hidden;border:1px solid #21262d}
+.yr-bar span{display:block;height:100%}
 .js-plotly-plot .nsewdrag{touch-action:pan-y !important}
 .footnote{font-size:11px;color:#8b949e;margin-top:10px;line-height:1.55}
 .chart-fallback{display:none;background:rgba(187,128,9,.1);border:1px solid #9e6a03;border-radius:8px;
@@ -129,7 +147,13 @@ h3{font-size:13.5px;color:#58a6ff;margin:18px 0 6px}
 </div>
 
 <div class="card" id="chart-card" style="display:none">
-  <div class="section-title">② 지수 · 진입환경 추이</div>
+  <div class="section-title">② <span id="idx-title">지수</span> 차트</div>
+  <div class="rng-row" id="rng-row">
+    <span class="rng-btn" data-m="1">1달</span><span class="rng-btn" data-m="6">6달</span>
+    <span class="rng-btn on" data-m="12">1년</span><span class="rng-btn" data-m="36">3년</span>
+    <span class="rng-btn" data-m="all">전체</span>
+    <span class="sync-tag">②③④ 시간축 연동</span>
+  </div>
   <div class="chart-fallback" id="chart-fallback">
     📉 차트 라이브러리(CDN)를 불러오지 못했습니다. 아래 표는 정상 확인할 수 있습니다.
   </div>
@@ -137,26 +161,32 @@ h3{font-size:13.5px;color:#58a6ff;margin:18px 0 6px}
   <div class="footnote" id="chart-note"></div>
 </div>
 
-<div class="card" id="heat-card" style="display:none">
-  <div class="section-title">③ 플래그 켜짐 이력</div>
+<div class="card" id="state-chart-card" style="display:none">
+  <div class="section-title">③ 진입환경 추이</div>
   <div id="chart2"></div>
+  <div class="footnote" id="state-note"></div>
+</div>
+
+<div class="card" id="heat-card" style="display:none">
+  <div class="section-title">④ 플래그 켜짐 이력</div>
+  <div id="chart3"></div>
   <div class="footnote" id="heat-note"></div>
 </div>
 
 <div class="card" id="hist-card" style="display:none">
-  <div class="section-title">④ 일별 이력</div>
+  <div class="section-title">⑤ 일별 이력</div>
   <div class="hist-head" id="hist-head"></div>
   <div id="hist-body"></div>
-  <div class="note">행을 누르면 그날의 플래그 원값이 펼쳐집니다. 달 제목을 누르면 접거나 펼칩니다.</div>
+  <div class="note">연도 → 달 → 날짜 순으로 접혀 있습니다. 제목을 누르면 펼쳐지고, 날짜 행을 누르면 그날의 플래그 원값이 나옵니다.</div>
 </div>
 
 <div class="card" id="blk-card" style="display:none">
-  <div class="section-title">⑤ 차단 · 축소 로그</div>
+  <div class="section-title">⑥ 차단 · 축소 로그</div>
   <div id="blk-body"></div>
 </div>
 
 <div class="card" id="plan-card" style="display:none">
-  <div class="section-title">⑥ 예정 항목 (아직 매매에 쓰이지 않음)</div>
+  <div class="section-title">⑦ 예정 항목 (아직 매매에 쓰이지 않음)</div>
   <div id="plan-body"></div>
   <div class="note">위 항목은 기록만 하며 실제 매매 동작은 현재 규칙 그대로입니다.</div>
 </div>
@@ -220,8 +250,10 @@ function init(data){
     +'<span class="badge '+(data.is_live?'b-live':'b-back')+'">'+(data.is_live?'라이브':'소급 산출')+'</span>';
   if(data.meta.label_note){ $('warn').style.display='block'; $('warn').innerHTML=data.meta.label_note; }
   renderState(L);
-  renderChart();
+  renderIndexChart();
+  renderStateChart();
   renderHeat();
+  wireRangeButtons();
   renderHistory();
   renderBlocked();
   renderPlan();
@@ -287,13 +319,14 @@ function chip(label,v,isFinal){
     +'<span class="mini-dot" style="background:'+dot+'"></span>'+label+' <b>'+(v==null?'—':v)+'</b></span>';
 }
 
-/* ───────── ② 지수 · 진입환경 추이 ───────── */
+/* ───────── ② ③ ④ 차트 — 가로 시간축 연동 ───────── */
 function plotlyReady(){ return typeof Plotly!=='undefined'; }
-function defaultRange(x, months){
-  var last=new Date(x[x.length-1]+'T00:00:00');
-  var first=new Date(x[0]+'T00:00:00');
-  var from=new Date(last.getTime()); from.setMonth(from.getMonth()-months);
-  if(from<first) from=first;
+var CHARTS=['chart','chart2','chart3'], _X=null, _syncing=false;
+function hexA(h,a){ var n=parseInt(h.slice(1),16); return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')'; }
+function rangeFor(months){
+  var x=_X, last=new Date(x[x.length-1]+'T00:00:00'), first=new Date(x[0]+'T00:00:00');
+  var from=new Date(last.getTime());
+  if(months==null) from=first; else { from.setMonth(from.getMonth()-months); if(from<first) from=first; }
   var pad=new Date(last.getTime()+6*864e5);
   return [from.toISOString().slice(0,10), pad.toISOString().slice(0,10)];
 }
@@ -305,94 +338,167 @@ function baseLayout(){
     hoverlabel:{bgcolor:'#1c2128', bordercolor:'#444c56', font:{color:'#e6edf3', size:12}}
   };
 }
-function xaxisCfg(x, months){
+function xaxisCfg(){
   return {
     gridcolor:'#1f2a3a', linecolor:'#1f2a3a', hoverformat:'%Y.%m.%d',
-    range: defaultRange(x, months),
+    range: rangeFor(12), autorange:false,
     tickformatstops:[{dtickrange:[null,2419200000],value:'%m/%d'},{dtickrange:[2419200000,null],value:'%Y.%m'}],
-    rangeslider:{visible:false},
-    rangeselector:{bgcolor:'#0b0f17', activecolor:'#3b82f6', bordercolor:'#1f2a3a', font:{size:11},
-      buttons:[{count:1,label:'1달',step:'month',stepmode:'backward'},
-               {count:6,label:'6달',step:'month',stepmode:'backward'},
-               {count:1,label:'1년',step:'year',stepmode:'backward'},
-               {count:3,label:'3년',step:'year',stepmode:'backward'},
-               {step:'all',label:'전체'}]}
+    rangeslider:{visible:false}
   };
 }
-function stateBands(){
-  var sh=[];
-  for(var s=0;s<=4;s++){
-    sh.push({type:'rect', xref:'paper', yref:'y2', x0:0, x1:1, y0:s-0.5, y1:s+0.5,
-      fillcolor:ST[s].c, opacity:s>=3?0.08:0.045, line:{width:0}, layer:'below'});
+function panelCutShape(){
+  var x=_X;
+  if(D.panel_cut && x[0]<D.panel_cut && x[x.length-1]>D.panel_cut){
+    return [{type:'line', xref:'x', yref:'paper', x0:D.panel_cut, x1:D.panel_cut, y0:0, y1:1,
+      line:{color:'#6e7681', width:1, dash:'dash'}}];
   }
-  return sh;
+  return [];
 }
-function renderChart(){
+function plotCfg(){ return {responsive:true, displaylogo:false, displayModeBar:false, scrollZoom:true}; }
+function fitY(r){
+  var el=$('chart'); if(!el||!el._fullLayout) return;
+  var a=String(r[0]).slice(0,10), b=String(r[1]).slice(0,10), lo=null, hi=null;
+  D.series.forEach(function(s){
+    if(s.d<a||s.d>b||s.c[0]==null) return;
+    if(lo==null||s.c[0]<lo) lo=s.c[0];
+    if(hi==null||s.c[0]>hi) hi=s.c[0];
+  });
+  if(lo==null||hi==null) return;
+  var pad=(hi-lo)*0.08||hi*0.02;
+  Plotly.relayout('chart', {'yaxis.range':[lo-pad, hi+pad], 'yaxis.autorange':false});
+}
+function applyRange(r, fromBtn){
+  if(_syncing) return;
+  _syncing=true;
+  CHARTS.forEach(function(id){
+    var el=$(id); if(!el||!el._fullLayout) return;
+    Plotly.relayout(id, {'xaxis.range':r.slice(), 'xaxis.autorange':false});
+  });
+  fitY(r);
+  _syncing=false;
+  if(!fromBtn) markBtn(null);
+}
+function syncFrom(srcId, ev){
+  if(_syncing||!ev) return;
+  var r=null;
+  if(ev['xaxis.range']) r=ev['xaxis.range'].slice();
+  else if(ev['xaxis.range[0]']!==undefined) r=[ev['xaxis.range[0]'], ev['xaxis.range[1]']];
+  else if(ev['xaxis.autorange']) r=rangeFor(null);
+  if(!r) return;
+  _syncing=true;
+  CHARTS.forEach(function(id){
+    if(id===srcId) return;
+    var el=$(id); if(!el||!el._fullLayout) return;
+    var cur=el._fullLayout.xaxis.range;
+    if(cur && String(cur[0])===String(r[0]) && String(cur[1])===String(r[1])) return;
+    Plotly.relayout(id, {'xaxis.range':r.slice(), 'xaxis.autorange':false});
+  });
+  fitY(r);
+  _syncing=false;
+  markBtn(null);
+}
+function hookSync(id){
+  var el=$(id); if(!el||!el.on) return;
+  el.on('plotly_relayout', function(ev){ syncFrom(id, ev); });
+}
+function markBtn(m){
+  var bs=document.querySelectorAll('.rng-btn');
+  for(var i=0;i<bs.length;i++) bs[i].classList.toggle('on', m!=null && bs[i].getAttribute('data-m')===String(m));
+}
+function wireRangeButtons(){
+  var bs=document.querySelectorAll('.rng-btn');
+  for(var i=0;i<bs.length;i++){
+    bs[i].addEventListener('click', function(){
+      var m=this.getAttribute('data-m');
+      applyRange(rangeFor(m==='all'?null:+m), true);
+      markBtn(m);
+    });
+  }
+}
+
+/* ② 지수 차트 — 종가 + 확정 상태 구간 색 */
+function renderIndexChart(){
   var S=D.series;
   if(!S.length) return;
   $('chart-card').style.display='block';
-  var lbl=D.legs.map(function(g){return g.index;}).join(' · ');
-  $('chart-note').innerHTML='왼쪽 눈금 = '+esc(D.legs[0].index)+' 종가 · 오른쪽 눈금 = 진입환경 상태(0~4).'
-    +(D.legs.length>1?' 코스피 지수는 눈금이 다르므로 <b>모양 비교용</b>으로만 겹쳐 그렸습니다(눈금 숨김).':'')
-    +' 손가락 하나로 이동, 두 손가락으로 확대·축소. 위 버튼으로 기간을 바꿀 수 있습니다.'
-    +' 세로 점선은 집계 패널이 바뀌는 지점으로, 이어 붙인 것이 아니라 전환 지점입니다.';
+  _X=S.map(function(s){return s.d;});
+  var idx=D.legs[0].index;
+  $('idx-title').textContent=idx;
+  $('chart-note').innerHTML='선 = '+esc(idx)+' 종가. 배경색 = 그날의 <b>확정 상태</b>(0 초록 · 1 노랑 · 2 주황 · 3 진주황 · 4 빨강).'
+    +' 색이 짙어지는 구간이 게이트가 신규 진입을 줄이거나 막던 때입니다.'
+    +' 손가락 하나로 이동, 두 손가락으로 확대·축소. 여기서 움직이면 ③ ④ 차트도 같은 구간으로 따라갑니다.'
+    +(D.panel_cut?' 세로 점선은 집계 패널 전환 지점입니다.':'');
   if(!plotlyReady()){ $('chart-fallback').style.display='block'; $('chart').style.display='none'; return; }
-
-  var x=S.map(function(s){return s.d;});
-  var tr=[
-    {x:x, y:S.map(function(s){return s.c[0];}), name:D.legs[0].index, type:'scatter', mode:'lines',
-     line:{color:C_IDX,width:2}, yaxis:'y', hovertemplate:'%{y:,.2f}<extra>'+D.legs[0].index+'</extra>'}
-  ];
-  if(D.legs.length>1){
-    tr.push({x:x, y:S.map(function(s){return s.c[1];}), name:D.legs[1].index+' (모양만)', type:'scatter',
-      mode:'lines', line:{color:C_IDX2,width:1.4}, yaxis:'y3',
-      hovertemplate:'%{y:,.2f}<extra>'+D.legs[1].index+'</extra>'});
+  var x=_X, tr=[];
+  for(var st=0; st<=4; st++){
+    (function(st){
+      var y=S.map(function(s,i){ return (s.S===st || (i>0 && S[i-1].S===st)) ? 1 : null; });
+      tr.push({x:x, y:y, name:'확정 '+st+' '+ST[st].n, type:'scatter', mode:'lines', fill:'tozeroy',
+        fillcolor:hexA(ST[st].c, st===0?0.06:st===1?0.12:st===2?0.15:st===3?0.18:0.22),
+        line:{width:0, color:'rgba(0,0,0,0)'}, yaxis:'y2', hoverinfo:'skip', connectgaps:false, showlegend:true});
+    })(st);
   }
-  tr.push({x:x, y:S.map(function(s){return s.R;}), name:'오늘 raw', type:'scatter', mode:'lines',
-    line:{color:C_RAW,width:1.4,shape:'hv',dash:'dot'}, yaxis:'y2',
-    hovertemplate:'raw <b>%{y}</b><extra></extra>'});
+  tr.push({x:x, y:S.map(function(s){return s.c[0];}), name:idx, type:'scatter', mode:'lines',
+    line:{color:C_IDX,width:2}, yaxis:'y', hovertemplate:'%{y:,.2f}<extra>'+idx+'</extra>'});
   tr.push({x:x, y:S.map(function(s){return s.S;}), name:'확정 상태', type:'scatter', mode:'lines',
-    line:{color:C_ST,width:2.2,shape:'hv'}, yaxis:'y2',
-    hovertemplate:'확정 <b>%{y}</b><extra></extra>'});
-  if(D.legs.length>1){
-    D.legs.forEach(function(g,i){
-      tr.push({x:x, y:S.map(function(s){return s.r[i];}), name:g.label+' raw', type:'scatter', mode:'lines',
-        line:{color:i?'#7ee787':'#ffa657',width:1,shape:'hv'}, yaxis:'y2', visible:'legendonly',
-        hovertemplate:g.label+' <b>%{y}</b><extra></extra>'});
-    });
-  }
-
-  var sh=stateBands();
-  if(D.panel_cut && x[0]<D.panel_cut && x[x.length-1]>D.panel_cut){
-    sh.push({type:'line', xref:'x', yref:'paper', x0:D.panel_cut, x1:D.panel_cut, y0:0, y1:1,
-      line:{color:'#6e7681', width:1, dash:'dash'}});
-  }
+    line:{width:0,color:'rgba(0,0,0,0)'}, yaxis:'y3', showlegend:false, hovertemplate:'확정 <b>%{y}</b><extra></extra>'});
   var lay=baseLayout();
-  lay.margin={l:56,r:34,t:34,b:40};
-  lay.legend={orientation:'h', y:-0.22, font:{size:11}};
-  lay.shapes=sh;
-  lay.xaxis=xaxisCfg(x,12);
-  lay.yaxis={title:{text:D.legs[0].index, font:{size:11,color:'#8b949e'}},
-    gridcolor:'#1f2a3a', linecolor:'#1f2a3a', side:'left', tickformat:',.0f'};
-  lay.yaxis2={title:{text:'상태', font:{size:11,color:'#8b949e'}}, gridcolor:'transparent',
-    linecolor:'#1f2a3a', overlaying:'y', side:'right', range:[-0.6,4.6],
-    tickvals:[0,1,2,3,4], ticktext:['0','1','2','3','4']};
-  if(D.legs.length>1){
-    lay.yaxis3={overlaying:'y', side:'right', showgrid:false, showticklabels:false,
-      zeroline:false, linecolor:'transparent'};
-  }
-  Plotly.newPlot('chart', tr, lay, {responsive:true, displaylogo:false, displayModeBar:false, scrollZoom:true});
+  lay.margin={l:56,r:16,t:16,b:40};
+  lay.legend={orientation:'h', y:-0.2, font:{size:10.5}, itemwidth:30};
+  lay.shapes=panelCutShape();
+  lay.xaxis=xaxisCfg();
+  lay.yaxis={title:{text:idx, font:{size:11,color:'#8b949e'}}, gridcolor:'#1f2a3a', linecolor:'#1f2a3a', side:'left', tickformat:',.0f'};
+  lay.yaxis2={overlaying:'y', range:[0,1], visible:false, fixedrange:true};
+  lay.yaxis3={overlaying:'y', range:[0,1], visible:false, fixedrange:true};
+  Plotly.newPlot('chart', tr, lay, plotCfg()).then(function(){ hookSync('chart'); fitY(lay.xaxis.range); });
   setupTouchGestures();
 }
 
-/* ───────── ③ 플래그 켜짐 이력 (히트맵) ───────── */
+/* ③ 진입환경 추이 — raw 점선 · 확정 굵은 선 */
+function stateBands(){
+  var sh=[];
+  for(var s=0;s<=4;s++){
+    sh.push({type:'rect', xref:'paper', yref:'y', x0:0, x1:1, y0:s-0.5, y1:s+0.5,
+      fillcolor:ST[s].c, opacity:s>=3?0.10:0.05, line:{width:0}, layer:'below'});
+  }
+  return sh;
+}
+function renderStateChart(){
+  var S=D.series;
+  if(!S.length || !plotlyReady()) return;
+  $('state-chart-card').style.display='block';
+  $('state-note').innerHTML='점선 = 오늘 raw(켜진 플래그 수), 굵은 선 = 확정 상태. <b>둘의 간격이 2일 확인 규칙이 흡수한 흔들림</b>입니다.'
+    +(D.legs.length>1?' 범례에서 코스피·코스닥 각각의 raw 를 켤 수 있습니다.':'');
+  var x=_X, tr=[];
+  tr.push({x:x, y:S.map(function(s){return s.R;}), name:'오늘 raw', type:'scatter', mode:'lines',
+    line:{color:C_RAW,width:1.4,shape:'hv',dash:'dot'}, hovertemplate:'raw <b>%{y}</b><extra></extra>'});
+  tr.push({x:x, y:S.map(function(s){return s.S;}), name:'확정 상태', type:'scatter', mode:'lines',
+    line:{color:C_ST,width:2.2,shape:'hv'}, hovertemplate:'확정 <b>%{y}</b><extra></extra>'});
+  if(D.legs.length>1){
+    D.legs.forEach(function(g,i){
+      tr.push({x:x, y:S.map(function(s){return s.r[i];}), name:g.label+' raw', type:'scatter', mode:'lines',
+        line:{color:i?'#7ee787':'#ffa657',width:1,shape:'hv'}, visible:'legendonly',
+        hovertemplate:g.label+' <b>%{y}</b><extra></extra>'});
+    });
+  }
+  var lay=baseLayout();
+  lay.margin={l:56,r:16,t:16,b:40};
+  lay.legend={orientation:'h', y:-0.3, font:{size:11}};
+  lay.shapes=stateBands().concat(panelCutShape());
+  lay.xaxis=xaxisCfg();
+  lay.yaxis={title:{text:'상태', font:{size:11,color:'#8b949e'}}, gridcolor:'#1f2a3a', linecolor:'#1f2a3a',
+    range:[-0.6,4.6], tickvals:[0,1,2,3,4], ticktext:['0','1','2','3','4'], fixedrange:true};
+  Plotly.newPlot('chart2', tr, lay, plotCfg()).then(function(){ hookSync('chart2'); });
+}
+
+/* ④ 플래그 켜짐 이력 (히트맵) */
 function renderHeat(){
   var S=D.series;
   if(!S.length || !plotlyReady()) return;
   $('heat-card').style.display='block';
   $('heat-note').innerHTML='붉은 칸 = 그날 그 플래그가 <b>켜짐</b>(나쁨), 어두운 칸 = 꺼짐. 한 세로줄의 붉은 칸 개수가 그날의 raw 입니다.'
-    +' 차트와 마찬가지로 확대·축소·이동이 됩니다.';
-  var x=S.map(function(s){return s.d;});
+    +' ② ③ 과 같은 구간을 보여 줍니다.';
+  var x=_X;
   var y=[], z=[], cd=[];
   for(var li=D.legs.length-1; li>=0; li--){
     for(var fi=D.meta.flags.length-1; fi>=0; fi--){
@@ -403,18 +509,18 @@ function renderHeat(){
   }
   var lay=baseLayout();
   lay.hovermode='closest';
-  lay.margin={l:104,r:24,t:34,b:40};
-  lay.xaxis=xaxisCfg(x,12);
+  lay.margin={l:104,r:16,t:16,b:40};
+  lay.xaxis=xaxisCfg();
   lay.yaxis={automargin:true, tickfont:{size:11}, fixedrange:true};
-  $('chart2').style.height=(78+y.length*22)+'px';
-  Plotly.newPlot('chart2', [{
+  $('chart3').style.height=(78+y.length*22)+'px';
+  Plotly.newPlot('chart3', [{
     x:x, y:y, z:z, customdata:cd, type:'heatmap', xgap:0, ygap:2, showscale:false,
     zmin:0, zmax:1, colorscale:[[0,'#16231b'],[0.49,'#16231b'],[0.5,'#8b2c2c'],[1,'#8b2c2c']],
     hovertemplate:'%{y}<br>%{x|%Y.%m.%d} · <b>%{customdata}</b><extra></extra>'
-  }], lay, {responsive:true, displaylogo:false, displayModeBar:false, scrollZoom:true});
+  }], lay, plotCfg()).then(function(){ hookSync('chart3'); });
 }
 
-/* ───────── ④ 일별 이력 (월별 그룹 · 최신 위) ───────── */
+/* ───────── ⑤ 일별 이력 (연도 → 월 · 최신 위) ───────── */
 function pill(v){
   var st=ST[v];
   if(!st) return '<span class="lv-pill dim">—</span>';
@@ -431,52 +537,84 @@ function renderHistory(){
   head.innerHTML='<span>날짜</span><span class="num">'+esc(D.legs[0].label==='전체'?'지수':D.legs[0].label)+' 종가</span>'
     +'<span class="lv">'+(multi?'코스피·코스닥':'raw')+'</span><span class="lv">확정</span><span class="lv">상한</span>';
 
-  var byMonth={}, order=[];
+  var byYear={}, yOrder=[];
   S.forEach(function(s){
-    var m=s.d.slice(0,7);
-    if(!byMonth[m]){byMonth[m]=[];order.push(m);}
-    byMonth[m].push(s);
+    var y=s.d.slice(0,4), m=s.d.slice(0,7);
+    if(!byYear[y]){byYear[y]={months:{}, order:[], rows:[]}; yOrder.push(y);}
+    var Y=byYear[y];
+    if(!Y.months[m]){Y.months[m]=[]; Y.order.push(m);}
+    Y.months[m].push(s); Y.rows.push(s);
   });
-  order.reverse();
+  yOrder.reverse();
   var body=$('hist-body');
   body.innerHTML='';
 
-  order.forEach(function(m, mi){
-    var rows=byMonth[m], maxS=null, chg=0;
+  function summarize(rows){
+    var maxS=null, chg=0, cnt=[0,0,0,0,0];
     rows.forEach(function(s,i){
       if(maxS==null||s.S>maxS) maxS=s.S;
       if(i>0 && rows[i].S!==rows[i-1].S) chg++;
+      if(cnt[s.S]!=null) cnt[s.S]++;
     });
-    var mp=m.split('-'), label=(+mp[0])+'년 '+(+mp[1])+'월';
-    var mx = ST[maxS] ? '<span class="mon-max" style="background:'+ST[maxS].c+';color:'+ST[maxS].tx+'">최고 '+maxS+'</span>' : '';
-    var sec=document.createElement('div');
-    sec.className='mon'+(mi===0?' open':'');
-    var h=document.createElement('div');
-    h.className='mon-head';
-    h.innerHTML='<span class="mon-title">'+label+'</span>'
-      +'<span class="mon-sum">'+rows.length+'거래일 · 상태 변동 '+chg+'회 '+mx+'</span>'
-      +'<span class="mon-caret">▼</span>';
-    h.addEventListener('click',function(){sec.classList.toggle('open');});
-    sec.appendChild(h);
+    return {maxS:maxS, chg:chg, cnt:cnt};
+  }
+  function bar(cnt, n){
+    var h='<span class="yr-bar">';
+    for(var i=0;i<=4;i++){ if(cnt[i]) h+='<span style="width:'+(cnt[i]/n*100)+'%;background:'+ST[i].c+'"></span>'; }
+    return h+'</span>';
+  }
+  function maxTag(maxS){
+    return ST[maxS] ? '<span class="mon-max" style="background:'+ST[maxS].c+';color:'+ST[maxS].tx+'">최고 '+maxS+'</span>' : '';
+  }
 
-    var mb=document.createElement('div');
-    mb.className='mon-body';
-    rows.slice().reverse().forEach(function(s){
-      var row=document.createElement('div');
-      row.className='hist-row';
-      row.style.gridTemplateColumns=cols;
-      var rawCell = multi ? '<span style="text-align:center;font-variant-numeric:tabular-nums">'+(s.r[0]==null?'—':s.r[0])+' · '+(s.r[1]==null?'—':s.r[1])+'</span>'
-                          : '<span style="text-align:center">'+s.R+'</span>';
-      row.innerHTML='<span class="hist-date">'+fmtShort(s.d)+'</span>'
-        +'<span class="hist-close">'+num(s.c[0],2)+'</span>'
-        +rawCell+pill(s.S)
-        +'<span class="hist-close" style="color:#c9d1d9">'+(D.meta.caps[s.S]===0?'차단':Math.round(D.meta.caps[s.S]*100)+'%')+'</span>'
-        +'<div class="hist-detail">'+detail(s)+'</div>';
-      row.addEventListener('click',function(){this.classList.toggle('open');});
-      mb.appendChild(row);
+  yOrder.forEach(function(y, yi){
+    var Y=byYear[y], ys=summarize(Y.rows);
+    var ysec=document.createElement('div');
+    ysec.className='yr'+(yi===0?' open':'');
+    var yh=document.createElement('div');
+    yh.className='yr-head';
+    yh.innerHTML='<span class="yr-title">'+y+'년</span>'
+      +'<span class="yr-sum">'+Y.rows.length+'거래일 · 변동 '+ys.chg+'회 '+bar(ys.cnt, Y.rows.length)+' '+maxTag(ys.maxS)+'</span>'
+      +'<span class="yr-caret">▼</span>';
+    yh.addEventListener('click',function(){ysec.classList.toggle('open');});
+    ysec.appendChild(yh);
+    var yb=document.createElement('div');
+    yb.className='yr-body';
+
+    Y.order.slice().reverse().forEach(function(m, mi){
+      var rows=Y.months[m], ms=summarize(rows);
+      var mp=m.split('-'), label=(+mp[1])+'월';
+      var sec=document.createElement('div');
+      sec.className='mon'+((yi===0&&mi===0)?' open':'');
+      var h=document.createElement('div');
+      h.className='mon-head';
+      h.innerHTML='<span class="mon-title">'+label+'</span>'
+        +'<span class="mon-sum">'+rows.length+'거래일 · 변동 '+ms.chg+'회 '+maxTag(ms.maxS)+'</span>'
+        +'<span class="mon-caret">▼</span>';
+      h.addEventListener('click',function(){sec.classList.toggle('open');});
+      sec.appendChild(h);
+
+      var mb=document.createElement('div');
+      mb.className='mon-body';
+      rows.slice().reverse().forEach(function(s){
+        var row=document.createElement('div');
+        row.className='hist-row';
+        row.style.gridTemplateColumns=cols;
+        var rawCell = multi ? '<span style="text-align:center;font-variant-numeric:tabular-nums">'+(s.r[0]==null?'—':s.r[0])+' · '+(s.r[1]==null?'—':s.r[1])+'</span>'
+                            : '<span style="text-align:center">'+s.R+'</span>';
+        row.innerHTML='<span class="hist-date">'+fmtShort(s.d)+'</span>'
+          +'<span class="hist-close">'+num(s.c[0],2)+'</span>'
+          +rawCell+pill(s.S)
+          +'<span class="hist-close" style="color:#c9d1d9">'+(D.meta.caps[s.S]===0?'차단':Math.round(D.meta.caps[s.S]*100)+'%')+'</span>'
+          +'<div class="hist-detail">'+detail(s)+'</div>';
+        row.addEventListener('click',function(){this.classList.toggle('open');});
+        mb.appendChild(row);
+      });
+      sec.appendChild(mb);
+      yb.appendChild(sec);
     });
-    sec.appendChild(mb);
-    body.appendChild(sec);
+    ysec.appendChild(yb);
+    body.appendChild(ysec);
   });
 }
 function detail(s){
@@ -499,7 +637,7 @@ function detail(s){
   return tbl(t)+extra;
 }
 
-/* ───────── ⑤ 차단 · 축소 로그 ───────── */
+/* ───────── ⑥ 차단 · 축소 로그 ───────── */
 function renderBlocked(){
   $('blk-card').style.display='block';
   var b=D.meta.blocked;
@@ -517,7 +655,7 @@ function renderBlocked(){
   $('blk-body').innerHTML=tbl(t+'</table>');
 }
 
-/* ───────── ⑥ 예정 항목 ───────── */
+/* ───────── ⑦ 예정 항목 ───────── */
 function renderPlan(){
   var p=D.meta.planned||[];
   if(!p.length) return;
@@ -530,7 +668,7 @@ function renderPlan(){
 /* ───────── 모바일 터치 제스처 (크립토 리포트에서 이식) ─────────
    1손가락 = 상하좌우 패닝 / 2손가락 = 가로·세로 독립 핀치줌.
    Plotly 의 scrollZoom 은 wheel 만 처리해 터치 핀치를 지원하지 않아 직접 구현. */
-var _CHART_IDS=['chart','chart2'];
+var _CHART_IDS=['chart','chart2','chart3'];
 var MIN_AXIS_PX=20, _touchReady=false;
 function _axisInfo(gd, axisName, clientPos, isY){
   var ax=gd._fullLayout[axisName];
