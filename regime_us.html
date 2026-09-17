@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>진입환경 게이트 · 미장</title>
+<title>진입 경보 · 미장</title>
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
 <style>*{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Pretendard,sans-serif;background:#0d1117;color:#e6edf3;padding:16px;max-width:680px;margin:0 auto}
@@ -125,13 +125,13 @@ h3{font-size:13.5px;color:#58a6ff;margin:18px 0 6px}
 
 <div class="top-nav"><a href="index.html">‹ 홈</a></div>
 <div class="h1-row">
-  <h1>🚦 <span id="mk-label">—</span> 진입환경 게이트</h1>
+  <h1>🚦 <span id="mk-label">—</span> 진입 경보</h1>
   <a class="guide-btn" href="regime_guide.html">📖 GUIDE</a>
 </div>
 <div class="subtitle" id="subtitle">불러오는 중…</div>
 
 <div class="err-box" id="err">
-  ⚠️ 진입환경 데이터를 불러오지 못했습니다.<br>
+  ⚠️ 진입 경보 데이터를 불러오지 못했습니다.<br>
   파일을 <code>file://</code> 로 직접 열면 브라우저가 데이터 로드를 차단합니다.
   웹 주소(https)로 접속해 주세요.
 </div>
@@ -169,7 +169,7 @@ h3{font-size:13.5px;color:#58a6ff;margin:18px 0 6px}
 </div>
 
 <div class="card" id="state-chart-card" style="display:none">
-  <div class="section-title">③ 진입환경 추이</div>
+  <div class="section-title">③ 진입 경보 추이</div>
   <div id="chart2"></div>
   <div class="footnote" id="state-note"></div>
 </div>
@@ -198,7 +198,7 @@ h3{font-size:13.5px;color:#58a6ff;margin:18px 0 6px}
   <div class="note">위 항목은 기록만 하며 실제 매매 동작은 현재 규칙 그대로입니다.</div>
 </div>
 
-<div class="foot">뭉치 트레이더 리포트 · 진입환경 게이트 · <a href="regime_guide.html">가이드</a></div>
+<div class="foot">뭉치 트레이더 리포트 · 진입 경보 · <a href="regime_guide.html">가이드</a></div>
 
 <script>window.__REGIME_SRC__='regime_history_us.json';</script>
 <script>
@@ -251,7 +251,7 @@ fetch(SRC + '?v=' + Date.now(), {cache: 'no-store'}).then(function(r){
 function init(data){
   D=data;
   var L=data.series[data.series.length-1];
-  document.title='진입환경 게이트 · '+data.market_label;
+  document.title='진입 경보 · '+data.market_label;
   $('mk-label').textContent=data.market_label;
   $('subtitle').innerHTML=esc(data.legs.map(function(g){return g.index;}).join(' · '))
     +' 기준 · 생성 '+esc(data.meta.generated_at)
@@ -448,7 +448,7 @@ function renderIndexChart(){
       ? '흰 선 = '+esc(D.legs[0].index)+' 종가(왼쪽 눈금), 보라 선 = '+esc(D.legs[1].index)+' 종가(오른쪽 눈금).'
       : '선 = '+esc(idx)+' 종가.')
     +' 배경색 = 그날의 <b>확정 상태</b>(0 초록 · 1 노랑 · 2 주황 · 3 진주황 · 4 빨강).'
-    +' 색이 짙어지는 구간이 게이트가 신규 진입을 줄이거나 막던 때입니다.'
+    +' 색이 짙어지는 구간이 진입 경보가 신규 진입을 줄이거나 막던 때입니다.'
     +' 손가락 하나로 이동, 두 손가락으로 확대·축소. 여기서 움직이면 ③ ④ 차트도 같은 구간으로 따라갑니다.'
     +(D.panel_cut?' 세로 점선은 집계 패널 전환 지점입니다.':'');
   if(!plotlyReady()){ $('chart-fallback').style.display='block'; $('chart').style.display='none'; return; }
@@ -487,7 +487,7 @@ function renderIndexChart(){
   setupTouchGestures();
 }
 
-/* ③ 진입환경 추이 — raw 점선 · 확정 굵은 선 */
+/* ③ 진입 경보 추이 — raw 점선 · 확정 굵은 선 */
 function stateBands(){
   var sh=[];
   for(var s=0;s<=4;s++){
@@ -675,7 +675,7 @@ function renderBlocked(){
   $('blk-card').style.display='block';
   var b=D.meta.blocked;
   if(b==null){
-    $('blk-body').innerHTML='<div class="note">아직 기록이 없습니다. 게이트가 신규 진입을 실제로 막거나 줄인 순간부터 쌓입니다.</div>';
+    $('blk-body').innerHTML='<div class="note">아직 기록이 없습니다. 진입 경보가 신규 진입을 실제로 막거나 줄인 순간부터 쌓입니다.</div>';
     return;
   }
   if(!b.length){ $('blk-body').innerHTML='<div class="note">기록 0건.</div>'; return; }
