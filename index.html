@@ -45,6 +45,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
 .bear-sq .dot{transition:background .2s}
 .rg-mini{display:flex;flex-direction:column;gap:1.5px;width:16px}
 .rg-mini i{display:block;height:4px;border-radius:1px;background:#30363d;transition:background .2s}
+.rg-stale{display:none;font-size:8.5px;color:#e3b341;line-height:1.2;text-align:center;white-space:nowrap;margin-top:2px}
 </style>
 </head>
 <body>
@@ -72,7 +73,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
         <span class="card-date" id="us-date">2026. 09.17 (목)</span>
       </div>
     </a>
-    <!--RG_us-regime_BEGIN--><a class="bear-sq" id="us-regime" href="regime_us.html" aria-label="미장 진입 경보"><span class="rg-mini"></span></a><!--RG_us-regime_END-->
+    <!--RG_us-regime_BEGIN--><a class="bear-sq" id="us-regime" href="regime_us.html" aria-label="미장 진입 경보"><span class="rg-mini"></span><span class="rg-stale"></span></a><!--RG_us-regime_END-->
   </div>
 
   <div class="report-row">
@@ -85,7 +86,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
         <span class="card-date" id="kr-date">2026. 09.18 (금)</span>
       </div>
     </a>
-    <!--RG_kr-regime_BEGIN--><a class="bear-sq" id="kr-regime" href="regime_kr.html" aria-label="국장 진입 경보"><span class="rg-mini"></span></a><!--RG_kr-regime_END-->
+    <!--RG_kr-regime_BEGIN--><a class="bear-sq" id="kr-regime" href="regime_kr.html" aria-label="국장 진입 경보"><span class="rg-mini"></span><span class="rg-stale"></span></a><!--RG_kr-regime_END-->
   </div>
 
   <a class="card card-slim" href="history/index.html">
@@ -161,6 +162,12 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
       el.querySelector('.rg-mini').innerHTML=miniHTML(d.state);
       el.setAttribute('aria-label', el.getAttribute('aria-label')+' — 확정 상태 '+d.state+'/4 '+st.n+', 오늘 raw '+d.raw+', 노출 상한 '+cap);
       el.setAttribute('title','확정 '+d.state+'/4 '+st.n+' · 오늘 raw '+d.raw+' · 노출 상한 '+cap+' · '+d.date);
+      if(d.stale){
+        el.style.opacity='0.55';
+        var se=el.querySelector('.rg-stale');
+        if(se){ se.textContent=d.date.slice(5)+' 기준'; se.style.display='block'; }
+        el.setAttribute('title', el.getAttribute('title')+' · ⚠️ 갱신 지연(스테일)');
+      }
     });
   }).catch(function(){});
 })();
