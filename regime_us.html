@@ -220,7 +220,9 @@ var D=null;
 
 function $(id){return document.getElementById(id);}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function capTxt(s){var c=D.meta.caps[s]; return c===0 ? '신규 진입 차단' : Math.round(c*100)+'%';}
+function capBlk(s){var b=D.meta.entry_blocked; return !!(b && b[s]);}
+function capTxt(s){var c=D.meta.caps[s], t=(c==null?'—':Math.round(c*100)+'%');
+  return capBlk(s) ? t+' · 신규 진입 차단' : t;}
 function fmtD(iso, withDay){
   if(!iso) return '—';
   var p=iso.split('-'), s=p[0]+'. '+p[1]+'. '+p[2];
@@ -297,7 +299,6 @@ function renderState(L){
 
   var m=D.meta, k='';
   k+=kv('총 노출 상한', '<b>'+capTxt(s)+'</b>');
-  k+=kv('신규 진입 사이즈 배율', (m.caps[s]===0?'0% (차단)':Math.round(m.caps[s]*100)+'%'));
   k+=kv('현재 계좌 노출률', m.exposure_pct==null?'—':num(m.exposure_pct,2)+'%');
   k+=kv('오늘 차단 · 축소', m.blocked==null?'기록 없음':(m.blocked_today+'건'));
   k+=kv('상태가 바뀐 날', m.state_changed_at?fmtD(m.state_changed_at,true):'—');
@@ -638,7 +639,7 @@ function renderHistory(){
         row.innerHTML='<span class="hist-date">'+fmtShort(s.d)+'</span>'
           +'<span class="hist-close">'+num(s.c[0],2)+'</span>'
           +rawCell+pill(s.S)
-          +'<span class="hist-close" style="color:#c9d1d9">'+(D.meta.caps[s.S]===0?'차단':Math.round(D.meta.caps[s.S]*100)+'%')+'</span>'
+          +'<span class="hist-close" style="color:#c9d1d9">'+(D.meta.caps[s.S]==null?'—':Math.round(D.meta.caps[s.S]*100)+'%')+(capBlk(s.S)?' · 진입차단':'')+'</span>'
           +'<div class="hist-detail">'+detail(s)+'</div>';
         row.addEventListener('click',function(){this.classList.toggle('open');});
         mb.appendChild(row);

@@ -158,7 +158,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
     [['us-regime','US'],['kr-regime','KR']].forEach(function(p){
       var el=document.getElementById(p[0]), d=j[p[1]];
       if(!el||!d||!ST[d.state]) return;
-      var st=ST[d.state], cap=(d.cap===0?'차단':Math.round(d.cap*100)+'%');
+      var st=ST[d.state], cap=(d.cap==null?'—':Math.round(d.cap*100)+'%')+(d.entry_blocked?' · 신규 진입 차단':'');
       el.querySelector('.rg-mini').innerHTML=miniHTML(d.state);
       el.setAttribute('aria-label', el.getAttribute('aria-label')+' — 확정 상태 '+d.state+'/4 '+st.n+', 오늘 raw '+d.raw+', 노출 상한 '+cap);
       el.setAttribute('title','확정 '+d.state+'/4 '+st.n+' · 오늘 raw '+d.raw+' · 노출 상한 '+cap+' · '+d.date);

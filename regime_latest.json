@@ -1,1 +1,1 @@
-{"US": {"date": "2026-09-21", "state": 4, "raw": 4, "cap": 0.0, "live": true, "stale": false}, "KR": {"date": "2026-09-22", "state": 3, "raw": 3, "cap": 0.5, "live": true, "stale": false}}
+{"US": {"date": "2026-09-21", "state": 4, "raw": 4, "cap": 0.5, "entry_blocked": true, "live": true, "stale": false}, "KR": {"date": "2026-09-22", "state": 3, "raw": 3, "cap": 0.5, "entry_blocked": false, "live": true, "stale": false}}
