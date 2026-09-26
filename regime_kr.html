@@ -244,6 +244,13 @@ function fval(v,i){
   var f=D.meta.flags[i];
   return num(v,f.dec)+(f.unit?(f.unit==='%'?'%':' '+f.unit):'');
 }
+/* 미장 분배일 — 나스닥 · S&P500 병기 (S&P 값이 없는 날은 나스닥 단독) */
+function fvalS(s,li,i){
+  if(i===0 && D.index2_name && D.legs.length===1){
+    return '나스닥 '+(s.v[li][0]==null?'—':num(s.v[li][0],0))+' / '+esc(D.index2_name)+' '+(s.vs==null?'—':num(s.vs,0))+' 개';
+  }
+  return fval(s.v[li][i],i);
+}
 
 fetch(SRC + '?v=' + Date.now(), {cache: 'no-store'}).then(function(r){
   if(!r.ok) throw new Error('HTTP '+r.status);
@@ -256,6 +263,7 @@ function init(data){
   document.title='진입 경보 · '+data.market_label;
   $('mk-label').textContent=data.market_label;
   $('subtitle').innerHTML=esc(data.legs.map(function(g){return g.index;}).join(' · '))
+    +(data.index2_name?' (분배일 · '+esc(data.index2_name)+' 병행)':'')
     +' 기준 · 생성 '+esc(data.meta.generated_at)
     +'<span class="badge '+(data.is_live?'b-live':'b-back')+'">'+(data.is_live?'라이브':'소급 산출')+'</span>';
   if(data.meta.label_note){ $('warn').style.display='block'; $('warn').innerHTML=data.meta.label_note; }
@@ -315,7 +323,7 @@ function renderState(L){
       +'<td>'+esc(f.thr)+'</td>';
     D.legs.forEach(function(g,li){
       var on=L.f[li][i];
-      t+='<td>'+fval(L.v[li][i],i)+'</td><td class="'+onCls(on)+'">'+onTxt(on)+'</td>';
+      t+='<td>'+fvalS(L,li,i)+'</td><td class="'+onCls(on)+'">'+onTxt(on)+'</td>';
     });
     t+='</tr>';
   });
@@ -323,7 +331,8 @@ function renderState(L){
   $('flag-wrap').innerHTML=tbl(t);
   $('flag-note').innerHTML = multi
     ? '켜진 플래그 수를 <b>코스피·코스닥 각각</b> 세고 <b>둘 중 작은 값</b>을 오늘의 raw 로 씁니다 — 둘 다 나쁠 때만 진짜 하락장으로 봅니다. 대상 종목 수는 코스피 '+D.legs[0].n.toLocaleString()+'종 · 코스닥 '+D.legs[1].n.toLocaleString()+'종입니다.'
-    : '켜진 플래그 수가 오늘의 raw 입니다. 확정 상태는 여기서 <b>악화는 2일 연속 확인, 개선은 즉시</b> 규칙을 거쳐 나옵니다.';
+    : '켜진 플래그 수가 오늘의 raw 입니다. 확정 상태는 여기서 <b>악화는 2일 연속 확인, 개선은 즉시</b> 규칙을 거쳐 나옵니다.'
+      +(D.or_from?' 분배일은 <b>나스닥 · '+esc(D.index2_name)+' 중 한 지수라도</b> 5개 이상이면 켜집니다('+fmtD(D.or_from,false)+' 세션부터).':'');
 }
 function kv(k,v){return '<div class="kv"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>';}
 function tbl(inner){return '<div class="tw">'+inner+'</div>';}
@@ -362,22 +371,27 @@ function xaxisCfg(){
   };
 }
 function panelCutShape(){
-  var x=_X;
+  var x=_X, sh=[];
   if(D.panel_cut && x[0]<D.panel_cut && x[x.length-1]>D.panel_cut){
-    return [{type:'line', xref:'x', yref:'paper', x0:D.panel_cut, x1:D.panel_cut, y0:0, y1:1,
-      line:{color:'#6e7681', width:1, dash:'dash'}}];
+    sh.push({type:'line', xref:'x', yref:'paper', x0:D.panel_cut, x1:D.panel_cut, y0:0, y1:1,
+      line:{color:'#6e7681', width:1, dash:'dash'}});
   }
-  return [];
+  /* 분배일 규칙 전환(나스닥 단독 → 나스닥·S&P500) — 적용 세션이 데이터에 들어온 뒤부터 표시 */
+  if(D.or_from && x[x.length-1]>=D.or_from){
+    sh.push({type:'line', xref:'x', yref:'paper', x0:D.or_from, x1:D.or_from, y0:0, y1:1,
+      line:{color:'#d2a8ff', width:1.2, dash:'dot'}});
+  }
+  return sh;
 }
 function plotCfg(){ return {responsive:true, displaylogo:false, displayModeBar:false, scrollZoom:true}; }
 function fitY(r){
   var el=$('chart'); if(!el||!el._fullLayout) return;
   var a=String(r[0]).slice(0,10), b=String(r[1]).slice(0,10), patch={};
   [['yaxis',0],['yaxis4',1]].forEach(function(ax){
-    if(ax[1]>0 && D.legs.length<2) return;
+    if(ax[1]>0 && D.legs.length<2 && !D.index2_name) return;
     var lo=null, hi=null;
     D.series.forEach(function(s){
-      var v=s.c[ax[1]];
+      var v=(ax[1]>0 && D.legs.length<2) ? s.c2 : s.c[ax[1]];
       if(s.d<a||s.d>b||v==null) return;
       if(lo==null||v<lo) lo=v;
       if(hi==null||v>hi) hi=v;
@@ -447,7 +461,8 @@ function renderIndexChart(){
   $('idx-title').textContent=multi ? D.legs.map(function(g){return g.label;}).join(' · ')+' 지수' : idx;
   $('chart-note').innerHTML=(multi
       ? '흰 선 = '+esc(D.legs[0].index)+' 종가(왼쪽 눈금), 보라 선 = '+esc(D.legs[1].index)+' 종가(오른쪽 눈금).'
-      : '선 = '+esc(idx)+' 종가.')
+      : (D.index2_name ? '흰 선 = '+esc(idx)+' 종가(왼쪽 눈금), 보라 선 = '+esc(D.index2_name)+' 종가(오른쪽 눈금) — 분배일은 두 지수를 함께 셉니다.'
+                       : '선 = '+esc(idx)+' 종가.'))
     +' 배경색 = 그날의 <b>확정 상태</b>(0 초록 · 1 노랑 · 2 주황 · 3 진주황 · 4 빨강).'
     +' 색이 짙어지는 구간이 진입 경보가 신규 진입을 줄이거나 막던 때입니다.'
     +' 손가락 하나로 이동, 두 손가락으로 확대·축소. 여기서 움직이면 ③ ④ 차트도 같은 구간으로 따라갑니다.'
@@ -470,18 +485,24 @@ function renderIndexChart(){
     tr.push({x:x, y:S.map(function(s){return s.c[1];}), name:D.legs[1].index, type:'scatter', mode:'lines',
       line:{color:C_IDX2,width:2}, yaxis:'y4', hovertemplate:'%{y:,.2f}<extra>'+D.legs[1].index+'</extra>'});
   }
+  var two=!multi && !!D.index2_name;   /* 미장: S&P500 선(오른쪽 눈금) */
+  if(two){
+    tr.push({x:x, y:S.map(function(s){return s.c2;}), name:D.index2_name, type:'scatter', mode:'lines',
+      line:{color:C_IDX2,width:1.8}, yaxis:'y4', hovertemplate:'%{y:,.2f}<extra>'+D.index2_name+'</extra>'});
+  }
   tr.push({x:x, y:S.map(function(s){return s.S;}), name:'확정 상태', type:'scatter', mode:'lines',
     line:{width:0,color:'rgba(0,0,0,0)'}, yaxis:'y3', showlegend:false, hovertemplate:'확정 <b>%{y}</b><extra></extra>'});
   var lay=baseLayout();
-  lay.margin={l:56,r:multi?56:16,t:16,b:40};
+  lay.margin={l:56,r:(multi||two)?56:16,t:16,b:40};
   lay.legend={orientation:'h', y:-0.2, font:{size:10.5}, itemwidth:30};
   lay.shapes=panelCutShape();
   lay.xaxis=xaxisCfg();
   lay.yaxis={title:{text:idx, font:{size:11,color:'#8b949e'}}, gridcolor:'#1f2a3a', linecolor:'#1f2a3a', side:'left', tickformat:',.0f'};
   lay.yaxis2={overlaying:'y', range:[0,1], visible:false, fixedrange:true};
   lay.yaxis3={overlaying:'y', range:[0,1], visible:false, fixedrange:true};
-  if(multi){
-    lay.yaxis4={title:{text:D.legs[1].index, font:{size:11,color:C_IDX2}}, overlaying:'y', side:'right',
+  if(multi||two){
+    var nm2=multi?D.legs[1].index:D.index2_name;
+    lay.yaxis4={title:{text:nm2, font:{size:11,color:C_IDX2}}, overlaying:'y', side:'right',
       showgrid:false, linecolor:'#1f2a3a', tickformat:',.0f', tickfont:{color:C_IDX2}};
   }
   Plotly.newPlot('chart', tr, lay, plotCfg()).then(function(){ hookSync('chart'); fitY(lay.xaxis.range); });
@@ -508,6 +529,12 @@ function renderStateChart(){
     line:{color:C_RAW,width:1.4,shape:'hv',dash:'dot'}, hovertemplate:'raw <b>%{y}</b><extra></extra>'});
   tr.push({x:x, y:S.map(function(s){return s.S;}), name:'확정 상태', type:'scatter', mode:'lines',
     line:{color:C_ST,width:2.2,shape:'hv'}, hovertemplate:'확정 <b>%{y}</b><extra></extra>'});
+  if(D.or_from && S.some(function(s){return s.Sv1!=null;})){
+    tr.push({x:x, y:S.map(function(s){return s.Sv1==null?null:s.Sv1;}), name:'당시 적용(나스닥 단독)', type:'scatter',
+      mode:'markers', marker:{color:'#d2a8ff', size:6, symbol:'diamond-open'},
+      hovertemplate:'당시 적용 <b>%{y}</b><extra></extra>'});
+    $('state-note').innerHTML+=' 보라 마름모 = 규칙 전환 전 그날 <b>실제로 적용됐던</b> 확정 상태(나스닥 단독). 굵은 선은 현행 규칙(나스닥·S&P500)으로 되짚은 값입니다.';
+  }
   if(D.legs.length>1){
     D.legs.forEach(function(g,i){
       tr.push({x:x, y:S.map(function(s){return s.r[i];}), name:g.label+' raw', type:'scatter', mode:'lines',
@@ -565,11 +592,13 @@ function renderHistory(){
   if(!S.length) return;
   $('hist-card').style.display='block';
   var multi=D.legs.length>1;
-  var cols=multi ? '1fr 72px 48px 30px 44px' : '1fr 78px 34px 30px 44px';
+  var orc=!!D.or_from;   /* 미장: '당시' 열 = 규칙 전환 전 실제 적용 상태 */
+  var cols=multi ? '1fr 72px 48px 30px 44px' : (orc ? '1fr 72px 30px 30px 30px 44px' : '1fr 78px 34px 30px 44px');
   var head=$('hist-head');
   head.style.gridTemplateColumns=cols;
   head.innerHTML='<span>날짜</span><span class="num">'+esc(D.legs[0].label==='전체'?'지수':D.legs[0].label)+' 종가</span>'
-    +'<span class="lv">'+(multi?'코스피·코스닥':'raw')+'</span><span class="lv">확정</span><span class="lv">상한</span>';
+    +'<span class="lv">'+(multi?'코스피·코스닥':'raw')+'</span><span class="lv">확정</span>'
+    +(orc?'<span class="lv">당시</span>':'')+'<span class="lv">상한</span>';
 
   var byYear={}, yOrder=[];
   S.forEach(function(s){
@@ -582,6 +611,13 @@ function renderHistory(){
   yOrder.reverse();
   var body=$('hist-body');
   body.innerHTML='';
+  if(orc){
+    var nb=document.createElement('div');
+    nb.className='note';
+    nb.innerHTML='<b>'+fmtD(D.or_from,false)+' 세션부터</b> 분배일을 나스닥 · '+esc(D.index2_name)+' 두 지수로 셉니다(한 지수라도 5개 이상이면 켜짐). '
+      +'확정 열은 전 기간을 이 규칙으로 되짚은 값이고, <b>당시</b> 열은 전환 전 그날 실제로 적용됐던 상태(나스닥 단독)입니다.';
+    body.appendChild(nb);
+  }
 
   function summarize(rows){
     var maxS=null, chg=0, cnt=[0,0,0,0,0];
@@ -630,7 +666,8 @@ function renderHistory(){
 
       var mb=document.createElement('div');
       mb.className='mon-body';
-      rows.slice().reverse().forEach(function(s){
+      var rv=rows.slice().reverse();
+      rv.forEach(function(s, ri){
         var row=document.createElement('div');
         row.className='hist-row';
         row.style.gridTemplateColumns=cols;
@@ -639,10 +676,20 @@ function renderHistory(){
         row.innerHTML='<span class="hist-date">'+fmtShort(s.d)+'</span>'
           +'<span class="hist-close">'+num(s.c[0],2)+'</span>'
           +rawCell+pill(s.S)
+          +(orc?(s.Sv1==null?'<span></span>':pill(s.Sv1)):'')
           +'<span class="hist-close" style="color:#c9d1d9">'+(D.meta.caps[s.S]==null?'—':Math.round(D.meta.caps[s.S]*100)+'%')+(capBlk(s.S)?' · 진입차단':'')+'</span>'
           +'<div class="hist-detail">'+detail(s)+'</div>';
         row.addEventListener('click',function(){this.classList.toggle('open');});
         mb.appendChild(row);
+        /* 규칙 전환 경계 — 적용 첫 세션 아래에 한 줄 */
+        var older=rv[ri+1];
+        if(orc && s.d>=D.or_from && older && older.d<D.or_from){
+          var bd=document.createElement('div');
+          bd.className='note';
+          bd.style.cssText='border-top:1px dashed #d2a8ff;color:#d2a8ff;margin:2px 0;padding-top:3px';
+          bd.textContent='── '+fmtD(D.or_from,false)+' 분배일 나스닥·'+D.index2_name+' 병행 적용 시작 ──';
+          mb.appendChild(bd);
+        }
       });
       sec.appendChild(mb);
       yb.appendChild(sec);
@@ -659,7 +706,7 @@ function detail(s){
     t+='<tr><td>'+esc(f.name)+'</td>';
     D.legs.forEach(function(g,li){
       var on=s.f[li][i];
-      t+='<td>'+fval(s.v[li][i],i)+'</td><td class="'+onCls(on)+'">'+onTxt(on)+'</td>';
+      t+='<td>'+fvalS(s,li,i)+'</td><td class="'+onCls(on)+'">'+onTxt(on)+'</td>';
     });
     t+='</tr>';
   });
@@ -667,6 +714,7 @@ function detail(s){
   var extra='<div class="note">raw '+s.R+' → 확정 '+s.S+' · 노출 상한 '+capTxt(s.S);
   if(s.z) extra+=' · 지수 구간 '+(ZONE[s.z]||s.z)+' ('+(s.dd==null?'—':num(s.dd,2)+'%')+')';
   if(s.S1!=null) extra+=' · 통합 방식 참고 '+s.R1+'/'+s.S1;
+  if(s.Sv1!=null) extra+=' · 당시 적용(나스닥 단독) 확정 '+s.Sv1;
   extra+='</div>';
   return tbl(t)+extra;
 }

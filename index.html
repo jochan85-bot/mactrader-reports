@@ -161,7 +161,8 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
       var st=ST[d.state], cap=(d.cap==null?'—':Math.round(d.cap*100)+'%')+(d.entry_blocked?' · 신규 진입 차단':'');
       el.querySelector('.rg-mini').innerHTML=miniHTML(d.state);
       el.setAttribute('aria-label', el.getAttribute('aria-label')+' — 확정 상태 '+d.state+'/4 '+st.n+', 오늘 raw '+d.raw+', 노출 상한 '+cap);
-      el.setAttribute('title','확정 '+d.state+'/4 '+st.n+' · 오늘 raw '+d.raw+' · 노출 상한 '+cap+' · '+d.date);
+      var dist=(d.dist?' · 분배일 나스닥 '+(d.dist.ixic==null?'—':d.dist.ixic)+' / S&P500 '+(d.dist.spx==null?'—':d.dist.spx):'');
+      el.setAttribute('title','확정 '+d.state+'/4 '+st.n+' · 오늘 raw '+d.raw+' · 노출 상한 '+cap+dist+' · '+d.date);
       if(d.stale){
         el.style.opacity='0.55';
         var se=el.querySelector('.rg-stale');
