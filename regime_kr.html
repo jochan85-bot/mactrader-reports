@@ -529,6 +529,12 @@ function renderStateChart(){
     line:{color:C_RAW,width:1.4,shape:'hv',dash:'dot'}, hovertemplate:'raw <b>%{y}</b><extra></extra>'});
   tr.push({x:x, y:S.map(function(s){return s.S;}), name:'확정 상태', type:'scatter', mode:'lines',
     line:{color:C_ST,width:2.2,shape:'hv'}, hovertemplate:'확정 <b>%{y}</b><extra></extra>'});
+  if(D.or_from && S.some(function(s){return s.V1r!=null;})){
+    tr.push({x:x, y:S.map(function(s){return s.V1r==null?null:s.V1r;}), name:'구 규칙 소급(나스닥 단독)', type:'scatter', mode:'lines',
+      line:{color:'#d2a8ff',width:1.2,shape:'hv',dash:'dash'}, visible:'legendonly',
+      hovertemplate:'구 규칙 소급 <b>%{y}</b><extra></extra>'});
+    $('state-note').innerHTML+=' 보라 파선(범례에서 켜기) = 구 규칙(나스닥 단독)으로 전 기간 되짚은 확정 상태.';
+  }
   if(D.or_from && S.some(function(s){return s.Sv1!=null;})){
     tr.push({x:x, y:S.map(function(s){return s.Sv1==null?null:s.Sv1;}), name:'당시 적용(나스닥 단독)', type:'scatter',
       mode:'markers', marker:{color:'#d2a8ff', size:6, symbol:'diamond-open'},
@@ -598,7 +604,7 @@ function renderHistory(){
   head.style.gridTemplateColumns=cols;
   head.innerHTML='<span>날짜</span><span class="num">'+esc(D.legs[0].label==='전체'?'지수':D.legs[0].label)+' 종가</span>'
     +'<span class="lv">'+(multi?'코스피·코스닥':'raw')+'</span><span class="lv">확정</span>'
-    +(orc?'<span class="lv">당시</span>':'')+'<span class="lv">상한</span>';
+    +(orc?'<span class="lv">구규칙</span>':'')+'<span class="lv">상한</span>';
 
   var byYear={}, yOrder=[];
   S.forEach(function(s){
@@ -615,7 +621,8 @@ function renderHistory(){
     var nb=document.createElement('div');
     nb.className='note';
     nb.innerHTML='<b>'+fmtD(D.or_from,false)+' 세션부터</b> 분배일을 나스닥 · '+esc(D.index2_name)+' 두 지수로 셉니다(한 지수라도 5개 이상이면 켜짐). '
-      +'확정 열은 전 기간을 이 규칙으로 되짚은 값이고, <b>당시</b> 열은 전환 전 그날 실제로 적용됐던 상태(나스닥 단독)입니다.';
+      +'확정 열은 전 기간을 이 규칙으로 되짚은 값이고, <b>구규칙</b> 열은 같은 기간을 종전 규칙(나스닥 단독)으로 되짚은 값입니다. '
+      +'보라 테두리 칸(2026-09-15~09-25)은 그날 <b>실제로 적용됐던</b> 상태이며 되짚은 값과 같습니다. 두 열이 다른 날이 규칙 변경으로 달라지는 날입니다.';
     body.appendChild(nb);
   }
 
@@ -676,8 +683,10 @@ function renderHistory(){
         row.innerHTML='<span class="hist-date">'+fmtShort(s.d)+'</span>'
           +'<span class="hist-close">'+num(s.c[0],2)+'</span>'
           +rawCell+pill(s.S)
-          +(orc?(s.Sv1==null?'<span></span>':pill(s.Sv1)):'')
-          +'<span class="hist-close" style="color:#c9d1d9">'+(D.meta.caps[s.S]==null?'—':Math.round(D.meta.caps[s.S]*100)+'%')+(capBlk(s.S)?' · 진입차단':'')+'</span>'
+          +(orc?(s.V1r==null&&s.Sv1==null?'<span></span>'
+                 :'<span style="text-align:center'+(s.Sv1!=null?';outline:1px solid #d2a8ff;border-radius:5px':'')+'">'+pill(s.Sv1!=null?s.Sv1:s.V1r)+'</span>'):'')
+          +'<span class="hist-close" style="color:#c9d1d9">'+(D.meta.caps[s.S]==null?'—':Math.round(D.meta.caps[s.S]*100)+'%')
+          +(capBlk(s.S)?(orc?'<br><span style="font-size:10.5px">진입차단</span>':' · 진입차단'):'')+'</span>'
           +'<div class="hist-detail">'+detail(s)+'</div>';
         row.addEventListener('click',function(){this.classList.toggle('open');});
         mb.appendChild(row);
@@ -714,7 +723,8 @@ function detail(s){
   var extra='<div class="note">raw '+s.R+' → 확정 '+s.S+' · 노출 상한 '+capTxt(s.S);
   if(s.z) extra+=' · 지수 구간 '+(ZONE[s.z]||s.z)+' ('+(s.dd==null?'—':num(s.dd,2)+'%')+')';
   if(s.S1!=null) extra+=' · 통합 방식 참고 '+s.R1+'/'+s.S1;
-  if(s.Sv1!=null) extra+=' · 당시 적용(나스닥 단독) 확정 '+s.Sv1;
+  if(s.V1r!=null) extra+=' · 구 규칙(나스닥 단독) 소급 확정 '+s.V1r;
+  if(s.Sv1!=null) extra+=' · 당시 실제 적용 '+s.Sv1;
   extra+='</div>';
   return tbl(t)+extra;
 }
@@ -728,13 +738,15 @@ function renderBlocked(){
     return;
   }
   if(!b.length){ $('blk-body').innerHTML='<div class="note">기록 0건.</div>'; return; }
-  var t='<table><tr><th>날짜</th><th>종목</th><th>사유</th><th>상태</th><th>노출</th></tr>';
+  var t='<table><tr><th>세션</th><th>종목</th><th>내용</th><th>상태</th><th>시도</th></tr>';
   b.slice(-40).reverse().forEach(function(r){
-    t+='<tr><td>'+esc(String(r.date||'').slice(0,10))+'</td><td>'+esc(r.ticker||'')+'</td>'
-      +'<td>'+esc(r.reason||'')+'</td><td>'+esc(r.regime_state==null?'':r.regime_state)+'</td>'
-      +'<td>'+(r.exposure_pct==null?'—':num(r.exposure_pct,2)+'%')+'</td></tr>';
+    var tm=(r.first&&r.last&&r.first!==r.last)?(r.first+'~'+r.last):(r.last||'');
+    t+='<tr><td>'+esc(r.date?fmtShort(r.date):'—')+'</td><td>'+esc(r.ticker||'')+'</td>'
+      +'<td>'+esc(r.label||'')+(r.exposure_pct==null?'':' · 노출 '+num(r.exposure_pct,1)+'%')+'</td>'
+      +'<td>'+(r.state==null?'—':pill(r.state))+'</td>'
+      +'<td>'+r.n+'회'+(tm?'<br><span style="font-size:10.5px;color:#8b949e">'+esc(tm)+' KST</span>':'')+'</td></tr>';
   });
-  $('blk-body').innerHTML=tbl(t+'</table>');
+  $('blk-body').innerHTML='<div class="note">같은 세션·같은 종목의 반복 시도(스캔마다 1회)는 한 줄로 묶었습니다. 최근 40건.</div>'+tbl(t+'</table>');
 }
 
 /* ───────── ⑦ 예정 항목 ───────── */
