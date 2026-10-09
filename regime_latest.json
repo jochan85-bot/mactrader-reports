@@ -1,1 +1,1 @@
-{"US": {"date": "2026-10-08", "state": 4, "raw": 4, "cap": 0.5, "cap_note": "신규 진입 차단", "entry_blocked": true, "live": true, "stale": false, "dist": {"ixic": 3, "spx": 6}}, "KR": {"date": "2026-10-08", "state": 1, "raw": 2, "cap": 1.0, "entry_blocked": false, "live": true, "stale": false}}
+{"US": {"date": "2026-10-09", "state": 3, "raw": 3, "cap": 0.5, "entry_blocked": false, "live": true, "stale": false, "dist": {"ixic": 3, "spx": null}}, "KR": {"date": "2026-10-08", "state": 1, "raw": 2, "cap": 1.0, "entry_blocked": false, "live": true, "stale": false}}
