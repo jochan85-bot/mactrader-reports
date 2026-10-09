@@ -32,6 +32,19 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .grid2 .card{margin:0}
 .sig-ico{width:20px;height:20px;flex-shrink:0;display:block}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.grid3 .card{margin:0}
+.grid3 .card-left span{font-size:14px}
+@media(max-width:560px){.grid3{grid-template-columns:1fr}}
+/* [MM-PAGE-V3.1-20261010 §10] 무매 신호 박스 */
+.mmsig{padding:12px 14px}
+.mmsig .mm-asof{display:block;font-size:11px;color:#8b949e;margin:6px 0 4px}
+.mmsig .mm-top{list-style:none;margin:0;padding:0}
+.mmsig .mm-top li{display:flex;justify-content:space-between;font-size:13px;padding:2px 0;border-bottom:1px dashed #21262d}
+.mmsig .mm-top li b{font-weight:600}
+.mmsig .mm-top li span{color:#8b949e}
+.mmsig .mm-stale{font-size:12.5px;color:#fbbf24;margin:8px 0}
+.mmsig .mm-more{display:block;margin-top:8px;font-size:12px;color:#58a6ff;text-decoration:none}
 /* --- 시장경보 정사각 박스 (초안 v2) --- */
 .report-row{display:flex;align-items:stretch;gap:8px;margin:6px 0}
 .report-row .card{flex:1 1 auto;min-width:0;margin:0}
@@ -126,11 +139,11 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
 
 <div class="section">
   <div class="section-title">📡 시그널 시스템</div>
-  <div class="grid2">
+  <div class="grid3">
     <a class="card" href="https://jochan85-bot.github.io/crypto-reports/">
       <div class="card-left">
         <svg class="sig-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#f7931a"/><text x="12" y="17.4" font-size="15" font-weight="700" fill="#fff" text-anchor="middle" font-family="Helvetica,Arial">₿</text></svg>
-        <span>가상화폐 신호</span>
+        <span>크립토 신호</span>
       </div>
     </a>
     <a class="card" href="https://jochan85-bot.github.io/gold-reports/">
@@ -139,6 +152,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
         <span>금 신호</span>
       </div>
     </a>
+    <!--MM_SIG_BEGIN--><div class="card mmsig"><div class="card-left"><svg class="sig-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f81f7"/><text x="12" y="17" font-size="15" font-weight="700" fill="#fff" text-anchor="middle" font-family="Helvetica,Arial">∞</text></svg><span>무매 신호</span></div><span class="mm-asof">기준일 10.08</span><ol class="mm-top"><li><b>SOXL</b><span>96.1</span></li><li><b>AIQU</b><span>94.1</span></li><li><b>SMHU</b><span>93.1</span></li></ol><a class="mm-more" href="https://jochan85-bot.github.io/mm-rotation/" rel="noopener">전체 보기 →</a></div><!--MM_SIG_END-->
   </div>
 </div>
 <!--RG_JS_BEGIN-->
