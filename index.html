@@ -153,7 +153,7 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
 <script>
 (function(){
   var ST={0:{c:'#4FC3F7',n:'정상'},1:{c:'#8BC34A',n:'주의'},2:{c:'#FFD600',n:'경계'},
-          3:{c:'#FF6D00',n:'위험'},4:{c:'#D50000',n:'차단'}};
+          3:{c:'#FF6D00',n:'위험'},4:{c:'#D50000',n:'심각'}};
   function miniHTML(s){
     var h='';
     for(var i=4;i>=0;i--){ var on=i<=s; h+='<i style="background:'+(on?ST[i].c:'#30363d')+'"></i>'; }
@@ -168,9 +168,9 @@ h1{color:#58a6ff;font-size:22px;display:flex;align-items:center;gap:9px;line-hei
       if(!el||!d||!ST[d.state]) return;
       var st=ST[d.state], cap=(d.cap==null?'—':Math.round(d.cap*100)+'%')+(d.entry_blocked?' · 신규 진입 차단':'');
       el.querySelector('.rg-mini').innerHTML=miniHTML(d.state);
-      el.setAttribute('aria-label', el.getAttribute('aria-label')+' — 확정 상태 '+d.state+'/4 '+st.n+', 오늘 raw '+d.raw+', 노출 상한 '+cap);
+      el.setAttribute('aria-label', el.getAttribute('aria-label')+' — '+(d.provisional?'잠정':'확정')+' 상태 '+d.state+'/4 '+st.n+', '+(d.idx_state!=null?'호흡폭 '+d.breadth_state+' · 지수 축 '+d.idx_state:'오늘 raw '+d.raw)+', 노출 상한 '+cap);
       var dist=(d.dist?' · 분배일 나스닥 '+(d.dist.ixic==null?'—':d.dist.ixic)+' / S&P500 '+(d.dist.spx==null?'—':d.dist.spx):'');
-      el.setAttribute('title','확정 '+d.state+'/4 '+st.n+' · 오늘 raw '+d.raw+' · 노출 상한 '+cap+dist+' · '+d.date);
+      el.setAttribute('title',(d.provisional?'잠정 ':'확정 ')+d.state+'/4 '+st.n+' · '+(d.idx_state!=null?'호흡폭 '+d.breadth_state+' · 지수 축 '+d.idx_state:'오늘 raw '+d.raw)+' · 노출 상한 '+cap+dist+' · '+d.date);
       if(d.stale){
         el.style.opacity='0.55';
         var se=el.querySelector('.rg-stale');
