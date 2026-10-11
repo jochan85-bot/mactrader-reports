@@ -151,6 +151,9 @@ h3{font-size:13.5px;color:#58a6ff;margin:18px 0 6px}
   <div class="sub-head">오늘의 플래그 원값</div>
   <div id="flag-wrap"></div>
   <div class="note" id="flag-note"></div>
+  <div class="sub-head" id="ix-head" style="display:none">지수 축 원값</div>
+  <div id="ix-wrap"></div>
+  <div class="note" id="ix-note" style="display:none"></div>
 </div>
 
 <div class="card" id="chart-card" style="display:none">
@@ -170,7 +173,10 @@ h3{font-size:13.5px;color:#58a6ff;margin:18px 0 6px}
 
 <div class="card" id="state-chart-card" style="display:none">
   <div class="section-title">③ 진입 경보 추이 (호흡폭 · 지수 축 · 최종)</div>
+  <div class="sub-head" style="margin-top:0">최종 — 합산 점수와 최종 상태</div>
   <div id="chart2"></div>
+  <div class="sub-head">두 축 — 호흡폭 · 지수 축</div>
+  <div id="chart2b"></div>
   <div class="footnote" id="state-note"></div>
 </div>
 
@@ -313,8 +319,33 @@ function renderState(L){
   });
   t+='</table>';
   $('flag-wrap').innerHTML=tbl(t);
+  renderIx(L);
   $('flag-note').innerHTML='켜진 플래그 수가 호흡폭 raw 입니다. 호흡폭 상태는 여기서 <b>악화는 2일 연속 확인, 개선은 즉시</b> 규칙을 거쳐 나옵니다. 지수 축 상태와 더한 합산 점수가 최종 상태를 정합니다(가이드 참고).'
     +(D.legs[0].n?' 대상 종목 수는 '+D.legs[0].n.toLocaleString()+'종입니다.':'');
+}
+var LVN=['','L1 정상','L2 주의','L3 경계','L4 위험','L5 극도'];
+function renderIx(L){
+  var X=L.ix; if(!X){ $('ix-head').style.display='none'; $('ix-wrap').innerHTML=''; $('ix-note').style.display='none'; return; }
+  $('ix-head').style.display='block'; $('ix-note').style.display='block';
+  var us=D.market==='US';
+  var t='<table><tr><th>항목</th><th>오늘</th></tr>';
+  function r(k,v){ t+='<tr><td>'+k+'</td><td>'+v+'</td></tr>'; }
+  r('확정 레벨 → 지수 축 상태','<b>'+LVN[X.L]+'</b> → '+(X.L-1));
+  r('래칫 전 · 후 레벨', 'L'+X.r0+' → L'+X.rr+(X.fd?' <span style="color:#ffa657">(낙폭 경로 즉시 확정)</span>':''));
+  r('52주 고점 대비 낙폭', X.dd==null?'—':num(X.dd,2)+'%');
+  r('200일선 대비', X.a==null?'—':(X.a>0?'+':'')+num(X.a,2)+'%');
+  r('50일선 대비', X.b==null?'—':(X.b>0?'+':'')+num(X.b,2)+'%');
+  r('래칫', X.rt?'<span class="on">활성</span>':'<span class="off">비활성</span>');
+  r('상향 확인(3일 연속 필요)', X.pc+' / 3');
+  if(us) r('변동성지수(VIX)', X.vx==null?'—':num(X.vx,2));
+  t+='</table>';
+  var comp=[['200일선 아래','b2'],['200일선 하락','f2'],['데드크로스(50일선<200일선)','dc'],['50일선 아래','b5'],['낙폭 −10% 이하','d10'],['낙폭 −20% 이하','d20']];
+  if(us) comp.push(['변동성 급등(VIX 25 이상)','vs']);
+  var t2='<table><tr><th>구성 요소</th><th></th></tr>';
+  comp.forEach(function(c){ var on=X[c[1]]; t2+='<tr><td>'+c[0]+'</td><td class="'+onCls(on)+'">'+onTxt(on)+'</td></tr>'; });
+  t2+='</table>';
+  $('ix-wrap').innerHTML=tbl(t)+tbl(t2);
+  $('ix-note').innerHTML='지수 축 입력: '+(us?'S&P500 · VIX':'코스피')+'. 레벨은 점수 합산이 아니라 논리 규칙으로 정해지고, 그 값에서 1을 뺀 것이 지수 축 상태입니다(가이드 참고).';
 }
 function kv(k,v){return '<div class="kv"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>';}
 function tbl(inner){return '<div class="tw">'+inner+'</div>';}
@@ -327,7 +358,7 @@ function chip(label,v,isFinal){
 
 /* ───────── ② ③ ④ 차트 — 가로 시간축 연동 ───────── */
 function plotlyReady(){ return typeof Plotly!=='undefined'; }
-var CHARTS=['chart','chart2','chart3'], _X=null, _syncing=false;
+var CHARTS=['chart','chart2','chart2b','chart3'], _X=null, _syncing=false;
 function hexA(h,a){ var n=parseInt(h.slice(1),16); return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')'; }
 function rangeFor(months){
   var x=_X, last=new Date(x[x.length-1]+'T00:00:00'), first=new Date(x[0]+'T00:00:00');
@@ -485,26 +516,58 @@ function stateBands(){
   }
   return sh;
 }
+function scoreBands(){
+  var mp=D.score_map||[], sh=[], an=[], i=0;
+  while(i<mp.length){
+    var j=i; while(j+1<mp.length && mp[j+1]===mp[i]) j++;
+    var st=mp[i];
+    sh.push({type:'rect', xref:'paper', yref:'y', x0:0, x1:1, y0:i-0.5, y1:j+0.5, fillcolor:ST[st].c, opacity:st>=3?0.20:0.11, line:{width:0}, layer:'below'});
+    an.push({xref:'paper', yref:'y', x:1.005, y:(i+j)/2, xanchor:'left', yanchor:'middle', showarrow:false, text:'상태 '+st, font:{size:11,color:ST[st].c}});
+    i=j+1;
+  }
+  return {shapes:sh, ann:an};
+}
+function lockShapes(){
+  var S=D.series, sh=[], st=null;
+  for(var i=0;i<S.length;i++){
+    if(S[i].lk && st===null) st=S[i].d;
+    if((!S[i].lk || i===S.length-1) && st!==null){
+      var en=S[i].lk ? S[i].d : S[i-1].d;
+      sh.push({type:'rect', xref:'x', yref:'paper', x0:st, x1:en, y0:0, y1:1, fillcolor:'rgba(213,0,0,0.20)', line:{width:0}, layer:'below'});
+      st=null;
+    }
+  }
+  return sh;
+}
 function renderStateChart(){
   var S=D.series;
   if(!S.length || !plotlyReady()) return;
   $('state-chart-card').style.display='block';
-  $('state-note').innerHTML='굵은 선 = 최종 상태, 점선 = 호흡폭 상태, 얇은 선 = 지수 축 상태(범례에서 켜고 끌 수 있습니다). 최종 상태는 두 축 상태를 더한 합산 점수에서 정해집니다.';
-  var x=_X, tr=[];
-  tr.push({x:x, y:S.map(function(s){return s.Sb==null?null:s.Sb;}), name:'호흡폭 상태', type:'scatter', mode:'lines',
-    line:{color:C_RAW,width:1.4,shape:'hv',dash:'dot'}, hovertemplate:'호흡폭 <b>%{y}</b><extra></extra>'});
-  tr.push({x:x, y:S.map(function(s){return s.Si==null?null:s.Si;}), name:'지수 축 상태', type:'scatter', mode:'lines',
-    line:{color:'#7ee787',width:1.2,shape:'hv'}, hovertemplate:'지수 축 <b>%{y}</b><extra></extra>'});
-  tr.push({x:x, y:S.map(function(s){return s.S;}), name:'최종 상태', type:'scatter', mode:'lines',
-    line:{color:C_ST,width:2.4,shape:'hv'}, hovertemplate:'최종 <b>%{y}</b><extra></extra>'});
+  var hasLock=D.sticky_k!=null;
+  $('state-note').innerHTML='위 그림: <b>빨간 실선 = 합산 점수</b>(호흡폭 상태 + 지수 축 상태, 0~8), 오른쪽 띠 = 그 점수 구간이 만드는 최종 상태(0~4)입니다.'
+    +(hasLock?' 붉은 음영 = 상태 4 유지 구간입니다.':'')
+    +' 아래 그림: 주황 점선 = 호흡폭 상태, 녹색 점선 = 지수 축 상태(0~4)입니다.';
+  var x=_X, sb=scoreBands();
+  var tr=[{x:x, y:S.map(function(s){return s.sc==null?null:s.sc;}), name:'합산 점수', type:'scatter', mode:'lines',
+    line:{color:'#e5484d',width:2.4,shape:'hv'}, customdata:S.map(function(s){return s.S;}), hovertemplate:'합산 <b>%{y}</b> → 최종 <b>%{customdata}</b><extra></extra>'}];
   var lay=baseLayout();
-  lay.margin={l:56,r:16,t:16,b:40};
-  lay.legend={orientation:'h', y:-0.3, font:{size:11}};
-  lay.shapes=stateBands();
+  lay.margin={l:56,r:58,t:16,b:40};
+  lay.showlegend=false;
+  lay.shapes=sb.shapes.concat(hasLock?lockShapes():[]); lay.annotations=sb.ann;
   lay.xaxis=xaxisCfg();
-  lay.yaxis={title:{text:'상태', font:{size:11,color:'#8b949e'}}, gridcolor:'#1f2a3a', linecolor:'#1f2a3a',
-    range:[-0.6,4.6], tickvals:[0,1,2,3,4], ticktext:['0','1','2','3','4'], fixedrange:true};
+  lay.yaxis={title:{text:'합산 점수', font:{size:11,color:'#8b949e'}}, gridcolor:'#1f2a3a', linecolor:'#1f2a3a', range:[-0.6,8.6], tickvals:[0,1,2,3,4,5,6,7,8], fixedrange:true};
   Plotly.newPlot('chart2', tr, lay, plotCfg()).then(function(){ hookSync('chart2'); });
+  var tr2=[{x:x, y:S.map(function(s){return s.Sb==null?null:s.Sb;}), name:'호흡폭 상태', type:'scatter', mode:'lines',
+      line:{color:'#ffa657',width:1.8,shape:'hv',dash:'dot'}, hovertemplate:'호흡폭 <b>%{y}</b><extra></extra>'},
+    {x:x, y:S.map(function(s){return s.Si==null?null:s.Si;}), name:'지수 축 상태', type:'scatter', mode:'lines',
+      line:{color:'#7ee787',width:1.8,shape:'hv',dash:'dot'}, hovertemplate:'지수 축 <b>%{y}</b><extra></extra>'}];
+  var lay2=baseLayout();
+  lay2.margin={l:56,r:16,t:16,b:40};
+  lay2.legend={orientation:'h', y:-0.3, font:{size:11}};
+  lay2.shapes=stateBands();
+  lay2.xaxis=xaxisCfg();
+  lay2.yaxis={title:{text:'상태', font:{size:11,color:'#8b949e'}}, gridcolor:'#1f2a3a', linecolor:'#1f2a3a', range:[-0.6,4.6], tickvals:[0,1,2,3,4], fixedrange:true};
+  Plotly.newPlot('chart2b', tr2, lay2, plotCfg()).then(function(){ hookSync('chart2b'); });
 }
 
 /* ④ 플래그 켜짐 이력 (히트맵) */
@@ -512,28 +575,35 @@ function renderHeat(){
   var S=D.series;
   if(!S.length || !plotlyReady()) return;
   $('heat-card').style.display='block';
-  $('heat-note').innerHTML='붉은 칸 = 그날 그 플래그가 <b>켜짐</b>(나쁨), 어두운 칸 = 꺼짐. 한 세로줄의 붉은 칸 개수가 그날의 raw 입니다.'
+  var hasIx=S.some(function(s){return !!s.ix;}), us=D.market==='US';
+  $('heat-note').innerHTML='붉은 칸 = 그날 그 항목이 <b>켜짐</b>(나쁨), 어두운 칸 = 꺼짐. 위쪽 네 줄은 호흡폭 플래그(세로줄의 붉은 칸 개수가 그날의 raw)입니다.'
+    +(hasIx?' 아래쪽은 지수 축 구성 요소이고, 맨 아래 색띠는 지수 축 확정 레벨(L1 하늘 · L2 연두 · L3 노랑 · L4 주황 · L5 빨강)입니다.':'')
     +' ② ③ 과 같은 구간을 보여 줍니다.';
-  var x=_X;
-  var y=[], z=[], cd=[];
-  for(var li=D.legs.length-1; li>=0; li--){
-    for(var fi=D.meta.flags.length-1; fi>=0; fi--){
-      y.push((D.legs.length>1? D.legs[li].label+' · ':'')+D.meta.flags[fi].name);
-      z.push(S.map(function(s){return s.f[li][fi];}));
-      cd.push(S.map(function(s){return onTxt(s.f[li][fi]);}));
-    }
+  var x=_X, rows=[];
+  D.meta.flags.forEach(function(f,fi){ rows.push({n:f.name, v:S.map(function(s){return s.f[0][fi];})}); });
+  if(hasIx){
+    [['200일선 아래','b2'],['200일선 하락','f2'],['데드크로스','dc'],['낙폭 −10%','d10'],['낙폭 −20%','d20'],['50일선 아래','b5'],['래칫 활성','rt']].concat(us?[['VIX 25 이상','vs']]:[]).forEach(function(c){
+      rows.push({n:'지수 · '+c[0], v:S.map(function(s){return s.ix?s.ix[c[1]]:null;})});
+    });
   }
+  var lvRow=null;
+  if(hasIx) lvRow={n:'지수 축 확정 레벨', v:S.map(function(s){return s.ix?(1+s.ix.L):null;}), c:S.map(function(s){return s.ix?LVN[s.ix.L]:'—';})};
+  var all=rows.concat(lvRow?[lvRow]:[]);
+  var rrows=all.slice().reverse();                      // 카테고리 축은 먼저 나온 항목이 아래 — 위에서부터 읽히도록 뒤집는다
+  var names=rrows.map(function(r){return r.n;});
+  var z=rrows.map(function(r){return r.v;}), cd=rrows.map(function(r){return r.c?r.c:r.v.map(onTxt);});
+  /* 한 장의 색표: 0 꺼짐(어두움) · 1 켜짐(붉음) · 2~6 = 지수 축 확정 레벨 L1~L5(상태 색) */
+  var ZM=6.5, cs=[[0,'#16231b'],[0.5/ZM,'#16231b'],[0.5/ZM,'#8b2c2c'],[1.5/ZM,'#8b2c2c']];
+  for(var k=0;k<5;k++){ cs.push([(1.5+k)/ZM, ST[k].c]); cs.push([(2.5+k)/ZM, ST[k].c]); }
+  var tr=[{x:x, y:names, z:z, customdata:cd, type:'heatmap', xgap:0, ygap:2, showscale:false, zmin:0, zmax:ZM, colorscale:cs,
+    hovertemplate:'%{y}<br>%{x|%Y.%m.%d} · <b>%{customdata}</b><extra></extra>'}];
   var lay=baseLayout();
   lay.hovermode='closest';
-  lay.margin={l:104,r:16,t:16,b:40};
+  lay.margin={l:112,r:16,t:16,b:40};
   lay.xaxis=xaxisCfg();
   lay.yaxis={automargin:true, tickfont:{size:11}, fixedrange:true};
-  $('chart3').style.height=(78+y.length*22)+'px';
-  Plotly.newPlot('chart3', [{
-    x:x, y:y, z:z, customdata:cd, type:'heatmap', xgap:0, ygap:2, showscale:false,
-    zmin:0, zmax:1, colorscale:[[0,'#16231b'],[0.49,'#16231b'],[0.5,'#8b2c2c'],[1,'#8b2c2c']],
-    hovertemplate:'%{y}<br>%{x|%Y.%m.%d} · <b>%{customdata}</b><extra></extra>'
-  }], lay, plotCfg()).then(function(){ hookSync('chart3'); });
+  $('chart3').style.height=(78+(rows.length+(hasIx?1:0))*22)+'px';
+  Plotly.newPlot('chart3', tr, lay, plotCfg()).then(function(){ hookSync('chart3'); });
 }
 
 /* ───────── ⑤ 일별 이력 (연도 → 월 · 최신 위) ───────── */
@@ -642,7 +712,20 @@ function detail(s){
   if(s.lk) extra+=' · 상태 4 유지 중';
   if(s.z) extra+=' · 지수 구간 '+(ZONE[s.z]||s.z)+' ('+(s.dd==null?'—':num(s.dd,2)+'%')+')';
   extra+='</div>';
-  return tbl(t)+extra;
+  var ix='';
+  if(s.ix){
+    var X=s.ix;
+    ix='<table><tr><th>지수 축</th><th>값</th></tr>'
+      +'<tr><td>확정 레벨</td><td>'+LVN[X.L]+' (래칫 전 L'+X.r0+' · 후 L'+X.rr+(X.fd?' · 낙폭 경로':'')+')</td></tr>'
+      +'<tr><td>52주 고점 대비 낙폭</td><td>'+(X.dd==null?'—':num(X.dd,2)+'%')+'</td></tr>'
+      +'<tr><td>200일선 대비 · 50일선 대비</td><td>'+(X.a==null?'—':(X.a>0?'+':'')+num(X.a,2)+'%')+' · '+(X.b==null?'—':(X.b>0?'+':'')+num(X.b,2)+'%')+'</td></tr>'
+      +'<tr><td>래칫 · 상향 확인</td><td>'+(X.rt?'활성':'비활성')+' · '+X.pc+'/3</td></tr>'
+      +'<tr><td>200일선 아래 · 하락 · 데드크로스</td><td>'+onTxt(X.b2)+' · '+onTxt(X.f2)+' · '+onTxt(X.dc)+'</td></tr>'
+      +'<tr><td>50일선 아래 · 낙폭 −10% · −20%</td><td>'+onTxt(X.b5)+' · '+onTxt(X.d10)+' · '+onTxt(X.d20)+'</td></tr>'
+      +(D.market==='US'?'<tr><td>VIX</td><td>'+(X.vx==null?'—':num(X.vx,2))+' ('+onTxt(X.vs)+')</td></tr>':'')
+      +'</table>';
+  }
+  return tbl(t)+extra+(ix?tbl(ix):'');
 }
 
 /* ───────── ⑥ 축소 로그 ───────── */
@@ -668,7 +751,7 @@ function renderBlocked(){
 /* ───────── 모바일 터치 제스처 (크립토 리포트에서 이식) ─────────
    1손가락 = 상하좌우 패닝 / 2손가락 = 가로·세로 독립 핀치줌.
    Plotly 의 scrollZoom 은 wheel 만 처리해 터치 핀치를 지원하지 않아 직접 구현. */
-var _CHART_IDS=['chart','chart2','chart3'];
+var _CHART_IDS=['chart','chart2','chart2b','chart3'];
 var MIN_AXIS_PX=20, _touchReady=false;
 function _axisInfo(gd, axisName, clientPos, isY){
   var ax=gd._fullLayout[axisName];
