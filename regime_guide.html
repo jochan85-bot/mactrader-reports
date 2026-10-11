@@ -60,7 +60,8 @@ tr:last-child td{border-bottom:0}
 
 /* 차트 */
 #chart{width:100%;height:340px;touch-action:pan-y}
-#chart2{width:100%;height:220px;touch-action:pan-y}
+#chart2{width:100%;height:240px;touch-action:pan-y}
+#chart2b{width:100%;height:240px;touch-action:pan-y}      /* [REGIME-SCORE5 §C] 두 축 패널 = 합산 점수 패널과 같은 높이(종전 기본 450px) */
 #chart3{width:100%;height:230px;touch-action:pan-y}
 .rng-row{display:flex;gap:6px;flex-wrap:wrap;margin:2px 0 10px}
 .rng-btn{font-size:12px;font-weight:600;color:#8b949e;background:#0b0f17;border:1px solid #30363d;border-radius:6px;padding:5px 11px;cursor:pointer;user-select:none;-webkit-user-select:none}
@@ -210,7 +211,7 @@ raw 가 3 → 4 → 2 였다면 3 → 3 → 2 입니다(4는 이틀을 못 채�
 
 <h2>(5) 합산 점수 → 최종 상태</h2>
 <div class="gl"><b>합산 점수 = 호흡폭 상태 + 지수 축 상태</b> (0~8). 시장별 표에 대어 최종 상태를 정합니다.</div>
-<div class="tw"><table><tr><th>합산 점수</th><th>미장 최종 상태</th><th>국장 최종 상태</th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>2</td><td>1</td><td>1</td></tr><tr><td>3</td><td>2</td><td>2</td></tr><tr><td>4</td><td>3</td><td>3</td></tr><tr><td>5</td><td>3</td><td>3</td></tr><tr><td>6</td><td>3</td><td>3</td></tr><tr><td>7</td><td>4</td><td>4</td></tr><tr><td>8</td><td>4</td><td>4</td></tr></table></div>
+<div class="tw"><table><tr><th>합산 점수</th><th>미장 최종 상태</th><th>국장 최종 상태</th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>2</td><td>1</td><td>1</td></tr><tr><td>3</td><td>2</td><td>2</td></tr><tr><td>4</td><td>3</td><td>2</td></tr><tr><td>5</td><td>3</td><td>3</td></tr><tr><td>6</td><td>4</td><td>3</td></tr><tr><td>7</td><td>4</td><td>4</td></tr><tr><td>8</td><td>4</td><td>4</td></tr></table></div>
 <div class="gl"><b>유지 규칙</b> — <b>미장</b>: 최종 상태가 4인 날 지수 축이 3 이상이면 <b>유지</b>가 켜져, 지수 축이 3 미만이 될 때까지 4를 고정하고 그 뒤 표로 돌아갑니다. <b>국장</b>: 유지 규칙을 쓰지 않습니다(표 그대로).<br><br>
 표와 유지 규칙은 <b>오너가 재량으로 정한 설계</b>이며, 수익 개선을 증명한 것이 아닙니다.</div>
 

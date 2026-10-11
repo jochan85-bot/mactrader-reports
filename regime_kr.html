@@ -61,7 +61,8 @@ tr:last-child td{border-bottom:0}
 
 /* 차트 */
 #chart{width:100%;height:340px;touch-action:pan-y}
-#chart2{width:100%;height:220px;touch-action:pan-y}
+#chart2{width:100%;height:240px;touch-action:pan-y}
+#chart2b{width:100%;height:240px;touch-action:pan-y}      /* [REGIME-SCORE5 §C] 두 축 패널 = 합산 점수 패널과 같은 높이(종전 기본 450px) */
 #chart3{width:100%;height:230px;touch-action:pan-y}
 .rng-row{display:flex;gap:6px;flex-wrap:wrap;margin:2px 0 10px}
 .rng-btn{font-size:12px;font-weight:600;color:#8b949e;background:#0b0f17;border:1px solid #30363d;border-radius:6px;padding:5px 11px;cursor:pointer;user-select:none;-webkit-user-select:none}
@@ -551,7 +552,7 @@ function renderStateChart(){
   var tr=[{x:x, y:S.map(function(s){return s.sc==null?null:s.sc;}), name:'합산 점수', type:'scatter', mode:'lines',
     line:{color:'#e5484d',width:2.4,shape:'hv'}, customdata:S.map(function(s){return s.S;}), hovertemplate:'합산 <b>%{y}</b> → 최종 <b>%{customdata}</b><extra></extra>'}];
   var lay=baseLayout();
-  lay.margin={l:56,r:58,t:16,b:40};
+  lay.margin={l:56,r:58,t:30,b:40};      /* [SCORE5 §C] 두 패널 여백 동일 → 플롯 높이 동일 */
   lay.showlegend=false;
   lay.shapes=sb.shapes.concat(hasLock?lockShapes():[]); lay.annotations=sb.ann;
   lay.xaxis=xaxisCfg();
@@ -562,11 +563,11 @@ function renderStateChart(){
     {x:x, y:S.map(function(s){return s.Si==null?null:s.Si;}), name:'지수 축 상태', type:'scatter', mode:'lines',
       line:{color:'#7ee787',width:1.8,shape:'hv',dash:'dot'}, hovertemplate:'지수 축 <b>%{y}</b><extra></extra>'}];
   var lay2=baseLayout();
-  lay2.margin={l:56,r:16,t:16,b:40};
-  lay2.legend={orientation:'h', y:-0.3, font:{size:11}};
+  lay2.margin={l:56,r:58,t:30,b:40};     /* 오른쪽 여백도 위 패널과 같게(시간축 정렬) — 범례는 위쪽으로 옮겨 플롯 높이를 줄이지 않는다 */
+  lay2.legend={orientation:'h', x:0, y:1.0, yanchor:'bottom', font:{size:11}};
   lay2.shapes=stateBands();
   lay2.xaxis=xaxisCfg();
-  lay2.yaxis={title:{text:'상태', font:{size:11,color:'#8b949e'}}, gridcolor:'#1f2a3a', linecolor:'#1f2a3a', range:[-0.6,4.6], tickvals:[0,1,2,3,4], fixedrange:true};
+  lay2.yaxis={title:{text:'상태', font:{size:11,color:'#8b949e'}}, gridcolor:'#1f2a3a', linecolor:'#1f2a3a', range:[-0.6,4.6], tickvals:[0,1,2,3,4], fixedrange:true, autorange:false};     /* y축 0~4 고정 */
   Plotly.newPlot('chart2b', tr2, lay2, plotCfg()).then(function(){ hookSync('chart2b'); });
 }
 
