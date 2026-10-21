@@ -6,7 +6,7 @@
  "date_basis": "market_session",
  "range_start": "2026-07-29",
  "range_start_note": "v2.2 낙폭경로 수리 + AI 레벨보정 도입 이후",
- "generated_at": "2026-10-21T06:50:34+09:00",
+ "generated_at": "2026-10-22T07:07:49+09:00",
  "latest": {
   "date": "2026-10-20",
   "rule_raw": 1,
