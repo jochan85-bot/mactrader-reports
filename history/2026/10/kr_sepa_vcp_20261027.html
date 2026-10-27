@@ -1,0 +1,1277 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국장 돌파 후보 ⚠️잠정 | 2026-10-27</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  background:#F1F5F9;min-height:100vh;max-width:640px;margin:0 auto;padding-bottom:60px;color:#111827;}
+.regime-line{display:flex;align-items:center;justify-content:center;gap:7px;margin:8px 0 2px;padding:7px 10px;border:1px solid #334155;border-radius:6px;background:#111C33;color:#E2E8F0;font-size:11.5px;font-weight:700;text-decoration:none;letter-spacing:.2px;}
+.regime-line:active{background:#182545;}
+.rg-lamp{display:flex;flex-direction:column;gap:1.5px;width:15px;flex:none;}
+.rg-lamp i{display:block;height:3.5px;border-radius:1px;background:#30363d;}
+.hdr{position:sticky;top:0;z-index:50;background:#0F172A;}
+.hdr-in{padding:10px 15px 8px;}
+.hdr-label{font-size:10px;color:#64748B;letter-spacing:0.12em;font-weight:600;text-transform:uppercase;}
+.hdr-row{display:flex;justify-content:space-between;align-items:center;margin-top:2px;gap:8px;}
+.hdr-title{font-size:18px;font-weight:800;color:#fff;}
+.hdr-title .n{color:#34D399;}
+.hdr-stats{font-size:11px;color:#94A3B8;font-weight:600;text-align:right;line-height:1.5;flex-shrink:0;}
+/* [REPORT-LEADSECTOR-20260910 L-3] 상단 메뉴 — 같은 날짜 주도섹터 페이지 버튼 */
+.hdr-link{font-size:11px;color:#94A3B8;border:1px solid #334155;border-radius:6px;padding:3px 9px;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.hdr-link:hover{color:#E2E8F0;border-color:#60A5FA;}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;padding:5px 12px 7px;}
+.tab{flex-shrink:0;padding:4px 8px;border-radius:15px;border:none;cursor:pointer;
+  font-size:11px;font-weight:600;background:#1E293B;color:#94A3B8;white-space:nowrap;}
+.tab.active{background:#34D399;color:#0F172A;}
+.tab .c{opacity:0.75;font-size:10px;}
+.tab-util{flex-shrink:0;margin-left:auto;padding:4px 8px;border-radius:15px;border:1px solid #334155;
+  background:transparent;cursor:pointer;font-size:10.5px;color:#64748B;white-space:nowrap;}
+.vtabs{display:flex;flex-wrap:wrap;gap:4px;padding:0 12px 7px;}
+/* COMP100-CSS-A-START  [FWD-OBS-COMP100-UX-20260915 오너 지시 ①] 정렬 줄.
+   버튼은 지표당 **하나** — 같은 버튼 재클릭이 내림↔오름 반전이다(COMP·RS 동일 규칙).
+   클라이언트 표시 순서만 바꾼다 — 서버측 정렬키·게이트·판정 무접촉. */
+.sortRow{display:flex;flex-wrap:wrap;gap:4px;padding:0 12px 7px;align-items:center;}
+.sortRow .slab{font-size:10.5px;color:#9CA3AF;font-weight:700;margin-right:2px;}
+.sbtn{font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;border:1px solid #E5E7EB;
+  background:#fff;color:#6B7280;cursor:pointer;}
+.sbtn.on{background:#1E3A8A;border-color:#1E3A8A;color:#fff;}
+.sbtn .ar{margin-left:3px;font-weight:800;}
+/* COMP100-CSS-A-END */
+.vtab{flex-shrink:0;padding:4px 8px;border-radius:15px;border:1px solid #334155;cursor:pointer;
+  font-size:11px;font-weight:600;background:transparent;white-space:nowrap;}
+.vtab .c{opacity:0.8;font-size:10px;}
+#fbar{display:none;justify-content:center;align-items:center;padding:2px 0 7px;cursor:pointer;
+  color:#94A3B8;font-size:13px;line-height:1;}
+.hdr.fold #fmenu{display:none}
+.hdr.fold #fbar{display:flex}
+.vtab.vbuy{color:#4ADE80;}.vtab.vcan{color:#67E8F9;}.vtab.vhold{color:#FBBF24;}.vtab.vavoid{color:#F87171;}
+.vtab.vbuy.active{background:#166534;border-color:#22C55E;color:#fff;}
+.vtab.vcan.active{background:#164E63;border-color:#22D3EE;color:#fff;}
+.vtab.vhold.active{background:#92400E;border-color:#F59E0B;color:#fff;}
+.vtab.vavoid.active{background:#991B1B;border-color:#EF4444;color:#fff;}
+.wrap{padding:10px 13px 0;}
+.mkt{background:linear-gradient(135deg,#064E3B,#065F46);border-radius:12px;padding:12px 13px;margin-bottom:12px;}
+.mkt.kr{background:linear-gradient(135deg,#1E3A5F,#1D4ED8 160%);}
+.mkt-title{font-size:12px;font-weight:800;color:#34D399;margin-bottom:7px;line-height:1.5;}
+.mkt.kr .mkt-title{color:#93C5FD;}
+.mkt-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px;}
+.mkt-box{background:rgba(0,0,0,0.22);border-radius:7px;padding:7px 9px;}
+.mkt-box .l{font-size:9.5px;color:#A7F3D0;}
+.mkt.kr .mkt-box .l{color:#BFDBFE;}
+.mkt-box .v{font-size:13px;font-weight:800;margin-top:1px;color:#fff;}
+.mkt-box .s{font-size:9.5px;color:#D1FAE5;margin-top:1px;}
+.mkt.kr .mkt-box .s{color:#DBEAFE;}
+.mkt-note{font-size:12.5px;color:#D1FAE5;line-height:1.6;}
+.mkt.kr .mkt-note{color:#DBEAFE;}
+.card{background:#fff;border-radius:15px;overflow:hidden;margin-bottom:9px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:box-shadow 0.2s;}
+.card.open{box-shadow:0 0 0 2px var(--c),0 6px 24px rgba(0,0,0,0.09);}
+.chead{border-left:4px solid var(--c);padding:12px 13px 9px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.card.open .chead{background:var(--cx);}
+.ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;}
+.cleft{display:flex;gap:9px;min-width:0;}
+.tcol{flex-shrink:0;text-align:center;}
+.tpill{background:var(--c);color:#fff;font-weight:800;font-size:14.5px;padding:4px 8px;border-radius:7px;}
+.sbadge{margin-top:4px;font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px;background:#DCFCE7;color:#15803D;display:inline-block;}
+.sbadge.no{background:#F1F5F9;color:#94A3B8;}
+/* [SECTOR-BADGE-20260910 S-2] 앵커 점프 시 상단 스티키 헤더에 카드가 가리지 않게 */
+.card{scroll-margin-top:96px;}
+.tcol .sbadge{display:block;font-size:10px;padding:2px 6px;margin-top:4px;text-align:center;}
+.cmain{min-width:0;}
+.cname{font-weight:700;font-size:14px;color:#111827;line-height:1.3;word-break:keep-all;}
+.ctag{display:inline-block;margin-top:3px;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:4px;
+  background:var(--cl);color:var(--c);}
+.chl{margin-top:3px;font-size:12.5px;color:#6B7280;line-height:1.5;word-break:keep-all;}
+.cright{text-align:right;flex-shrink:0;}
+.cprice{font-weight:800;font-size:17px;color:#111827;white-space:nowrap;}
+.cchg{font-weight:700;font-size:13px;white-space:nowrap;}
+.cchg.up{color:#DC2626;}.cchg.down{color:#2563EB;}.cchg.flat{color:#6B7280;}
+.crank{font-size:10px;color:#9CA3AF;margin-top:2px;white-space:nowrap;}
+/* COMP100-CSS-B-START  [FWD-OBS-COMP100-20260917 §5-1] 원전 COMP 관찰 배지 —
+   주가·등락률 바로 아래. 게이트 배지(.g)와 분리된 계열색. 표시 전용 — 판정 무영향.
+   [UX-20260915 오너 지시 ③] NA 는 **"COMP NA" 까지만** 박스에 넣는다. 결측 항목은
+   툴팁으로만 — 사유 문자열이 길어 모바일 카드가 가로로 터졌다(실측). */
+.ccomp{margin-top:4px;font-size:11.5px;font-weight:800;white-space:nowrap;color:#1E3A8A;
+  background:#EEF2FF;border:1px solid #C7D2FE;border-radius:5px;padding:2px 6px;
+  display:block;width:fit-content;margin-left:auto;}
+.ccomp.na{color:#6B7280;background:#F3F4F6;border-color:#E5E7EB;font-weight:700;}
+.ccomp .gr{font-weight:700;opacity:.85;margin-left:2px;}
+/* [NARULE-20260917 §9-2] 애널리스트<3 = NA 아님. 점수는 내되 (n=…) 로 얇은 커버리지 표기. */
+.ccomp .lc{font-weight:700;font-size:10px;opacity:.7;margin-left:3px;}
+/* [UX2-20260915 오너 지시 ②] COMP-X 도 100점 환산해 **같이** 박스로 표시.
+   🔴 원전 COMP 와 **다른 척도**다 — 색 계열을 갈라 눈으로 구분되게 둔다(혼용 금지). */
+/* COMP 과 **한 줄씩** 쌓는다(오너 지시 "COMP 아래") — 우측 정렬 유지. */
+.ccompx{margin-top:3px;font-size:11px;font-weight:700;white-space:nowrap;color:#0F766E;
+  background:#F0FDFA;border:1px solid #99F6E4;border-radius:5px;padding:2px 6px;
+  display:block;width:fit-content;margin-left:auto;}
+.ccompx.na{color:#9CA3AF;background:#F9FAFB;border-color:#E5E7EB;}
+/* COMP100-CSS-B-END */
+.gline{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;}
+.g{display:flex;align-items:center;gap:3px;font-size:11.5px;color:#374151;white-space:nowrap;}
+.g i{width:6px;height:6px;border-radius:50%;background:#22C55E;flex-shrink:0;}
+.g.warn i{background:#F59E0B;}.g.fail i{background:#EF4444;}.g.can i{background:#22D3EE;}
+.g.na{color:#9CA3AF;}.g.na i{background:#D1D5DB;}
+/* [TAG-WIRE-1 2026-08-11] 패턴 관찰 태그 — 범주 구분색(서열 없음), 녹/적 신호등 계열 배제 */
+.g.pt-con i{background:#4A7EBB;}   /* 수축 */
+.g.pt-pul i{background:#7B5EA7;}   /* 눌림 */
+.g.pt-flt i{background:#6B8E9F;}   /* 플랫 */
+.g.pt-exp i{background:#D98E32;}   /* 확장 */
+.g.pt-cfx i{background:#8B6F4E;}   /* 수축이탈 */
+.g.pt-non i{background:#9E9E9E;}   /* 무형 */
+.g.pt-na  i{background:#D1D5DB;}   /* — */
+.g.vt{color:#374151;}.g.vt i{display:none;}   /* 거래량 태그 = 무색 텍스트 */
+.gline.gtags{margin-top:5px;}
+.g b{font-weight:600;}.g em{color:#9CA3AF;font-style:normal;}
+.fold{text-align:center;margin-top:6px;font-size:11px;color:#D1D5DB;}
+.card.open .fold{color:var(--c);}
+.cbody{display:none;border-top:1px solid var(--cl);}
+.card.open .cbody{display:block;animation:fin 0.18s ease-out;}
+@keyframes fin{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);background:#F9FAFB;border-bottom:1px solid #F3F4F6;}
+.num{padding:10px 12px;border-right:1px solid #E5E7EB;}
+.num:nth-child(4n){border-right:none;}
+@media(max-width:560px){
+  .nums{grid-template-columns:1fr 1fr;}
+  .num:nth-child(even){border-right:none;}
+  .num:nth-child(odd){border-right:1px solid #E5E7EB;}
+  .num:nth-child(-n+2){border-bottom:1px solid #E5E7EB;}
+  /* [MOBILE-GLINE-FIX-20260828] gl1/gl2 배지열이 좁은 화면에서 줄바꿈되는 문제 —
+     폰트·간격 축소로 한 줄 유지 폭 확보. 항목 개수·로직은 무변경. */
+  .gline{gap:5px;}
+  .g{font-size:10.5px;gap:2px;}
+  .g i{width:5px;height:5px;}
+}
+.num .l{font-size:10px;color:#9CA3AF;}
+.num .v{font-size:15.5px;font-weight:800;color:#111827;margin-top:2px;word-break:keep-all;}
+.num .s{font-size:11px;margin-top:2px;color:#6B7280;word-break:keep-all;line-height:1.4;}
+.num .s.up{color:#16A34A;}.num .s.dn{color:#DC2626;}
+.sec{padding:13px 15px;border-bottom:1px solid #F3F4F6;}
+.sl{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--c);
+  margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--cl);}
+.sec p{font-size:14px;color:#374151;line-height:1.8;word-break:keep-all;}
+.sec p+p{margin-top:10px;}
+.sec.strat{background:var(--cx);}
+.es{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px;}
+.es>div{border-radius:8px;padding:8px 10px;}
+.es .en{background:#EFF6FF;}.es .st{background:#FEF2F2;}
+.es .l{font-size:10px;color:#6B7280;}
+.es .v{font-size:13px;font-weight:700;margin-top:2px;word-break:keep-all;}
+.es .en .v{color:#1D4ED8;}.es .st .v{color:#DC2626;}
+.bull{display:flex;gap:8px;margin-bottom:11px;}
+.bull:last-child{margin-bottom:0;}
+.bn{background:var(--c);color:#fff;font-size:10px;font-weight:800;width:19px;height:19px;border-radius:5px;
+  display:flex;flex-shrink:0;align-items:center;justify-content:center;margin-top:3px;}
+.bt{font-size:14px;line-height:1.75;color:#374151;word-break:keep-all;}
+.bt b{color:#111827;display:block;margin-bottom:1px;}
+.risk{display:flex;gap:7px;margin-bottom:8px;font-size:14px;color:#374151;line-height:1.7;word-break:keep-all;}
+.risk:last-child{margin-bottom:0;}
+.risk span{color:#EF4444;font-size:12px;flex-shrink:0;margin-top:2px;}
+.news{padding:5px 0;border-bottom:1px dashed #E5E7EB;font-size:11.5px;line-height:1.5;display:flex;gap:8px;justify-content:space-between;}
+.news:last-child{border-bottom:none;}
+.news .t{color:#374151;word-break:keep-all;}
+.news .t a{color:inherit;text-decoration:none;}
+.news .t a:hover{text-decoration:underline;color:#2563EB;}
+.news .m{color:#9CA3AF;font-size:10px;flex-shrink:0;white-space:nowrap;margin-top:1px;}
+.vd{margin-top:10px;border-radius:8px;padding:9px 12px;border-left:3px solid #9CA3AF;background:#F9FAFB;}
+.vd.buy{border-color:#16A34A;background:#F0FDF4;}
+.vd.hold{border-color:#F59E0B;background:#FFFBEB;}
+.vd.avoid{border-color:#DC2626;background:#FEF2F2;}
+.vd .vlab{font-size:10px;font-weight:700;color:#6B7280;margin-right:6px;}
+.vd .vcall{font-size:14px;font-weight:800;}
+.vd.buy .vcall{color:#15803D;}.vd.hold .vcall{color:#B45309;}.vd.avoid .vcall{color:#DC2626;}
+.vd .vconv{font-size:11px;font-weight:700;color:#9CA3AF;margin-left:5px;}
+.vd .vwhy{font-size:13px;color:#374151;line-height:1.75;margin-top:6px;word-break:keep-all;}
+.cata{margin:11px 13px 13px;background:#FFFBEB;border-radius:8px;padding:9px 12px;border-left:3px solid #F59E0B;}
+.cata .l{font-size:10px;font-weight:700;color:#92400E;margin-bottom:3px;}
+.cata .b{font-size:13px;color:#374151;line-height:1.7;word-break:keep-all;}
+.foot{padding:16px 0 0;font-size:10.5px;color:#94A3B8;text-align:center;line-height:1.8;}
+@media(max-width:360px){
+  .hdr-title{font-size:16px;}
+  .cprice{font-size:14px;}
+}
+
+.fresh-sun{font-size:19px;line-height:1;margin-top:3px;text-align:right;}
+.tab[data-filter=fresh]{color:#B45309;}
+
+.vtab.active{background:#34D399;color:#0F172A;}
+.tab.attr.active{color:#0F172A !important;}
+.tabs.attrRow{padding-top:0;padding-bottom:6px;}
+</style>
+</head><body>
+<div class="hdr">
+  <div class="hdr-in">
+    <div class="hdr-label">뭉치 트레이더 · SEPA + VCP · 2026년 10월 27일 (화) 종가 기준</div>
+    <div class="hdr-row">
+      <div class="hdr-title">국장 돌파 후보 ⚠️잠정 <span class="n">23종목</span></div>
+      <a class="hdr-link" href="sectors_kr_20261027.html">주도섹터</a>
+      <div class="hdr-stats">🤖 AI 8</div>
+    </div>
+  </div>
+  <div id="fmenu"><div class="tabs" id="secRow"><button class="tab active" data-sec="all">전체 <span class="c">23</span></button><button class="tab" data-sec="it">IT <span class="c">1</span></button><button class="tab" data-sec="healthcare">헬스케어 <span class="c">2</span></button><button class="tab" data-sec="comm">커뮤 <span class="c">0</span></button><button class="tab" data-sec="financial">금융 <span class="c">0</span></button><button class="tab" data-sec="cons-cyclical">경기소비 <span class="c">0</span></button><button class="tab" data-sec="cons-defensive">필수소비 <span class="c">1</span></button><button class="tab" data-sec="industrial">산업 <span class="c">6</span></button><button class="tab" data-sec="materials">소재 <span class="c">1</span></button><button class="tab" data-sec="energy">에너지 <span class="c">0</span></button><button class="tab" data-sec="utilities">유틸 <span class="c">0</span></button><button class="tab" data-sec="realestate">부동산 <span class="c">0</span></button><button class="tab" data-sec="unknown">기타 <span class="c">12</span></button></div><div class="tabs attrRow"><button class="tab attr" data-attr="ai">🤖 AI <span class="c">8</span></button><button class="tab attr" data-attr="unicorn">🦄 유니콘 <span class="c">0</span></button><button class="tab attr" data-attr="fresh">☀️ 신선주도주 <span class="c">8</span></button></div><div class="vtabs"><button class="vtab vbuy" data-vfilter="buy">🟢 매수고려 <span class="c">3</span></button><button class="vtab vcan" data-vfilter="can">🔵 매수가능 <span class="c">19</span></button><button class="vtab vhold" data-vfilter="hold">🟡 관망 <span class="c">1</span></button><button class="vtab vavoid" data-vfilter="avoid">🔴 회피 <span class="c">0</span></button><button class="tab-util" id="xall">전체 펼치기 ▼</button></div><div class="sortRow"><span class="slab">정렬</span><button class="sbtn on" data-key="rs">RS <span class="ar">↓</span></button><button class="sbtn" data-key="comp">COMP <span class="ar">↓</span></button><button class="sbtn" data-key="compx">COMP-X <span class="ar">↓</span></button></div></div>
+  <div id="fbar" title="필터 펼치기">▼</div>
+</div>
+<div class="wrap">
+<a class="regime-line" href="regime_kr.html" aria-label="국장 진입 경보 — 15:45 잠정 상태 4/4 차단, 상세 보기"><span class="rg-lamp"><i style="background:#D50000"></i><i style="background:#FF6D00"></i><i style="background:#FFD600"></i><i style="background:#8BC34A"></i><i style="background:#4FC3F7"></i></span><span>국장 진입 경보 4/4 (잠정)</span><span class="rg-lamp"><i style="background:#D50000"></i><i style="background:#FF6D00"></i><i style="background:#FFD600"></i><i style="background:#8BC34A"></i><i style="background:#4FC3F7"></i></span></a><div class="c8-note" style="margin:8px 0;padding:6px 10px;border-radius:8px;background:#FEF3C7;color:#92400E;font-size:12px;">⚠️ 잠정 — 데이터 기준일 지연: 증권사 추정치 자료 기준일 2026-10-26(1거래일 지연, 잠정)</div>
+<div class="mkt kr"><div class="mkt-title">🚀 반도체 앞세워 코스피 3% 급등, 5600선 회복</div><div class="mkt-grid"><div class="mkt-box"><div class="l">코스피</div><div class="v">+3.09%</div><div class="s">5,638.34 마감</div></div><div class="mkt-box"><div class="l">코스닥</div><div class="v">+2.29%</div><div class="s">743.83 마감</div></div><div class="mkt-box"><div class="l">수급(외국인·기관)</div><div class="v">외국인 +5,930억 / 기관 +2,804억</div><div class="s">개인 9,478억 순매도</div></div></div><div class="mkt-note">코스피는 전 거래일보다 168.87포인트(3.09%) 오른 5,638.34에 마감해 5,600선을 회복했고, 코스닥도 2.29% 올라 743.83으로 마쳤음.<br>장 초반에는 4% 넘게 급등하면서 매수 사이드카가 발동됐고, 장중 5,700선을 넘었다가 상승폭을 일부 반납하며 마감했음.<br>수급은 개인이 9,478억 원을 순매도하는 동안 외국인(5,930억 원)과 기관(2,804억 원)이 함께 순매수하며 개인 매물을 받아냈음.<br>업종별로는 전기·전자(4.48%), 의료·정밀기기(4.30%), 제조(3.52%)가 강세였고, 삼성전자와 SK하이닉스가 4~5%대 급등하며 지수 상승을 이끌었음.<br>다만 이날 급등을 촉발한 구체적인 뉴스나 경제지표는 검색으로 확인하지 못해 기재하지 않았음.</div></div>
+<div class="card" id="t-159010" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="buy" data-comp="" data-compx="81.6" data-rs="98">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">159010</div>
+        <div class="sbadge">RS 98</div>
+        <div class="sbadge" title="기계 — 주도섹터 · F2T3 88.6667 · 구성 4 · 상위3 159010, 049430, 086670 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 7/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">아스플로</div>
+        <span class="ctag">반도체 부품 턴어라운드 · 2Q 영업익 흑전</span>
+        <div class="chl">램리서치 등 장비 부품 확대로 2Q 흑자전환, 298억 공급계약 실체화</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:09 · 기준일 2026-10-27 · 정규장 종가">₩28,950</div>
+      <div class="cchg flat">+0.00%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 적자 기업: PSR 기준  · 결측 항목: ROE_fwd·선행PSR·매출성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 81.6</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-8.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.78yr, B1)</b></span><span class="g"><i></i><em>AI</em> <b>76/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">2Q26 매출</div><div class="v">317억원</div><div class="s up">전년동기 149억원 대비 +113%</div></div><div class="num"><div class="l">2Q26 영업이익</div><div class="v">44.0억원</div><div class="s up">전년동기 -20.0억원 → 흑자전환, 1Q 14.0억원</div></div><div class="num"><div class="l">공급계약(8/25)</div><div class="v">297.9억원</div><div class="s up">해외 반도체 장비업체 대상, FY25 매출의 43.9%</div></div><div class="num"><div class="l">피벗 이격</div><div class="v">8.03%</div><div class="s up">현재가 ₩28,950 / 피벗 ₩31,750, RS 98.0</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>아스플로는 반도체 장비에 들어가는 가스·유체 관련 부품과 모듈을 만들어 해외 반도체 장비업체에 납품하는 회사다. 장비업체가 주문하면 부품을 공급해 매출을 올리는 B2B 구조이고, IR자료상 고객사는 A사(2018~), L사(2022~) 등 해외 장비업체 6곳이다.</p><p>비교 대상은 장비모듈의 하이록코리아·비엠티, 시공부품의 코미코·유니셈 등이다. 2022년 램리서치 벤더 등록 후 다운사이클로 미뤄졌던 부품 진입이 2026년 본격화되는 점이 전환점이며, 2026년 상반기 매출 600억원(YoY +46.7%)에 영업이익 58억원으로 흑자전환했다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>램리서치 벤더 등록(2022년) 이후 다운사이클로 지연됐던 장비 부품 진입이 2026년 들어 실적으로 나타나 2Q26 영업이익 44.0억원으로 흑자전환했다. 8/25 297.9억원 공급계약이 공시됐고 9/23에는 반도체 연관주 급등 속에서 +23.71% 상승해 종가 30,100원(52주 최고가)을 기록했다.</p><p style="margin-top:6px;">공급계약과 흑자전환이 모두 확인된 상태여서 동력은 살아 있고, 기관 수급도 20일 기준 순매수를 유지한다. 다만 9/23 급등 이후 현재가 ₩28,950으로 숨 고르기 중이고 외국인은 순매도, 10/15에는 코스닥이 하락 종목 1508개 속에 778선까지 밀려 시장 분위기는 우호적이지 않다.</p><div class="vd buy"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 고려</span><span class="vconv">돌파 적합도 76/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">업종 1위 주도주, 실적 급증이 뒷받침</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 2%이고, 최근 25주 수익률은 +266%로 전체 상위 0%입니다. 속한 기계 업종은 77개 업종 중 7위의 강세 업종이며, 업종 내 RS 순위는 72종 중 1위입니다. 시가총액은 3,894억원이고 상장 약 5.1년차입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 통과하지 못했고, 수축은 4번이며 폭은 25%에서 마지막 11%로 줄었습니다. 피벗(돌파 기준가)은 31,750원으로 현재가보다 8.0% 높고, 52주 고가보다 19% 낮습니다. 현재가는 50일 평균선과 200일 평균선 위에 있으며 50일선이 200일선 위인 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간의 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 0.73배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 기관 기준으로는 순유입이 확인됩니다. 외국인 수급과 순매수 규모는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 2분기 연결 매출은 전년 동기보다 113% 늘었고 영업이익은 흑자로 전환했습니다. 직전 분기보다 영업이익도 크게 늘어 가속하는 모습입니다. 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·전환사채·신주인수권부사채 등 중대 공시는 없었고, 결격 사유 검토에서도 회피 판정은 없었습니다. 다만 9월 단기차입금 증가 결정과 유형자산 취득 결정 공시가 있으나 본문 수치는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 증권사 투자의견은 최근 60일 동안 없었고, 컨센서스를 제시한 증권사도 없습니다. 정식 커버는 1건으로 확인됩니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 8월 25일 공급계약 공시가 있었고, 9월 23일 반도체 연관주 급등 속에 24% 올랐다는 내용이 확인됩니다. 이번 검색에서는 최근 급등 이유나 악재를 새로 확인하지 못했고, 회사가 삼성전자·SK하이닉스에 반도체 공정용 부품을 납품한다는 사업 배경만 확인됩니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 이 종목은 돌파 뒤 잘 오를 가능성이 높은 업종 1위 주도주로 판단합니다. 매출이 두 배 넘게 늘고 흑자로 전환한 실적과 반도체 관련 수주 재료가 강한 주가 흐름을 뒷받침합니다. 그 위에 기관 순유입이 확인되고 희석성 공시도 없습니다. 가장 큰 리스크는 반도체 테마 급등 의존도가 높고 증권사 검증이 거의 없어 테마가 식으면 변동이 클 수 있다는 점입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩31,750 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩26,634)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩28,950 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩26,634 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/081/0003689165" target="_blank" rel="noopener">하락 종목만 1508개… 코스닥 778선 추락, 시총 상위 전반 약세</a></div><div class="m">서울신문 · 2026.10.15 10:07</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기 실적 공시(알파디스틸 리포트 기준 D-51, 일정 미확정) / 해외 장비업체 추가 공급계약 공시 / 종속회사 설비 투자 후속 공시</div></div>
+</div>
+</div>
+<div class="card" id="t-080580" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-comp="79.6" data-compx="84.0" data-rs="97" data-fresh="true">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">080580</div>
+        <div class="sbadge">RS 97</div>
+        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.3333 · 구성 13 · 상위3 080580, 064290, 098120 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">오킨스전자 🤖</div>
+        <span class="ctag">CXL·HBM 소켓 · 영업익 +162%</span>
+        <div class="chl">CXL·HBM 테스트 소켓 수혜에 분기 영업이익 +162%, 피벗 1.3% 아래 대기</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:09 · 기준일 2026-10-27 · 정규장 종가">₩26,900</div>
+      <div class="cchg up">+16.45%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 결측 항목: 성장률  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님)">COMP 79.6</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 84.0</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>16.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.3%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.34yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>72/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">26.2Q 영업이익</div><div class="v">84.0억원</div><div class="s up">전년동기 32.0억원 대비 +162%</div></div><div class="num"><div class="l">26.2Q 매출</div><div class="v">351억원</div><div class="s up">전년동기 271억원 대비 +29.5%</div></div><div class="num"><div class="l">올해 EPS 컨센서스</div><div class="v">1,329원</div><div class="s up">30일 전 983원 (추정 1명)</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">36,000원</div><div class="s up">10-26 종가 22,900원 대비 괴리 +57.2%</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>오킨스전자는 반도체 칩의 불량 여부를 가려내는 테스트용 소켓(칩을 장비에 물리는 접속 부품)과 HBM 공정용 마그네틱 콜렛(칩을 집어 옮기는 부품)을 만들어 메모리 반도체 업체에 파는 회사다. 주력은 번인 소켓(고온·고전압에서 칩을 장시간 시험하는 용도), HBM 마그네틱 콜렛, 칩 수백~수천 개를 한꺼번에 시험하는 CLT 장비향 커넥터이며, 메모리 3사를 고객으로 둔 B2B 소모품 구조라 고객사의 양산이 늘면 교체 수요가 따라 붙는다.</p><p>경쟁 구도는 ISC, 네오셈 등 테스트 소켓·장비 업체와 맞물려 있으며, 동사는 HBM 마그네틱 콜렛의 메모리 3사 전량 납품으로 외산 경쟁사를 대체했다는 점이 차별화 포인트다. 최근에는 HBM 다음 세대 인터페이스로 꼽히는 CXL용 테스트 소켓·인터포저(칩 사이 신호를 이어주는 중간 기판)까지 성장 축이 넓어지며 CLT 장비향 커넥트 매출 비중이 확대되는 국면이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026년 4월 14일 AI 반도체 랠리 속에서 CXL 관련주로 부각되며 장중 20% 넘게 급등했고, 증권사가 CLT 장비향 매출 비중 상승과 HBM 마그네틱 콜렛의 메모리 3사 전량 납품을 평가하며 1년 상승률이 200%를 넘어 투자경고종목으로 지정됐다. 6월 테마 조정을 거쳤으나 2026.06 분기 영업이익이 84.0억원(+162%)으로 확인되며 실적이 뒷받침하는 상승으로 이어졌다.</p><p style="margin-top:6px;">분기 실적과 EPS 추정치 상향(983원→1,329원)이 이어지고 기관이 최근 20거래일 순매수여서 동력은 유효해 보인다. 다만 최근 1주 기사가 없고 10월 2일 소부장 강세 헤드라인 이후 새 촉매가 확인되지 않아, 당일 급등이 수급 주도인지 재료 동반인지는 불명이다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 72/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">반도체 1위 업종의 상위권 주도주, 실적도 가속</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 3%이고, 최근 12주 수익률은 상위 1%입니다. 속한 반도체와반도체장비 업종은 77개 업종 중 1위이며, 업종 안에서도 141종 중 4위입니다. 상장 11.8년차이고 시가총액은 5,652억원입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 기준을 충족하지 못했고, 뚜렷한 패턴은 없습니다. 피벗(돌파 기준가)은 27,100원이고 현재가 26,900원은 이보다 조금 낮습니다. 52주 고가보다는 13% 낮고, 50일 평균선과 200일 평균선 위에서 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간의 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 1.33배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 기관은 순유입으로 요약되지만, 외국인 동향과 규모는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 2분기 매출은 전년동기보다 30% 늘었고 영업이익은 162% 늘어 기대치를 웃돌았습니다. 올해 EPS 추정은 30일 사이 크게 상향됐고 하향은 없었습니다. 3분기에도 영업이익 증가가 예상됩니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·CB·BW 등 중대 공시와 거래소·지분 공시는 없었습니다. 결격 사유 검토에서도 회피 판정은 없었습니다. 4월의 CB 전환 물량은 잔액이 적어 오버행이 마무리 국면이라는 평가였습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 증권사 의견은 매수 1건이며 목표주가는 36,000원으로 현재가 대비 여유가 있습니다. 최근 60일 의견 변경은 없었고 커버리지는 얇습니다. 리포트는 CLT 장비와 HBM 부품 확대를 성장 축으로 꼽았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> CXL·HBM 테스트 소켓 테마의 대표 수혜주로 4월에 부각됐고, 메모리 3사 납품과 CLT 장비향 매출 비중 상승이 실적으로 확인되고 있습니다. 다만 최근 1주 신규 기사는 없고, 추가 검색에서도 3분기 실적이나 신규 수주 소식은 확인되지 않았습니다. 투자경고 지정 이력이 있어 수급 변동성은 있지만 논지를 훼손하는 사실은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 실적이 뒷받침되는 업종 1위 주도주라서 돌파 뒤 상승 가능성이 좋은 종목으로 판단합니다. 영업이익이 2분기에 크게 늘고 추정치도 상향되는 가운데, 업종 강세와 종목 순위가 모두 최상위권입니다. 가장 큰 리스크는 CXL·HBM 테마의 높은 변동성과 투자경고 이력 때문에 수급이 한꺼번에 빠질 수 있다는 점입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩27,100 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩24,748)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩26,900 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩24,748 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/015/0005338690" target="_blank" rel="noopener">반도체 소부장의 힘…코스닥, 다시 900 넘본다</a></div><div class="m">한국경제 · 2026.10.02 17:35</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026.09 분기 실적 발표(컨센서스 매출 374억원·영업이익 89.0억원, 발표일 불명), CXL·HBM 테마 재가열 여부, 증권사 커버리지 확대 및 목표주가 변경</div></div>
+</div>
+</div>
+<div class="card" id="t-031980" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="70.6" data-compx="71.4" data-rs="96">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">031980</div>
+        <div class="sbadge">RS 96</div>
+        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.3333 · 구성 13 · 상위3 080580, 064290, 098120 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">피에스케이홀딩스</div>
+        <span class="ctag">HBM 후공정 장비 · 영업이익 +62%</span>
+        <div class="chl">HBM·첨단 패키징 장비 수요에 올라탄 후공정 장비주, 피벗 3.5% 아래 대기</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:09 · 기준일 2026-10-27 · 정규장 종가">₩169,200</div>
+      <div class="cchg up">+7.29%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 결측 항목: 선행PER">COMP 70.6</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 71.4</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.02yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>74/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span><span class="g"><i></i><b>매수 5명</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">2026.06 분기 매출</div><div class="v">473억원</div><div class="s up">전년동기 347억원 대비 +36.3%</div></div><div class="num"><div class="l">2026.06 분기 영업이익</div><div class="v">138억원</div><div class="s up">전년동기 85.0억원 대비 +62.4%</div></div><div class="num"><div class="l">2026.09 분기 컨센서스</div><div class="v">영업이익 341억원</div><div class="s up">매출 818억원 추정, 직전 분기 매출 280억·영업이익 92.0억</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">243,333원</div><div class="s up">10-26 종가 156,600원 대비 괴리 +55.4%</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>피에스케이홀딩스는 반도체 후공정(칩을 잘라 포장하는 단계) 장비를 만들어 파운드리, 패키징 전문업체(OSAT), 메모리 업체에 파는 회사다. 하나증권 분석에 따르면 CoWoS(칩 여러 개를 한 기판에 붙이는 첨단 패키징) 증설과 HBM(AI용 고대역폭 메모리) 후공정 증설 수요가 장비 매출로 연결되는 구조이며, 고객사가 설비를 늘릴 때마다 장비를 납품해 매출을 인식하는 B2B 방식이다.</p><p>파운드리, OSAT, 메모리 고객을 모두 확보해 특정 고객 한 곳의 투자 주기에 덜 휘둘리는 점이 차별점이며, 하나증권은 고객사 내 안정적 점유율을 근거로 성장 지속을 전망했다. 최근에는 AI 반도체 시장이 GPU뿐 아니라 ASIC(특정 용도 맞춤 칩)으로 넓어지면서 후공정 투자가 동반 확대되는 국면이 성장 동력이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>HBM 관련주 강세 속에 피에스케이홀딩스도 거래량이 급증하며 동참했고, 하나증권은 CoWoS 증설과 메모리 후공정 증설이 장비 매출을 견인한다며 분기 최대 실적을 전망했다(해당 기사의 게재일은 확인되지 않음). 2026.06 분기에는 매출 473억원(+36.3%), 영업이익 138억원(+62.4%)을 기록해 실적이 상승 근거로 확인된다.</p><p style="margin-top:6px;">10월 26일 외국인 매도로 코스피가 5500선을 내줬다가 27일 5700선을 회복하며 기술주 투자심리가 되살아나고 있어, 이 종목의 오늘 +7.29% 상승도 그 흐름과 맞물린다. 다만 EPS 추정치가 30일 전 6626.3에서 6489.7로 소폭 낮아졌고 기관 수급은 순매도라, 동력이 가속 중이라고 단정하기는 어렵다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 74/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">강세 업종 최상위권 주도주, 실적 가속 뚜렷</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 4%이고, 최근 12주 수익률은 +80%로 상위 5%입니다. 속한 반도체와반도체장비 업종은 77개 업종 중 1위이며, 업종 내 RS 순위는 141종 중 7위입니다. 시가총액은 3.6조원이고 상장한 지 약 30년 된 종목입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴) 판정은 미통과이며 뚜렷한 패턴은 없습니다. 수축은 5번 있었고 폭은 19%에서 마지막 11%로 줄었습니다. 피벗(돌파 기준가) 173,600원은 현재가보다 3.5% 높고, 현재가는 50일·200일 평균선 위에서 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간의 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 0.63배였습니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#FEE2E2;color:#991B1B">부족</span> 최근 20거래일 외국인·기관 수급 규모는 확인되지 않았습니다. 사전 추출에서는 기관이 순유출 방향으로 나타났습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 2026년 2분기 매출은 전년 동기보다 36% 늘었고 영업이익은 62% 늘었습니다. 3분기 증권사 추정 영업이익은 341억원으로 2분기보다 크게 늘어나는 것으로 나와 있습니다. 올해 EPS 추정은 30일 전과 비슷한 수준을 유지하고 있습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·CB·BW 등 중대 공시는 없었습니다. 지분 관련 공시는 대량보유 보고 등 3건이며 본문 수치는 확인되지 않았습니다. 결격 사유 검토에서는 회피 아님으로 판정되었습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 60일 투자의견 6건은 모두 매수이며 평균 목표주가는 현재가를 크게 웃돕니다. 의견 상향·하향 변경은 없었습니다. 9월 리포트는 목표가 20만원을 제시했습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> HBM(고대역폭 메모리) 후공정 장비 수요와 AI 반도체 확대가 움직이는 이유이며, 하나증권의 최대 실적 전망 기사가 확인됩니다. 다만 그 기사는 이전 분기 기준이라 최근 2주의 새 이슈는 확인되지 않았습니다. 논지를 훼손하는 사실은 검색에서 나오지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 돌파가 나온다면 뒤 상승 가능성이 좋은 주도주로 판단합니다. 업종 1위 그룹 안에서 RS 상위 4%이고 분기 실적이 매출·이익 모두 가속하고 있습니다. 증권사 매수 의견과 HBM 후공정 수요라는 재료도 뒷받침합니다. 가장 큰 리스크는 기관 순유출 흐름과 52주 고점 대비 조정 상태에서 업종 강세가 꺾이는 경우입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩173,600 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩155,664)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩169,200 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩155,664 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/003/0014280241" target="_blank" rel="noopener">코스피, 앤트로픽發 훈풍에 5700선 회복…장 초반 4%대 급등</a></div><div class="m">뉴시스 · 2026.10.27 09:42</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/277/0005833587" target="_blank" rel="noopener">외인 &#x27;팔자&#x27;에 코스피 5500선 반납…코스닥은 3.2%↓</a></div><div class="m">아시아경제 · 2026.10.26 15:58</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/003/0014279172" target="_blank" rel="noopener">코스피, 외인 매도에 1%대 하락…반년 만에 5500선 반납</a></div><div class="m">뉴시스 · 2026.10.26 15:53</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/277/0005833346" target="_blank" rel="noopener">외국인 &#x27;팔자&#x27;…코스피 1%대 약세에 5500선 내줘</a></div><div class="m">아시아경제 · 2026.10.26 09:55</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/003/0014274841" target="_blank" rel="noopener">코스피, 삼전·닉스 반등에 5550선 강보합 마감</a></div><div class="m">뉴시스 · 2026.10.23 15:55</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026.09 분기 실적 발표(컨센서스 매출 818억원·영업이익 341억원, 발표일 미확인) / HBM·첨단 패키징 고객사 증설 및 수주 소식 / 증권사 목표주가 추가 조정</div></div>
+</div>
+</div>
+<div class="card" id="t-064290" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="industrial" data-ai="true" data-unicorn="false" data-verdict="can" data-comp="64.5" data-compx="73.4" data-rs="96">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">064290</div>
+        <div class="sbadge">RS 96</div>
+        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.3333 · 구성 13 · 상위3 080580, 064290, 098120 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">인텍플러스 🤖</div>
+        <span class="ctag">반도체 검사장비 · 2027 턴어라운드 기대</span>
+        <div class="chl">수주잔고 증가와 2027 이익 급증 기대, 다만 현 실적은 적자 지속</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:09 · 기준일 2026-10-27 · 정규장 종가">₩57,700</div>
+      <div class="cchg up">+11.18%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 적자 기업: PSR 기준  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님)">COMP 64.5</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 73.4</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>11.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.11yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>74/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span><span class="g"><i></i><b>매수 4명</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">2026 공급계약 공시</div><div class="v">724억원</div><div class="s up">메리츠증권 리포트 인용 · 수주잔고 증가</div></div><div class="num"><div class="l">2027 영업이익 추정</div><div class="v">738억원</div><div class="s up">메리츠증권 추정치 · 턴어라운드 기대</div></div><div class="num"><div class="l">2026.06 분기 매출</div><div class="v">90억원</div><div class="s dn">전년동기 251억원 대비 -64.1% · 영업이익 -51억원</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">89,500원</div><div class="s up">10-26 종가 대비 +73.8% · 투자의견 평균 4.00점</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>인텍플러스는 반도체·디스플레이용 외관 검사장비(영상으로 제품 불량을 잡아내는 장비)를 만들어 반도체 패키지·기판 제조사에 파는 회사다. 장비 단위로 납품 계약을 맺고 매출을 인식하는 B2B 구조라, 고객사 설비투자 시점에 따라 분기 실적이 크게 출렁인다.</p><p>검사장비 시장에서는 고영테크놀러지 같은 국내 업체와 해외 장비사가 경쟁하며, 이 회사는 반도체 패키지·기판 쪽 수요 확대에 맞춰 수주를 쌓는 위치다. 메리츠증권 리포트에 따르면 반도체 수요로 수주잔고가 크게 늘었고, 2026년 턴어라운드(적자에서 흑자로의 회복)를 거쳐 2027년 이익이 급증할 것으로 전망된다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>메리츠증권 리포트(10월 초 추정)가 반도체 수요로 수주잔고가 늘고 2026년 턴어라운드, 2027년 영업이익 738억원을 전망하면서 이야기가 형성됐고, 8~10월 단일판매·공급계약 공시가 잇따라 수주 흐름을 뒷받침했다. 10월 16일 기판주 동반 강세 속 약 7% 상승한 데 이어, 10월 27일 반도체 코스닥 중소형주가 미국 훈풍에 두 자릿수 강세를 보이며 당일 11%대 상승했다.</p><p style="margin-top:6px;">공급계약 공시와 증권사 목표가(평균 89,500원)가 유지돼 동력은 살아 있고 반도체 중소형주 강세와도 맞물린다. 다만 실적은 2026.06 분기 영업이익 -51억원으로 아직 숫자로 확인되지 않았고, 10월 15일 미 CPI 충격 때 기판주가 급락했듯 시황 민감도가 높아 섹터 흐름이 꺾이면 동력이 식을 수 있다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 74/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">강세 업종 주도주, 수주 증가로 실적 반등 기대</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 4%이고, 최근 12주 수익률은 상위 2%, 25주 수익률은 상위 1%입니다. 속한 반도체와반도체장비 업종은 77개 업종 중 1위이며, 업종 안에서도 상위권입니다. 상장 15.8년차이고 시가총액은 7,396억원입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 통과하지 못했고 뚜렷한 패턴은 없습니다. 피벗(돌파 기준가)은 58,300원이며 현재가는 이보다 1.7% 낮습니다. 52주 고가보다 7.8% 낮고, 50일·200일 평균선 위에서 정배열을 이루고 있습니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 0.85배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#FEE2E2;color:#991B1B">부족</span> 최근 20거래일 수급은 구체적으로 확인되지 않았습니다. 기관은 순유출로 집계됐습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 2분기는 매출이 전년 같은 기간보다 64% 줄고 영업적자를 냈습니다. 3분기는 증권사 추정으로 적자 폭이 거의 사라질 것으로 보이며, 올해 이익 추정치는 상향되는 방향입니다. 가이던스는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·CB·BW 등 중대 공시는 없었습니다. 8월부터 10월까지 단일판매·공급계약 공시가 이어졌습니다. 결격 사유 검토에서는 회피 대상이 아니라고 판정됐습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 증권사 투자의견 평균은 5점 만점에 4.00점이고 목표주가 평균은 89,500원으로 현재가보다 크게 높습니다. 최근 60일 의견은 매수 2건, 중립·매도는 없으며 상향·하향 변경은 없었습니다. 참여 애널리스트 수는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 반도체 수요로 수주잔고가 크게 늘었고 올해 공급계약 공시가 총 724억원이라는 증권사 리포트가 있습니다. 같은 리포트는 올해 실적 턴어라운드와 내년 이익 급증을 전망합니다. 10월 27일에는 반도체 코스닥 중소형주가 동반 강세를 보였으며, 논지를 훼손하는 사실은 검색에서 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 인텍플러스는 돌파가 나오면 이어서 오를 가능성이 높은 주도주로 판단합니다. 업종 1위의 강세 속에서 전체 상위권 주가 흐름을 보이고, 수주잔고 증가와 내년 실적 급증 전망이라는 새 이야기가 커지고 있습니다. 다만 최근 분기 실적은 적자이고 기관은 순유출이어서, 기대한 실적 반등이 늦어지면 상승 동력이 약해질 수 있습니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩58,300 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩53,084)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩57,700 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩53,084 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/008/0005432038" target="_blank" rel="noopener">반도체 코스닥 중소형주, 美 훈풍에 두 자릿수 강세</a></div><div class="m">머니투데이 · 2026.10.27 09:18</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/008/0005427263" target="_blank" rel="noopener">인텍플러스 7% 강세…기판주 동반 상승</a></div><div class="m">머니투데이 · 2026.10.16 09:16</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/050/0000111992" target="_blank" rel="noopener">코스피, 5500선 붕괴 위협…‘미 CPI 쇼크·AI 리스크’</a></div><div class="m">한경비즈니스 · 2026.10.15 12:19</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/008/0005426601" target="_blank" rel="noopener">삼성전기 등 기판주 급락…미국 물가 충격 영향</a></div><div class="m">머니투데이 · 2026.10.15 09:19</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/656/0000189503" target="_blank" rel="noopener">8월 &#x27;반짝 반등&#x27; 충청 상장사 시총…한 달 만에 다시 하락</a></div><div class="m">대전일보 · 2026.10.14 19:13</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">추가 단일판매·공급계약 공시(수시), 2026.09 분기 실적 발표(컨센서스 매출 235억원·영업이익 -1억원, 정확한 일정은 미확인)</div></div>
+</div>
+</div>
+<div class="card" id="t-091580" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="70.3" data-compx="75.7" data-rs="96" data-fresh="true">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">091580</div>
+        <div class="sbadge">RS 96</div>
+        <div class="sbadge" title="전기제품 — 주도섹터 · F2T3 96.0 · 구성 1 · 상위3 091580 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 2/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">상신이디피</div>
+        <span class="ctag">ESS 각형 캔 · 영업이익 +482%</span>
+        <div class="chl">ESS·원통형 캔 수요로 2분기 영업이익 64억, 흑자 전환 속도 가파름</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:09 · 기준일 2026-10-27 · 정규장 종가">₩26,250</div>
+      <div class="cchg up">+10.99%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 결측 항목: 성장률  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님)">COMP 70.3</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 75.7</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>18.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+3.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.26yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>74/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">2분기 매출</div><div class="v">860억원</div><div class="s up">전년동기 598억원 대비 +43.8%</div></div><div class="num"><div class="l">2분기 영업이익</div><div class="v">64.0억원</div><div class="s up">전년동기 11.0억원, 직전 분기 49.0억원</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">30,000원</div><div class="s up">종가(10-26) 23,850원 대비 괴리 +25.8%</div></div><div class="num"><div class="l">기관 20일 순매수</div><div class="v">10,298</div><div class="s up">외국인 -5,543</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>상신이디피는 이차전지의 외장재인 금속 캔(원통형·각형)을 만들어 배터리 셀 제조사에 납품하는 회사다. 원통형 캔은 전동공구·전기자전거·데이터센터용 BBU(정전 시 서버에 전력을 대는 백업 배터리) 등에 쓰이고, 각형 캔은 전기차와 미국 ESS(에너지저장장치)용 BESS 라인에 공급하는 구조다. 배터리 셀 제조사가 고객인 B2B 사업이라 고객사 물량과 증설 일정에 매출이 연동된다.</p><p>캔 시장은 국내외 부품사와 중국 업체가 경쟁하는 구도이며, 이 회사는 원통형과 각형 두 가지 폼팩터를 모두 갖춘 점이 강점이다. 최근에는 전기차 배터리의 각형 전환과 ESS 시장 확대가 겹치면서 미국 BESS용 각형 캔 라인을 6개에서 내년 상반기까지 4개 더 늘릴 계획이고, 2170 규격 전환에 따른 판가 상승도 실적을 끌어올리는 중이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026년 2분기 매출 860억원, 영업이익 64.0억원으로 전년동기 대비 크게 개선되며 실적 턴어라운드가 확인됐고, 증권사들이 EV 배터리 각형 전환과 ESS 시장 확대를 수혜 요인으로 짚었다. 10월에는 ESS 수주·AI 전력 기대 기사와 ESS 관련 ETF 순자산 2000억 돌파 보도가 이어지며 섹터 관심이 커졌고, 당일 +10.99% 상승으로 이어졌다.</p><p style="margin-top:6px;">실적 개선, 미국 BESS 증설, 기관 순매수, ESS 섹터 기사가 동시에 이어지고 있어 동력은 살아 있고 이번 달 시장 흐름과도 맞물린다. 다만 유진투자증권이 시장 밸류에이션 하락을 반영해 목표가를 35,000원에서 30,000원으로 낮췄고 급등 후 과열 신호가 언급된 점은 확산 속도가 단기에 식을 수 있다는 신호다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 74/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">ESS 수혜에 실적 급증, 강한 주도주입니다</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 4%이고, 최근 12주 수익률은 상위 3%입니다. 속한 전기제품 업종은 77개 중 2위이며 업종 안에서도 2위입니다. 시가총액은 3,459억원이고 상장 약 19년차입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 통과하지 못했고 뚜렷한 패턴은 없습니다. 피벗(돌파 기준가) 25,350원보다 현재가가 3.0% 높습니다. 52주 고가보다는 17% 낮고, 50일 평균선과 200일 평균선 위에서 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간의 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 1.36배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 기관은 순유입으로 확인됩니다. 외국인과 개인의 수급 규모는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 2분기 매출은 전년 대비 44% 늘었고 영업이익은 약 6배가 됐습니다. 직전 분기보다도 매출과 이익이 모두 증가했습니다. 올해 이익 추정치는 최근 한 달간 상향되었고, 3분기도 비슷한 수준이 예상됩니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 90일 유상증자·CB·BW 등 중대 공시는 없었습니다. 5월에 발행된 100억원 규모 CB(전환가 2만7109원)가 있고 전환 시 희석은 약 3%로 제한적입니다. 결격 사유 검토에서는 회피 대상이 아니었습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 평균 투자의견은 4.00점이고 목표주가 30,000원은 직전 종가보다 높은 수준입니다. 유진투자증권은 매수를 유지하면서 목표가를 시장 밸류에이션 하락 때문에 낮췄습니다. 최근 60일 투자의견 변경은 없었습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> ESS용 각형 캔 증설과 데이터센터용 원통형 캔 수요가 움직이는 이유이며, 관련 ETF 자금 유입 뉴스도 이어집니다. 고객사 다변화 기대가 있으나 삼성SDI 의존도가 높다는 점은 부담입니다. 10월 신규 수주 공시는 검색으로 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 이 종목은 돌파 뒤 잘 오를 가능성이 높은 주도주 후보입니다. 업종 2위의 강세와 영업이익 급증, 추정치 상향, 기관 순유입이 한 방향으로 겹칩니다. ESS와 원통형 캔 증설이라는 확산 중인 이야기도 뒷받침합니다. 가장 큰 리스크는 특정 고객사 의존도와 급등 후 단기 과열로 인한 변동성입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩25,350 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩24,150)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩26,250 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩24,150 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/003/0014269026" target="_blank" rel="noopener">삼성운용 &#x27;KODEX 전고체배터리ESS TOP2플러스&#x27; ETF, 순자산 2000억 돌파</a></div><div class="m">뉴시스 · 2026.10.21 14:48</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/011/0004671078" target="_blank" rel="noopener">AI 전력發 ESS 기대…삼성SDI 5% 오르며 2차전지株 ‘강세’[줍줍리포...</a></div><div class="m">서울경제 · 2026.10.14 10:23</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/015/0005341612" target="_blank" rel="noopener">ESS 수주·중국산 규제…배터리의 시간 오나</a></div><div class="m">한국경제 · 2026.10.12 18:03</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 3분기 실적 발표(컨센서스 매출 880억원·영업이익 65.0억원, 발표일 불명) / 미국 BESS용 각형 캔 4개 라인 증설(내년 상반기 목표) / 북미 고객사 확대 여부</div></div>
+</div>
+</div>
+<div class="card" id="t-003350" style="--c:#475569;--cl:#E9EBED;--cx:#F8F8F9" data-sector="materials" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="79.0" data-rs="95" data-fresh="true">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">003350</div>
+        <div class="sbadge">RS 95</div>
+        <div class="sbadge" title="화장품 — 주도섹터 · F2T3 87.6667 · 구성 4 · 상위3 003350, 192820, 092730 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 9/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">한국화장품제조</div>
+        <span class="ctag">K뷰티 수혜 · 분기 영업이익 +29.6%</span>
+        <div class="chl">K뷰티 인도·중국 확장 기대와 분기 이익 성장, 피벗 0.20% 아래 대기</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:09 · 기준일 2026-10-27 · 정규장 종가">₩15,300</div>
+      <div class="cchg up">+5.44%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 결측 항목: ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 79.0</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.17yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>66/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">분기 매출(2026.06)</div><div class="v">712억원</div><div class="s up">전년동기 538억원 대비 +32.3%</div></div><div class="num"><div class="l">분기 영업이익</div><div class="v">140억원</div><div class="s up">전년동기 108억원 대비 +29.6%</div></div><div class="num"><div class="l">다음 분기 컨센서스</div><div class="v">영업이익 158억원</div><div class="s up">2026.09 추정, 매출 719억원</div></div><div class="num"><div class="l">피벗 이격</div><div class="v">0.20%</div><div class="s up">현재가 ₩15,300 / 피벗 ₩15,330</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>한국화장품제조는 화장품을 개발·생산하고 자회사 스킨1004 같은 브랜드를 통해 국내외 소비자와 유통 채널에 파는 회사다. 자회사 스킨1004가 인도 최대 H&amp;B(건강·미용 전문 매장) 체인인 올리브영 인디아에 공식 입점하면서 해외 유통망을 넓히는 구조다.</p><p>K뷰티 업종에서는 에이피알 등 수출 브랜드 기업과 같은 흐름으로 거래되며, 상반기 화장품 수출이 반기 기준 역대 최대를 기록한 점이 업종 전반의 순풍이다. 최근 확정 분기(2026.06) 매출이 전년동기 대비 32.3% 늘어 해외 확장 기대가 실적으로 일부 확인되는 단계다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026.06 분기 매출 712억원(+32.3%)·영업이익 140억원(+29.6%)의 성장에 K뷰티 업종 강세가 겹쳐 주가가 올랐고, 12개월 최대 상승폭은 136.2%에 달한다. 여기에 자회사 스킨1004의 올리브영 인디아 입점과 중국 한한령 해제 기대가 해외 확장 스토리로 더해졌다(딜사이트 기사, 일자 불명확).</p><p style="margin-top:6px;">10.07 화장품주 동반 강세와 10.16 K뷰티 반등 기사로 업종 온기는 이어지고 있으나, 이 종목에 대한 최근 1주 내 신규 동력 기사는 확인되지 않았다. 고점 대비 -14.3% 구간에서 당일 +5.44% 반등해 피벗 0.20% 아래까지 올라온 점은 수급이 살아 있다는 신호지만, 재료의 신선도는 약하다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 66/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">업종 1위 주도주에 실적 가속, 물량 부담은 변수</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 5%이고, 최근 12주 수익률은 +93%로 상위 4%입니다. 속한 화장품 업종은 77개 업종 중 9위의 강세 업종이며 업종 내 RS 순위는 1위입니다. 상장 48.7년차이고 시가총액은 3,467억원입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 기준을 통과하지 못했고 뚜렷한 패턴은 없습니다. 피벗(돌파 기준가) 15,330원은 현재가보다 0.2% 위에 있고, 52주 고가보다는 15% 낮습니다. 50일 평균선과 200일 평균선 위에 있으며 50일선이 200일선 위인 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 0.25배였습니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 기관은 순유입으로 확인됩니다. 외국인 수급은 확인되지 않았습니다. 규모 등급은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 2분기 연결 매출은 전년 동기보다 32% 늘었고 영업이익도 30% 늘었습니다. 직전 분기보다 매출과 이익 모두 크게 커져 가속하는 모습입니다. 3분기 증권사 추정치도 영업이익 증가를 가리키지만 확정 수치는 아니며, 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 90일 유상증자·CB·BW 등 중대 공시는 없었습니다. 다만 전환청구권 행사 공시가 5건 있어 CB 전환에 따른 신주 물량이 나올 수 있으나 규모는 확인되지 않았습니다. 결격 사유 검토에서는 회피 대상이 아닌 것으로 판정됐습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 커버하는 증권사의 컨센서스와 리포트는 없고 최근 투자의견은 1건뿐이며 목표주가도 제시되지 않았습니다. 이는 소형주에서 흔한 중립 사실입니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> K-뷰티 수혜 기대와 자회사 스킨1004의 인도 올리브영 입점, 중국 한한령 해제 기대가 이야기의 축입니다. 다만 한한령 해제는 기대 수준이고 최근 2주 안의 새 상승 동력 기사는 확인되지 않았습니다. 논지를 훼손하는 소송이나 규제 사실은 검색에서 나오지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 이 종목은 돌파 시 잘 오를 가능성이 높은 업종 선두 주도주로 판단합니다. 업종 내 1위 강세와 매출·이익이 30% 넘게 늘어나는 실적 가속이 뒷받침하고, 기관 순유입도 확인됩니다. 가장 큰 리스크는 반복되는 전환청구 물량과 기대감 위주의 재료가 식을 수 있다는 점입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩15,330 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩14,076)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩15,300 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩14,076 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/014/0005590154" target="_blank" rel="noopener">주가 꺾였던 K뷰티, 장 초반 기지개…에이피알 8%대↑[종목 NOW]</a></div><div class="m">파이낸셜뉴스 · 2026.10.16 09:35</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/020/0003755029" target="_blank" rel="noopener">코스피 박스권 장세에도… 반도체 소부장-건설 중소형주 탄력</a></div><div class="m">동아일보 · 2026.10.15 00:31</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/020/0003754975" target="_blank" rel="noopener">삼전닉스 ‘형님株’ 주춤한 새…반도체 ‘소·부·장’ 아우들 상승...</a></div><div class="m">동아일보 · 2026.10.14 17:10</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/088/0001032751" target="_blank" rel="noopener">화장품주 동반 강세…K뷰티 수출 호조 기대 부각</a></div><div class="m">매일신문 · 2026.10.07 10:59</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/421/0009213550" target="_blank" rel="noopener">美 쇼핑시즌 기대 화장품주 강세…에이피알 4%↑[핫종목]</a></div><div class="m">뉴스1 · 2026.10.07 10:13</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026.09 분기 실적 발표(컨센서스 매출 719억원·영업이익 158억원, 발표일 미확인) / 스킨1004 인도 올리브영 입점 이후 매출 반영 / 중국 한한령 해제 기대 여부</div></div>
+</div>
+</div>
+<div class="card" id="t-219130" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="86.4" data-rs="95">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">219130</div>
+        <div class="sbadge">RS 95</div>
+        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.3333 · 구성 13 · 상위3 080580, 064290, 098120 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">타이거일렉</div>
+        <span class="ctag">검사기판 턴어라운드 · 영업익 +138%</span>
+        <div class="chl">반도체 검사용 기판 흑자전환, 분기 영업이익 +138%로 이익 가속</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:09 · 기준일 2026-10-27 · 정규장 종가">₩95,500</div>
+      <div class="cchg up">+11.05%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 결측 항목: ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 86.4</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-1.0%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.24yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>74/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">최근 분기 매출</div><div class="v">335억원</div><div class="s up">2026.06 연결, 전년동기 192억원 대비 +74.5%</div></div><div class="num"><div class="l">최근 분기 영업이익</div><div class="v">69.0억원</div><div class="s up">전년동기 29.0억원 대비 +138%, 직전 분기 35.0억원</div></div><div class="num"><div class="l">다음 분기 컨센서스</div><div class="v">영업익 86.0억원</div><div class="s up">2026.09 추정, 매출 348억원 (추정치)</div></div><div class="num"><div class="l">RS</div><div class="v">95.0</div><div class="s up">SEPA 통과, 시총 6036억원</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>타이거일렉은 반도체 칩의 불량 여부를 가려내는 검사용 특수 기판을 만들어 반도체 제조사와 검사 전문업체에 파는 회사다. 주력은 프로브카드 기판, 로드보드 기판, 소켓보드 기판, 번인보드 기판으로, 완성된 칩이 출하 전 마지막으로 거치는 테스트 지그(검사용 지지·연결 도구)에 들어가는 인쇄회로기판을 납품해 수익을 내는 B2B 구조다.</p><p>검사용 기판은 반도체 생산량이 늘수록 수요가 따라붙는 틈새 시장이며, 회사는 2023~24년 2년 연속 영업적자를 지나 2025년 흑자로 전환했다. 2025년 매출 807억 원(2024년 618억 원, 2023년 486억 원), 영업이익 72억 원이고, 2026년 2분기(6월 결산 분기)에는 매출 335억 원으로 전년동기 대비 +74.5%, 영업이익 69.0억 원으로 +138%를 기록해 업황 회복이 이익으로 이어지는 중이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2023~24년 2년 연속 영업적자 뒤 2025년 매출 807억 원·영업이익 72억 원으로 흑자전환하며 주가 재평가가 시작됐고, 2026년 1월 기관, 2월 외국인의 대량 순매수가 보도됐다. 2026년 5월 4일 필라델피아 반도체지수 상승과 반도체 수출 호조로 반도체 중소형주가 동반 급등할 때 상승 종목에 포함됐고, 2026년 2분기 영업이익이 전년동기 대비 +138%로 늘며 실적이 뒷받침됐다.</p><p style="margin-top:6px;">2분기 매출 +74.5%, 영업이익 +138%에 다음 분기 컨센서스도 영업이익 86.0억 원으로 더 높아 이익 모멘텀은 현시점에도 살아 있고, 최근 20거래일 기관 순매수도 이어졌다. 다만 증권사 의견이 모두 미제시이고 컨센서스 목표주가가 없어 이야기가 시장 전반으로 퍼졌다고 보기는 이르며, 반도체 업황 둔화 신호가 나오는지 살펴야 한다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 74/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">실적이 급증하는 반도체 검사기판 주도주입니다</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 5%이고, 최근 25주 수익률은 +132%로 전체 상위 1%입니다. 속한 반도체와반도체장비 업종은 77개 업종 중 1위이며, 업종 내 순위는 141종 중 14위입니다. 상장 11년차이고 시가총액은 6,036억원입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 통과하지 못했고, 뚜렷한 패턴은 없습니다. 수축은 4번이었고 폭은 19%에서 마지막 9.4%로 줄었습니다. 현재가는 피벗(돌파 기준가)보다 1.0% 낮고 52주 고가보다 4.8% 낮으며, 50일·200일 평균선 위에서 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 1.32배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 기관은 순유입으로 확인됩니다. 외국인 수급과 순매수 규모는 확인되지 않았습니다. 1월에 기관, 2월에 외국인 대량 순매수가 보도된 바 있습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 2분기 매출은 335억원으로 전년 동기보다 74% 늘었고, 영업이익은 138% 늘었습니다. 직전 분기보다도 이익이 크게 늘어 가속하는 모습입니다. 3분기 증권사 추정치도 이익 증가를 가리키지만 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·CB(전환사채)·BW(신주인수권부사채) 등 중대 공시는 없었고, 지분공시도 없었습니다. 거래소 공시는 기업설명회 개최와 타법인 주식 취득 결정 2건입니다. 결격 사유 검토에서도 회피 대상이 아닌 것으로 판정되었고, 검색에서 증자·소송 소식은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 컨센서스를 제시한 증권사는 없고 목표주가와 투자의견 변경도 없습니다. 10월 14일 리포트가 1건 나왔으며, 커버리지가 적은 것은 중립 사실로 봅니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 반도체 검사 공정용 기판(프로브카드 기판 등) 수요 회복과 2025년 흑자전환 이후 실적 개선이 상승의 이유입니다. 2023~24년 적자에서 벗어나 매출과 이익이 함께 늘고 있으며, 반도체 중소형주 동반 강세 속에서 움직이고 있습니다. 10월 14일 하루 급락한 기록은 있으나 논지를 훼손하는 소송·증자 소식은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩96,600 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩87,860)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩95,500 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩87,860 (-8%)</div></div>
+    </div>
+  </div>
+  
+  
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026.09 분기 실적 발표(컨센서스 매출 348억 원·영업이익 86.0억 원, 발표일은 미확인) / 필라델피아 반도체지수·반도체 수출 흐름 / 20260729 공시된 타법인주식 및 출자증권 취득 건의 후속 공시</div></div>
+</div>
+</div>
+<div class="card" id="t-028050" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="buy" data-comp="90.1" data-compx="94.6" data-rs="93" data-fresh="true">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">028050</div>
+        <div class="sbadge">RS 93</div>
+        <div class="sbadge no" title="건설 — 비주도 · F2T3 77.0 · 구성 3 · 상위3 005960, 013700, 066620 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 24/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">삼성E&amp;A</div>
+        <span class="ctag">3Q 영업익 +184% · 반도체 수주 기대</span>
+        <div class="chl">3Q 잠정 영업이익 5,006억(+184%)에 자사주 소각까지, 하반기 그룹사 수주 기대가 겹친 플랜트 대장</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:09 · 기준일 2026-10-27 · 정규장 종가">₩62,200</div>
+      <div class="cchg up">+4.01%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20261026">COMP 90.1</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 94.6</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+1.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.36yr, B2)</b></span><span class="g"><i></i><em>AI</em> <b>80/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span><span class="g"><i></i><b>매수 18명</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">3Q 영업이익(잠정)</div><div class="v">5,006억원</div><div class="s up">전년동기 1,765억원 대비 +184% (10/22 공정공시, 외부감사 전)</div></div><div class="num"><div class="l">3Q 매출(잠정)</div><div class="v">2.91조원</div><div class="s up">전년동기 2.00조원 대비 +45.8%</div></div><div class="num"><div class="l">올해 EPS 추정</div><div class="v">4,477원</div><div class="s up">30일 전 3,833원에서 상향, 상향 2건·하향 1건</div></div><div class="num"><div class="l">증권사 목표가</div><div class="v">평균 75,708원</div><div class="s up">최근 60일 24건 전부 매수, 최고 86,000 / 최저 66,000</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>삼성E&amp;A는 석유화학·가스 플랜트와 반도체 공장 등 대형 설비를 설계·조달·시공까지 일괄 맡아(EPC) 건설해 발주처에 파는 엔지니어링 회사다. 화공 부문에서는 중동 발주처의 정유·가스·수처리 프로젝트를 수주해 공사 진행률만큼 매출을 인식하고, 첨단산업 부문에서는 삼성전자 등 그룹사의 반도체 팹 관련 기반시설 공사를 수주하는 구조다.</p><p>해외 플랜트 시장에서는 현대엔지니어링·GS건설 같은 국내 업체와 Technip Energies 등 해외 업체와 경쟁하지만, 삼성전자 투자 사이클과 직접 맞물리는 그룹사 물량이 차별화 요소다. 정부가 반도체 산업단지 조성 기간을 5년 이내로 줄이고 평택 P5·P6 동시 건설을 추진하면서 하반기 그룹사 수주 기대가 커졌고, 중동 재건 수요도 보조 동력으로 작용한다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>올해 봄 미국·이란 종전 기대에 중동 재건 테마로 5월 7일 장중 6만7,300원까지 올랐다가 테마가 식으며 6월 26일 3만9,550원까지 밀렸다. 이후 6월 말 정부의 서남권 첨단산업 육성 전략으로 6월 29일 14.95%, 7월 1일 8.61% 급등했고, 10월 22일 3분기 잠정 영업이익 5,006억원(+184%)과 자사주 취득·소각 공시가 나오면서 주가가 재차 올랐다.</p><p style="margin-top:6px;">추정치 상향(올해 EPS 추정 3,833원에서 4,477원)과 기관 순매수, 증권사 매수 의견 24건이 이어져 동력은 살아있고 뉴스 전파도 계속되는 중이다. 다만 10월 27일 코스피가 4%대 급등해 매수 사이드카가 발동된 장이라 당일 상승에는 시장 전체의 영향이 섞여 있으며, 수주 공시가 늦어지는 신호가 보이면 점검이 필요하다.</p><div class="vd buy"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 고려</span><span class="vconv">돌파 적합도 80/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">실적 급증과 주주환원이 겹친 업종 내 선두주</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 7%이고, 최근 52주 수익률은 +120%로 전체 상위 7%입니다. 최근 4주 수익률은 상위 4%로 단기 힘도 강합니다. 소속 업종(건설)은 강세 업종은 아니지만 업종 내 41종 중 2위이며 시가총액은 12.1조원입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 기준을 통과하지 못했고 조정 뒤 반등을 시도하는 눌림형입니다. 수축은 2번이었고 폭은 13%에서 10%로 줄었습니다. 현재가는 피벗(돌파 기준가)보다 약간 높고 52주 고가보다는 낮으며, 50일·200일 평균선 위에서 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 2.16배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 기관은 순유입으로 확인됩니다. 외국인 수급과 순매수 규모는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 3분기 잠정 영업이익은 5,006억원으로 전년 동기의 약 2.8배이며 증권사 추정치를 크게 웃돌았습니다. 검색에서 회사가 올해 수주 전망을 19조원, 영업이익 전망을 1조4천억원으로 높인 것이 확인되었습니다. 올해 주당순이익 추정치도 30일 사이 상향되었습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 주요사항보고는 자기주식취득결정 1건뿐이며 유상증자·전환사채 등 물량 부담 공시는 없습니다. 검색에서 약 7,800억원 규모 취득 중 6,900억원을 소각하는 계획이 확인되어 수급에 우호적입니다. 결격 사유 검토에서는 회피 해당 없음으로 판정되었습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 60일 투자의견 24건이 모두 매수이고 평균 목표주가는 현재가보다 높습니다. 실적 발표 직후 리포트를 낸 증권사 대부분이 목표주가를 올렸다는 보도가 확인됩니다. 대표적으로 키움증권이 목표주가를 상향했습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 10월 22일 실적과 주주환원 발표로 주가가 16% 넘게 급등했고, 이는 사우디 비료 프로젝트 수주와 대형 화학·첨단산업 프로젝트 매출 반영이 뒷받침합니다. 반도체 투자 확대에 따른 첨단산업 수주 기대가 이어지는 점도 확인됩니다. 논지를 훼손할 최근 악재는 확인되지 않았고, 과거 중동 플랜트 손실과 현대로템과의 소송 이력만 확인됩니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 이 종목은 돌파 거래량이 붙는다면 큰 상승으로 이어질 가능성이 높은 주도주로 판단합니다. 영업이익이 크게 늘고 수주와 이익 전망이 상향되었으며 자사주 소각까지 더해져 실적 가속과 이슈 강도가 모두 강합니다. 업종 자체는 강세 업종이 아니고 단기간에 급등한 만큼, 기대가 주가에 선반영되어 실적이 둔화되면 조정 폭이 클 수 있다는 점이 가장 큰 리스크입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩60,900 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩57,224)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩62,200 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩57,224 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/016/0002714822" target="_blank" rel="noopener">이재용 회장, 취임 4년 된 날 로봇 핵심거점 방문…미래기술 확보 총...</a></div><div class="m">헤럴드경제 · 2026.10.27 10:46</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/366/0001200528" target="_blank" rel="noopener">코스피, 4%대 폭등해 ‘매수 사이드카’… 코스닥도 4%대 ↑</a></div><div class="m">조선비즈 · 2026.10.27 10:31</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/022/0004169832" target="_blank" rel="noopener">삼성 기술주 저가 매수 나선 고수들…인버스 ETF로 변동성 대비 [주식...</a></div><div class="m">세계일보 · 2026.10.26 17:17</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/011/0004675244" target="_blank" rel="noopener">상위 1%, 코스피 약세에도 ‘삼전닉스’ 담았다 [주식 초고수는 지금...</a></div><div class="m">서울경제 · 2026.10.26 16:08</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/016/0002714373" target="_blank" rel="noopener">삼성E&amp;amp;A, 호실적·주주환원에 폭등</a></div><div class="m">헤럴드경제 · 2026.10.26 11:37</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">하반기 삼성전자 평택 P6 등 그룹사 반도체 팹 수주 발표(일정 미확정) / 자기주식취득·소각 진행 / 3분기 확정 실적 공시</div></div>
+</div>
+</div>
+<div class="card" id="t-036540" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-comp="60.3" data-compx="62.4" data-rs="93" data-fresh="true">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">036540</div>
+        <div class="sbadge">RS 93</div>
+        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.3333 · 구성 13 · 상위3 080580, 064290, 098120 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">SFA반도체 🤖</div>
+        <span class="ctag">후공정 외주 수혜 · 적자 축소</span>
+        <div class="chl">범용 메모리 후공정 외주 확대 수혜 기대, 실적 흑자전환 확인이 관건</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:09 · 기준일 2026-10-27 · 정규장 종가">₩8,720</div>
+      <div class="cchg up">+7.26%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 적자 기업: PSR 기준  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님)">COMP 60.3</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 62.4</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (1.09yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>62/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span><span class="g"><i></i><b>매수 4명</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">2026.2Q 매출</div><div class="v">1,263억원</div><div class="s up">전년동기 761억원 대비 +66.0%</div></div><div class="num"><div class="l">2026.2Q 영업이익</div><div class="v">-62.0억원</div><div class="s dn">전년동기 -67.0억원, 적자 소폭 축소</div></div><div class="num"><div class="l">3Q 컨센서스 영업이익</div><div class="v">-32.0억원</div><div class="s up">매출 1,489억원 추정, 적자 폭 추가 축소 전망</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">11,500원</div><div class="s up">10-26 종가 8,080원 대비 괴리 +42.3%</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>SFA반도체는 완성된 반도체 칩을 포장(패키징)하고 불량 여부를 검사(테스트)하는 후공정 서비스를 메모리 업체에 제공해 가공 대가를 받는 회사다. 삼성전자 등 메모리 제조사의 주문을 받아 가공해주는 B2B 외주 구조이고, 필리핀 현지 법인에서도 생산한다.</p><p>경쟁사로는 같은 후공정 업체인 하나마이크론이 꼽히며, 두 회사 모두 메모리 업체의 외주 확대 흐름에서 함께 주목받고 있다. 메모리 업체들이 고대역폭메모리(HBM) 생산능력을 늘리려고 수율이 안정된 범용 메모리의 후공정을 외주로 돌리면서 수혜 기대가 커지는 국면이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>9월 14일 AI 속도 조절론으로 주춤했던 AI 모멘텀이 인텔의 메모리 공급 전망과 엔비디아 CEO 발언으로 되살아나면서 소부장주가 반등했고, SFA반도체는 9월 21일 기준 일주일간 49.86% 급등했다. 하나증권은 메모리 업체들의 범용 메모리 후공정 외주 확대를 근거로 2028년까지 외형 성장 가시성이 높다고 평가했고, 외국인 순매수가 상승을 이끌었다.</p><p style="margin-top:6px;">소부장 순환매와 외국인 수급은 10월에도 이어지고 있지만, 급등 이후 주가가 올해 최고점 부근에서 조정을 받은 상태라 모멘텀이 식는지 확인하는 구간이다. 이익 개선이 실적으로 확인되기 전까지는 수급과 테마에 의존하므로 3분기 실적과 기관 수급 전환 여부가 동력 유효성을 가르는 신호다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 62/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">업종 1위 속 후공정 외주 수혜, 실적은 아직 적자</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 7%이고, 최근 12주 수익률은 +93%로 상위 4%입니다. 속한 반도체와반도체장비 업종은 전체 1위 강세 업종이지만 업종 안에서는 141종 중 25위로 최상위 리더는 아닙니다. 최근 4주는 하락했고 시가총액은 1.4조원입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 통과하지 못했고 뚜렷한 패턴은 없습니다. 피벗(돌파 기준가)은 8,980원으로 현재가가 2.8% 아래에 있습니다. 52주 고가보다 30% 낮지만 50일·200일 평균선 위에서 정배열을 이루고 있습니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간의 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 0.52배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 수급은 공식 확인되지 않았으나, 기관은 순유출로 파악됩니다. 9월 하순 외국인 순매수가 크게 유입됐다는 보도가 있었고 외국인 지분이 크게 늘었다는 비검증 글도 있습니다. 다만 최근의 지속 여부는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#FEE2E2;color:#991B1B">부족</span> 2분기 매출은 전년 동기 대비 66% 늘었지만 영업이익은 적자가 이어졌고 적자 폭만 소폭 줄었습니다. 3분기 증권사 추정도 적자 지속이며 올해 이익 추정치는 하향 방향입니다. 흑자전환 기대는 비검증 글에 의존하고 있어 확정된 가속은 아직 없습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·전환사채 등 중대 공시는 없었습니다. 9월 8일 금전대여결정과 9월 29일 대량보유 약식 보고서가 있었으나 본문은 확인되지 않았습니다. 결격 사유 검토에서도 회피 판정은 없었습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 컨센서스 투자의견은 5점 만점에 4.00점이고 평균 목표주가는 현재가보다 높습니다. 최근 60일 의견은 매수 2건, 중립·매도 없음이며 상향·하향 변경은 없었습니다. 올해 이익 추정을 내놓는 애널리스트는 1명입니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 메모리 업체의 범용 메모리 후공정 외주 확대가 핵심 재료이고, 하나마이크론 등과 함께 후공정 1군으로 거론됩니다. 9월 하순 일주일간 약 50% 급등했고 10월에도 소부장 ETF 등 관련 뉴스가 이어졌습니다. 삼성 장비 이관 내용은 비검증 블로그 출처여서 확정 근거로 보기 어렵고, 삼성전자 의존도가 높다는 점이 약점입니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> AI 반도체 후공정 외주라는 강한 이야기와 업종 1위 흐름을 갖춰 돌파 시 상승 여지는 있으나 실적이 뒷받침돼야 하는 중간 이상의 후보입니다. 상대강도는 상위 7%이고 외주 확대 테마가 확산 단계에서 외국인 자금을 끌어온 점이 긍정적입니다. 반면 영업이익은 여전히 적자이고 추정치가 하향되고 있어 기대가 실적으로 확인되지 않으면 주가가 되돌릴 수 있다는 점이 가장 큰 위험입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩8,980 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩8,022)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩8,720 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩8,022 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/082/0001403871" target="_blank" rel="noopener">AI 반도체 무한경쟁시대 시험대 오른 소부장 산업 [비즈앤피플]</a></div><div class="m">부산일보 · 2026.10.25 08:00</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/088/0001035379" target="_blank" rel="noopener">한 달 새 26조원 던진 외국인…&#x27;이 종목&#x27;은 담았다</a></div><div class="m">매일신문 · 2026.10.20 10:04</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/014/0005590772" target="_blank" rel="noopener">베트남이 놓친 기업 노린다… 稅혜택 승부수 띄운 필리핀</a></div><div class="m">파이낸셜뉴스 · 2026.10.18 18:36</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/003/0014257669" target="_blank" rel="noopener">이달 21조 던진 외국인…삼전·닉스 팔았지만 반도체 공급망은 샀다</a></div><div class="m">뉴시스 · 2026.10.16 10:16</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/015/0005342773" target="_blank" rel="noopener">삼성전기·테스·심텍 골라 담는다…반도체 소부장 ETF 출격</a></div><div class="m">한국경제 · 2026.10.15 09:58</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 3분기 실적 발표(일정 미확인, 컨센서스 영업이익 -32.0억원 대비 적자 축소 여부) · 필리핀 법인 장비 이관 및 양산 개시 관련 공식 확인(미확인) · 소부장 순환매 지속 여부</div></div>
+</div>
+</div>
+<div class="card" id="t-051160" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="it" data-ai="true" data-unicorn="false" data-verdict="can" data-comp="" data-compx="80.4" data-rs="93">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">051160</div>
+        <div class="sbadge">RS 93</div>
+        <div class="sbadge" title="판매업체 — 주도섹터 · F2T3 94.0 · 구성 1 · 상위3 051160 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 3/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">지어소프트 🤖</div>
+        <span class="ctag">오아시스 지주 · 영업이익 +86.8%</span>
+        <div class="chl">새벽배송 자회사 오아시스 이익 개선에 미리캐피탈 지분 확보가 겹친 피벗 직전 자리</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:09 · 기준일 2026-10-27 · 정규장 종가">₩13,110</div>
+      <div class="cchg up">+7.28%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 결측 항목: ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 80.4</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.24yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>58/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">분기 영업이익</div><div class="v">99.0억원</div><div class="s up">2026.06 연결, 전년동기 53.0억원 대비 +86.8%</div></div><div class="num"><div class="l">분기 매출</div><div class="v">1,451억원</div><div class="s dn">전년동기 1,560억원 대비 -7.0%</div></div><div class="num"><div class="l">미리캐피탈 지분</div><div class="v">14.9%</div><div class="s up">최대주주와 2.2%p 차 (10/14 보도)</div></div><div class="num"><div class="l">RS</div><div class="v">93.0</div><div class="s up">SEPA 통과, 피벗까지 0.53%</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>지어소프트는 IT 서비스 업체로 출발해 현재는 새벽배송·친환경 식품 유통 자회사 오아시스(지분 79.4%)를 통해 연결 매출 대부분을 올리는 지주형 회사다. 오아시스마켓·오아시스 앱을 통해 소비자에게 신선식품을 직접 파는 B2C 구조로, 연결 실적은 사실상 오아시스의 판매와 이익에 연동된다.</p><p>새벽배송 시장에서는 쿠팡, 마켓컬리 같은 대형 업체와 경쟁하며, 친환경·유기농 식품 중심의 오프라인 매장과 온라인 배송을 함께 운영하는 점이 차별점이다. 최근 분기에는 매출이 줄었는데도 영업이익이 크게 늘어 수익성 개선이 전환점으로 나타나고 있고, 10월에는 외부 재무적 투자자가 지분을 늘리며 지배구조에도 변수가 생겼다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026.09.28 거래량이 급증하며 종가 13,170원으로 약 11% 올랐으나 당시 원인 기사는 확인되지 않았다. 이후 10/14 미리캐피탈이 지분 14.9%를 확보했다는 보도가 나왔고, 2026.06 분기 영업이익이 전년동기 대비 86.8% 늘어난 실적과 함께 주가가 상승 흐름을 이어온 것으로 보인다.</p><p style="margin-top:6px;">최신 상승 동력을 직접 확인해주는 기사는 없어 검색 품질이 낮고, 지분 확보 보도 이후 새로운 촉매는 확인되지 않는다. 다만 기관·외국인 순매수와 10/26 대량보유 보고가 이어져 수급 관심은 아직 살아 있는 것으로 보이며, 이 흐름이 끊기는지가 식는 신호가 된다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 58/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">주도주 흐름은 강하나 재료는 지분 경쟁 위주</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 7%이고, 최근 25주 수익률은 상위 2%로 매우 강합니다. 속한 판매업체 업종은 강세 업종이며 업종 내 1위입니다. 시가총액은 1,768억원의 소형주입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴) 판정은 미통과이며, 수축은 4번 있었고 폭은 계속 줄었습니다. 피벗(돌파 기준가)은 13,180원으로 현재가가 0.5% 아래에 있습니다. 52주 고가보다 16% 낮고, 50일·200일 평균선 위에서 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간의 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 평소의 0.18배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 기관은 최근 20거래일 순유입으로 확인됩니다. 외국인 수급과 규모 등급은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 2분기 연결 매출은 전년 동기보다 7% 줄었지만 영업이익은 87% 늘었습니다. 직전 분기와 비슷한 이익 수준을 유지했습니다. 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 90일 안에 자기주식 취득과 주식 소각 결정이 있었고, 종속회사의 유상증자 결정 공시도 있었습니다. 지분 공시가 잦지만 본문 내용은 확인되지 않았습니다. 결격 사유 검토에서는 회피 대상이 아니었습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 커버하는 증권사와 투자의견, 리포트가 없습니다. 중립적 사실로 봅니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 10월 14일 미리캐피탈이 지분을 확보해 최대주주와 격차가 줄었다는 보도가 있으나, 검색에서는 최대주주의 경영권을 당장 위협할 수준은 아니라는 평가가 나왔습니다. 9월 28일 급등의 원인 기사는 확인되지 않았고, 주가는 자회사 오아시스 실적과 밀접합니다. 최근 2주 새로운 성장 이야기는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 돌파가 나온다면 보통 이상으로 오를 수 있는 주도주 후보이나 확신은 제한적입니다. 상대강도와 업종 내 1위 지위, 이익 개선이 뒷받침됩니다. 반면 상승 재료가 지분 경쟁 기대와 원인 불명의 급등에 기대고 있어 실제 사업 가속 근거는 약합니다. 가장 큰 리스크는 지분 경쟁 기대가 식으면 동력이 빠르게 약해지는 점입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩13,180 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩12,061)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩13,110 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩12,061 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/421/0009245254" target="_blank" rel="noopener">강청희 건보공단 이사장 28억 신고…권병기 복지부 대변인은 20억</a></div><div class="m">뉴스1 · 2026.10.23 00:00</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/366/0001198297" target="_blank" rel="noopener">스틱 품은 美 미리캐피탈, 韓 중소형주 ‘줍줍’… 올해만 5곳 지분 5...</a></div><div class="m">조선비즈 · 2026.10.16 06:01</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/003/0014254924" target="_blank" rel="noopener">AI 투자 &#x27;빚더미&#x27; 우려…코어위브, 주가 15% 급락·채권 수익률 15% 육...</a></div><div class="m">뉴시스 · 2026.10.15 10:12</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/293/0000091569" target="_blank" rel="noopener">미리캐피탈, 지어소프트 지분 14.9%로 확보…최대주주와 2.2%p차</a></div><div class="m">블로터 · 2026.10.14 15:03</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/366/0001194608" target="_blank" rel="noopener">코딩 교육하던 엘리스그룹, 지난해 매출 395억인데 IPO 몸값 1조 인정...</a></div><div class="m">조선비즈 · 2026.09.28 06:01</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">미리캐피탈 지분 추가 변동 공시 및 최대주주와의 관계 전개 / 2026.09.17 종속회사 유상증자 후속 공시 / 다음 분기 실적 발표(일정 미확인)</div></div>
+</div>
+</div>
+<div class="card" id="t-144960" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="industrial" data-ai="true" data-unicorn="false" data-verdict="buy" data-comp="77.6" data-compx="79.8" data-rs="93">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">144960</div>
+        <div class="sbadge">RS 93</div>
+        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.3333 · 구성 13 · 상위3 080580, 064290, 098120 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">뉴파워프라즈마 🤖</div>
+        <span class="ctag">반도체 RPS · 2Q 영업이익 +124%</span>
+        <div class="chl">RPS 본업과 자회사 실적이 겹친 이익 성장, 당일 소부장 동반 강세로 신고점권</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩14,580</div>
+      <div class="cchg up">+10.29%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님)">COMP 77.6</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 79.8</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>14.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g warn"><i></i><em>돌파후</em> <b>+2.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.36yr, B1)</b></span><span class="g"><i></i><em>AI</em> <b>78/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">2026.06 분기 매출</div><div class="v">2,088억원</div><div class="s up">전년동기 1,633억원 대비 +27.9%</div></div><div class="num"><div class="l">2026.06 분기 영업이익</div><div class="v">273억원</div><div class="s up">전년동기 122억원 대비 +124%</div></div><div class="num"><div class="l">2026E 연결 영업이익</div><div class="v">682억원</div><div class="s up">증권사 전망(8/11), 전년 대비 +137.8%</div></div><div class="num"><div class="l">기관 20일 순매수</div><div class="v">+23,550</div><div class="s up">외국인 -7,654</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>뉴파워프라즈마는 반도체 식각·증착 공정에서 챔버를 세정하고 플라즈마를 만드는 원격 플라즈마 발생기(RPS)와 RF 발생기, 매칭 네트워크를 만들어 반도체 장비사와 소자 업체에 파는 회사다. 별도 기준 반도체 매출 비중이 약 80%로 국내 메모리 투자에 따라 주문이 움직이는 B2B 장비부품 구조다.</p><p>RPS는 글로벌 3사가 과점하는 시장으로, 뉴파워프라즈마를 뺀 경쟁사는 모두 미국 기업(MKS 등)이다. 미중 무역분쟁으로 미국 업체의 중국 공급이 어려워진 틈에 중국 로컬 고객사 매출이 늘었고, 초박형 유리(UTG)를 만드는 자회사 도우인시스와 우주·방산 복합소재 자회사 스페이스프로가 연결 실적을 키우는 전환점에 있다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2025년 8월 미중 무역분쟁으로 중국 로컬 고객사향 RPS 매출이 늘며 사상 최대 실적 전망이 나왔고, 2026년 1분기 연결 영업이익 135억원(+158% YoY)에 이어 2분기 273억원(+124% YoY)으로 이익이 가속됐다. 8월 11일 증권사는 2026E 연결 영업이익 682억원을 제시했으며, 10월 27일에는 美 AI 훈풍으로 반도체 코스닥 중소형주가 동반 강세를 보이며 당일 +10.29% 상승했다.</p><p style="margin-top:6px;">분기 이익 증가와 반도체 소부장 순풍이 겹쳐 동력은 살아 있으나, 오늘 움직임은 개별 재료보다 섹터 동반 강세 성격이 짙다. 최근 1주 내 종목 기사와 60일 내 증권사 의견이 없어 내러티브 전파는 아직 얕고, 섹터 강세가 식는지가 동력 지속의 점검 신호다.</p><div class="vd buy"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 고려</span><span class="vconv">돌파 적합도 78/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">1위 반도체 업종의 상위권 종목, 실적도 가속 중</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 7%이고, 최근 25주 수익률은 상위 1%로 매우 강합니다. 속한 반도체와반도체장비 업종은 전체 업종 중 1위입니다. 다만 업종 안에서는 최상위 3개 종목보다 한 단계 아래이고, 시가총액은 6,401억원입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴) 판정은 미통과입니다. 피벗(돌파 기준가) 14,240원보다 현재가가 2.5% 높고, 52주 고가보다는 1.9% 낮습니다. 50일 평균선과 200일 평균선 위에 있으며 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간 거래량은 평소와 비슷하거나 더 많았습니다. 오늘 거래량은 직전 50거래일 평균의 2.05배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 기관은 순유입으로 확인됩니다. 외국인 수급과 순매수 규모는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 2분기 연결 매출은 전년 같은 기간보다 28% 늘었고, 영업이익은 124% 늘어 가속하고 있습니다. 다음 분기 증권사 추정 영업이익이 더 커져 개선 흐름이 이어질 전망입니다. 다만 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·전환사채 등 중대 공시는 없었습니다. 지분 공시가 5건 있으나 제목만 확인되어 내용은 알 수 없습니다. 결격 사유 검토에서는 회피 대상이 아닌 것으로 판정됐습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 제시한 증권사가 없고 최근 60일 투자의견도 없습니다. 8월 11일 리포트가 가장 최근입니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 중국향 RPS(원격 플라즈마 발생기) 매출 확대와 자회사의 우주·방산, 초박형 강화유리 기대가 이야기의 중심입니다. 10월 27일 반도체 중소형주가 업종 단위로 강세였고, 이 종목만의 새 기사는 최근 1주 내 없습니다. 논지를 훼손하는 사실은 확인되지 않았으나 국내 메모리 투자 사이클에 민감하다는 점은 짚어둘 만합니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 이 종목은 돌파 뒤 잘 오를 가능성이 높은 주도주 후보로 판단합니다. 강한 업종 1위 안에서 주가 순위가 매우 높고 영업이익이 크게 늘어 실적 가속이 확인됩니다. 중대 물량 공시가 없고 기관 순유입도 확인됩니다. 가장 큰 리스크는 국내 메모리 투자 사이클에 민감한 사업 구조와 업종 단위 급등 뒤 단기 변동성입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩14,240 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩13,414)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩14,580 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩13,414 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/011/0004675481" target="_blank" rel="noopener">美 AI 훈풍 소부장까지 번졌다…심텍 15%·주성엔지니어링 8%↑[이런국...</a></div><div class="m">서울경제 · 2026.10.27 09:45</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/008/0005432038" target="_blank" rel="noopener">반도체 코스닥 중소형주, 美 훈풍에 두 자릿수 강세</a></div><div class="m">머니투데이 · 2026.10.27 09:18</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/215/0001270281" target="_blank" rel="noopener">JP모건, 한국 &#x27;소부장&#x27; 4곳 픽한 이유가…지분 5% 이상 보유</a></div><div class="m">한국경제TV · 2026.10.23 21:09</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/015/0005341452" target="_blank" rel="noopener">주가 빠진 날 되레 &#x27;줍줍&#x27;…상위 1% 초고수가 쓸어 담은 종목들</a></div><div class="m">한국경제 · 2026.10.12 13:35</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026.11월 중 3분기 실적 발표(일정 미확인, 컨센서스 영업이익 366억원 추정) / 반도체 고객사 설비투자 집행 소식 / 자회사 UTG·우주방산 수주 공시</div></div>
+</div>
+</div>
+<div class="card" id="t-059090" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-comp="" data-compx="69.9" data-rs="90" data-fresh="true">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">059090</div>
+        <div class="sbadge">RS 90</div>
+        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.3333 · 구성 13 · 상위3 080580, 064290, 098120 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">미코 🤖</div>
+        <span class="ctag">반도체 부품 · 분기 매출 +40.5%</span>
+        <div class="chl">자회사 흡수합병·2대주주 유입 속 분기 매출 +40.5%, 피벗 4.18% 아래 대기</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩21,950</div>
+      <div class="cchg up">+8.66%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 결측 항목: ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 69.9</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>15.0%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.51yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>62/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">분기 매출</div><div class="v">3,492억</div><div class="s up">2026.06 연결, 전년동기 대비 +40.5%</div></div><div class="num"><div class="l">분기 영업이익</div><div class="v">195억</div><div class="s dn">전년동기 302억 대비 -35.4%, 직전 분기 189억</div></div><div class="num"><div class="l">RS</div><div class="v">90.0</div><div class="s up">SEPA 통과, 기술 게이트 충족</div></div><div class="num"><div class="l">피벗 이격</div><div class="v">4.18%</div><div class="s up">피벗 ₩22,750 대비 현재가 ₩21,950</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>미코는 반도체·디스플레이 장비에 들어가는 세라믹 부품과 정밀 세정 서비스를 만들어 국내 반도체 제조사 등 장비·소자 업체에 파는 회사다. 장비 제조사와 소자 제조사를 상대로 한 B2B 구조로, 부품 납품과 세정·재생 서비스에서 반복 매출이 나오는 구조다. 주요 고객과 세부 제품별 매출 비중은 입력 자료에서 확인되지 않아 별도 확인이 필요하다.</p><p>반도체 장비 부품 시장에서는 코미코, 하나머티리얼즈 같은 국내 업체와 경쟁한다. 최근 전환점은 자회사 미코하이테크 흡수합병 결정(DART 2026.04.29 공시, 04.30 첨부정정)과 미리캐피탈의 2대주주 등극 보도(2026.10.13)로, 사업 재편과 주주 구성 변화가 동시에 진행 중이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026.04.29 회사합병결정 공시(04.30 첨부정정)로 자회사 미코하이테크 흡수합병이 알려졌고, 보도에 따르면 이 소식에 미코가 15.23% 올랐다(기사 날짜 미확인). 이후 2026.10.13 미리캐피탈이 2대주주로 올라섰다는 보도가 나오며 지배구조 재편 기대가 이어졌다.</p><p style="margin-top:6px;">기사 속 종가 26,100원은 현재가 ₩21,950과 달라 해당 급등은 과거 시점으로 보이며, 이번 시점에 새로 확인된 촉매는 없다. 반도체·반도체장비 업종 강세 속에 기관 순매수가 이어지고 있으나 영업이익 감소와 증권사 의견 부재로 시장 전파는 아직 제한적이다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 62/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">업종 1위 속 강한 주도주, 실적은 엇갈림</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 전체 종목 중 상위 10%입니다. 최근 12주 수익률은 +64%로 상위 8%이고, 소속 업종인 반도체와반도체장비는 77개 업종 중 1위의 강세 업종입니다. 시가총액은 7,285억원이며 업종 내 순위는 141종 중 36위로 업종 최상위 리더는 아닙니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 통과하지 못했고 뚜렷한 패턴은 없습니다. 피벗(돌파 기준가)은 22,750원이며 현재가는 이보다 4.2% 낮습니다. 현재가는 50일 평균선과 200일 평균선 위에 있고 정배열이며, 52주 고가보다는 25% 낮습니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간의 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 0.98배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 최근 20거래일 외국인·기관별 수급 규모는 확인되지 않았습니다. 다만 사전 요약에서는 기관이 순유입으로 표시되어 있습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 2분기 매출은 3,492억원으로 전년동기 대비 40% 늘었습니다. 반면 영업이익은 195억원으로 35% 줄어 외형 성장과 이익이 엇갈립니다. 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 90일 유상증자·CB·BW 등 중대 공시는 없었고 결격 사유 검토에서도 회피 판정은 없었습니다. 다만 9월에 최대주주변경을 수반하는 주식담보제공계약과 타인에 대한 채무보증 공시가 반복되었고 본문 내용은 확인되지 않았습니다. 지분 공시도 잦아 지분 구조 변화는 지켜봐야 합니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 제시한 증권사와 최근 리포트, 60일 투자의견이 모두 없습니다. 커버리지가 없는 것은 중립 사실로 봅니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 자회사 미코하이테크 흡수합병 결정 소식에 하루 15% 상승했고 같은 날 반도체 장비 업종도 크게 올랐습니다. 이번 검색에서는 합병 공시와 세부 조건을 별도로 확인하지 못했고, 미리캐피탈의 2대주주 보도 내용도 확인되지 않았습니다. 업종 동반 강세는 뚜렷하지만 새로 커지는 사업 이야기는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 강한 업종 안에서 상대강도가 높은 주도주 후보여서 돌파가 나오면 오를 가능성은 보통 이상으로 봅니다. 최근 12주 상승률이 시장 상위권이고 업종이 1위이며 증자·CB 같은 물량 부담도 없다는 점이 근거입니다. 다만 매출은 늘었는데 영업이익이 줄었고 합병 재료도 단발성에 가까워, 실적 가속이 확인되지 않으면 상승이 이어지기 어렵다는 점이 가장 큰 위험입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩22,750 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩20,194)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩21,950 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩20,194 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/009/0005752001" target="_blank" rel="noopener">머스크, AI반도체 생산도 속도 … 삼전닉스는 불똥 튈까봐 걱정</a></div><div class="m">매일경제 · 2026.10.21 17:34</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/011/0004673247" target="_blank" rel="noopener">LG디스플레이, 구미 유휴공장 1500억에 매각</a></div><div class="m">서울경제 · 2026.10.20 17:49</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/031/0001066118" target="_blank" rel="noopener">SK하닉 &#x27;HBM&#x27; 보는 삼성 사장…에이직랜드의 TSMC 발언도 경청</a></div><div class="m">아이뉴스24 · 2026.10.14 22:18</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/277/0005828546" target="_blank" rel="noopener">CXMT가 연내 출시 선언한 4F2, 삼성도 개발 중…송재혁 CTO &amp;quot;열심히 합...</a></div><div class="m">아시아경제 · 2026.10.14 16:49</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/015/0005341963" target="_blank" rel="noopener">美 미리캐피탈, 미코 2대 주주로…넴 인수금융은 산은·미래에셋 주선</a></div><div class="m">한국경제 · 2026.10.13 15:55</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">자회사 미코하이테크 흡수합병 절차 진행(합병 일정은 확인 안 됨), 미리캐피탈 2대주주 등극 후속 공시, 다음 분기 실적 발표(일정 미확인)</div></div>
+</div>
+</div>
+<div class="card" id="t-355690" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="hold" data-comp="" data-compx="" data-rs="90">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">355690</div>
+        <div class="sbadge">RS 90</div>
+        <div class="sbadge" title="전자장비와기기 — 주도섹터 · F2T3 89.6667 · 구성 4 · 상위3 355690, 055490, 236200 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">에이텀</div>
+        <span class="ctag">자금조달 반복 · 분기매출 +289%</span>
+        <div class="chl">분기 매출은 급증했으나 유상증자·CB 공시가 이어지는 적자 기업</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩6,530</div>
+      <div class="cchg up">+0.46%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026 · NA = 부정 신호 아님(D16) · 사유: 모집단밖">COMP NA</div><div class="ccompx na" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X NA</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-pul"><i></i><em>VCP 패턴</em> <b>눌림</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>중간</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.21yr, B1)</b></span><span class="g warn"><i></i><em>AI</em> <b>33/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">분기 매출(2026.06)</div><div class="v">323억원</div><div class="s up">전년동기 83.0억원 대비 +289%</div></div><div class="num"><div class="l">분기 영업이익</div><div class="v">-10.0억원</div><div class="s dn">전년동기 -22.0억원에서 적자 축소, 직전 분기 -14.0억원</div></div><div class="num"><div class="l">12개월 유상증자 공시</div><div class="v">8건</div><div class="s dn">결정 공시와 기재정정 포함, 2025.12~2026.04</div></div><div class="num"><div class="l">피벗 이격</div><div class="v">6.71%</div><div class="s up">현재가 ₩6,530, 피벗 ₩6,860</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>에이텀은 전기/전자 업종에 속한 코스닥 상장사로, 사업 설명 자료가 제공되지 않아 주력 제품명과 대표 고객사는 확인하지 못했다. 최근 확정 분기(2026.06) 연결 매출이 323억원으로 전년동기(83.0억원)의 약 4배로 늘었으나 영업이익은 -10.0억원의 적자다.</p><p>경쟁 구도와 차별점은 입력 자료에서 확인되지 않는다. 2026년 7~8월에 타법인주식 취득 결정과 기술성장기업 정관 변경(사업목적 추가·변경) 공시가 이어져 사업 영역을 넓히는 국면으로 보이나, 구체적인 내용은 제목만으로는 알 수 없다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026.06 분기 매출이 323억원으로 전년동기 대비 +289% 늘며 외형이 급성장했고, 2026.07~08에는 타법인주식 취득 결정과 사업목적 변경 공시가 이어졌다. 상승을 이끈 구체적 촉매는 제공된 뉴스(2026.10.26 서울경제 &#x27;오늘의 메모&#x27;)의 제목만으로는 확인되지 않는다.</p><p style="margin-top:6px;">매출은 두 분기 연속 큰 폭으로 늘었으나 적자가 이어지고, 2026.10.08과 10.21에 전환청구권 행사 공시가 잇따라 나와 주식 공급 부담이 살아 있다. 증권사 의견이 없어 시장 전파 온도는 확인되지 않으며, 최대 상승 157.2% 이후 고점 대비 -20.7% 위치라 힘이 식은 구간으로 보인다.</p><div class="vd hold"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">관망</span><span class="vconv">돌파 적합도 33/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">주도주 흐름은 강하나 자금조달 의존이 큽니다</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 10%이고, 최근 3개월 수익률은 +67%로 강합니다. 속한 전자장비와기기 업종은 77개 중 5위의 강세 업종이지만, 업종 내 순위는 55종 중 12위로 리더급은 아닙니다. 상장 약 2.9년, 시가총액 626억원의 소형주이며 12개월 수익률은 -56%입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 기준을 통과하지 못했고, 눌림형 패턴입니다. 수축은 3번이었고 폭이 16%에서 마지막 10%로 줄었으며, 피벗(돌파 기준가) 6,860원까지는 6.7% 남았습니다. 52주 고가보다 30% 낮고, 50일·200일 평균선 위에서 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간의 거래량은 평소보다 다소 줄었습니다. 10월 27일 거래량은 직전 50거래일 평균의 0.78배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 확인된 자료가 없습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 2분기 매출은 323억원으로 전년 같은 기간보다 크게 늘었고, 영업이익은 적자가 줄었지만 여전히 적자입니다. 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#FEE2E2;color:#991B1B">부족</span> 최근 90일간 자기전환사채 만기 전 취득 결정과 전환청구권 행사, 전환가액 조정 공시가 이어졌습니다. 1년 안에 유상증자 결정이 반복됐고, 결격 사유 검토에서도 자금조달 의존주로 회피 판정이 나왔습니다. 전환청구권 행사로 주식 수가 늘어나는 부담이 계속되고 있습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 커버하는 증권사와 최근 60일 투자의견이 없어 확인된 평가가 없습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 8월 정관 변경으로 전기차 전장과 AI 데이터센터용 전원장치로 사업 목적을 넓혔고, 현대모비스 전기차 공급사 선정 기사 제목도 있으나 세부 내용은 확인되지 않았습니다. 올해 1월에는 주주배정 유상증자 추진과 금융감독원의 제동, 지난해 CB 여섯 차례 발행 보도가 있었습니다. 최근 2주간 주가를 움직인 구체적 뉴스는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 이 종목은 돌파가 나와도 큰 승자로 이어질 가능성이 낮다고 판단합니다. 업종 강세와 높은 RS, 매출 급증은 긍정적이지만 영업이익은 여전히 적자입니다. 상승 동력이 이익 성장보다 유상증자·CB 같은 외부 자금조달에 기대고 있고 전환 물량이 계속 늘어나는 점이 결격 요인으로 무겁습니다. 가장 큰 리스크는 전환청구와 추가 증자로 인한 주식 수 증가가 돌파 뒤 상승을 눌러 버리는 것입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩6,860 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩6,008)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩6,530 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩6,008 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/011/0004675124" target="_blank" rel="noopener">오늘의 메모[10월 27일]</a></div><div class="m">서울경제 · 2026.10.26 10:42</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026.09 결산 분기 실적 발표 시 영업이익의 적자 탈피 여부 (일정 미확인) / 전환사채 전환청구 및 전환가액 조정 공시 추이</div></div>
+</div>
+</div>
+<div class="card" id="t-005160" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="68.7" data-rs="89">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">005160</div>
+        <div class="sbadge">RS 89</div>
+        <div class="sbadge" title="철강 — 주도섹터 · F2T3 82.6667 · 구성 4 · 상위3 005160, 037760, 069730 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 16/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">동국산업</div>
+        <span class="ctag">니켈도금강판 양산 확대 · 적자 전환</span>
+        <div class="chl">북미향 니켈도금강판 공급 기대가 붙었으나 실적 뒷받침은 아직 없는 피벗 직전 자리</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩3,780</div>
+      <div class="cchg up">+4.71%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 적자 기업: PSR 기준  · 결측 항목: ROE_fwd·선행PSR·매출성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 68.7</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>21.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.9%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.09yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>62/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">최근 분기 매출</div><div class="v">1,634억원</div><div class="s dn">2026.06 연결, 전년동기 대비 -16.4%</div></div><div class="num"><div class="l">최근 분기 영업이익</div><div class="v">-9.0억원</div><div class="s dn">직전 분기 -46.0억원, 전년동기 56.0억원</div></div><div class="num"><div class="l">RS</div><div class="v">89.0</div><div class="s up">SEPA 통과, 피벗 미도달</div></div><div class="num"><div class="l">시가총액</div><div class="v">2,018억원</div><div class="s up">현재가 ₩3,780, 코스닥</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>동국산업은 철강 소재를 가공해 산업 고객사에 파는 코스닥 상장 금속 업체다. 최근 니켈도금강판 양산을 늘리는 중이며, 기업 대상 B2B 납품으로 매출을 올리는 구조다.</p><p>철강 가공 시장은 대형 철강사와 국내 가공 업체가 겹치는 경쟁 구도라 제품 차별화가 수익성을 가른다. 뉴스 기준 전환점은 내년 북미향 분기 4000톤 공급 전망이 나온 점이며, 이 물량이 실제 매출로 연결되는지가 관건이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026.10.27 아시아경제는 동국산업이 니켈도금강판 양산을 확대하고 내년 북미향으로 분기 4000톤을 공급할 전망이라고 보도했다. 12개월 최대 상승 116.9%를 기록한 뒤 고점 대비 -23.7%까지 조정받았고, 그 과정의 개별 촉매는 이번 검색 결과로 확인되지 않았다.</p><p style="margin-top:6px;">북미향 공급 전망이라는 새 재료가 당일 보도로 나왔으므로 동력은 막 형성되는 단계로 보이지만, 최근 분기는 매출 -16.4%에 영업적자라 실적 확인은 아직 없다. 증권사 의견·컨센서스 부재와 외국인 순매도(-2862)는 전파력이 아직 약하다는 신호다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 62/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">업종 1위 주도주, 신사업 기대 vs 적자 실적</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 11%이고, 최근 12주 수익률은 +63%로 상위 8%입니다. 철강 업종은 강세 업종이며 업종 내 RS 순위는 1위입니다. 시가총액은 2,018억원입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴) 판정은 미통과이며, 수축은 4번 있었고 폭은 줄어드는 형태였습니다. 피벗(돌파 기준가)은 3,765원이고 현재가는 이보다 0.9% 낮습니다. 현재가는 50일·200일 평균선 위에 있고 52주 고가보다 25% 낮습니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간의 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 1.41배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 기관은 순유입으로 확인됩니다. 외국인 수급과 순매수 규모는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#FEE2E2;color:#991B1B">부족</span> 2분기 매출은 전년 동기보다 16% 줄었고 영업이익은 적자로 돌아섰습니다. 직전 분기도 영업적자였습니다. 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·CB·BW 등 중대 공시는 없었고 지분공시는 1건뿐입니다. 패스1 결격 사유 검토에서는 회피 대상이 아니었습니다. 물량 부담 요인은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 증권사 컨센서스를 제시한 곳이 없고 최근 60일 투자의견도 없습니다. 이는 소형주에서 흔한 중립 사실입니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 10월 27일 니켈도금강판 양산 확대와 내년 북미향 분기 4000톤 공급 전망 기사가 나왔고, 이것이 새 스토리의 핵심입니다. 다만 검색에서는 고객사·계약 조건이 확인되지 않았고, 수요처 확보와 현금흐름 우려를 지적하는 보도도 있습니다. 관련 이슈는 아직 초기 단계입니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 이 종목은 돌파 시 상승 여력이 있는 업종 선도주이지만, 실적 뒷받침이 약해 확신은 보통 수준입니다. 업종 1위의 강한 상대강도와 최근 12주 급등은 시장이 신사업 스토리를 앞서 반영하고 있다는 근거입니다. 가장 큰 리스크는 적자가 이어지는 가운데 북미 공급 기대가 실제 매출과 이익으로 연결되지 않을 가능성입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩3,765 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩3,478)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩3,780 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩3,478 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/277/0005834045" target="_blank" rel="noopener">동국산업, 니켈도금강판 양산 확대…&amp;quot;내년 북미향 분기 4000톤 공급 전...</a></div><div class="m">아시아경제 · 2026.10.27 13:46</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/081/0003690239" target="_blank" rel="noopener">삼기에너지솔루션즈 19% 급등·예선테크 10% 급락… 종목별 차별화 심...</a></div><div class="m">서울신문 · 2026.10.19 13:26</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">북미향 니켈도금강판 공급 계약·출하 관련 후속 공시 및 보도(일정 미확인), 다음 분기 실적 발표(일정 미확인)</div></div>
+</div>
+</div>
+<div class="card" id="t-217190" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="industrial" data-ai="true" data-unicorn="false" data-verdict="can" data-comp="" data-compx="71.1" data-rs="89" data-fresh="true">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">217190</div>
+        <div class="sbadge">RS 89</div>
+        <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.3333 · 구성 13 · 상위3 080580, 064290, 098120 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">제너셈 🤖</div>
+        <span class="ctag">HBM 후공정 장비 · 2Q 영업이익 +55.6%</span>
+        <div class="chl">HBM 후공정 장비 수주 기대에 분기 실적이 받쳐주나, 직접 촉매는 미확인</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩8,140</div>
+      <div class="cchg up">+10.90%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 결측 항목: ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 71.1</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>15.4%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.19yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>66/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">2분기 매출</div><div class="v">233억원</div><div class="s up">전년동기 186억원 대비 +25.3% (직전 분기 67.0억원)</div></div><div class="num"><div class="l">2분기 영업이익</div><div class="v">42.0억원</div><div class="s up">전년동기 27.0억원 대비 +55.6% (직전 분기 -25.0억원)</div></div><div class="num"><div class="l">1분기 말 수주잔고</div><div class="v">425억원</div><div class="s up">증권사 2026년 매출 추정 780억원(+37.4%)</div></div><div class="num"><div class="l">피벗까지 거리</div><div class="v">4.23%</div><div class="s up">피벗 ₩8,510 대비 현재가 ₩8,140 (피벗 미도달)</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>제너셈은 반도체 후공정(칩을 잘라 포장하는 단계) 자동화 장비를 만들어 반도체 패키징 업체와 제조사에 파는 회사다. 칩을 낱개로 자르는 Saw Singulation, 전자파 차폐 장비인 EMI Shield, 레이저 마킹·커팅 장비를 공급하고, HBM(고대역폭 메모리) 생산용으로 웨이퍼 마운터·테이프 리무버·패키지 소터를 납품하며, 증권사 리포트는 SK하이닉스향 수주를 기대한다.</p><p>HBM 후공정 장비는 한미반도체 등 국내 장비사와 해외 업체가 경쟁하는 시장이어서, 이 회사는 대형사 대비 작은 몸집을 틈새 장비 라인업으로 메우는 위치다. 최근에는 HBM 증설 기대와 함께 2분기 영업이익이 전년동기 대비 늘면서 시장의 관심이 다시 붙은 국면이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026년 10월 7~8일 거래량이 급증하며 종가가 8,950원에서 10,200원으로 뛰었고 장중 10,650원까지 올랐으나, 이를 설명하는 공시나 기사는 확인되지 않았다. 배경에는 6월 증권사 리포트의 SK하이닉스향 HBM 후공정 장비 수주 기대, 1분기 말 수주잔고 425억원, 2분기 영업이익 42.0억원(+55.6%) 개선이 있다.</p><p style="margin-top:6px;">10월 27일 +10.9% 상승했지만 직접 촉매는 확인되지 않았고 최신 리포트(10월 12일, 키움증권)도 투자의견과 목표주가가 없어 이야기가 시장 전반으로 퍼지는 단계로 보기는 어렵다. 반면 최근 20거래일 기관·외국인 순매수와 반도체 업종 강세가 이어져 HBM 기대는 유지되고 있으나, 수주 공시가 나오지 않으면 동력이 식을 수 있다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 66/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">강세 업종의 신흥 주도주, 실적 개선 뚜렷</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 11%이고 최근 석 달 수익률은 +70%로 상위 6%입니다. 속한 반도체 장비 업종은 강세 업종 1위이며 업종 내에서는 중상위권입니다. 시가총액은 소형주 규모이고 상장 11년차입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 통과하지 못했고 뚜렷한 패턴이 없습니다. 피벗(돌파 기준가)은 8,510원이며 현재가는 4.2% 아래에 있습니다. 52주 고가보다는 낮고 중장기 평균선 위에서 정배열을 이루고 있습니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간의 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 평소의 0.72배였습니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 기관은 순유입으로 확인됩니다. 외국인 수급과 순매수 규모는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 2분기 매출은 전년 동기 대비 +25%, 영업이익은 +56% 늘었고 직전 분기 영업적자에서 흑자로 돌아섰습니다. 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·CB·BW 등 중대 공시는 없었습니다. 9월 7일 단일판매·공급계약 체결 공시가 1건 있었고, 결격 사유 검토에서는 회피 대상이 아니라고 판정됐습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 커버하는 증권사의 컨센서스와 목표주가는 없고 최근 60일 투자의견도 없습니다. 10월 12일 키움증권 리포트 1건이 HBM 후공정 자동화 장비 공급을 다뤘으며, 시장 전파는 아직 제한적입니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 10월 8일 거래량이 크게 늘며 급등했으나 이를 직접 설명하는 공시나 기사는 확인되지 않았습니다. 시장은 SK하이닉스향 HBM 후공정 장비 수주 기대를 반영하는 것으로 보이며, 1분기 말 수주잔고는 425억원이었습니다. 다만 직접 촉매는 확인되지 않아 후발 수혜주 성격이 강합니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 강세 업종 안에서 실적이 돌아선 소형 주도주로, 돌파가 나오면 오를 가능성이 보통 이상이라고 판단합니다. 상대강도가 상위권이고 2분기 영업이익이 크게 늘었으며 HBM 장비 이야기가 아직 소수에만 알려진 초기 단계입니다. 기관 순유입도 확인됩니다. 가장 큰 리스크는 10월 급등의 직접 재료와 가이던스가 확인되지 않아 기대감이 실적으로 이어지지 못하면 급등분을 반납할 수 있다는 점입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩8,510 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩7,489)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩8,140 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩7,489 (-8%)</div></div>
+    </div>
+  </div>
+  
+  
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">SK하이닉스향 HBM 후공정 장비 수주 공시 여부(일정 미정), 3분기 실적 발표(일정 미정), 10월 29일 FOMC 결과(시장 변수)</div></div>
+</div>
+</div>
+<div class="card" id="t-141000" style="--c:#B45309;--cl:#F6EAE1;--cx:#FCF8F5" data-sector="industrial" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="78.5" data-rs="87">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">141000</div>
+        <div class="sbadge">RS 87</div>
+        <div class="sbadge" title="디스플레이장비및부품 — 주도섹터 · F2T3 89.3333 · 구성 4 · 상위3 137080, 141000, 059100 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 6/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">비아트론</div>
+        <span class="ctag">유리기판 본더 · 분기 매출 +14.2%</span>
+        <div class="chl">디스플레이 장비에서 반도체 유리기판 본더로 영역 확장, 수주가 이어지는 중</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩11,120</div>
+      <div class="cchg up">+2.30%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 결측 항목: 기관20일·외인20일·ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 스마트머니·밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 78.5</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>6.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-3.6%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2u (0.65yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>60/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">최근 분기 매출</div><div class="v">257억원</div><div class="s up">2026.06 연결, 전년동기 225억원 대비 +14.2%</div></div><div class="num"><div class="l">최근 분기 영업이익</div><div class="v">35.0억원</div><div class="s up">전년동기 29.0억원 대비 +20.7%, 직전 분기는 -20.0억원</div></div><div class="num"><div class="l">PER / PBR</div><div class="v">10.48배 / 0.49배</div><div class="s up">TTM 기준, 포워드 PER은 24.44배</div></div><div class="num"><div class="l">부채비율</div><div class="v">11.3</div><div class="s up">재무 안정성 양호, 시가총액 1328억원</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>비아트론은 디스플레이 패널 제조 공정에 들어가는 열처리 장비를 만들어 패널 제조사에 파는 장비 회사다. 장비 한 대씩 납품하는 B2B 수주 사업이라 매출이 계약 시점에 따라 분기별로 크게 출렁이는 구조다. 최근에는 삼성전기에 유리기판 본더(유리기판에 칩을 붙이는 장비)를 연내 첫 납품한다는 보도가 나왔다.</p><p>디스플레이 투자 사이클에 매출이 좌우돼 온 회사가 반도체 후공정 장비로 영역을 넓히는 시점이다. 2026년 10월 15일에는 262억원 규모 디스플레이 제조용 장비 공급 계약을 공시했고, 언론은 반도체 장비 매출이 2027년부터 본격화할 것으로 전한다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026년 9월 30일 &#x27;디스플레이서 반도체 장비사로, 2027년 매출 본격화&#x27; 보도로 사업 전환 기대가 형성됐고, 10월 7일 삼성전기 유리기판 본더 연내 첫 납품 보도로 구체화됐다. 이어 10월 15일 262억원 규모 디스플레이 제조용 장비 공급 계약이 공시되며 수주 모멘텀이 더해졌다.</p><p style="margin-top:6px;">신규 계약 공시는 10월 19일 기재정정까지 이어졌지만 이후 새로운 기사나 급변 사건은 확인되지 않았고, 애널리스트 리포트도 0건이다. 최근 20거래일 외국인·기관이 순매도하고 개인이 받아내는 수급이라 이야기가 아직 기관 쪽으로 전파되지 못한 단계다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 60/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">수주 재료와 강세 업종, 실적 회복은 긍정적</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 13%이고, 최근 4주 수익률은 +20%로 상위 5%입니다. 디스플레이장비및부품 업종은 77개 업종 중 6위의 강세 업종이지만, 업종 내 RS 순위는 10위입니다. 최근 25주와 52주 수익률 순위는 상대적으로 약하고, 시가총액은 1,328억원입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 미통과이고 뚜렷한 패턴이 없습니다. 피벗(돌파 기준가)은 11,370원으로 현재가보다 3.6% 높고, 52주 고가보다는 26% 낮습니다. 현재가는 50일 평균선과 200일 평균선 위에 있고 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 1.01배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#FEE2E2;color:#991B1B">부족</span> 최근 20거래일 기관은 순유출입니다. 외국인을 포함한 전체 수급 규모는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 2026년 2분기 매출은 전년 같은 기간보다 14% 늘었고 영업이익은 21% 늘었습니다. 직전 분기에는 영업적자였으므로 흑자 전환 후 증가세입니다. 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·CB·BW 등 주요사항보고는 없고 지분공시도 없습니다. 거래소공시는 단일판매·공급계약 관련 3건이 확인됩니다. 결격 사유 검토에서도 회피 판정은 나오지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 커버하는 증권사, 목표주가, 리포트가 없고 최근 의견 1건도 의견을 제시하지 않았습니다. 중립 사실로 봅니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 10월 15일 공시된 262억원 규모 디스플레이 장비 공급 계약이 최근 주가를 움직인 재료로 보입니다. 검색에서는 중국 기업 수주라는 요약 보도와 삼성전기와의 유리기판 공정용 글라스 본더 공동 개발 보도가 확인됩니다. 계약 상대방과 납품 조건은 확인되지 않았고 시장에 널리 퍼진 이야기는 아닌 초기 단계이며, 논지를 훼손하는 사실은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 이 종목은 돌파가 확인되면 무난하게 따라갈 수 있는 보통 이상의 후보입니다. 강세 업종 안에서 최근 상승 순위가 높고 수주와 실적 회복이 뒷받침되며, 희석성 공시도 없습니다. 다만 업종 내 순위가 선두권이 아니고 52주 고가 대비 낙폭이 크며 기관 수급이 유출 중이라, 수주 재료가 약해지면 상승이 이어지지 못할 수 있습니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩11,370 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩10,230)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩11,120 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩10,230 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/018/0006388708" target="_blank" rel="noopener">비아트론, 262억 규모 디스플레이 제조용 장비 공급 계약</a></div><div class="m">이데일리 · 2026.10.15 15:25</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/014/0005582679" target="_blank" rel="noopener">비아트론, 디스플레이서 반도체 장비사로…&amp;quot;2027년 매출 본격화&amp;quot;</a></div><div class="m">파이낸셜뉴스 · 2026.09.30 08:58</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">삼성전기 유리기판 본더 연내 첫 납품(시점 미확정), 262억원 장비 공급 계약 이후 후속 수주 공시, 다음 분기 실적 발표(일정 미정)</div></div>
+</div>
+</div>
+<div class="card" id="t-228850" style="--c:#0891B2;--cl:#E1F2F6;--cx:#F5FBFC" data-sector="healthcare" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="" data-rs="86">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">228850</div>
+        <div class="sbadge">RS 86</div>
+        <div class="sbadge no" title="건강관리장비와용품 — 비주도 · F2T3 78.0 · 구성 3 · 상위3 228850, 100120, 004080 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 22/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">레이언스</div>
+        <span class="ctag">반도체 AXI 디텍터 · 2Q 흑자전환</span>
+        <div class="chl">2Q 영업이익 흑자전환에 자사주 소각, 피벗 ₩8,170 코앞 대기</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩8,150</div>
+      <div class="cchg up">+2.00%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026 · NA = 부정 신호 아님(D16) · 사유: 모집단밖">COMP NA</div><div class="ccompx na" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X NA</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.6%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.2%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.46yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>66/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">2Q 매출</div><div class="v">365억원</div><div class="s up">전년동기 290억원 대비 +25.8%</div></div><div class="num"><div class="l">2Q 영업이익</div><div class="v">25.1억원</div><div class="s up">전년동기 -3.1억원, 흑자전환(잠정)</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">8,400원</div><div class="s up">투자의견 평균 4.00점, 괴리 +5.0%</div></div><div class="num"><div class="l">자사주 소각</div><div class="v">96억원</div><div class="s up">51만주, 발행주식의 3.09%</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>레이언스는 치과·의료용 엑스레이 디지털 영상 센서(디텍터)와 영상 장비를 만들어 병원과 장비 업체에 파는 회사다. 의료용 디텍터가 주력이고, 반도체 검사에 쓰는 AXI(엑스레이로 내부를 들여다보는 자동 검사) 디텍터로 영역을 넓혀 올 상반기 131억원 매출을 기록했으며, 완제품과 부품을 B2B로 공급하는 구조다.</p><p>의료 영상 디텍터 시장에는 해외 전문 업체들이 다수 있어 경쟁이 치열한 편이다. 최근에는 반도체 검사용 디텍터가 새 성장 축으로 올라서며 의료 단일 사업의 한계를 넘는 전환점을 만들고 있다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026년 2분기 잠정 영업이익이 25.1억원으로 전년 적자에서 흑자전환(2026-08-11 공시)하며 실적 개선이 확인됐다. 이어 10월 13일 반도체 AXI 디텍터 상반기 131억원 매출 보도와 9월 30일 96억원 자사주 소각 결정이 겹치며 주가가 올랐다.</p><p style="margin-top:6px;">실적 흑자전환과 주주환원은 유효하지만 최근 60일 증권사 의견이 없고 뉴스 빈도도 낮아 시장 전파는 제한적이다. 다음 분기 컨센서스 매출이 직전 분기보다 낮아 동력이 이어질지는 3분기 실적에서 가려질 전망이다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 66/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">반도체 검사용 디텍터가 이끄는 흑자전환 주도주</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 14%이고, 최근 3개월 수익률은 +34%로 강합니다. 업종 내 53종 중 4위이며 업종 자체는 강세 업종에 해당하지 않습니다. 시가총액은 1,352억원의 소형주입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 기준 미통과이고, 횡보형으로 4번 수축했으며 마지막 폭은 8.6%였습니다. 피벗(돌파 기준가) 8,170원까지는 현재가가 0.2% 낮은 거리입니다. 52주 고가보다는 6.9% 낮고, 50일·200일 평균선 위에서 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 0.24배였습니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 최근 20거래일 수급은 직접 확인되지 않았습니다. 다만 사전 요약에서는 기관이 순유입으로 표시되었으며 규모는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 2분기 매출은 전년동기 대비 26% 늘었고 영업이익은 흑자전환했습니다. 다음 분기 증권사 추정치는 영업이익이 더 늘어나는 방향입니다. 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·CB·BW 등 중대 공시는 없었습니다. 9월 30일 주식소각 결정이 있었고 공급 부담이 아닌 주주환원 성격입니다. 결격 사유 검토에서도 회피 판정은 없었습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 투자의견 평균은 5점 만점에 4.00점이고 평균 목표주가는 현재가보다 소폭 높은 수준입니다. 최근 60일 새로 나온 투자의견은 없었고 애널리스트 수는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 10월 13일 보도에서 반도체 검사용 디텍터 매출이 상반기에만 131억원으로 지난해 연간 매출을 넘어섰고 추가 공급 협의도 언급되었습니다. 덴탈과 동물용 사업도 고르게 성장했다는 설명이 있어 성장 이야기는 새롭고 커지는 중입니다. 2주 내 급격한 이슈나 논지 훼손 사실은 검색에서 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 이 종목은 돌파가 확인되면 이어서 오를 가능성이 있는 보통 이상의 후보입니다. 반도체용 신사업이 매출을 키우며 흑자전환을 만들었고 상대강도도 상위권이어서 주도주 성격이 분명합니다. 다만 업종 강세가 약하고 수급 규모가 확인되지 않았으며, 소형주라 돌파 후 변동성이 클 수 있다는 점이 가장 큰 리스크입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩8,170 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩7,498)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩8,150 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩7,498 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/008/0005425657" target="_blank" rel="noopener">레이언스, 올 상반기만 &#x27;반도체 AXI 디텍터&#x27;로 131억 매출 기록</a></div><div class="m">머니투데이 · 2026.10.13 15:54</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/011/0004666897" target="_blank" rel="noopener">기업 공시 [9월 30일]</a></div><div class="m">서울경제 · 2026.09.30 15:54</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/018/0006377678" target="_blank" rel="noopener">레이언스, 96억원 규모 자사주 51만주 소각 결정…발행주식의 3.09%</a></div><div class="m">이데일리 · 2026.09.30 12:55</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 3분기(2026.09) 실적 발표(컨센서스 매출 338억원·영업이익 35.0억원, 일정 미확인), 반도체 AXI 디텍터 추가 공급 소식</div></div>
+</div>
+</div>
+<div class="card" id="t-236200" style="--c:#7C3AED;--cl:#EFE7FD;--cx:#FAF7FE" data-sector="unknown" data-ai="true" data-unicorn="false" data-verdict="can" data-comp="73.7" data-compx="74.5" data-rs="86">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">236200</div>
+        <div class="sbadge">RS 86</div>
+        <div class="sbadge" title="전자장비와기기 — 주도섹터 · F2T3 89.6667 · 구성 4 · 상위3 355690, 055490, 236200 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">슈프리마 🤖</div>
+        <span class="ctag">바이오인식 · 2Q 영업이익 +34%</span>
+        <div class="chl">2분기 영업이익 102억(+34.2%) 성장, 피벗 0.54% 앞 대기 자리</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩55,000</div>
+      <div class="cchg up">+3.97%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 애널리스트 2명 — 컨센서스가 얇다(NA 아님)">COMP 73.7</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 74.5</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-non"><i></i><em>VCP 패턴</em> <b>무형</b></span><span class="g"><i></i><em>수축깊이</em> <b>10.8%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-0.5%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.64yr, B1+)</b></span><span class="g can"><i></i><em>AI</em> <b>66/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">2Q 영업이익</div><div class="v">102억원</div><div class="s up">전년동기 76.0억원 대비 +34.2%</div></div><div class="num"><div class="l">2Q 매출</div><div class="v">403억원</div><div class="s up">전년동기 325억원 대비 +24.0%</div></div><div class="num"><div class="l">목표주가</div><div class="v">74,000원</div><div class="s up">평균 투자의견 4.00점, 10-26 종가 대비 괴리 +40.7%</div></div><div class="num"><div class="l">올해 EPS 추정</div><div class="v">4,391원</div><div class="s dn">30일 전 4,870.7원에서 감소</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>슈프리마는 지문·얼굴 등 바이오인식 기술로 출입통제 단말과 보안 소프트웨어를 만들어 기업·기관·공공시설에 파는 회사다. 주력은 출입통제 단말기와 이를 관리하는 보안 플랫폼이며, 유럽·인도 등 해외 시장에서 파트너 유통망을 통해 판매하는 B2B 구조다. 스마트폰용 지문인식 솔루션은 고객사 재계약으로 이익에 기여하는 것으로 알려져 있다.</p><p>물리보안 시장에서는 해외 대형 보안업체들과 경쟁하며, 자체 알고리즘과 AI를 탑재한 제품으로 차별화를 꾀하는 위치다. 최근에는 온디바이스 AI 보안 수요 확대와 로봇 생태계 보안 파트너 기대가 성장 드라이버로 거론된다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026년 2분기 영업이익이 102억원으로 전년동기 대비 34.2% 늘고 순이익이 189억원으로 급증하면서 실적 모멘텀이 부각됐다. 과거에도 NH투자증권이 PER과 현금성 자산을 근거로 저평가를 지적했고, 12개월 내 최대 106.8% 상승한 이력이 있다.</p><p style="margin-top:6px;">최근 1주 내 확인된 신규 촉매는 없고 올해 EPS 추정이 30일 전보다 낮아져 동력은 다소 정체된 상태다. 다만 20거래일 기관 순매수와 RS 86.0이 유지돼 이야기가 꺼졌다고 보기는 어렵다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 66/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">실적·주주환원은 탄탄하나 추정치 하향이 부담</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 14%이고, 최근 52주 수익률은 +76%로 상위 12%입니다. 최근 25주도 상위 9%로 강하며, 업종(전자장비와기기)은 77개 중 5위의 강세 업종입니다. 다만 업종 내 순위는 55종 중 19위이고 시가총액은 3,850억원, 상장 후 약 10.7년입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴) 판정은 미통과이며, 뚜렷한 패턴은 없습니다. 수축은 3번 있었고 폭은 15%에서 마지막 11%로 줄었습니다. 피벗(돌파 기준가) 55,500원은 현재가보다 0.5% 높고, 52주 고가보다 15% 낮으며, 50일·200일 평균선 위의 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 1.79배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 기관은 순유입으로 확인됩니다. 외국인 수급은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 2분기 매출은 +24%, 영업이익은 +34% 늘어 직전 분기보다 크게 좋아졌습니다. 다만 올해 EPS(주당순이익) 추정치는 30일 전보다 내려갔고 가이던스는 확인되지 않았습니다. 3분기 증권사 추정치는 2분기보다 낮아 가속이 이어질지는 불확실합니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·CB·BW 등 주요사항보고는 없었습니다. 8월에 임원·주요주주 지분 보고와 임시주주총회 결과 공시가 있었으나 본문은 확인되지 않았습니다. 결격 사유 검토에서는 회피 대상이 아니었습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 평균 목표주가는 74,000원으로 현재가보다 크게 높고 투자의견 평균은 매수 쪽입니다. 최근 60일 등급 변경은 없었고, 커버하는 애널리스트는 2명으로 확인됩니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 4월에 향후 3년간 순이익의 40% 이상을 배당과 자사주 매입·소각으로 환원하겠다는 계획이 나왔고, 증권사들은 저평가 해소 요인으로 평가했습니다. 10월 27일 움직인 직접 이유는 검색으로 확인되지 않았고, 대형 수주 공시도 확인되지 않았습니다. 해외 전시 참가와 신제품 공개 등 사업 확장 활동은 있으나 새로 커지는 이슈의 강도는 크지 않습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 슈프리마는 돌파 뒤 무난히 오를 수 있는 좋은 후보이지만 확신이 높은 최상급은 아닙니다. 상대강도가 상위권이고 강세 업종에 속하며, 2분기 실적이 뚜렷하게 개선됐고 주주환원 약속과 기관 순유입이 뒷받침합니다. 가장 큰 리스크는 올해 이익 추정치가 내려가고 있고 3분기 추정치도 2분기보다 낮아 실적 가속이 멈출 수 있다는 점입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩55,500 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩50,600)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩55,000 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩50,600 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/092/0002442087" target="_blank" rel="noopener">순찰로봇부터 폐쇄망용 초경량 AI까지…기술기업 8사 8색 &#x27;눈길&#x27;</a></div><div class="m">지디넷코리아 · 2026.10.22 22:30</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/009/0005749336" target="_blank" rel="noopener">韓 투자비중 확대 나선 ‘경영관여펀드’ 달튼 “저평가 국내주식 여...</a></div><div class="m">매일경제 · 2026.10.15 18:06</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 3분기(2026.09) 실적 발표(날짜 미확인, 컨센서스 매출 363억원·영업이익 84.0억원) / 현대차 로봇 생태계 보안 파트너 관련 구체화 여부</div></div>
+</div>
+</div>
+<div class="card" id="t-086450" style="--c:#0891B2;--cl:#E1F2F6;--cx:#F5FBFC" data-sector="healthcare" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="82.7" data-rs="85">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">086450</div>
+        <div class="sbadge">RS 85</div>
+        <div class="sbadge" title="제약 — 주도섹터 · F2T3 79.0 · 구성 2 · 상위3 086450, 096760 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 20/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">동국제약</div>
+        <span class="ctag">헬스케어·뷰티디바이스 성장 · 영업익 +18%</span>
+        <div class="chl">마데카프라임·화장품 해외 확대로 이익률 회복 기대, 피벗 ₩24,900까지 2.81%</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩24,350</div>
+      <div class="cchg up">+4.06%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 결측 항목: 기관20일·외인20일·선행PER  · 애널리스트 1명 — 컨센서스가 얇다(NA 아님) · NA = 부정 신호 아님(D16) · 하한 미달 렌즈: 스마트머니">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 82.7</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.7%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-2.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (1.27yr, B2)</b></span><span class="g can"><i></i><em>AI</em> <b>66/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span><span class="g"><i></i><b>매수 5명</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">2026.06 분기 매출</div><div class="v">2,589억원</div><div class="s up">전년동기 대비 +10.9%</div></div><div class="num"><div class="l">2026.06 분기 영업이익</div><div class="v">261억원</div><div class="s up">전년동기 221억원, +18.1%</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">30,800원</div><div class="s up">종가(10-26) 23,400원 대비 +31.6%</div></div><div class="num"><div class="l">올해 EPS 추정</div><div class="v">1,857원</div><div class="s dn">30일 전 1,878원 (애널리스트 1명)</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>동국제약은 인사돌·판시딜·마데카솔 같은 일반의약품과 전문의약품을 만들어 약국·병원에 팔고, 화장품과 뷰티 디바이스 &#x27;마데카프라임&#x27;을 온·오프라인 채널로 소비자에게 파는 제약·헬스케어 회사다. 의약품은 안정적인 현금창출원이고, 헬스케어(화장품·미용기기·건강기능식품) 부문이 성장을 끌어 올리는 구조다.</p><p>경쟁 구도는 중상위 제약사와 화장품 업체(아모레퍼시픽, LG생활건강, 한국콜마)가 겹치는 영역인데, 동국제약은 제약 기반의 브랜드 신뢰와 미용기기 신제품으로 차별화한다. 최근에는 화장품 판매 채널을 홈쇼핑 중심에서 마진이 높은 온·오프라인으로 옮기고 해외 성장이 본격화되면서 수익성 개선 국면에 들어선 점이 전환점이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026년 7월 말 상상인증권이 헬스케어 고성장을 근거로 목표주가를 2만6000원에서 2만8000원으로 올리며 마데카프라임·화장품이 이익 성장을 이끈다는 논리가 부각됐다. 이후 2026.06 분기 영업이익이 261억원(+18.1%)으로 확인되고 10월 23일 화장품 해외 성장·수익성 개선 기대 보도가 이어지며 스토리가 유지됐다.</p><p style="margin-top:6px;">동력인 헬스케어·화장품 성장과 수익성 개선은 분기 실적(매출 +10.9%, 영업이익 +18.1%)과 증권사 목표주가(평균 3만원 안팎)로 확인돼 살아 있다. 다만 올해 EPS 추정이 소폭 하향이고 검색 품질이 thin이라 새로 달라진 사실은 없으며, 10-27 현재가는 피벗 아래에서 기다리는 구간이다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 66/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">화장품 해외 성장 스토리가 뚜렷한 상위권 종목</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 15%이고, 최근 4주 수익률은 +14%로 상위 9%입니다. 제약 업종은 강세 업종에 속하며 업종 안에서도 앞선 편입니다. 상장 연차는 약 19.4년이고 시가총액은 1.1조원입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 기준을 통과하지 못했고, 수축은 세 번 있었으며 폭은 점차 줄었습니다. 피벗(돌파 기준가)은 24,900원이며 현재가는 이보다 2.8% 낮습니다. 52주 고가보다 22% 낮고, 50일·200일 평균선 위에서 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간의 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 0.72배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 최근 20거래일 외국인·기관 수급은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 2026년 2분기 매출은 전년 동기보다 11% 늘었고 영업이익은 18% 늘어 완만한 성장세입니다. 회사 가이던스는 확인되지 않았고, 올해 이익 추정치는 거의 변하지 않았습니다. 올해 매출은 처음으로 1조원을 넘을 것이라는 전망이 있습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·전환사채·신주인수권부사채 등 중대 공시는 없었습니다. 10월 12일에 임시주주총회 소집을 결의했고, 안건은 사명 변경(DK 센텔리안)을 위한 정관 변경으로 확인됩니다. 결격 사유 검토에서는 회피 대상이 아니라고 판정했습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 60일 투자의견 5건 중 매수가 4건이고 매도는 없습니다. 평균 목표주가는 현재가보다 높은 수준입니다. 투자의견 상향·하향 변경은 없었습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 화장품의 미국 유통 확대(얼타 뷰티, 노드스트롬, 코스트코)와 미용기기 마데카프라임의 고성장이 주된 재료입니다. 화장품 해외 매출 비중이 빠르게 커지고 있고, 사명을 화장품 중심으로 바꾸는 것도 이 방향과 맞습니다. 10월 23일에도 관련 보도가 이어져 논지를 훼손하는 사실은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 이 종목은 돌파가 나오면 이어서 오를 가능성이 보통 이상인 성장 스토리 종목입니다. 화장품 해외 확장과 마데카프라임이라는 새로운 성장 이야기가 있고, 상대강도와 업종 순위도 상위권입니다. 다만 분기 이익 증가율이 10%대에 머물러 있고 이익 추정치가 정체돼 있어, 스토리만큼 실적이 가속되지 않는 점이 가장 큰 리스크입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩24,900 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩22,402)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩24,350 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩22,402 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/020/0003757756" target="_blank" rel="noopener">동국제약 이어 동국생명과학도 사명 변경…조영제 기술 담은 ‘DK루오...</a></div><div class="m">동아일보 · 2026.10.26 17:23</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/215/0001270506" target="_blank" rel="noopener">동국생명과학, 글로벌 진출 위해 &#x27;DK Luonix’로 사명 변경</a></div><div class="m">한국경제TV · 2026.10.26 16:32</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/014/0005593413" target="_blank" rel="noopener">동국제약, 화장품 해외 성장 본격화…수익성 개선 기대</a></div><div class="m">파이낸셜뉴스 · 2026.10.23 09:11</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/296/0000106286" target="_blank" rel="noopener">동국제약, 걷기 기부 &#x27;39억 걸음&#x27; 달성⋯어르신 다리 치료비 지원</a></div><div class="m">코메디닷컴 · 2026.10.22 12:10</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/629/0000544319" target="_blank" rel="noopener">동원은 &#x27;참존&#x27;, hy는 &#x27;아이오셀&#x27;…뷰티 뛰어든 식품기업 성공 전략은?</a></div><div class="m">더팩트 · 2026.10.22 00:01</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026.11 중 2026.09 분기 실적 발표(컨센서스 매출 2,569억원·영업이익 268억원), 마데카프라임 등 헬스케어 해외 확대 성과, 임시주주총회(2026.10.12 소집결의)</div></div>
+</div>
+</div>
+<div class="card" id="t-004100" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="" data-rs="84">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">004100</div>
+        <div class="sbadge">RS 84</div>
+        <div class="sbadge" title="자동차부품 — 주도섹터 · F2T3 86.0 · 구성 1 · 상위3 004100 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 11/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">태양금속</div>
+        <span class="ctag">자동차 체결부품 · 수급 급등 후 피벗 대기</span>
+        <div class="chl">공시 없는 수급 급등으로 신고가권, 피벗 ₩3,085까지 5.35% 남은 자리</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩2,920</div>
+      <div class="cchg up">+0.34%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026 · NA = 부정 신호 아님(D16) · 사유: 모집단밖">COMP NA</div><div class="ccompx na" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X NA</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>7.9%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-5.3%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.14yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>52/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">최근 분기 매출</div><div class="v">1,593억원</div><div class="s up">전년동기 대비 +1.5% (2026.06)</div></div><div class="num"><div class="l">최근 분기 영업이익</div><div class="v">39.0억원</div><div class="s up">전년동기 12.0억원, 직전 분기 61.0억원</div></div><div class="num"><div class="l">RS</div><div class="v">84.0</div><div class="s up"></div></div><div class="num"><div class="l">피벗까지 거리</div><div class="v">5.35%</div><div class="s up">피벗 ₩3,085 / 현재가 ₩2,920</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>태양금속은 자동차 등에 들어가는 볼트·너트 같은 체결부품을 만들어 완성차와 부품 업체에 파는 운송장비 부품사다. 제품을 납품하는 B2B 구조이며, 최근 확정 분기(2026.06) 연결 매출은 1,593억원 규모다.</p><p>자동차 부품 업종은 완성차 업황과 원가 부담에 따라 이익이 크게 출렁이는 구조다. 이 회사는 같은 분기 영업이익이 전년동기 12.0억원에서 39.0억원으로 늘었으나 매출 증가율은 +1.5%에 그쳐, 아직 외형 성장 서사가 뚜렷하지는 않다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026-10-26 기사 발췌 기준으로 공시·뉴스 없이 하루 21.99% 급등해 2,940원에 마감하며 52주 신고가를 기록했다. 국내외 자동차 산업 변화에 따른 부품주 기대감과 기관·외국인 순매수가 겹친 수급 중심 상승이며, 기사 날짜는 확인되지 않았다.</p><p style="margin-top:6px;">신고가 직후 현재가 ₩2,920(당일 +0.34%)로 급등 가격대를 지키고 있으나, 구체적 수주·계약 등 후속 촉매는 확인되지 않는다. 10월 15일 미래차 인재 행사 기사는 업황 관련 소식이지만 이 회사의 실적과 직접 연결되지 않아 동력은 수급에 의존하는 상태다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 52/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">주도주 흐름은 강하나 재료와 실적 근거가 약합니다</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 16%이며, 자동차부품 업종은 강세 업종에 속합니다. 업종 안에서는 82종 중 12위로 앞쪽이지만 최상위 리더는 아닙니다. 시가총액은 1,072억원의 소형주입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴) 판정은 통과하지 못했고, 수축은 총 5번이었으며 폭은 점차 줄어드는 형태였습니다. 피벗(돌파 기준가)은 3,085원으로 현재가보다 5.3% 높습니다. 현재가는 50일·200일 평균선 위에 있고 52주 고가보다 23% 낮습니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간의 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 0.5배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 수급 세부 내역은 확인되지 않았습니다. 다만 기관 기준으로는 순유입 흐름이 확인됩니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 2026년 2분기 매출은 전년 같은 기간보다 소폭 늘었고, 영업이익은 전년 같은 기간의 3배 이상으로 커졌습니다. 다만 직전 분기보다는 영업이익이 줄었습니다. 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·CB·BW 등 주요사항보고는 없었고, 거래소공시와 지분공시도 없었습니다. 패스1 결격 사유 검토에서는 회피 대상에 해당하지 않는다고 판정했습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 커버하는 증권사, 컨센서스, 리포트, 최근 60일 투자의견이 모두 없습니다. 소형주에서 흔한 중립 사실로 봅니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#FEE2E2;color:#991B1B">부족</span> 검색에서는 별다른 공시나 뉴스 없이 하루 만에 약 22% 올라 52주 신고가를 기록했고, 자동차 부품주 기대감과 수급 쏠림이 겹쳤다는 내용만 확인됩니다. 구체적인 수주나 신제품 같은 재료는 확인되지 않았습니다. 테마 내 선두인지 후발인지와 논지 훼손 여부도 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> RS 상위권의 강세 업종 종목이고 이익이 늘고 있어 돌파 뒤 오를 가능성은 보통 수준으로 봅니다. 근거는 업종 강세와 업종 내 앞선 상대강도, 그리고 전년 대비 크게 늘어난 영업이익입니다. 다만 상승을 이끈 뚜렷한 재료나 가이던스가 확인되지 않아 동력의 지속성을 뒷받침하는 근거가 약합니다. 가장 큰 리스크는 수급 쏠림으로 오른 단기 급등이 재료 없이 되돌려질 가능성입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩3,085 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩2,686)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩2,920 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩2,686 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/030/0003475380" target="_blank" rel="noopener">미래차 인재 한자리에…KEA, &#x27;제8회 미래형자동차 인재페스티벌&#x27; 개최</a></div><div class="m">전자신문 · 2026.10.15 11:14</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">피벗 ₩3,085 돌파 여부 및 기관·외국인 순매수 지속 / 다음 분기 실적 발표(일정 미확인)</div></div>
+</div>
+</div>
+<div class="card" id="t-044450" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="" data-compx="67.7" data-rs="79">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">044450</div>
+        <div class="sbadge no">RS 79</div>
+        <div class="sbadge" title="해운사 — 주도섹터 · F2T3 83.0 · 구성 2 · 상위3 028670, 044450 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 15/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">KSS해운</div>
+        <span class="ctag">VLGC 대선계약 · 3Q 영업이익 +30.8%</span>
+        <div class="chl">8,264억 장기 대선계약에 3분기 이익 증가, 자사주 취득이 받치는 가스선사</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩11,750</div>
+      <div class="cchg up">+0.26%</div>
+      <div class="ccomp na" title="관찰 지표 · 판정 무영향 · 기준일 20261026  · 결측 항목: ROE_fwd·선행PER·성장률 · NA = 부정 신호 아님(D16) · 사유: 컨센서스부재 · 하한 미달 렌즈: 밸류">COMP NA</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 67.7</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-flt"><i></i><em>VCP 패턴</em> <b>플랫</b></span><span class="g"><i></i><em>수축깊이</em> <b>8.1%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-6.8%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.65yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>55/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">3Q 영업이익</div><div class="v">280억원</div><div class="s up">전년 동기 대비 +30.8%</div></div><div class="num"><div class="l">3Q 매출</div><div class="v">1,316억원</div><div class="s up">전년 동기 대비 +15.9%</div></div><div class="num"><div class="l">신규 대선계약</div><div class="v">8,264억원</div><div class="s up">2024년 연결 매출의 약 160%</div></div><div class="num"><div class="l">피벗 이격</div><div class="v">6.82%</div><div class="s up">현재가 ₩11,750 → 피벗 ₩12,610</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>KSS해운은 초대형 LPG 운반선(VLGC)과 화학제품·암모니아 운반선을 운영해 해외 에너지 기업에 선박을 빌려주고 운송 대가를 받는 해운사다. 주력인 VLGC는 BGN그룹·태국석유공사(PTT)와 맺은 대선계약(선박을 일정 기간 빌려주고 일 단위 대선료를 받는 방식)으로 매출이 쌓이며, 장기 계약 비중이 커 운임 변동에 덜 흔들리는 구조다.</p><p>국내에서 LPG·암모니아 같은 가스·화학 전문 선사로 자리 잡았고, 국내 최초로 LPG·메탄올 이중연료 추진선을 도입해 환경 규제에 대응하고 있다. 최근에는 VLGC 계약 갱신에 따른 대선료 인상과 상반기에 도입한 MR 탱커(중형 제품운반선) 2척이 실적을 끌어올리는 전환점이 되고 있다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026년 1월 말 BGN그룹·PTT와 총 8,264억원 규모 대선계약을 공시하며 주가가 8%대 강세를 보였고, 4월 22일 중동 분쟁 수혜 기대로 1만3640원까지 올랐다가 하락 전환했다. 이후 9월 22일 자기주식취득 결정과 10월 14일 3분기 영업이익 280억원(+30.8%) 발표가 이어지며, 21일 종가 9,990원이던 주가는 11,750원까지 회복했다.</p><p style="margin-top:6px;">3분기 실적이 대선료 인상으로 뒷받침되고 10월 중순 호르무즈 통행 차질로 해운 섹터에 운임 기대가 붙어 동력은 살아 있는 편이다. 다만 최근 상승 원인이 불분명하다는 검색 평가와 4월 고점 이후 조정 이력을 감안하면, 기사 노출과 수급 확산이 뚜렷하지 않은 점은 감시 대상이다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 55/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">실적은 좋지만 주도력은 보통인 해운주</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 21%이고, 최근 12주 수익률은 +22%로 상위 28%입니다. 해운사 업종은 77개 업종 중 15위로 강세 업종이며, 업종 내에서는 5종 중 3위입니다. 시가총액은 2,653억원이고 상장 후 약 19년이 지났습니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 통과하지 못했고, 횡보형 모양입니다. 수축은 2번이었고 폭은 비슷한 수준이었습니다. 피벗(돌파 기준가)은 12,610원으로 현재가보다 6.8% 높고, 현재가는 50일·200일 평균선 위에서 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 0.67배였습니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 최근 20거래일 외국인·기관 수급은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 2분기 연결 매출은 전년 동기 대비 20% 늘었고 영업이익은 45% 늘어 이익 증가폭이 더 컸습니다. 직전 분기보다도 매출과 영업이익이 모두 늘었습니다. 가이던스와 추정치 개정 방향은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 중대 공시는 자기주식취득결정 1건이며 물량 부담성 공시는 없었습니다. 검색에서는 자사주 취득과 기존 자사주 소각이 확인되었고, 창업주 별세 후 사내근로복지기금이 최대주주가 되었습니다. 결격 사유 검토에서는 회피 대상이 아니라고 판정되었습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 커버하는 증권사의 컨센서스와 목표주가가 없고, 투자의견 변경도 없었습니다. 이는 소형주에서 흔한 중립 사실입니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 10월 23일 단일판매·공급계약 기재정정 공시가 있었고, 검색에서는 장기 대선계약(선박 임대) 체결과 SK가스와의 7년 용선계약이 확인되었습니다. 장기계약 기반의 안정적 가스선 사업과 자사주 매입이 뒷받침이지만, 새롭게 커지는 이야기나 최근 2주 급등 이슈는 확인되지 않았습니다. 논지를 훼손하는 악재는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 돌파가 나온다면 무난하게 오를 수 있으나 최상위 주도주로 보기는 어려운 종목입니다. 이익이 매출보다 빠르게 늘고 있고 자사주 매입이 있으며 업종도 강세권입니다. 다만 RS가 상위 21%에 그치고 업종 내 3위이며 새로운 성장 이야기가 부족해, 운임 변동과 시장 약세가 가장 큰 리스크입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩12,610 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩10,810)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩11,750 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩10,810 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/277/0005833245" target="_blank" rel="noopener">항공 예약정보 새고 선박까지 위협…기업들 &#x27;사이버 방어선&#x27; 재점검</a></div><div class="m">아시아경제 · 2026.10.26 08:55</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/008/0005426368" target="_blank" rel="noopener">부캉이로 주목받은 핑크퐁…자사주 전량 소각으로 주가 &#x27;쑥&#x27;</a></div><div class="m">머니투데이 · 2026.10.14 17:17</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/421/0009226387" target="_blank" rel="noopener">해운주, 호르무즈 통행 차질에 운임 상승…HMM 5%↑[핫종목]</a></div><div class="m">뉴스1 · 2026.10.14 09:55</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/009/0005742341" target="_blank" rel="noopener">삼전닉스 이어 우리도 태웁니다…자사주 매입·소각나선 상장사 어디</a></div><div class="m">매일경제 · 2026.10.01 06:23</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/009/0005742235" target="_blank" rel="noopener">9월 자사주 매입 5600억 … &#x27;밸류업 시계&#x27; 다시 돈다</a></div><div class="m">매일경제 · 2026.09.30 17:40</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 4분기 VLGC 계약 갱신 및 대선료 반영 흐름 / 자사주 취득 집행 진행 공시 / 중동 호르무즈 상황에 따른 해운 운임 동향</div></div>
+</div>
+</div>
+<div class="card" id="t-033780" style="--c:#65A30D;--cl:#EDF4E2;--cx:#F9FBF5" data-sector="cons-defensive" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="72.9" data-compx="71.0" data-rs="76" data-fresh="true">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">033780</div>
+        <div class="sbadge no">RS 76</div>
+        <div class="sbadge no" title="담배 — 비주도 · F2T3 77.0 · 구성 1 · 상위3 033780 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 23/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">KT&amp;G</div>
+        <span class="ctag">주주환원 · 2Q 영업이익 +18.4%</span>
+        <div class="chl">밸류업·자사주 소각에 해외 궐련 성장, 피벗 4.94% 아래 대기</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩186,700</div>
+      <div class="cchg down">-1.16%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20261026">COMP 72.9</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 71.0</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-exp"><i></i><em>VCP 패턴</em> <b>확장</b></span><span class="g"><i></i><em>수축깊이</em> <b>5.5%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-4.9%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (≥1.77yr, B5+)</b></span><span class="g can"><i></i><em>AI</em> <b>55/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">2Q 영업이익</div><div class="v">4,145억원</div><div class="s up">전년동기 3,499억원 대비 +18.4% (잠정)</div></div><div class="num"><div class="l">2Q 매출</div><div class="v">1.70조원</div><div class="s up">전년동기 1.55조원 대비 +9.9%</div></div><div class="num"><div class="l">3Q 컨센서스 영업이익</div><div class="v">5,078억원</div><div class="s up">다음 분기 추정치, 직전 분기 3,645억원</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">244,286원</div><div class="s up">10-26 종가 189,800원 대비 +28.7%</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>KT&amp;G는 궐련(잎담배를 말아 만든 일반 담배)인 에쎄·레종과 전자담배 기기 릴(lil)을 만들어 국내 소비자와 해외 유통망에 파는 회사다. 국내는 편의점·면세점 등 유통 채널로, 해외는 인도네시아·유라시아 등 현지 거점과 수출로 판매하며, 인삼 사업과 부동산 사업도 함께 영위하는 구조다.</p><p>국내 궐련 시장에서는 필립모리스·BAT 등 글로벌 업체와 경쟁하는 가운데 점유율 1위 지위를 지키고 있다. 최근 성장 축은 해외 궐련으로, 2024년 해외 궐련 매출이 1조4500억원으로 전년 대비 28.0% 늘었고 해외 판매 수량 비중도 59.5%까지 올라 내수 기업에서 글로벌 기업으로 체질이 바뀌는 중이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2025년 말 3조7000억원 규모 밸류업 프로그램과 5년 만의 최대 실적 기대가 겹치며 12월 16일 역대 최고가 15만500원을 찍었고, 이후 주가는 한 단계 위에서 형성됐다. 2026년 2분기 영업이익이 전년 대비 18.4% 늘었고 9월에는 자기주식 취득과 소각이 결정되면서 주주환원 스토리가 이어졌다.</p><p style="margin-top:6px;">주가가 최근 250봉 최대 상승 45.7% 후 고점 대비 -4.2%에 머물러 동력은 살아 있고, 증권사 평균 목표주가 244,286원도 현재가보다 높다. 다만 신흥국 주식 자금 이탈 헤드라인(10월 22일)과 외국인 순매도는 시황의 부담이며, 올해 EPS 추정이 소폭 낮아진 점이 동력 둔화 신호로 감시 대상이다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 55/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">실적은 견조하나 업종 강세·가속 부족</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 24%이고, 최근 4주 수익률은 상위 13%, 25주는 상위 11%로 강한 편입니다. 반면 12주 수익률은 중간 수준이고, 담배 업종은 강세 업종에 해당하지 않으며 업종 내 1종목입니다. 시가총액은 19.4조원입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 통과하지 못했고, 수축은 1번이며 폭이 커지는 확장형입니다. 피벗(돌파 기준가)은 196,400원으로 현재가보다 4.9% 높고 이는 52주 고가와 같습니다. 현재가는 50일·200일 평균선 위에 있으며 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 직전 50거래일 평균의 1.18배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#F3F4F6;color:#6B7280">확인 안 됨</span> 최근 20거래일 수급 규모는 확인되지 않았습니다. 다만 기관 기준으로는 순유입 경향으로 정리돼 있습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 2분기 영업이익은 전년 동기보다 18% 늘었고 순이익은 152% 늘었으며, 매출은 9.9% 증가했습니다. 가이던스는 제공되지 않았고 올해 이익 추정치는 30일 전보다 소폭 낮아져 사실상 유지 상태입니다. 3분기 추정 영업이익은 5,078억원으로 높게 잡혀 있으나, 검색된 7월 증권사 리포트는 3분기 감소를 예상해 시각이 엇갈립니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 주요사항보고는 자기주식취득결정 1건이며, 주식소각결정도 있어 신주·전환사채 등 물량 부담은 확인되지 않았습니다. 패스1 결격 사유 검토 결과는 회피 아님이며 해당 범주가 없습니다. 소송 공시는 일정 금액 미만 청구로 영향이 작아 보입니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 평균 목표주가는 현재가보다 29% 높고 투자의견 평균은 4.00점입니다. 최근 60일 2개 증권사가 모두 매수였고 의견 변경은 없었습니다. DS투자증권은 목표주가를 24만원으로 올렸습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 주주환원 확대와 역대 최고 실적이라는 이야기로 움직였으나, 핵심 촉매 기사가 1월 것이라 이야기는 성숙 단계입니다. 검색에서는 자사주 소각이 마무리 단계이며 4분기에 배당 확대 중심의 새 주주환원 정책이 나올 것으로 알려졌고, 해외 궐련 사업은 9개 분기 연속 성장했다는 보도가 있습니다. 논지를 훼손하는 악재는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> KT&amp;G는 안정적 실적과 주주환원 기대를 가진 괜찮은 종목이지만, 돌파 뒤 큰 승자로 커질 폭발력은 보통 수준으로 판단합니다. 최근 4주·25주 수익률 순위가 상위권이고 기관 순유입, 증권사 매수 의견, 4분기 배당 정책 기대가 뒷받침합니다. 다만 담배 업종은 강세 그룹이 아니고 이야기가 성숙했으며 올해 이익 추정치가 정체돼 있어 가속 근거가 약하다는 점이 가장 큰 리스크입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩196,400 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩171,764)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩186,700 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩171,764 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/076/0004459562" target="_blank" rel="noopener">KT&amp;amp;G, 에쎄 제품군 확대…국내, 면세시장 공략 &#x27;브랜드 경쟁력&#x27; 확대</a></div><div class="m">스포츠조선 · 2026.10.26 17:46</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/008/0005431607" target="_blank" rel="noopener">발전소 3만2000곳 연결한 엔라이튼, 재생에너지의 날 장관표창</a></div><div class="m">머니투데이 · 2026.10.26 13:00</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/009/0005752475" target="_blank" rel="noopener">블랙 궐련지+프랑스산 원료로 ‘이름값’…KT&amp;amp;G, 레종 프렌치 나이트...</a></div><div class="m">매일경제 · 2026.10.22 15:23</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/011/0004673932" target="_blank" rel="noopener">기관투자가 위험선호 5개월 만에 꺾였다…신흥국 주식서 자금 이탈</a></div><div class="m">서울경제 · 2026.10.22 10:01</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/011/0004673934" target="_blank" rel="noopener">그리스 흑자 전환, 프랑스는 적자 늪…15년 개혁이 명암 갈랐다</a></div><div class="m">서울경제 · 2026.10.22 10:01</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026년 3분기 실적 발표(컨센서스 영업이익 5,078억원, 정확한 일정은 미확인) / 10월 23일 IR 개최 이후 후속 주주환원 공시 / 에쎄·레종 신제품 확대와 면세시장 공략</div></div>
+</div>
+</div>
+<div class="card" id="t-021240" style="--c:#64748B;--cl:#ECEEF1;--cx:#F9F9FA" data-sector="unknown" data-ai="false" data-unicorn="false" data-verdict="can" data-comp="73.9" data-compx="71.3" data-rs="72">
+<div class="chead">
+  <div class="ctop">
+    <div class="cleft">
+      <div class="tcol">
+        <div class="tpill">021240</div>
+        <div class="sbadge no">RS 72</div>
+        <div class="sbadge no" title="가정용기기와용품 — 비주도 · F2T3 67.5 · 구성 2 · 상위3 021240, 352090 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 36/77</div>
+      </div>
+      <div class="cmain">
+        <div class="cname">코웨이</div>
+        <span class="ctag">렌탈 1위 · 2Q 매출 +14.6%</span>
+        <div class="chl">정수기·공기청정기 렌탈 강자, 매출 두 자릿수 성장에 컨센서스 상향 우위</div>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cprice" title="가격 원천 키움증권 · 조회 2026-10-27 16:10 · 기준일 2026-10-27 · 정규장 종가">₩103,200</div>
+      <div class="cchg down">-0.58%</div>
+      <div class="ccomp" title="관찰 지표 · 판정 무영향 · 기준일 20261026">COMP 73.9</div><div class="ccompx" title="구 COMP-X — 원전 COMP 와 **다른 척도**다(부분 지표 재정규화 0~1 을 100점 환산). 두 점수를 섞어 쓰지 말 것 · 판정 무영향">COMP-X 71.3</div>
+      
+    </div>
+  </div>
+  <div class="gline"><span class="g pt-con"><i></i><em>VCP 패턴</em> <b>수축</b></span><span class="g"><i></i><em>수축깊이</em> <b>9.3%</b></span><span class="g vt"><i></i><em>거래량</em> <b>안마름</b></span><span class="g"><i></i><em>돌파전</em> <b>-7.7%</b></span></div><div class="gline"><span class="g"><i></i><em>Stage</em> <b>Stage2 (0.27yr, B1)</b></span><span class="g can"><i></i><em>AI</em> <b>52/100</b></span><span class="g na" title="kr_no_pit"><i></i><em>매출 감속</em> <b>NA</b></span></div>
+  <div class="fold">▼</div>
+</div>
+<div class="cbody">
+  <div class="nums"><div class="num"><div class="l">2Q 매출</div><div class="v">1.44조원</div><div class="s up">전년동기 1.26조원, +14.6%</div></div><div class="num"><div class="l">2Q 영업이익</div><div class="v">2,532억원</div><div class="s up">전년동기 2,427억원, +4.3%</div></div><div class="num"><div class="l">올해 EPS 추정</div><div class="v">9,931.7원</div><div class="s up">30일 전 9,897.6원, 상향 5·하향 1</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">131,667원</div><div class="s up">종가(10-26) 대비 +26.0%</div></div></div>
+  <div class="sec"><div class="sl">기업 개요</div><p>코웨이는 정수기·공기청정기·비데·매트리스를 직접 만들거나 위탁 생산해 월 렌탈료를 받고 가정과 사업장에 제공하는 회사다. 렌탈 계정을 방문관리(코디·코닥)로 묶어 매달 반복 수익을 얻는 B2C 중심 구조로, 최근에는 음식물처리기, 안마의자 &#x27;비렉스&#x27; 같은 신규 카테고리와 해외 법인 판매로 매출 축을 넓히는 중이다.</p><p>국내 렌탈 시장에서 SK매직, 청호나이스, 쿠쿠와 경쟁하며 가장 큰 계정 기반과 방문관리 망이 차별점이다. 최근 공기청정기 &#x27;에어메가 마이티2&#x27;가 미국 타임지 &#x27;최고의 발명품&#x27;에 선정되고 미생물형·분쇄형 음식물처리기를 내놓는 등 제품군 확장이 성장 드라이버로 작용하는 국면이다.</p></div>
+  <div class="sec"><div class="sl">상승 동력 진단</div><p>2026년 2분기 매출이 1.44조원(+14.6%)으로 성장하고 컨센서스 EPS가 상향되며 실적 기반 상승이 이어졌다. 10월 하순에는 에어메가 마이티2의 美 타임 선정(10/26)과 비렉스 R7 수상(10/25) 등 제품 뉴스가 겹쳐 주가에 우호적 분위기를 더했다.</p><p style="margin-top:6px;">실적 추정치 상향과 기관 순매수가 이어져 동력은 유지되나, 뚜렷한 신규 촉매는 검색에서 확인되지 않았다. 제품 수상 뉴스는 심리를 보강하는 수준이며 다음 실적에서 이익 성장 확인이 관건이다.</p><div class="vd can"><span class="vlab">🤖 돌파 적합도 (AI 의견)</span><span class="vcall">매수 가능</span><span class="vconv">돌파 적합도 52/100</span><div class="vwhy" style="font-weight:600;margin-top:4px;">안정적 실적 성장, 다만 새 동력은 약함</div><div class="vwhy" style="margin-top:6px;"><b>① 주도주 여부</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> RS(최근 1년 주가 흐름의 전체 순위)는 상위 28%로 중상위권입니다. 최근 25주 수익률은 상위 6%로 강하지만 52주 수익률은 상위 37%에 그칩니다. 속한 업종은 강세 업종이 아니며 업종 내에서는 2위입니다. 시가총액은 7.3조원입니다.</div><div class="vwhy" style="margin-top:6px;"><b>② 가격 패턴</b> VCP(돌파 전 변동 폭이 줄어드는 수축 패턴)는 통과하지 못했고 수축은 1번이었습니다. 피벗(돌파 기준가)인 111,800원은 52주 고가와 같으며 현재가는 7.7% 낮습니다. 현재가는 50일·200일 평균선 위에 있고 정배열입니다.</div><div class="vwhy" style="margin-top:6px;"><b>③ 거래량</b> 수축 구간 거래량은 평소와 비슷하거나 더 많았습니다. 10월 27일 거래량은 평소의 0.50배입니다.</div><div class="vwhy" style="margin-top:6px;"><b>④ 수급</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 최근 20거래일 기관은 순유입으로 확인됩니다. 외국인 수급은 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑤ 실적·전망</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#E5E7EB;color:#374151">보통</span> 2분기 매출은 전년 대비 15% 늘었고 영업이익은 4.3% 증가해 매출 대비 이익 증가폭은 작았습니다. 올해 EPS 추정치는 30일 전보다 소폭 올랐고 상향 의견이 하향보다 많습니다. 가이던스는 제공되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑥ 공시·물량 부담</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 최근 90일 유상증자·전환사채 등 중대 공시는 없었습니다. 최대주주 지분 변동 신고와 임원 거래 계획 보고가 있었으나 본문 수치는 확인되지 않았습니다. 결격 사유 검토에서는 회피 대상이 아니었습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑦ 증권사 평가</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#DCFCE7;color:#166534">좋음</span> 평균 목표주가는 현재가보다 26% 높고 투자의견은 매수 쪽입니다. 최근 60일 투자의견 변경은 없었습니다. 참여 애널리스트 수는 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑧ 뉴스·재료</b><span style="display:inline-block;padding:0 7px;border-radius:9px;font-size:10.5px;font-weight:600;margin:0 4px;background:#FEE2E2;color:#991B1B">부족</span> 뚜렷한 최근 촉매는 확인되지 않았고 제품 수상 소식 위주입니다. 검색으로도 10월의 새로운 재료나 3분기 전망은 확인되지 않았습니다. 다만 매출 7조원 목표의 밸류업 계획이 배경으로 남아 있고 논지를 훼손하는 사실도 확인되지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑨ 시장 환경</b> 국장 진입 경보 4/4단계입니다. 이 점수에는 반영하지 않았습니다.</div><div class="vwhy" style="margin-top:6px;"><b>⑩ 종합·주의할 점</b> 돌파 뒤 상승 여력은 보통 수준으로 보며 강한 주도주로 보기는 어렵습니다. 최근 25주 수익률이 상위권이고 기관 순유입과 EPS 추정치 상향이 받쳐 주지만, 업종은 강세가 아니고 새로운 이야기도 뚜렷하지 않습니다. 이익 증가율이 매출 증가율에 못 미치는 점이 근거를 약하게 합니다. 가장 큰 리스크는 성숙 기업이라 돌파 뒤 추가 동력이 부족해 상승이 이어지지 않을 수 있다는 점입니다. 매수는 거래량이 동반된 돌파가 확인될 때만 하고, 손절선(진입가 대비 −8%)은 시스템이 관리합니다.</div></div></div>
+  <div class="sec strat"><div class="sl">VCP · 매매 전략</div><p>진입 기준은 돌파 기준가(피벗) ₩111,800 돌파이며, 돌파 당일 거래량이 평소의 1.4배 이상이어야 유효한 돌파로 봅니다. 초기 손절선은 진입가 대비 −8%(참고치 ₩94,944)이고, 종가가 바닥선(50일 이동평균선과 하한선 중 높은 쪽) 아래면 전량 청산하며 부분 익절 단계는 없습니다. 돌파 당일 종가가 기준가 아래이거나 거래량이 기준에 못 미치면 돌파 실패로 보고 다음 거래일 개장 직후 정리합니다.</p>
+    <div class="es">
+      <div class="en"><div class="l">📍 진입</div><div class="v">₩103,200 돌파</div></div>
+      <div class="st"><div class="l">🛑 손절</div><div class="v">₩94,944 (-8%)</div></div>
+    </div>
+  </div>
+  
+  <div class="sec"><div class="sl">최근 뉴스</div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/003/0014279973" target="_blank" rel="noopener">미생물형? 분쇄형?…나에게 맞는 음처기는 &#x27;이것&#x27;</a></div><div class="m">뉴시스 · 2026.10.27 08:01</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/018/0006396352" target="_blank" rel="noopener">코웨이, 미생물형·분쇄형 음식물처리기…차별점은</a></div><div class="m">이데일리 · 2026.10.26 14:28</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/003/0014277945" target="_blank" rel="noopener">코웨이 &amp;quot;공기청정기, 美타임지 최고발명품 선정&amp;quot;</a></div><div class="m">뉴시스 · 2026.10.26 11:21</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/029/0003055178" target="_blank" rel="noopener">코웨이 공기청정기 ‘에어메가 마이티2’, 美 타임 ‘최고의 발명품’...</a></div><div class="m">디지털타임스 · 2026.10.26 10:37</div></div><div class="news"><div class="t"><a href="https://n.news.naver.com/mnews/article/003/0014276682" target="_blank" rel="noopener">코웨이 &amp;quot;비렉스 R7, &#x27;굿디자인어워드&#x27; 동상 수상&amp;quot;</a></div><div class="m">뉴시스 · 2026.10.25 15:01</div></div></div>
+  <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">3분기(2026.09) 실적 발표 — 영업이익 컨센서스 2,636억원, 일정 미확인 / 신규 제품(음식물처리기 등) 판매 추이</div></div>
+</div>
+</div>
+<div class="foot">패턴·거래량 = 관찰 태그 (매매 판정 무관)<br>
+수축깊이 = 2봉 이상 걸친 마지막 눌림 폭 / (반등) = r 2% 폴백 / NA = 산출 불가<br>매출 감속 O = 감속 전환 / X = 정상 / NA = 산출 불가<br>
+성장패턴 태그는 성장률의 방향 관찰 기록 — 매수 판단과 무관. 음전·부진도 역성장 아님(성장 지속 중 속도 감소)<br>
+교육·참고 목적이며 투자 권유가 아닙니다.<br>
+뭉치 트레이더 · Minervini SEPA + VCP · 🧠 심층분석: Claude Sonnet (23/23종목)<br>
+📊 데이터: yfinance · Naver금융 · 자체 RS 엔진</div>
+</div>
+
+<script>
+(function(){
+  var cards = document.querySelectorAll('.card');
+  function hint(c){var f=c.querySelector('.fold');if(f)f.textContent=c.classList.contains('open')?'\u25B2':'\u25BC';}
+  cards.forEach(function(c){
+    hint(c);
+    var h=c.querySelector('.chead');
+    if(h) h.addEventListener('click',function(){c.classList.toggle('open');hint(c);});
+  });
+  var selSec=new Set(), selAttr=new Set(), selVerd=new Set();
+  var allBtn=document.querySelector('#secRow [data-sec="all"]');
+  function matchAttr(c){
+    var ok=false;
+    selAttr.forEach(function(a){
+      if(a==='ai'&&c.dataset.ai==='true')ok=true;
+      if(a==='unicorn'&&c.dataset.unicorn==='true')ok=true;
+      if(a==='fresh'&&c.dataset.fresh==='true')ok=true;
+    });
+    return ok;
+  }
+  function applyFilters(){
+    cards.forEach(function(c){
+      var okSec=selSec.size===0||selSec.has(c.dataset.sector);
+      var okAttr=selAttr.size===0||matchAttr(c);
+      var okVerd=selVerd.size===0||selVerd.has(c.dataset.verdict);
+      c.style.display=(okSec&&okAttr&&okVerd)?'':'none';
+    });
+  }
+  var secBtns=document.querySelectorAll('#secRow .tab');
+  var attrBtns=document.querySelectorAll('.tab.attr');
+  var vtabs=document.querySelectorAll('.vtab');
+  function syncAll(){
+    if(allBtn)allBtn.classList.toggle('active',selSec.size===0&&selAttr.size===0&&selVerd.size===0);
+  }
+  function clearAll(){
+    selSec.clear();selAttr.clear();selVerd.clear();
+    secBtns.forEach(function(x){if(x.getAttribute('data-sec')!=='all')x.classList.remove('active');});
+    attrBtns.forEach(function(x){x.classList.remove('active');});
+    vtabs.forEach(function(x){x.classList.remove('active');});
+    syncAll();applyFilters();
+  }
+  secBtns.forEach(function(t){
+    t.addEventListener('click',function(){
+      var s=t.getAttribute('data-sec');
+      if(s==='all'){clearAll();return;}
+      if(selSec.has(s))selSec.delete(s);else selSec.add(s);
+      t.classList.toggle('active',selSec.has(s));
+      syncAll();applyFilters();
+    });
+  });
+  attrBtns.forEach(function(t){
+    t.addEventListener('click',function(){
+      var a=t.getAttribute('data-attr');
+      if(selAttr.has(a))selAttr.delete(a);else selAttr.add(a);
+      t.classList.toggle('active',selAttr.has(a));
+      syncAll();applyFilters();
+    });
+  });
+  vtabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var v=t.getAttribute('data-vfilter');
+      if(selVerd.has(v))selVerd.delete(v);else selVerd.add(v);
+      t.classList.toggle('active',selVerd.has(v));
+      syncAll();applyFilters();
+    });
+  });
+    var btn=document.getElementById('xall');
+  if(btn) btn.addEventListener('click',function(){
+    var anyClosed=Array.prototype.some.call(cards,function(c){return c.style.display!=='none'&&!c.classList.contains('open');});
+    cards.forEach(function(c){if(c.style.display==='none')return;c.classList.toggle('open',anyClosed);hint(c);});
+    btn.textContent=anyClosed?'\uC804\uCCB4 \uC811\uAE30 \u25B2':'\uC804\uCCB4 \uD3BC\uCE58\uAE30 \u25BC';
+  });
+  /* COMP100-JS-START  [FWD-OBS-COMP100-UX-20260915 오너 지시 ①] COMP·RS 정렬.
+     지표당 버튼 1개 — 활성 버튼 재클릭이 내림↔오름 반전, 다른 버튼 클릭은 내림부터.
+     표시 순서만 바꾼다(판정·필터·서버 정렬키 무관). NA 는 방향과 무관하게 항상 하단,
+     동점·NA 내부는 서버 원순서(RS↓VCP↓) 유지. 초기 상태 = RS↓ = 서버 원순서. */
+  var wrapEl=document.querySelector('.wrap');
+  var footEl=wrapEl?wrapEl.querySelector('.foot'):null;
+  var origOrder=Array.prototype.slice.call(cards);
+  var origIdx=new Map(); origOrder.forEach(function(c,i){origIdx.set(c,i);});
+  var sortKey='rs', sortDir='desc';
+  function sortCards(key,dir){
+    var arr=origOrder.slice();
+    arr.sort(function(a,b){
+      var x=parseFloat(a.dataset[key==='comp'?'comp':(key==='compx'?'compx':'rs')]);
+      var y=parseFloat(b.dataset[key==='comp'?'comp':(key==='compx'?'compx':'rs')]);
+      var nx=isNaN(x), ny=isNaN(y);
+      if(nx&&ny) return origIdx.get(a)-origIdx.get(b);
+      if(nx) return 1;
+      if(ny) return -1;
+      if(x===y) return origIdx.get(a)-origIdx.get(b);
+      return dir==='desc' ? (y-x) : (x-y);
+    });
+    arr.forEach(function(c){
+      if(footEl) wrapEl.insertBefore(c, footEl); else wrapEl.appendChild(c);
+    });
+  }
+  var sbtns=Array.prototype.slice.call(document.querySelectorAll('.sbtn'));
+  sbtns.forEach(function(t){
+    t.addEventListener('click',function(){
+      var key=t.getAttribute('data-key');
+      if(sortKey===key){ sortDir = (sortDir==='desc') ? 'asc' : 'desc'; }
+      else { sortKey=key; sortDir='desc'; }
+      sbtns.forEach(function(x){
+        x.classList.remove('on');
+        var a=x.querySelector('.ar');
+        if(a) a.textContent='↓';
+      });
+      t.classList.add('on');
+      var ar=t.querySelector('.ar');
+      if(ar) ar.textContent = (sortDir==='desc') ? '↓' : '↑';
+      sortCards(sortKey,sortDir);
+    });
+  });
+  /* COMP100-JS-END */
+  // 스크롤 시 필터 메뉴 자동 접힘 + ▼ 클릭으로 재펼침 [2026-07-24]
+  var hdrEl=document.querySelector('.hdr'),fbarEl=document.getElementById('fbar');
+  if(hdrEl&&fbarEl){
+    var fManual=false,fOpenY=0;
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY||document.documentElement.scrollTop||0;
+      if(y<60){hdrEl.classList.remove('fold');fManual=false;return;}
+      if(fManual){if(Math.abs(y-fOpenY)>300){fManual=false;hdrEl.classList.add('fold');}return;}
+      hdrEl.classList.add('fold');
+    },{passive:true});
+    fbarEl.addEventListener('click',function(){
+      hdrEl.classList.remove('fold');fManual=true;fOpenY=window.scrollY||0;
+    });
+  }
+})();
+</script>
+
+</body></html>
