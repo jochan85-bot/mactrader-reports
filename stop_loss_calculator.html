@@ -262,7 +262,7 @@
 
     <div class="field" style="margin-bottom:18px;">
       <label>트레일링 MA 기간 <span style="color:var(--accent);font-weight:700;">MA<span id="maLabel">50</span></span>
-        <span style="font-size:0.7rem;font-weight:400;">(라이브 <code>MA_TRAIL_N</code> = 50 고정)</span></label>
+        <span style="font-size:0.7rem;font-weight:400;">(라이브 기본 50일 · 보유 의견에 따라 40~70일)</span></label>
       <div class="knob-row">
         <input type="number" id="maN" value="50" min="30" max="150" step="1">
         <input type="range" id="maSlider" min="30" max="150" step="1" value="50">
@@ -385,7 +385,7 @@
       <div class="phase-num">2</div>
       <div class="phase-content">
         <div class="pname">MA 트레일 — MA<b>N</b>이 하한선을 넘으면 바닥을 인수</div>
-        <div class="pdesc">확정봉 (N−1)개 + 현재가, 총 N봉 평균. 라이브는 <b>50 고정</b>이고 이 계산기만 30~150으로 조절한다.
+        <div class="pdesc">확정봉 (N−1)개 + 현재가, 총 N봉 평균. 라이브 기본은 <b>50</b>이고, 보유 의견에 따라 40~70일선을 쓰는 <b>청산 이평선 사다리</b>가 적용된다(미확보 시 50). 이 계산기는 의견을 반영하지 않고 30~150으로 직접 조절한다.
           수익률에 따라 기간이 변하는 <b>가변 MA는 폐지</b>됐다(구 <code>ma_period_for</code>).
           확정봉이 N−1개 미만이면 MA 항은 <b>제외</b>된다.</div>
         <div class="formula-inline">floor = max(base, MA_N)</div>
