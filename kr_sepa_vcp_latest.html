@@ -197,6 +197,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .vtab.active{background:#34D399;color:#0F172A;}
 .tab.attr.active{color:#0F172A !important;}
 .tabs.attrRow{padding-top:0;padding-bottom:6px;}
+
+/* [REPORT-SECTOR-CHIP-20261118] 섹터 칩 「대섹터(소섹터)」 — 종목명 바로 뒤, 폭이 모자라면 칩 덩어리가 종목명 아랫줄 맨 앞으로(칩 안은 줄바꿈 없음). 색 = 대섹터 고정색(매매일지와 동일). */
+.secw{display:inline-block;white-space:nowrap;vertical-align:baseline;}
+.sec1{display:inline-block;font-size:10px;font-weight:700;color:#fff;border-radius:5px;padding:1px 7px;line-height:1.4;}
+.cname{overflow-wrap:anywhere;}  /* 띄어쓰기 없는 긴 종목명이 가격 열과 겹치지 않게(좁은 화면) */
 </style>
 </head><body>
 <div class="hdr">
@@ -224,7 +229,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.6667 · 구성 8 · 상위3 032580, 092870, 219130 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">엑시콘</div>
+        <div class="cname">엑시콘 <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(반도체)</span></span></div>
         <span class="ctag">반도체 테스터 · 분기 흑자전환</span>
         <div class="chl">CLT·SSD 테스터 신제품發 실적 턴어라운드, 소부장 순풍 속 피벗 대기</div>
       </div>
@@ -265,7 +270,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="핸드셋 — 주도섹터 · F2T3 91.0 · 구성 2 · 상위3 290550, 066670 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 11/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">디케이티 🤖</div>
+        <div class="cname">디케이티 🤖 <span class="secw"><span class="sec1" style="background:#64748B" title="섹터">기타(핸드셋)</span></span></div>
         <span class="ctag">휴머노이드 공급망 · 분기 매출 +24.6%</span>
         <div class="chl">FPCA 본업 성장에 로봇 신사업 기대가 얹힌 RS 98 종목, 피벗 5.2% 아래</div>
       </div>
@@ -306,7 +311,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.6667 · 구성 8 · 상위3 032580, 092870, 219130 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">타이거일렉</div>
+        <div class="cname">타이거일렉 <span class="secw"><span class="sec1" style="background:#64748B" title="섹터">기타(반도체)</span></span></div>
         <span class="ctag">테스트 PCB 턴어라운드 · 영업익 +138%</span>
         <div class="chl">메모리 테스트용 PCB 수주 회복으로 2분기 영업이익 69억, 전년 대비 +138%</div>
       </div>
@@ -347,7 +352,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.6667 · 구성 8 · 상위3 032580, 092870, 219130 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">티에프이 🤖</div>
+        <div class="cname">티에프이 🤖 <span class="secw"><span class="sec1" style="background:#64748B" title="섹터">기타(반도체)</span></span></div>
         <span class="ctag">소캠2 효과 · 3Q 영업이익 +212%</span>
         <div class="chl">소캠2 테스트 부품 효과로 3Q 영업이익 150억원, 성장궤도 진입 평가</div>
       </div>
@@ -388,7 +393,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="소프트웨어 — 주도섹터 · F2T3 95.0 · 구성 1 · 상위3 053800 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 3/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">안랩 🤖</div>
+        <div class="cname">안랩 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(소프트웨어)</span></span></div>
         <span class="ctag">보안 대장주 · 3Q 영업익 +38.7%</span>
         <div class="chl">금융권 해킹發 보안투자 기대에 실적 개선이 겹친 보안주, 피벗 4.8% 아래 대기</div>
       </div>
@@ -429,7 +434,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.6667 · 구성 8 · 상위3 032580, 092870, 219130 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">유니퀘스트 🤖</div>
+        <div class="cname">유니퀘스트 🤖 <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(반도체)</span></span></div>
         <span class="ctag">AI서버 유통 · 3Q 영업익 +266%</span>
         <div class="chl">3분기 영업이익 358억 급증에도 당일 -15%대 급락, 피벗 미도달 관망</div>
       </div>
@@ -470,7 +475,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="IT서비스 — 주도섹터 · F2T3 93.6667 · 구성 4 · 상위3 012030, 181710, 093320 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 7/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">DB 🤖</div>
+        <div class="cname">DB 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
         <span class="ctag">IT서비스 · 3Q 매출 +31.9%</span>
         <div class="chl">매출 고성장에도 이익 증가폭은 작고 피벗 3.82% 아래 대기</div>
       </div>
@@ -511,7 +516,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="판매업체 — 주도섹터 · F2T3 95.0 · 구성 1 · 상위3 051160 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 2/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">지어소프트 🤖</div>
+        <div class="cname">지어소프트 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(판매업체)</span></span></div>
         <span class="ctag">오아시스 지주 · 영익 +86.8%</span>
         <div class="chl">매출의 96%가 오아시스, 피벗 5% 아래서 촉매 대기 중인 대기형 자리</div>
       </div>
@@ -552,7 +557,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="IT서비스 — 주도섹터 · F2T3 93.6667 · 구성 4 · 상위3 012030, 181710, 093320 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 7/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">NHN 🤖</div>
+        <div class="cname">NHN 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
         <span class="ctag">AI 클라우드 GPU · 3Q 영업익 +113%</span>
         <div class="chl">GPUaaS 매출화로 3분기 영업익 588억, 피벗 직전 눌림 대기</div>
       </div>
@@ -593,7 +598,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="운송인프라 — 주도섹터 · F2T3 93.0 · 구성 1 · 상위3 005430 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 8/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">한국공항</div>
+        <div class="cname">한국공항 <span class="secw"><span class="sec1" style="background:#64748B" title="섹터">기타(운송인프라)</span></span></div>
         <span class="ctag">항공 지상조업 · 3Q 영업익 +3.8%</span>
         <div class="chl">통합 대한항공 수혜 지상조업, 3Q 증익 폭 둔화 속 피벗 4.3% 아래 대기</div>
       </div>
@@ -634,7 +639,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="IT서비스 — 주도섹터 · F2T3 93.6667 · 구성 4 · 상위3 012030, 181710, 093320 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 7/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">케이아이엔엑스</div>
+        <div class="cname">케이아이엔엑스 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
         <span class="ctag">IDC 계약률 100% · 영업익 +53.5%</span>
         <div class="chl">과천 데이터센터 10MW 계약 완료, 3Q 영업이익 +53.5%로 이익 개선</div>
       </div>
@@ -675,7 +680,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.6667 · 구성 8 · 상위3 032580, 092870, 219130 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">케이씨 🤖</div>
+        <div class="cname">케이씨 🤖 <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(반도체)</span></span></div>
         <span class="ctag">반도체 자회사 재평가 · 3Q 영업이익 +834%</span>
         <div class="chl">케이씨텍 랠리 낙수 + 3Q 잠정 영업이익 255억, 피벗 1.84% 아래 대기</div>
       </div>
@@ -716,7 +721,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="디스플레이장비및부품 — 주도섹터 · F2T3 94.3333 · 구성 4 · 상위3 351320, 141000, 137080 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 4/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">비아트론</div>
+        <div class="cname">비아트론 <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(디스플레이부품)</span></span></div>
         <span class="ctag">반도체 열처리 장비 · 피벗 미도달</span>
         <div class="chl">소부장 으뜸기업 선정·공급계약 공시 속 피벗 ₩12,240까지 3.84% 남은 대기 자리</div>
       </div>
@@ -757,7 +762,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="자동차부품 — 주도섹터 · F2T3 91.0 · 구성 1 · 상위3 004100 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 10/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">태양금속</div>
+        <div class="cname">태양금속 <span class="secw"><span class="sec1" style="background:#64748B" title="섹터">기타(자동차부품)</span></span></div>
         <span class="ctag">자동차 체결부품 · 영업익 +225%</span>
         <div class="chl">수급 주도 급등 후 피벗 ₩3,335 아래 대기, 촉매는 미확인</div>
       </div>
@@ -798,7 +803,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="항공사 — 주도섹터 · F2T3 84.0 · 구성 2 · 상위3 003490, 020560 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 19/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">대한항공</div>
+        <div class="cname">대한항공 <span class="secw"><span class="sec1" style="background:#64748B" title="섹터">기타(항공사)</span></span></div>
         <span class="ctag">아시아나 통합 출범 앞둔 대형 항공사</span>
         <div class="chl">12월 16일 통합 항공사 출범 앞두고 피벗 1.24% 아래 대기</div>
       </div>
@@ -839,7 +844,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="제약 — 주도섹터 · F2T3 88.5 · 구성 2 · 상위3 008930, 086450 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 13/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">한미사이언스</div>
+        <div class="cname">한미사이언스 <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(제약)</span></span></div>
         <span class="ctag">제약 지주사 · 3Q 영업익 -51%</span>
         <div class="chl">제넨텍 기술수출 이후 반등했으나 피벗 직전에서 동력 둔화, 관망 유지</div>
       </div>
@@ -880,7 +885,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="화장품 — 주도섹터 · F2T3 83.5 · 구성 2 · 상위3 192820, 092730 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 21/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">코스맥스</div>
+        <div class="cname">코스맥스 <span class="secw"><span class="sec1" style="background:#475569" title="섹터">소재(화장품)</span></span></div>
         <span class="ctag">화장품 ODM · 3Q 영업익 +94.9%</span>
         <div class="chl">3분기 잠정 매출 +49.5%·영업이익 +94.9%, 추정치 상향 속 피벗 직전 대기</div>
       </div>
@@ -921,7 +926,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="제약 — 주도섹터 · F2T3 88.5 · 구성 2 · 상위3 008930, 086450 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 13/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">동국제약</div>
+        <div class="cname">동국제약 <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(제약)</span></span></div>
         <span class="ctag">제약·K뷰티 확장 · 3Q 영업익 -4.1%</span>
         <div class="chl">화장품 수출·미용기기가 성장 축이나 3분기 이익이 컨센서스를 밑돌아 확인 구간</div>
       </div>
@@ -962,7 +967,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="철강 — 비주도 · F2T3 81.0 · 구성 3 · 상위3 104700, 037760, 001940 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 26/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">한국철강</div>
+        <div class="cname">한국철강 <span class="secw"><span class="sec1" style="background:#64748B" title="섹터">기타(철강)</span></span></div>
         <span class="ctag">공개매수·상폐 추진 대상 · 철근</span>
         <div class="chl">모회사 KISCO홀딩스의 상장폐지 추진·공개매수 대상 — 돌파매매 비대상</div>
       </div>
@@ -1003,7 +1008,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="건강관리장비와용품 — 비주도 · F2T3 82.3333 · 구성 3 · 상위3 228850, 100120, 004080 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 23/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">뷰웍스</div>
+        <div class="cname">뷰웍스 <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료기기)</span></span></div>
         <span class="ctag">반도체 검사 카메라 · 3Q 영업익 +154.8%</span>
         <div class="chl">원가율 개선과 반도체 검사용 카메라가 이끈 이익 턴어라운드</div>
       </div>
@@ -1044,7 +1049,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="식품 — 주도섹터 · F2T3 84.0 · 구성 1 · 상위3 453340 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 20/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">현대그린푸드</div>
+        <div class="cname">현대그린푸드 <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(식품)</span></span></div>
         <span class="ctag">급식 체질개선 · 자사주 소각</span>
         <div class="chl">상반기 영업이익 +33.9%에 자사주 소각·중간배당, 3분기는 증가폭 둔화</div>
       </div>
@@ -1085,7 +1090,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="담배 — 비주도 · F2T3 83.0 · 구성 1 · 상위3 033780 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 22/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">KT&amp;G</div>
+        <div class="cname">KT&amp;G <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(담배)</span></span></div>
         <span class="ctag">방어·주주환원 · 3Q 영업이익 +13.9%</span>
         <div class="chl">해외 궐련 호조에 5조원 주주환원, 피벗 ₩184,000 대기</div>
       </div>
@@ -1126,7 +1131,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="백화점과일반상점 — 비주도 · F2T3 82.0 · 구성 1 · 상위3 282330 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 24/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">BGF리테일</div>
+        <div class="cname">BGF리테일 <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(백화점)</span></span></div>
         <span class="ctag">편의점 1위권 · 3Q 영업익 +3.2%</span>
         <div class="chl">CU 편의점 기반 안정 이익, 3Q 잠정 영업익 1,008억 · 피벗 3.56% 아래 대기</div>
       </div>
@@ -1167,7 +1172,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="가정용기기와용품 — 비주도 · F2T3 76.0 · 구성 2 · 상위3 021240, 352090 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 31/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">코웨이</div>
+        <div class="cname">코웨이 <span class="secw"><span class="sec1" style="background:#64748B" title="섹터">기타(가정용기기)</span></span></div>
         <span class="ctag">렌털 구독·해외 확장 · 3Q 매출 +13.7%</span>
         <div class="chl">해외법인 +26.2%가 끌고 국내 렌탈 순증이 받치는 성장, 피벗 2% 아래 대기</div>
       </div>

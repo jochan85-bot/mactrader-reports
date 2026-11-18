@@ -197,6 +197,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .vtab.active{background:#34D399;color:#0F172A;}
 .tab.attr.active{color:#0F172A !important;}
 .tabs.attrRow{padding-top:0;padding-bottom:6px;}
+
+/* [REPORT-SECTOR-CHIP-20261118] 섹터 칩 「대섹터(소섹터)」 — 종목명 바로 뒤, 폭이 모자라면 칩 덩어리가 종목명 아랫줄 맨 앞으로(칩 안은 줄바꿈 없음). 색 = 대섹터 고정색(매매일지와 동일). */
+.secw{display:inline-block;white-space:nowrap;vertical-align:baseline;}
+.sec1{display:inline-block;font-size:10px;font-weight:700;color:#fff;border-radius:5px;padding:1px 7px;line-height:1.4;}
+.cname{overflow-wrap:anywhere;}  /* 띄어쓰기 없는 긴 종목명이 가격 열과 겹치지 않게(좁은 화면) */
 </style>
 </head><body>
 <div class="hdr">
@@ -224,7 +229,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Care Facilities — 주도섹터 · F2T3 97.0 · 구성 16 · 상위3 PACS, ACHC, LFST · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 2/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">agilon health, inc.</div>
+        <div class="cname">agilon health, inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료시설)</span></span></div>
         <span class="ctag">흑자전환 · EBITDA 가이던스 상향</span>
         <div class="chl">3분기 흑자전환·연간 EBITDA 가이던스 대폭 상향, 피벗 3.75% 아래 대기</div>
       </div>
@@ -265,7 +270,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Diagnostics &amp; Research — 주도섹터 · F2T3 96.6667 · 구성 21 · 상위3 CDNA, ADPT, PSNL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 4/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">CareDx, Inc.</div>
+        <div class="cname">CareDx, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(진단·연구)</span></span></div>
         <span class="ctag">이식 진단 · 메디케어 확정 · EPS 서프라이즈</span>
         <div class="chl">메디케어 보험적용 확정에 3분기 EPS 서프라이즈가 겹친 이식 진단 선두주</div>
       </div>
@@ -306,7 +311,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Kodiak Sciences Inc.</div>
+        <div class="cname">Kodiak Sciences Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">wet AMD 3상 성공 · 4Q BLA 대기</span>
         <div class="chl">Zenkuda 3상 DAYBREAK 성공, 4분기 BLA·12월 PEAK 데이터가 다음 촉매</div>
       </div>
@@ -347,7 +352,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Moderna, Inc.</div>
+        <div class="cname">Moderna, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">mRNA 대형 바이오 · 매출 +29.2%</span>
         <div class="chl">3분기 흑자 서프라이즈에도 목표가 하회·최근 동력 공백, 피벗 6.96% 아래 대기</div>
       </div>
@@ -388,7 +393,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Care Facilities — 주도섹터 · F2T3 97.0 · 구성 16 · 상위3 PACS, ACHC, LFST · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 2/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">PACS Group, Inc.</div>
+        <div class="cname">PACS Group, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료시설)</span></span></div>
         <span class="ctag">실적 가속 요양시설 · 3Q 매출 +11.5%</span>
         <div class="chl">EBITDA가 매출보다 3배 빠르게 크는 요양시설 운영사, 피벗 5.8% 아래 대기</div>
       </div>
@@ -429,7 +434,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">SELLAS Life Sciences Group, Inc.</div>
+        <div class="cname">SELLAS Life Sciences Group, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">AML 3상 성공 · 사망위험 41%↓</span>
         <div class="chl">REGAL 3상 OS 1차 평가변수 성공, FDA 신청 추진 중 · $150M 공모가 변수</div>
       </div>
@@ -470,7 +475,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Drug Manufacturers - Specialty &amp; Generic — 주도섹터 · F2T3 96.3333 · 구성 10 · 상위3 ETON, KNSA, PCRX · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 6/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Eton Pharmaceuticals, Inc.</div>
+        <div class="cname">Eton Pharmaceuticals, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(특수제약)</span></span></div>
         <span class="ctag">희귀질환 제약 · 매출 +158%</span>
         <div class="chl">3분기 연속 가이던스 상향, 영업이익 레버리지가 터진 희귀질환 제약사</div>
       </div>
@@ -511,7 +516,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Health Information Services — 주도섹터 · F2T3 95.3333 · 구성 7 · 상위3 HNGE, SDGR, CERT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 8/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Hinge Health, Inc. 🤖</div>
+        <div class="cname">Hinge Health, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(헬스IT)</span></span></div>
         <span class="ctag">MSK 디지털치료 · 매출 +52%</span>
         <div class="chl">AI 근골격계 재활 플랫폼, 가이던스 상향·추정치 상향 속 피벗 6% 아래 대기</div>
       </div>
@@ -552,7 +557,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Oruka Therapeutics, Inc.</div>
+        <div class="cname">Oruka Therapeutics, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">IL-23 건선 항체 · 2b상 PASI100 61%</span>
         <div class="chl">연 1회 투약 가능성의 IL-23 항체, 2b상 양호·12월 52주 데이터 대기</div>
       </div>
@@ -593,7 +598,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Replimune Group, Inc.</div>
+        <div class="cname">Replimune Group, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">FDA 승인 흑색종 신약 · 상업화 초기</span>
         <div class="chl">TUDRIQEV 가속승인 후 출시 초기, 피벗 $22.17 대기 구간</div>
       </div>
@@ -634,7 +639,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Restaurants — 주도섹터 · F2T3 94.0 · 구성 5 · 상위3 CBRL, CAKE, EAT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 12/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Sweetgreen, Inc.</div>
+        <div class="cname">Sweetgreen, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(외식)</span></span></div>
         <span class="ctag">적자 외식 턴어라운드 · 피벗 직전</span>
         <div class="chl">EPS 컨센서스 상향 속 3개월 112% 급등, 피벗 $12.40 대기</div>
       </div>
@@ -675,7 +680,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Spyre Therapeutics, Inc.</div>
+        <div class="cname">Spyre Therapeutics, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">IBD 병용요법 바이오 · 현금 $1.5B</span>
         <div class="chl">IBD 단일요법 3종 개념증명 완료, 2027년 3분기 병용 데이터가 다음 분수령</div>
       </div>
@@ -716,7 +721,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="업종 라벨 없음 — 표시 전용">섹터 NA</div>
       </div>
       <div class="cmain">
-        <div class="cname">Victorias Secret &amp; Co.</div>
+        <div class="cname">Victorias Secret &amp; Co. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비</span></span></div>
         <span class="ctag">란제리 1위 · EPS +1044%</span>
         <div class="chl">가이던스 상향 이후 피벗 $105.15까지 6% 남은 대기 자리, 상승여력은 제한적</div>
       </div>
@@ -757,7 +762,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Drug Manufacturers - Specialty &amp; Generic — 주도섹터 · F2T3 96.3333 · 구성 10 · 상위3 ETON, KNSA, PCRX · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 6/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Xeris Biopharma Holdings, Inc.</div>
+        <div class="cname">Xeris Biopharma Holdings, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(특수제약)</span></span></div>
         <span class="ctag">고성장 바이오 · 매출 +44%</span>
         <div class="chl">신고가 행진 속 피벗 $16.98 직전, 3분기 호실적과 가이던스가 받치는 주도주</div>
       </div>
@@ -798,7 +803,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Xencor, Inc. 🦄</div>
+        <div class="cname">Xencor, Inc. 🦄 <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">T세포 이중항체 · 3Q EPS 흑자 전환</span>
         <div class="chl">XmAb819 신장암 임상 호조에 3분기 EPS 상회, 현금 runway 2029년</div>
       </div>
@@ -839,7 +844,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Care Facilities — 주도섹터 · F2T3 97.0 · 구성 16 · 상위3 PACS, ACHC, LFST · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 2/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Acadia Healthcare Company, Inc.</div>
+        <div class="cname">Acadia Healthcare Company, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료시설)</span></span></div>
         <span class="ctag">행동건강 턴어라운드 · 가이던스 3연속 상향</span>
         <div class="chl">3분기 EPS 컨센서스 상회·연간 가이던스 3분기 연속 상향, 피벗 4.4% 아래 대기</div>
       </div>
@@ -880,7 +885,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Restaurants — 주도섹터 · F2T3 94.0 · 구성 5 · 상위3 CBRL, CAKE, EAT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 12/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">The Cheesecake Factory Incorporated</div>
+        <div class="cname">The Cheesecake Factory Incorporated <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(외식)</span></span></div>
         <span class="ctag">외식 체인 · EPS +92%</span>
         <div class="chl">치즈케이크팩토리·노스이탈리아 확장, 실적 상회와 EPS 상향이 이어지는 외식 강자</div>
       </div>
@@ -921,7 +926,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Restaurants — 주도섹터 · F2T3 94.0 · 구성 5 · 상위3 CBRL, CAKE, EAT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 12/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Cracker Barrel Old Country Store, Inc.</div>
+        <div class="cname">Cracker Barrel Old Country Store, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(외식)</span></span></div>
         <span class="ctag">외식·리테일 턴어라운드 · EPS +80.7%</span>
         <div class="chl">FQ4 대형 어닝 서프라이즈 후 피벗 $70.00 직전 대기, 재무구조 개선 병행</div>
       </div>
@@ -962,7 +967,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Apparel Manufacturing — 주도섹터 · F2T3 92.5 · 구성 2 · 상위3 FIGS, COLM · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 17/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">FIGS, Inc.</div>
+        <div class="cname">FIGS, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(의류제조)</span></span></div>
         <span class="ctag">헬스케어 의류 DTC · EPS +120%</span>
         <div class="chl">가이던스 상향·추정치 상향 속 피벗 $22.03 직전 대기</div>
       </div>
@@ -1003,7 +1008,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Information Technology Services — 비주도 · F2T3 88.0 · 구성 5 · 상위3 MGRT, SAIC, CDW · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 36/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Grid Dynamics Holdings, Inc. 🤖</div>
+        <div class="cname">Grid Dynamics Holdings, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
         <span class="ctag">AI 마진 급개선 · 매출총이익률 40.3%</span>
         <div class="chl">AI 비중 확대로 마진이 구조적으로 뛴 IT서비스, 피벗 $14.03 대기</div>
       </div>
@@ -1044,7 +1049,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Devices — 주도섹터 · F2T3 92.3333 · 구성 12 · 상위3 CBLL, HAE, ITGR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 20/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Glaukos Corporation 🦄</div>
+        <div class="cname">Glaukos Corporation 🦄 <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료기기)</span></span></div>
         <span class="ctag">각막·녹내장 고성장 · 매출 +58%</span>
         <div class="chl">3분기 매출 +58%·가이던스 대폭 상향, iDose TR·Epioxa 쌍끌이</div>
       </div>
@@ -1085,7 +1090,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Application — 주도섹터 · F2T3 96.6667 · 구성 40 · 상위3 IBTA, RSKD, AMPL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Ibotta, Inc. 🤖</div>
+        <div class="cname">Ibotta, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(응용SW)</span></span></div>
         <span class="ctag">리뎀션 급증 · 매출 +17% 실적 서프라이즈</span>
         <div class="chl">3분기 매출·조정EBITDA 가이던스 상단 초과, 리뎀션 사용자 +30%</div>
       </div>
@@ -1126,7 +1131,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Travel Services — 비주도 · F2T3 86.3333 · 구성 3 · 상위3 LIND, PRSU, ABNB · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 43/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Lindblad Expeditions Holdings, Inc.</div>
+        <div class="cname">Lindblad Expeditions Holdings, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(여행서비스)</span></span></div>
         <span class="ctag">탐험 크루즈 · 3Q 사상최대 순이익</span>
         <div class="chl">가이던스 6주 내 두 번째 상향, 피벗 $36.19까지 9.42% 대기</div>
       </div>
@@ -1167,7 +1172,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Furnishings, Fixtures &amp; Appliances — 비주도 · F2T3 88.0 · 구성 5 · 상위3 SN, MLKN, MHK · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 35/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">SharkNinja, Inc.</div>
+        <div class="cname">SharkNinja, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(가구·가전)</span></span></div>
         <span class="ctag">가전 고성장 · 매출 +21.2%</span>
         <div class="chl">3분기 매출·EPS 서프라이즈와 연간 가이던스 상향, 14분기 연속 두 자릿수 성장</div>
       </div>
@@ -1208,7 +1213,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Discount Stores — 비주도 · F2T3 89.6667 · 구성 3 · 상위3 TBBB, TGT, DLTR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 30/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">BBB Foods Inc. 🦄</div>
+        <div class="cname">BBB Foods Inc. 🦄 <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(할인점)</span></span></div>
         <span class="ctag">멕시코 하드디스카운터 · 매출 +40%</span>
         <div class="chl">동일점포 +20.5%·첫 흑자 전환, 출점 가속으로 성장 지속</div>
       </div>
@@ -1249,7 +1254,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="업종 라벨 없음 — 표시 전용">섹터 NA</div>
       </div>
       <div class="cmain">
-        <div class="cname">Via Transportation, Inc. 🤖</div>
+        <div class="cname">Via Transportation, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT</span></span></div>
         <span class="ctag">공공교통 SW 플랫폼 · 매출 +31%</span>
         <div class="chl">공공 교통망 SaaS, 미국 매출 +42% 가속에 4분기 EBITDA 흑자 전환 가이드</div>
       </div>
@@ -1290,7 +1295,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Diagnostics &amp; Research — 주도섹터 · F2T3 96.6667 · 구성 21 · 상위3 CDNA, ADPT, PSNL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 4/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Adaptive Biotechnologies Corporation 🤖</div>
+        <div class="cname">Adaptive Biotechnologies Corporation 🤖 <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(진단·연구)</span></span></div>
         <span class="ctag">MRD 진단 · 4Q 흑자 전환 서프라이즈</span>
         <div class="chl">clonoSEQ 기반 MRD 진단 플랫폼, 3분기 EPS 흑자 서프라이즈 후 신고가권</div>
       </div>
@@ -1331,7 +1336,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Application — 주도섹터 · F2T3 96.6667 · 구성 40 · 상위3 IBTA, RSKD, AMPL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Amplitude, Inc. 🤖</div>
+        <div class="cname">Amplitude, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(응용SW)</span></span></div>
         <span class="ctag">AI 제품분석 SaaS · 매출 +25% 가속</span>
         <div class="chl">매출 성장 17%→25% 재가속, 가이던스 4차 상향, 피벗 5% 아래 대기</div>
       </div>
@@ -1372,7 +1377,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Instruments &amp; Supplies — 주도섹터 · F2T3 95.6667 · 구성 14 · 상위3 PLSE, AZTA, ATRC · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 7/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Azenta, Inc.</div>
+        <div class="cname">Azenta, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료용품)</span></span></div>
         <span class="ctag">실적 서프라이즈 · 조정 EPS $0.28</span>
         <div class="chl">어닝 서프라이즈와 FY27 가이던스 상향, 다만 급등 후 CEO 사임·조사 공지 변수</div>
       </div>
@@ -1413,7 +1418,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Footwear &amp; Accessories — 비주도 · F2T3 73.6667 · 구성 3 · 상위3 CROX, WWW, SHOO · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 77/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Crocs, Inc.</div>
+        <div class="cname">Crocs, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(신발·잡화)</span></span></div>
         <span class="ctag">3Q 서프라이즈 · 조정 EPS +26.4%</span>
         <div class="chl">3연속 가이던스 상향과 마진 개선, 피벗 $164.24까지 3.32% 남은 대기 자리</div>
       </div>
@@ -1454,7 +1459,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Drug Manufacturers - Specialty &amp; Generic — 주도섹터 · F2T3 96.3333 · 구성 10 · 상위3 ETON, KNSA, PCRX · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 6/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Kiniksa Pharmaceuticals International, plc</div>
+        <div class="cname">Kiniksa Pharmaceuticals International, plc <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(특수제약)</span></span></div>
         <span class="ctag">ARCALYST 매출 +58% · EPS +157%</span>
         <div class="chl">연 10억 달러 돌파한 단일 제품 성장, 가이던스 상향·무부채 현금 확보</div>
       </div>
@@ -1495,7 +1500,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="업종 라벨 없음 — 표시 전용">섹터 NA</div>
       </div>
       <div class="cmain">
-        <div class="cname">LB Pharmaceuticals Inc</div>
+        <div class="cname">LB Pharmaceuticals Inc <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어</span></span></div>
         <span class="ctag">조현병 3상 바이오 · 적자 지속</span>
         <div class="chl">LB-102 3상 NOVA-2 진행, 데이터는 2027년 — 피벗 미도달 대기</div>
       </div>
@@ -1536,7 +1541,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Insurance - Property &amp; Casualty — 비주도 · F2T3 90.0 · 구성 23 · 상위3 PRCH, SLDE, UVE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 27/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Porch Group, Inc.</div>
+        <div class="cname">Porch Group, Inc. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(손해보험)</span></span></div>
         <span class="ctag">보험 서비스 +39% · 가이던스 상향</span>
         <div class="chl">3분기 호실적·가이던스 상향, 보험 서비스가 성장 견인 — 피벗 대기</div>
       </div>
@@ -1577,7 +1582,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Advertising Agencies — 비주도 · F2T3 91.0 · 구성 6 · 상위3 STGW, MGNI, ZD · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 25/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Stagwell Inc.</div>
+        <div class="cname">Stagwell Inc. <span class="secw"><span class="sec1" style="background:#6D28D9" title="섹터">커뮤(광고대행)</span></span></div>
         <span class="ctag">광고대행 디지털전환 · 3Q 조정EBITDA +25%</span>
         <div class="chl">3Q 최대실적·가이던스 상향·연방계약, 피벗 4.2% 아래 눌림 대기</div>
       </div>
@@ -1618,7 +1623,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Resorts &amp; Casinos — 비주도 · F2T3 74.3333 · 구성 3 · 상위3 VAC, CZR, MTN · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 74/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Marriott Vacations Worldwide Corporation</div>
+        <div class="cname">Marriott Vacations Worldwide Corporation <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(리조트·카지노)</span></span></div>
         <span class="ctag">타임셰어 1위권 · 흑자 복귀</span>
         <div class="chl">실적 연속 상회·추정 상향 속 피벗 5% 아래에서 수축 중</div>
       </div>
@@ -1659,7 +1664,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Industrial Distribution — 비주도 · F2T3 91.6667 · 구성 8 · 상위3 XMTR, GIC, GWW · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 23/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Xometry, Inc. 🤖</div>
+        <div class="cname">Xometry, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(산업유통)</span></span></div>
         <span class="ctag">AI 제조 마켓플레이스 · 매출 +39.7%</span>
         <div class="chl">Siemens 투자·HP 협업으로 AI 마켓플레이스 검증, 피벗 5.8% 아래 눌림 대기</div>
       </div>
@@ -1700,7 +1705,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Infrastructure — 주도섹터 · F2T3 95.3333 · 구성 36 · 상위3 OKTA, APPN, GCT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 9/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Appian Corporation 🤖</div>
+        <div class="cname">Appian Corporation 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(인프라SW)</span></span></div>
         <span class="ctag">AI 자동화 SW · 매출 +25% · EPS 서프라이즈</span>
         <div class="chl">Q3 실적 서프라이즈·가이던스 상향, 클라우드 순ARR 확장률 120%로 5년 내 최고</div>
       </div>
@@ -1741,7 +1746,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Specialty Retail — 비주도 · F2T3 91.0 · 구성 6 · 상위3 ARHS, HZO, BBY · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 24/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Arhaus, Inc.</div>
+        <div class="cname">Arhaus, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(전문소매)</span></span></div>
         <span class="ctag">프리미엄 가구 · 주문 +13.9%</span>
         <div class="chl">주문 성장은 강하나 EPS 하회, 피벗 $15.17까지 13.45% 대기</div>
       </div>
@@ -1782,7 +1787,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Devices — 주도섹터 · F2T3 92.3333 · 구성 12 · 상위3 CBLL, HAE, ITGR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 20/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Axogen, Inc.</div>
+        <div class="cname">Axogen, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료기기)</span></span></div>
         <span class="ctag">신경 복구 이식편 · 매출 +26%</span>
         <div class="chl">3분기 매출 26% 성장·가이던스 상향, BioCircuit 인수와 전립선 신사업이 겹친 주도주</div>
       </div>
@@ -1823,7 +1828,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Care Facilities — 주도섹터 · F2T3 97.0 · 구성 16 · 상위3 PACS, ACHC, LFST · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 2/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Concentra Group Holdings Parent, Inc.</div>
+        <div class="cname">Concentra Group Holdings Parent, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료시설)</span></span></div>
         <span class="ctag">산업보건 1위 · 3분기 연속 가이던스 상향</span>
         <div class="chl">3Q 연속 beat-and-raise, 물량 중심 성장과 $250M 자사주 매입</div>
       </div>
@@ -1864,7 +1869,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Diagnostics &amp; Research — 주도섹터 · F2T3 96.6667 · 구성 21 · 상위3 CDNA, ADPT, PSNL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 4/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Charles River Laboratories International, Inc.</div>
+        <div class="cname">Charles River Laboratories International, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(진단·연구)</span></span></div>
         <span class="ctag">CRO 대장 · 3Q 비GAAP EPS $3.09</span>
         <div class="chl">실적 상회·EPS 추정 상향 지속, 다만 피벗까지 7.4% 남은 대기 자리</div>
       </div>
@@ -1905,7 +1910,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Banks - Regional — 비주도 · F2T3 90.3333 · 구성 79 · 상위3 EGBN, AMAL, AMTB · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 26/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Eagle Bancorp, Inc. 🤖</div>
+        <div class="cname">Eagle Bancorp, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(지역은행)</span></span></div>
         <span class="ctag">지역은행 · 실적 서프라이즈 131%</span>
         <div class="chl">워싱턴 일대 상업은행, 분기 EPS 대폭 상회 후 피벗 4% 아래 대기</div>
       </div>
@@ -1946,7 +1951,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Infrastructure — 주도섹터 · F2T3 95.3333 · 구성 36 · 상위3 OKTA, APPN, GCT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 9/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">GCT 🤖</div>
+        <div class="cname">GCT 🤖 <span class="secw"><span class="sec1" style="background:#64748B" title="섹터">기타(인프라SW)</span></span></div>
         <span class="ctag">AI 5G 반도체 · 분기 EPS +10% 상회</span>
         <div class="chl">3분기 연속 EPS 서프라이즈에 추정치 상향, 피벗 5.7% 아래 눌림</div>
       </div>
@@ -1987,7 +1992,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Healthcare Plans — 주도섹터 · F2T3 94.3333 · 구성 7 · 상위3 HUM, OSCR, CLOV · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 10/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Humana Inc.</div>
+        <div class="cname">Humana Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(건강보험)</span></span></div>
         <span class="ctag">메디케어 어드밴티지 · 실적 상회</span>
         <div class="chl">가이던스 상향 모멘텀에 CMS 환수 감사 악재가 겹친 피벗 대기 구간</div>
       </div>
@@ -2028,7 +2033,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Care Facilities — 주도섹터 · F2T3 97.0 · 구성 16 · 상위3 PACS, ACHC, LFST · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 2/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">LifeStance Health Group, Inc.</div>
+        <div class="cname">LifeStance Health Group, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료시설)</span></span></div>
         <span class="ctag">외래 정신건강 1위권 · 매출 +25%</span>
         <div class="chl">3분기 호실적과 연간 가이던스 재상향, 피벗 2.68% 아래 대기</div>
       </div>
@@ -2069,7 +2074,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Advertising Agencies — 비주도 · F2T3 91.0 · 구성 6 · 상위3 STGW, MGNI, ZD · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 25/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Magnite, Inc.</div>
+        <div class="cname">Magnite, Inc. <span class="secw"><span class="sec1" style="background:#6D28D9" title="섹터">커뮤(광고대행)</span></span></div>
         <span class="ctag">CTV 성장 · EPS +69.5%</span>
         <div class="chl">CTV 39% 성장·연간 가이던스 상향, 피벗 4.6% 아래 눌림 대기</div>
       </div>
@@ -2110,7 +2115,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">TG Therapeutics, Inc.</div>
+        <div class="cname">TG Therapeutics, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">BRIUMVI 고성장 · 매출 +61%</span>
         <div class="chl">3Q 서프라이즈·가이던스 상향, 피벗 $66.07까지 5.09% 남은 대기 자리</div>
       </div>
@@ -2151,7 +2156,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Drug Manufacturers - Specialty &amp; Generic — 주도섹터 · F2T3 96.3333 · 구성 10 · 상위3 ETON, KNSA, PCRX · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 6/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Viatris Inc.</div>
+        <div class="cname">Viatris Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(특수제약)</span></span></div>
         <span class="ctag">제네릭 대형 · 3분기 EPS 상회</span>
         <div class="chl">3분기 EPS 상회·가이던스 상향에 Pacira 인수 완료, 피벗 $21.20 대기</div>
       </div>
@@ -2192,7 +2197,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Drug Manufacturers - Specialty &amp; Generic — 주도섹터 · F2T3 96.3333 · 구성 10 · 상위3 ETON, KNSA, PCRX · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 6/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Amneal Pharmaceuticals, Inc.</div>
+        <div class="cname">Amneal Pharmaceuticals, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(특수제약)</span></span></div>
         <span class="ctag">제네릭·바이오시밀러 · EPS +9.5%↑</span>
         <div class="chl">EPS 서프라이즈와 컨센서스 상향이 이어지는 가운데 피벗 4.3% 아래 대기</div>
       </div>
@@ -2233,7 +2238,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Devices — 주도섹터 · F2T3 92.3333 · 구성 12 · 상위3 CBLL, HAE, ITGR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 20/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">CeriBell, Inc.</div>
+        <div class="cname">CeriBell, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료기기)</span></span></div>
         <span class="ctag">급성기 EEG · 매출 +29.9%</span>
         <div class="chl">병상 곁 뇌파 플랫폼, 가이던스 상향 속 피벗 8% 아래 대기</div>
       </div>
@@ -2274,7 +2279,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Health Information Services — 주도섹터 · F2T3 95.3333 · 구성 7 · 상위3 HNGE, SDGR, CERT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 8/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Certara, Inc.</div>
+        <div class="cname">Certara, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(헬스IT)</span></span></div>
         <span class="ctag">바이오시뮬레이션 · 소프트웨어 +11%</span>
         <div class="chl">소프트웨어 2년 만의 두 자릿수 성장, 피벗 $12.18 아래 눌림 대기</div>
       </div>
@@ -2315,7 +2320,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Household &amp; Personal Products — 비주도 · F2T3 92.0 · 구성 8 · 상위3 ELF, NWL, EPC · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 22/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">e.l.f. Beauty, Inc.</div>
+        <div class="cname">e.l.f. Beauty, Inc. <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(생활용품)</span></span></div>
         <span class="ctag">뷰티 고성장 · 매출 +51%</span>
         <div class="chl">EPS 서프라이즈와 추정치 상향 속에 피벗 직전까지 올라온 뷰티 주도주</div>
       </div>
@@ -2356,7 +2361,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Security &amp; Protection Services — 주도섹터 · F2T3 92.5 · 구성 2 · 상위3 GEO, CXW · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 18/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">The GEO Group, Inc.</div>
+        <div class="cname">The GEO Group, Inc. <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(보안서비스)</span></span></div>
         <span class="ctag">정부 구금 인프라 · 3분기 EPS 서프라이즈 +13%</span>
         <div class="chl">서프라이즈 행진과 추정치 상향 속 신고가권, 피벗 1.3% 아래 대기</div>
       </div>
@@ -2397,7 +2402,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Care Facilities — 주도섹터 · F2T3 97.0 · 구성 16 · 상위3 PACS, ACHC, LFST · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 2/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Guardian Pharmacy Services, Inc.</div>
+        <div class="cname">Guardian Pharmacy Services, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료시설)</span></span></div>
         <span class="ctag">LTC 약국 · 가이던스 상향 · EPS +90%</span>
         <div class="chl">Q3 실적 후 연간 가이던스 상향, 신고가권에서 피벗 직전 대기</div>
       </div>
@@ -2438,7 +2443,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Devices — 주도섹터 · F2T3 92.3333 · 구성 12 · 상위3 CBLL, HAE, ITGR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 20/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Haemonetics Corporation</div>
+        <div class="cname">Haemonetics Corporation <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료기기)</span></span></div>
         <span class="ctag">플라즈마 채혈 장비 · 매출 +9.3%</span>
         <div class="chl">CSL 전 미국 센터 확대로 플라즈마 성장이 가속, 매출 가이던스 2분기 연속 상향</div>
       </div>
@@ -2479,7 +2484,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Chemicals — 주도섹터 · F2T3 93.0 · 구성 1 · 상위3 MEOH · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 16/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Methanex Corporation</div>
+        <div class="cname">Methanex Corporation <span class="secw"><span class="sec1" style="background:#475569" title="섹터">소재(화학)</span></span></div>
         <span class="ctag">메탄올 선도 · 3Q EPS +29% 상회</span>
         <div class="chl">메탄올 가격 강세로 3분기 EPS가 컨센서스를 웃돌고 연간 추정치가 연속 상향 중</div>
       </div>
@@ -2520,7 +2525,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="REIT - Hotel &amp; Motel — 주도섹터 · F2T3 93.0 · 구성 9 · 상위3 PEB, RLJ, APLE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 15/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Pebblebrook Hotel Trust</div>
+        <div class="cname">Pebblebrook Hotel Trust <span class="secw"><span class="sec1" style="background:#0369A1" title="섹터">부동산(리츠호텔)</span></span></div>
         <span class="ctag">도시 호텔 REIT · 조정 FFO 가이던스 상향</span>
         <div class="chl">조정 FFO 상회·가이던스 상향 속 피벗 $22.36 앞 대기</div>
       </div>
@@ -2561,7 +2566,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Healthcare Plans — 주도섹터 · F2T3 94.3333 · 구성 7 · 상위3 HUM, OSCR, CLOV · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 10/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Progyny, Inc.</div>
+        <div class="cname">Progyny, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(건강보험)</span></span></div>
         <span class="ctag">난임복지 관리 · EPS +89%</span>
         <div class="chl">추정치 상향 속 신고가권, 피벗 $37.20까지 1.32% 남은 대기 자리</div>
       </div>
@@ -2602,7 +2607,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Infrastructure — 주도섹터 · F2T3 95.3333 · 구성 36 · 상위3 OKTA, APPN, GCT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 9/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Zeta Global Holdings Corp. 🤖</div>
+        <div class="cname">Zeta Global Holdings Corp. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(인프라SW)</span></span></div>
         <span class="ctag">21연속 beat-and-raise · 매출 +46%</span>
         <div class="chl">21분기 연속 실적·가이던스 상회, FCF·마진 동반 개선된 AI 마케팅 플랫폼</div>
       </div>
@@ -2643,7 +2648,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Marine Shipping — 주도섹터 · F2T3 94.3333 · 구성 9 · 상위3 ECO, ZIM, MATX · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 11/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">ZIM Integrated Shipping Services Ltd. <span style="font-size:10px;font-weight:700;color:#FDBA74;" title="실적발표 당일 — 관측 전용">실적발표 당일</span></div>
+        <div class="cname">ZIM Integrated Shipping Services Ltd. <span style="font-size:10px;font-weight:700;color:#FDBA74;" title="실적발표 당일 — 관측 전용">실적발표 당일</span> <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(해운)</span></span></div>
         <span class="ctag">피인수 계약 대기 · 컨테이너 해운</span>
         <div class="chl">하파그로이드 $35 인수 계약에 가격 고정, 돌파 통계 성립 어려움</div>
       </div>
@@ -2684,7 +2689,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Oil &amp; Gas E&amp;P — 비주도 · F2T3 89.0 · 구성 17 · 상위3 APA, GFR, PR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 32/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">APA Corporation</div>
+        <div class="cname">APA Corporation <span class="secw"><span class="sec1" style="background:#DC2626" title="섹터">에너지(석유가스개발)</span></span></div>
         <span class="ctag">에너지 E&amp;P · EPS +240.5%</span>
         <div class="chl">3Q 실적 서프라이즈와 EPS 추정 상향이 이어지는 저PE 에너지 생산사</div>
       </div>
@@ -2725,7 +2730,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Application — 주도섹터 · F2T3 96.6667 · 구성 40 · 상위3 IBTA, RSKD, AMPL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Chime Financial, Inc. 🤖</div>
+        <div class="cname">Chime Financial, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(응용SW)</span></span></div>
         <span class="ctag">핀테크 네오뱅크 · 매출 +32%</span>
         <div class="chl">가이던스 상향·EPS 추정 상향 속 피벗 $34.63 4.79% 아래 대기</div>
       </div>
@@ -2766,7 +2771,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Healthcare Plans — 주도섹터 · F2T3 94.3333 · 구성 7 · 상위3 HUM, OSCR, CLOV · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 10/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Centene Corporation</div>
+        <div class="cname">Centene Corporation <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(건강보험)</span></span></div>
         <span class="ctag">메디케이드 HMO · EPS 추정 상향</span>
         <div class="chl">실적 서프라이즈와 추정치 상향 vs 정책 헤드라인에 흔들리는 눌림 구간</div>
       </div>
@@ -2807,7 +2812,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Application — 주도섹터 · F2T3 96.6667 · 구성 40 · 상위3 IBTA, RSKD, AMPL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Donnelley Financial Solutions, Inc. 🤖</div>
+        <div class="cname">Donnelley Financial Solutions, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(응용SW)</span></span></div>
         <span class="ctag">흑자전환 · 3Q 조정EPS +57%</span>
         <div class="chl">3분기 어닝 비트와 ActiveDisclosure 24% 성장, 피벗 $70.06까지 4.55%</div>
       </div>
@@ -2848,7 +2853,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Credit Services — 비주도 · F2T3 81.6667 · 구성 5 · 상위3 ECPG, BFH, V · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 57/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Encore Capital Group, Inc.</div>
+        <div class="cname">Encore Capital Group, Inc. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(신용서비스)</span></span></div>
         <span class="ctag">부실채권 추심 · EPS +66%</span>
         <div class="chl">4분기 연속 큰 폭 EPS 서프라이즈, 컨센서스 상향 속 피벗 아래 대기</div>
       </div>
@@ -2889,7 +2894,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Application — 주도섹터 · F2T3 96.6667 · 구성 40 · 상위3 IBTA, RSKD, AMPL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">JFrog Ltd. 🤖</div>
+        <div class="cname">JFrog Ltd. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(응용SW)</span></span></div>
         <span class="ctag">클라우드 +60% · 연간 가이던스 상향</span>
         <div class="chl">3분기 실적 서프라이즈와 가이던스 상향이 이어지는 소프트웨어 공급망 플랫폼</div>
       </div>
@@ -2930,7 +2935,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Department Stores — 비주도 · F2T3 77.5 · 구성 2 · 상위3 KSS, M · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 66/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Kohl&#x27;s Corporation <span style="font-size:10px;font-weight:700;color:#FDBA74;" title="실적발표 6일 전 — 관측 전용">실적발표 6일 전</span></div>
+        <div class="cname">Kohl&#x27;s Corporation <span style="font-size:10px;font-weight:700;color:#FDBA74;" title="실적발표 6일 전 — 관측 전용">실적발표 6일 전</span> <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(백화점)</span></span></div>
         <span class="ctag">백화점 턴어라운드 · 피벗 3.9% 아래</span>
         <div class="chl">분기 EPS 대폭 상회·추정 상향, 다만 목표가 하회와 11/24 실적이 변수</div>
       </div>
@@ -2971,7 +2976,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="REIT - Hotel &amp; Motel — 주도섹터 · F2T3 93.0 · 구성 9 · 상위3 PEB, RLJ, APLE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 15/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">RLJ Lodging Trust</div>
+        <div class="cname">RLJ Lodging Trust <span class="secw"><span class="sec1" style="background:#0369A1" title="섹터">부동산(리츠호텔)</span></span></div>
         <span class="ctag">호텔 REIT · RevPAR +9.7%</span>
         <div class="chl">3분기 RevPAR 가속과 가이던스 4차 상향, 다만 피벗 아래 대기</div>
       </div>
@@ -3012,7 +3017,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Semiconductors — 주도섹터 · F2T3 93.3333 · 구성 6 · 상위3 AMD, TXN, SLAB · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 13/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Texas Instruments Incorporated 🤖</div>
+        <div class="cname">Texas Instruments Incorporated 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(반도체)</span></span></div>
         <span class="ctag">아날로그 반도체 1위 · EPS +77.8%</span>
         <div class="chl">산업·차량 회복과 300mm 공장 레버리지로 이익이 빠르게 늘어나는 아날로그 대장주</div>
       </div>
@@ -3053,7 +3058,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Application — 주도섹터 · F2T3 96.6667 · 구성 40 · 상위3 IBTA, RSKD, AMPL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Unity Software Inc. 🤖</div>
+        <div class="cname">Unity Software Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(응용SW)</span></span></div>
         <span class="ctag">첫 GAAP 흑자 · Vector +126%</span>
         <div class="chl">3Q 첫 GAAP 흑자와 Vector 광고 126% 성장, 4Q 전략매출 65~67% 가이던스</div>
       </div>
@@ -3094,7 +3099,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="REIT - Hotel &amp; Motel — 주도섹터 · F2T3 93.0 · 구성 9 · 상위3 PEB, RLJ, APLE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 15/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Apple Hospitality REIT, Inc.</div>
+        <div class="cname">Apple Hospitality REIT, Inc. <span class="secw"><span class="sec1" style="background:#0369A1" title="섹터">부동산(리츠호텔)</span></span></div>
         <span class="ctag">호텔 리츠 · EPS +18.9%</span>
         <div class="chl">힐튼·메리어트 중심 216개 호텔, 실적 상회·추정치 상향 속 피벗 4.2% 아래 대기</div>
       </div>
@@ -3135,7 +3140,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Financial Data &amp; Stock Exchanges — 비주도 · F2T3 76.6667 · 구성 7 · 상위3 CBOE, MORN, FDS · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 69/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Cboe Global Markets, Inc.</div>
+        <div class="cname">Cboe Global Markets, Inc. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(금융데이터)</span></span></div>
         <span class="ctag">거래소 · 옵션 독점 · EPS +42.4%</span>
         <div class="chl">변동성 장세 수혜와 예측시장 확장 서사, 피벗 $379.76 앞 대기</div>
       </div>
@@ -3176,7 +3181,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Exelixis, Inc.</div>
+        <div class="cname">Exelixis, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">항암 신약 FDA 결정 12/3 대기</span>
         <div class="chl">zanzalintinib 12/3 FDA 결정 앞두고 신약 기대가 이어지는 중</div>
       </div>
@@ -3217,7 +3222,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Personal Services — 비주도 · F2T3 73.5 · 구성 2 · 상위3 FTDR, HRB · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 79/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Frontdoor, Inc.</div>
+        <div class="cname">Frontdoor, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(개인서비스)</span></span></div>
         <span class="ctag">주택보증 1위 · 매출 +6% · 자사주 $10억</span>
         <div class="chl">3Q beat·가이던스 상향에 $10억 자사주, 주택시장 냉각은 변수</div>
       </div>
@@ -3258,7 +3263,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Staffing &amp; Employment Services — 비주도 · F2T3 89.0 · 구성 5 · 상위3 KFRC, RHI, NSP · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 31/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Kforce Inc. 🤖</div>
+        <div class="cname">Kforce Inc. 🤖 <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(인력서비스)</span></span></div>
         <span class="ctag">IT·회계 전문인력 · EPS +39.5%</span>
         <div class="chl">3분기 EPS 컨센서스 상회, 올해 EPS 추정치 상향이 이어지는 인력 서비스주</div>
       </div>
@@ -3299,7 +3304,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="업종 라벨 없음 — 표시 전용">섹터 NA</div>
       </div>
       <div class="cmain">
-        <div class="cname">MSG Knickerbockers Corp.</div>
+        <div class="cname">MSG Knickerbockers Corp. <span class="secw"><span class="sec1" style="background:#6D28D9" title="섹터">커뮤</span></span></div>
         <span class="ctag">NBA 닉스 단일 자산 · 눌림 구간</span>
         <div class="chl">스핀오프 후 닉스 순수 프랜차이즈로 재편, 피벗 4.65% 아래 대기</div>
       </div>
@@ -3340,7 +3345,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Tools &amp; Accessories — 비주도 · F2T3 88.0 · 구성 2 · 상위3 SWK, TTC · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 37/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Stanley Black &amp; Decker, Inc.</div>
+        <div class="cname">Stanley Black &amp; Decker, Inc. <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(공구)</span></span></div>
         <span class="ctag">공구 대장 · 어닝 서프라이즈</span>
         <div class="chl">3분기 조정 EPS 컨센서스 크게 상회, 가이던스 상향·10억달러 자사주 매입</div>
       </div>
@@ -3381,7 +3386,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Footwear &amp; Accessories — 비주도 · F2T3 73.6667 · 구성 3 · 상위3 CROX, WWW, SHOO · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 77/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Wolverine World Wide, Inc.</div>
+        <div class="cname">Wolverine World Wide, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(신발·잡화)</span></span></div>
         <span class="ctag">3분기 서프라이즈 · EPS +162%</span>
         <div class="chl">3분기 EPS 서프라이즈·FY26 가이던스 상향, 피벗 돌파 대기 구간</div>
       </div>
@@ -3422,7 +3427,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Security &amp; Protection Services — 주도섹터 · F2T3 92.5 · 구성 2 · 상위3 GEO, CXW · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 18/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">CoreCivic, Inc.</div>
+        <div class="cname">CoreCivic, Inc. <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(보안서비스)</span></span></div>
         <span class="ctag">교정·구금 인프라 · EPS +5009%</span>
         <div class="chl">3분기 EPS 서프라이즈에 5억 달러 ASR이 겹친 피벗 직전 눌림</div>
       </div>
@@ -3463,7 +3468,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Kymera Therapeutics, Inc.</div>
+        <div class="cname">Kymera Therapeutics, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">STAT6 분해제 임상 · 적자 바이오</span>
         <div class="chl">경구 STAT6 분해제 KT-621 2b상 진행, 피벗 아래 눌림 대기</div>
       </div>
@@ -3504,7 +3509,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Roivant Sciences Ltd. 🦄</div>
+        <div class="cname">Roivant Sciences Ltd. 🦄 <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">임상 파이프라인 · 매출 +2135.6%</span>
         <div class="chl">brepocitinib 후속 임상·신약 출시로 이야기가 이어지는 면역 바이오 대장</div>
       </div>
@@ -3545,7 +3550,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Vericel Corporation</div>
+        <div class="cname">Vericel Corporation <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">세포치료 성장주 · 매출 +26%</span>
         <div class="chl">MACI 6분기 연속 20%↑ 성장·가이던스 3연속 상향, 피벗 3.1% 아래 대기</div>
       </div>
@@ -3586,7 +3591,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Asset Management — 비주도 · F2T3 90.0 · 구성 46 · 상위3 AAMI, VCTR, WT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 29/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Victory Capital Holdings, Inc.</div>
+        <div class="cname">Victory Capital Holdings, Inc. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(자산운용)</span></span></div>
         <span class="ctag">자산운용 M&amp;A 확장 · 피벗 -8.8%</span>
         <div class="chl">인수 지분발행 주총 승인·Apollo 협업, 피벗 $129.31 하단 대기</div>
       </div>
@@ -3627,7 +3632,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Application — 주도섹터 · F2T3 96.6667 · 구성 40 · 상위3 IBTA, RSKD, AMPL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">BILL Holdings, Inc. 🤖</div>
+        <div class="cname">BILL Holdings, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(응용SW)</span></span></div>
         <span class="ctag">TPG 비공개화 보도 · 신고가</span>
         <div class="chl">실적 상향 흐름 위에 TPG 인수 보도가 겹쳐 주가 동력이 인수 이벤트로 이동</div>
       </div>
@@ -3668,7 +3673,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Infrastructure — 주도섹터 · F2T3 95.3333 · 구성 36 · 상위3 OKTA, APPN, GCT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 9/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Box, Inc. 🤖</div>
+        <div class="cname">Box, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(인프라SW)</span></span></div>
         <span class="ctag">AI 콘텐츠 플랫폼 · 매출 +9.2%</span>
         <div class="chl">FQ2 호조·가이던스 상향 후 신고가권, 피벗 3.3% 아래 대기</div>
       </div>
@@ -3709,7 +3714,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Household &amp; Personal Products — 비주도 · F2T3 92.0 · 구성 8 · 상위3 ELF, NWL, EPC · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 22/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Edgewell Personal Care Company</div>
+        <div class="cname">Edgewell Personal Care Company <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(생활용품)</span></span></div>
         <span class="ctag">면도·선케어 방어주 · 조정EPS +50%</span>
         <div class="chl">4Q 조정EPS $0.78로 시장 예상 부합, 피벗 $28.66 직전 눌림 대기</div>
       </div>
@@ -3750,7 +3755,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Leisure — 비주도 · F2T3 88.5 · 구성 2 · 상위3 LTH, OSW · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 34/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Life Time Group Holdings, Inc.</div>
+        <div class="cname">Life Time Group Holdings, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(레저)</span></span></div>
         <span class="ctag">프리미엄 헬스클럽 · 매출 +14.2%</span>
         <div class="chl">프리미엄 회원제 클럽 확장에 EPS 서프라이즈 4분기 연속, 피벗 직전 대기</div>
       </div>
@@ -3791,7 +3796,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="업종 라벨 없음 — 표시 전용">섹터 NA</div>
       </div>
       <div class="cmain">
-        <div class="cname">Navan, Inc. 🤖</div>
+        <div class="cname">Navan, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT</span></span></div>
         <span class="ctag">AI 출장·경비 플랫폼 · 매출 +35.4%</span>
         <div class="chl">출장·결제·경비를 한 플랫폼에 묶는 AI 업체, 피벗 3.13% 아래 대기</div>
       </div>
@@ -3832,7 +3837,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Royalty Pharma plc</div>
+        <div class="cname">Royalty Pharma plc <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">로열티 인수 · 가이던스 3연속 상향</span>
         <div class="chl">연간 Portfolio Receipts 가이던스 3연속 상향, 피벗 2% 아래 대기</div>
       </div>
@@ -3873,7 +3878,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Banks - Regional — 비주도 · F2T3 90.3333 · 구성 79 · 상위3 EGBN, AMAL, AMTB · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 26/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Amalgamated Financial Corp.</div>
+        <div class="cname">Amalgamated Financial Corp. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(지역은행)</span></span></div>
         <span class="ctag">지역은행 · EPS +36% · ROE 15%</span>
         <div class="chl">3분기 실적 상회·추정치 상향 속 피벗 $51.03까지 2.84% 남은 대기 자리</div>
       </div>
@@ -3914,7 +3919,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="REIT - Hotel &amp; Motel — 주도섹터 · F2T3 93.0 · 구성 9 · 상위3 PEB, RLJ, APLE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 15/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">DiamondRock Hospitality Company</div>
+        <div class="cname">DiamondRock Hospitality Company <span class="secw"><span class="sec1" style="background:#0369A1" title="섹터">부동산(리츠호텔)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 REIT - Hotel &amp; Motel 기업. (원문) DiamondRock Hospitality Com</div>
       </div>
@@ -3955,7 +3960,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Application — 주도섹터 · F2T3 96.6667 · 구성 40 · 상위3 IBTA, RSKD, AMPL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Manhattan Associates, Inc. 🤖</div>
+        <div class="cname">Manhattan Associates, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(응용SW)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Software - Application 기업. 주력 분야: 클라우드 · 네트워크 · 전기차 · 소프트</div>
       </div>
@@ -3996,7 +4001,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="업종 라벨 없음 — 표시 전용">섹터 NA</div>
       </div>
       <div class="cmain">
-        <div class="cname">Netskope, Inc. 🤖</div>
+        <div class="cname">Netskope, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT</span></span></div>
         <span class="ctag">클라우드·AI 보안 · 매출 +29%</span>
         <div class="chl">AI 보안 수요 타고 매출 29% 성장, 피벗 6.5% 아래 대기</div>
       </div>
@@ -4037,7 +4042,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Application — 주도섹터 · F2T3 96.6667 · 구성 40 · 상위3 IBTA, RSKD, AMPL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Paycom Software, Inc. 🤖</div>
+        <div class="cname">Paycom Software, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(응용SW)</span></span></div>
         <span class="ctag">HCM 소프트웨어 · 마진 개선 · 가이던스 상향</span>
         <div class="chl">AI 효율화로 이익률 급등, 다만 매출 성장은 10%대 정체</div>
       </div>
@@ -4078,7 +4083,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Information Technology Services — 비주도 · F2T3 88.0 · 구성 5 · 상위3 MGRT, SAIC, CDW · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 36/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Science Applications International Corporation 🤖</div>
+        <div class="cname">Science Applications International Corporation 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
         <span class="ctag">정부 IT 도급 · 피벗 6.4% 아래 대기</span>
         <div class="chl">인텔리전스 재계약 수주와 실적 상회 기반, 피벗 직전 플랫 대기</div>
       </div>
@@ -4119,7 +4124,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Insurance - Property &amp; Casualty — 비주도 · F2T3 90.0 · 구성 23 · 상위3 PRCH, SLDE, UVE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 27/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Slide Insurance Holdings, Inc.</div>
+        <div class="cname">Slide Insurance Holdings, Inc. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(손해보험)</span></span></div>
         <span class="ctag">성장 모멘텀 · 매출 +36%</span>
         <div class="chl">미국 Insurance - Property &amp; Casualty 기업. (원문) Slide Insurance </div>
       </div>
@@ -4160,7 +4165,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="업종 라벨 없음 — 표시 전용">섹터 NA</div>
       </div>
       <div class="cmain">
-        <div class="cname">Teva Pharmaceutical Industries Limited</div>
+        <div class="cname">Teva Pharmaceutical Industries Limited <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">이스라엘 Drug Manufacturers - Specialty &amp; Generic 기업. 주력 분야: 전기차</div>
       </div>
@@ -4201,7 +4206,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Discount Stores — 비주도 · F2T3 89.6667 · 구성 3 · 상위3 TBBB, TGT, DLTR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 30/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Target Corporation <span style="font-size:10px;font-weight:700;color:#FDBA74;" title="실적발표 당일 — 관측 전용">실적발표 당일</span></div>
+        <div class="cname">Target Corporation <span style="font-size:10px;font-weight:700;color:#FDBA74;" title="실적발표 당일 — 관측 전용">실적발표 당일</span> <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(할인점)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +101%</span>
         <div class="chl">미국 할인 유통 기업. 주력 분야: 전기차</div>
       </div>
@@ -4242,7 +4247,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Apparel Manufacturing — 주도섹터 · F2T3 92.5 · 구성 2 · 상위3 FIGS, COLM · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 17/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Columbia Sportswear Company</div>
+        <div class="cname">Columbia Sportswear Company <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(의류제조)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Apparel Manufacturing 기업. 주력 분야: 네트워크 · 전기차 · 이커머스</div>
       </div>
@@ -4283,7 +4288,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Edgewise Therapeutics, Inc.</div>
+        <div class="cname">Edgewise Therapeutics, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">월가 강력 매수 의견</span>
         <div class="chl">미국 바이오테크 기업. 주력 분야: 전기차 · 임상</div>
       </div>
@@ -4324,7 +4329,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Specialty Business Services — 비주도 · F2T3 86.6667 · 구성 8 · 상위3 TRNS, FA, ABM · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 41/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">First Advantage Corporation</div>
+        <div class="cname">First Advantage Corporation <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(비즈니스서비스)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +690%</span>
         <div class="chl">미국 Specialty Business Services 기업. (원문) First Advantage Corp</div>
       </div>
@@ -4365,7 +4370,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Infrastructure — 주도섹터 · F2T3 95.3333 · 구성 36 · 상위3 OKTA, APPN, GCT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 9/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Flywire Corporation 🤖</div>
+        <div class="cname">Flywire Corporation 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(인프라SW)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +152%</span>
         <div class="chl">미국 Software - Infrastructure 기업. 주력 분야: 네트워크 · 소프트웨어</div>
       </div>
@@ -4406,7 +4411,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Household &amp; Personal Products — 비주도 · F2T3 92.0 · 구성 8 · 상위3 ELF, NWL, EPC · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 22/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Interparfums, Inc.</div>
+        <div class="cname">Interparfums, Inc. <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(생활용품)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Household &amp; Personal Products 기업. 주력 분야: 이커머스</div>
       </div>
@@ -4447,7 +4452,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Devices — 주도섹터 · F2T3 92.3333 · 구성 12 · 상위3 CBLL, HAE, ITGR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 20/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">LivaNova PLC</div>
+        <div class="cname">LivaNova PLC <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료기기)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">영국 의료기기 기업. 주력 분야: 전기차 · 의료 · 임상</div>
       </div>
@@ -4488,7 +4493,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="REIT - Hotel &amp; Motel — 주도섹터 · F2T3 93.0 · 구성 9 · 상위3 PEB, RLJ, APLE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 15/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Park Hotels &amp; Resorts Inc.</div>
+        <div class="cname">Park Hotels &amp; Resorts Inc. <span class="secw"><span class="sec1" style="background:#0369A1" title="섹터">부동산(리츠호텔)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 REIT - Hotel &amp; Motel 기업. (원문) Park Hotels &amp; Resorts inc…</div>
       </div>
@@ -4529,7 +4534,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Insurance - Diversified — 비주도 · F2T3 68.6667 · 구성 5 · 상위3 PLGO, ACGL, SLF · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 85/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Pelagos Insurance Capital Limit</div>
+        <div class="cname">Pelagos Insurance Capital Limit <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(종합보험)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">Bermuda Insurance - Diversified 기업. 주력 분야: 항공우주</div>
       </div>
@@ -4570,7 +4575,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Staffing &amp; Employment Services — 비주도 · F2T3 89.0 · 구성 5 · 상위3 KFRC, RHI, NSP · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 31/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Robert Half Inc.</div>
+        <div class="cname">Robert Half Inc. <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(인력서비스)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Staffing &amp; Employment Services 기업. 주력 분야: 전기차</div>
       </div>
@@ -4611,7 +4616,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Instruments &amp; Supplies — 주도섹터 · F2T3 95.6667 · 구성 14 · 상위3 PLSE, AZTA, ATRC · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 7/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">West Pharmaceutical Services, Inc.</div>
+        <div class="cname">West Pharmaceutical Services, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료용품)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Medical Instruments &amp; Supplies 기업. 주력 분야: 네트워크 · 전기차 · 패키</div>
       </div>
@@ -4652,7 +4657,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="REIT - Hotel &amp; Motel — 주도섹터 · F2T3 93.0 · 구성 9 · 상위3 PEB, RLJ, APLE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 15/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Xenia Hotels &amp; Resorts, Inc.</div>
+        <div class="cname">Xenia Hotels &amp; Resorts, Inc. <span class="secw"><span class="sec1" style="background:#0369A1" title="섹터">부동산(리츠호텔)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 REIT - Hotel &amp; Motel 기업. (원문) Xenia Hotels &amp; Resorts, Inc</div>
       </div>
@@ -4693,7 +4698,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Infrastructure — 주도섹터 · F2T3 95.3333 · 구성 36 · 상위3 OKTA, APPN, GCT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 9/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Corpay, Inc. 🤖</div>
+        <div class="cname">Corpay, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(인프라SW)</span></span></div>
         <span class="ctag">저평가 · PE 14x</span>
         <div class="chl">미국 Software - Infrastructure 기업. 주력 분야: 네트워크</div>
       </div>
@@ -4734,7 +4739,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Industrial Distribution — 비주도 · F2T3 91.6667 · 구성 8 · 상위3 XMTR, GIC, GWW · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 23/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">W.W. Grainger, Inc.</div>
+        <div class="cname">W.W. Grainger, Inc. <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(산업유통)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Industrial Distribution 기업. (원문) W.W…</div>
       </div>
@@ -4775,7 +4780,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Application — 주도섹터 · F2T3 96.6667 · 구성 40 · 상위3 IBTA, RSKD, AMPL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Intapp, Inc. 🤖</div>
+        <div class="cname">Intapp, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(응용SW)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Software - Application 기업. 주력 분야: 클라우드 · 전기차 · 소프트웨어</div>
       </div>
@@ -4816,7 +4821,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Healthcare Plans — 주도섹터 · F2T3 94.3333 · 구성 7 · 상위3 HUM, OSCR, CLOV · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 10/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Molina Healthcare, Inc.</div>
+        <div class="cname">Molina Healthcare, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(건강보험)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Healthcare Plans 기업. (원문) Molina Healthcare, Inc…</div>
       </div>
@@ -4857,7 +4862,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Leisure — 비주도 · F2T3 88.5 · 구성 2 · 상위3 LTH, OSW · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 34/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">OneSpaWorld Holdings Limited</div>
+        <div class="cname">OneSpaWorld Holdings Limited <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(레저)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">Bahamas Leisure 기업. (원문) OneSpaWorld Holdings Limited operat</div>
       </div>
@@ -4898,7 +4903,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Biotechnology — 주도섹터 · F2T3 98.6667 · 구성 31 · 상위3 KOD, MRNA, ORKA · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Palvella Therapeutics, Inc.</div>
+        <div class="cname">Palvella Therapeutics, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(바이오)</span></span></div>
         <span class="ctag">월가 강력 매수 의견</span>
         <div class="chl">미국 바이오테크 기업. 주력 분야: 전기차 · 임상</div>
       </div>
@@ -4939,7 +4944,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Engineering &amp; Construction — 비주도 · F2T3 71.0 · 구성 2 · 상위3 TPC, J · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 83/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Tutor Perini Corporation</div>
+        <div class="cname">Tutor Perini Corporation <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(엔지니어링)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +470%</span>
         <div class="chl">미국 엔지니어링/건설 기업. (원문) Tutor Perini Corporation, a constructio</div>
       </div>
@@ -4980,7 +4985,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Building Products &amp; Equipment — 비주도 · F2T3 84.0 · 구성 5 · 상위3 TREX, APOG, MAS · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 50/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Trex Company, Inc.</div>
+        <div class="cname">Trex Company, Inc. <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(건축제품)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 건축 자재 기업. (원문) Trex Company, Inc…</div>
       </div>
@@ -5021,7 +5026,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Specialty Chemicals — 비주도 · F2T3 85.0 · 구성 9 · 상위3 SCL, AVNT, ASH · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 47/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Avient Corporation</div>
+        <div class="cname">Avient Corporation <span class="secw"><span class="sec1" style="background:#475569" title="섹터">소재(특수화학)</span></span></div>
         <span class="ctag">저평가 · PE 12x</span>
         <div class="chl">미국 특수 화학 기업. 주력 분야: 전기차 · 패키징 · 의료</div>
       </div>
@@ -5062,7 +5067,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Instruments &amp; Supplies — 주도섹터 · F2T3 95.6667 · 구성 14 · 상위3 PLSE, AZTA, ATRC · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 7/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Becton, Dickinson and Company</div>
+        <div class="cname">Becton, Dickinson and Company <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료용품)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Medical Instruments &amp; Supplies 기업. 주력 분야: 전기차 · 의료 · 임상 ·</div>
       </div>
@@ -5103,7 +5108,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="REIT - Industrial — 비주도 · F2T3 78.0 · 구성 4 · 상위3 COLD, SMA, CUBE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 64/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Americold Realty Trust, Inc.</div>
+        <div class="cname">Americold Realty Trust, Inc. <span class="secw"><span class="sec1" style="background:#0369A1" title="섹터">부동산(리츠산업)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 REIT - Industrial 기업. 주력 분야: 전기차</div>
       </div>
@@ -5144,7 +5149,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Internet Retail — 비주도 · F2T3 87.0 · 구성 6 · 상위3 LQDT, EBAY, CART · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 40/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">eBay Inc.</div>
+        <div class="cname">eBay Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(온라인소매)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 인터넷 유통 기업. (원문) eBay Inc., together with its subsidiaries</div>
       </div>
@@ -5185,7 +5190,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Electrical Equipment &amp; Parts — 비주도 · F2T3 86.0 · 구성 1 · 상위3 ENR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 44/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Energizer Holdings, Inc.</div>
+        <div class="cname">Energizer Holdings, Inc. <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(전기장비)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 전기 장비 기업. 주력 분야: 자동차 · 전기차 · 태양광 · 이커머스</div>
       </div>
@@ -5226,7 +5231,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Insurance - Reinsurance — 비주도 · F2T3 82.6667 · 구성 5 · 상위3 HG, RGA, EG · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 54/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Hamilton Insurance Group, Ltd.</div>
+        <div class="cname">Hamilton Insurance Group, Ltd. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(재보험)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">Bermuda Insurance - Reinsurance 기업. 주력 분야: 의료</div>
       </div>
@@ -5267,7 +5272,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Recreational Vehicles — 비주도 · F2T3 86.0 · 구성 1 · 상위3 HOG · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 45/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Harley-Davidson, Inc. 🤖</div>
+        <div class="cname">Harley-Davidson, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(레저차량)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Recreational Vehicles 기업. 주력 분야: 네트워크 · 이커머스</div>
       </div>
@@ -5308,7 +5313,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="REIT - Hotel &amp; Motel — 주도섹터 · F2T3 93.0 · 구성 9 · 상위3 PEB, RLJ, APLE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 15/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Host Hotels &amp; Resorts, Inc.</div>
+        <div class="cname">Host Hotels &amp; Resorts, Inc. <span class="secw"><span class="sec1" style="background:#0369A1" title="섹터">부동산(리츠호텔)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 REIT - Hotel &amp; Motel 기업. 주력 분야: 전기차</div>
       </div>
@@ -5349,7 +5354,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Lodging — 비주도 · F2T3 83.0 · 구성 2 · 상위3 MAR, HLT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 52/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Marriott International, Inc.</div>
+        <div class="cname">Marriott International, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(숙박)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Lodging 기업. (원문) Marriott International, Inc…</div>
       </div>
@@ -5390,7 +5395,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Entertainment — 비주도 · F2T3 88.6667 · 구성 16 · 상위3 AMC, MSGE, SIRI · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 33/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Madison Square Garden Entertainment Corp.</div>
+        <div class="cname">Madison Square Garden Entertainment Corp. <span class="secw"><span class="sec1" style="background:#6D28D9" title="섹터">커뮤(엔터)</span></span></div>
         <span class="ctag">성장 모멘텀 · 매출 +37%</span>
         <div class="chl">미국 Entertainment 기업. 주력 분야: 전기차</div>
       </div>
@@ -5431,7 +5436,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Instruments &amp; Supplies — 주도섹터 · F2T3 95.6667 · 구성 14 · 상위3 PLSE, AZTA, ATRC · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 7/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Teleflex Incorporated</div>
+        <div class="cname">Teleflex Incorporated <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료용품)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Medical Instruments &amp; Supplies 기업. 주력 분야: 전기차 · 의료</div>
       </div>
@@ -5472,7 +5477,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Oil &amp; Gas Midstream — 주도섹터 · F2T3 93.3333 · 구성 19 · 상위3 INSW, TRMD, FRO · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 14/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Targa Resources Corp.</div>
+        <div class="cname">Targa Resources Corp. <span class="secw"><span class="sec1" style="background:#DC2626" title="섹터">에너지(미드스트림)</span></span></div>
         <span class="ctag">성장 모멘텀 · 매출 +35%</span>
         <div class="chl">미국 Oil &amp; Gas Midstream 기업. 주력 분야: 전기차</div>
       </div>
@@ -5513,7 +5518,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Asset Management — 비주도 · F2T3 90.0 · 구성 46 · 상위3 AAMI, VCTR, WT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 29/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Franklin Templeton Inc.</div>
+        <div class="cname">Franklin Templeton Inc. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(자산운용)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +223%</span>
         <div class="chl">미국 Asset Management 기업. (원문) Franklin Templeton Inc…</div>
       </div>
@@ -5554,7 +5559,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Drug Manufacturers - General — 비주도 · F2T3 86.6667 · 구성 9 · 상위3 OGN, BIIB, MRK · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 42/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Biogen Inc.</div>
+        <div class="cname">Biogen Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(대형제약)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Drug Manufacturers - General 기업. 주력 분야: 전기차 · 임상</div>
       </div>
@@ -5595,7 +5600,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Internet Retail — 비주도 · F2T3 87.0 · 구성 6 · 상위3 LQDT, EBAY, CART · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 40/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Maplebear Inc. 🤖</div>
+        <div class="cname">Maplebear Inc. 🤖 <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(온라인소매)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 인터넷 유통 기업. 주력 분야: 소프트웨어</div>
       </div>
@@ -5636,7 +5641,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Oil &amp; Gas E&amp;P — 비주도 · F2T3 89.0 · 구성 17 · 상위3 APA, GFR, PR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 32/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">ConocoPhillips</div>
+        <div class="cname">ConocoPhillips <span class="secw"><span class="sec1" style="background:#DC2626" title="섹터">에너지(석유가스개발)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +132%</span>
         <div class="chl">미국 Oil &amp; Gas E&amp;P 기업. 주력 분야: 전기차</div>
       </div>
@@ -5677,7 +5682,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Oil &amp; Gas Midstream — 주도섹터 · F2T3 93.3333 · 구성 19 · 상위3 INSW, TRMD, FRO · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 14/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Kinetik Holdings Inc.</div>
+        <div class="cname">Kinetik Holdings Inc. <span class="secw"><span class="sec1" style="background:#DC2626" title="섹터">에너지(미드스트림)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +228%</span>
         <div class="chl">미국 Oil &amp; Gas Midstream 기업. (원문) Kinetik Holdings Inc., throu</div>
       </div>
@@ -5718,7 +5723,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Tobacco — 비주도 · F2T3 77.0 · 구성 2 · 상위3 MO, PM · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 67/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Altria Group, Inc.</div>
+        <div class="cname">Altria Group, Inc. <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(담배)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Tobacco 기업. (원문) Altria Group, Inc., through its subsidia</div>
       </div>
@@ -5759,7 +5764,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Entertainment — 비주도 · F2T3 88.6667 · 구성 16 · 상위3 AMC, MSGE, SIRI · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 33/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Sirius XM Holdings Inc.</div>
+        <div class="cname">Sirius XM Holdings Inc. <span class="secw"><span class="sec1" style="background:#6D28D9" title="섹터">커뮤(엔터)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Entertainment 기업. 주력 분야: 네트워크 · 전기차 · 구독 · 위성</div>
       </div>
@@ -5800,7 +5805,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Semiconductors — 주도섹터 · F2T3 93.3333 · 구성 6 · 상위3 AMD, TXN, SLAB · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 13/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Skyworks Solutions, Inc. 🤖</div>
+        <div class="cname">Skyworks Solutions, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(반도체)</span></span></div>
         <span class="ctag">AI 반도체 사이클 수혜주</span>
         <div class="chl">미국 반도체 기업. 주력 분야: 자동차 · 전기차 · 반도체 · 의료 · 방산</div>
       </div>
@@ -5841,7 +5846,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Tools &amp; Accessories — 비주도 · F2T3 88.0 · 구성 2 · 상위3 SWK, TTC · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 37/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">The Toro Company</div>
+        <div class="cname">The Toro Company <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(공구)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Tools &amp; Accessories 기업. 주력 분야: 전기차 · 소프트웨어</div>
       </div>
@@ -5882,7 +5887,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Insurance - Property &amp; Casualty — 비주도 · F2T3 90.0 · 구성 23 · 상위3 PRCH, SLDE, UVE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 27/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Assurant, Inc.</div>
+        <div class="cname">Assurant, Inc. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(손해보험)</span></span></div>
         <span class="ctag">월가 강력 매수 의견</span>
         <div class="chl">미국 Insurance - Property &amp; Casualty 기업. 주력 분야: 전기차</div>
       </div>
@@ -5923,7 +5928,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Asset Management — 비주도 · F2T3 90.0 · 구성 46 · 상위3 AAMI, VCTR, WT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 29/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Affiliated Managers Group, Inc.</div>
+        <div class="cname">Affiliated Managers Group, Inc. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(자산운용)</span></span></div>
         <span class="ctag">월가 강력 매수 의견</span>
         <div class="chl">미국 Asset Management 기업. (원문) Affiliated Managers Group, Inc.</div>
       </div>
@@ -5964,7 +5969,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Specialty Retail — 비주도 · F2T3 91.0 · 구성 6 · 상위3 ARHS, HZO, BBY · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 24/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Best Buy Co., Inc. <span style="font-size:10px;font-weight:700;color:#FDBA74;" title="실적발표 6일 전 — 관측 전용">실적발표 6일 전</span></div>
+        <div class="cname">Best Buy Co., Inc. <span style="font-size:10px;font-weight:700;color:#FDBA74;" title="실적발표 6일 전 — 관측 전용">실적발표 6일 전</span> <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(전문소매)</span></span></div>
         <span class="ctag">저평가 · PE 14x</span>
         <div class="chl">미국 Specialty Retail 기업. 주력 분야: 네트워크 · 전기차 · 소프트웨어</div>
       </div>
@@ -6005,7 +6010,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Medical Distribution — 비주도 · F2T3 65.5 · 구성 2 · 상위3 CAH, HSIC · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 91/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Cardinal Health, Inc.</div>
+        <div class="cname">Cardinal Health, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료유통)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Medical Distribution 기업. 주력 분야: 전기차 · 의료 · 임상</div>
       </div>
@@ -6046,7 +6051,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Insurance Brokers — 비주도 · F2T3 82.0 · 구성 7 · 상위3 ARX, CRVL, BWIN · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 55/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">CorVel Corporation 🤖</div>
+        <div class="cname">CorVel Corporation 🤖 <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(보험중개)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Insurance Brokers 기업. 주력 분야: AI · 네트워크 · 전기차 · 의료</div>
       </div>
@@ -6087,7 +6092,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Diagnostics &amp; Research — 주도섹터 · F2T3 96.6667 · 구성 21 · 상위3 CDNA, ADPT, PSNL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 4/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">ICON Public Limited Company</div>
+        <div class="cname">ICON Public Limited Company <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(진단·연구)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">아일랜드 진단/연구 기업. 주력 분야: 전기차 · 의료 · 임상</div>
       </div>
@@ -6128,7 +6133,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Travel Services — 비주도 · F2T3 86.3333 · 구성 3 · 상위3 LIND, PRSU, ABNB · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 43/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Pursuit Attractions and Hospitality, Inc.</div>
+        <div class="cname">Pursuit Attractions and Hospitality, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(여행서비스)</span></span></div>
         <span class="ctag">월가 강력 매수 의견</span>
         <div class="chl">미국 Travel Services 기업. (원문) Pursuit Attractions and Hospital</div>
       </div>
@@ -6169,7 +6174,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Steel — 비주도 · F2T3 79.0 · 구성 5 · 상위3 NUE, RS, WS · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 61/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Reliance, Inc. 🤖</div>
+        <div class="cname">Reliance, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#475569" title="섹터">소재(철강)</span></span></div>
         <span class="ctag">성장 모멘텀 · 매출 +43%</span>
         <div class="chl">미국 Steel 기업. 주력 분야: 반도체 · 항공우주</div>
       </div>
@@ -6210,7 +6215,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Infrastructure — 주도섹터 · F2T3 95.3333 · 구성 36 · 상위3 OKTA, APPN, GCT · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 9/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Teradata Corporation 🤖</div>
+        <div class="cname">Teradata Corporation 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(인프라SW)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Software - Infrastructure 기업. (원문) Teradata Corporation, </div>
       </div>
@@ -6251,7 +6256,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Internet Retail — 비주도 · F2T3 87.0 · 구성 6 · 상위3 LQDT, EBAY, CART · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 40/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Etsy, Inc.</div>
+        <div class="cname">Etsy, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(온라인소매)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +1030%</span>
         <div class="chl">미국 인터넷 유통 기업. (원문) Etsy, Inc., together with its subsidiarie</div>
       </div>
@@ -6292,7 +6297,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Beverages - Brewers — 비주도 · F2T3 78.5 · 구성 2 · 상위3 FMX, BUD · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 62/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Fomento Económico Mexicano, S.A.B. de C.V.</div>
+        <div class="cname">Fomento Económico Mexicano, S.A.B. de C.V. <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(맥주)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +182%</span>
         <div class="chl">Mexico Beverages - Brewers 기업. 주력 분야: 전기차</div>
       </div>
@@ -6333,7 +6338,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="REIT - Hotel &amp; Motel — 주도섹터 · F2T3 93.0 · 구성 9 · 상위3 PEB, RLJ, APLE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 15/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Sunstone Hotel Investors, Inc.</div>
+        <div class="cname">Sunstone Hotel Investors, Inc. <span class="secw"><span class="sec1" style="background:#0369A1" title="섹터">부동산(리츠호텔)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +2993%</span>
         <div class="chl">미국 REIT - Hotel &amp; Motel 기업. (원문) Sunstone Hotel Investors, I</div>
       </div>
@@ -6374,7 +6379,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Care Facilities — 주도섹터 · F2T3 97.0 · 구성 16 · 상위3 PACS, ACHC, LFST · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 2/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Tenet Healthcare Corporation</div>
+        <div class="cname">Tenet Healthcare Corporation <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료시설)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +192%</span>
         <div class="chl">미국 Medical Care Facilities 기업. 주력 분야: 전기차 · 임상 · 로봇</div>
       </div>
@@ -6415,7 +6420,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Instruments &amp; Supplies — 주도섹터 · F2T3 95.6667 · 구성 14 · 상위3 PLSE, AZTA, ATRC · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 7/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Bausch + Lomb Corporation</div>
+        <div class="cname">Bausch + Lomb Corporation <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료용품)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">캐나다 Medical Instruments &amp; Supplies 기업. 주력 분야: 광통신 · 전기차 · 의료</div>
       </div>
@@ -6456,7 +6461,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="REIT - Retail — 비주도 · F2T3 83.0 · 구성 1 · 상위3 CBL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 53/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">CBL &amp; Associates Properties, Inc.</div>
+        <div class="cname">CBL &amp; Associates Properties, Inc. <span class="secw"><span class="sec1" style="background:#0369A1" title="섹터">부동산(리츠리테일)</span></span></div>
         <span class="ctag">월가 강력 매수 의견</span>
         <div class="chl">미국 REIT - Retail 기업. (원문) CBL &amp; Associates Properties, Inc…</div>
       </div>
@@ -6497,7 +6502,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Banks - Regional — 비주도 · F2T3 90.3333 · 구성 79 · 상위3 EGBN, AMAL, AMTB · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 26/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Dime Commercial Bancshares, Inc.</div>
+        <div class="cname">Dime Commercial Bancshares, Inc. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(지역은행)</span></span></div>
         <span class="ctag">저평가 · PE 9x</span>
         <div class="chl">미국 Banks - Regional 기업. (원문) Dime Commercial Bancshares, Inc</div>
       </div>
@@ -6538,7 +6543,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Discount Stores — 비주도 · F2T3 89.6667 · 구성 3 · 상위3 TBBB, TGT, DLTR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 30/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Dollar Tree, Inc. <span style="font-size:10px;font-weight:700;color:#FDBA74;" title="실적발표 6일 전 — 관측 전용">실적발표 6일 전</span></div>
+        <div class="cname">Dollar Tree, Inc. <span style="font-size:10px;font-weight:700;color:#FDBA74;" title="실적발표 6일 전 — 관측 전용">실적발표 6일 전</span> <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(할인점)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +173%</span>
         <div class="chl">미국 할인 유통 기업. 주력 분야: 전기차</div>
       </div>
@@ -6579,7 +6584,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Building Products &amp; Equipment — 비주도 · F2T3 84.0 · 구성 5 · 상위3 TREX, APOG, MAS · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 50/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Griffon Corporation</div>
+        <div class="cname">Griffon Corporation <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(건축제품)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 건축 자재 기업. 주력 분야: 전기차 · 이커머스</div>
       </div>
@@ -6620,7 +6625,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Building Products &amp; Equipment — 비주도 · F2T3 84.0 · 구성 5 · 상위3 TREX, APOG, MAS · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 50/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Masco Corporation</div>
+        <div class="cname">Masco Corporation <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(건축제품)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 건축 자재 기업. (원문) Masco Corporation provides home improvemen</div>
       </div>
@@ -6661,7 +6666,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Care Facilities — 주도섹터 · F2T3 97.0 · 구성 16 · 상위3 PACS, ACHC, LFST · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 2/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Pediatrix Medical Group, Inc.</div>
+        <div class="cname">Pediatrix Medical Group, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료시설)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Medical Care Facilities 기업. 주력 분야: 네트워크 · 의료 · 임상</div>
       </div>
@@ -6702,7 +6707,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Furnishings, Fixtures &amp; Appliances — 비주도 · F2T3 88.0 · 구성 5 · 상위3 SN, MLKN, MHK · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 35/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Mohawk Industries, Inc.</div>
+        <div class="cname">Mohawk Industries, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(가구·가전)</span></span></div>
         <span class="ctag">저평가 · PE 15x</span>
         <div class="chl">미국 Furnishings, Fixtures &amp; Appliances 기업. 주력 분야: 이커머스</div>
       </div>
@@ -6743,7 +6748,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Diagnostics &amp; Research — 주도섹터 · F2T3 96.6667 · 구성 21 · 상위3 CDNA, ADPT, PSNL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 4/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Mettler-Toledo International Inc.</div>
+        <div class="cname">Mettler-Toledo International Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(진단·연구)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">스위스 진단/연구 기업. 주력 분야: 패키징 · 소프트웨어</div>
       </div>
@@ -6784,7 +6789,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Insurance - Reinsurance — 비주도 · F2T3 82.6667 · 구성 5 · 상위3 HG, RGA, EG · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 54/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Reinsurance Group of America, Incorporated</div>
+        <div class="cname">Reinsurance Group of America, Incorporated <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(재보험)</span></span></div>
         <span class="ctag">저평가 · PE 9x</span>
         <div class="chl">미국 Insurance - Reinsurance 기업. 주력 분야: 전기차</div>
       </div>
@@ -6825,7 +6830,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="REIT - Hotel &amp; Motel — 주도섹터 · F2T3 93.0 · 구성 9 · 상위3 PEB, RLJ, APLE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 15/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Ryman Hospitality Properties, Inc.</div>
+        <div class="cname">Ryman Hospitality Properties, Inc. <span class="secw"><span class="sec1" style="background:#0369A1" title="섹터">부동산(리츠호텔)</span></span></div>
         <span class="ctag">월가 강력 매수 의견</span>
         <div class="chl">미국 REIT - Hotel &amp; Motel 기업. 주력 분야: 전기차</div>
       </div>
@@ -6866,7 +6871,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Devices — 주도섹터 · F2T3 92.3333 · 구성 12 · 상위3 CBLL, HAE, ITGR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 20/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">SI-BONE, Inc.</div>
+        <div class="cname">SI-BONE, Inc. <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료기기)</span></span></div>
         <span class="ctag">월가 강력 매수 의견</span>
         <div class="chl">미국 의료기기 기업. 주력 분야: 전기차 · 의료</div>
       </div>
@@ -6907,7 +6912,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Application — 주도섹터 · F2T3 96.6667 · 구성 40 · 상위3 IBTA, RSKD, AMPL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Alarm.com Holdings, Inc. 🤖</div>
+        <div class="cname">Alarm.com Holdings, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(응용SW)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Software - Application 기업. 주력 분야: 전기차 · 태양광 · 소프트웨어 · Saa</div>
       </div>
@@ -6948,7 +6953,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Specialty Chemicals — 비주도 · F2T3 85.0 · 구성 9 · 상위3 SCL, AVNT, ASH · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 47/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Ashland Inc.</div>
+        <div class="cname">Ashland Inc. <span class="secw"><span class="sec1" style="background:#475569" title="섹터">소재(특수화학)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 특수 화학 기업. 주력 분야: 전기차 · 태양광</div>
       </div>
@@ -6989,7 +6994,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Medical Devices — 주도섹터 · F2T3 92.3333 · 구성 12 · 상위3 CBLL, HAE, ITGR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 20/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Bruker Corporation</div>
+        <div class="cname">Bruker Corporation <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(의료기기)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 의료기기 기업. 주력 분야: 광통신 · 전기차 · 임상 · 자동화</div>
       </div>
@@ -7030,7 +7035,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Specialty Retail — 비주도 · F2T3 91.0 · 구성 6 · 상위3 ARHS, HZO, BBY · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 24/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Five Below, Inc.</div>
+        <div class="cname">Five Below, Inc. <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(전문소매)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +418%</span>
         <div class="chl">미국 Specialty Retail 기업. 주력 분야: 전기차</div>
       </div>
@@ -7071,7 +7076,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Diagnostics &amp; Research — 주도섹터 · F2T3 96.6667 · 구성 21 · 상위3 CDNA, ADPT, PSNL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 4/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Labcorp Holdings Inc. 🤖</div>
+        <div class="cname">Labcorp Holdings Inc. 🤖 <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(진단·연구)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 진단/연구 기업. 주력 분야: 전기차 · 의료</div>
       </div>
@@ -7112,7 +7117,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Insurance - Property &amp; Casualty — 비주도 · F2T3 90.0 · 구성 23 · 상위3 PRCH, SLDE, UVE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 27/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Palomar Holdings, Inc.</div>
+        <div class="cname">Palomar Holdings, Inc. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(손해보험)</span></span></div>
         <span class="ctag">성장 모멘텀 · 매출 +58%</span>
         <div class="chl">미국 Insurance - Property &amp; Casualty 기업. (원문) Palomar Holdings</div>
       </div>
@@ -7153,7 +7158,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Insurance - Property &amp; Casualty — 비주도 · F2T3 90.0 · 구성 23 · 상위3 PRCH, SLDE, UVE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 27/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">The Hanover Insurance Group, Inc. 🤖</div>
+        <div class="cname">The Hanover Insurance Group, Inc. 🤖 <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(손해보험)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Insurance - Property &amp; Casualty 기업. (원문) The Hanover Insu</div>
       </div>
@@ -7194,7 +7199,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Food Distribution — 비주도 · F2T3 84.5 · 구성 2 · 상위3 CHEF, USFD · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 49/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">US Foods Holding Corp.</div>
+        <div class="cname">US Foods Holding Corp. <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(식품유통)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Food Distribution 기업. (원문) US Foods Holding Corp., togeth</div>
       </div>
@@ -7235,7 +7240,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Specialty Business Services — 비주도 · F2T3 86.6667 · 구성 8 · 상위3 TRNS, FA, ABM · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 41/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">ABM Industries Incorporated 🤖</div>
+        <div class="cname">ABM Industries Incorporated 🤖 <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(비즈니스서비스)</span></span></div>
         <span class="ctag">저평가 · PE 12x</span>
         <div class="chl">미국 Specialty Business Services 기업. 주력 분야: 데이터센터 · 전기차</div>
       </div>
@@ -7276,7 +7281,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Household &amp; Personal Products — 비주도 · F2T3 92.0 · 구성 8 · 상위3 ELF, NWL, EPC · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 22/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Church &amp; Dwight Co., Inc.</div>
+        <div class="cname">Church &amp; Dwight Co., Inc. <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(생활용품)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Household &amp; Personal Products 기업. 주력 분야: 전기차 · 이커머스</div>
       </div>
@@ -7317,7 +7322,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Entertainment — 비주도 · F2T3 88.6667 · 구성 16 · 상위3 AMC, MSGE, SIRI · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 33/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Cinemark Holdings, Inc.</div>
+        <div class="cname">Cinemark Holdings, Inc. <span class="secw"><span class="sec1" style="background:#6D28D9" title="섹터">커뮤(엔터)</span></span></div>
         <span class="ctag">수익성 폭발 · EPS +148%</span>
         <div class="chl">미국 Entertainment 기업. (원문) Cinemark Holdings, Inc., together </div>
       </div>
@@ -7358,7 +7363,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Insurance - Reinsurance — 비주도 · F2T3 82.6667 · 구성 5 · 상위3 HG, RGA, EG · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 54/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Everest Group, Ltd.</div>
+        <div class="cname">Everest Group, Ltd. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(재보험)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">Bermuda Insurance - Reinsurance 기업. 주력 분야: 전기차</div>
       </div>
@@ -7399,7 +7404,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Insurance - Property &amp; Casualty — 비주도 · F2T3 90.0 · 구성 23 · 상위3 PRCH, SLDE, UVE · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 27/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Hagerty, Inc.</div>
+        <div class="cname">Hagerty, Inc. <span class="secw"><span class="sec1" style="background:#059669" title="섹터">금융(손해보험)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Insurance - Property &amp; Casualty 기업. 주력 분야: 자동차 · 전기차</div>
       </div>
@@ -7440,7 +7445,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Beverages - Non-Alcoholic — 비주도 · F2T3 78.0 · 구성 5 · 상위3 KO, KDP, CCEP · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 63/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">The Coca-Cola Company</div>
+        <div class="cname">The Coca-Cola Company <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(비알코올음료)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Beverages - Non-Alcoholic 기업. 주력 분야: 네트워크 · 전기차</div>
       </div>
@@ -7481,7 +7486,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="Software - Application — 주도섹터 · F2T3 96.6667 · 구성 40 · 상위3 IBTA, RSKD, AMPL · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 5/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Paylocity Holding Corporation 🤖</div>
+        <div class="cname">Paylocity Holding Corporation 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(응용SW)</span></span></div>
         <span class="ctag">월가 강력 매수 의견</span>
         <div class="chl">미국 Software - Application 기업. 주력 분야: 클라우드 · 전기차 · 소프트웨어 · 자동</div>
       </div>
@@ -7522,7 +7527,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Metal Fabrication — 비주도 · F2T3 62.5 · 구성 2 · 상위3 RYZ, WOR · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 98/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Ryerson Holding Corporation 🦄</div>
+        <div class="cname">Ryerson Holding Corporation 🦄 <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(금속가공)</span></span></div>
         <span class="ctag">성장 모멘텀 · 매출 +88%</span>
         <div class="chl">미국 Metal Fabrication 기업. (원문) Ryerson Holding Corporation, t</div>
       </div>
@@ -7563,7 +7568,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="Specialty Retail — 비주도 · F2T3 91.0 · 구성 6 · 상위3 ARHS, HZO, BBY · 분류 야후 업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 24/142</div>
       </div>
       <div class="cmain">
-        <div class="cname">Williams-Sonoma, Inc. <span style="font-size:10px;font-weight:700;color:#FDBA74;" title="실적발표 1일 전 — 관측 전용">실적발표 1일 전</span></div>
+        <div class="cname">Williams-Sonoma, Inc. <span style="font-size:10px;font-weight:700;color:#FDBA74;" title="실적발표 1일 전 — 관측 전용">실적발표 1일 전</span> <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(전문소매)</span></span></div>
         <span class="ctag">SEPA+VCP 돌파 후보</span>
         <div class="chl">미국 Specialty Retail 기업. 주력 분야: 이커머스</div>
       </div>
