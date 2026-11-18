@@ -7965,3 +7965,172 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="cata"><div class="l">⚡ 카탈리스트</div><div class="b">2026-11-19 Q3 실적 발표 (EPS·가이던스 확인), 실적 이후 컨센서스·목표가 조정</div></div>
 </div>
 </div>
+<div class="foot">패턴·거래량 = 관찰 태그 (매매 판정 무관)<br>
+수축깊이 = 2봉 이상 걸친 마지막 눌림 폭 / (반등) = r 2% 폴백 / NA = 산출 불가<br>매출 감속 O = 감속 전환 / X = 정상 / NA = 산출 불가<br>
+성장패턴 태그는 성장률의 방향 관찰 기록 — 매수 판단과 무관. 음전·부진도 역성장 아님(성장 지속 중 속도 감소)<br>
+진입 등급: 매수 대상·매수 고려·매수 가능·관망·회피 — 관망·회피 등급은 신규 진입하지 않습니다.<br>「등급」 버튼은 진입 등급순(매수 대상 → 회피)으로 정렬합니다.<br>교육·참고 목적이며 투자 권유가 아닙니다.<br>
+뭉치 트레이더 · Minervini SEPA + VCP · 🧠 심층분석: Claude Sonnet (180/180종목)<br>
+📊 데이터: yfinance · Naver금융 · 자체 RS 엔진</div>
+</div>
+
+<script>
+(function(){
+  var cards = document.querySelectorAll('.card');
+  function hint(c){var f=c.querySelector('.fold');if(f)f.textContent=c.classList.contains('open')?'\u25B2':'\u25BC';}
+  cards.forEach(function(c){
+    hint(c);
+    var h=c.querySelector('.chead');
+    if(h) h.addEventListener('click',function(){c.classList.toggle('open');hint(c);});
+  });
+  var selSec=new Set(), selAttr=new Set(), selVerd=new Set();
+  var allBtn=document.querySelector('#secRow [data-sec="all"]');
+  function matchAttr(c){
+    var ok=false;
+    selAttr.forEach(function(a){
+      if(a==='ai'&&c.dataset.ai==='true')ok=true;
+      if(a==='unicorn'&&c.dataset.unicorn==='true')ok=true;
+      if(a==='fresh'&&c.dataset.fresh==='true')ok=true;
+    });
+    return ok;
+  }
+  function applyFilters(){
+    cards.forEach(function(c){
+      var okSec=selSec.size===0||selSec.has(c.dataset.sector);
+      var okAttr=selAttr.size===0||matchAttr(c);
+      var okVerd=selVerd.size===0||selVerd.has(c.dataset.verdict);
+      c.style.display=(okSec&&okAttr&&okVerd)?'':'none';
+    });
+  }
+  var secBtns=document.querySelectorAll('#secRow .tab');
+  var attrBtns=document.querySelectorAll('.tab.attr');
+  var vtabs=document.querySelectorAll('.vtab');
+  function syncAll(){
+    if(allBtn)allBtn.classList.toggle('active',selSec.size===0&&selAttr.size===0&&selVerd.size===0);
+  }
+  function clearAll(){
+    selSec.clear();selAttr.clear();selVerd.clear();
+    secBtns.forEach(function(x){if(x.getAttribute('data-sec')!=='all')x.classList.remove('active');});
+    attrBtns.forEach(function(x){x.classList.remove('active');});
+    vtabs.forEach(function(x){x.classList.remove('active');});
+    syncAll();applyFilters();
+  }
+  secBtns.forEach(function(t){
+    t.addEventListener('click',function(){
+      var s=t.getAttribute('data-sec');
+      if(s==='all'){clearAll();return;}
+      if(selSec.has(s))selSec.delete(s);else selSec.add(s);
+      t.classList.toggle('active',selSec.has(s));
+      syncAll();applyFilters();
+    });
+  });
+  attrBtns.forEach(function(t){
+    t.addEventListener('click',function(){
+      var a=t.getAttribute('data-attr');
+      if(selAttr.has(a))selAttr.delete(a);else selAttr.add(a);
+      t.classList.toggle('active',selAttr.has(a));
+      syncAll();applyFilters();
+    });
+  });
+  vtabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var v=t.getAttribute('data-vfilter');
+      if(selVerd.has(v))selVerd.delete(v);else selVerd.add(v);
+      t.classList.toggle('active',selVerd.has(v));
+      syncAll();applyFilters();
+    });
+  });
+    var btn=document.getElementById('xall');
+  if(btn) btn.addEventListener('click',function(){
+    var anyClosed=Array.prototype.some.call(cards,function(c){return c.style.display!=='none'&&!c.classList.contains('open');});
+    cards.forEach(function(c){if(c.style.display==='none')return;c.classList.toggle('open',anyClosed);hint(c);});
+    btn.textContent=anyClosed?'\uC804\uCCB4 \uC811\uAE30 \u25B2':'\uC804\uCCB4 \uD3BC\uCE58\uAE30 \u25BC';
+  });
+  /* COMP100-JS-START  [FWD-OBS-COMP100-UX-20260915 오너 지시 ①] COMP·RS 정렬.
+     지표당 버튼 1개 — 활성 버튼 재클릭이 내림↔오름 반전, 다른 버튼 클릭은 내림부터.
+     표시 순서만 바꾼다(판정·필터·서버 정렬키 무관). NA 는 방향과 무관하게 항상 하단,
+     동점·NA 내부는 서버 원순서(RS↓VCP↓) 유지. 초기 상태 = RS↓ = 서버 원순서. */
+  var wrapEl=document.querySelector('.wrap');
+  var footEl=wrapEl?wrapEl.querySelector('.foot'):null;
+  var origOrder=Array.prototype.slice.call(cards);
+  var origIdx=new Map(); origOrder.forEach(function(c,i){origIdx.set(c,i);});
+  var sortKey='rs', sortDir='desc';
+  function sortCards(key,dir){
+    var arr=origOrder.slice();
+    arr.sort(function(a,b){
+      var x=parseFloat(a.dataset[key==='comp'?'comp':(key==='compx'?'compx':(key==='gkey'?'gkey':'rs'))]);
+      var y=parseFloat(b.dataset[key==='comp'?'comp':(key==='compx'?'compx':(key==='gkey'?'gkey':'rs'))]);
+      var nx=isNaN(x), ny=isNaN(y);
+      if(nx&&ny) return origIdx.get(a)-origIdx.get(b);
+      if(nx) return 1;
+      if(ny) return -1;
+      if(x===y) return origIdx.get(a)-origIdx.get(b);
+      return dir==='desc' ? (y-x) : (x-y);
+    });
+    arr.forEach(function(c){
+      if(footEl) wrapEl.insertBefore(c, footEl); else wrapEl.appendChild(c);
+    });
+  }
+  var sbtns=Array.prototype.slice.call(document.querySelectorAll('.sbtn'));
+  sbtns.forEach(function(t){
+    t.addEventListener('click',function(){
+      var key=t.getAttribute('data-key');
+      if(sortKey===key){ sortDir = (sortDir==='desc') ? 'asc' : 'desc'; }
+      else { sortKey=key; sortDir='desc'; }
+      sbtns.forEach(function(x){
+        x.classList.remove('on');
+        var a=x.querySelector('.ar');
+        if(a) a.textContent='↓';
+      });
+      t.classList.add('on');
+      var ar=t.querySelector('.ar');
+      if(ar) ar.textContent = (sortDir==='desc') ? '↓' : '↑';
+      sortCards(sortKey,sortDir);
+    });
+  });
+  /* COMP100-JS-END */
+  // 스크롤 시 필터 메뉴 자동 접힘 + ▼ 클릭으로 재펼침 [2026-07-24]
+  var hdrEl=document.querySelector('.hdr'),fbarEl=document.getElementById('fbar');
+  if(hdrEl&&fbarEl){
+    var fManual=false,fOpenY=0;
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY||document.documentElement.scrollTop||0;
+      if(y<60){hdrEl.classList.remove('fold');fManual=false;return;}
+      if(fManual){if(Math.abs(y-fOpenY)>300){fManual=false;hdrEl.classList.add('fold');}return;}
+      hdrEl.classList.add('fold');
+    },{passive:true});
+    fbarEl.addEventListener('click',function(){
+      hdrEl.classList.remove('fold');fManual=true;fOpenY=window.scrollY||0;
+    });
+  }
+})();
+</script>
+
+<style>.mtc-slot{padding:8px 15px 6px;border-bottom:1px solid #F3F4F6;}.mtc-slot:empty{display:none;}.mtc-slot .mtc-fb{font-size:12px;color:#64748B;padding:4px 0;}</style>
+<link rel="stylesheet" href="https://jochan85-bot.github.io/mt-charts/assets/mtchart.v1.css">
+<script src="https://jochan85-bot.github.io/mt-charts/assets/mtchart.v1.js" id="mtc-js" defer></script>
+<script>
+(function(){
+  try{
+    var FAIL='차트를 불러오지 못했습니다.', failed=false, js=document.getElementById('mtc-js');
+    function fb(s){s.setAttribute('data-mtc','0');s.innerHTML='<div class="mtc-fb"></div>';s.firstChild.textContent=FAIL;}
+    function run(){
+      var ss=document.querySelectorAll('.card.open .mtc-slot');
+      for(var i=0;i<ss.length;i++){
+        var s=ss[i]; if(s.getAttribute('data-mtc'))continue;
+        if(window.MTChart&&window.MTChart.mount){
+          s.setAttribute('data-mtc','1');
+          try{window.MTChart.mount(s,{market:s.getAttribute('data-market'),ticker:s.getAttribute('data-ticker'),pivot:s.getAttribute('data-pivot'),range:'y1'});}catch(e){fb(s);}
+        }else if(failed){fb(s);}
+      }
+    }
+    if(js){
+      js.addEventListener('load',function(){try{if(!window.MTChart)failed=true;run();}catch(e){}});
+      js.addEventListener('error',function(){try{failed=true;run();}catch(e){}});
+    }else{failed=true;}
+    document.addEventListener('click',function(ev){
+      try{var t=ev.target;if(t&&t.closest&&(t.closest('.chead')||t.closest('#xall')))run();}catch(e){}
+    });
+  }catch(e){}
+})();
+</script>
+</body></html>
