@@ -202,6 +202,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
 .vtab.active{background:#34D399;color:#0F172A;}
 .tab.attr.active{color:#0F172A !important;}
 .tabs.attrRow{padding-top:0;padding-bottom:6px;}
+
+/* [REPORT-SECTOR-CHIP-LAYOUT-20261118] 회사명 한 줄(말줄임) · 섹터 칩 아랫줄 테두리형 · 펼침 첫 줄 전체 이름 */
+.cname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;overflow-wrap:normal;}
+.secrow{margin-top:3px;line-height:1.2;}
+.secrow .sec1{font-size:9px;background:none;padding:0 6px;line-height:1.35;}
+.fullname{padding:8px 15px 0;font-size:12px;font-weight:600;color:#475569;word-break:keep-all;overflow-wrap:anywhere;}
 </style>
 </head><body>
 <div class="hdr">
@@ -229,7 +235,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.6667 · 구성 9 · 상위3 032580, 092870, 219130 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">엑시콘 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(반도체)</span></span></div>
+        <div class="cname" data-full="엑시콘" title="엑시콘">엑시콘</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#1D4ED8;border:1px solid #1D4ED8" title="섹터">IT(반도체)</span></span></div>
         <span class="ctag">비메모리 테스터 · 2분기 흑자전환</span>
         <div class="chl">국산 비메모리 테스터, 분기 매출 +314%·흑자전환에 소부장 순풍</div>
       </div>
@@ -245,6 +252,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">엑시콘</div>
   <div class="nums"><div class="num"><div class="l">분기 매출(26.06)</div><div class="v">315억원</div><div class="s up">전년동기 76.0억원 대비 +314%</div></div><div class="num"><div class="l">분기 영업이익</div><div class="v">41.0억원</div><div class="s up">전년동기 -29.0억원에서 흑자전환</div></div><div class="num"><div class="l">다음 분기 영업이익 컨센</div><div class="v">90.0억원</div><div class="s up">2026.09 추정, 매출 437억원</div></div><div class="num"><div class="l">RS / 목표주가</div><div class="v">98.0 / 68,000원</div><div class="s up">평균 목표가 기준 종가(11-17) 대비 +34.7%</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="092870" data-pivot="56400"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>엑시콘은 반도체 후공정(칩을 조립·포장한 뒤 불량을 가리는 단계)에서 쓰는 비메모리 테스터(칩이 정상 동작하는지 전기적으로 검사하는 장비)를 만들어 반도체 제조·패키징 업체에 파는 회사다. 카메라용 이미지센서(CIS) 테스트 장비는 고객사의 양산 검증을 통과했고, 디스플레이 구동칩(DDI) 테스터와 차세대 메모리 인터페이스(CXL) 테스터도 개발 중인 장비 제조사로, 장비를 납품하고 대금을 받는 B2B 구조다.</p><p>비메모리 테스터 시장은 일본 어드반테스트 같은 해외 업체가 90% 이상을 차지해 온 영역이며, 엑시콘은 국산화로 이를 대체하는 위치다. 2026년 6월 분기 매출이 전년 동기 대비 크게 늘며 흑자로 돌아서, 국산화 기대가 실적으로 확인되는 전환점에 있다.</p></div>
@@ -270,7 +278,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="기계 — 주도섹터 · F2T3 90.0 · 구성 3 · 상위3 159010, 049430, 086670 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 12/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">아스플로 <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(기계)</span></span></div>
+        <div class="cname" data-full="아스플로" title="아스플로">아스플로</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#B45309;border:1px solid #B45309" title="섹터">산업(기계)</span></span></div>
         <span class="ctag">램리서치 부품 진입 · 2Q 흑자전환</span>
         <div class="chl">반도체 배관 부품 신규 고객 확대, 피벗 ₩30,950 아래 눌림 대기</div>
       </div>
@@ -286,6 +295,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">아스플로</div>
   <div class="nums"><div class="num"><div class="l">2Q26 매출</div><div class="v">317억원</div><div class="s up">전년동기 149억원 대비 +113%</div></div><div class="num"><div class="l">2Q26 영업이익</div><div class="v">44.0억원</div><div class="s up">전년동기 -20.0억원에서 흑자전환</div></div><div class="num"><div class="l">공급계약</div><div class="v">297.9억원</div><div class="s up">8/25 공시, 2027년 8월까지 나눠 이행</div></div><div class="num"><div class="l">20일 외국인 순매매</div><div class="v">-3,097</div><div class="s dn"></div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="159010" data-pivot="30950"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>아스플로는 반도체 공정용 가스 배관 부품(튜브·파이프·피팅·밸브·필터)을 전해연마(표면을 매끄럽게 깎아 오염 입자를 줄이는 처리)해 팹 시공 현장과 장비사에 파는 회사다. 2025년 매출은 튜브·파이프 56.0%, 피팅 19.3%, 밸브·레귤레이터 18.1%, 필터 6.6%이며, 지역별로는 국내 65.1%, 중국 19.0%다.</p><p>튜브 경쟁사는 Valex·Kuze, 피팅·밸브 경쟁사는 태광후지킨·하이록코리아이며, 사업 구조가 가장 비슷한 곳은 일본 CKD다. 2005년 고청정 튜브를 국내 최초로 국산화했고 극청정 튜브는 미국 Valex와 함께 60% 이상을 공급한다. 2022년 램리서치 벤더 등록 이후 지연돼 온 장비 부품 진입이 2026년 들어 본격화되는 점이 전환점이다.</p></div>
@@ -311,7 +321,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.6667 · 구성 9 · 상위3 032580, 092870, 219130 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">티에프이 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(반도체)</span></span></div>
+        <div class="cname" data-full="티에프이 🤖" title="티에프이">티에프이 🤖</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#1D4ED8;border:1px solid #1D4ED8" title="섹터">IT(반도체)</span></span></div>
         <span class="ctag">소캠2 효과 · 3Q 영업이익 +212%</span>
         <div class="chl">소캠2 테스트 부품 효과로 3Q 영업이익 150억원, 성장궤도 진입</div>
       </div>
@@ -327,6 +338,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">티에프이</div>
   <div class="nums"><div class="num"><div class="l">3Q 영업이익</div><div class="v">150억원</div><div class="s up">전년동기 48.0억원 대비 +212%</div></div><div class="num"><div class="l">3Q 매출</div><div class="v">542억원</div><div class="s up">전년동기 272억원 대비 +99.3%</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">110,000원</div><div class="s up">종가(11-17) 75,700원 대비 괴리 +45.3%</div></div><div class="num"><div class="l">피벗 이격</div><div class="v">7.95%</div><div class="s up">피벗 ₩83,000, 현재가 ₩75,600</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="425420" data-pivot="83000"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>티에프이는 반도체 칩의 불량 여부를 가려내는 검사 단계에 쓰이는 체인지 키트·소켓·테스트 보드를 만들어 메모리·SoC 반도체 제조사에 파는 회사다. 체인지 키트는 검사 장비에서 칩 종류에 맞춰 갈아 끼우는 부품이고 소켓은 칩과 검사 장비를 전기적으로 이어주는 접촉부로, 고객사 양산 물량에 연동해 반복 납품하는 B2B 소모성 부품 구조다.</p><p>테스트 소켓 시장에서는 리노공업·ISC 등과 경쟁하며, 최근에는 서버용 저전력 메모리 모듈인 소캠2(SOCAMM2) 검사 부품 납품이 새 성장 동력으로 부각됐다. 소캠2 매출은 5월부터 인식되기 시작했고, 다올투자증권은 소캠2 비중이 올해 10%에서 2027년 40%까지 높아질 것으로 전망했다.</p></div>
@@ -352,7 +364,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.6667 · 구성 9 · 상위3 032580, 092870, 219130 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">타이거일렉 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(반도체)</span></span></div>
+        <div class="cname" data-full="타이거일렉" title="타이거일렉">타이거일렉</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#1D4ED8;border:1px solid #1D4ED8" title="섹터">IT(반도체)</span></span></div>
         <span class="ctag">반도체 테스트 기판 · 영업이익 +138%</span>
         <div class="chl">메모리 테스트용 PCB 수주 회복으로 흑자 전환 후 이익 증가폭이 커지는 구간</div>
       </div>
@@ -368,6 +381,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">타이거일렉</div>
   <div class="nums"><div class="num"><div class="l">2Q26 매출</div><div class="v">335억원</div><div class="s up">전년동기 192억원 대비 +74.5%</div></div><div class="num"><div class="l">2Q26 영업이익</div><div class="v">69.0억원</div><div class="s up">전년동기 29.0억원 대비 +138%, 직전 분기 35.0억원</div></div><div class="num"><div class="l">3Q26 컨센서스</div><div class="v">영업이익 80.0억원</div><div class="s up">매출 352억원 추정 (추정치)</div></div><div class="num"><div class="l">목표주가 평균</div><div class="v">₩119,333</div><div class="s up">최근 60일 3개사 매수, 하향 0건</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="219130" data-pivot="97100"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>타이거일렉은 반도체 칩의 불량 여부를 가려내는 테스트용 특수 기판(프로브카드 기판·로드보드 기판·소켓보드 기판·번인보드 기판)을 만들어 반도체 제조사와 검사 전문업체에 파는 회사다. 완성된 칩을 출하하기 전 거치는 검사 공정에 들어가는 소모성 성격의 인쇄회로기판을 납품하는 B2B 구조라, 반도체 생산량과 설비 투자가 늘수록 주문이 따라붙는다.</p><p>메모리 테스트용 PCB(인쇄회로기판)를 중심으로 수주 강도가 4Q25부터 다시 올라오면서 2023~2024년 적자를 끝내고 2025년 영업이익 72억원 흑자 전환에 성공했다. 베트남 PCB 계열사에 81억원을 출자해 지분율을 42.2%로 조정했고 CB(전환사채) 300억원 납입으로 증설 자금도 확보해, 업황 회복기에 생산 능력을 넓히는 국면이다.</p></div>
@@ -393,7 +407,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="IT서비스 — 주도섹터 · F2T3 93.6667 · 구성 5 · 상위3 012030, 052460, 093320 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 6/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">DB 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
+        <div class="cname" data-full="DB 🤖" title="DB">DB 🤖</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#1D4ED8;border:1px solid #1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
         <span class="ctag">AI·IT서비스 · 3Q 매출 +31.9%</span>
         <div class="chl">공공·AI 코딩 순풍 속 피벗 ₩2,490 0.6% 앞 대기, 이익 질은 혼재</div>
       </div>
@@ -409,6 +424,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">DB</div>
   <div class="nums"><div class="num"><div class="l">3Q 잠정 매출</div><div class="v">2,101억원</div><div class="s up">전년동기 1,593억원 대비 +31.9%</div></div><div class="num"><div class="l">3Q 잠정 영업이익</div><div class="v">137억원</div><div class="s up">전년동기 130억원 대비 +5.1%</div></div><div class="num"><div class="l">3Q 잠정 순이익</div><div class="v">103억원</div><div class="s dn">전년동기 267억원 대비 -61.6%</div></div><div class="num"><div class="l">RS</div><div class="v">95.0</div><div class="s up">SEPA 통과, 피벗까지 0.60%</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="012030" data-pivot="2490"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>DB는 IT 서비스(시스템 구축·운영)를 제공해 기업·공공기관 고객에 파는 회사다. 사업 설명 원문이 제공되지 않아 주력 제품명·대표 고객사는 확인되지 않으며, 일반적으로 SI(고객 요구에 맞춘 정보시스템 구축)와 유지보수 용역으로 수익을 올리는 구조다.</p><p>경쟁 구도는 대형 IT 서비스 업체와 중소 SI 업체가 겹치는 시장으로, 이 회사의 구체적 차별점은 제공된 자료로는 확인되지 않는다. 최근 3분기 잠정 매출이 전년동기 대비 +31.9% 늘며 외형 성장이 이어지고 있고, 공공 부문 AI 도입 확대 기사가 업황 순풍으로 읽힌다.</p></div>
@@ -434,7 +450,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="건설 — 주도섹터 · F2T3 95.0 · 구성 1 · 상위3 028050 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 4/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">삼성E&amp;A <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(건설)</span></span></div>
+        <div class="cname" data-full="삼성E&amp;A" title="삼성E&amp;A">삼성E&amp;A</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#B45309;border:1px solid #B45309" title="섹터">산업(건설)</span></span></div>
         <span class="ctag">플랜트 EPC 수주 · 3Q 영업이익 +184%</span>
         <div class="chl">3분기 영업이익 5,006억(+184%)에 목표가 상향이 이어지는 중동 플랜트 수주 주도주</div>
       </div>
@@ -450,6 +467,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">삼성E&amp;A</div>
   <div class="nums"><div class="num"><div class="l">3Q 영업이익(잠정)</div><div class="v">5,006억원</div><div class="s up">전년동기 1,765억원, +184%</div></div><div class="num"><div class="l">3Q 매출(잠정)</div><div class="v">2.91조원</div><div class="s up">전년동기 2.00조원, +45.8%</div></div><div class="num"><div class="l">올해 EPS 추정</div><div class="v">4,482.6</div><div class="s up">30일 전 3,844.5, 상향 15·하향 0</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">79,094원</div><div class="s up">60일 내 32건 전부 매수, 의견 하향 0건</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="028050" data-pivot="70300"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>삼성E&amp;A는 석유화학·가스·LNG 플랜트를 설계·조달·시공(EPC)까지 일괄 수행해 중동 산유국 국영 에너지사 등 발주처에 파는 회사다. 발주처로부터 프로젝트 단위로 공사 계약을 따내 공정에 따라 매출을 인식하는 B2B 구조이고, 최근에는 LNG·청정에너지 등 &#x27;뉴에너지&#x27;로 사업 포트폴리오를 넓히고 있다.</p><p>국내에서는 현대엔지니어링·GS건설, 해외에서는 Technip Energies 등과 플랜트 수주를 다투며, 현대차증권은 30건 이상의 천연가스 관련 국내외 EPC 수행 이력을 강점으로 평가했다. 올해 3분기 잠정 영업이익이 전년 대비 184% 늘면서 수주 기대가 실적으로 확인되는 국면이고, KB증권은 공사기간 단축 역량을 부각해 목표가를 올렸다.</p></div>
@@ -475,7 +493,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="소프트웨어 — 주도섹터 · F2T3 95.0 · 구성 1 · 상위3 053800 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 3/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">안랩 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(소프트웨어)</span></span></div>
+        <div class="cname" data-full="안랩 🤖" title="안랩">안랩 🤖</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#1D4ED8;border:1px solid #1D4ED8" title="섹터">IT(소프트웨어)</span></span></div>
         <span class="ctag">보안 순풍 · 3Q 영업이익 +38.7%</span>
         <div class="chl">금융권 해킹 여파로 보안 투자 기대가 이어지는 가운데 3분기 이익 개선이 확인된 보안 대표주</div>
       </div>
@@ -491,6 +510,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">안랩</div>
   <div class="nums"><div class="num"><div class="l">3Q 매출(잠정)</div><div class="v">795억원</div><div class="s up">전년동기 645억원 대비 +23.1%</div></div><div class="num"><div class="l">3Q 영업이익(잠정)</div><div class="v">109억원</div><div class="s up">전년동기 78.8억원 대비 +38.7%</div></div><div class="num"><div class="l">RS</div><div class="v">95.0</div><div class="s up">SEPA 통과, 피벗 미도달</div></div><div class="num"><div class="l">피벗까지</div><div class="v">12.21%</div><div class="s dn">현재가 ₩104,800 → 피벗 ₩119,600</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="053800" data-pivot="119600"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>안랩은 PC·서버용 백신(V3 Endpoint Security)과 네트워크 보안 장비(TrusGuard), 위협 탐지·대응 솔루션을 만들어 기업·공공기관·개인에게 파는 정보보안 회사다. 지능형 공격 대응 솔루션 MDS, 클라우드 기반 XDR(PC·서버·네트워크 위협을 한 화면에서 묶어 탐지·대응하는 방식), 클라우드 워크로드 보호 플랫폼 CPP에 관제·보안 컨설팅·포렌식 서비스를 더해 제품 판매와 서비스 계약으로 매출을 내는 구조다.</p><p>국내 보안 시장에서 안랩은 백신부터 네트워크, 관제까지 제품군을 폭넓게 갖춘 대표 사업자로 자리잡았고, 해외 보안 업체와 국내 중견 보안 업체가 영역별로 경쟁한다. 최근에는 금융권 해킹 사고와 AI를 활용한 공격 정황이 부각되며 기업·금융권의 보안 투자 확대 기대가 커진 점이 성장 드라이버다.</p></div>
@@ -516,7 +536,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="판매업체 — 주도섹터 · F2T3 95.0 · 구성 1 · 상위3 051160 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 2/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">지어소프트 🤖 <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(판매업체)</span></span></div>
+        <div class="cname" data-full="지어소프트 🤖" title="지어소프트">지어소프트 🤖</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#BE185D;border:1px solid #BE185D" title="섹터">경기소비(판매업체)</span></span></div>
         <span class="ctag">오아시스 계열 IT 서비스 · 영업이익 +86.8%</span>
         <div class="chl">그룹 IT 서비스 흑자 확대 속 피벗 6.16% 아래 대기, 동력은 불분명</div>
       </div>
@@ -532,6 +553,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">지어소프트</div>
   <div class="nums"><div class="num"><div class="l">분기 영업이익</div><div class="v">99.0억원</div><div class="s up">2026.06 연결, 전년동기 53.0억원 대비 +86.8%</div></div><div class="num"><div class="l">분기 매출</div><div class="v">1,451억원</div><div class="s dn">2026.06 연결, 전년동기 1,560억원 대비 -7.0%</div></div><div class="num"><div class="l">RS</div><div class="v">94.0</div><div class="s up">SEPA 통과, 기술 게이트 충족</div></div><div class="num"><div class="l">피벗까지 거리</div><div class="v">6.16%</div><div class="s up">피벗 ₩15,900 대비 현재가 ₩15,100</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="051160" data-pivot="15900"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>지어소프트는 신선식품 새벽배송 업체 오아시스 계열의 시스템 개발·유지보수와 물류 IT 서비스를 제공해, 계열사로부터 대부분의 매출을 올리는 IT 서비스 회사다. 오아시스의 물류·전체 시스템을 개발 단계부터 운영해 왔고, 매출 대부분이 오아시스 관련 사업에서 나오는 계열 의존형 구조다.</p><p>일반 IT 서비스 시장에서는 대형 SI(시스템 구축) 업체와 경쟁하지만, 이 회사는 계열 물류·커머스 시스템을 꿰고 있다는 점이 차별점이다. 계열사 오아시스의 티몬 인수 기대감이 과거 주가 재평가의 배경으로 거론됐으나, 해당 기사는 2025년 3월 추정분이라 최근 1주 내 동력으로 확인되지는 않는다.</p></div>
@@ -557,7 +579,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="IT서비스 — 주도섹터 · F2T3 93.6667 · 구성 5 · 상위3 012030, 052460, 093320 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 6/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">아이크래프트 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
+        <div class="cname" data-full="아이크래프트" title="아이크래프트">아이크래프트</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#1D4ED8;border:1px solid #1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
         <span class="ctag">엔비디아 GPU 공급 · 2091억 계약</span>
         <div class="chl">네이버클라우드향 2091억 스위치 공급계약, 피벗 ₩6,650 대기</div>
       </div>
@@ -573,6 +596,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">아이크래프트</div>
   <div class="nums"><div class="num"><div class="l">신규 공급계약</div><div class="v">2091억원</div><div class="s up">네이버클라우드향 스위치, 11/16 공시(헤드라인)</div></div><div class="num"><div class="l">3분기 잠정 매출</div><div class="v">366억원</div><div class="s up">전년동기 276억원, +32.5% (연결·잠정)</div></div><div class="num"><div class="l">3분기 영업이익</div><div class="v">-7.0억원</div><div class="s up">전년동기 -10.3억원, 적자 축소</div></div><div class="num"><div class="l">자사주 소각</div><div class="v">100만주</div><div class="s up">발행주식의 약 6.85%, 하반기 소각 계획</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="052460" data-pivot="6650"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>아이크래프트는 엔비디아 GPU 서버와 데이터센터용 네트워크 장비를 국내 기업·클라우드 사업자에 공급·구축해 매출을 올리는 IT 서비스 회사다. 엔비디아 엔터프라이즈 파트너 자격으로 GPU를 들여오고, 네이버클라우드 등 AI 데이터센터 고객에 스펙트럼X·베라루빈이 포함된 장비를 납품하는 B2B 구조다.</p><p>국내 IT 유통·시스템 통합 업체(대원씨티에스 등)와 경쟁하지만, 엔비디아 파트너 지위와 네이버 AI 팩토리 납품 실적이 차별점이다. 네이버가 AI 팩토리 투자를 본격화하면서 장비 공급 수요가 커지는 점이 최근 성장 드라이버다.</p></div>
@@ -598,7 +622,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.6667 · 구성 9 · 상위3 032580, 092870, 219130 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">유니퀘스트 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(반도체)</span></span></div>
+        <div class="cname" data-full="유니퀘스트 🤖" title="유니퀘스트">유니퀘스트 🤖</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#1D4ED8;border:1px solid #1D4ED8" title="섹터">IT(반도체)</span></span></div>
         <span class="ctag">3Q 영업이익 358억 · 피벗 미도달</span>
         <div class="chl">3분기 영업이익 +266% 서프라이즈, HPC·AI서버 수혜 기대 속 피벗 4.8% 아래 대기</div>
       </div>
@@ -614,6 +639,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">유니퀘스트</div>
   <div class="nums"><div class="num"><div class="l">3Q 영업이익</div><div class="v">358억원</div><div class="s up">전년比 +266.1% (뉴시스 11/16)</div></div><div class="num"><div class="l">2Q 매출</div><div class="v">2,163억원</div><div class="s up">전년동기 1,649억원, +31.2%</div></div><div class="num"><div class="l">2Q 영업이익</div><div class="v">166억원</div><div class="s up">전년동기 74.0억원, +124%</div></div><div class="num"><div class="l">피벗 이격</div><div class="v">4.84%</div><div class="s up">피벗 ₩11,980 / RS 94.0</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="077500" data-pivot="11980"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>유니퀘스트는 반도체·전자부품을 제조사로부터 받아 국내 전자·IT 업체에 공급하는 유통 사업과 AI서버용 HPC(고성능 컴퓨팅) 장비 공급을 병행하는 회사다. 부품 유통 마진으로 돈을 버는 B2B 구조에 더해, 대형 장비 공급계약이 실적에 한꺼번에 인식되는 구조다.</p><p>전자부품 유통 시장에는 여러 업체가 경쟁하는 가운데, 이 회사는 차량용 반도체·MCU(제어용 소형 반도체)와 AI서버 물량 증가를 성장 축으로 삼고 있다. 5월에 공시된 1,288억원 규모 HPC 장비 공급계약이 하반기 실적에 반영되면서 이익 체력이 빠르게 커지는 전환점에 있다.</p></div>
@@ -639,7 +665,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="운송인프라 — 주도섹터 · F2T3 92.0 · 구성 1 · 상위3 005430 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 9/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">한국공항 <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(운송인프라)</span></span></div>
+        <div class="cname" data-full="한국공항" title="한국공항">한국공항</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#B45309;border:1px solid #B45309" title="섹터">산업(운송인프라)</span></span></div>
         <span class="ctag">항공 지상조업 · 3Q 영업익 +3.8%</span>
         <div class="chl">대한항공 중심 항공 재편 수혜 지상조업, 피벗 0.18% 아래 대기</div>
       </div>
@@ -655,6 +682,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">한국공항</div>
   <div class="nums"><div class="num"><div class="l">3Q 잠정 매출</div><div class="v">1,836억원</div><div class="s up">전년동기 대비 +9.9% (연결·잠정)</div></div><div class="num"><div class="l">3Q 잠정 영업이익</div><div class="v">150억원</div><div class="s up">전년동기 대비 +3.8%, 증가폭 둔화</div></div><div class="num"><div class="l">RS</div><div class="v">92.0</div><div class="s up">SEPA 통과, 12개월 최대 상승 99.5% 후 고점대비 0.0%</div></div><div class="num"><div class="l">피벗 이격</div><div class="v">0.18%</div><div class="s up">피벗 ₩109,900 vs 현재가 ₩109,700</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="005430" data-pivot="109900"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>한국공항은 항공기 지상조업(공항에서 항공기 견인·수하물 탑재·화물 하역 등을 대신 처리하는 일)과 화물 조업을 항공사에 제공해 수수료를 받는 회사다. 고객은 대한항공을 비롯한 국내외 항공사로, 항공사와 조업 계약을 맺고 편수·화물량에 연동해 매출이 발생하는 B2B 구조다.</p><p>경쟁 상대는 아시아나에어포트 등 다른 조업사이며, 대한항공 중심으로 시장이 재편되는 흐름이 중장기 성장 동력으로 거론된다. 최근에는 여객기 조업 편수와 화물 조업량 증가, 외항사 고객 확대가 실적을 받치는 전환점으로 작용한다.</p></div>
@@ -680,7 +708,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="자동차부품 — 주도섹터 · F2T3 91.0 · 구성 1 · 상위3 004100 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 11/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">태양금속 <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(자동차부품)</span></span></div>
+        <div class="cname" data-full="태양금속" title="태양금속">태양금속</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#BE185D;border:1px solid #BE185D" title="섹터">경기소비(자동차부품)</span></span></div>
         <span class="ctag">체결부품 · 영업이익 +225%(분기)</span>
         <div class="chl">공시 없는 수급 급등, 피벗 ₩3,335까지 4.65% 남은 대기 자리</div>
       </div>
@@ -696,6 +725,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">태양금속</div>
   <div class="nums"><div class="num"><div class="l">최근 분기 영업이익</div><div class="v">39.0억원</div><div class="s up">2026.06 연결, 전년동기 12.0억원 대비 +225%</div></div><div class="num"><div class="l">최근 분기 매출</div><div class="v">1,593억원</div><div class="s up">전년동기 1,569억원 대비 +1.5%</div></div><div class="num"><div class="l">RS</div><div class="v">91.0</div><div class="s up">SEPA 통과</div></div><div class="num"><div class="l">피벗까지 거리</div><div class="v">4.65%</div><div class="s up">피벗 ₩3,335, 현재가 ₩3,225</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="004100" data-pivot="3335"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>태양금속은 자동차용 볼트·너트 같은 체결부품(부품을 서로 조여 고정하는 금속 부품)을 만들어 완성차와 부품사에 파는 회사다. 완성차 업체와 1·2차 부품사에 납품하는 B2B 구조라 자동차 생산량과 부품 단가에 실적이 연동된다.</p><p>체결부품은 진입장벽이 높지 않고 국내 중견 부품사 간 단가 경쟁이 있는 시장이다. 최근 분기 매출은 전년 동기와 비슷한 수준(+1.5%)이지만 영업이익은 큰 폭으로 늘어 수익성 개선이 확인되는 구간이다.</p></div>
@@ -721,7 +751,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="IT서비스 — 주도섹터 · F2T3 93.6667 · 구성 5 · 상위3 012030, 052460, 093320 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 6/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">케이아이엔엑스 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
+        <div class="cname" data-full="케이아이엔엑스" title="케이아이엔엑스">케이아이엔엑스</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#1D4ED8;border:1px solid #1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
         <span class="ctag">데이터센터 계약 완료 · 3Q 영업익 +53.5%</span>
         <div class="chl">과천 데이터센터 10MW 계약률 100%, 3Q 영업이익 +53.5%로 실적 확인</div>
       </div>
@@ -737,6 +768,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">케이아이엔엑스</div>
   <div class="nums"><div class="num"><div class="l">3Q 영업이익(잠정)</div><div class="v">95.2억원</div><div class="s up">전년동기 62.0억원 대비 +53.5%</div></div><div class="num"><div class="l">3Q 매출(잠정)</div><div class="v">445억원</div><div class="s up">전년동기 395억원 대비 +12.8%</div></div><div class="num"><div class="l">과천 DC 계약률</div><div class="v">100%</div><div class="s up">10MW 전체 본계약 완료(7월 리포트)</div></div><div class="num"><div class="l">20일 기관 순매수</div><div class="v">35,592</div><div class="s up">외국인 -10,449</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="093320" data-pivot="177000"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>케이아이엔엑스는 서버를 두는 전산 공간과 전력·회선을 빌려주는 인터넷 데이터센터(IDC)와 인터넷 접속·연동 서비스를 제공해, 기업·콘텐츠 사업자에게 월 이용료를 받는 회사다. 과천 데이터센터가 핵심 신규 자산이며, 10MW 전체 용량의 본계약이 끝나 계약률 100%에 도달했다.</p><p>경쟁 상대는 통신사 계열 IDC와 외국계 데이터센터 사업자지만, 이 회사는 통신망 중립적인 인터넷 연동 거점을 운영하는 점이 차별점이다. 최근에는 AI·클라우드 수요로 데이터센터 공간과 전력 확보가 병목이 되면서 증설 자산의 가치가 부각되는 국면이다.</p></div>
@@ -762,7 +794,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="레저용장비와제품 — 주도섹터 · F2T3 91.0 · 구성 1 · 상위3 121440 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 10/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">골프존홀딩스 <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(레저용품)</span></span></div>
+        <div class="cname" data-full="골프존홀딩스" title="골프존홀딩스">골프존홀딩스</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#BE185D;border:1px solid #BE185D" title="섹터">경기소비(레저용품)</span></span></div>
         <span class="ctag">지배구조 분쟁 재료주 · 공개매수 중단</span>
         <div class="chl">자진상폐 무산 뒤 행동주의 이슈만 남은 재료주, 성장 동력은 확인 안 됨</div>
       </div>
@@ -778,6 +811,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">골프존홀딩스</div>
   <div class="nums"><div class="num"><div class="l">최근 분기 매출</div><div class="v">1,058억원</div><div class="s up">2026.06 연결, 전년동기 대비 +0.9%</div></div><div class="num"><div class="l">최근 분기 영업이익</div><div class="v">144억원</div><div class="s dn">전년동기 151억원 대비 -4.6%</div></div><div class="num"><div class="l">시가총액</div><div class="v">3,705억원</div><div class="s up">현재가 ₩8,650, 공개매수가 6,700원 상회</div></div><div class="num"><div class="l">피벗까지 거리</div><div class="v">7.09%</div><div class="s dn">피벗 ₩9,310 미도달</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="121440" data-pivot="9310"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>골프존홀딩스는 스크린골프 시뮬레이터 사업을 하는 골프존 등 계열사를 거느린 지주회사로, 자회사 배당·브랜드 수수료·연결 실적으로 수익을 내는 구조다. 골프존카운티 지분 42%를 보유해 골프장 운영 자산 가치도 지분법으로 반영된다.</p><p>스크린골프 시장에서는 카카오VX 등과 경쟁하며, 지주사 주가는 본업보다 지배구조 이슈에 더 크게 반응해 왔다. 올해는 최대주주 측 공개매수와 자진상폐 시도, 이후 행동주의 투자사의 문제 제기가 주가를 움직인 핵심 변수였다.</p></div>
@@ -803,7 +837,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="디스플레이장비및부품 — 주도섹터 · F2T3 93.6667 · 구성 4 · 상위3 351320, 141000, 137080 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 7/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">비아트론 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(디스플레이부품)</span></span></div>
+        <div class="cname" data-full="비아트론" title="비아트론">비아트론</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#1D4ED8;border:1px solid #1D4ED8" title="섹터">IT(디스플레이부품)</span></span></div>
         <span class="ctag">열처리 장비 · 소부장 으뜸기업</span>
         <div class="chl">소부장 으뜸기업 선정과 공급계약 공시, 피벗 4.87% 아래 대기</div>
       </div>
@@ -819,6 +854,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">비아트론</div>
   <div class="nums"><div class="num"><div class="l">최근 분기 매출</div><div class="v">257억원</div><div class="s up">2026.06 연결, 전년동기 225억원 대비 +14.2%</div></div><div class="num"><div class="l">최근 분기 영업이익</div><div class="v">35.0억원</div><div class="s up">전년동기 29.0억원 대비 +20.7%, 직전 분기는 -20.0억원</div></div><div class="num"><div class="l">RS</div><div class="v">91.0</div><div class="s up">SEPA 통과, 시총 1491억원</div></div><div class="num"><div class="l">피벗까지 거리</div><div class="v">4.87%</div><div class="s dn">피벗 ₩12,940, 현재가 ₩12,170</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="141000" data-pivot="12940"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>비아트론은 디스플레이·반도체 제조 공정의 열처리 장비를 만들어 패널·반도체 업체에 파는 회사다. 장비를 납품하는 B2B 수주 사업이라 고객사의 설비투자 일정에 따라 매출이 분기별로 크게 출렁이는 구조다.</p><p>최근에는 반도체용 차세대 열처리 장비 개발 과제로 산업부 소부장 으뜸기업에 선정됐고, 로보택시 업체 Zoox향 공조·열관리 시스템 공급과 데이터센터향 열관리 수주로 사업 영역을 넓히는 중이다. 다만 해당 매출은 2027년부터 반영될 것으로 전망되고 최근 2년간 수주 부진 언급도 있어, 전환점은 아직 숫자로 확인되기 전 단계다.</p></div>
@@ -844,7 +880,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="반도체와반도체장비 — 주도섹터 · F2T3 97.6667 · 구성 9 · 상위3 032580, 092870, 219130 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 1/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">케이씨 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(반도체)</span></span></div>
+        <div class="cname" data-full="케이씨 🤖" title="케이씨">케이씨 🤖</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#1D4ED8;border:1px solid #1D4ED8" title="섹터">IT(반도체)</span></span></div>
         <span class="ctag">케이씨텍 재평가 수혜 · 3Q 영업익 +834%</span>
         <div class="chl">자회사 케이씨텍 반도체 랠리에 3Q 이익 급증, 피벗 ₩44,000 대기</div>
       </div>
@@ -860,6 +897,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">케이씨</div>
   <div class="nums"><div class="num"><div class="l">3Q 잠정 매출</div><div class="v">2,515억원</div><div class="s up">전년동기 1,750억원 대비 +43.7% (연결·잠정)</div></div><div class="num"><div class="l">3Q 잠정 영업이익</div><div class="v">255억원</div><div class="s up">전년동기 27.3억원 대비 +834% (외부감사 전)</div></div><div class="num"><div class="l">기관 20일 순매수</div><div class="v">3,985</div><div class="s up">외국인 97 / 개인 -3,801</div></div><div class="num"><div class="l">RS / 피벗 이격</div><div class="v">90.0 / 1.82%</div><div class="s up">피벗 ₩44,000 미도달</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="029460" data-pivot="44000"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>케이씨는 반도체·디스플레이 공정 장비와 소재를 만드는 케이씨텍의 지분 30%를 쥔 지주 성격의 회사로, 자체 사업 매출과 자회사 지분가치가 함께 주가에 반영되는 구조다. 수익은 자체 사업의 B2B 납품과 자회사 실적에서 나오며, 시장은 케이씨텍의 반도체 업황 회복 기대를 케이씨 주가에 연동해 평가한다.</p><p>자회사 케이씨텍이 반도체 사이클 바닥 통과 기대와 HBM(고대역폭 메모리) 수요 전망을 타고 10월 31일 26.68% 급등하며 시총 1조원을 넘겼고, 지주사인 케이씨는 재평가 속도가 느려 지주사 할인이 오히려 벌어졌다는 분석이 나온다. 여기에 2026년 3분기 잠정 영업이익이 255억원으로 전년 동기 대비 크게 늘어 실적 확인 재료도 붙은 상태다.</p></div>
@@ -885,7 +923,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="IT서비스 — 주도섹터 · F2T3 93.6667 · 구성 5 · 상위3 012030, 052460, 093320 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 6/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">가비아 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
+        <div class="cname" data-full="가비아" title="가비아">가비아</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#1D4ED8;border:1px solid #1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
         <span class="ctag">공개매수·경영권 분쟁 · 회피</span>
         <div class="chl">맥쿼리·얼라인 공개매수 합의 보도, 주가가 매수가 4만8000원 부근에 묶인 지배구조 이벤트주</div>
       </div>
@@ -901,6 +940,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">가비아</div>
   <div class="nums"><div class="num"><div class="l">3Q 영업이익(잠정)</div><div class="v">125억원</div><div class="s up">전년동기 75.4억원, +66.3%</div></div><div class="num"><div class="l">3Q 매출(잠정)</div><div class="v">911억원</div><div class="s up">전년동기 806억원, +13.0%</div></div><div class="num"><div class="l">RS</div><div class="v">89.0</div><div class="s up">SEPA 통과, 피벗까지 3.09%</div></div><div class="num"><div class="l">시가총액</div><div class="v">6,516억원</div><div class="s dn">공개매수가 4만8000원 부근 거래</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="079940" data-pivot="50100"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>가비아는 도메인 등록, 웹호스팅, 클라우드 서버, 보안 서비스 같은 인터넷 인프라를 기업과 개인에게 제공하고 이용료를 받는 회사다. 고객이 인프라를 쓰는 동안 월·연 단위 이용료가 반복해서 들어오는 B2B 중심 구독형 구조다.</p><p>클라우드 분야에서는 네이버클라우드·KT클라우드 같은 대형 사업자와, 호스팅 분야에서는 중소 호스팅 업체와 경쟁한다. 최근 주가를 움직이는 요인은 사업 전환점보다 최대주주 교체와 공개매수 등 지배구조 변화다. 3분기 잠정 영업이익은 125억원으로 전년 동기 대비 +66.3% 늘었다.</p></div>
@@ -926,7 +966,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="화장품 — 주도섹터 · F2T3 84.0 · 구성 2 · 상위3 192820, 092730 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 18/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">코스맥스 <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(화장품)</span></span></div>
+        <div class="cname" data-full="코스맥스" title="코스맥스">코스맥스</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#65A30D;border:1px solid #65A30D" title="섹터">필수소비(화장품)</span></span></div>
         <span class="ctag">ODM 1위 · 3Q 영업이익 +94.9%</span>
         <div class="chl">3Q 잠정 영업이익 +94.9%, 컨센서스 상향 속 피벗 4.8% 아래 대기</div>
       </div>
@@ -942,6 +983,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">코스맥스</div>
   <div class="nums"><div class="num"><div class="l">3Q 매출(잠정)</div><div class="v">8,758억원</div><div class="s up">전년동기 5,856억원 대비 +49.5%</div></div><div class="num"><div class="l">3Q 영업이익(잠정)</div><div class="v">833억원</div><div class="s up">전년동기 427억원 대비 +94.9%</div></div><div class="num"><div class="l">올해 EPS 추정</div><div class="v">15,731원</div><div class="s up">30일 전 14,820원 · 상향 14건/하향 0건</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">381,379원</div><div class="s up">60일 내 29건 전부 매수 · 최고 43만/최저 33만원</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="192820" data-pivot="312000"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>코스맥스는 화장품 ODM(브랜드사 주문을 받아 처방 개발부터 생산까지 대신해 주는 방식)을 통해 국내외 화장품 브랜드사에 제품을 만들어 파는 회사다. 쿠션·마스크팩 등 기초·색조 제품을 한국·중국·미국 등 현지 생산기반에서 만들어 공급하며, 브랜드사로부터 개발·생산 위탁료를 받는 B2B 구조다.</p><p>경쟁 구도에서는 한국콜마 등과 함께 국내 ODM 양강으로 꼽히며, 글로벌 생산기반과 연구개발 역량, 다양한 고객사 포트폴리오가 차별점이다. 최근에는 북미·아시아 수요 회복과 인디 뷰티 브랜드의 위탁 증가로 해외 매출이 성장 드라이버로 부각되고 있다.</p></div>
@@ -967,7 +1009,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="제약 — 주도섹터 · F2T3 84.0 · 구성 3 · 상위3 086450, 008930, 005500 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 19/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">동국제약 <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(제약)</span></span></div>
+        <div class="cname" data-full="동국제약" title="동국제약">동국제약</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#0891B2;border:1px solid #0891B2" title="섹터">헬스케어(제약)</span></span></div>
         <span class="ctag">제약·화장품·미용기기 · 영업익 +18%</span>
         <div class="chl">화장품 수출·미용기기 성장 기대 유효, 피벗 4.1% 아래 대기</div>
       </div>
@@ -983,6 +1026,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">동국제약</div>
   <div class="nums"><div class="num"><div class="l">최근 분기 영업이익</div><div class="v">261억원</div><div class="s up">전년동기 221억원 대비 +18.1% (2026.06)</div></div><div class="num"><div class="l">최근 분기 매출</div><div class="v">2,589억원</div><div class="s up">전년동기 2,335억원 대비 +10.9%</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">30,800원</div><div class="s up">종가(11-17) 대비 괴리 +25.5%</div></div><div class="num"><div class="l">피벗 이격</div><div class="v">4.12%</div><div class="s up">피벗 ₩25,500 / 현재가 ₩24,400</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="086450" data-pivot="25500"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>동국제약은 인사돌·판시딜·센시아 등 일반의약품과 전문의약품을 만들어 약국·병원에 팔고, 마데카 계열 화장품과 미용기기(마데카 프라임)를 홈쇼핑·온오프라인 채널로 소비자에게 파는 제약·헬스케어 회사다. 최근에는 반려동물 브랜드 &#x27;캐니메이트&#x27; 등으로 라인업을 넓히며, 의약품의 안정적 현금흐름 위에 화장품·기기로 이익률을 끌어올리는 구조다.</p><p>경쟁 구도는 의약품에서는 대웅제약·종근당 등 중견 제약사, 화장품에서는 아모레퍼시픽·LG생활건강·한국콜마 등과 겹친다. 제약사 수준의 밸류에이션에서 화장품 수출과 미용기기라는 성장 사업이 커지며 홈쇼핑 의존도를 낮추는 점이 전환점이다.</p></div>
@@ -1008,7 +1052,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="항공사 — 주도섹터 · F2T3 82.5 · 구성 2 · 상위3 003490, 020560 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 21/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">대한항공 <span class="secw"><span class="sec1" style="background:#B45309" title="섹터">산업(항공사)</span></span></div>
+        <div class="cname" data-full="대한항공" title="대한항공">대한항공</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#B45309;border:1px solid #B45309" title="섹터">산업(항공사)</span></span></div>
         <span class="ctag">항공 대장 · 통합 출범 앞둔 매수 가능</span>
         <div class="chl">아시아나 통합 출범(12월 예정)과 내년 이익 급증 전망이 스토리, 피벗까지 2.94%</div>
       </div>
@@ -1024,6 +1069,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">대한항공</div>
   <div class="nums"><div class="num"><div class="l">피벗 이격</div><div class="v">2.94%</div><div class="s up">현재가 ₩31,300 → 피벗 ₩32,300</div></div><div class="num"><div class="l">3분기 잠정 매출(별도)</div><div class="v">5.04조원</div><div class="s up">전년동기 4.01조원, +25.9% (공정공시 잠정치)</div></div><div class="num"><div class="l">3분기 잠정 영업이익(별도)</div><div class="v">4,212억원</div><div class="s up">전년동기 3,763억원, +11.9%</div></div><div class="num"><div class="l">증권사 평균 목표가</div><div class="v">₩41,167</div><div class="s up">60일 의견 6건 전원 매수, 최고 43,000 / 최저 40,000</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="003490" data-pivot="32300"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>대한항공은 여객과 화물 항공기를 운항해 개인·기업 승객과 화주(貨主)에게 운송 서비스를 파는 국내 대표 항공사다. 인천공항을 허브로 국제선 여객과 화물 노선을 운영하고, 승객 운임과 화물 운임이 매출의 중심인 구조다. 자회사 아시아나항공을 통해 노선과 기재를 확대하는 중이다.</p><p>국내 경쟁은 제주항공 등 저비용항공사와 신생 항공사가 있고, 해외 장거리 노선에서는 외국 대형 항공사와 맞붙는다. 대한항공은 여객 단가 상승과 AI 서버·HBM 같은 고부가 부품 수송에 힘입은 화물 수요, 아시아나항공 통합에 따른 노선 최적화가 전환점으로 거론되는 위치다.</p></div>
@@ -1049,7 +1095,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="제약 — 주도섹터 · F2T3 84.0 · 구성 3 · 상위3 086450, 008930, 005500 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 19/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">한미사이언스 <span class="secw"><span class="sec1" style="background:#0891B2" title="섹터">헬스케어(제약)</span></span></div>
+        <div class="cname" data-full="한미사이언스" title="한미사이언스">한미사이언스</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#0891B2;border:1px solid #0891B2" title="섹터">헬스케어(제약)</span></span></div>
         <span class="ctag">제약 지주 · 제넨텍 기술수출 수혜</span>
         <div class="chl">자회사 한미약품의 대형 기술수출로 재평가, 피벗 4.7% 아래 대기</div>
       </div>
@@ -1065,6 +1112,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">한미사이언스</div>
   <div class="nums"><div class="num"><div class="l">3Q 영업이익(잠정)</div><div class="v">192억원</div><div class="s dn">전년동기 393억원 대비 -51.3%, 매출 3,629억원(+6.0%)</div></div><div class="num"><div class="l">2Q 영업이익</div><div class="v">591억원</div><div class="s up">전년동기 대비 +70.8%, 매출 3,679억원(+8.8%)</div></div><div class="num"><div class="l">RS</div><div class="v">86.0</div><div class="s up">SEPA 통과, 피벗 미도달</div></div><div class="num"><div class="l">피벗까지</div><div class="v">4.74%</div><div class="s up">피벗 ₩54,800 / 현재가 ₩52,400</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="008930" data-pivot="54800"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>한미사이언스는 한미약품 등 제약 계열사를 지배하는 지주회사로, 자회사 배당·브랜드 사용료·연구개발 지원 수익에 기대는 구조다. 핵심 자산은 한미약품의 비만·대사질환 신약 파이프라인(에페글레나타이드 등)이며, 자회사 성과가 지주사 가치로 이어지는 B2B 중심 구조다.</p><p>지주사 가치는 한미약품의 기술수출 성과에 연동돼 움직이는 구조다. 2026년 8월 제넨텍과 최대 3조1892억원 규모 비만·대사질환 후보물질 기술수출 계약이 나왔고, 10월에는 에페오토인젝터주 식약처 품목허가와 파브리병 치료제(LAGLA) 기술이전 공시가 이어졌다.</p></div>
@@ -1090,7 +1138,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="담배 — 주도섹터 · F2T3 83.0 · 구성 1 · 상위3 033780 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 20/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">KT&amp;G <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(담배)</span></span></div>
+        <div class="cname" data-full="KT&amp;G" title="KT&amp;G">KT&amp;G</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#65A30D;border:1px solid #65A30D" title="섹터">필수소비(담배)</span></span></div>
         <span class="ctag">방어주·주주환원 · 영업익 +13.9%</span>
         <div class="chl">해외 궐련 성장과 5조 환원 기대가 받치는 방어주, 피벗 1.36% 아래 대기</div>
       </div>
@@ -1106,6 +1155,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">KT&amp;G</div>
   <div class="nums"><div class="num"><div class="l">3Q 영업이익(잠정)</div><div class="v">5,301억원</div><div class="s up">전년동기 4,653억원, +13.9%</div></div><div class="num"><div class="l">3Q 매출(잠정)</div><div class="v">1.91조원</div><div class="s up">전년동기 1.83조원, +4.3%</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">248,143원</div><div class="s up">11-17 종가 대비 +36.8%, 매수 6·중립 0·매도 0</div></div><div class="num"><div class="l">올해 EPS 추정</div><div class="v">10,973.5</div><div class="s dn">30일 전 12,936.6, 상향 1·하향 7</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="033780" data-pivot="184500"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>KT&amp;G는 궐련(잎담배를 말아 만든 일반 담배)과 전자담배 기기·스틱을 만들어 국내외 소비자에게 파는 회사로, 국내에서는 에쎄·릴(lil) 브랜드를 유통망을 통해 팔고 해외에는 직접 수출과 현지 법인으로 공급하는 B2C 구조다. 담배 외에 인삼 제품(정관장)과 부동산 개발도 하지만, 이익의 중심은 담배 사업이다.</p><p>국내에서는 필립모리스·BAT 등 글로벌 업체와 경쟁하며 궐련에서 높은 점유율을 지키고, 해외 궐련 수출 확대와 전자담배 라인업 강화가 최근 성장 축이다. 회사는 2027년까지 3조7000억원 규모의 기업가치 제고 계획을 내놓아 주주환원 기대를 키웠고, 3분기 잠정 영업이익이 전년 대비 늘며 실적 모멘텀도 확인됐다.</p></div>
@@ -1131,7 +1181,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge" title="IT서비스 — 주도섹터 · F2T3 93.6667 · 구성 5 · 상위3 012030, 052460, 093320 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 6/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">이글루 🤖 <span class="secw"><span class="sec1" style="background:#1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
+        <div class="cname" data-full="이글루 🤖" title="이글루">이글루 🤖</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#1D4ED8;border:1px solid #1D4ED8" title="섹터">IT(IT서비스)</span></span></div>
         <span class="ctag">보안 관제 · 분기 매출 +75.8%</span>
         <div class="chl">보안 관제 본업의 분기 매출 급증, 피벗 ₩6,450까지 2.79% 남은 대기 자리</div>
       </div>
@@ -1147,6 +1198,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">이글루</div>
   <div class="nums"><div class="num"><div class="l">2025 연결 매출</div><div class="v">1,432억원</div><div class="s up">전년 대비 +28.8%</div></div><div class="num"><div class="l">2025 영업이익</div><div class="v">160억원</div><div class="s up">전년 대비 +163.8%</div></div><div class="num"><div class="l">2026.09 분기 매출</div><div class="v">471억원</div><div class="s up">전년동기 268억원, +75.8%</div></div><div class="num"><div class="l">2026.09 분기 영업이익</div><div class="v">17.0억원</div><div class="s up">전년동기 14.0억원, +21.4%</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="067920" data-pivot="6450"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>이글루는 보안관제(해킹 시도를 24시간 감시·분석해 대응하는 서비스)와 통합보안관리 소프트웨어를 만들어 공공기관·금융사·기업에 파는 회사다. 주력은 &#x27;SPiDER&#x27; 계열 보안 플랫폼이고, 최근에는 설비·선박 같은 산업 현장의 제어망을 지키는 &#x27;SPiDER OT&#x27;로 영역을 넓혀 솔루션 판매와 관제 서비스 계약으로 매출을 올리는 B2B 구조다.</p><p>국내 보안 시장에서 안랩 등 보안 전문 업체, 대형 IT 서비스 업체의 보안 사업부와 경쟁한다. 이 회사는 관제 서비스와 자체 솔루션을 함께 공급하는 점이 차별점이며, 해사(海事) 보안 등 산업 특화 영역으로 확장하는 것이 최근 성장 드라이버다.</p></div>
@@ -1172,7 +1224,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="식품 — 비주도 · F2T3 82.0 · 구성 1 · 상위3 453340 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 22/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">현대그린푸드 <span class="secw"><span class="sec1" style="background:#65A30D" title="섹터">필수소비(식품)</span></span></div>
+        <div class="cname" data-full="현대그린푸드" title="현대그린푸드">현대그린푸드</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#65A30D;border:1px solid #65A30D" title="섹터">필수소비(식품)</span></span></div>
         <span class="ctag">급식 체질개선 · 상반기 영업익 +34%</span>
         <div class="chl">자사주 소각·중간배당 병행, 3Q 이익 정체 속 피벗 ₩20,900 앞 대기</div>
       </div>
@@ -1188,6 +1241,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">현대그린푸드</div>
   <div class="nums"><div class="num"><div class="l">상반기 영업이익</div><div class="v">845억원</div><div class="s up">전년 동기 대비 +33.86%, 매출 1조 2165억원(+8.35%)</div></div><div class="num"><div class="l">3분기 영업이익(잠정)</div><div class="v">448억원</div><div class="s dn">전년 동기 445억원 대비 +0.7%, 순이익은 -8.0%</div></div><div class="num"><div class="l">PER / PBR</div><div class="v">5.76배 / 0.76배</div><div class="s up">ROE 11.34%, 시가총액 약 6,600억원대</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">29,000원</div><div class="s up">종가(11-17) 20,400원 대비 괴리 +42.2%</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="453340" data-pivot="20900"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>현대그린푸드는 기업·병원·정부기관 등에 단체급식과 식자재를 공급하고, 외식 브랜드를 운영해 수익을 내는 회사다. 1분기 기준 푸드서비스(단체급식)가 매출의 45.6%로 중심이고 유통 15.5%, 외식 등 기타사업 12.9%가 뒤를 받친다. 외식은 &#x27;그리팅 스토어&#x27;, &#x27;텍사스로드하우스&#x27;, &#x27;이탈리(Eataly)&#x27;로 넓히고, B2B 헬스케어 서비스 &#x27;그리팅 영양 케어&#x27;로 케어푸드(돌봄식)까지 확장하는 구조다.</p><p>단체급식 시장은 삼성웰스토리·CJ프레시웨이·아워홈 등과 수주 경쟁을 벌이는 구도로, 이 회사는 원가율·판관비율 개선으로 수익성을 끌어올린 점이 차별점이다. 2026년 상반기 영업이익은 845억원(전년 동기 대비 +33.86%)으로 늘었고, 10월 말 외식사업 조직을 재편한 데 이어 11월 초 음료형 케어푸드 유통에 나서며 성장 축을 넓히는 중이다.</p></div>
@@ -1213,7 +1267,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="백화점과일반상점 — 비주도 · F2T3 81.0 · 구성 1 · 상위3 282330 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 25/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">BGF리테일 <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(백화점)</span></span></div>
+        <div class="cname" data-full="BGF리테일" title="BGF리테일">BGF리테일</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#BE185D;border:1px solid #BE185D" title="섹터">경기소비(백화점)</span></span></div>
         <span class="ctag">편의점 1위권 · 피벗 미도달</span>
         <div class="chl">CU 운영 BGF리테일, 3Q 영업이익 +3.2%에 목표가 상향 이후 재료 공백</div>
       </div>
@@ -1229,6 +1284,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">BGF리테일</div>
   <div class="nums"><div class="num"><div class="l">3Q 영업이익(잠정)</div><div class="v">1,008억원</div><div class="s up">전년동기 977억원 대비 +3.2%</div></div><div class="num"><div class="l">3Q 매출(잠정)</div><div class="v">2.52조원</div><div class="s up">전년동기 대비 +2.1%</div></div><div class="num"><div class="l">평균 목표주가</div><div class="v">188,118원</div><div class="s up">11-17 종가 대비 괴리 +33.4%</div></div><div class="num"><div class="l">올해 EPS 추정</div><div class="v">12,869</div><div class="s dn">30일 전 13,369 대비 하향, 상향 0·하향 7</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="282330" data-pivot="153800"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>BGF리테일은 편의점 브랜드 CU를 가맹점 중심으로 운영하며 상품 공급과 물류, 가맹 수수료로 돈을 버는 회사다. 가맹점주에게 상품을 납품하고 점포 매출에 연동한 수익을 나누는 B2C 유통 구조에 이동형 편의점, 디카페인 &#x27;get커피&#x27; 같은 자체 상품·서비스가 더해진다.</p><p>국내 편의점은 GS리테일의 GS25와 점유율을 다투는 양강 구도이며, CU는 점포 수와 자체 상품 경쟁력이 차별점이다. 최근에는 신규 출점보다 기존 점포의 효율을 높이는 전략과 방한 외국인·1~2인 가구 소비 확대가 성장 동력으로 거론된다.</p></div>
@@ -1254,7 +1310,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
         <div class="sbadge no" title="가정용기기와용품 — 비주도 · F2T3 77.0 · 구성 2 · 상위3 021240, 352090 · 분류 네이버 79업종 고정본(2026-09-09) · 표시 전용(매매 무관)">섹터 32/77</div>
       </div>
       <div class="cmain">
-        <div class="cname">코웨이 <span class="secw"><span class="sec1" style="background:#BE185D" title="섹터">경기소비(가정용기기)</span></span></div>
+        <div class="cname" data-full="코웨이" title="코웨이">코웨이</div>
+        <div class="secrow"><span class="secw"><span class="sec1" style="color:#BE185D;border:1px solid #BE185D" title="섹터">경기소비(가정용기기)</span></span></div>
         <span class="ctag">렌털 1위 · 3Q 매출 +13.7%</span>
         <div class="chl">렌털 선두의 견조한 실적·주주환원, 피벗 3.17% 아래 대기</div>
       </div>
@@ -1270,6 +1327,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   <div class="fold">▼</div>
 </div>
 <div class="cbody">
+  <div class="fullname">코웨이</div>
   <div class="nums"><div class="num"><div class="l">3Q 매출</div><div class="v">1.43조원</div><div class="s up">전년동기 대비 +13.7%</div></div><div class="num"><div class="l">3Q 영업이익</div><div class="v">2,608억원</div><div class="s up">전년동기 대비 +7.3%</div></div><div class="num"><div class="l">목표주가</div><div class="v">140,000원</div><div class="s up">종가(11-17) 대비 괴리 +33.5%</div></div><div class="num"><div class="l">피벗 이격</div><div class="v">3.17%</div><div class="s up">피벗 ₩107,300 미도달</div></div></div>
   <div class="mtc-slot" data-market="KR" data-ticker="021240" data-pivot="107300"></div>
   <div class="sec"><div class="sl">기업 개요</div><p>코웨이는 정수기·공기청정기·비데·매트리스 등 생활가전을 직접 만들어 렌털(월 사용료를 받고 빌려주며 관리해주는 방식)로 가정과 기업에 제공하는 회사다. 주력은 정수기·공기청정기·비데·침대(매트리스) 등이며, 방문 관리 서비스로 월 구독료를 받는 B2C 중심 구조다. 최근에는 &#x27;룰루&#x27; 비데, 시니어 영양관리 제휴 등으로 제품·서비스 범위를 넓히고 있다.</p><p>국내 렌털 시장에서는 SK매직·청호나이스 등과 경쟁하며 가장 큰 계정 기반과 관리 인력망을 갖춘 선두 사업자다. 말레이시아 등 해외 사업과 침대·시니어 케어 같은 신규 카테고리가 성장 드라이버로 거론된다.</p></div>
