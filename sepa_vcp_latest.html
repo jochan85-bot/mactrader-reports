@@ -8133,4 +8133,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Ne
   }catch(e){}
 })();
 </script>
+<script>
+/* [REPORT-CARD-FIX-FIT-20261118] 회사명 자동 맞춤 — 넘치는 이름만 글자를 줄임(하한 75%), 하한에서도 넘치면 말줄임. 실패해도 종전 표시 */
+(function(){try{
+var FLOOR=0.75,cv=document.createElement('canvas'),cx=cv.getContext&&cv.getContext('2d'),tm=null;
+function all(){try{
+  var els=[].slice.call(document.querySelectorAll('.cname'));
+  els.forEach(function(e){e.style.fontSize='';});
+  var info=els.map(function(e){var w=e.clientWidth;if(w<=0)return null;var cs=getComputedStyle(e);return {w:w,sw:e.scrollWidth,fs:parseFloat(cs.fontSize),f:cs.fontWeight+' '+cs.fontFamily,t:e.textContent};});
+  var todo=[];
+  info.forEach(function(x,i){if(!x||x.sw<=x.w+0.5)return;var fs=x.fs;
+    if(cx){cx.font=x.f.split(' ')[0]+' '+fs+'px '+x.f.substring(x.f.indexOf(' ')+1);var need=cx.measureText(x.t).width;if(need>0)fs=fs*Math.min(1,(x.w-1)/need);}
+    else{fs=fs*0.9;}
+    fs=Math.max(x.fs*FLOOR,Math.min(x.fs,fs));els[i].style.fontSize=fs+'px';todo.push([i,x.fs,fs]);});
+  for(var pass=0;pass<3&&todo.length;pass++){
+    var left=todo.filter(function(t){var e=els[t[0]];return e.scrollWidth>e.clientWidth+0.5&&t[2]>t[1]*FLOOR+0.01;});
+    left.forEach(function(t){t[2]=Math.max(t[1]*FLOOR,t[2]*0.97);els[t[0]].style.fontSize=t[2]+'px';});
+    todo=left;}
+}catch(e){}}
+function later(ms){clearTimeout(tm);tm=setTimeout(all,ms);}
+all();
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(all);}
+window.addEventListener('load',all);
+window.addEventListener('resize',function(){later(120);});
+window.addEventListener('orientationchange',function(){later(300);});
+document.addEventListener('click',function(ev){var t=ev.target;if(t&&t.closest&&t.closest('button,.tab,.sbtn')){later(60);later(400);}},true);
+}catch(e){}})();
+</script>
 </body></html>
