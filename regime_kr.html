@@ -636,25 +636,36 @@ function briefTime(iso){
   var m=/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(iso||''); if(!m) return '—';
   return m[1]+'. '+m[2]+'. '+m[3]+'. '+m[4]+':'+m[5]+' KST';
 }
-function briefHTML(R){
-  var S=R.sections||{}, j=S.judge, col=j?(BRIEF_COLOR[j.emoji]||'#8b949e'):'#8b949e';
-  var h='<div class="brief-head"><span>기준 세션 '+esc(fmtD(R.session,true))+'</span><span>작성 '+esc(briefTime(R.written_at))+'</span>'
-    +(j?'<span class="bj" style="color:'+col+'">● AI 시장 판단 '+esc(j.label)+'</span>':'<span class="bj">AI 시장 판단 미확보</span>')+'</div>';
-  function sec(k, lines, isMacro){
-    var t='<div class="brief-sec">'+esc(BRIEF_HDR[k])+'</div>';
-    (lines||[]).forEach(function(l){
-      var sub=/^\[.*\]$/.test(l.trim());
-      t+='<div class="brief-ln'+(sub?' sub':'')+'">'+esc(l.replace(/^\s+/,'').replace(/^· /,'· '))+'</div>';
-    });
-    return t;
-  }
-  h+=sec('alert', S.alert);
+function briefSec(k, lines){
+  var t='<div class="brief-sec">'+esc(BRIEF_HDR[k])+'</div>';
+  (lines||[]).forEach(function(l){
+    var sub=/^\[.*\]$/.test(l.trim());
+    t+='<div class="brief-ln'+(sub?' sub':'')+'">'+esc(l.replace(/^\s+/,'').replace(/^· /,'· '))+'</div>';
+  });
+  return t;
+}
+/* 같은 기준 세션에 개장 전 갱신(위)과 본 브리핑(아래)을 둘 다 보관 — 구 형식(entries 없음)도 읽는다 */
+function briefEntry(R, E, i){
+  var S=E.sections||{}, j=S.judge, lab=E.label||(j&&j.label)||'', emo=E.emoji||(j&&j.emoji)||'', col=lab?(BRIEF_COLOR[emo]||'#8b949e'):'#8b949e';
+  var kt=E.kind==='update'?'개장 전 갱신':'본 브리핑';
+  var h='<div class="brief-entry"'+(i?' style="margin-top:16px;padding-top:12px;border-top:1px solid #21262d"':'')+'><div class="brief-head"><span class="brief-tag" style="margin-left:0">'+kt+'</span><span>작성 '+esc(briefTime(E.written_at))+'</span>'
+    +(lab?'<span class="bj" style="color:'+col+'">● AI 시장 판단 '+esc(lab)+'</span>':'<span class="bj">AI 시장 판단 미확보</span>')+'</div>';
+  if(E.kind==='update'&&E.note) h+='<div class="brief-ln">↳ '+esc(E.note)+'</div>';
+  (E.lines||[]).forEach(function(l){ h+='<div class="brief-ln">'+esc(l)+'</div>'; });
+  if(S.alert) h+=briefSec('alert', S.alert);
   if(j){
     h+='<div class="brief-sec">'+esc(BRIEF_HDR.judge)+'</div><div class="brief-judge" style="color:'+col+'">'+esc(j.emoji+' '+j.label)+(j.summary?'<span style="color:#e6edf3;font-weight:400"> — '+esc(j.summary)+'</span>':'')+'</div>';
-    ['basis','macro','outlook','assets'].forEach(function(k){ if(S[k]&&S[k].length) h+=sec(k,S[k]); });
-  } else {
-    h+='<div class="note">이 세션에는 AI 시장 판단이 확보되지 않아 경보 한눈에만 남깁니다.</div>';
   }
+  ['basis','macro','outlook','assets'].forEach(function(k){ if(S[k]&&S[k].length) h+=briefSec(k,S[k]); });
+  if(E.same_note) h+='<div class="brief-ln sub">'+esc(E.same_note)+'</div>';
+  if(!lab&&!E.lines&&!S.alert) h+='<div class="note">이 항목에는 AI 시장 판단이 확보되지 않았습니다.</div>';
+  else if(!lab&&E.kind!=='update') h+='<div class="note">이 세션에는 AI 시장 판단이 확보되지 않아 경보 한눈에만 남깁니다.</div>';
+  return h+'</div>';
+}
+function briefHTML(R){
+  var es=(R.entries&&R.entries.length)?R.entries:[{kind:'main',written_at:R.written_at,sections:R.sections,opinion:R.opinion}];
+  var h='<div class="brief-head"><span>기준 세션 '+esc(fmtD(R.session,true))+'</span></div>';
+  es.forEach(function(E,i){ h+=briefEntry(R,E,i); });
   return h+'<div class="note">'+esc(BRIEF_FOOT)+'</div>';
 }
 function renderBriefTop(){
