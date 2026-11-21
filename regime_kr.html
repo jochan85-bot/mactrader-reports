@@ -114,6 +114,15 @@ tr:last-child td{border-bottom:0}
   padding:14px 16px;font-size:13px;line-height:1.6;color:#ffa198;margin-bottom:16px}
 .warn{background:#2d2010;border:1px solid #6b4b16;border-radius:8px;padding:11px 13px;font-size:12.5px;color:#ffd9a0;margin-bottom:16px;line-height:1.6}
 .note{color:#8b949e;font-size:12px;margin-top:10px;line-height:1.6}
+/* [REGIME-PAGES-RETRO-BRIEF-ARCHIVE-20261121 · §2] AI 경보 브리핑 구획 */
+.brief-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:12px;color:#8b949e;margin-bottom:6px}
+.brief-head .bj{font-weight:700;font-size:13px}
+.brief-sec{font-size:12px;font-weight:700;color:#c9d1d9;margin:14px 0 4px}
+.brief-ln{font-size:13px;line-height:1.65;color:#c9d1d9;margin:2px 0;word-break:keep-all;overflow-wrap:anywhere}
+.brief-ln.sub{color:#8b949e;font-size:12px;margin-top:8px}
+.brief-judge{font-size:14px;font-weight:700;line-height:1.5;margin:2px 0}
+.brief-tag{display:inline-block;margin-left:6px;padding:0 5px;border:1px solid #30363d;border-radius:4px;font-size:10px;font-weight:700;line-height:15px;color:#8b949e;vertical-align:1px}
+.brief-slot{margin:6px 0 10px;padding:8px 10px;background:#0d1117;border:1px solid #21262d;border-radius:8px;cursor:default}
 .foot{color:#6e7681;font-size:11px;margin:30px 0 10px;text-align:center}
 ol{padding-left:20px}ol li{margin:9px 0;font-size:13.5px;line-height:1.7}
 ul{padding-left:19px}ul li{margin:6px 0;font-size:13.5px;line-height:1.7}
@@ -155,6 +164,11 @@ h3{font-size:13.5px;color:#58a6ff;margin:18px 0 6px}
   <div class="sub-head" id="ix-head" style="display:none">지수 축 원값</div>
   <div id="ix-wrap"></div>
   <div class="note" id="ix-note" style="display:none"></div>
+</div>
+
+<div class="card" id="brief-card" style="display:none">
+  <div class="section-title">AI 경보 브리핑</div>
+  <div id="brief-body"><div class="note">불러오는 중…</div></div>
 </div>
 
 <div class="card" id="chart-card" style="display:none">
@@ -269,12 +283,14 @@ function init(data){
     +'<span class="badge '+(data.is_live?'b-live':'b-back')+'">'+(data.is_live?'라이브':'소급 산출')+'</span>';
   if(data.meta.label_note){ $('warn').style.display='block'; $('warn').innerHTML=data.meta.label_note; }
   renderState(L);
+  renderBriefTop();
   renderIndexChart();
   renderStateChart();
   renderHeat();
   wireRangeButtons();
   renderHistory();
   renderBlocked();
+  loadBriefIndex();
 }
 
 /* 5단 경보등 — 아래(0)부터 위(4)로 누적 점등 (2026-09-16 오너 지시) */
@@ -607,6 +623,87 @@ function renderHeat(){
   Plotly.newPlot('chart3', tr, lay, plotCfg()).then(function(){ hookSync('chart3'); });
 }
 
+/* ───────── AI 경보 브리핑 (공개 아카이브 — regime_brief/{us,kr}/ · 표시 전용) ───────── */
+var BRIEF_IDX=null, BRIEF_CACHE={};
+var BRIEF_HDR={alert:'🚦 경보 한눈에', judge:'🧠 AI 시장 판단 (향후 1~2주)', basis:'⚖️ 판단 근거', macro:'🌍 거시 환경', outlook:'🔭 시장 전망', assets:'💼 자산군별 전망'};
+var BRIEF_COLOR={'🔴':'#f85149','🟠':'#f0883e','🟡':'#e3b341','🟢':'#3fb950','🔵':'#58a6ff'};
+var BRIEF_FOOT='표시 전용 — 경보·매매 판정에 쓰이지 않음 · AI 시장 판단 적중률 미검증';
+function briefUrl(name){ return 'regime_brief/'+D.market.toLowerCase()+'/'+name+'?v='+Date.now(); }
+function briefFetch(name){
+  return fetch(briefUrl(name), {cache:'no-store'}).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); });
+}
+function briefTime(iso){
+  var m=/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(iso||''); if(!m) return '—';
+  return m[1]+'. '+m[2]+'. '+m[3]+'. '+m[4]+':'+m[5]+' KST';
+}
+function briefHTML(R){
+  var S=R.sections||{}, j=S.judge, col=j?(BRIEF_COLOR[j.emoji]||'#8b949e'):'#8b949e';
+  var h='<div class="brief-head"><span>기준 세션 '+esc(fmtD(R.session,true))+'</span><span>작성 '+esc(briefTime(R.written_at))+'</span>'
+    +(j?'<span class="bj" style="color:'+col+'">● AI 시장 판단 '+esc(j.label)+'</span>':'<span class="bj">AI 시장 판단 미확보</span>')+'</div>';
+  function sec(k, lines, isMacro){
+    var t='<div class="brief-sec">'+esc(BRIEF_HDR[k])+'</div>';
+    (lines||[]).forEach(function(l){
+      var sub=/^\[.*\]$/.test(l.trim());
+      t+='<div class="brief-ln'+(sub?' sub':'')+'">'+esc(l.replace(/^\s+/,'').replace(/^· /,'· '))+'</div>';
+    });
+    return t;
+  }
+  h+=sec('alert', S.alert);
+  if(j){
+    h+='<div class="brief-sec">'+esc(BRIEF_HDR.judge)+'</div><div class="brief-judge" style="color:'+col+'">'+esc(j.emoji+' '+j.label)+(j.summary?'<span style="color:#e6edf3;font-weight:400"> — '+esc(j.summary)+'</span>':'')+'</div>';
+    ['basis','macro','outlook','assets'].forEach(function(k){ if(S[k]&&S[k].length) h+=sec(k,S[k]); });
+  } else {
+    h+='<div class="note">이 세션에는 AI 시장 판단이 확보되지 않아 경보 한눈에만 남깁니다.</div>';
+  }
+  return h+'<div class="note">'+esc(BRIEF_FOOT)+'</div>';
+}
+function renderBriefTop(){
+  $('brief-card').style.display='block';
+  var b=$('brief-body');
+  if(BRIEF_IDX===null){ return; }
+  if(!BRIEF_IDX||!BRIEF_IDX.latest){
+    b.innerHTML='<div class="note">아직 쌓인 브리핑이 없습니다. 정기 발송분부터 이곳에 표시되고, 일별 이력의 해당 날짜에서도 열어 볼 수 있습니다.</div>';
+    return;
+  }
+  var d=BRIEF_IDX.latest;
+  briefGet(d).then(function(R){ b.innerHTML=briefHTML(R); }).catch(function(e){
+    console.error(e); b.innerHTML='<div class="note">브리핑을 불러오지 못했습니다.</div>';
+  });
+}
+function briefGet(d){
+  if(BRIEF_CACHE[d]) return Promise.resolve(BRIEF_CACHE[d]);
+  return briefFetch(d+'.json').then(function(R){ BRIEF_CACHE[d]=R; return R; });
+}
+function loadBriefIndex(){
+  briefFetch('index.json').then(function(j){ BRIEF_IDX=j||{items:[]}; }).catch(function(){ BRIEF_IDX={items:[],latest:null}; }).then(function(){
+    renderBriefTop(); markBriefRows();
+  });
+}
+function markBriefRows(){
+  if(!BRIEF_IDX||!BRIEF_IDX.items) return;
+  var have={}; BRIEF_IDX.items.forEach(function(it){ have[it.d]=it; });
+  var rows=document.querySelectorAll('#hist-body .hist-row[data-d]');
+  for(var i=0;i<rows.length;i++){
+    (function(row){
+      var d=row.getAttribute('data-d'), it=have[d];
+      if(!it||row.getAttribute('data-brief')) return;
+      row.setAttribute('data-brief','1');
+      var cell=row.querySelector('.hist-date');
+      if(cell) cell.insertAdjacentHTML('beforeend','<span class="brief-tag" title="AI 경보 브리핑 있음"'+(it.emoji&&BRIEF_COLOR[it.emoji]?' style="color:'+BRIEF_COLOR[it.emoji]+';border-color:'+BRIEF_COLOR[it.emoji]+'"':'')+'>AI</span>');
+      var det=row.querySelector('.hist-detail');
+      var slot=document.createElement('div'); slot.className='brief-slot'; slot.style.display='none';
+      slot.addEventListener('click',function(ev){ ev.stopPropagation(); });
+      if(det) det.insertBefore(slot, det.firstChild);
+      row.addEventListener('click',function(){
+        if(slot.getAttribute('data-loaded')) { slot.style.display='block'; return; }
+        slot.style.display='block'; slot.innerHTML='<div class="note">불러오는 중…</div>';
+        briefGet(d).then(function(R){ slot.innerHTML=briefHTML(R); slot.setAttribute('data-loaded','1'); })
+          .catch(function(e){ console.error(e); slot.innerHTML='<div class="note">브리핑을 불러오지 못했습니다.</div>'; });
+      });
+    })(rows[i]);
+  }
+}
+
 /* ───────── ⑤ 일별 이력 (연도 → 월 · 최신 위) ───────── */
 function pill(v){
   var st=ST[v];
@@ -686,6 +783,7 @@ function renderHistory(){
       rv.forEach(function(s){
         var row=document.createElement('div');
         row.className='hist-row';
+        row.setAttribute('data-d', s.d);
         row.style.gridTemplateColumns=cols;
         row.innerHTML='<span class="hist-date">'+fmtShort(s.d)+'</span>'
           +'<span class="hist-close">'+num(s.c[0],2)+'</span>'
