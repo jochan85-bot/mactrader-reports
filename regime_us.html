@@ -362,7 +362,7 @@ function renderIx(L){
   comp.forEach(function(c){ var on=X[c[1]]; t2+='<tr><td>'+c[0]+'</td><td class="'+onCls(on)+'">'+onTxt(on)+'</td></tr>'; });
   t2+='</table>';
   $('ix-wrap').innerHTML=tbl(t)+tbl(t2);
-  $('ix-note').innerHTML='지수 축 입력: '+(us?'S&P500 · VIX':'코스피')+'. 레벨은 점수 합산이 아니라 논리 규칙으로 정해지고, 그 값에서 1을 뺀 것이 지수 축 상태입니다(가이드 참고).';
+  $('ix-note').innerHTML='지수 축 입력: '+(us?'S&P500·나스닥 반반 합성 지수 · VIX':'코스피')+'. 레벨은 점수 합산이 아니라 논리 규칙으로 정해지고, 그 값에서 1을 뺀 것이 지수 축 상태입니다(가이드 참고).';
 }
 function kv(k,v){return '<div class="kv"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>';}
 function tbl(inner){return '<div class="tw">'+inner+'</div>';}
